@@ -1,0 +1,152 @@
+CREATE OR REPLACE FUNCTION distributeToLocations(INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pItemlocdistid ALIAS FOR $1;
+  _distCounter INTEGER;
+  _itemlocdist RECORD;
+  _itemlocid INTEGER;
+  _runningQty NUMERIC;
+
+BEGIN
+
+  _distCounter := 0;
+  _runningQty  := 0;
+
+--  March through all of the itemlocdist owned by the passed parent itemlocdist
+  FOR _itemlocdist IN SELECT c.itemlocdist_id AS itemlocdistid,
+                             c.itemlocdist_source_type AS type,
+                             c.itemlocdist_source_id AS sourceid,
+                             c.itemlocdist_qty AS qty,
+                             p.itemlocdist_itemsite_id AS itemsiteid,
+                             itemsite_freeze,
+                             p.itemlocdist_invhist_id AS invhistid,
+                             p.itemlocdist_lotserial AS lotserial,
+                             p.itemlocdist_expiration AS expiration
+                      FROM itemlocdist AS c, itemlocdist AS p, itemsite
+                      WHERE ( (c.itemlocdist_itemlocdist_id=p.itemlocdist_id)
+                       AND (p.itemlocdist_source_type=''O'')
+                       AND (p.itemlocdist_itemsite_id=itemsite_id)
+                       AND (p.itemlocdist_id=pItemlocdistid) ) LOOP
+
+    _distCounter := _distCounter + 1;
+
+--  If the target for this itemlocdist is a location, check to see if the
+--  required itemloc already exists
+    IF (_itemlocdist.type = ''L'') THEN
+      SELECT itemloc_id INTO _itemlocid
+      FROM itemloc
+      WHERE ( (itemloc_itemsite_id=_itemlocdist.itemsiteid)
+       AND (itemloc_location_id=_itemlocdist.sourceid)
+       AND (itemloc_lotserial=_itemlocdist.lotserial)
+       AND (itemloc_expiration=_itemlocdist.expiration) );
+
+--  Nope, make it
+      IF (NOT FOUND) THEN
+        SELECT NEXTVAL(''itemloc_itemloc_id_seq'') INTO _itemlocid;
+        INSERT INTO itemloc
+        ( itemloc_id, itemloc_itemsite_id,
+          itemloc_location_id, itemloc_qty,
+          itemloc_lotserial, itemloc_expiration )
+        VALUES
+        ( _itemlocid, _itemlocdist.itemsiteid,
+          _itemlocdist.sourceid, 0,
+          _itemlocdist.lotserial, _itemlocdist.expiration );
+      END IF;
+
+    ELSE
+--  Yep, cache it
+      _itemlocid = _itemlocdist.sourceid;
+    END IF;
+
+--  Record the invdetail for this itemlocdist
+    INSERT INTO invdetail
+    ( invdetail_invhist_id, invdetail_location_id, invdetail_lotserial,
+      invdetail_qty, invdetail_qty_before, invdetail_qty_after )
+    SELECT _itemlocdist.invhistid, itemloc_location_id, itemloc_lotserial,
+           _itemlocdist.qty, itemloc_qty, (itemloc_qty + _itemlocdist.qty)
+    FROM itemloc
+    WHERE (itemloc_id=_itemlocid);
+
+--  Update the parent invhist to indicate that it has invdetail records
+    UPDATE invhist
+    SET invhist_hasdetail=TRUE
+    WHERE ((invhist_hasdetail=FALSE)
+     AND (invhist_id=_itemlocdist.invhistid));
+
+--  Update the itemloc_qty if its parent itemsite is not frozen
+    IF (NOT _itemlocdist.itemsite_freeze) THEN
+      UPDATE itemloc
+      SET itemloc_qty = (itemloc_qty + _itemlocdist.qty)
+      WHERE (itemloc_id=_itemlocid);
+    END IF;
+
+--  Adjust QOH if this itemlocdist is to/from a non-netable location
+    IF ( SELECT (NOT location_netable)
+         FROM itemloc, location
+         WHERE ((itemloc_location_id=location_id)
+          AND (itemloc_id=_itemlocid)) ) THEN
+
+--  Record the invhist record for the netable->non-netable (or visaversa)
+      INSERT INTO invhist
+      ( invhist_itemsite_id,
+        invhist_transtype, invhist_invqty,
+        invhist_qoh_before, invhist_qoh_after,
+        invhist_docnumber, invhist_comments,
+        invhist_invuom, invhist_unitcost ) 
+      SELECT itemsite_id,
+             ''NN'', (_itemlocdist.qty * -1),
+             itemsite_qtyonhand, (itemsite_qtyonhand - _itemlocdist.qty),
+             invhist_docnumber, invhist_comments,
+             item_invuom, stdCost(item_id)
+      FROM item, itemsite, invhist
+      WHERE ( (itemsite_item_id=item_id)
+       AND (itemsite_controlmethod <> ''N'')
+       AND (itemsite_id=_itemlocdist.itemsiteid)
+       AND (invhist_id=_itemlocdist.invhistid) );
+
+--  Update the itemsite_qoh
+      UPDATE itemsite
+      SET itemsite_qtyonhand = (itemsite_qtyonhand - _itemlocdist.qty),
+          itemsite_nnqoh = (itemsite_nnqoh + _itemlocdist.qty)
+      FROM itemloc
+      WHERE ((itemloc_itemsite_id=itemsite_id)
+       AND (itemloc_id=_itemlocid));
+
+    END IF;
+
+--  Cache the running qty.
+    _runningQty := _runningQty + _itemlocdist.qty;
+
+--  Dene with the child itemlocdist, so delete it
+    DELETE FROM itemlocdist
+    WHERE (itemlocdist_id=_itemlocdist.itemlocdistid);
+
+--  If the target itemloc is now at qty=0, delete it if its parent
+--  itemsite is not frozen
+    IF (NOT _itemlocdist.itemsite_freeze) THEN
+      DELETE FROM itemloc
+      WHERE ( (itemloc_qty=0)
+       AND (itemloc_id=_itemlocid) );
+    END IF;
+
+  END LOOP;
+
+--  If the running qty for the detailed distributions is the same as the
+--  total qty to distribute indicated by the parent itemlocdist, then the
+--  parent itemlocdist has been fully distributed and should be deleted.
+  IF ( ( SELECT itemlocdist_qty
+         FROM itemlocdist
+         WHERE (itemlocdist_id=pItemlocdistid) ) = _runningQty) THEN
+    DELETE FROM itemlocdist
+    WHERE (itemlocdist_id=pItemlocdistid);
+  ELSE
+--  There is still some more qty to distribute in the parent itemlocdist.
+--  Update the qty to distribute with the qty that has been distributed.
+    UPDATE itemlocdist
+    SET itemlocdist_qty = (itemlocdist_qty - _runningQty)
+    WHERE (itemlocdist_id=pItemlocdistid);
+  END IF;
+
+  RETURN _distCounter;
+
+END;
+' LANGUAGE 'plpgsql';
