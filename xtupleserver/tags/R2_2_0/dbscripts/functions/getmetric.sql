@@ -1,0 +1,3 @@
+CREATE OR REPLACE FUNCTION getMetric(TEXT) RETURNS TEXT IMMUTABLE AS '
+  SELECT metric_value FROM metric WHERE (metric_name=$1);
+' LANGUAGE 'sql';
