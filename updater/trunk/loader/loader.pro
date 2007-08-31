@@ -2,14 +2,14 @@ include( ../global.pri )
 
 TEMPLATE = app
 CONFIG += qt warn_on
-INCLUDEPATH += ../common ../../openrpt/common ../../xtuple/common
+INCLUDEPATH += ../common ../$${OPENRPT_DIR}/common ../$${XTUPLE_DIR}/common
 
 TARGET = updater
 OBJECTS_DIR = tmp
 MOC_DIR     = tmp
 UI_DIR      = tmp
 
-LIBS += -L../../openrpt/lib -L../../xtuple/lib -lxtuplecommon -L../lib -lcommon -lupdatercommon
+LIBS += -L../$${OPENRPT_DIR}/lib -L../$${XTUPLE_DIR}/lib -lxtuplecommon -L../lib -lcommon -lupdatercommon
 macx: LIBS += -lz
 
 DESTDIR = ../bin
