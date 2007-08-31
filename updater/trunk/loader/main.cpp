@@ -15,7 +15,7 @@
 
 #include <parameter.h>
 
-#include <data.h>
+#include "data.h"
 
 #include <loaderwindow.h>
 
