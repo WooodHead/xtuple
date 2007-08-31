@@ -36,4 +36,5 @@ message("Looking for xTuple code in $${XTUPLE_DIR}.")
 
 macx {
   CONFIG += x86 ppc
+  CONFIG += release
 }

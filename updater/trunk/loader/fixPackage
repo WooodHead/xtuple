@@ -1,8 +1,70 @@
 #!/bin/bash
 
-cd ../bin/loader.app/Contents/Frameworks
-install_name_tool -id @executable_path/../Frameworks/libqt-mt.3.dylib libqt-mt.3.dylib
+if [ -z "$QTDIR" ] ; then
+  echo Set the QTDIR environment variable
+  exit 1
+fi
+if ! [ -d "$QTDIR" ] ; then
+  echo "Cannot find QTDIR ($QTDIR)"
+  exit 2
+fi
+if [ -z "$PGDIR" ] ; then
+  echo Set the PGDIR environment variable
+  exit 3
+fi
+if ! [ -d "$PGDIR" ] ; then
+  echo "Cannot find PGDIR ($PGDIR)"
+  exit 4
+fi
+
+FRAMEWORKSDIR=../bin/updater.app/Contents/Frameworks
+
+if ! [ -d $FRAMEWORKSDIR ] ; then
+  mkdir $FRAMEWORKSDIR
+fi
+
+cd $FRAMEWORKSDIR
+
+QTLIBS2COPY="Qt3Support QtNetwork QtSql QtXml QtGui QtCore"
+for LIB in $QTLIBS2COPY ; do
+  LIBNAME=lib${LIB}.4.dylib
+  cp $QTDIR/lib/${LIBNAME} .
+  install_name_tool -id @executable_path/../Frameworks/${LIBNAME} ${LIBNAME}
+  for OTHERLIB in $QTLIBS2COPY ; do
+    OTHERLIBNAME=lib${OTHERLIB}.4.dylib
+    install_name_tool -change $QTDIR/lib/${OTHERLIBNAME} @executable_path/../Frameworks/${OTHERLIBNAME} $LIBNAME
+  done
+done
+
+LIBNAME=libpq.4.dylib
+cp $PGDIR/lib/${LIBNAME} .
+install_name_tool -id @executable_path/../Frameworks/${LIBNAME} ${LIBNAME}
+
 
 cd ../MacOS
-install_name_tool -change libqt-mt.3.dylib @executable_path/../Frameworks/libqt-mt.3.dylib loader
 
+for LIB in $QTLIBS2COPY ; do
+  LIBNAME=lib${LIB}.4.dylib
+  install_name_tool -change $QTDIR/lib/${LIBNAME} @executable_path/../Frameworks/${LIBNAME} updater
+done
+
+mkdir -p ../plugins/sqldrivers
+cd ../plugins/sqldrivers
+for PLUGIN in qsqlpsql qsqlodbc ; do
+  cp $QTDIR/plugins/sqldrivers/lib${PLUGIN}.dylib .
+  for LIB in $QTLIBS2COPY ; do
+    LIBNAME=lib${LIB}.4.dylib
+    install_name_tool -change $QTDIR/lib/${LIBNAME} @executable_path/../Frameworks/${LIBNAME} lib${PLUGIN}.dylib
+  done
+done
+install_name_tool -change $PGDIR/lib/libpq.4.dylib @executable_path/../Frameworks/libpq.4.dylib libqsqlpsql.dylib
+cd ../..
+
+if ! [ -d Resources ] ; then
+  mkdir Resources
+fi
+cd Resources
+cat > qt.conf <<EOF
+[Paths]
+Prefix = ..
+EOF
