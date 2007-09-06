@@ -10,7 +10,7 @@ AS
      shipto_num AS Shipto_number,
      shipto_active AS active,
      shipto_name AS name,
-     shipto_default AS default,
+     shipto_default AS default_flag,
      addr_line1 AS address1,
      addr_line2 AS address2,
      addr_line3 AS address3,
@@ -110,7 +110,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       FROM custinfo
       WHERE (cust_id=getCustId(NEW.customer_number)))),
     COALESCE(NEW.active,true),
-    COALESCE(NEW.default,false),
+    COALESCE(NEW.default_flag,false),
     COALESCE(NEW.shipto_number,CAST((
       SELECT (COALESCE(MAX(CAST(shipto_num AS INTEGER)), 0) + 1) 
       FROM shiptoinfo
@@ -166,7 +166,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     shipto_shipform_id=getShipFormId(NEW.ship_form),
     shipto_shipchrg_id=getShipChrgId(NEW.shipping_charges),
     shipto_active=NEW.active,
-    shipto_default=NEW.default,
+    shipto_default=NEW.default_flag,
     shipto_num=OLD.shipto_number,
     shipto_ediprofile_id=
     CASE

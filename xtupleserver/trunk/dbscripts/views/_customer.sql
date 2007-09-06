@@ -243,8 +243,8 @@ INSERT INTO custinfo
           getEdiProfileId(NEW.invc_edi_profile)
         END,
         COALESCE(getWarehousId(NEW.preferred_selling_whs,'ACTIVE'),-1),
-        getCurrId(NEW.default_currency),
-        getCurrID(NEW.credit_limit_currency),
+        COALESCE(getCurrId(NEW.default_currency),basecurrid()),
+        COALESCE(getCurrID(NEW.credit_limit_currency),basecurrid()),
         saveCntct(
           NEW.billing_contact_id,
           saveAddr(
@@ -336,7 +336,7 @@ UPDATE custinfo SET
   	cust_shipform_id=getShipFormId(NEW.ship_form),
   	cust_shipvia=NEW.ship_via,
   	cust_blanketpos=NEW.uses_blanket_pos,
-  	cust_shipchrg_id=getShipChrgId(NEW.shipping_charges),
+  	cust_shipchrg_id=COALESCE(getShipChrgId(NEW.shipping_charges),-1),
   	cust_creditstatus=
           CASE
 	    WHEN (NEW.credit_status = 'On Credit Warning') THEN
@@ -370,7 +370,7 @@ UPDATE custinfo SET
           ELSE
             getEdiProfileId(NEW.invc_edi_profile)
           END,
-        cust_preferred_warehous_id=getWarehousId(NEW.preferred_selling_whs,'ACTIVE'),
+        cust_preferred_warehous_id=COALESCE(getWarehousId(NEW.preferred_selling_whs,'ACTIVE'),-1),
         cust_curr_id=getCurrId(NEW.default_currency),
         cust_creditlmt_curr_id=getCurrId(NEW.credit_limit_currency),
         cust_cntct_id=saveCntct(
