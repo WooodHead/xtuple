@@ -207,7 +207,6 @@ CREATE OR REPLACE RULE "_UPDATE" AS
 CREATE OR REPLACE RULE "_DELETE" AS 
     ON DELETE TO _custshipto DO INSTEAD
 
-  DELETE FROM shiptoinfo
-  WHERE  (shipto_num=getShiptoId(OLD.customer_number,OLD.shipto_number));
+  SELECT deleteShipto(getShiptoId(OLD.customer_number,OLD.shipto_number));
 
 COMMIT;
