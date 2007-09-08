@@ -6,7 +6,7 @@ DROP VIEW _quote;
 CREATE VIEW _quote
 AS
    SELECT 
-     quhead_number AS quote_number,
+     quhead_number::varchar(100) AS quote_number,
      warehous_code AS warehouse,
      quhead_quotedate AS quote_date,
      quhead_packdate AS pack_date,
