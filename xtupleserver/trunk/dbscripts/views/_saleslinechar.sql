@@ -2,8 +2,8 @@ BEGIN;
 
 -- Sales Order Line Characteristics
 
-DROP VIEW _saleslinechar;
-CREATE VIEW _saleslinechar
+DROP VIEW api.saleslinechar;
+CREATE VIEW api.saleslinechar
 AS 
 SELECT DISTINCT cohead_number AS order_number, 
   coitem_linenumber AS line_number,
@@ -29,8 +29,8 @@ AND (a.charass_target_type='I')
 AND (a.charass_target_id=item_id) ) 
 ORDER BY cohead_number,coitem_linenumber, char_name;
 
-GRANT ALL ON TABLE _saleslinechar TO openmfg;
-COMMENT ON VIEW _saleslinechar IS '
+GRANT ALL ON TABLE api.saleslinechar TO openmfg;
+COMMENT ON VIEW api.saleslinechar IS '
 This view can be used as an interface to import Sales Order Characteristic data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -38,7 +38,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _saleslinechar DO INSTEAD
+    ON INSERT TO api.saleslinechar DO INSTEAD
 
 SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value)
 FROM cohead, coitem, itemsite, item, charass, char
@@ -53,7 +53,7 @@ AND (char_id=charass_char_id)
 AND (char_name=NEW.characteristic));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _saleslinechar DO INSTEAD
+    ON UPDATE TO api.saleslinechar DO INSTEAD
 
 SELECT DISTINCT updateCharAssignment('SI', coitem_id, charass_char_id, NEW.value)
 FROM cohead, coitem, itemsite, item, charass, char
@@ -68,6 +68,6 @@ AND (char_id=charass_char_id)
 AND (char_name=OLD.characteristic));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _saleslinechar DO INSTEAD NOTHING;
+    ON DELETE TO api.saleslinechar DO INSTEAD NOTHING;
 
 COMMIT;

@@ -2,8 +2,8 @@ BEGIN;
 
 -- Customer Characteristic
 
-DROP VIEW _custchar;
-CREATE VIEW _custchar
+DROP VIEW api.custchar;
+CREATE VIEW api.custchar
 AS 
    SELECT 
      cust_number::varchar(100) AS customer_number,
@@ -14,8 +14,8 @@ AS
    AND (cust_id=charass_target_id)
    AND (charass_char_id=char_id));
 
-GRANT ALL ON TABLE _custchar TO openmfg;
-COMMENT ON VIEW _custchar IS '
+GRANT ALL ON TABLE api.custchar TO openmfg;
+COMMENT ON VIEW api.custchar IS '
 This view can be used as an interface to import Customer Characteristic data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -23,7 +23,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _custchar DO INSTEAD
+    ON INSERT TO api.custchar DO INSTEAD
 
   INSERT INTO charass (
     charass_target_type,
@@ -40,7 +40,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     false);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _custchar DO INSTEAD
+    ON UPDATE TO api.custchar DO INSTEAD
 
   UPDATE charass SET
     charass_value=NEW.value
@@ -49,7 +49,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   AND (charass_char_id=getCharId(OLD.characteristic,'C')));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _custchar DO INSTEAD
+    ON DELETE TO api.custchar DO INSTEAD
 
   DELETE FROM charass
   WHERE ((charass_target_type='C')

@@ -2,8 +2,8 @@ BEGIN;
 
 -- Customer Credit Card
 
-DROP VIEW _custcreditcard;
-CREATE VIEW _custcreditcard
+DROP VIEW api.custcreditcard;
+CREATE VIEW api.custcreditcard
 AS 
    SELECT 
      cust_number::varchar(100) AS customer_number,
@@ -34,8 +34,8 @@ AS
    FROM ccard, custinfo
    WHERE (ccard_cust_id=cust_id);
 
-GRANT ALL ON TABLE _custcreditcard TO openmfg;
-COMMENT ON VIEW _custcreditcard IS '
+GRANT ALL ON TABLE api.custcreditcard TO openmfg;
+COMMENT ON VIEW api.custcreditcard IS '
 This view can be used as an interface to import Customer Credit Card data directly  
 into the system.  Required fields will be checked and default values will be 
 populated.  The correct encryption key must to be passed on insertions for data to be
@@ -46,7 +46,7 @@ Use the GUI interface to view and process credit cards.';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _custcreditcard DO INSTEAD
+    ON INSERT TO api.custcreditcard DO INSTEAD
 
 SELECT insertccard(
    NEW.customer_number,
@@ -66,9 +66,9 @@ SELECT insertccard(
  
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _custcreditcard DO INSTEAD NOTHING;
+    ON UPDATE TO api.custcreditcard DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _custcreditcard DO INSTEAD NOTHING;
+    ON DELETE TO api.custcreditcard DO INSTEAD NOTHING;
 
 COMMIT;

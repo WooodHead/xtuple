@@ -2,8 +2,8 @@ BEGIN;
 
 -- SalesOrder
 
-DROP VIEW _salesorder;
-CREATE VIEW _salesorder
+DROP VIEW api.salesorder;
+CREATE VIEW api.salesorder
 AS
    SELECT 
      cohead_number AS order_number,
@@ -88,8 +88,8 @@ AS
    AND (cohead_terms_id=terms_id)
    AND (cohead_curr_id=curr_id));
 
-GRANT ALL ON TABLE _salesorder TO openmfg;
-COMMENT ON VIEW _salesorder IS '
+GRANT ALL ON TABLE api.salesorder TO openmfg;
+COMMENT ON VIEW api.salesorder IS '
 This view can be used as an interface to import Sales Order Header data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -97,7 +97,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _salesorder DO INSTEAD
+    ON INSERT TO api.salesorder DO INSTEAD
 
   INSERT INTO cohead (
     cohead_number,
@@ -292,7 +292,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       WHERE (cust_id=getCustId(NEW.customer_number)))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _salesorder DO INSTEAD
+    ON UPDATE TO api.salesorder DO INSTEAD
 
   UPDATE cohead SET
     cohead_number=OLD.order_number,
@@ -360,7 +360,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   WHERE (cohead_number=OLD.order_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _salesorder DO INSTEAD
+    ON DELETE TO api.salesorder DO INSTEAD
 
   SELECT deleteso(cohead_id,OLD.order_number)
   FROM cohead

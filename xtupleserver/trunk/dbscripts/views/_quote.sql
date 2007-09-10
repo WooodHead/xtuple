@@ -2,11 +2,11 @@ BEGIN;
 
 -- Quote
 
-DROP VIEW _quote;
-CREATE VIEW _quote
+DROP VIEW api.quote;
+CREATE VIEW api.quote
 AS
    SELECT 
-     quhead_number::varchar(100) AS quote_number,
+     quhead_number AS quote_number,
      warehous_code AS warehouse,
      quhead_quotedate AS quote_date,
      quhead_packdate AS pack_date,
@@ -72,8 +72,8 @@ AS
    AND (quhead_terms_id=terms_id)
    AND (quhead_curr_id=curr_id));
 
-GRANT ALL ON TABLE _quote TO openmfg;
-COMMENT ON VIEW _quote IS '
+GRANT ALL ON TABLE api.quote TO openmfg;
+COMMENT ON VIEW api.quote IS '
 This view can be used as an interface to import Quote Header data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -81,7 +81,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _quote DO INSTEAD
+    ON INSERT TO api.quote DO INSTEAD
 
   INSERT INTO quhead (
     quhead_number,
@@ -239,7 +239,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     true);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _quote DO INSTEAD
+    ON UPDATE TO api.quote DO INSTEAD
 
   UPDATE quhead SET
     quhead_number=OLD.quote_number,
@@ -292,7 +292,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   WHERE (quhead_number=OLD.quote_number);
            
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _quote DO INSTEAD
+    ON DELETE TO api.quote DO INSTEAD
 
   SELECT deletequote(quhead_id,OLD.quote_number)
   FROM quhead

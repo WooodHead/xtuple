@@ -2,8 +2,8 @@ BEGIN;
 
 -- Customer Tax Registration
 
-DROP VIEW _custtax;
-CREATE VIEW _custtax
+DROP VIEW api.custtax;
+CREATE VIEW api.custtax
 AS 
    SELECT 
      cust_number::varchar(100) AS customer_number,
@@ -14,15 +14,15 @@ AS
    AND (taxreg_rel_id=cust_id)
    AND (taxreg_taxauth_id=taxauth_id));
 
-GRANT ALL ON TABLE _custtax TO openmfg;
-COMMENT ON VIEW _custtax IS '
+GRANT ALL ON TABLE api.custtax TO openmfg;
+COMMENT ON VIEW api.custtax IS '
 This view can be used as an interface to import Customer tax registration data directly  
 into the system.  Required fields will be checked';
 
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _custtax DO INSTEAD
+    ON INSERT TO api.custtax DO INSTEAD
 
   INSERT INTO taxreg (
     taxreg_rel_type,
@@ -36,7 +36,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.registration_number);
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _custtax DO INSTEAD
+    ON UPDATE TO api.custtax DO INSTEAD
 
   UPDATE taxreg SET
     taxreg_number=NEW.registration_number
@@ -45,7 +45,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   AND (taxreg_taxauth_id=getTaxAuthID(OLD.tax_authority)));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _custtax DO INSTEAD
+    ON DELETE TO api.custtax DO INSTEAD
 
   DELETE FROM taxreg
   WHERE  ((taxreg_rel_type='C')

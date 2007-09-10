@@ -2,8 +2,8 @@ BEGIN;
 
 -- Customer Comment
 
-DROP VIEW _custcomment;
-CREATE VIEW _custcomment
+DROP VIEW api.custcomment;
+CREATE VIEW api.custcomment
 AS 
    SELECT 
      cust_number::varchar(100) AS customer_number,
@@ -16,8 +16,8 @@ AS
    AND (comment_source_id=cust_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE _custcomment TO openmfg;
-COMMENT ON VIEW _custcomment IS '
+GRANT ALL ON TABLE api.custcomment TO openmfg;
+COMMENT ON VIEW api.custcomment IS '
 This view can be used as an interface to import Customer Comment data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -25,7 +25,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _custcomment DO INSTEAD
+    ON INSERT TO api.custcomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -44,9 +44,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _custcomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.custcomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _custcomment DO INSTEAD NOTHING;
+    ON DELETE TO api.custcomment DO INSTEAD NOTHING;
 
 COMMIT;

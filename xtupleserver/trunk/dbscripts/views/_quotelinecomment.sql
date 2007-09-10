@@ -2,8 +2,8 @@ BEGIN;
 
 -- Quote Line Item Comment
 
-DROP VIEW _quotelinecomment;
-CREATE VIEW _quotelinecomment
+DROP VIEW api.quotelinecomment;
+CREATE VIEW api.quotelinecomment
 AS 
    SELECT 
      quhead_number AS quote_number,
@@ -19,8 +19,8 @@ AS
    AND (comment_cmnttype_id=cmnttype_id))
    ORDER BY quhead_number ASC, quitem_linenumber ASC, comment_date DESC;
 
-GRANT ALL ON TABLE _quotelinecomment TO openmfg;
-COMMENT ON VIEW _quotelinecomment IS '
+GRANT ALL ON TABLE api.quotelinecomment TO openmfg;
+COMMENT ON VIEW api.quotelinecomment IS '
 This view can be used as an interface to import Quote Line Item Comment data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -28,7 +28,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _quotelinecomment DO INSTEAD
+    ON INSERT TO api.quotelinecomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -47,9 +47,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _quotelinecomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.quotelinecomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _quotelinecomment DO INSTEAD NOTHING;
+    ON DELETE TO api.quotelinecomment DO INSTEAD NOTHING;
 
 COMMIT;

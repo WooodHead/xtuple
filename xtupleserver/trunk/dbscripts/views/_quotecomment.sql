@@ -2,8 +2,8 @@ BEGIN;
 
 -- Quote Comment
 
-DROP VIEW _quotecomment;
-CREATE VIEW _quotecomment
+DROP VIEW api.quotecomment;
+CREATE VIEW api.quotecomment
 AS 
    SELECT 
      quhead_number AS quote_number,
@@ -16,8 +16,8 @@ AS
    AND (comment_source_id=quhead_id)
    AND (comment_cmnttype_id=cmnttype_id));
 
-GRANT ALL ON TABLE _quotecomment TO openmfg;
-COMMENT ON VIEW _quotecomment IS '
+GRANT ALL ON TABLE api.quotecomment TO openmfg;
+COMMENT ON VIEW api.quotecomment IS '
 This view can be used as an interface to import Quote Comment data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -25,7 +25,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _quotecomment DO INSTEAD
+    ON INSERT TO api.quotecomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -44,9 +44,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _quotecomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.quotecomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _quotecomment DO INSTEAD NOTHING;
+    ON DELETE TO api.quotecomment DO INSTEAD NOTHING;
 
 COMMIT;

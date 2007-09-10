@@ -2,8 +2,8 @@ BEGIN;
 
 -- Sales Order Line Item Comment
 
-DROP VIEW _saleslinecomment;
-CREATE VIEW _saleslinecomment
+DROP VIEW api.saleslinecomment;
+CREATE VIEW api.saleslinecomment
 AS 
    SELECT 
      cohead_number AS order_number,
@@ -19,8 +19,8 @@ AS
    AND (comment_cmnttype_id=cmnttype_id))
    ORDER BY cohead_number ASC, coitem_linenumber ASC, comment_date DESC;
 
-GRANT ALL ON TABLE _saleslinecomment TO openmfg;
-COMMENT ON VIEW _saleslinecomment IS '
+GRANT ALL ON TABLE api.saleslinecomment TO openmfg;
+COMMENT ON VIEW api.saleslinecomment IS '
 This view can be used as an interface to import Sales Order Line Item Comment data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -28,7 +28,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _saleslinecomment DO INSTEAD
+    ON INSERT TO api.saleslinecomment DO INSTEAD
 
   INSERT INTO comment (
     comment_date,
@@ -47,9 +47,9 @@ CREATE OR REPLACE RULE "_INSERT" AS
     NEW.text);
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _saleslinecomment DO INSTEAD NOTHING;
+    ON UPDATE TO api.saleslinecomment DO INSTEAD NOTHING;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _saleslinecomment DO INSTEAD NOTHING;
+    ON DELETE TO api.saleslinecomment DO INSTEAD NOTHING;
 
 COMMIT;

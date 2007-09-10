@@ -2,8 +2,8 @@ BEGIN;
 
 -- Sales Order Line
 
-DROP VIEW _salesline;
-CREATE VIEW _salesline
+DROP VIEW api.salesline;
+CREATE VIEW api.salesline
 AS 
   SELECT 
      cohead_number AS order_number,
@@ -49,15 +49,15 @@ AS
 ORDER BY cohead_number,coitem_linenumber;
     
 
-GRANT ALL ON TABLE _salesline TO openmfg;
-COMMENT ON VIEW _salesline IS '
+GRANT ALL ON TABLE api.salesline TO openmfg;
+COMMENT ON VIEW api.salesline IS '
 This view can be used as an interface to import Sales Order Line Items data directly  
 into the system.  Required fields will be checked';
 
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _salesline DO INSTEAD
+    ON INSERT TO api.salesline DO INSTEAD
 
   INSERT INTO coitem (
     coitem_cohead_id,
@@ -139,7 +139,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (warehous_id=itemsite_warehous_id));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _salesline DO INSTEAD
+    ON UPDATE TO api.salesline DO INSTEAD
 
   UPDATE coitem SET
     coitem_status=NEW.status,
@@ -163,7 +163,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
    AND (coitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _salesline DO INSTEAD
+    ON DELETE TO api.salesline DO INSTEAD
 
   DELETE FROM coitem
   WHERE ((coitem_cohead_id=getSalesOrderId(OLD.order_number))

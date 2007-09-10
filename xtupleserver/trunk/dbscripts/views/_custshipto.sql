@@ -2,8 +2,8 @@ BEGIN;
 
 -- Customer Shipto
 
-DROP VIEW _custshipto;
-CREATE VIEW _custshipto
+DROP VIEW api.custshipto;
+CREATE VIEW api.custshipto
 AS 
    SELECT 
      cust_number::varchar(100) AS customer_number,
@@ -56,8 +56,8 @@ AS
      AND (cust_salesrep_id=salesrep_id)
      AND (cust_shipform_id=shipform_id));
 
-GRANT ALL ON TABLE _custshipto TO openmfg;
-COMMENT ON VIEW _custshipto IS '
+GRANT ALL ON TABLE api.custshipto TO openmfg;
+COMMENT ON VIEW api.custshipto IS '
 This view can be used as an interface to import Customer Ship-to data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -65,7 +65,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _custshipto DO INSTEAD
+    ON INSERT TO api.custshipto DO INSTEAD
 
   INSERT INTO shiptoinfo (
     shipto_cust_id,
@@ -152,7 +152,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       WHERE (cust_id=getCustId(NEW.customer_number)))));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _custshipto DO INSTEAD
+    ON UPDATE TO api.custshipto DO INSTEAD
 
   UPDATE shiptoinfo SET
     shipto_cust_id=getCustId(NEW.customer_number),
@@ -205,7 +205,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   WHERE  (shipto_id=getShiptoId(OLD.customer_number,OLD.shipto_number));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _custshipto DO INSTEAD
+    ON DELETE TO api.custshipto DO INSTEAD
 
   SELECT deleteShipto(getShiptoId(OLD.customer_number,OLD.shipto_number));
 

@@ -2,8 +2,8 @@ BEGIN;
 
   --Customer View
 
-  DROP VIEW _customer;
-  CREATE OR REPLACE VIEW _customer AS
+  DROP VIEW api.customer;
+  CREATE OR REPLACE VIEW api.customer AS
  
   SELECT 
     cust_number::varchar(100) AS customer_number,
@@ -128,8 +128,8 @@ BEGIN;
   AND (cust_creditlmt_curr_id=clc.curr_id)
   AND (cust_terms_id=terms_id));
 
-GRANT ALL ON TABLE _customer TO openmfg;
-COMMENT ON VIEW _customer IS '
+GRANT ALL ON TABLE api.customer TO openmfg;
+COMMENT ON VIEW api.customer IS '
 This view can be used as an interface to import Customer data directly  
 into the system.  Required fields will be checked and defaults will 
 be populated if not specified.';
@@ -137,7 +137,7 @@ be populated if not specified.';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _customer DO INSTEAD
+    ON INSERT TO api.customer DO INSTEAD
 
 INSERT INTO custinfo
 	(cust_active,
@@ -309,7 +309,7 @@ INSERT INTO custinfo
          );
 
 CREATE OR REPLACE RULE "_UPDATE" AS
-    ON UPDATE TO _customer DO INSTEAD
+    ON UPDATE TO api.customer DO INSTEAD
 
 UPDATE custinfo SET
 	cust_active=NEW.active,
@@ -445,7 +445,7 @@ UPDATE custinfo SET
         WHERE cust_number=OLD.customer_number;
 
 CREATE OR REPLACE RULE "_DELETE" AS
-    ON DELETE TO _customer DO INSTEAD
+    ON DELETE TO api.customer DO INSTEAD
 
 SELECT deleteCustomer(getCustId(OLD.customer_number));
 

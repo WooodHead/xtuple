@@ -2,8 +2,8 @@ BEGIN;
 
 -- Quote Line
 
-DROP VIEW _quoteline;
-CREATE VIEW _quoteline
+DROP VIEW api.quoteline;
+CREATE VIEW api.quoteline
 AS 
   SELECT 
      quhead_number AS quote_number,
@@ -42,15 +42,15 @@ AS
 ORDER BY quhead_number,quitem_linenumber;
     
 
-GRANT ALL ON TABLE _quoteline TO openmfg;
-COMMENT ON VIEW _quoteline IS '
+GRANT ALL ON TABLE api.quoteline TO openmfg;
+COMMENT ON VIEW api.quoteline IS '
 This view can be used as an interface to import Quote Line Items data directly  
 into the system.  Required fields will be checked';
 
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _quoteline DO INSTEAD
+    ON INSERT TO api.quoteline DO INSTEAD
 
   INSERT INTO quitem (
     quitem_quhead_id,
@@ -117,7 +117,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
   AND (warehous_id=itemsite_warehous_id));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _quoteline DO INSTEAD
+    ON UPDATE TO api.quoteline DO INSTEAD
 
   UPDATE quitem SET
     quitem_scheddate=NEW.scheduled_date,
@@ -133,7 +133,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
    AND (quitem_linenumber=OLD.line_number));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _quoteline DO INSTEAD
+    ON DELETE TO api.quoteline DO INSTEAD
 
   DELETE FROM quitem
   WHERE ((quitem_quhead_id=getQuoteId(OLD.quote_number))

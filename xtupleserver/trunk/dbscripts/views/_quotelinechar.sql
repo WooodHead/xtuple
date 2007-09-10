@@ -2,8 +2,8 @@ BEGIN;
 
 -- Quote Line Characteristics
 
-DROP VIEW _quotelinechar;
-CREATE VIEW _quotelinechar
+DROP VIEW api.quotelinechar;
+CREATE VIEW api.quotelinechar
 AS 
 SELECT DISTINCT quhead_number AS quote_number, 
   quitem_linenumber AS line_number,
@@ -29,8 +29,8 @@ AND (a.charass_target_type='I')
 AND (a.charass_target_id=item_id) ) 
 ORDER BY quhead_number,quitem_linenumber, char_name;
 
-GRANT ALL ON TABLE _quotelinechar TO openmfg;
-COMMENT ON VIEW _quotelinechar IS '
+GRANT ALL ON TABLE api.quotelinechar TO openmfg;
+COMMENT ON VIEW api.quotelinechar IS '
 This view can be used as an interface to import Quote Characteristic data directly  
 into the system.  Required fields will be checked and default values will be 
 populated';
@@ -38,7 +38,7 @@ populated';
 --Rules
 
 CREATE OR REPLACE RULE "_INSERT" AS
-    ON INSERT TO _quotelinechar DO INSTEAD
+    ON INSERT TO api.quotelinechar DO INSTEAD
 
 SELECT DISTINCT updateCharAssignment('QI', quitem_id, charass_char_id, NEW.value)
 FROM quhead, quitem, itemsite, item, charass, char
@@ -53,7 +53,7 @@ AND (char_id=charass_char_id)
 AND (char_name=NEW.characteristic));
 
 CREATE OR REPLACE RULE "_UPDATE" AS 
-    ON UPDATE TO _quotelinechar DO INSTEAD
+    ON UPDATE TO api.quotelinechar DO INSTEAD
 
 SELECT DISTINCT updateCharAssignment('QI', quitem_id, charass_char_id, NEW.value)
 FROM quhead, quitem, itemsite, item, charass, char
@@ -68,6 +68,6 @@ AND (char_id=charass_char_id)
 AND (char_name=OLD.characteristic));
 
 CREATE OR REPLACE RULE "_DELETE" AS 
-    ON DELETE TO _quotelinechar DO INSTEAD NOTHING;
+    ON DELETE TO api.quotelinechar DO INSTEAD NOTHING;
 
 COMMIT;
