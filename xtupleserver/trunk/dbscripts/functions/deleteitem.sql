@@ -2,8 +2,18 @@ CREATE OR REPLACE FUNCTION deleteItem(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemid ALIAS FOR $1;
   _result INTEGER;
+  _routings BOOLEAN;
+  _bbom BOOLEAN;
 
 BEGIN
+
+  SELECT metric_value=''t'' INTO _bbom
+    FROM metric
+   WHERE (metric_name=''BBOM'');
+
+  SELECT metric_value=''t'' INTO _routings
+    FROM metric
+   WHERE (metric_name=''Routings'');
 
   SELECT bomitem_id INTO _result
   FROM bomitem
@@ -29,12 +39,14 @@ BEGIN
     RETURN -3;
   END IF;
 
-  SELECT bbomitem_id INTO _result
-  FROM bbomitem
-  WHERE (bbomitem_item_id=pItemid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -4;
+  IF(_bbom) THEN
+    SELECT bbomitem_id INTO _result
+    FROM bbomitem
+    WHERE (bbomitem_item_id=pItemid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -4;
+    END IF;
   END IF;
 
   SELECT assitem_id INTO _result
@@ -52,13 +64,17 @@ BEGIN
   DELETE FROM bomitem
   WHERE (bomitem_item_id=pItemid);
 
-  DELETE FROM boohead
-  WHERE (boohead_item_id=pItemid);
+  IF (_routings) THEN
+    DELETE FROM boohead
+    WHERE (boohead_item_id=pItemid);
+  END IF;
 
-  DELETE FROM bbomitem
-  WHERE (bbomitem_parent_item_id=pItemid);
-  DELETE FROM bbomitem
-  WHERE (bbomitem_item_id=pItemid);
+  IF (_bbom) THEN
+    DELETE FROM bbomitem
+    WHERE (bbomitem_parent_item_id=pItemid);
+    DELETE FROM bbomitem
+    WHERE (bbomitem_item_id=pItemid);
+  END IF;
 
   DELETE FROM asshead
   WHERE (asshead_item_id=pItemid);
