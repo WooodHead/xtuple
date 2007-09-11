@@ -9,7 +9,7 @@ DECLARE
 BEGIN
 
 --  Checks
-  SELECT checkPrivilege(''MaintainCustomerMasters'') INTO _check;
+  SELECT checkPrivilege(''MaintainCustomerMasters'') OR checkPrivilege(''PostMiscInvoices'') INTO _check;
   IF NOT (_check) THEN
     RAISE EXCEPTION ''You do not have privileges to maintain Customers.'';
   END IF;
