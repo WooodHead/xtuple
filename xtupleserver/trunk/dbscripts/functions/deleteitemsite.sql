@@ -2,6 +2,9 @@ CREATE OR REPLACE FUNCTION deleteItemSite(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemsiteid ALIAS FOR $1;
   _result INTEGER;
+  _lotserial BOOLEAN;
+  _bbom BOOLEAN;
+  _openmfg BOOLEAN;
 
 BEGIN
 
@@ -11,6 +14,17 @@ BEGIN
     RETURN -9;
   END IF;
 
+  SELECT metric_value=''t'' INTO _bbom
+    FROM metric
+   WHERE (metric_name=''BBOM'');
+
+  SELECT metric_value=''t'' INTO _lotserial
+    FROM metric
+   WHERE (metric_name=''LotSerialControl'');
+
+  SELECT metric_value=''OpenMFG'' INTO _openmfg
+    FROM metric
+   WHERE (metric_name=''Application'');
 
   SELECT invhist_id INTO _result
   FROM invhist
@@ -20,14 +34,15 @@ BEGIN
     RETURN -1;
   END IF;
 
-  SELECT lsdetail_id INTO _result
-  FROM lsdetail
-  WHERE (lsdetail_itemsite_id=pItemsiteid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -1;
+  IF (_lotserial) THEN
+    SELECT lsdetail_id INTO _result
+    FROM lsdetail
+    WHERE (lsdetail_itemsite_id=pItemsiteid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -1;
+    END IF;
   END IF;
-
 
   SELECT wo_id INTO _result
   FROM wo
@@ -62,15 +77,16 @@ BEGIN
     RETURN -2;
   END IF;
 
-  SELECT brdvar_id INTO _result
-  FROM brdvar
-  WHERE ( (brdvar_itemsite_id=pItemsiteid)
-   OR (brdvar_parent_itemsite_id=pItemsiteid) )
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -2;
+  IF (_bbom) THEN
+    SELECT brdvar_id INTO _result
+    FROM brdvar
+    WHERE ( (brdvar_itemsite_id=pItemsiteid)
+     OR (brdvar_parent_itemsite_id=pItemsiteid) )
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -2;
+    END IF;
   END IF;
-
 
   SELECT coitem_id INTO _result
   FROM coitem
@@ -137,15 +153,15 @@ BEGIN
     RETURN -4;
   END IF;
 
-
-  SELECT planord_id INTO _result
-  FROM planord
-  WHERE (planord_itemsite_id=pItemsiteid)
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -5;
+  IF (_openmfg) THEN
+    SELECT planord_id INTO _result
+    FROM planord
+    WHERE (planord_itemsite_id=pItemsiteid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -5;
+    END IF;
   END IF;
-
 
   DELETE FROM invcnt
   WHERE (invcnt_itemsite_id=pItemsiteid);
