@@ -108,7 +108,7 @@ BEGIN
 	 LEFT OUTER JOIN tax ON (tax_id=freight_tax_id);
 
   --  Determine if we are using the _shipDate or _schedDate for the _invcDate
-  IF( getMetric(''InvoiceDateSource'')=''scheddate'') THEN
+  IF( fetchMetricText(''InvoiceDateSource'')=''scheddate'') THEN
     _invcDate := _schedDate;
   ELSE
     _invcDate := _shipDate;

@@ -32,7 +32,7 @@ BEGIN
     RETURN -11;
   END IF;
 
-  IF (getMetricBoolean(''MultiWhs'')) THEN
+  IF (fetchMetricBool(''MultiWhs'')) THEN
     SELECT pohead_number AS order_number, poitem_id AS orderitem_id,
 	 poitem_expcat_id AS expcat_id,
 	 currToBase(pohead_curr_id, poitem_unitprice, recv_date::DATE)
@@ -166,7 +166,7 @@ BEGIN
 	  poitem_freight_received = (poitem_freight_received + _r.recv_freight_base)
       WHERE (poitem_id=_o.orderitem_id);
 
-    ELSIF (_r.recv_order_type = ''TO'' AND getMetricBoolean(''MultiWhs'')) THEN
+    ELSIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
       SELECT tohead.* INTO _to
 	FROM tohead, toitem
        WHERE ((tohead_id=toitem_tohead_id)
