@@ -7,10 +7,14 @@ DECLARE
   pNotes	ALIAS FOR $5;
   pcurrid	ALIAS FOR $6;	-- NULL is handled by SELECT ... INTO _o
   precvdate	ALIAS FOR $7;	-- NULL is handled by INSERT INTO recv
+  _timestamp    TIMESTAMP;
   _o		RECORD;
   _recvid	INTEGER;
 
 BEGIN
+  IF(precvdate IS NULL OR precvdate = CURRENT_DATE) THEN
+    _timestamp := CURRENT_TIMESTAMP;
+  END IF;
   SELECT NEXTVAL(''recv_recv_id_seq'') INTO _recvid;
 
   DELETE FROM recv
@@ -73,7 +77,7 @@ BEGIN
       recv_purchcost, recv_purchcost_curr_id,
       recv_notes, recv_freight, recv_freight_curr_id
     ) VALUES (
-      _recvid, COALESCE(precvdate, CURRENT_TIMESTAMP),
+      _recvid, _timestamp,
       _o.order_number::INTEGER, pordertype, _o.orderitem_id::INTEGER,
       CURRENT_USER, _o.agent, _o.itemsite_id::INTEGER,
       _o.vend_id::INTEGER, -- _o.vend_item_number, _o.vend_item_descrip,
