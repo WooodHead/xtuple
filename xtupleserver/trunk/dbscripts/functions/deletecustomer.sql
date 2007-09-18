@@ -45,6 +45,22 @@ BEGIN
     RETURN -5;
   END IF;
 
+  PERFORM invchead_id
+     FROM invchead
+    WHERE(invchead_cust_id=pCustid)
+    LIMIT 1;
+  IF (FOUND) THEN
+    RETURN -7;
+  END IF;
+
+  PERFORM quhead_id
+     FROM quhead
+    WHERE(quhead_cust_id=pCustid)
+    LIMIT 1;
+  IF (FOUND) THEN
+    RETURN -8;
+  END IF;
+
   DELETE FROM taxreg
    WHERE ((taxreg_rel_type=''C'')
      AND  (taxreg_rel_id=pCustid));
