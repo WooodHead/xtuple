@@ -442,7 +442,7 @@ UPDATE custinfo SET
           ELSE
             getEdiProfileId(NEW.so_edi_profile)
           END
-        WHERE cust_number=OLD.customer_number;
+        WHERE cust_id=getCustId(OLD.customer_number);
 
 CREATE OR REPLACE RULE "_DELETE" AS
     ON DELETE TO api.customer DO INSTEAD
