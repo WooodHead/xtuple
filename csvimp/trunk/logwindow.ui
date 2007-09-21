@@ -1,0 +1,38 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>LogWindow</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>LogWindow</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>600</width>
+            <height>483</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Log</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QTextEdit">
+            <property name="name">
+                <cstring>_log</cstring>
+            </property>
+            <property name="wordWrap">
+                <enum>NoWrap</enum>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+    </vbox>
+</widget>
+<toolbars>
+</toolbars>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
