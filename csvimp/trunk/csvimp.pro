@@ -55,10 +55,42 @@
 # portions thereof with code not governed by the terms of the CPAL.
 #
 
+exists(../../../xtuple) {
+  XTUPLE_DIR = ../../../xtuple
+}
+exists(../../xtuple) {
+  XTUPLE_DIR = ../../xtuple
+}
+exists(../xtuple) {
+  XTUPLE_DIR = ../xtuple
+}
+
+exists($${XTUPLE_DIR}/trunk) {
+  XTUPLE_DIR = $${XTUPLE_DIR}/trunk
+}
+
+! exists($${XTUPLE_DIR}) {
+  error("Could not set the XTUPLE_DIR qmake variable.")
+}
+
+exists(../../../openrpt) {
+  OPENRPT_DIR = ../../../openrpt
+}
+exists(../../openrpt) {
+  OPENRPT_DIR = ../../openrpt
+}
+exists(../openrpt) {
+  OPENRPT_DIR = ../openrpt
+}
+
+! exists($${OPENRPT_DIR}) {
+  error("Could not set the OPENRPT_DIR qmake variable.")
+}
+
 TEMPLATE = app
 CONFIG += qt warn_on release
-INCLUDEPATH += ../xtuple/common
-INCLUDEPATH += ../openrpt/common
+INCLUDEPATH += $${XTUPLE_DIR}/common
+INCLUDEPATH += $${OPENRPT_DIR}/common
 win32:INCLUDEPATH += .
 
 TARGET = csvimp
@@ -67,9 +99,8 @@ OBJECTS_DIR = tmp
 MOC_DIR     = tmp
 UI_DIR      = tmp
 
-LIBS += -L../xtuple/lib -lxtuplecommon
-LIBS += -L../openrpt/lib -lcommon
-
+LIBS += -L$${XTUPLE_DIR}/lib -lxtuplecommon
+LIBS += -L$${OPENRPT_DIR}/lib -lcommon
 
 # Input
 #The following line was changed from FORMS to FORMS3 by qt3to4
@@ -102,5 +133,4 @@ QT += qt3support
 macx {
   CONFIG += x86 ppc
 }
-
 
