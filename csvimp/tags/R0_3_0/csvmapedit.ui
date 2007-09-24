@@ -1,0 +1,416 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>CSVMapEdit</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>CSVMapEdit</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>576</width>
+            <height>540</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>CSV Map Editor</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout7</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout9</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget">
+                            <property name="name">
+                                <cstring>layout8</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QLabel">
+                                    <property name="name">
+                                        <cstring>_lblMap</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Map:</string>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                                <widget class="QComboBox">
+                                    <property name="name">
+                                        <cstring>_map</cstring>
+                                    </property>
+                                </widget>
+                                <spacer>
+                                    <property name="name">
+                                        <cstring>spacer4</cstring>
+                                    </property>
+                                    <property name="orientation">
+                                        <enum>Horizontal</enum>
+                                    </property>
+                                    <property name="sizeType">
+                                        <enum>Expanding</enum>
+                                    </property>
+                                    <property name="sizeHint">
+                                        <size>
+                                            <width>40</width>
+                                            <height>20</height>
+                                        </size>
+                                    </property>
+                                </spacer>
+                            </hbox>
+                        </widget>
+                        <widget class="QGroupBox">
+                            <property name="name">
+                                <cstring>_table</cstring>
+                            </property>
+                            <property name="title">
+                                <string>Table: _table</string>
+                            </property>
+                            <grid>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QTextEdit" row="1" column="1">
+                                    <property name="name">
+                                        <cstring>_description</cstring>
+                                    </property>
+                                </widget>
+                                <widget class="QLabel" row="0" column="0">
+                                    <property name="name">
+                                        <cstring>_lblAction</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Action:</string>
+                                    </property>
+                                    <property name="alignment">
+                                        <set>AlignVCenter|AlignRight</set>
+                                    </property>
+                                </widget>
+                                <widget class="QLayoutWidget" row="1" column="0">
+                                    <property name="name">
+                                        <cstring>layout10</cstring>
+                                    </property>
+                                    <vbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QLabel">
+                                            <property name="name">
+                                                <cstring>_lblDescription</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Description:</string>
+                                            </property>
+                                            <property name="alignment">
+                                                <set>AlignVCenter|AlignRight</set>
+                                            </property>
+                                        </widget>
+                                        <spacer>
+                                            <property name="name">
+                                                <cstring>spacer5</cstring>
+                                            </property>
+                                            <property name="orientation">
+                                                <enum>Vertical</enum>
+                                            </property>
+                                            <property name="sizeType">
+                                                <enum>MinimumExpanding</enum>
+                                            </property>
+                                            <property name="sizeHint">
+                                                <size>
+                                                    <width>20</width>
+                                                    <height>40</height>
+                                                </size>
+                                            </property>
+                                        </spacer>
+                                    </vbox>
+                                </widget>
+                                <widget class="QLayoutWidget" row="0" column="1">
+                                    <property name="name">
+                                        <cstring>layout11</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QComboBox">
+                                            <item>
+                                                <property name="text">
+                                                    <string>Insert</string>
+                                                </property>
+                                            </item>
+                                            <item>
+                                                <property name="text">
+                                                    <string>Update</string>
+                                                </property>
+                                            </item>
+                                            <item>
+                                                <property name="text">
+                                                    <string>Append</string>
+                                                </property>
+                                            </item>
+                                            <property name="name">
+                                                <cstring>_action</cstring>
+                                            </property>
+                                        </widget>
+                                        <spacer>
+                                            <property name="name">
+                                                <cstring>spacer6</cstring>
+                                            </property>
+                                            <property name="orientation">
+                                                <enum>Horizontal</enum>
+                                            </property>
+                                            <property name="sizeType">
+                                                <enum>Expanding</enum>
+                                            </property>
+                                            <property name="sizeHint">
+                                                <size>
+                                                    <width>40</width>
+                                                    <height>20</height>
+                                                </size>
+                                            </property>
+                                        </spacer>
+                                    </hbox>
+                                </widget>
+                            </grid>
+                        </widget>
+                    </vbox>
+                </widget>
+                <widget class="QLayoutWidget">
+                    <property name="name">
+                        <cstring>layout2</cstring>
+                    </property>
+                    <vbox>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_close</cstring>
+                            </property>
+                            <property name="text">
+                                <string>Close</string>
+                            </property>
+                            <property name="accel">
+                                <string></string>
+                            </property>
+                        </widget>
+                        <widget class="Line">
+                            <property name="name">
+                                <cstring>_line</cstring>
+                            </property>
+                            <property name="frameShape">
+                                <enum>HLine</enum>
+                            </property>
+                            <property name="frameShadow">
+                                <enum>Sunken</enum>
+                            </property>
+                            <property name="orientation">
+                                <enum>Horizontal</enum>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_new</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;New</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+N</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_open</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Open</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+O</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton">
+                            <property name="name">
+                                <cstring>_save</cstring>
+                            </property>
+                            <property name="text">
+                                <string>&amp;Save</string>
+                            </property>
+                            <property name="accel">
+                                <string>Alt+S</string>
+                            </property>
+                        </widget>
+                        <spacer>
+                            <property name="name">
+                                <cstring>spacer1</cstring>
+                            </property>
+                            <property name="orientation">
+                                <enum>Vertical</enum>
+                            </property>
+                            <property name="sizeType">
+                                <enum>Minimum</enum>
+                            </property>
+                            <property name="sizeHint">
+                                <size>
+                                    <width>20</width>
+                                    <height>1</height>
+                                </size>
+                            </property>
+                        </spacer>
+                    </vbox>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout5</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="spacing">
+                    <number>1</number>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>textLabel1</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Field Mappings:</string>
+                    </property>
+                </widget>
+                <widget class="QTable">
+                    <column>
+                        <property name="text">
+                            <string>Key</string>
+                        </property>
+                        <property name="pixmap">
+                            <pixmap>image0</pixmap>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Field</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Type</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Required</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>Use Value</string>
+                        </property>
+                    </column>
+                    <column>
+                        <property name="text">
+                            <string>If Null</string>
+                        </property>
+                    </column>
+                    <property name="name">
+                        <cstring>_fields</cstring>
+                    </property>
+                    <property name="numRows">
+                        <number>0</number>
+                    </property>
+                    <property name="numCols">
+                        <number>6</number>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="575">789cadcfcf4ac43010c7f17b9f22b4b722d9b6c9ee2ae223281e05f1f0cb24b3edfe51d0f520e2bb9b997441f624e8d0433edf94a45db4e6e1fed6b48beaed88e3448646bc9a36be1f0e1f8f4f379f55ddaf8c3cdef4f545555b43e6eee539c97a97d74da0e05c271c958c54b81752072edc2a57c1bb4148ca7558164ec2c8f9acb570234c1d91bb1242b98c7d61525e46ef200c4a8eeca290853ca4a1b0512245af9f1195ccdeebbdf66cfede1ae0bc05e067d406b204c479e69637719a3437ce2792c566ccdb343760dae657479bcbe95eecf6fffa1fbf685fd7d537a43d7c82</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>_close</sender>
+        <signal>clicked()</signal>
+        <receiver>CSVMapEdit</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>_new</sender>
+        <signal>clicked()</signal>
+        <receiver>CSVMapEdit</receiver>
+        <slot>sNew()</slot>
+    </connection>
+    <connection>
+        <sender>_open</sender>
+        <signal>clicked()</signal>
+        <receiver>CSVMapEdit</receiver>
+        <slot>sOpen()</slot>
+    </connection>
+    <connection>
+        <sender>_save</sender>
+        <signal>clicked()</signal>
+        <receiver>CSVMapEdit</receiver>
+        <slot>sSave()</slot>
+    </connection>
+    <connection>
+        <sender>_fields</sender>
+        <signal>valueChanged(int,int)</signal>
+        <receiver>CSVMapEdit</receiver>
+        <slot>sUpdated()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>_fields</tabstop>
+    <tabstop>_new</tabstop>
+    <tabstop>_open</tabstop>
+    <tabstop>_save</tabstop>
+    <tabstop>_close</tabstop>
+</tabstops>
+<includes>
+    <include location="local" impldecl="in implementation">csvmapedit.ui.h</include>
+</includes>
+<variables>
+    <variable>bool _modified;</variable>
+    <variable>QString _filename;</variable>
+</variables>
+<slots>
+    <slot access="protected">sChangeTable()</slot>
+    <slot access="protected">sNew()</slot>
+    <slot access="protected">sOpen()</slot>
+    <slot access="protected">sSave()</slot>
+    <slot access="protected">reject()</slot>
+    <slot access="protected">sUpdated()</slot>
+</slots>
+<functions>
+    <function access="private">init()</function>
+    <function access="private" returnType="bool">continueOperation()</function>
+    <function access="private" returnType="bool">saveMap()</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

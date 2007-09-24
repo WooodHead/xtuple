@@ -1,0 +1,405 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>CSVToolWindow</class>
+<widget class="QMainWindow">
+    <property name="name">
+        <cstring>CSVToolWindow</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>622</width>
+            <height>479</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>CSV Tool</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout1</cstring>
+            </property>
+            <vbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QTable">
+                    <property name="name">
+                        <cstring>_table</cstring>
+                    </property>
+                    <property name="numRows">
+                        <number>3</number>
+                    </property>
+                    <property name="numCols">
+                        <number>3</number>
+                    </property>
+                    <property name="readOnly">
+                        <bool>true</bool>
+                    </property>
+                </widget>
+                <widget class="QCheckBox">
+                    <property name="name">
+                        <cstring>_firstRowHeader</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Treat first row as header information</string>
+                    </property>
+                </widget>
+            </vbox>
+        </widget>
+    </vbox>
+</widget>
+<menubar>
+    <property name="name">
+        <cstring>MenuBar</cstring>
+    </property>
+    <item text="&amp;File" name="fileMenu">
+        <action name="fileNewAction"/>
+        <action name="fileOpenAction"/>
+        <action name="fileSaveAction"/>
+        <action name="fileSaveAsAction"/>
+        <separator/>
+        <action name="filePrintAction"/>
+        <separator/>
+        <action name="fileExitAction"/>
+    </item>
+    <item text="&amp;Map" name="mapMenu">
+        <action name="mapEditAction"/>
+    </item>
+    <item text="&amp;Import" name="importMenu">
+        <action name="importStartAction"/>
+        <action name="importView_LogAction"/>
+    </item>
+    <item text="&amp;Help" name="helpMenu">
+        <action name="helpContentsAction"/>
+        <action name="helpIndexAction"/>
+        <separator/>
+        <action name="helpAboutAction"/>
+    </item>
+</menubar>
+<toolbars>
+    <toolbar dock="2">
+        <property name="name">
+            <cstring>toolBar</cstring>
+        </property>
+        <property name="label">
+            <string>Tools</string>
+        </property>
+        <action name="fileOpenAction"/>
+    </toolbar>
+</toolbars>
+<actions>
+    <action>
+        <property name="name">
+            <cstring>fileNewAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image0</iconset>
+        </property>
+        <property name="text">
+            <string>New</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;New</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+N</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileOpenAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image1</iconset>
+        </property>
+        <property name="text">
+            <string>Open</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Open CSV...</string>
+        </property>
+        <property name="toolTip">
+            <string>Open CSV file</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+O</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image2</iconset>
+        </property>
+        <property name="text">
+            <string>Save</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Save</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+S</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileSaveAsAction</cstring>
+        </property>
+        <property name="text">
+            <string>Save As</string>
+        </property>
+        <property name="menuText">
+            <string>Save &amp;As...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>filePrintAction</cstring>
+        </property>
+        <property name="iconSet">
+            <iconset>image3</iconset>
+        </property>
+        <property name="text">
+            <string>Print</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Print...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+P</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>fileExitAction</cstring>
+        </property>
+        <property name="text">
+            <string>Exit</string>
+        </property>
+        <property name="menuText">
+            <string>E&amp;xit</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpContentsAction</cstring>
+        </property>
+        <property name="text">
+            <string>Contents</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Contents...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpIndexAction</cstring>
+        </property>
+        <property name="text">
+            <string>Index</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;Index...</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>helpAboutAction</cstring>
+        </property>
+        <property name="text">
+            <string>About</string>
+        </property>
+        <property name="menuText">
+            <string>&amp;About</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>mapEditAction</cstring>
+        </property>
+        <property name="text">
+            <string>Edit</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+E</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>importStartAction</cstring>
+        </property>
+        <property name="text">
+            <string>Start...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+T</string>
+        </property>
+    </action>
+    <action>
+        <property name="name">
+            <cstring>importView_LogAction</cstring>
+        </property>
+        <property name="text">
+            <string>View Log...</string>
+        </property>
+        <property name="accel">
+            <string>Ctrl+L</string>
+        </property>
+    </action>
+</actions>
+<images>
+    <image name="image0">
+        <data format="XPM.GZ" length="721">789cedd2b10ac2301405d03d5ff148b62056035241fc04c5511087f425a2432b681d44fc777ba329d6b47fe07d19dee50cc9904cd376b3229d896b6deb13131fed85b4bb95e57db75f3e8434869a93d3548e841c13d3fa5c79ecaad9d52404b540351e83caa833c6a03ad4798e41f5a86c30a816f510126ee94d14d52611fb8e2ad49070a4445ca4447ca4446ca444da07fecac7ffd2956ebe64f81ff4c873215e0583a9b0</data>
+    </image>
+    <image name="image1">
+        <data format="XPM.GZ" length="691">789cad914d0ac2301085f739c5d0d915b11a140ae211149782b898448b2e5a41eb42c4bb9b9fa6a67644045f0299978f37134896c27ab5803413979aeaa3067da033a4bb6b59de36dbf95d245282d953182703910c41c3f254ed6d8da6c69193b5dada7c924b6fc9dac2c85b156c51b83eacfe41d0c89defc4dfa2dd7c37fc44b025a179043c4152a4b055f4365414ad0e8901fd94c1ae5e19441da9211c68e7f44098d3074d86019e70a0210c089958df7ffb31134fa13797a8</data>
+    </image>
+    <image name="image2">
+        <data format="XPM.GZ" length="691">789cd3d7528808f055d0d2e72a2e492cc94c5648ce482c52d04a29cdcdad8c8eb5ade6523232520022530543251d2e253d856405bffcbc54105b19c856360003103711c4b530b13082709340dc644310047193c1dcc424d314883958015846190b80ca24262a2721012087349964a030ba69c9c9303d403e9132087b68279388ecff4414193440948c32aa71d86470bb80863258a21b9a0eb0a7905a6b2e006d59a436</data>
+    </image>
+    <image name="image3">
+        <data format="XPM.GZ" length="2509">789c7d944973db461085effa152cf54d956a932089a55239c896572d96bcc4b253390033186ea2488aa416a7f2dfd3db0cbd44e6d340f8f8def43406209e1c742ecf4f3b074ff6d69b7a33711d37ae6f3a077e3b9f3ffcf5f71fffeced675987fecab293edffb6b77fb1e9b8ced9e2ba65c08c00baf2117e2f5c86d02d99e196b9d7ed963df53f2ab3c47789258fa7c26564688d4bf30f23673de113e6ac1719ae9459e27f4d5c893f17ae126f8d2be3ebc87d9dff4e3904f317ccfd5ef23f28b3c45f26963c7e510ec1fc9570157dd81857967f883c90cd8635f3208b8c0b6596f863e17a500fd597fe8744c35afc1be33aef8bff5ad9b5e637cc7993f7f346fca571637c1fb9d0f99f9543b07ab2df453ff9723d0551a1f3d791cb8170573904f3a5bf725034e66f133be96fa44c1246799e4a573495e461a29cfcbbc8e64f8d9df96564f5519e876a1019668975fda05c593d5c25d67a6f945d6ef3bdb08b3ed491eba1e467c6561fcf229bff4ad9b5c6c7ccf530fa8089bdf8136596703fb1f800c23ee5ff548e3e7a636f3c8ddc68bd8ab91926066596b05c5fe359c285b2cf8de5f7ed7296f050b825d6f74763dc1a0f227bcdbf60f679e29789353f5666093f4facfe857208e63f156e93df8bdc16c223e358ff28b2f939735b240eca2ce1678983f0a57208e6bf150ec96f8d83f127e650b084cf85e5a32fdf9d10b0c6c6e44835c9631dfd9ff235b618925ad1e89779278af5750df7681ea40316d8111eef876a79ad977ae773d8257ec8efead629fdeb3ca4ba9ae6e11fcdbbef6aa72b7934ef695702eddf4e631a13d2f4c73cd599e115f533a639bbc173e6788d0b5cf23a314fe915dee01a37df698bb77887f7f8805ff190e64c342fb59fe2333ca2e373d30b7c89aff035bec1634a9e904ef1417faf78866ff1fc275de03b7c4fa3a1553e50fd8f78a2ef0bfcf43fe973bcc4cff805bb74d6a3de0e31b37c9f561fe090c6583a19612e9d1dd179417db1575237191eeafb172b9cd22a7d409a7bcc8f0c4e68f01900ef44090db8547f4ee9a966456732445083078f779a8756dfdf52f19b1cd59c699254e31c46d0703f30b6fa5239a5d27faabc22b78409de838316bdd51fd1377730a531a12bd363c949aa3d936f1a6821e8fda566aef8fe011d612eba860569495a9196721ebe7d7ed0c30dac491b58d2bd21c116b634bf25ddd2fd9dd9f3f6efef7bff0111915e41</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>fileNewAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>fileNew()</slot>
+    </connection>
+    <connection>
+        <sender>fileOpenAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>fileOpen()</slot>
+    </connection>
+    <connection>
+        <sender>fileSaveAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>fileSave()</slot>
+    </connection>
+    <connection>
+        <sender>fileSaveAsAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>fileSaveAs()</slot>
+    </connection>
+    <connection>
+        <sender>filePrintAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>filePrint()</slot>
+    </connection>
+    <connection>
+        <sender>fileExitAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>fileExit()</slot>
+    </connection>
+    <connection>
+        <sender>helpIndexAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>helpIndex()</slot>
+    </connection>
+    <connection>
+        <sender>helpContentsAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>helpContents()</slot>
+    </connection>
+    <connection>
+        <sender>helpAboutAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>helpAbout()</slot>
+    </connection>
+    <connection>
+        <sender>mapEditAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>mapEdit()</slot>
+    </connection>
+    <connection>
+        <sender>_firstRowHeader</sender>
+        <signal>toggled(bool)</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>sFirstRowHeader(bool)</slot>
+    </connection>
+    <connection>
+        <sender>importStartAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>importStart()</slot>
+    </connection>
+    <connection>
+        <sender>importView_LogAction</sender>
+        <signal>activated()</signal>
+        <receiver>CSVToolWindow</receiver>
+        <slot>sImportViewLog()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in implementation">qmessagebox.h</include>
+    <include location="global" impldecl="in implementation">qfiledialog.h</include>
+    <include location="local" impldecl="in implementation">csvdata.h</include>
+    <include location="global" impldecl="in implementation">csvatlaswindow.h</include>
+    <include location="global" impldecl="in implementation">logwindow.h</include>
+    <include location="local" impldecl="in implementation">csvtoolwindow.ui.h</include>
+    <include location="local" impldecl="in implementation">data.h</include>
+</includes>
+<forwards>
+    <forward>class CSVAtlasWindow;</forward>
+    <forward>class CSVData;</forward>
+    <forward>class LogWindow;</forward>
+</forwards>
+<variables>
+    <variable access="private">int _dbTimerId;</variable>
+    <variable>CSVAtlasWindow * _atlasWindow;</variable>
+    <variable>CSVData * _data;</variable>
+    <variable>LogWindow * _log;</variable>
+</variables>
+<slots>
+    <slot>fileNew()</slot>
+    <slot>fileOpen()</slot>
+    <slot>fileSave()</slot>
+    <slot>fileSaveAs()</slot>
+    <slot>filePrint()</slot>
+    <slot>fileExit()</slot>
+    <slot>helpIndex()</slot>
+    <slot>helpContents()</slot>
+    <slot>helpAbout()</slot>
+    <slot>mapEdit()</slot>
+    <slot access="protected">sFirstRowHeader( bool yes )</slot>
+    <slot access="protected">importStart()</slot>
+    <slot access="protected">sImportViewLog()</slot>
+</slots>
+<functions>
+    <function access="private">init()</function>
+    <function access="protected">timerEvent( QTimerEvent * e )</function>
+</functions>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

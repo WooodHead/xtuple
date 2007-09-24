@@ -1,0 +1,200 @@
+<!DOCTYPE UI><UI version="3.2" stdsetdef="1">
+<class>MissingField</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>MissingField</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>360</width>
+            <height>163</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Missing Field</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout3</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_lblFieldTxt</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Field</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_lblField</cstring>
+                    </property>
+                    <property name="text">
+                        <string>_field</string>
+                    </property>
+                </widget>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_lblNID</cstring>
+                    </property>
+                    <property name="text">
+                        <string>not in database.</string>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer1</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>40</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout2</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <property name="margin">
+                    <number>20</number>
+                </property>
+                <widget class="QLabel">
+                    <property name="name">
+                        <cstring>_lblChange</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Change to:</string>
+                    </property>
+                </widget>
+                <widget class="QComboBox">
+                    <property name="name">
+                        <cstring>_fields</cstring>
+                    </property>
+                </widget>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer2</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>40</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+            </hbox>
+        </widget>
+        <spacer>
+            <property name="name">
+                <cstring>spacer4</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Vertical</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>20</width>
+                    <height>40</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <spacer>
+                    <property name="name">
+                        <cstring>spacer3</cstring>
+                    </property>
+                    <property name="orientation">
+                        <enum>Horizontal</enum>
+                    </property>
+                    <property name="sizeType">
+                        <enum>Expanding</enum>
+                    </property>
+                    <property name="sizeHint">
+                        <size>
+                            <width>40</width>
+                            <height>20</height>
+                        </size>
+                    </property>
+                </spacer>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_change</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Change</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>_drop</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Drop</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>_change</sender>
+        <signal>clicked()</signal>
+        <receiver>MissingField</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>_drop</sender>
+        <signal>clicked()</signal>
+        <receiver>MissingField</receiver>
+        <slot>reject()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="global" impldecl="in declaration">Q3SqlRecordInfo</include>
+    <include location="local" impldecl="in implementation">missingfield.ui.h</include>
+</includes>
+<slots>
+    <slot>init( const QString &amp; field, const Q3SqlRecordInfo &amp; recinfo )</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
