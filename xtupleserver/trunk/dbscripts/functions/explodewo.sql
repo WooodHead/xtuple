@@ -22,18 +22,6 @@ BEGIN
     RETURN -4;
   END IF;
 
---  Make sure that there is at least 1 valid BOM item
-  SELECT bomitem_id INTO resultCode
-  FROM wo, itemsite, bomitem
-  WHERE ( (wo_itemsite_id=itemsite_id)
-   AND (itemsite_item_id=bomitem_parent_item_id)
-   AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
-   AND (wo_id=pWoid) )
-   LIMIT 1;
-  IF (NOT FOUND) THEN
-    RETURN -1;
-  END IF;
-
 --  Make sure that component all Component Item Sites exist
   SELECT bomitem_id INTO resultCode
   FROM wo, bomitem, itemsite
