@@ -11,7 +11,7 @@ BEGIN;
     cust_name AS customer_name,
     cust_active AS active,
     salesrep_number AS sales_rep,
-    cust_commprcnt AS commission,
+    cust_commprcnt * 100 AS commission,
     cust_shipvia AS ship_via,
     shipform_name AS ship_form,
     shipchrg_name AS shipping_charges,
@@ -188,7 +188,7 @@ INSERT INTO custinfo
 	COALESCE(NEW.active,true),
 	COALESCE(getcusttypeid(NEW.customer_type),FetchMetricValue('DefaultCustType')),
         getSalesRepId(NEW.sales_rep),
-        COALESCE(NEW.commission,(
+        COALESCE(NEW.commission * .01,(
           SELECT salesrep_commission
           FROM salesrep
           WHERE (salesrep_id=getSalesRepId(NEW.sales_rep)))),
@@ -315,7 +315,7 @@ UPDATE custinfo SET
 	cust_active=NEW.active,
 	cust_custtype_id=getCustTypeId(NEW.customer_type),
         cust_salesrep_id=getSalesRepId(NEW.sales_rep),
-        cust_commprcnt=NEW.commission,
+        cust_commprcnt=NEW.commission * .01,
         cust_name=NEW.customer_name,
         cust_creditlmt=NEW.credit_limit,
   	cust_creditrating=NEW.credit_rating,
