@@ -84,9 +84,6 @@ exists(../../xtuple/trunk) {
   error("Could not set the XTUPLE_DIR qmake variable.")
 }
 
-message("Looking for OpenRPT code in $${OPENRPT_DIR}.")
-message("Looking for xTuple code in $${XTUPLE_DIR}.")
-
 TEMPLATE = subdirs
 SUBDIRS = common \
           builder \
