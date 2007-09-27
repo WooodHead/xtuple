@@ -3,6 +3,8 @@ DECLARE
   pSItemid ALIAS FOR $1;
   pTItemNumber ALIAS FOR $2;
   _itemid INTEGER;
+  _r RECORD;
+  _id INTEGER;
 
 BEGIN
 
@@ -17,7 +19,8 @@ BEGIN
     item_shipuom, item_shipinvrat,
     item_taxable, item_exclusive, item_listprice,
     item_config, item_comments, item_extdescrip,
-    item_upccode, item_planning_type )
+    item_upccode, item_planning_type,
+    item_inv_uom_id, item_price_uom_id )
   SELECT _itemid, pTItemNumber, item_descrip1, item_descrip2,
          item_classcode_id, item_type,
          item_active, item_picklist, item_sold, item_fractional,
@@ -27,7 +30,8 @@ BEGIN
          item_shipuom, item_shipinvrat,
          item_taxable, item_exclusive, item_listprice,
          item_config, item_comments, item_extdescrip,
-         item_upccode, item_planning_type
+         item_upccode, item_planning_type,
+         item_inv_uom_id, item_price_uom_id
   FROM item
   WHERE (item_id=pSItemid);
 
@@ -44,6 +48,27 @@ BEGIN
   FROM charass
   WHERE ( (charass_target_type=''I'')
    AND (charass_target_id=pSItemid) );
+
+  FOR _r IN SELECT itemuomconv_id,
+                   itemuomconv_to_uom_id,
+                   itemuomconv_ratio,
+                   itemuomconv_fractional
+              FROM itemuomconv
+             WHERE(itemuomconv_item_id=pSItemid) LOOP
+    SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _id;
+    INSERT INTO itemuomconv
+          (itemuomconv_id, itemuomconv_item_id,
+           itemuomconv_to_uom_id, itemuomconv_ratio,
+           itemuomconv_fractional)
+    VALUES(_id, _itemid, _r.itemuomconv_to_uom_id,
+           _r.itemuomconv_ratio, _r.itemuomconv_fractional);
+
+    INSERT INTO itemuom
+          (itemuom_itemuomconv_id, itemuom_uomtype_id)
+    SELECT _id, itemuom_uomtype_id
+      FROM itemuom
+     WHERE(itemuom_itemuomconv_id=_r.itemuomconv_id);
+  END LOOP;
 
   RETURN _itemid;
 

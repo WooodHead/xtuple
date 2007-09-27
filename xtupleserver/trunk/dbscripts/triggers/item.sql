@@ -39,8 +39,18 @@ BEGIN
 
         IF (OLD.item_invuom <> NEW.item_invuom) THEN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
-                               ( ''Inventory UOM 2 Changed from "'' || OLD.item_invuom ||
+                               ( ''Inventory UOM Changed from "'' || OLD.item_invuom ||
                                  ''" to "'' || NEW.item_invuom || ''"'' ) );
+        END IF;
+
+        IF (OLD.item_inv_uom_id <> NEW.item_inv_uom_id) THEN
+          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
+                               ( ''Inventory UOM Changed from "'' ||
+                                 (SELECT uom_name FROM uom WHERE uom_id=OLD.item_inv_uom_id) ||
+                                 ''" ('' || OLD.item_inv_uom_id ||
+                                 '') to "'' ||
+                                 (SELECT uom_name FROM uom WHERE uom_id=NEW.item_inv_uom_id) ||
+                                 ''" ('' || NEW.item_inv_uom_id || '')'' ) );
         END IF;
 
         IF (OLD.item_sold <> NEW.item_sold) THEN
@@ -92,6 +102,16 @@ BEGIN
           PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
                                ( ''Price UOM Changed from "'' || OLD.item_priceuom ||
                                  ''" to "'' || NEW.item_priceuom || ''"'' ) );
+        END IF;
+
+        IF (OLD.item_price_uom_id <> NEW.item_price_uom_id) THEN
+          PERFORM postComment( _cmnttypeid, ''I'', NEW.item_id,
+                               ( ''Price UOM Changed from "'' ||
+                                 (SELECT uom_name FROM uom WHERE uom_id=OLD.item_price_uom_id) ||
+                                 ''" ('' || OLD.item_price_uom_id ||
+                                 '') to "'' ||
+                                 (SELECT uom_name FROM uom WHERE uom_id=NEW.item_price_uom_id) ||
+                                 ''" ('' || NEW.item_price_uom_id || '')'' ) );
         END IF;
 
         IF (OLD.item_upccode <> NEW.item_upccode) THEN
