@@ -55,8 +55,8 @@ BEGIN
   SELECT fetchGLSequence() INTO _sequence;
 
   FOR _r IN SELECT cmitem.*,
-                   (cmitem_unitprice / item_invpricerat) AS unitprice,
-                   (cmitem_qtycredit * cmitem_unitprice / item_invpricerat) AS amount,
+                   (cmitem_unitprice / iteminvpricerat(item_id)) AS unitprice,
+                   (cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id)) AS amount,
                    itemsite_id AS itemsite_id,
                    cmhead_number, cmhead_commission,
                    cmhead_cust_id AS cust_id,

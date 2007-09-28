@@ -49,9 +49,10 @@ BEGIN
          ''RL'', 0,
          itemsite_qtyonhand, itemsite_qtyonhand,
          pComments,
-         item_invuom, stdCost(item_id)
-  FROM item, itemsite
+         uom_name, stdCost(item_id)
+  FROM item, itemsite, uom
   WHERE ((itemsite_item_id=item_id)
+   AND (item_inv_uom_id=uom_id)
    AND (itemsite_controlmethod <> ''N'')
    AND (itemsite_id=pItemsiteid));
 
@@ -132,9 +133,10 @@ BEGIN
            ''NN'', (_qty * -1),
            itemsite_qtyonhand, (itemsite_qtyonhand - _qty),
            '''', '''',
-           item_invuom, stdCost(item_id)
-    FROM item, itemsite
+           uom_name, stdCost(item_id)
+    FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
+     ANd (item_inv_uom_id=uom_id)
      AND (itemsite_controlmethod <> ''N'')
      AND (itemsite_id=_p.itemsiteid) );
 

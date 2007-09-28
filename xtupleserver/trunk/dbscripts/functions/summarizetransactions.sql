@@ -11,10 +11,11 @@ DECLARE
 
 BEGIN
 
---  Cache the item_invuom
-  SELECT item_invuom INTO _itemuom
-  FROM itemsite, item
+--  Cache the uom_name
+  SELECT uom_name INTO _itemuom
+  FROM itemsite, item, uom
   WHERE ((itemsite_item_id=item_id)
+    AND (item_inv_uom_id=uom_id)
     AND (itemsite_id=pItemsiteid));
 
   _transCounter := 0;

@@ -109,9 +109,10 @@ BEGIN
       pQty, itemsite_qtyonhand,
       (itemsite_qtyonhand + (_sense * pQty)),
       pOrderType, pOrderNumber, pDocNumber, pComments,
-      item_invuom, stdCost(item_id), _xferwhsid
-    FROM itemsite, item
+      uom_name, stdCost(item_id), _xferwhsid
+    FROM itemsite, item, uom
     WHERE ( (itemsite_item_id=item_id)
+     AND (item_inv_uom_id=uom_id)
      AND (itemsite_id=pItemsiteid) );
 
     --  Adjust QOH

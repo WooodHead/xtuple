@@ -114,9 +114,10 @@ BEGIN
                ''NN'', (_itemlocdist.qty * -1),
                itemsite_qtyonhand, (itemsite_qtyonhand - _itemlocdist.qty),
                invhist_docnumber, invhist_comments,
-               item_invuom, stdCost(item_id)
-        FROM item, itemsite, invhist
+               uom_name, stdCost(item_id)
+        FROM item, itemsite, invhist, uom
         WHERE ((itemsite_item_id=item_id)
+         AND (item_inv_uom_id=uom_id)
          AND (itemsite_controlmethod <> ''N'')
          AND (itemsite_id=_itemlocdist.itemsiteid)
          AND (invhist_id=_itemlocdist.invhistid));

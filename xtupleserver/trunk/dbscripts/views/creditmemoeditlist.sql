@@ -5,10 +5,10 @@ SELECT cmhead_id AS orderid, -2 AS itemid,
              cust_number,
              cmhead_billtoname AS billtoname,
              cmhead_number::TEXT AS ordernumber, -1 AS linenumber,
-             '' AS item, '' AS itemdescrip, '' AS item_invuom,
+             '' AS item, '' AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              '' AS price,
-             formatMoney( SUM(round(cmitem_qtycredit * cmitem_unitprice / item_invpricerat,2)) +
+             formatMoney( SUM(round(cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id),2)) +
                              cmhead_freight + cmhead_misc + cmhead_tax ) AS extprice,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
@@ -35,7 +35,7 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS billtoname,
              cmhead_number::TEXT AS ordernumber,
              -1 AS linenumber,
-             'Freight' AS item, 'Freight Charge' AS itemdescrip, '' AS item_invuom,
+             'Freight' AS item, 'Freight Charge' AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              formatMoney(cmhead_freight) AS price,
              formatMoney(cmhead_freight) AS extprice,
@@ -54,7 +54,7 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS billtoname,
              cmhead_number::TEXT AS ordernumber,
              -1 AS linenumber,
-             'Misc. Charge' AS item, cmhead_misc_descrip AS itemdescrip, '' AS item_invuom,
+             'Misc. Charge' AS item, cmhead_misc_descrip AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              formatMoney(cmhead_misc) AS price,
              formatMoney(cmhead_misc) AS extprice,
@@ -71,7 +71,7 @@ UNION SELECT cmhead_id AS orderid, -1 AS itemid,
              '' AS billtoname,
              cmhead_number::TEXT AS ordernumber,
              -1 AS linenumber,
-             'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS item_invuom,
+             'Sales Tax' AS item, tax_descrip AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              formatMoney(cmhead_tax) AS price,
              formatMoney(cmhead_tax) AS extprice,
@@ -94,19 +94,20 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              '' AS billtoname,
              cmhead_number::TEXT AS ordernumber,
              cmitem_linenumber AS linenumber,
-             item_number AS item, item_descrip1 AS itemdescrip, item_invuom,
+             item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
              formatQty(cmitem_qtycredit) AS qtytobill,
              formatPrice(cmitem_unitprice) AS price,
-             formatMoney(round(cmitem_qtycredit * cmitem_unitprice / item_invpricerat,2)) AS extprice,
+             formatMoney(round(cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id),2)) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
                          WHERE ((salesaccnt_sales_accnt_id=accnt_id)
                           AND (salesaccnt_id=findSalesAccnt(itemsite_id, cmhead_cust_id)))), 'Not Assigned') AS account
-FROM item, itemsite, cmhead, cmitem
+FROM item, itemsite, cmhead, cmitem, uom
 WHERE ( (cmitem_itemsite_id=itemsite_id)
  AND (cmitem_cmhead_id=cmhead_id)
  AND (itemsite_item_id=item_id)
+ AND (item_inv_uom_id=uom_id)
  AND (NOT cmhead_posted)
  AND (NOT cmhead_hold) )
 

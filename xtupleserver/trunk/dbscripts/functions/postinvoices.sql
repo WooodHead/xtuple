@@ -34,7 +34,7 @@ BEGIN
     GROUP BY invchead_id 
     HAVING SUM(round(invcitem_billed * invcitem_price /  
 	      CASE WHEN (item_id IS NULL) THEN 1 
-	      ELSE item_invpricerat END, 2)) > 0;
+	      ELSE iteminvpricerat(item_id) END, 2)) > 0;
   END IF;
 
   RETURN _journalNumber;

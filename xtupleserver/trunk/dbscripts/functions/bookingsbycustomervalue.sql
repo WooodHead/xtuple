@@ -11,7 +11,7 @@ BEGIN
   _startDate := findPeriodStart(pPeriodid);
   _endDate := findPeriodEnd(pPeriodid);
 
-  SELECT SUM(round(coitem_qtyord * coitem_price / item_invpricerat,2)) INTO _value
+  SELECT SUM(round(coitem_qtyord * coitem_price / iteminvpricerat(item_id),2)) INTO _value
   FROM coitem, cohead, itemsite, item
   WHERE ( (cohead_cust_id=pCustid)
    AND (coitem_cohead_id=cohead_id)

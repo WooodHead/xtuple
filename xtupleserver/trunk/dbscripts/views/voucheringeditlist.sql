@@ -4,7 +4,7 @@ CREATE VIEW voucheringEditList AS
 SELECT vend_id AS vendid, vohead_id AS orderid, 1 AS itemid,
        vohead_number AS vouchernumber, COALESCE(TEXT(pohead_number), 'Misc.') AS ponumber,
        vohead_invcnumber AS invoicenumber, vend_number AS itemnumber, vend_name AS description,
-       vendtype_code AS itemtype, '' AS item_invuom, '' AS f_qty,
+       vendtype_code AS itemtype, '' AS iteminvuom, '' AS f_qty,
        SUM(vodist_amount) AS cost, formatMoney(SUM(vodist_amount)) AS f_cost,
        '' AS account
 FROM vodist, vendinfo, vendtype, vohead LEFT OUTER JOIN pohead ON (vohead_pohead_id=pohead_id)
@@ -17,12 +17,12 @@ GROUP BY vend_id, vohead_id, vohead_number, pohead_number, vohead_invcnumber, ve
 UNION ALL SELECT vohead_vend_id AS vendid, vohead_id AS orderid, 2 AS itemid,
              vohead_number AS vouchernumber, '' AS ponumber, '' AS invoicenumber,
              item_number AS itemnumber, (item_descrip1 || ' ' || item_descrip2) AS description,
-             '' AS itemtype, item_invuom, formatQty(vodist_qty) AS f_qty,
+             '' AS itemtype, uom_name AS iteminvuom, formatQty(vodist_qty) AS f_qty,
              vodist_amount AS cost, formatMoney(vodist_amount) AS f_cost,
              CASE WHEN (accnt_id IS NULL) THEN 'Not Assigned'
                   ELSE formatGLAccountLong(accnt_id)
              END AS account
-FROM vohead, vodist, poitem, item,
+FROM vohead, vodist, poitem, item, uom,
      itemsite LEFT OUTER JOIN
      ( costcat LEFT OUTER JOIN accnt
        ON (costcat_liability_accnt_id=accnt_id)
@@ -32,12 +32,13 @@ WHERE ( (vodist_vohead_id=vohead_id)
  AND (vodist_poitem_id=poitem_id)
  AND (poitem_itemsite_id=itemsite_id)
  AND (itemsite_item_id=item_id)
+ AND (item_inv_uom_id=uom_id)
  AND (NOT vohead_posted) )
 
 UNION ALL SELECT vohead_vend_id AS vendid, vohead_id AS orderid, 3 AS itemid,
              vohead_number AS vouchernumber, '' AS ponumber, '' AS invoicenumber,
              'Misc' AS itemnumber, 'Miscellaneous Distribution' AS description,
-             '' AS itemtype, '' AS item_invuom, '' AS f_qty,
+             '' AS itemtype, '' AS iteminvuom, '' AS f_qty,
              vodist_amount AS cost, formatMoney(vodist_amount) AS f_cost,
              CASE WHEN(expcat_id IS NOT NULL) THEN (expcat_code||' - ' || expcat_descrip)
                   ELSE formatGLAccountLong(vodist_accnt_id)

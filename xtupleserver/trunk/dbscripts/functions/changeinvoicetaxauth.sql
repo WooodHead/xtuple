@@ -77,19 +77,19 @@ CREATE OR REPLACE FUNCTION changeInvoiceTaxAuth(INTEGER, INTEGER) RETURNS INTEGE
 	invcitem_tax_ratea=currToCurr(_invccurr, _taxcurr,
 				      calculateTax(tax_id,
 					  invcitem_billed * invcitem_price /
-					  COALESCE(item_priceinvrat, 1),
+					  COALESCE(iteminvpricerat(item_id), 1),
 					  0, ''A''),
 				      _invcdate),
 	invcitem_tax_rateb=currToCurr(_invccurr, _taxcurr,
 				      calculateTax(tax_id,
 					  invcitem_billed * invcitem_price /
-					  COALESCE(item_priceinvrat, 1),
+					  COALESCE(iteminvpricerat(item_id), 1),
 					  0, ''B''),
 				      _invcdate),
 	invcitem_tax_ratec=currToCurr(_invccurr, _taxcurr,
 				      calculateTax(tax_id,
 					  invcitem_billed * invcitem_price /
-					  COALESCE(item_priceinvrat, 1),
+					  COALESCE(iteminvpricerat(item_id), 1),
 					  0, ''C''),
 				      _invcdate)
       FROM item, tax

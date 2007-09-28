@@ -182,10 +182,11 @@ BEGIN
            _postDate, ''CC'', (invcnt_qoh_after - invcnt_qoh_before),
            invcnt_qoh_before, invcnt_qoh_after,
            invcnt_tagnumber, invcnt_comments,
-           item_invuom, stdCost(item_id), _hasDetail
-    FROM itemsite, invcnt, item
+           uom_name, stdCost(item_id), _hasDetail
+    FROM itemsite, invcnt, item, uom
     WHERE ( (invcnt_itemsite_id=itemsite_id)
      AND (itemsite_item_id=item_id)
+     AND (item_inv_uom_id=uom_id)
      AND (itemsite_controlmethod <> ''N'')
      AND (invcnt_id=pInvcntid) );
 

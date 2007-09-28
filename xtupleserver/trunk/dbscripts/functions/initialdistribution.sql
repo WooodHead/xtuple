@@ -38,9 +38,10 @@ BEGIN
              ''RL'', 0,
              _r.itemloc_qty, _r.itemloc_qty,
              ''Initial Distribution'',
-             item_invuom, stdCost(item_id), TRUE
-      FROM item, itemsite
+             uom_name, stdCost(item_id), TRUE
+      FROM item, itemsite, uom
       WHERE ( (itemsite_item_id=item_id)
+       AND (item_inv_uom_id=uom_id)
        AND (itemsite_controlmethod <> ''N'')
        AND (itemsite_id=pItemsiteid) );
 
@@ -72,9 +73,10 @@ BEGIN
                ''NN'', (_r.itemloc_qty * -1),
                _r.itemloc_qty, 0,
                ''Initial Distribution'',
-               item_invuom, stdCost(item_id)
-        FROM itemsite, item
+               uom_name, stdCost(item_id)
+        FROM itemsite, item, uom
         WHERE ( (itemsite_item_id=item_id)
+         AND (item_inv_uom_id=uom_id)
          AND (itemsite_controlmethod <> ''N'')
          AND (itemsite_id=pItemsiteid) );
 
@@ -105,9 +107,10 @@ BEGIN
            ''RL'', 0,
            itemsite_qtyonhand, itemsite_qtyonhand,
            ''Initial Distribution'',
-           item_invuom, stdCost(item_id), TRUE
-    FROM item, itemsite
+           uom_name, stdCost(item_id), TRUE
+    FROM item, itemsite, uom
     WHERE ( (itemsite_item_id=item_id)
+     AND (item_inv_uom_id=uom_id)
      AND (itemsite_controlmethod <> ''N'')
      AND (itemsite_id=pItemsiteid) );
 
@@ -145,9 +148,10 @@ BEGIN
              ''NN'', (itemloc_qty * -1),
              itemloc_qty, 0,
              ''Initial Distribution'',
-             item_invuom, stdCost(item_id)
-      FROM itemloc, itemsite, item
+             uom_name, stdCost(item_id)
+      FROM itemloc, itemsite, item, uom
       WHERE ( (itemsite_item_id=item_id)
+       AND (item_inv_uom_id=uom_id)
        AND (itemsite_controlmethod <> ''N'')
        AND (itemloc_itemsite_id=itemsite_id)
        AND (itemloc_id=_itemlocid) );
