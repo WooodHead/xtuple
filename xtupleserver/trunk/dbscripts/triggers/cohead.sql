@@ -379,7 +379,7 @@ BEGIN
       FROM evntnot, evnttype
       WHERE ( (evntnot_evnttype_id=evnttype_id)
        AND (evntnot_warehous_id=NEW.cohead_warehous_id)
-       AND (evnttype_name=''SoCommentsChanged'') );
+       AND (evnttype_name=''SoNotesChanged'') );
     END IF;
   END IF;
 
