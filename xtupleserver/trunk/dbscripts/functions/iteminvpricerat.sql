@@ -5,6 +5,11 @@ DECLARE
   _toUomid INTEGER;
   _ratio NUMERIC;
 BEGIN
+
+  IF(pItemid IS NULL) THEN
+    RETURN 1.0;
+  END IF;
+
   SELECT item_inv_uom_id, item_price_uom_id
     INTO _fromUomid, _toUomid
     FROM item
