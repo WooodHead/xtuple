@@ -160,6 +160,20 @@ BEGIN
       AND  (crmacct_name!=NEW.cust_name));
   END IF;
 
+  -- If this is imported, go ahead and insert default characteristics
+   IF (TG_OP = ''INSERT'') THEN
+     PERFORM updateCharAssignment(''C'', NEW.cust_id, char_id, charass_value) 
+     FROM (
+       SELECT DISTINCT char_id, char_name, charass_value
+       FROM charass, char, custtype
+       WHERE ((custtype_id=NEW.cust_custtype_id)
+       AND (charass_target_type=''CT'') 
+       AND (charass_target_id=custtype_id)
+       AND (charass_default)
+       AND (char_id=charass_char_id))
+       ORDER BY char_name) AS data;
+   END IF;
+
   RETURN NEW;
 END;
 ' LANGUAGE 'plpgsql';
