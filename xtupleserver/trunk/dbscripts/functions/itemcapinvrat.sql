@@ -3,6 +3,6 @@ DECLARE
   pItemid ALIAS FOR $1;
 
 BEGIN
-  RETURN itemUOMRatioByType(pItemid, ''Capacity'');
+  RETURN 1.0/itemUOMRatioByType(pItemid, ''Capacity'');
 END;
 ' LANGUAGE 'plpgsql';

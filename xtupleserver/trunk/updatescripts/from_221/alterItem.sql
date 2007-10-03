@@ -68,7 +68,7 @@ BEGIN
       IF(_itemuomconvid IS NULL) THEN
         SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _itemuomconvid;
         INSERT INTO itemuomconv (itemuomconv_id, itemuomconv_item_id, itemuomconv_to_uom_id, itemuomconv_ratio, item_uomconv_fractional)
-             VALUES(_itemuomconvid, _item.item_id, _uomid, _item.item_capinvrat, _item.item_fractional);
+             VALUES(_itemuomconvid, _item.item_id, _uomid, 1.0/_item.item_capinvrat, _item.item_fractional);
       END IF;
       INSERT INTO itemuom (itemuom_itemuomconv_id, itemuom_uomtype_id) VALUES(_itemuomconvid, _capid);
     END IF;
@@ -83,7 +83,7 @@ BEGIN
       IF(_itemuomconvid IS NULL) THEN
         SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _itemuomconvid;
         INSERT INTO itemuomconv (itemuomconv_id, itemuomconv_item_id, itemuomconv_to_uom_id, itemuomconv_ratio, item_uomconv_fractional)
-             VALUES(_itemuomconvid, _item.item_id, _uomid, _item.item_altcapinvrat, _item.item_fractional);
+             VALUES(_itemuomconvid, _item.item_id, _uomid, 1.0/_item.item_altcapinvrat, _item.item_fractional);
       END IF;
       INSERT INTO itemuom (itemuom_itemuomconv_id, itemuom_uomtype_id) VALUES(_itemuomconvid, _altcapid);
     END IF;
@@ -98,7 +98,7 @@ BEGIN
       IF(_itemuomconvid IS NULL) THEN
         SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _itemuomconvid;
         INSERT INTO itemuomconv (itemuomconv_id, itemuomconv_item_id, itemuomconv_to_uom_id, itemuomconv_ratio, item_uomconv_fractional)
-             VALUES(_itemuomconvid, _item.item_id, _uomid, _item.item_shipinvrat, _item.item_fractional);
+             VALUES(_itemuomconvid, _item.item_id, _uomid, 1.0/_item.item_shipinvrat, _item.item_fractional);
       END IF;
       INSERT INTO itemuom (itemuom_itemuomconv_id, itemuom_uomtype_id) VALUES(_itemuomconvid, _sellid);
     END IF;
