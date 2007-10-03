@@ -15,7 +15,7 @@ BEGIN
   FOR _r IN SELECT cohead_id, coitem_id, SUM(coship_qty) AS qty,
                    coitem_price, iteminvpricerat(item_id) AS invpricerat, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
-                    OR (NOT cust_partialship) ) AS toclose
+                    OR (NOT cust_partialship) ) AS toclose, coitem_tax_id
             FROM cosmisc, coship, coitem, cohead, custinfo, itemsite, item
             WHERE ( (coship_cosmisc_id=cosmisc_id)
              AND (coship_coitem_id=coitem_id)
@@ -58,15 +58,16 @@ BEGIN
       SELECT getItemTaxType(_r.item_id, cobmisc_taxauth_id) INTO _taxtypeid
         FROM cobmisc
        WHERE (cobmisc_id=_cobmiscid);
-      IF (_taxtypeid IS NOT NULL) THEN
-        SELECT getTaxSelection(cobmisc_taxauth_id, _taxtypeid) INTO _taxid
-          FROM cobmisc
-         WHERE (cobmisc_id=_cobmiscid);
+--      IF (_taxtypeid IS NOT NULL) THEN
+--        SELECT getTaxSelection(cobmisc_taxauth_id, _taxtypeid) INTO _taxid
+--          FROM cobmisc
+--         WHERE (cobmisc_id=_cobmiscid);
+        _taxid := _r.coitem_tax_id;
         SELECT tax_ratea, tax_rateb, tax_ratec
           INTO _pcnta, _pcntb, _pcntc
           FROM tax
          WHERE (tax_id=_taxid);
-      END IF;
+--      END IF;
       INSERT INTO cobill
       ( cobill_cobmisc_id, cobill_coitem_id,
         cobill_selectdate, cobill_select_username,

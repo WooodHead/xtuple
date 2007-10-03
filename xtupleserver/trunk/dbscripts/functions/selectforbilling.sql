@@ -9,7 +9,7 @@ CREATE OR REPLACE FUNCTION selectForBilling(INTEGER, NUMERIC, BOOLEAN) RETURNS I
     _taxtypeid	INTEGER := NULL;
 
   BEGIN
-    SELECT cobmisc_taxauth_id, item_id INTO _taxauthid, _itemid
+    SELECT cobmisc_taxauth_id, coitem_tax_id, item_id INTO _taxauthid, _taxid, _itemid
       FROM cobmisc, coitem, itemsite, item
      WHERE ( (cobmisc_cohead_id=coitem_cohead_id)
        AND   (NOT cobmisc_posted)
@@ -19,9 +19,9 @@ CREATE OR REPLACE FUNCTION selectForBilling(INTEGER, NUMERIC, BOOLEAN) RETURNS I
      LIMIT 1;
 
     _taxtypeid := getItemTaxType(_itemid, _taxauthid);
-    IF (_taxtypeid IS NOT NULL) THEN
-      _taxid := getTaxSelection(_taxauthid, _taxtypeid);
-    END IF;
+    --IF (_taxtypeid IS NOT NULL) THEN
+    --  _taxid := getTaxSelection(_taxauthid, _taxtypeid);
+    --END IF;
     RETURN selectForBilling(pSoitemid, pQty, pClose, _taxtypeid, _taxid);
   END;
 ' LANGUAGE 'plpgsql';
