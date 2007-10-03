@@ -51,11 +51,12 @@ BEGIN
     END IF;
 
     FOR _co IN SELECT coitem_id, coitem_itemsite_id
-	      FROM coitem, shipitem, shiphead
-	      WHERE ((coitem_id=shipitem_orderitem_id)
-		AND  (shipitem_shiphead_id=shiphead_id)
-		AND  (shiphead_shipped)
-		AND  (shiphead_id=pshipheadid) ) FOR UPDATE LOOP
+                 FROM coitem
+                WHERE(coitem_id IN (SELECT shipitem_orderitem_id
+                                      FROM shipitem, shiphead
+                                     WHERE((shipitem_shiphead_id=shiphead_id)
+                                       AND (shiphead_shipped)
+                                       AND (shiphead_id=252)))) FOR UPDATE LOOP
 
       SELECT SUM(shipitem_qty) INTO _qty
       FROM shipitem
