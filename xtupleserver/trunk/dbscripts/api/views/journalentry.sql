@@ -6,12 +6,12 @@ CREATE VIEW api.journalentry
 AS 
    SELECT  
      curr_abbr AS currency,
-     d.gltrans_amount AS amount,
-     d.gltrans_date as dist_date,
-     d.gltrans_docnumber as doc_number,
+     c.gltrans_amount AS amount,
+     c.gltrans_date as dist_date,
+     c.gltrans_docnumber as doc_number,
      formatglaccount(da.accnt_id) AS debit,
      formatglaccount(ca.accnt_id) AS credit,
-     d.gltrans_notes AS notes
+     c.gltrans_notes AS notes
    FROM gltrans d, gltrans c, accnt da, accnt ca, curr_symbol
    WHERE ((d.gltrans_sequence=c.gltrans_sequence)
    AND (d.gltrans_accnt_id=da.accnt_id)
