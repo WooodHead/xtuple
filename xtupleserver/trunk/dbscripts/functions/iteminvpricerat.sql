@@ -23,10 +23,14 @@ BEGIN
     RETURN 1.0;
   END IF;
 
-  SELECT itemuomconv_ratio
+  -- Return the ration as inventory / price
+  SELECT CASE WHEN(itemuomconv_from_uom_id=_fromUomid) THEN itemuomconv_from_value / itemuomconv_to_value
+              ELSE itemuomconv_to_value / itemuomconv_from_value
+         END
     INTO _ratio
     FROM itemuomconv
-   WHERE((itemuomconv_to_uom_id=_toUomid)
+   WHERE((((itemuomconv_from_uom_id=_fromUomid) AND (itemuomconv_to_uom_id=_toUomid))
+       OR ((itemuomconv_from_uom_id=_toUomid) AND (itemuomconv_to_uom_id=_fromUomid)))
      AND (itemuomconv_item_id=pItemid));
 
   IF(NOT FOUND) THEN

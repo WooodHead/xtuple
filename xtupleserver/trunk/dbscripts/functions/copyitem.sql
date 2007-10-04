@@ -50,18 +50,23 @@ BEGIN
    AND (charass_target_id=pSItemid) );
 
   FOR _r IN SELECT itemuomconv_id,
+                   itemuomconv_from_uom_id,
+                   itemuomconv_from_value,
                    itemuomconv_to_uom_id,
-                   itemuomconv_ratio,
+                   itemuomconv_to_value,
                    itemuomconv_fractional
               FROM itemuomconv
              WHERE(itemuomconv_item_id=pSItemid) LOOP
     SELECT nextval(''itemuomconv_itemuomconv_id_seq'') INTO _id;
     INSERT INTO itemuomconv
           (itemuomconv_id, itemuomconv_item_id,
-           itemuomconv_to_uom_id, itemuomconv_ratio,
+           itemuomconv_from_uom_id, itemuomconv_from_value,
+           itemuomconv_to_uom_id, itemuomconv_to_value,
            itemuomconv_fractional)
-    VALUES(_id, _itemid, _r.itemuomconv_to_uom_id,
-           _r.itemuomconv_ratio, _r.itemuomconv_fractional);
+    VALUES(_id, _itemid,
+           _r.itemuomconv_from_uom_id, _r.itemuomconv_from_value,
+           _r.itemuomconv_to_uom_id, _r.itemuomconv_to_value,
+           _r.itemuomconv_fractional);
 
     INSERT INTO itemuom
           (itemuom_itemuomconv_id, itemuom_uomtype_id)

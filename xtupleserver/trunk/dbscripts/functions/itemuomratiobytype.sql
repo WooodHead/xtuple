@@ -4,7 +4,10 @@ DECLARE
   pUomtype ALIAS FOR $2;
   _ratio NUMERIC;
 BEGIN
-  SELECT itemuomconv_ratio
+  -- Return the ration as alternate / inventory uom
+  SELECT CASE WHEN(itemuomconv_from_uom_id=item_inv_uom_id) THEN itemuomconv_to_value / itemuomconv_from_value
+              ELSE itemuomconv_from_value / itemuomconv_to_value
+         END
     INTO _ratio
     FROM item
     JOIN itemuomconv ON (itemuomconv_item_id=item_id)
