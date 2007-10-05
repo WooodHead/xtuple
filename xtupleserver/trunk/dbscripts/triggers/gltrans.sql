@@ -16,7 +16,7 @@ BEGIN
       RAISE EXCEPTION ''Notes are required for Journal Entries.'';
   END IF;
   
-  RETURN;
+  RETURN NEW;
 END;
 ' LANGUAGE 'plpgsql';
 

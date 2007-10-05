@@ -12,33 +12,33 @@ BEGIN
         --report uses currtobase to convert all amounts to base based on the relDate provided by the user are run time
 
         --today and greater base:
-        formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS cur_amt,
 
-        CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        CASE WHEN((apopen_duedate >= DATE(pAsOfDate))) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS cur_val,
 
         --0 to 30 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-30) AND (apopen_duedate < DATE(pAsOfDate)))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS thirty_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-30) AND (apopen_duedate < DATE(pAsOfDate)))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS thirty_val,
 
         --30-60 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-60) AND (apopen_duedate < DATE(pAsOfDate) - 30 ))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS sixty_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-60) AND (apopen_duedate < DATE(pAsOfDate) - 30 ))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS sixty_val,
 
         --60-90 base
         formatMoney(CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-90) AND (apopen_duedate < DATE(pAsOfDate) - 60))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS ninety_amt,
 
         CASE WHEN((apopen_duedate >= DATE(pAsOfDate)-90) AND (apopen_duedate < DATE(pAsOfDate) - 60))
@@ -47,24 +47,24 @@ BEGIN
 
         --greater than 90 base:
         formatMoney(CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000) AND (apopen_duedate < DATE(pAsOfDate) - 90))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS plus_amt,
 
         CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000) AND (apopen_duedate < DATE(pAsOfDate) - 90))
-        THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS plus_val,
 
         --total amount base:
 
-        formatMoney(CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        formatMoney(CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END) AS total_amt,
 
-        CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN (currtobase(apopen_curr_id,(apopen_amount - apopen_paid),(pAsOfDate) ) *
+        CASE WHEN((apopen_duedate > DATE(pAsOfDate)-10000)) THEN ((currtobase(apopen_curr_id,apopen_amount,pAsOfDate)-apapplied(apopen_id,pAsOfDate)) *
         CASE WHEN (apopen_doctype IN (''C'', ''R'')) THEN -1 ELSE 1 END) ELSE 0 END AS total_val,
 
         --AP Open Amount base
 
-        formatMoney(CASE WHEN apopen_doctype IN (''C'', ''R'') THEN currtobase(apopen_curr_id,(apopen_amount * -1),(pAsOfDate)) ELSE currtobase(apopen_curr_id,(apopen_amount),(pAsOfDate)) END) AS f_apopen_amount,
+        formatMoney(CASE WHEN apopen_doctype IN (''C'', ''R'') THEN currtobase(apopen_curr_id,(apopen_amount * -1),(pAsOfDate)) ELSE currtobase(apopen_curr_id,apopen_amount,pAsOfDate) END) AS f_apopen_amount,
 
         --Discount AMT base
         formatMoney(CASE WHEN((DATE(pAsOfDate) <= apopen_docdate  + terms_discdays)) THEN (currtobase(apopen_curr_id,(apopen_amount * terms_discprcnt),(pAsOfDate)) *
@@ -94,11 +94,12 @@ BEGIN
 
         FROM apopen, vendinfo, vendtype, terms
         WHERE ( (apopen_vend_id IS NOT NULL)
-        AND (apopen_open)
-        AND ((apopen_amount - apopen_paid) > 0)
         AND (apopen_vend_id = vend_id)
         AND (vend_terms_id = terms_id)
-        AND (vend_vendtype_id=vendtype_id) )
+        AND (vend_vendtype_id=vendtype_id)
+        AND (apopen_docdate <= pAsOfDate)
+        AND (COALESCE(apopen_closedate,pAsOfdate+1)>pAsOfdate)
+        AND ((currtobase(apopen_curr_id,apopen_amount,pAsOfdate) - apapplied(apopen_id,pAsofdate)) > 0)  )
         ORDER BY vend_number, apopen_duedate
   LOOP
         _row.apaging_docdate := _x.apopen_docdate;

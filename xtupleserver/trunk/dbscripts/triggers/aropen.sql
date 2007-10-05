@@ -8,6 +8,11 @@ BEGIN
 --  Close this aropen if it is paid
   IF (NEW.aropen_paid = NEW.aropen_amount) THEN
     NEW.aropen_open=FALSE;
+    IF (TG_OP = ''UPDATE'') THEN
+      IF ((OLD.aropen_open=TRUE) and (NEW.aropen_open=FALSE)) THEN
+        NEW.aropen_closedate=current_date;
+      END IF;
+    END IF;
 
 --  Remove any aropenco regards that reference this aropen item
     DELETE FROM aropenco WHERE (aropenco_aropen_id=NEW.aropen_id);
