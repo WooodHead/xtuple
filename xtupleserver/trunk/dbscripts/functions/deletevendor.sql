@@ -59,10 +59,11 @@ BEGIN
      RETURN -6;
    END IF;
 
---  Check to see if the passed vendor has any apchk items
-  SELECT apchk_vend_id INTO _test
-    FROM apchk
-   WHERE (apchk_vend_id=pVendid)
+--  Check to see if the passed vendor has any checkhead items
+  SELECT checkhead_recip_id INTO _test
+    FROM checkhead
+   WHERE ((checkhead_recip_id=pVendid)
+     AND  (checkhead_recip_type=''V''))
    LIMIT 1;
    IF (FOUND) THEN
      RETURN -7;

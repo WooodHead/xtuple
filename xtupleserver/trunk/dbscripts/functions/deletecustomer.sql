@@ -45,6 +45,15 @@ BEGIN
     RETURN -5;
   END IF;
 
+  PERFORM checkhead_recip_id
+    FROM checkhead
+   WHERE ((checkhead_recip_id=pCustid)
+     AND  (checkhead_recip_type=''C''))
+   LIMIT 1;
+   IF (FOUND) THEN
+     RETURN -6;
+   END IF;
+
   PERFORM invchead_id
      FROM invchead
     WHERE(invchead_cust_id=pCustid)

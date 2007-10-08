@@ -81,11 +81,32 @@ DECLARE
   pSalesrepid ALIAS FOR $12;
   pCommissiondue ALIAS FOR $13;
   pCurrId ALIAS FOR $14;
+BEGIN
+  RETURN createARDebitMemo(pCustid, fetchJournalNumber(''AR-MISC''), pDocNumber, pOrderNumber, pDocDate, pAmount, pNotes, pRsncodeid, pSalescatid, pAccntid, pDueDate, pTermsid, pSalesrepid, pCommissiondue, baseCurrId() );
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createARDebitMemo(INTEGER, TEXT, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pCustid		ALIAS FOR $1;
+  _journalNumber	TEXT := $2;
+  pDocNumber		ALIAS FOR $3;
+  pOrderNumber		ALIAS FOR $4;
+  pDocDate		ALIAS FOR $5;
+  pAmount		ALIAS FOR $6;
+  pNotes		ALIAS FOR $7;
+  pRsncodeid		ALIAS FOR $8;
+  pSalescatid		ALIAS FOR $9;
+  pAccntid		ALIAS FOR $10;
+  pDueDate		ALIAS FOR $11;
+  pTermsid		ALIAS FOR $12;
+  pSalesrepid		ALIAS FOR $13;
+  pCommissiondue	ALIAS FOR $14;
+  pCurrId		ALIAS FOR $15;
   _prepaidAccntid INTEGER;
   _salescatid INTEGER;
   _accntid INTEGER;
   _glSequence INTEGER;
-  _journalNumber INTEGER;
   _aropenid INTEGER;
   _tmp INTEGER;
 
@@ -120,7 +141,10 @@ BEGIN
     _salescatid = -1;
   END IF;
 
-  SELECT fetchJournalNumber(''AR-MISC'') INTO _journalNumber;
+  IF (_journalNumber IS NULL) THEN
+    _journalNumber := fetchJournalNumber(''AR-MISC'');
+  END IF;
+
   SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
 
   SELECT insertGLTransaction( _journalNumber, ''A/R'', ''DM'',

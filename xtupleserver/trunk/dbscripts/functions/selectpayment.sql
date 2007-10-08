@@ -13,15 +13,15 @@ BEGIN
          apopen_doctype, apopen_docdate,
          apopen_curr_id,
          apopen_amount - apopen_paid
-           - COALESCE((SELECT SUM(currToCurr(apchkitem_curr_id,
+           - COALESCE((SELECT SUM(currToCurr(checkitem_curr_id,
                                              apopen_curr_id,
-                                             apchkitem_amount + apchkitem_discount,
-                                             apchk_checkdate))
-                         FROM apchkitem, apchk
-                        WHERE((apchkitem_apchk_id=apchk_id)
-                          AND (apchkitem_apopen_id=apopen_id)
-                          AND (NOT apchk_void)
-                          AND (NOT apchk_posted)) ),0) AS balance,
+                                             checkitem_amount + checkitem_discount,
+                                             checkhead_checkdate))
+                         FROM checkitem, checkhead
+                        WHERE((checkitem_checkhead_id=checkhead_id)
+                          AND (checkitem_apopen_id=apopen_id)
+                          AND (NOT checkhead_void)
+                          AND (NOT checkhead_posted)) ),0) AS balance,
          noNeg(apopen_amount * CASE WHEN (CURRENT_DATE <= (apopen_docdate + terms_discdays)) THEN terms_discprcnt ELSE 0.0 END - discount_applied) AS discount_available
     INTO _p
     FROM apopen LEFT OUTER JOIN terms ON (apopen_terms_id=terms_id),
