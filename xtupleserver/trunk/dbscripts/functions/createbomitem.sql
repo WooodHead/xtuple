@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CHAR,
-                                          NUMERIC, NUMERIC,
+                                          INTEGER, NUMERIC, NUMERIC,
                                           CHAR(1), INTEGER, BOOLEAN,
                                           DATE, DATE,
                                           BOOL, INTEGER, BOOL, TEXT, CHAR )
@@ -10,18 +10,19 @@ DECLARE
   pComponentItemid ALIAS FOR $3;
   pSeqNumber ALIAS FOR $4;
   pIssueMethod ALIAS FOR $5;
-  pQtyPer ALIAS FOR $6;
-  pScrap ALIAS FOR $7;
-  pConfigType ALIAS FOR $8;
-  pConfigId ALIAS FOR $9;
-  pConfigFlag ALIAS FOR $10;
-  pEffective ALIAS FOR $11;
-  pExpires ALIAS FOR $12;
-  pCreateWo ALIAS FOR $13;
-  pBOOItemid ALIAS FOR $14;
-  pSchedAtWooper ALIAS FOR $15;
-  pECN ALIAS FOR $16;
-  pSubType ALIAS FOR $17;
+  pUomId ALIAS FOR $6;
+  pQtyPer ALIAS FOR $7;
+  pScrap ALIAS FOR $8;
+  pConfigType ALIAS FOR $9;
+  pConfigId ALIAS FOR $10;
+  pConfigFlag ALIAS FOR $11;
+  pEffective ALIAS FOR $12;
+  pExpires ALIAS FOR $13;
+  pCreateWo ALIAS FOR $14;
+  pBOOItemid ALIAS FOR $15;
+  pSchedAtWooper ALIAS FOR $16;
+  pECN ALIAS FOR $17;
+  pSubType ALIAS FOR $18;
   _bomworksetid INTEGER;
   _temp INTEGER;
 
@@ -54,7 +55,7 @@ BEGIN
   INSERT INTO bomitem
   ( bomitem_id, bomitem_parent_item_id, bomitem_item_id,
     bomitem_seqnumber, bomitem_issuemethod,
-    bomitem_qtyper, bomitem_scrap,
+    bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
     bomitem_configtype, bomitem_configid, bomitem_configflag,
     bomitem_effective, bomitem_expires,
     bomitem_createwo,
@@ -63,7 +64,7 @@ BEGIN
   VALUES
   ( pBomitemid, pParentItemid, pComponentItemid,
     pSeqNumber, pIssueMethod,
-    pQtyPer, pScrap,
+    pUomId, pQtyPer, pScrap,
     pConfigType, pConfigId, pConfigFlag,
     pEffective, pExpires,
     pCreateWo,
@@ -75,6 +76,95 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
+
+CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
+                                          INTEGER, NUMERIC, NUMERIC,
+                                          CHAR(1), INTEGER, BOOLEAN,
+                                          DATE, DATE,
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR(1) )
+                           RETURNS INTEGER AS '
+DECLARE
+  pBomitemid ALIAS FOR $1;
+  pParentItemid ALIAS FOR $2;
+  pComponentItemid ALIAS FOR $3;
+  pIssueMethod ALIAS FOR $4;
+  pUomId ALIAS FOR $5;
+  pQtyPer ALIAS FOR $6;
+  pScrap ALIAS FOR $7;
+  pConfigType ALIAS FOR $8;
+  pConfigId ALIAS FOR $9;
+  pConfigFlag ALIAS FOR $10;
+  pEffective ALIAS FOR $11;
+  pExpires ALIAS FOR $12;
+  pCreateWo ALIAS FOR $13;
+  pBOOItemid ALIAS FOR $14;
+  pSchedAtWooper ALIAS FOR $15;
+  pECN ALIAS FOR $16;
+  pSubType ALIAS FOR $17;
+  _seqNumber INTEGER;
+  _bomitemid INTEGER;
+
+BEGIN
+
+--  Grab the next Sequence Number, if any
+  SELECT MAX(bomitem_seqnumber) INTO _seqNumber
+  FROM bomitem
+  WHERE (bomitem_parent_item_id=pParentItemid);
+
+  IF (_seqNumber IS NOT NULL) THEN
+   _seqNumber := (_seqNumber + 10);
+  ELSE
+   _seqNumber := 10;
+  END IF;
+
+  SELECT createBOMItem( pBomitemid, pParentItemid, pComponentItemid,
+                        _seqNumber, pIssueMethod,
+                        pUomId, pQtyPer, pScrap,
+                        pConfigType, pConfigId, pConfigFlag,
+                        pEffective, pExpires,
+                        pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType ) INTO _bomitemid;
+
+  RETURN _bomitemid;
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CHAR,
+                                          NUMERIC, NUMERIC,
+                                          CHAR(1), INTEGER, BOOLEAN,
+                                          DATE, DATE,
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR )
+                           RETURNS INTEGER AS '
+DECLARE
+  pBomitemid ALIAS FOR $1;
+  pParentItemid ALIAS FOR $2;
+  pComponentItemid ALIAS FOR $3;
+  pSeqNumber ALIAS FOR $4;
+  pIssueMethod ALIAS FOR $5;
+  pQtyPer ALIAS FOR $6;
+  pScrap ALIAS FOR $7;
+  pConfigType ALIAS FOR $8;
+  pConfigId ALIAS FOR $9;
+  pConfigFlag ALIAS FOR $10;
+  pEffective ALIAS FOR $11;
+  pExpires ALIAS FOR $12;
+  pCreateWo ALIAS FOR $13;
+  pBOOItemid ALIAS FOR $14;
+  pSchedAtWooper ALIAS FOR $15;
+  pECN ALIAS FOR $16;
+  pSubType ALIAS FOR $17;
+  _result INTEGER;
+BEGIN
+  SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
+            pSeqNumber, pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
+            pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
+            pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType)
+    INTO _result
+    FROM item
+   WHERE(item_id=pParentItemid);
+  RETURN _result;
+END;
+' LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           NUMERIC, NUMERIC,
@@ -99,30 +189,16 @@ DECLARE
   pSchedAtWooper ALIAS FOR $14;
   pECN ALIAS FOR $15;
   pSubType ALIAS FOR $16;
-  _seqNumber INTEGER;
-  _bomitemid INTEGER;
+  _result INTEGER;
 
 BEGIN
-
---  Grab the next Sequence Number, if any
-  SELECT MAX(bomitem_seqnumber) INTO _seqNumber
-  FROM bomitem
-  WHERE (bomitem_parent_item_id=pParentItemid);
-
-  IF (_seqNumber IS NOT NULL) THEN
-   _seqNumber := (_seqNumber + 10);
-  ELSE
-   _seqNumber := 10;
-  END IF;
-
-  SELECT createBOMItem( pBomitemid, pParentItemid, pComponentItemid,
-                        _seqNumber, pIssueMethod,
-                        pQtyPer, pScrap,
-                        pConfigType, pConfigId, pConfigFlag,
-                        pEffective, pExpires,
-                        pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType ) INTO _bomitemid;
-
-  RETURN _bomitemid;
-
+  SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
+            pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
+            pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
+            pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType)
+    INTO _result
+    FROM item
+   WHERE(item_id=pParentItemid);
+  RETURN _result;
 END;
 ' LANGUAGE 'plpgsql';

@@ -22,7 +22,7 @@ BEGIN
   SELECT _indexid, -1,
          1, bomitem_seqnumber,
          item_id, item_type, bomitem_createwo,
-         bomitem_qtyper, bomitem_scrap, bomitem_issuemethod,
+         itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper), bomitem_scrap, bomitem_issuemethod,
          bomitem_effective, bomitem_expires, ''U'',
          stdcost(item_id), actcost(item_id)
   FROM bomitem, item
@@ -49,7 +49,7 @@ BEGIN
     SELECT _indexid, bomwork_id,
            _level, bomitem_seqnumber,
            item_id, item_type, bomitem_createwo,
-           (bomwork_qtyper * bomitem_qtyper),
+           (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)),
            bomitem_scrap, bomitem_issuemethod,
            bomitem_effective, bomitem_expires, ''N'',
            stdcost(item_id), actcost(item_id)

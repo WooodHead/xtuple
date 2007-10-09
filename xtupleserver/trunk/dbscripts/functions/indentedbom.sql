@@ -16,7 +16,7 @@ BEGIN
 --  Step through all of the components of the passed pItemid
   FOR _r IN SELECT bomitem_seqnumber,
                    item_id, bomitem_createwo,
-                   bomitem_qtyper, bomitem_scrap, bomitem_issuemethod,
+                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
   FROM bomitem, item
@@ -36,7 +36,7 @@ BEGIN
     ( _bomworkid, _indexid, -1, 1,
       0, _r.bomitem_seqnumber,
       _r.item_id, _r.bomitem_createwo,
-      _r.bomitem_qtyper, _r.bomitem_scrap, _r.bomitem_issuemethod,
+      _r.qtyper, _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.bomitem_effective, _r.bomitem_expires,
       _r.standardcost, _r.actualcost );
 

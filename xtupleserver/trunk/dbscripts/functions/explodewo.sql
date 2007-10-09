@@ -86,7 +86,7 @@ BEGIN
   ( womatl_wo_id, womatl_bomitem_id, womatl_wooper_id, womatl_schedatwooper,
     womatl_itemsite_id,
     womatl_duedate,
-    womatl_qtyper, womatl_scrap,
+    womatl_uom_id, womatl_qtyper, womatl_scrap,
     womatl_qtyreq,
     womatl_qtyiss, womatl_qtywipscrap,
     womatl_lastissue, womatl_lastreturn, womatl_cost,
@@ -96,8 +96,8 @@ BEGIN
          CASE WHEN bomitem_schedatwooper THEN COALESCE(calcWooperStart(wo_id,bomitem_booitem_id), wo_startdate)
               ELSE wo_startdate
          END,
-         bomitem_qtyper, bomitem_scrap,
-         roundQty(item_fractional, (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
+         bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
+         roundQty(itemuomfractionalbytype(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
          0, 0,
          startOfTime(), startOfTime(), 0,
          item_picklist, ( (item_type=''M'') AND (bomitem_createwo) ), bomitem_issuemethod
@@ -222,8 +222,7 @@ BEGIN
       INSERT INTO womatl
       ( womatl_wo_id, womatl_itemsite_id, womatl_wooper_id,
         womatl_schedatwooper, womatl_duedate,
-        womatl_qtyper,
-        womatl_scrap,
+        womatl_uom_id, womatl_qtyper, womatl_scrap,
         womatl_qtyreq,
         womatl_qtyiss, womatl_qtywipscrap,
         womatl_lastissue, womatl_lastreturn,
@@ -231,9 +230,8 @@ BEGIN
         womatl_issuemethod )
       SELECT pWoid, cs.itemsite_id, _p.womatl_wooper_id,
              womatl_schedatwooper, womatl_duedate,
-             (bomitem_qtyper * womatl_qtyper),
-             bomitem_scrap,
-             roundQty(ci.item_fractional, (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
+             bomitem_uom_id, (bomitem_qtyper * womatl_qtyper), bomitem_scrap,
+             roundQty(itemuomfractionalbytype(bomitem_item_id, bomitem_uom_id), (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
              0, 0,
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),

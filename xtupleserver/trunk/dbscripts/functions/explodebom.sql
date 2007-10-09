@@ -22,7 +22,7 @@ BEGIN
 --  Step through all of the components of the parent component
   FOR _r IN SELECT bomitem_seqnumber,
                    item_id, bomitem_createwo,
-                   bomitem_qtyper, bomitem_scrap, bomitem_issuemethod,
+                   itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    CASE WHEN (_p.bomwork_effective > bomitem_effective) THEN _p.bomwork_effective
                         ELSE bomitem_effective
                    END AS effective,
@@ -47,7 +47,7 @@ BEGIN
     ( _bomworkid, _p.bomwork_set_id, pParentid, _level,
       _p.bomwork_seqnumber, _r.bomitem_seqnumber,
       _r.item_id, _r.bomitem_createwo,
-      (_p.bomwork_qtyper * _r.bomitem_qtyper), _r.bomitem_scrap, _r.bomitem_issuemethod,
+      (_p.bomwork_qtyper * _r.qtyper), _r.bomitem_scrap, _r.bomitem_issuemethod,
       _r.effective, _r.expires,
       _r.standardcost, _r.actualcost );
 

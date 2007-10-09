@@ -11,7 +11,7 @@ BEGIN
                    (planord_startdate - c.itemsite_leadtime) AS startdate,
                    planord_startdate AS duedate,
                    bomitem_createwo, item_planning_type,
-                   (bomitem_qtyper * pQty * (1 + bomitem_scrap)) AS qtyreq,
+                   (itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) * pQty) AS qtyreq,
                    item_type
               FROM bomitem, planord, itemsite AS p, itemsite AS c, item
              WHERE ((bomitem_parent_item_id=p.itemsite_item_id)

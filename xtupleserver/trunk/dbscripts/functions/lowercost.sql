@@ -32,8 +32,8 @@ BEGIN
 
   -- find the lowercost in the base currency at the current conversion rate
   IF (_type IN (''M'', ''F'', ''B'', ''T'')) THEN
-    SELECT SUM( ROUND(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),4) * bomitem_qtyper * (1 + bomitem_scrap) ),
-           SUM( itemcost_stdcost * bomitem_qtyper * (1 + bomitem_scrap) )
+    SELECT SUM( ROUND(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),4) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) ),
+           SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) )
 	INTO _actCost, _stdCost
     FROM itemcost, costelem, bomitem
     WHERE ( (bomitem_parent_item_id=pItemid)
