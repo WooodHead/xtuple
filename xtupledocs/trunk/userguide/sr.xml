@@ -1,0 +1,2814 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<chapter id="Chapter548296">
+   <title>
+            <anchor id="Anchor74541" role="Cross-Ref"
+              xreflabel="74541: ChapterTitle: Shipping &amp; Receiving (S/R) Module"/>Shipping &amp; Receiving (S/R) Module</title>
+   <para id="Para548308">
+            <PgfTag>Body</PgfTag>
+            <PgfAutoNum>No</PgfAutoNum>
+            <PgfOptJLetterSpace>0</PgfOptJLetterSpace>
+            <PgfCellLMarginFixed>No</PgfCellLMarginFixed>
+         </para>
+   <para id="Para548295">
+xTuple Applications User Guide    
+         </para>
+   <para id="Para548278">xTuple Applications User Guide    
+         </para>
+   <para id="Para548336">xTuple Applications User Guide    
+         </para>
+   <para id="Para548254">
+   xTuple Applications User Guide</para>
+   <para id="Para519884">In this chapter, we describe the Inventory module. This module is responsible for the following key functions:</para>
+   <itemizedlist>
+      <listitem>
+         <para id="Para518488">Issuing Stock to Shipping</para>
+      </listitem>
+      <listitem>
+         <para id="Para518489">Shipping Orders</para>
+      </listitem>
+      <listitem>
+         <para id="Para528377">Receiving Orders</para>
+      </listitem>
+   </itemizedlist>
+   <section id="Section518491">
+      <title>
+            Shipping
+         </title>
+      <para id="Para519627">The shipment of orders is described in this section.</para>
+      <section id="Section551604">
+         <title>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="/sections/packingListBatch.fm"/>
+                  <anchor id="Anchor551603" role="Index"
+                    xreflabel="packing lists:batch printing of;batch mode:printing packing lists using"/>
+                  <indexterm zone="Anchor551603" significance="normal">
+               <primary>packing lists</primary>
+               <secondary>batch printing of</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551603" significance="normal">
+               <primary>batch mode</primary>
+               <secondary>printing packing lists using</secondary>
+            </indexterm>Packing List Batch
+            </title>
+         <para id="Para551605">If you want to print Packing Lists or Sales Order Pick Lists in batch mode--or to gain greater visibility over your Packing and Pick Lists--select the "Packing List Batch" option. The following screen will appear:</para>
+         <note>
+            <para id="Para551607">A Sales Order "Pick List" will be printed if the Sales Order does not yet have a Shipment Number associated with it--that is, if no Line Item quantity has been issued to shipping. If stock has been issued to Shipping, then the "Packing List" report definition will be used. The Pick List and Packing List Form assignments are made on the Customer Form Assignments screen.</para>
+         </note>
+         <para id="Para551611">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic551609" fileref="../images/SO_Ord_packListBatch.png"/>
+                  </imageobject>
+                  <caption id="Caption551612">
+                        Packing List Batch
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para551614">The system includes two alternate Sales Order Pick List report definitions:</para>
+            <para id="Para551615">"PickingListSOClosedLines.xml"</para>
+            <para id="Para551616">"PickingListNoClosedLines.xml"</para>
+            <para id="Para551617">The first includes already closed Sales Order Line Items in the report; the other excludes closed Line Items.</para>
+         </tip>
+         <para id="Para551618">When printing Packing Lists in batch mode, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551619">Selected Orders</term>
+               <listitem>
+                  <para id="Para"> Display lists selected Orders (i.e., Sales Orders and Transfer Orders). </para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551620">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551621">CLOSE</term>
+               <listitem>
+                  <para id="Para">Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551622">PRINT EDIT LIST</term>
+               <listitem>
+                  <para id="Para"> Select to print a copy of the contents displayed on the screen, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551623">PRINT BATCH</term>
+               <listitem>
+                  <para id="Para"> Select to print packing lists for all Orders in batch list. A Sales Order Pick List will be printed if the Sales Order does not yet have a Shipment Number associated with it--that is, if no Line Item quantity has been issued to shipping. If stock has been issued to Shipping, then the Packing List report definition will be used.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551624">DELETE PRINTED</term>
+               <listitem>
+                  <para id="Para"> Select to delete Orders from batch printing list once they have been printed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551625">ADD S/O</term>
+               <listitem>
+                  <para id="Para"> Select to add a Sales Order to the list of selected Orders.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551626">ADD T/O</term>
+               <listitem>
+                  <para id="Para"> Select to add a Transfer Order to the list of selected Orders.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551627">DELETE ORDER</term>
+               <listitem>
+                  <para id="Para"> Highlight an Order and then select this button to remove the Order from the list.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551628">PRINT PACKING LIST</term>
+               <listitem>
+                  <para id="Para"> Highlight an Order, then select this option to print an individual Packing List or Sales Order Pick List for the specified Order. A Sales Order Pick List will be printed if the Sales Order does not yet have a Shipment Number associated with it--that is, if no Line Item quantity has been issued to shipping. If stock has been issued to Shipping, then the Packing List report definition will be used.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551629">Automatically Update</term>
+               <listitem>
+                  <para id="Para"> Select to automatically update the information displayed in the Packing List batch.</para>
+                  <para id="Para551630">The list will automatically update every 60 seconds if this option is selected.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section547036">
+         <title>
+                  <anchor id="Anchor541061" role="Index"
+                    xreflabel="packing lists:batch printing of;batch mode:printing packing lists using;ship vias:printing packing lists by"/>
+                  <indexterm zone="Anchor541061" significance="normal">
+               <primary>packing lists</primary>
+               <secondary>batch printing of</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor541061" significance="normal">
+               <primary>batch mode</primary>
+               <secondary>printing packing lists using</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor541061" significance="normal">
+               <primary>ship vias</primary>
+               <secondary>printing packing lists by</secondary>
+            </indexterm>Print Packing List Batch by Ship Via
+            </title>
+         <para id="Para541063">If you want to print batches of Packing Lists according to their Ship Via method, select the "Print Packing List Batch by Ship Via" option. The following screen will appear:</para>
+         <para id="Para541067">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic541065" fileref="../images/SR_Ship_printBatShipVia.png"/>
+                  </imageobject>
+                  <caption id="Caption541068">
+                        Print Packing List Batch by Ship Via
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para541369">If you don"t see any Ship Vias appearing in the Ship Via list, this probably means you don"t have any unprinted Orders on the Packing List Batch. To verify, open the Packing List Batch and check the printed status of the Orders listed there.</para>
+         </tip>
+         <para id="Para541365">When printing batches of Packing Lists according to their Ship Via, you are presented with the following options:</para>
+         <note>
+            <para id="Para550834">The system supports up-to-date shipment tracking with links to the websites of many leading shipping companies (i.e., "Ship Vias").</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para541225">Ship Via</term>
+               <listitem>
+                  <para id="Para"> Specify the Ship Via whose batched Packing Lists you want to print.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para541214">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para541175">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing a Packing List batch, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para541176">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints the Packing List batch for the specified Ship Via.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section529534">
+         <title>
+                  <anchor id="Anchor529533" role="Index" xreflabel="shipping:issuing stock to"/>
+                  <indexterm zone="Anchor529533" significance="normal">
+               <primary>shipping</primary>
+               <secondary>issuing stock to</secondary>
+            </indexterm>Issue Stock to Shipping
+            </title>
+         <para id="Para519692">Once Sales Order (or Transfer Order) Line Items are ready to be shipped, they must be issued to Shipping. To issue Stock to Shipping, select the "Issue Stock to Shipping" option. The following screen will appear:</para>
+         <para id="Para519693">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519700" fileref="../images/SR_Ship_issueStockShip.png"/>
+                  </imageobject>
+                  <caption id="Caption519694">
+                        Issue Stock to Shipping
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <note>
+            <para id="Para540972">Before a Sales Order can be shipped successfully, Sales Account and A/R Account Assignments for the specified Customer must be in place.</para>
+         </note>
+         <para id="Para518505">When issuing Stock to Shipping, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518506">Sales Order #</term>
+               <listitem>
+                  <para id="Para"> Enter the Sales Order Number of the Sales Order whose Stock you want to issue to Shipping.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para548596">Transfer Order #</term>
+               <listitem>
+                  <para id="Para"> Enter the Transfer Order Number of the Transfer Order whose Stock you want to issue to Shipping.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549039">From</term>
+               <listitem>
+                  <para id="Para"> Displays the Source Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549043">To</term>
+               <listitem>
+                  <para id="Para"> Displays the Destination Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para548589">Require sufficient Inventory</term>
+               <listitem>
+                  <para id="Para"> Select to ensure you have enough Quantity on Hand of a Line Item prior to issuing Stock to Shipping.</para>
+                  <para id="Para541773">If selected, this option will prevent you from issuing Line Item quantity to Shipping if doing so would force Quantity on Hand for the Item Site to fall below zero. Not selecting this option means issuing Stock to Shipping may drive Item Site Quantity on Hand negative.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518508">Line Items</term>
+               <listitem>
+                  <para id="Para"> Display lists Sales Order Line Items available for Shipping.</para>
+                  <para id="Para550953">If the Scheduled Date for an unshipped Line Item is in the future, the line will display in green text. If the Scheduled Date for an unshipped Line Item is not in the future, the line will display in red text. Once shipped, all Line Items revert to black text.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para542766">Issue Items Using Bar Code</term>
+               <listitem>
+                  <para id="Para"> This is an optional field which allows you to issue stock to Shipping using a Bar Code scanner.</para>
+                  <para id="Para547719">Enter a UPC Code for a Sales Order Line Item using a Bar Code scanner--or manually enter the UPC Code. The UPC Code for an Item is stored on the Item master. Once the code is entered, specify a quantity and then select the FIND button to issue the Line Item quantity to shipping. You may also hit the ENTER key on your keyboard to select the FIND button. This field also supports the scanning of Work Order bar codes, if the Work Order is linked to a Sales Order. The Sales Order Number must already be entered for the Work Order scan to be successful. If the scan is not successful, then you know the Work Order does not belong to the Sales Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para547727">Most scanners allow you to change a setting that automatically sends the ENTER command after a scan. This allows keyboard-free entry.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para542777">Qty.</term>
+               <listitem>
+                  <para id="Para"> Specify the quantity of Line Items to be issued using a UPC Code. To issue the Line Item quantity to shipping, select the FIND button--or hit the ENTER key on your keyboard to select the FIND button.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518510">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518511">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without issuing stock to Shipping, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para542813">If an Order is marked "Ship Complete," you will be prevented from shipping the Order until all Line Item quantities are issued to Shipping.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para526639">SHIP ORDER</term>
+               <listitem>
+                  <para id="Para"> Select to Ship the specified Sales Order, as described in the <link id="XRef542560" linkend="Anchor28938" endterm="Anchor28938"> Ship Order</link>"Ship Order" section.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para526640">ISSUE STOCK</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to issue stock to Shipping. You may also double-click on a Line Item to reach the Issue Stock screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para542826">If an Item issued to Shipping is a <anchor id="Anchor542825" role="Index"
+                       xreflabel="multiple location control:impact on shipping;shipping:MLC impact on"/>
+                     <indexterm zone="Anchor542825" significance="normal">
+                  <primary>multiple location control</primary>
+                  <secondary>impact on shipping</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor542825" significance="normal">
+                  <primary>shipping</primary>
+                  <secondary>MLC impact on</secondary>
+               </indexterm>Multiple Location Control (MLC) Item, you will be prompted to specify the Location you want to issue stock from.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para526641">ISSUE LINE BAL.</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to issue the balance of the Line to shipping.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para526642">RETURN STOCK</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to remove the Line from Shipping, returning the stock to Inventory.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para543610">If your site integrates UPS WorldShip with the system, you should process Orders in WorldShip after they have been issued to Shipping--but before they have been shipped. For more information, see the <link id="XRef543629" linkend="Anchor29552" endterm="Anchor29552"> UPS WorldShip Integration</link>"Topic: UPS WorldShip Integration" section.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para543555">ISSUE ALL BAL.</term>
+               <listitem>
+                  <para id="Para"> Select to issue all Line Items to Shipping simultaneously.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para543595">FIND</term>
+               <listitem>
+                  <para id="Para"> Compares the UPC Code entered in the "Issue Items Using Barcode" field with the UPC Codes for the listed Sales Order Line Items, then issues to Shipping the quantity specified in the "Qty." field. The FIND button may be selected using your mouse--or by hitting the ENTER key, which corresponds to the FIND button. Because the FIND button corresponds to the ENTER key, you can scan in a UPC Code and then hit ENTER to issue a quantity of one to Shipping. If you prefer, you can scan in a UPC Code and then specify a different quantity before hitting ENTER.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518512">
+                  <anchor id="Anchor535320" role="Index" xreflabel="shipping:issue line item to"/>
+                  <indexterm zone="Anchor535320" significance="normal">
+               <primary>shipping</primary>
+               <secondary>issue line item to</secondary>
+            </indexterm>To issue a Line Item to Shipping, highlight the Line Item, then select the ISSUE STOCK button. You may also double-click on the Line Item. The following screen will appear:</para>
+         <para id="Para518516">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519950" fileref="../images/SR_Ship_issueLineToShip.png"/>
+                  </imageobject>
+                  <caption id="Caption518517">
+                        Issue Line Item to Shipping
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518518">When issuing a Line Item to Shipping, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518519">Sales Order #</term>
+               <listitem>
+                  <para id="Para"> Displays Sales Order Number for specified Line Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518521">Item Number</term>
+               <listitem>
+                  <para id="Para"> Displays Item Number for specified Line Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550780">UOM</term>
+               <listitem>
+                  <para id="Para"> Inventory Unit of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518525">Warehouse</term>
+               <listitem>
+                  <para id="Para"> Displays Warehouse identified on Sales Order Line Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518526">Qty. Ordered</term>
+               <listitem>
+                  <para id="Para"> Displays quantity of Item ordered.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518527">Qty. Shipped</term>
+               <listitem>
+                  <para id="Para"> Displays quantity of Item already shipped for specified Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518528">Qty. Returned</term>
+               <listitem>
+                  <para id="Para"> Displays quantity of Item returned for specified Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518529">Balance Due</term>
+               <listitem>
+                  <para id="Para"> Displays balance of Line Item remaining to be shipped for specified Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518530">Qty. at Shipping</term>
+               <listitem>
+                  <para id="Para"> Displays quantity of Item at Shipping for specified Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518534">
+                  <PgfTag>Paragraph</PgfTag>
+               Qty. to Issue: Enter the quantity of Items you want to issue to Shipping for specified Order.</para>
+         <para id="Para518536">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518537">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without issuing Stock to Shipping, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518538">ISSUE</term>
+               <listitem>
+                  <para id="Para"> Select to issue the specified Line Item quantity to Shipping.</para>
+                  <para id="Para518539">If the specified Item is a Multiple Location Control Item, you will be brought to the "Distribute Stock To/From Warehouse Locations" screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section520522">
+         <title>
+                  <anchor id="Anchor529415" role="Index"
+                    xreflabel="shipping:maintaining contents at;shipping contents:maintenance of"/>
+                  <indexterm zone="Anchor529415" significance="normal">
+               <primary>shipping</primary>
+               <secondary>maintaining contents at</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor529415" significance="normal">
+               <primary>shipping contents</primary>
+               <secondary>maintenance of</secondary>
+            </indexterm>Maintain Shipping Contents
+            </title>
+         <para id="Para518541">When Items have been issued to Shipping, you have the ability to maintain these Shipping contents in one central location, by Warehouse. To maintain Shipping contents, select the "Maintain Shipping Contents" option. The following screen will appear:</para>
+         <para id="Para518545">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519965" fileref="../images/SR_Ship_maintShipContents.png"/>
+                  </imageobject>
+                  <caption id="Caption518546">
+                        Maintain Shipping Contents
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518547">When maintaining Shipping contents, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry role="openmfg">
+               <term id="Para518548">All Warehouses</term>
+               <listitem>
+                  <para id="Para">Select to maintain Shipping contents for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para518550">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose Shipping contents you want to maintain.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518552">Stock at Shipping</term>
+               <listitem>
+                  <para id="Para"> Display lists Stock at Shipping based on the specified parameters.</para>
+                  <para id="Para550966">This display is a nested list, with a plus ("+") sign located to the far left of the display next to each line that may be expanded to lower levels. By clicking your mouse on a plus sign, you reveal lower levels of information related to the Documents.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para538855">The printed status for a Sales Order at Shipping may be either "No," "Yes," or "Dirty." The first two options indicate whether Shipping Forms have been printed for the Order or not. The Dirty status indicates Shipping contents have changed since Shipping Forms were printed for the Order.</para>
+         </note>
+         <para id="Para533922">To the far right of the screen, the following button is available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para533923">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without maintaining Shipping contents, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para519596">Right-clicking on a parent Order in the "Stock at Shipping" list enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518557">Shipping Information</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518559">Return ALL Stock Issued to Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518560">View Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para528216">Print Shipping Form</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para528219">Ship Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518567">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+         <para id="Para533960">Before a Sales Order can be shipped successfully, Sales Account and A/R Account Assignments for the specified Customer must be in place.</para>
+      </section>
+      <section id="Section518568">
+         <title>
+                  <anchor id="Anchor529417" role="Index" xreflabel="shipping:shipping sales orders"/>
+                  <indexterm zone="Anchor529417" significance="normal">
+               <primary>shipping</primary>
+               <secondary>shipping sales orders</secondary>
+            </indexterm>
+                  <anchor id="Anchor28938" role="Cross-Ref" xreflabel="28938: Heading2: Ship Order"/>Ship Order
+            </title>
+         <para id="Para518569">To ship an Order, select the "Ship Order" option. The following screen will appear:</para>
+         <para id="Para518573">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519984" fileref="../images/SR_Ship_shipOrder.png"/>
+                  </imageobject>
+                  <caption id="Caption518574">
+                        Ship Order
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para535542">Before a Sales Order can be shipped successfully, Sales Account and Accounts Receivable (A/R) Account Assignments for the specified Customer must be in place.</para>
+         </tip>
+         <para id="Para518575">When Shipping an Order, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518576">Sales Order #</term>
+               <listitem>
+                  <para id="Para"> Enter the Order Number of the Sales Order you want to ship.</para>
+                  <para id="Para548804">The browse button located to the right of the field leads to a searchable list of Sales Orders available for Shipping. This option will be disabled if a Transfer Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para548810">Transfer Order #</term>
+               <listitem>
+                  <para id="Para"> Enter the Order Number of the Transfer Order you want to ship.</para>
+                  <para id="Para548805">The browse button located to the right of the field leads to a searchable list of Transfer Orders available for Shipping. This option will be disabled if a Sales Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549014">From</term>
+               <listitem>
+                  <para id="Para"> Displays the Source Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549018">To</term>
+               <listitem>
+                  <para id="Para"> Displays the Destination Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para548806">Select for Billing</term>
+               <listitem>
+                  <para id="Para"> Specify this option to select the Sales Order for Billing as soon as it is shipped. </para>
+                  <para id="Para541580">If selected, the Order will appear on the Billing Selections list--making it available to be converted into an Invoice. This option will be selected by default if specified in your system-level configuration. This option will be disabled if a Transfer Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para541581">Create and Print Invoice</term>
+               <listitem>
+                  <para id="Para"> Specify this option to automatically create and print an Invoice for the Sales Order as soon as it is shipped.</para>
+                  <para id="Para541582">Selecting this option enables you to bypass the Billing Selection process. Once the Order is shipped, an Invoice will be created and printed. This Invoice will appear on the list of unposted Invoices--making it available for posting. By default, the "Select for Billing" option will also be selected. This option will be disabled if a Transfer Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para541585">Print Packing List</term>
+               <listitem>
+                  <para id="Para"> Specify this option to automatically print a Packing List as soon as the Order is shipped.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para548762">Receive Immediately</term>
+               <listitem>
+                  <para id="Para"> Select if you want the Transfer Order to be received automatically at the Destination Warehouse as soon as the Order is shipped.</para>
+                  <para id="Para548785">If this option is not used, Transfer Order Items must be received manually at the Destination Warehouse. This option will be disabled if a Sales Order is specified.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para548894">The system will move Transfer Order Items to the specified Transit Warehouse when the Order is shipped. If the Order is marked to be received immediately, the system will then receive Inventory at the Destination Warehouse.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518578">Bill To</term>
+               <listitem>
+                  <para id="Para">Displays the name of the Customer to be billed for the Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518580">Ship To</term>
+               <listitem>
+                  <para id="Para"> Displays the appropriate Ship-To Address.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para543733">If your site integrates UPS WorldShip with the system, you should process Orders in WorldShip after they have been issued to Shipping--but before they have been shipped. For more information, see the <link id="XRef543735" linkend="Anchor29552" endterm="Anchor29552"> UPS WorldShip Integration</link>"Topic: UPS WorldShip Integration" section.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518582">Items to Ship</term>
+               <listitem>
+                  <para id="Para"> Display lists Order Line Items available for Shipping.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para542648">Shipment Value</term>
+               <listitem>
+                  <para id="Para"> Displays the value of the Items being shipped.</para>
+                  <para id="Para542657">The shipment value represents the total of the extended prices for all Items included in the Shipment. The amount does not include freight or Tax.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para535587">
+                     <anchor id="Anchor535583" role="Index"
+                          xreflabel="freight:on sales orders;sales orders:freight charges on"/>
+                     <indexterm zone="Anchor535583" significance="normal">
+                     <primary>freight</primary>
+                     <secondary>on sales orders</secondary>
+                  </indexterm>
+                     <indexterm zone="Anchor535583" significance="normal">
+                     <primary>sales orders</primary>
+                     <secondary>freight charges on</secondary>
+                  </indexterm>Freight</term>
+               <listitem>
+                  <para id="Para"> Enter the amount of freight charge to be added to the specified Order. Freight charges may be entered during the creation or modification of an Order--or at the time of shipment.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para542036">The system supports up-to-date shipment tracking with links to the websites of many leading shipping companies (i.e., "Ship Vias").</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para542002">Ship Via</term>
+               <listitem>
+                  <para id="Para"> Specify the Ship Via for the Order.</para>
+                  <para id="Para538071">The Ship Via field supports free-form Ship Vias. If you want to enter a free-form Ship Via, simply type the name of the Ship Via into the field.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para542587">Get the most up-to-date tracking information directly from the shipper's website by using the "Query Shipment Status" option found in the "Shipments by Sales Order" report. This feature is enabled for a limited number of shipping companies (i.e., "Ship Vias")</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para542594">Tracking Number</term>
+               <listitem>
+                  <para id="Para"> Tracking Numbers associated with an Order may be viewed in the Shipments by Sales Order report.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para542582">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518585">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without Shipping the Order, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518586">SHIP</term>
+               <listitem>
+                  <para id="Para"> Ships the Order, clearing the screen of previously-displayed data.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para542282">If an Order is marked "Ship Complete," you will be prevented from shipping the Order until all Line Item quantities are issued to Shipping.</para>
+         </note>
+      </section>
+      <section id="Section551405">
+         <title>
+                  <anchor id="Anchor29552" role="Cross-Ref"
+                    xreflabel="29552: Heading3: Topic: UPS WorldShip Integration"/>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/ups_worldship.fm"/>
+                  <anchor id="Anchor551404" role="Index"
+                    xreflabel="topics:ups worldship;ups:worldship support"/>
+                  <indexterm zone="Anchor551404" significance="normal">
+               <primary>topics</primary>
+               <secondary>ups worldship</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551404" significance="normal">
+               <primary>ups</primary>
+               <secondary>worldship support</secondary>
+            </indexterm>Topic: UPS WorldShip Integration
+            </title>
+         <para id="Para551406">In this section we will provide an overview describing OpenMFG's support for UPS WorldShip integration. UPS WorldShip is a Windows-based, shipping software application for UPS Customers who have high-volume shipping needs. When UPS WorldShip and OpenMFG are integrated, you have the ability to export key UPS information--that is, Tracking Numbers and Freight charges--directly into OpenMFG.</para>
+         <note>
+            <para id="Para551408">For technical support using and/or configuring UPS WorldShip, please contact your local or area UPS WorldShip representative. Detailed WorldShip integration information can also be found on the UPS website at <ulink id="Hypertext551409" url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
+         </note>
+         <section id="Section551410">
+            <title>
+                  Basic Requirements
+               </title>
+            <para id="Para551411">OpenMFG support for UPS WorldShip began with OpenMFG version 1.3.0. To take advantage of this support, you must be running OpenMFG 1.3.0 or better. That is the only OpenMFG requirement.</para>
+            <para id="Para551412">The requirements for setting up UPS WorldShip to communicate with OpenMFG include the following:</para>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para551413">Install UPS WorldShip software on a networked workstation</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551414">Download and install ODBC driver for PostgreSQL</para>
+               </listitem>
+            </itemizedlist>
+            <note>
+               <para id="Para551416">The ODBC driver for PostgreSQL is needed so the UPS WorldShip software can export shipping information to an OpenMFG Database. OpenMFG Databases run on the PostgreSQL database server.</para>
+            </note>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para551417">Configure UPS WorldShip to auto-export using the PostgreSQL ODBC driver</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551418">Create user-defined field for entering OpenMFG Sales Order Numbers</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551419">Define export mapping to associate UPS WorldShip data fields with corresponding OpenMFG data fields</para>
+               </listitem>
+            </itemizedlist>
+            <para id="Para551420">UPS WorldShip supports both import and export maps. However, for integration with OpenMFG, you only need an export map since the communication is one-way. The following screenshot shows a sample export map created using the UPS WorldShip mapping utility:</para>
+            <para id="Para551424">
+               <anchor id="Anchor70270" role="Cross-Ref"
+                       xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip"/>
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic551422" fileref="../../topics/images/Topic_ups1.png"/>
+                     </imageobject>
+                     <caption id="Caption551426">
+                           Export Map in UPS WorldShip
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <para id="Para551429">As you can see in <link id="XRef551428" linkend="Anchor70270" endterm="Anchor70270">  Export Map in UPS WorldShip</link>Figure 7.7, we have created a map called "export." The map type is "Shipment," which indicates the data export will occur when the shipment is shipped using UPS WorldShip. And the ODBC driver used to export the data to the OpenMFG Database is called "openmfg."</para>
+            <para id="Para551431">The following screenshot shows the utility you would use to edit your export map within UPS WorldShip:</para>
+            <para id="Para551435">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic551433" fileref="../../topics/images/Topic_ups2.png"/>
+                     </imageobject>
+                     <caption id="Caption551436">
+                           WorldShip Utility for Editing Export Map
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <para id="Para551437">Your primary goal when creating an export map is to match UPS WorldShip tables and fields with the corresponding OpenMFG Database tables and fields. <link id="XRef551439" linkend="Anchor31923" endterm="Anchor31923"> Data Mapping Information</link>Table 7.1 provides you with the information you will need to successfully map the tables and fields from one system to the other.</para>
+            <para id="Para551535">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic" fileref=""/>
+                     </imageobject>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <tip>
+               <para id="Para551537">By default, UPS WorldShip gives you a Reference field for miscellaneous purposes. Because this field may prove useful at some point, you should create a second Reference field for storing OpenMFG Sales Order Numbers.</para>
+            </tip>
+            <para id="Para551538">In addition to requiring specific table and field mappings, UPS WorldShip will also require you to provide the following export map information:</para>
+            <variablelist>
+               <varlistentry>
+                  <term id="Para551539">Map Name</term>
+                  <listitem>
+                     <para id="Para"> Enter a name to describe your export map.</para>
+                     <para id="Para551540">In our example, we have give the export map the name "export."</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term id="Para551541">Data Source Information</term>
+                  <listitem>
+                     <para id="Para"> Specify the following Data Source information:</para>
+                     <para id="Para551542">DSN Name: Enter a name to describe the Data Source Name (DSN) connection to OpenMFG (e.g., "openmfg).</para>
+                     <para id="Para551543">DSN Description: Enter a brief description of the DSN connection (e.g., "connection to openmfg").</para>
+                     <para id="Para551544">ODBC Driver Name: Specify the name of the required ODBC driver. For OpenMFG Databases, the driver is "PostgreSQL".</para>
+                     <para id="Para551545">ODBC Driver: Indicate the path where the ODBC driver for PostgreSQL is located, as in the following: C:\\WINDOWS\\system32\\psqlodbc.dll.</para>
+                     <para id="Para551546">Database Name: Enter the name of the OpenMFG Database which will be receiving UPS WorldShip data (e.g., "production").</para>
+                     <para id="Para551547">Database Path: Not required. This information is defined when configuring the ODBC driver for PostgreSQL.</para>
+                     <para id="Para551548">Database Server: Not required. This information is defined when configuring the ODBC driver for PostgreSQL.</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term id="Para551549">Map Information</term>
+                  <listitem>
+                     <para id="Para"> Specify the following map information:</para>
+                     <para id="Para551550">Map Type: The map type selection specifies the point at which the data export should occur. In this case, you should select the "Shipment" map type. Data export will occur when the shipment is shipped using UPS WorldShip.</para>
+                     <para id="Para551551">Map Version: Specify version "12".</para>
+                     <para id="Para551552">Primary Table: Not required.</para>
+                     <para id="Para551553">Primary Key: Not required.</para>
+                     <para id="Para551554">Package Name: Not required.</para>
+                     <para id="Para551555">Prompt for Table Name: No</para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+         </section>
+         <section id="Section551556">
+            <title>
+                  Process Flow
+               </title>
+            <para id="Para551557">Once the integration requirements are completed, you are ready to begin processing and shipping Sales Orders. The following diagram illustrates the basic process flow:</para>
+            <para id="Para551561">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic551559" fileref="../../topics/images/Topic_upsGraphic.png"/>
+                     </imageobject>
+                     <caption id="Caption551562">
+                           Basic Process Flow for UPS WorldShip Integration
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <para id="Para551563">The process flow begins in OpenMFG with the following sequence:</para>
+            <orderedlist inheritnum="ignore" continuation="restarts">
+               <listitem>
+                  <para id="Para551564">Enter Sales Order(s) for Customer(s)</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551565">Issue Stock to Shipping (optional)</para>
+               </listitem>
+            </orderedlist>
+            <note>
+               <para id="Para551567">You can issue Stock to Shipping before or after you have shipped an Order in UPS WorldShip. The choice is up to you, based on your desired process flow.</para>
+            </note>
+            <para id="Para551568">After Stock has been issued to Shipping--but not yet shipped--the process flow moves to the UPS WorldShip system. Perform the following steps from your UPS workstation:</para>
+            <orderedlist inheritnum="ignore" continuation="restarts">
+               <listitem>
+                  <para id="Para551569">Enter Customer destination information</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551570">Enter OpenMFG Sales Order Number(s) in the special Reference field created for this purpose</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551571">Weigh package(s) you will be shipping with UPS</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551572">Finish Order and ship it in UPS WorldShip</para>
+               </listitem>
+            </orderedlist>
+            <para id="Para551573">As soon as you ship the Order in WorldShip, the data will be exported to OpenMFG via the ODBC connection. The following UPS information will now be stored in the OpenMFG Database:</para>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para551574">UPS Tracking Number</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551575">Actual Weight</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551576">Total Shipping and Handling Charges</para>
+               </listitem>
+            </itemizedlist>
+            <para id="Para551577">The process flow returns now to OpenMFG, where we either 1) issue Stock to Shipping or 2) ship the Order. For this example, we have already issued two Line Items to Shipping. We see these two Line Items on the Ship Order screen, as shown below:</para>
+            <para id="Para551581">
+               <anchor id="Anchor34640" role="Cross-Ref"
+                       xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information"/>
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic551579" fileref="../../topics/images/Topic_upsShipOrder.png"/>
+                     </imageobject>
+                     <caption id="Caption551583">
+                           Sales Order with UPS WorldShip Information
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <para id="Para551586">As you can see in <link id="XRef551585" linkend="Anchor34640" endterm="Anchor34640">  Sales Order with UPS WorldShip Information</link>Figure 7.10, our Order contains UPS Tracking Number information. And the total shipping and handling charges appear in the Freight field.</para>
+            <note>
+               <para id="Para551589">The actual weight of the UPS package(s) is stored in the OpenMFG Database, but is not visible using the application.</para>
+            </note>
+            <para id="Para551590">In this example, there are two distinct Tracking Numbers shown on the Ship Order screen. However, only one Tracking Number can be associated with each OpenMFG shipment. The fact that there are two Tracking Numbers in this example indicates there are additional Line Items for this Sales Order which have been shipped in UPS WorldShip, but have not yet been issued to Shipping in OpenMFG.</para>
+            <para id="Para551591">We are now ready to complete the final steps:</para>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para551592">Select the correct Tracking Number</para>
+               </listitem>
+               <listitem>
+                  <para id="Para551593">Ship the Order</para>
+               </listitem>
+            </itemizedlist>
+            <para id="Para551594">The Tracking Number is now associated with the shipment. It will not appear on the list of Tracking Numbers when the remaining Line Items are shipped. In this way, users are prevented from accidentally using the same Tracking Number twice.</para>
+            <tip>
+               <para id="Para551596">You can track UPS shipments from OpenMFG using the S/R Module Display "Shipments by Sales Order." You will be connected directly to the UPS website when you select the "Query Shipments" option from the right-click menu.</para>
+            </tip>
+         </section>
+      </section>
+      <section id="Section518587">
+         <title>
+                  <anchor id="Anchor529419" role="Index" xreflabel="shipping:recalling orders to "/>
+                  <indexterm zone="Anchor529419" significance="normal">
+               <primary>shipping</primary>
+               <secondary>recalling orders to </secondary>
+            </indexterm>Recall Orders to Shipping
+            </title>
+         <para id="Para518588">If a Sales Order has been shipped in error--or if changes need to be made to an Order prior to shipping--you may recall the Order to Shipping. To recall Orders to Shipping, select the "Recall Orders to Shipping" option. The following screen will appear:</para>
+         <para id="Para518592">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519998" fileref="../images/SR_Ship_recallOrdsShip.png"/>
+                  </imageobject>
+                  <caption id="Caption518593">
+                        Recall Orders to Shipping
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518594">When recalling an Order to Shipping, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para544807">Show Invoiced Orders</term>
+               <listitem>
+                  <para id="Para"> Select to include Invoiced Orders in the display.</para>
+                  <para id="Para544814">This option is only enabled for users assigned the "RecallInvoicedShipment" privilege. Users with that privilege have the ability to recall to Shipping Orders which have already been invoiced. Non-privileged users may not recall invoiced Orders to Shipping. An Order is considered "invoiced" after an Invoice has been created from it from a billing selection. In some cases, it may be desirable to completely back out an Invoice using the following steps: 1) Delete Invoice; 2) cancel billing selection; 3) recall Order to Shipping; 4) return stock to Inventory.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518595">Shipped Orders</term>
+               <listitem>
+                  <para id="Para"> Display lists shipped Sales Orders available for recall.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518597">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518598">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without recalling the Order, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518599">RECALL</term>
+               <listitem>
+                  <para id="Para"> Highlight a Sales Order then select this button to recall the Order to Shipping. The Order will now display on the "Ship Orders" screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518601">
+         <title>
+                  <anchor id="Anchor529421" role="Index" xreflabel="shipping records:purging of"/>
+                  <indexterm zone="Anchor529421" significance="normal">
+               <primary>shipping records</primary>
+               <secondary>purging of</secondary>
+            </indexterm>Purge Shipping Records
+            </title>
+         <para id="Para518602">To purge Shipping Records, select the "Purge Shipping Records" option. The following screen will appear:</para>
+         <para id="Para518606">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic520008" fileref="../images/SR_Ship_purgeShipRecords.png"/>
+                  </imageobject>
+                  <caption id="Caption518607">
+                        Purge Shipping Records
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518608">When purging Shipping Records, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518612">Cutoff Date</term>
+               <listitem>
+                  <para id="Para">Shipping Records created on or before this date will be purged.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518614">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518615">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without purging the Shipping Records, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518616">PURGE</term>
+               <listitem>
+                  <para id="Para">Purges Shipping Records on and before the specified cutoff date.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+   <section id="Section518617">
+      <title>
+               <anchor id="Anchor529423" role="Index"
+                 xreflabel="receiving:from shipping;shipping:receiving purchased items from"/>
+               <indexterm zone="Anchor529423" significance="normal">
+            <primary>receiving</primary>
+            <secondary>from shipping</secondary>
+         </indexterm>
+               <indexterm zone="Anchor529423" significance="normal">
+            <primary>shipping</primary>
+            <secondary>receiving purchased items from</secondary>
+         </indexterm>Receiving
+         </title>
+      <para id="Para530164">A Receipt represents the action of receiving and posting Inventory against a given Purchase Order for later Vouchering.</para>
+      <section id="Section531874">
+         <title>
+                  <anchor id="Anchor531873" role="Index" xreflabel="receiving:entering of receipts"/>
+                  <indexterm zone="Anchor531873" significance="normal">
+               <primary>receiving</primary>
+               <secondary>entering of receipts</secondary>
+            </indexterm>
+                  <anchor id="Anchor28097" role="Cross-Ref" xreflabel="28097: Heading2: Enter Receipt"/>Enter Receipt
+            </title>
+         <para id="Para531875">To receive Orders into Inventory, select the "Enter Receipt" option. The following screen will appear:</para>
+         <para id="Para521445">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic521443" fileref="../images/SR_Rcvg_enterRecpt.png"/>
+                  </imageobject>
+                  <caption id="Caption520503">
+                        Enter Purchase Order Receipts
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para520504">When receiving an Order, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520505">P/O #</term>
+               <listitem>
+                  <para id="Para"> Enter the Order Number of the Purchase Order whose Line Item(s) you want to receive into Inventory.</para>
+                  <para id="Para522415">The browse button located to the right of the field leads to a searchable list of Purchase Orders available for receiving. This option will be disabled if a Transfer Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549061">Transfer Order #</term>
+               <listitem>
+                  <para id="Para"> Enter the Order Number of the Transfer Order whose Line Item(s) you want to receive into Inventory.</para>
+                  <para id="Para549062">The browse button located to the right of the field leads to a searchable list of Transfer Orders available for receiving. This option will be disabled if a Purchase Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549066">From</term>
+               <listitem>
+                  <para id="Para"> Displays the Source Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para549070">To</term>
+               <listitem>
+                  <para id="Para"> Displays the Destination Warehouse if a Transfer Order is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para541633">Assign all Lot Controlled Items to single Lot #</term>
+               <listitem>
+                  <para id="Para"> Select if you want all the Lot-controlled Items in a Receiving session to be assigned the same Lot Number.</para>
+                  <para id="Para541642">Lot Numbers are assigned when Receipt(s) are posted. This option applies to Lot-controlled Items only. There is no impact on received Items which are not Lot-controlled. For perishable Items, you will also be given the opportunity to enter an expiration date. Expiration dates apply only to Item Sites marked as perishable.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522416">Purchase Order Items</term>
+               <listitem>
+                  <para id="Para"> Display lists Order Line Items available for receipt confirmation.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para534055">Before a Purchase Order can be received successfully, A/P Account Assignments for the specified Vendor must be in place.</para>
+         </tip>
+         <para id="Para534050">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para522403">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without entering a Receipt, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523044">PRINT PAPERWORK</term>
+               <listitem>
+                  <para id="Para">Select to print the paperwork associated with the specified Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para535874">POST</term>
+               <listitem>
+                  <para id="Para"> Select this button to post the Receipt quantity to Inventory.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para546100">SAVE</term>
+               <listitem>
+                  <para id="Para"> Select this button to save the Receipt quantity for posting at a later time. Saved Receipts may be posted later from the List Unposted Receipts screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523045">ENTER RECEIPT</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to reach the Receipt detail screen. Double-clicking on a Line Item will also bring you to the Receipt entry screen. This option will be disabled if a Transfer Order is specified.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para544749">RECEIVE ALL</term>
+               <listitem>
+                  <para id="Para"> Select to receive all Line Items simultaneously.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para529004">If the Item you are receiving is a <anchor id="Anchor530792" role="Index"
+                       xreflabel="multiple location control:impact on receiving;receiving:MLC impact on"/>
+                     <indexterm zone="Anchor530792" significance="normal">
+                  <primary>multiple location control</primary>
+                  <secondary>impact on receiving</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor530792" significance="normal">
+                  <primary>receiving</primary>
+                  <secondary>MLC impact on</secondary>
+               </indexterm>Multiple Location Control (MLC) Item, you will be prompted to specify the Location you want to distribute the stock to.</para>
+         </note>
+         <para id="Para523091">To enter Receipt details, highlight a Line Item and select the ENTER RECEIPT button. The following screen will appear:</para>
+         <para id="Para522172">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic522572" fileref="../images/SR_Rcvg_enterRecptItem.png"/>
+                  </imageobject>
+                  <caption id="Caption522575">
+                        Enter Purchase Order Item Receipt
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para522568">When entering Receipt details, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para522605">P/O Number</term>
+               <listitem>
+                  <para id="Para"> Displays the Purchase Order Number specified on the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522607">Line #</term>
+               <listitem>
+                  <para id="Para"> Displays the line number for the specified Purchase Order Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522609">Item Number</term>
+               <listitem>
+                  <para id="Para"> Displays the Item Number for the Purchase Order Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550790">UOM</term>
+               <listitem>
+                  <para id="Para"> Inventory Unit of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527024">Vend. Item Number</term>
+               <listitem>
+                  <para id="Para">Displays the Vendor's Item number for the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527028">Vendor Item Description</term>
+               <listitem>
+                  <para id="Para"> Displays Vendor's description of specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527031">Vendor UOM</term>
+               <listitem>
+                  <para id="Para"> Displays the Vendor's Item UOM for the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527033">Inv./Vendor UOM Ratio</term>
+               <listitem>
+                  <para id="Para"> Displays the ratio between Inventory and Vendor Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545105">Date Received</term>
+               <listitem>
+                  <para id="Para"> Enter the date you want the receiving transaction to be posted to the General Ledger.</para>
+                  <para id="Para545106">By default, receipts will be posted on the current day. However, this feature gives you the option to post transactions on an alternate date.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527038">Due Date</term>
+               <listitem>
+                  <para id="Para">Displays the date the Item is due to be received.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527040">Qty. Ordered</term>
+               <listitem>
+                  <para id="Para">Displays the quantity ordered of the specified Item</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527042">Qty. Received</term>
+               <listitem>
+                  <para id="Para"> Displays the quantity received of the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527044">Qty. to Receive</term>
+               <listitem>
+                  <para id="Para"> Specify the Line Item quantity you want to receive into Inventory. Depending on how your system is configured, you may or may not be allowed to receive more than the quantity ordered.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para542374">Freight</term>
+               <listitem>
+                  <para id="Para"> If Line Item freight charges were specified when the Line Item was created, then those charges will automatically appear here.</para>
+                  <para id="Para547943">If you receive a partial quantity and decrease the Freight amount accordingly, the system will automatically show the remaining Freight balance due when you go to receive the remaining quantity.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para541452">Notes</term>
+               <listitem>
+                  <para id="Para"> This is a scrolling text field with word-wrapping for entering Notes related Items being received into Inventory.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para527046">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para522648">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen without receiving any of the Line Item quantity.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522649">RECEIVE</term>
+               <listitem>
+                  <para id="Para"> Select to receive the specified Line Item quantity.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para534830">For information on the special processes required to receive Lot-controlled Items, see the <link id="XRef534831" linkend="Anchor58321" endterm="Anchor58321"> Receiving Lot/Serial Items into Inventory</link>"Topic: Receiving Lot/Serial Items into Inventory" section in the <link id="XRef534834" linkend="Anchor27334" endterm="Anchor27334"> Inventory Management (I/M) Module</link>Inventory Management (I/M) Module chapter.</para>
+         </note>
+      </section>
+      <section id="Section545734">
+         <title>
+                  <anchor id="Anchor545803" role="Index" xreflabel="receiving:list unposted receipts"/>
+                  <indexterm zone="Anchor545803" significance="normal">
+               <primary>receiving</primary>
+               <secondary>list unposted receipts</secondary>
+            </indexterm>List Unposted Receipts
+            </title>
+         <para id="Para546011">When you are receiving an Order, you have the option to either post it or save it for posting later. If a Receipt is saved for posting later, it will appear on the List Unposted Receipts screen. To access your unposted Receipts, select the "List Unposted Receipts" option. The following screen will appear:</para>
+         <para id="Para545825">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic545823" fileref="../images/SR_Rcvg_listUnpostRcpts.png"/>
+                  </imageobject>
+                  <caption id="Caption545826">
+                        List Unposted Receipts
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para545843">The "Unposted Receipts" screen displays information on all existing unposted Order Receipts, including Order Number, Order Type, Vendor name, Line Item Number, Order due date, Inventory Item Number, Inventory UOM, Vendor Item Number, Vendor UOM, quantity ordered, quantity received, quantity to receive, receipt date, and G/L posted date.</para>
+         <tip>
+            <para id="Para545845">You may select multiple Receipts for printing or posting by highlighting them using your mouse--or a combination of your mouse and either the SHIFT or CTRL keys.</para>
+         </tip>
+         <para id="Para545846">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para545847">CLOSE</term>
+               <listitem>
+                  <para id="Para">Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545885">PRINT</term>
+               <listitem>
+                  <para id="Para"> Highlight an Order and then select this button to print a copy of the selected Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para546030">NEW</term>
+               <listitem>
+                  <para id="Para"> Opens screen for entering a new Receipt.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para546031">EDIT</term>
+               <listitem>
+                  <para id="Para"> Enables you to edit Receipts by correcting the received quantity or freight amount. Double-clicking on a Receipt will also bring you to the editing screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545893">POST</term>
+               <listitem>
+                  <para id="Para"> Highlight a Receipt and then select this button to post the selected Receipt.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545853">DELETE</term>
+               <listitem>
+                  <para id="Para"> Highlight a Receipt and then select this button to remove the Receipt from the list.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545900">VIEW ORDER ITEM</term>
+               <listitem>
+                  <para id="Para"> Highlight a Receipt and then select this button to reach a read-only view of the original Order Line Item screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para546072">Right-clicking on a Receipt in the unposted Receipts list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para545858">Edit Receipt</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545860">Delete Receipt</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545861">Post Receipt</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545906">View Order Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para545864">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section520506">
+         <title>
+                  <anchor id="Anchor529427" role="Index"
+                    xreflabel="returns:entering at shipping;shipping:entering of returns"/>
+                  <indexterm zone="Anchor529427" significance="normal">
+               <primary>returns</primary>
+               <secondary>entering at shipping</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor529427" significance="normal">
+               <primary>shipping</primary>
+               <secondary>entering of returns</secondary>
+            </indexterm>Enter Return
+            </title>
+         <para id="Para521424">Returns are used in the event that Purchase Order Items need to be returned to a Vendor. To enter a Return, select the "Enter Return" option. The following screen will appear:</para>
+         <para id="Para521427">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic521426" fileref="../images/SR_Rcvg_enterReturn.png"/>
+                  </imageobject>
+                  <caption id="Caption520509">
+                        Enter Purchase Order Return
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para547821">Privileged users will be given the option to generate an A/P Credit Memo in the amount of the Return when the Return is posted. This option is available when returning against closed Purchase Order Line Items. Closed Purchase Orders will be reopened automatically in this scenario to allow for future Receipts. If the option is not used--or if a Line Item is not closed at the time of a Return--then the Return may be processed normally from the "Uninvoiced Receipts and Returns" screen.</para>
+         </tip>
+         <para id="Para520510">When entering a Return, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para523279">P/O #</term>
+               <listitem>
+                  <para id="Para"> Enter the Purchase Order Number of the Purchase Order whose Line Item(s) you want to return.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para547802">Show Closed P/Os</term>
+               <listitem>
+                  <para id="Para"> Select to include closed Purchase Orders in the list accessible from the "P/O#" field.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para547806">Print Return Report</term>
+               <listitem>
+                  <para id="Para"> Select if you want to print a Return report when the Return is posted.</para>
+                  <para id="Para547856">The report will be printed when you select the POST button.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para547807">Return Address</term>
+               <listitem>
+                  <para id="Para"> Enter the Address where the Return should be sent.</para>
+                  <para id="Para547879">By default, the Address used will be the same as the main Vendor Address found on the Vendor master. You may edit the Address information before posting the Return.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523287">Purchase Order Items</term>
+               <listitem>
+                  <para id="Para"> Display lists Purchase Order Line Items available for return.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para545192">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para523290">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without entering a Return, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523291">POST</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to remove the returned Line Item quantity from Inventory.</para>
+                  <para id="Para545223">For privileged users, an A/P Credit Memo may be generated in the amount of the Return when the Return is posted. This option is available when returning against closed Line Items. If used, the Line Item will be automatically reopened to allow for future Receipts. Also, a Return report will be printed if the "Print Return Report" option is selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523292">ENTER RETURN</term>
+               <listitem>
+                  <para id="Para"> Highlight a Line Item, then select this button to initiate a Return. Double-clicking on a Purchase Order Line Item will also bring you to the Return Item screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para529187">If an Item you are returning is a <anchor id="Anchor531028" role="Index"
+                       xreflabel="multiple location control:impact on receiving;receiving:MLC impact on"/>
+                     <indexterm zone="Anchor531028" significance="normal">
+                  <primary>multiple location control</primary>
+                  <secondary>impact on receiving</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor531028" significance="normal">
+                  <primary>receiving</primary>
+                  <secondary>MLC impact on</secondary>
+               </indexterm>Multiple Location Control (MLC) Item, you will be prompted to specify the Location you want to issue the stock from.</para>
+         </note>
+         <para id="Para523293">To enter Return details, highlight a Purchase Order Item and select the ENTER RETURN button. The following screen will appear:</para>
+         <para id="Para523210">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic523222" fileref="../images/SR_Rcvg_enterReturnItem.png"/>
+                  </imageobject>
+                  <caption id="Caption523221">
+                        Enter Purchase Order Item Return
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para523328">When entering Return details, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para523329">P/O Number</term>
+               <listitem>
+                  <para id="Para"> Displays the Purchase Order Number specified on the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527010">Line #</term>
+               <listitem>
+                  <para id="Para"> Displays the Purchase Order Line Item number selected on the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527011">Item Number</term>
+               <listitem>
+                  <para id="Para"> Displays the Item Number of the Line Item selected on the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550797">UOM</term>
+               <listitem>
+                  <para id="Para"> Inventory Unit of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527050">Vend. Item Number</term>
+               <listitem>
+                  <para id="Para">Displays the Vendor's Item number for the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527054">Vendor Item Description</term>
+               <listitem>
+                  <para id="Para"> Displays Vendor's description of specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527057">Vendor UOM</term>
+               <listitem>
+                  <para id="Para"> Displays the Vendor's Item UOM for the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527059">Inv./Vendor UOM Ratio</term>
+               <listitem>
+                  <para id="Para"> Displays the ratio between Inventory and Vendor Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527066">Qty. Ordered</term>
+               <listitem>
+                  <para id="Para">Displays the quantity ordered of the specified Item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527070">Qty. to Return</term>
+               <listitem>
+                  <para id="Para"> Specify the quantity of the Item you want to return.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para540815">Returnable Qty.</term>
+               <listitem>
+                  <para id="Para"> Displays the quantity available to be returned.</para>
+                  <para id="Para540824">The maximum returnable quantity is the original quantity ordered. The system will not allow you to return more than the returnable quantity.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para540812">Reject Code</term>
+               <listitem>
+                  <para id="Para"> Specify a code to describe the return.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para523358">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para523359">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen without entering a return for the Purchase Order Line Item, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para523360">RETURN</term>
+               <listitem>
+                  <para id="Para"> Select to return the specified Line Item quantity.</para>
+                  <para id="Para549538">When posting a Return, privileged users will be given the option to generate an A/P Credit Memo in the amount of the Return. This option is available when returning against closed Purchase Order Line Items. Closed Purchase Orders will be reopened automatically in this scenario to allow for future Receipts.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+   <section id="Section520492">
+      <title>
+               <anchor id="Anchor529429" role="Index"
+                 xreflabel="forms:for shipping;shipping:forms used in"/>
+               <indexterm zone="Anchor529429" significance="normal">
+            <primary>forms</primary>
+            <secondary>for shipping</secondary>
+         </indexterm>
+               <indexterm zone="Anchor529429" significance="normal">
+            <primary>shipping</primary>
+            <secondary>forms used in</secondary>
+         </indexterm>Forms
+         </title>
+      <para id="Para518618">Forms used in Shipping are available in the "Forms" section.</para>
+      <section id="Section518624">
+         <title>
+                  <anchor id="Anchor529431" role="Index" xreflabel="packing lists:printing of"/>
+                  <indexterm zone="Anchor529431" significance="normal">
+               <primary>packing lists</primary>
+               <secondary>printing of</secondary>
+            </indexterm>Print Packing List
+            </title>
+         <para id="Para518625">To print a Packing List, select the "Print Packing List" option. The following screen will appear:</para>
+         <para id="Para518629">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic520040" fileref="../images/SR_Forms_printPackList.png"/>
+                  </imageobject>
+                  <caption id="Caption518630">
+                        Print Packing List
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518631">When printing a Packing List, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518632">Sales Order #</term>
+               <listitem>
+                  <para id="Para">: Enter the Sales Order Number of the Sales Order whose Packing List you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518634">Order Date</term>
+               <listitem>
+                  <para id="Para">: Displays the Order Date for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518635">Cust. Name</term>
+               <listitem>
+                  <para id="Para">. Name: Displays the Customer Name associated with the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518636">Cust. Phone</term>
+               <listitem>
+                  <para id="Para">. Phone: Displays the Customer's phone number.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518637">P/O Number</term>
+               <listitem>
+                  <para id="Para">: Displays the Purchase Order Number associated with the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para518638">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518639">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing a Packing List, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518640">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints a copy of the Packing List for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518641">
+         <title>
+                  <anchor id="Anchor529433" role="Index"
+                    xreflabel="bills of lading:printing of;shipping forms:printing of"/>
+                  <indexterm zone="Anchor529433" significance="normal">
+               <primary>bills of lading</primary>
+               <secondary>printing of</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor529433" significance="normal">
+               <primary>shipping forms</primary>
+               <secondary>printing of</secondary>
+            </indexterm>Print Shipping Form
+            </title>
+         <para id="Para518642">A Bill of Lading is an example of a Shipping Form. To print a Shipping Form, select the "Shipping Form" option. The following screen will appear:</para>
+         <para id="Para518646">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic520052" fileref="../images/SR_Forms_printShpForm.png"/>
+                  </imageobject>
+                  <caption id="Caption518647">
+                        Print Shipping Form
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para518648">When printing a Shipping Form, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518649">Sales Order #</term>
+               <listitem>
+                  <para id="Para">: Enter the Sales Order Number of the Sales Order whose Shipping Form you want to print.</para>
+                  <para id="Para518650">The browse button located to the right of the field leads to a searchable list of Sales Orders with quantities at Shipping. Only Sales Orders with quantities at Shipping will appear in the list.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para538756">Only Sales Orders which have had Items issued to Shipping may be selected. Once an Order has been shipped, you may no longer select it and print a Shipping Form for it.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para518652">Ship To</term>
+               <listitem>
+                  <para id="Para"> Displays the Ship-To Address for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para518653">Shipping Form</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Shipping Form you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538493">Shipping Form Copies</term>
+               <listitem>
+                  <para id="Para"> Specify details for the Shipping Form copies you want to print.</para>
+                  <para id="Para538494"># of Copies: Indicate the number of copies you want to print using the arrow buttons. Information about the specified copies will display below. </para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538527">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538528">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing a Shipping Form, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538529">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints specified number of copies of the Shipping Form for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538498">To add a Watermark to a Shipping Form, double-click on a copy line. The following screen will appear:</para>
+         <para id="Para538502">
+            <anchor id="Anchor58193" role="Cross-Ref"
+                    xreflabel="58193: Figure: Figure 2.57:  Add Watermark"/>
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic538500" fileref="../images/SO_Bill_addWatermark.png"/>
+                  </imageobject>
+                  <caption id="Caption538504">
+                        Add Watermark
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para538505">When adding a Watermark to a Shipping Form copy, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538509">Watermark</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Watermark to be used for the selected copy.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538511">Show Prices</term>
+               <listitem>
+                  <para id="Para"> Select to show Prices in the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538512">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538513">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen without adding a Watermark, returning you to the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538514">SAVE</term>
+               <listitem>
+                  <para id="Para">Saves the Watermark definition to the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section538576">
+         <title>
+                  <anchor id="Anchor538575" role="Index" xreflabel="shipping forms:printing of"/>
+                  <indexterm zone="Anchor538575" significance="normal">
+               <primary>shipping forms</primary>
+               <secondary>printing of</secondary>
+            </indexterm>Print Shipping Forms
+            </title>
+         <para id="Para538577">To print multiple Shipping Forms, select the "Shipping Forms" option. The following screen will appear:</para>
+         <para id="Para538581">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic538579" fileref="../images/SR_Forms_printShpForms.png"/>
+                  </imageobject>
+                  <caption id="Caption538582">
+                        Print Shipping Forms
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para538583">When printing multiple Shipping Forms, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538584">Print Shipping Forms for new Shipments</term>
+               <listitem>
+                  <para id="Para">: Select to print Shipping Forms for new Shipments.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538586">Print Shipping Forms for Changed Shipments</term>
+               <listitem>
+                  <para id="Para"> Select to print Shipping Forms for changed Shipments.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538591">Shipping Form Copies</term>
+               <listitem>
+                  <para id="Para"> Specify details for the Shipping Form copies you want to print.</para>
+                  <para id="Para538592"># of Copies: Indicate the number of copies you want to print using the arrow buttons. Information about the specified copies will display below. To add a Watermark, double-click on a copy line.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538593">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538594">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing Shipping Forms, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538595">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints specified number of copies of the Shipping Forms.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538596">To add a Watermark to Shipping Forms, double-click on a copy line. The following screen will appear:</para>
+         <para id="Para538600">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic538598" fileref="../images/SO_Bill_addWatermark.png"/>
+                  </imageobject>
+                  <caption id="Caption538602">
+                        Add Watermark
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para538603">When adding a Watermark to Shipping Form copies, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538607">Watermark</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Watermark to be used for the selected copy.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538609">Show Prices</term>
+               <listitem>
+                  <para id="Para"> Select to show Prices in the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para538610">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para538611">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen without adding a Watermark, returning you to the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para538612">SAVE</term>
+               <listitem>
+                  <para id="Para">Saves the Watermark definition to the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section520546">
+         <title>
+                  <anchor id="Anchor529435" role="Index"
+                    xreflabel="shipping labels:printing by sales order;sales orders:printing shipping labels for"/>
+                  <indexterm zone="Anchor529435" significance="normal">
+               <primary>shipping labels</primary>
+               <secondary>printing by sales order</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor529435" significance="normal">
+               <primary>sales orders</primary>
+               <secondary>printing shipping labels for</secondary>
+            </indexterm>Print Shipping Labels by S/O #
+            </title>
+         <para id="Para539249">To print Shipping labels by Sales Order Number, select the "Print Shipping Labels by S/O #" option. The following screen will appear:</para>
+         <para id="Para521724">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic521722" fileref="../images/SR_Forms_printLabBySO.png"/>
+                  </imageobject>
+                  <caption id="Caption521725">
+                        Print Shipping Labels by Sales Order Number
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para521726">When printing Shipping labels by Sales Order Number, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527743">Sales Order #</term>
+               <listitem>
+                  <para id="Para">: Enter the Sales Order Number of the Sales Order whose Shipping labels you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550604">Report Name</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Shipping Label Form you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527764">Labels</term>
+               <listitem>
+                  <para id="Para"> Specify the range of Shipping labels you want to print.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para527765">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527766">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing any Shipping labels, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527767">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints specified number of Shipping label copies for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section527589">
+         <title>
+                  <anchor id="Anchor529437" role="Index"
+                    xreflabel="shipping labels:printing by invoice;invoices:printing shipping labels for"/>
+                  <indexterm zone="Anchor529437" significance="normal">
+               <primary>shipping labels</primary>
+               <secondary>printing by invoice</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor529437" significance="normal">
+               <primary>invoices</primary>
+               <secondary>printing shipping labels for</secondary>
+            </indexterm>Print Shipping Labels by Invoice
+            </title>
+         <para id="Para527604">To print Shipping labels by Invoice, select the "Print Shipping Labels by Invoice" option. The following screen will appear:</para>
+         <para id="Para527607">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic527606" fileref="../images/SR_Forms_printLabByInv.png"/>
+                  </imageobject>
+                  <caption id="Caption527608">
+                        Print Shipping Labels by Invoice
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para527609">When printing Shipping labels by Invoice, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527820">Invoice #</term>
+               <listitem>
+                  <para id="Para">: Enter the Invoice Number of the Invoice whose Shipping label you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527828">Report Name</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Shipping Label Form you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529936">Labels</term>
+               <listitem>
+                  <para id="Para"> Specify the range of Shipping labels you want to print.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para527834">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para533633">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing any Shipping labels, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para533634">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints specified number of Shipping label copies for the specified Invoice.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section533636">
+         <title>
+                  <anchor id="Anchor533635" role="Index"
+                    xreflabel="receiving labels:printing by p/o;purchase orders:printing receiving labels for"/>
+                  <indexterm zone="Anchor533635" significance="normal">
+               <primary>receiving labels</primary>
+               <secondary>printing by p/o</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor533635" significance="normal">
+               <primary>purchase orders</primary>
+               <secondary>printing receiving labels for</secondary>
+            </indexterm>Print Receiving Labels by P/O #
+            </title>
+         <para id="Para533501">To print Receiving labels by Purchase Order Number, select the "Print Receiving Labels by P/O #" option. The following screen will appear:</para>
+         <para id="Para533505">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic533503" fileref="../images/SR_Forms_printLabByPO.png"/>
+                  </imageobject>
+                  <caption id="Caption533506">
+                        Print Receiving Labels by Purchase Order Number
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para533507">When printing Receiving labels by Purchase Order Number, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para533508">Purchase Order #</term>
+               <listitem>
+                  <para id="Para">: Enter the Purchase Order Number of the Purchase Order whose Receiving labels you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para539077">Report Name</term>
+               <listitem>
+                  <para id="Para"> Specify the name of the Shipping Label Form you want to print.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para539082">Labels</term>
+               <listitem>
+                  <para id="Para"> Specify the range of Receiving labels you want to print.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para533516">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para533517">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without printing any Receiving labels, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para533518">PRINT</term>
+               <listitem>
+                  <para id="Para">Prints specified number of Receiving label copies for the specified Purchase Order.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+   <section id="Section521849">
+      <title>
+            S/R Reports
+         </title>
+      <para id="Para523807">Reports are described in this section.</para>
+      <section id="Section551634">
+         <title>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="/sections/dspBacklogByItem.fm"/>
+                  <anchor id="Anchor551633" role="Index"
+                    xreflabel="backlog:by item;items:backlog details for"/>
+                  <indexterm zone="Anchor551633" significance="normal">
+               <primary>backlog</primary>
+               <secondary>by item</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551633" significance="normal">
+               <primary>items</primary>
+               <secondary>backlog details for</secondary>
+            </indexterm>Backlog by Item
+            </title>
+         <para id="Para551635">To view Backlog by Item, select the "Backlog by Item" option. The following screen will appear:</para>
+         <para id="Para551639">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic551637" fileref="../images/SO_Disp_backlogByItemNum.png"/>
+                  </imageobject>
+                  <caption id="Caption551640">
+                        Backlog by Item
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para551641">When displaying Backlog by Item, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551642">Item Number</term>
+               <listitem>
+                  <para id="Para"> Enter the Item Number of the Item whose Backlog you want to view. </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551643">UOM</term>
+               <listitem>
+                  <para id="Para"> Inventory Unit of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551644">Start Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Item entered on and after this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551645">End Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Item entered on and before this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551646">Show Prices</term>
+               <listitem>
+                  <para id="Para"> Select to include pricing information in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551647">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display Backlog by Item for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551648">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose Backlog by Item you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551649">Backlog</term>
+               <listitem>
+                  <para id="Para"> Display lists Backlog by Item, using the specified parameters.</para>
+                  <para id="Para551650">If the "Show Prices" option is selected, an additional column showing the amount of the backlog will display. The total backlog will also be shown.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551651">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551652">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551653">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551654">Right-clicking on a Sales Order Line Item in the Backlog list enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551655">Edit Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551656">View Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551657">Edit Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551658">View Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551659">Print Packing List</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551660">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section551664">
+         <title>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        href="/sections/dspBacklogByCustomer.fm"/>
+                  <anchor id="Anchor551663" role="Index"
+                    xreflabel="backlog:by customer;customers:backlog for"/>
+                  <indexterm zone="Anchor551663" significance="normal">
+               <primary>backlog</primary>
+               <secondary>by customer</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551663" significance="normal">
+               <primary>customers</primary>
+               <secondary>backlog for</secondary>
+            </indexterm>Backlog by Customer
+            </title>
+         <para id="Para551665">To view Backlog by Customer, select the "Backlog by Customer" option. The following screen will appear:</para>
+         <para id="Para551669">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic551667" fileref="../images/SO_Disp_backlogByCust.png"/>
+                  </imageobject>
+                  <caption id="Caption551670">
+                        Backlog by Customer
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para551671">When displaying Backlog by Customer, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551672">Customer #</term>
+               <listitem>
+                  <para id="Para"> Enter the Customer Number of the Customer whose Backlog you want to display. </para>
+                  <para id="Para551673">The browse button located to the right of the field leads to a searchable Customers list. You may also access this list using the keyboard shortcut "CTRL + L". Once a Customer Number is entered, the Customer name and billing address will display. Select the "?" or "$" symbol next to the browse button to view Customer information for the specified Customer. If a Customer's credit is "In Good Standing," the button will feature a black question mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the Customer's credit Status is "On Credit Warning." A red dollar sign ("$") indicates the Customer's credit Status is "On Credit Hold."</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551674">Start Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Customer entered on and after this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551675">End Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Customer entered on and before this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551676">Show Prices</term>
+               <listitem>
+                  <para id="Para"> Select to include pricing information in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551677">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display Backlog by Customer for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551678">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose Backlog by Customer you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551679">Backlog</term>
+               <listitem>
+                  <para id="Para"> Display lists Backlog by Customer, using the specified parameters.</para>
+                  <para id="Para551680">If the "Show Prices" option is selected, an additional column showing the amount of the backlog will display. The total backlog will also be shown.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551681">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551682">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551683">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551684">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551685">Right-clicking on a Sales Order Line Item in the Backlog list enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551686">Edit Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551687">View Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551688">Edit Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551689">View Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551690">Print Packing List</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551691">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section551695">
+         <title>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        href="/sections/dspBacklogByProductCategory.fm"/>
+                  <anchor id="Anchor551694" role="Index"
+                    xreflabel="backlog:by product category;product categories:backlog details for"/>
+                  <indexterm zone="Anchor551694" significance="normal">
+               <primary>backlog</primary>
+               <secondary>by product category</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551694" significance="normal">
+               <primary>product categories</primary>
+               <secondary>backlog details for</secondary>
+            </indexterm>Backlog by Product Category
+            </title>
+         <para id="Para551696">To view Backlog by Product Category, select the "Backlog by Product Category" option. The following screen will appear:</para>
+         <para id="Para551700">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic551698" fileref="../images/SO_Disp_backlogByProdCat.png"/>
+                  </imageobject>
+                  <caption id="Caption551701">
+                        Backlog by Product Category
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para551702">When displaying Backlog by Product Category, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551703">All Product Categories</term>
+               <listitem>
+                  <para id="Para"> Select to display Backlog for all Product Categories.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551704">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Product Category whose Backlog you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551705">Pattern</term>
+               <listitem>
+                  <para id="Para">Enter a Product Category pattern to select a range of Product Categories.</para>
+                  <para id="Para551708">Refine your search using Regular Expressions, as described in <link id="XRef551707" linkend="Anchor77806" endterm="Anchor77806"> Pattern Matching with Regular Expressions</link>"Topic: Pattern Matching with Regular Expressions".</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551710">Start Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Product Category entered on and after this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551711">End Date</term>
+               <listitem>
+                  <para id="Para"> Backlog by Product Category entered on and before this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551712">Show Prices</term>
+               <listitem>
+                  <para id="Para"> Select to include pricing information in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551713">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display Backlog by Product Category for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551714">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose Backlog by Product Category you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551715">Backlog</term>
+               <listitem>
+                  <para id="Para"> Display lists Backlog by Product Category, using the specified parameters.</para>
+                  <para id="Para551716">If the "Show Prices" option is selected, an additional column showing the amount of the backlog will display. The total backlog will also be shown.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551717">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551718">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551719">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551720">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551721">Right-clicking on a Sales Order Line Item in the Backlog list enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551722">Edit Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551723">View Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551724">Edit Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551725">View Item</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551726">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section551730">
+         <title>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        href="/sections/dspSummarizedBacklogByWarehouse.fm"/>
+                  <anchor id="Anchor551729" role="Index"
+                    xreflabel="backlog:summarized by warehouse;warehouses:backlog summarized by"/>
+                  <indexterm zone="Anchor551729" significance="normal">
+               <primary>backlog</primary>
+               <secondary>summarized by warehouse</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor551729" significance="normal">
+               <primary>warehouses</primary>
+               <secondary>backlog summarized by</secondary>
+            </indexterm>Summarized Backlog by Warehouse
+            </title>
+         <para id="Para551731">To view summarized Backlog by Warehouse, select the "Summarized Backlog by Warehouse" option. The following screen will appear:</para>
+         <para id="Para551735">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic551733" fileref="../images/SO_Disp_summBackByWare.png"/>
+                  </imageobject>
+                  <caption id="Caption551736">
+                        Summarized Backlog by Warehouse
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para551737">When displaying summarized Backlog by Warehouse, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551738">All Customer Types</term>
+               <listitem>
+                  <para id="Para"> Select to display summarized Backlog by Warehouse for all Customer Types.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551739">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Customer Type whose Backlog by Warehouse you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551740">Pattern</term>
+               <listitem>
+                  <para id="Para"> Enter a Customer Type pattern to select a range of Customer Types.</para>
+                  <para id="Para551743">Refine your search using Regular Expressions, as described in <link id="XRef551742" linkend="Anchor77806" endterm="Anchor77806"> Pattern Matching with Regular Expressions</link>"Topic: Pattern Matching with Regular Expressions".</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551745">Start Date</term>
+               <listitem>
+                  <para id="Para"> Summarized Backlog by Warehouse entered on and after this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551746">End Date</term>
+               <listitem>
+                  <para id="Para"> Summarized Backlog by Warehouse entered on and before this date will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551747">Show Prices and Costs</term>
+               <listitem>
+                  <para id="Para"> Select to include pricing and Cost information in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551748">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display summarized Backlog for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551749">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose summarized Backlog you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551750">Order By</term>
+               <listitem>
+                  <para id="Para"> Select one of the following options to indicate how you want the results to be organized:</para>
+                  <para id="Para551751">Ship Date: Select to order the display by Ship Date.</para>
+                  <para id="Para551752">Pack Date: Select to order the display by Pack Date.</para>
+                  <para id="Para551753">S/O Number: Select to order the display by Sales Order Number.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551754">Backlog</term>
+               <listitem>
+                  <para id="Para"> Display lists summarized Backlog by Warehouse, using the specified parameters.</para>
+                  <para id="Para551755">The display is a nested list, with a plus ("+") sign located to the far left of the screen next to each line that may be expanded to lower levels. By clicking your mouse on a plus sign, you reveal lower levels of information related to the Order. If the "Show Prices and Costs" option is selected, additional columns showing sales Price, Cost, and margin will display.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para551757">The Summarized Backlog by Warehouse display is color-coded for ease of use. The following colors are used to describe the backlog status of Sales Order Line Items:</para>
+            <para id="Para551758">Blue: Order is at Shipping but is not yet shipped</para>
+            <para id="Para551759">Green: Order has been shipped but is not yet invoiced</para>
+            <para id="Para551760">Red: Part of the Order has been shipped and invoiced, but Backorder Items still need to be shipped and invoiced</para>
+            <para id="Para551761">Order has remaining uninvoiced Line Items remain on Backorder</para>
+            <para id="Para551762">Black: None of the above conditions is true.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551763">Total Sales Orders</term>
+               <listitem>
+                  <para id="Para"> Displays the total number of Sales Orders on Backlog.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551764">Total Line Items</term>
+               <listitem>
+                  <para id="Para"> Displays the total number of Sales Order Line Items on Backlog.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551765">Total Qty (Shipping UOM)</term>
+               <listitem>
+                  <para id="Para"> Displays the total number of unshipped Sales Order Line Items on Backlog.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551766">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551767">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551768">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551769">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para551770">Right-clicking on a Sales Order in the Backlog list enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551771">Inventory Availability by Sales Order</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551772">Edit</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551773">View</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551774">Reschedule</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551775">Delete</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551776">Print Packing List</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para551777">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section551091">
+         <title>
+                  <anchor id="Anchor536522" role="Index"
+                    xreflabel="sales orders:shipments of;shipping:sales orders shipped"/>
+                  <indexterm zone="Anchor536522" significance="normal">
+               <primary>sales orders</primary>
+               <secondary>shipments of</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor536522" significance="normal">
+               <primary>shipping</primary>
+               <secondary>sales orders shipped</secondary>
+            </indexterm>Shipments by Sales Order
+            </title>
+         <para id="Para536582">To view shipments by Sales Order, select the "Shipments by Sales Order" option. The following screen will appear:</para>
+         <para id="Para536586">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic536584" fileref="../images/SR_Disp_shipBySO.png"/>
+                  </imageobject>
+                  <caption id="Caption536587">
+                        Shipments by Sales Order
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para541894">Get the most up-to-date tracking information directly from the shipper's website by using the "Query Shipment Status" option in the "Shipments by Sales Order" report.</para>
+         </tip>
+         <para id="Para541811">When displaying shipments by Sales Order, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para536899">Sales Order #</term>
+               <listitem>
+                  <para id="Para">: Enter the Sales Order Number of the Sales Order whose shipments you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536920">Order Date</term>
+               <listitem>
+                  <para id="Para">: Displays the Order Date for the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536921">Cust. Name</term>
+               <listitem>
+                  <para id="Para">. Name: Displays the Customer Name associated with the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536922">Cust. Phone</term>
+               <listitem>
+                  <para id="Para">. Phone: Displays the Customer's phone number.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536923">P/O Number</term>
+               <listitem>
+                  <para id="Para">: Displays the Purchase Order Number associated with the specified Sales Order.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536931">Shipments</term>
+               <listitem>
+                  <para id="Para"> Display lists shipments by Sales Order, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para536924">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para536925">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550939">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para539203">Right-clicking on a Shipment enables you to select from the following menu options: </para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para539208">Print Shipping Form</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para541809">Query Shipment Status</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para539209">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section536461">
+         <title>
+                  <anchor id="Anchor536523" role="Index" xreflabel="shipping:shipments by date"/>
+                  <indexterm zone="Anchor536523" significance="normal">
+               <primary>shipping</primary>
+               <secondary>shipments by date</secondary>
+            </indexterm>Shipments by Date
+            </title>
+         <para id="Para536611">To view shipments by date, select the "Shipments by Date" option. The following screen will appear:</para>
+         <para id="Para536614">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic536613" fileref="../images/SR_Disp_shipByDate.png"/>
+                  </imageobject>
+                  <caption id="Caption536615">
+                        Shipments by Date
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para541958">Get the most up-to-date tracking information directly from the shipper's website by using the "Query Shipment Status" option in the "Shipments by Sales Order" report.</para>
+         </tip>
+         <para id="Para536616">When displaying shipments by date, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para536979">Start Date</term>
+               <listitem>
+                  <para id="Para">Shipments occurring on or after this date will be included in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536984">End Date</term>
+               <listitem>
+                  <para id="Para"> Shipments occurring on or before this date will be included in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para536645">Shipments</term>
+               <listitem>
+                  <para id="Para"> Display lists shipments by date, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para537009">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para537010">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para537017">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para550927">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+   </section>
+</chapter>

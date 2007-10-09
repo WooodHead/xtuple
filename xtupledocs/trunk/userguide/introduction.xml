@@ -1,0 +1,2234 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<chapter id="Chapter464102">
+   <title>
+            <anchor id="Anchor23250" role="Cross-Ref"
+              xreflabel="23250: ChapterTitleNoNumber: Introduction"/>Introduction</title>
+   <para id="Para464044">xTuple Applications User Guide    
+         </para>
+   <para id="Para464101">
+xTuple Applications User Guide    
+         </para>
+   <para id="Para485278">Welcome to the User Guide for the xTuple Applications! This User Guide is designed as a reference tool for anyone using either of the following xTuple Applications:</para>
+   <itemizedlist>
+      <listitem>
+         <para id="Para485269">OpenMFG - Enterprise Resource Planning</para>
+      </listitem>
+      <listitem>
+         <para id="Para485273">PostBooks - Open Source Accounting / ERP</para>
+      </listitem>
+   </itemizedlist>
+   <para id="Para487299">Since both applications share a common code base, it makes sense that they also share a User Guide. In some cases, OpenMFG contains features PostBooks does not. And so, to indicate these differences, we have placed OpenMFG markers in the User Guide.</para>
+   <para id="Para487303" role="openmfg">The OpenMFG markers look like this: </para>
+   <para id="Para487304">
+            Whenever you see one of these markers, you"ll know the functionality you"re reading about exists in OpenMFG but not in PostBooks.</para>
+   <para id="Para486075">For more information on the differences between the xTuple Applications, including licensing options, please visit the community homepage at www.xtuple.org.</para>
+   <section id="Section468080">
+      <title>
+            Getting Started
+         </title>
+      <para id="Para485412">The goal of this chapter is to orient you to some of basic features of the xTuple Applications. As you will see, these fundamentals appear throughout the application. We wanted to introduce them to you early so you would be familiar with them as you work your way through the xTuple Application modules.</para>
+      <note>
+         <para id="Para468946">The screenshots and examples used throughout this User Guide are taken from the OpenMFG Client for Windows, running on Windows XP. There is no functional difference between the Windows, Mac, or Linux Clients. You will find only minor graphical user interface differences. The same holds true for the PostBooks Clients for Windows, Mac, and Linux.</para>
+      </note>
+      <para id="Para466797">The next sections describe the steps required to log in to and exit the xTuple Applications. In some cases, you may need to ask your system administrator for information concerning site-specific settings.</para>
+      <section id="Section466744">
+         <title>
+                  <anchor id="Anchor_Toc16496294" role="Cross-Ref" xreflabel="_Toc16496294"/>
+                  <anchor id="Anchor_Toc16496295" role="Cross-Ref" xreflabel="_Toc16496295"/>Log In Options
+            </title>
+         <para id="Para466739">The example shown in this section features the OpenMFG application. However, the same steps are used when logging in to a PostBooks Database.</para>
+         <para id="Para485535">To log in using a Windows client, you should double-click on the xTuple Application icon wherever it appears on your computer desktop. Likewise, Macintosh users may click on the xTuple Application icon from their desktop. <anchor id="Anchor485536" role="Index"
+                    xreflabel="linux:client log in procedure;windows:client log in procedure;log in:linux;log in:windows;mac:client log in procedure;log in:mac"/>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>linux</primary>
+               <secondary>client log in procedure</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>windows</primary>
+               <secondary>client log in procedure</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>log in</primary>
+               <secondary>linux</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>log in</primary>
+               <secondary>windows</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>mac</primary>
+               <secondary>client log in procedure</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor485536" significance="normal">
+               <primary>log in</primary>
+               <secondary>mac</secondary>
+            </indexterm>Linux users should run the appropriate xTuple Application .sh file to launch the application. The following screen will appear:</para>
+         <para id="Para456765">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic456508" fileref="../images/INTRO_loginScreen.png"/>
+                  </imageobject>
+                  <caption id="Caption456495">
+                        Log In Screen
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <tip>
+            <para id="Para485580">You should always be sure to use a version of the xTuple Application which matches the version of your xTuple Database. Using mis-matched versions can lead to errors and loss of data integrity. The system will issue a warning message whenever you attempt to log in to a database whose version does not match the client version.</para>
+         </tip>
+         <para id="Para485581">When logging into an xTuple Application, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para485583">
+                     <anchor id="Anchor485582" role="Index" xreflabel="usernames:required at log in"/>
+                     <indexterm zone="Anchor485582" significance="normal">
+                     <primary>usernames</primary>
+                     <secondary>required at log in</secondary>
+                  </indexterm>Username</term>
+               <listitem>
+                  <para id="Para">Enter your assigned username.</para>
+                  <para id="Para456157">Usernames are established by your system administrator. The username is case-sensitive.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456158">
+                     <anchor id="Anchor474492" role="Index" xreflabel="passwords:at log in"/>
+                     <indexterm zone="Anchor474492" significance="normal">
+                     <primary>passwords</primary>
+                     <secondary>at log in</secondary>
+                  </indexterm>Password</term>
+               <listitem>
+                  <para id="Para"> Enter your assigned password.</para>
+                  <para id="Para456159">Passwords are established by your system administrator. The password you type into this field will not display on your screen, but will be represented by asterisks (*) for security purposes.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482153">Server</term>
+               <listitem>
+                  <para id="Para"> Displays the name of the server you will be connecting to.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482157">Database</term>
+               <listitem>
+                  <para id="Para"> Displays the name of the database you will be connecting to.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para456160">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para456161">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen, returning you to your computer desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456162">LOGIN</term>
+               <listitem>
+                  <para id="Para"> Click to log in to the application.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456163">OPTIONS</term>
+               <listitem>
+                  <para id="Para"> Select to verify or change your connection settings.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para460672">Most users will not need to change their Login options. If you have questions about your option settings, contact your system administrator.</para>
+         </note>
+         <para id="Para466024">To verify or change your connection settings, select the OPTIONS button. The following screen will appear:</para>
+         <para id="Para482081">
+            <anchor id="Anchor32538" role="Cross-Ref"
+                    xreflabel="32538: Figure: Figure 2.3:  Login Options"/>
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic482079" fileref="../images/INTRO_loginOptions.png"/>
+                  </imageobject>
+                  <caption id="Caption482083">
+                        Login Options
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para482084">When viewing or changing your connection settings, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para482086">
+                     <anchor id="Anchor482085" role="Index" xreflabel="servers:identifying at log in"/>
+                     <indexterm zone="Anchor482085" significance="normal">
+                     <primary>servers</primary>
+                     <secondary>identifying at log in</secondary>
+                  </indexterm>Server</term>
+               <listitem>
+                  <para id="Para">Enter the address of the server where your xTuple Database is running.</para>
+                  <para id="Para482087">The address will consist of either a TCP/IP Address or a Network Alias Name. If the network address for the xTuple Server changes, you may need to change the address in this field.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482092">
+                     <anchor id="Anchor482091" role="Index" xreflabel="databases:identify at log in"/>
+                     <indexterm zone="Anchor482091" significance="normal">
+                     <primary>databases</primary>
+                     <secondary>identify at log in</secondary>
+                  </indexterm>Database</term>
+               <listitem>
+                  <para id="Para"> Enter the name of the xTuple Database you want to connect to.</para>
+                  <para id="Para482093">The application can be used to connect to multiple xTuple databases. Be sure to enter the correct name of the database you want to access.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482095">
+                     <anchor id="Anchor482094" role="Index" xreflabel="ports:for database access"/>
+                     <indexterm zone="Anchor482094" significance="normal">
+                     <primary>ports</primary>
+                     <secondary>for database access</secondary>
+                  </indexterm>Port</term>
+               <listitem>
+                  <para id="Para"> Displays the default port.</para>
+                  <para id="Para482097">The default port for the xTuple Database is 5432.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482178">
+                     <anchor id="Anchor482190" role="Index" xreflabel="authentication:enhanced"/>
+                     <indexterm zone="Anchor482190" significance="normal">
+                     <primary>authentication</primary>
+                     <secondary>enhanced</secondary>
+                  </indexterm>Use Enhanced Authentication</term>
+               <listitem>
+                  <para id="Para"> Select if your site requires you to use enhanced authentication.</para>
+                  <para id="Para482237">Enhanced authentication adds a layer to the authentication process used to log in to the xTuple Applications. When this feature is turned on, user passwords are stored in the xTuple Database in a modified form. The end result is that you may only log in to the xTuple Database using an xTuple Application.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para482220">Do not select the enhanced authentication option if your site does not use this method. You will find you cannot connect to the database.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para482250">
+                     <anchor id="Anchor482195" role="Index" xreflabel="authentication:requiring SSL for"/>
+                     <indexterm zone="Anchor482195" significance="normal">
+                     <primary>authentication</primary>
+                     <secondary>requiring SSL for</secondary>
+                  </indexterm>Require SSL Connection</term>
+               <listitem>
+                  <para id="Para"> Select if your site requires you to use a Secure Sockets Layer (SSL) connection.</para>
+                  <para id="Para482265">Selecting this option guarantees you will connect to your xTuple Database with an SSL connection. If your xTuple Database is not configured to support SSL, you will not be able to connect if this option is selected. Using SSL for client-server connections adds a layer of encryption to the authentication process.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para482098">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para482099">CANCEL</term>
+               <listitem>
+                  <para id="Para">Closes the screen, returning you to the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para482100">SAVE</term>
+               <listitem>
+                  <para id="Para"> Saves your connection settings.</para>
+                  <para id="Para482101">Any settings you save will become your default connection settings. To change your default settings, update your Login options and then save them.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para481985">Once your username and password have been successfully <anchor id="Anchor474518" role="Index" xreflabel="authentication:at log-in"/>
+                  <indexterm zone="Anchor474518" significance="normal">
+               <primary>authentication</primary>
+               <secondary>at log-in</secondary>
+            </indexterm>authenticated, the main application desktop will appear, as shown below:</para>
+         <para id="Para456785">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic456529" fileref="../images/INTRO_appDesktop.png"/>
+                  </imageobject>
+                  <caption id="Caption456166">
+                        Main xTuple Application Desktop - Non-Neo Mode
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <note>
+            <para id="Para462138">The main application desktop may vary from user to user, depending on the user's granted privileges and preference settings. For example, all modules may not display for some users. Or some users will select to use the "Neo" interface. To learn more about granted privileges and preference settings, see the <link id="XRef462156" linkend="Anchor30917" endterm="Anchor30917"> System Module</link>System Module chapter--or contact your system administrator.</para>
+         </note>
+         <para id="Para486281">In general, each of the main menu options corresponds to a different module. There are three exceptions to that rule:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para486282">Window</term>
+               <listitem>
+                  <para id="Para"> The following options appear under the "Window" menu:</para>
+                  <para id="Para486283">Cascade: Select to arrange open screens in a cascading pattern.</para>
+                  <para id="Para486284">Tile: Select to arrange open screens in a tiled pattern.</para>
+                  <para id="Para486285">Close Active Window: Select to close the currently active screen.</para>
+                  <para id="Para486286">Close All Windows: Select to close all open screens.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para486287">Community</term>
+               <listitem>
+                  <para id="Para"> If you have an open Internet connection, the following "Community" menu options will open in your default web browser:</para>
+                  <para id="Para486288">xTuple.org Home: Select to launch the xTuple.org home page.</para>
+                  <para id="Para486289">New Account: Select to create a new xTuple.org account.</para>
+                  <para id="Para486290">Edit Account: Select to edit your xTuple.org account.</para>
+                  <para id="Para486291">Discussion Forums: Select to browse the discussion forums on the xTuple.org site.</para>
+                  <para id="Para486292">Blogs: Select to browse the blogs on the xTuple.org site.</para>
+                  <para id="Para486293">Bugs and Feature Requests: Select to access the Issue Tracking system on the xTuple.org site.</para>
+                  <para id="Para486294">Downloads: Select to access the downloads page on the xTuple.org site.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para486295">Help</term>
+               <listitem>
+                  <para id="Para"> The following options appear under the "Help" menu:</para>
+                  <para id="Para486296">About: Select to view version information.</para>
+                  <para id="Para486297">Table of Contents: Select to access the xTuple Applications Help files. For this to work, the Help files must be installed on your system.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section474320">
+         <title>
+                  <anchor id="Anchor474328" role="Index" xreflabel="exiting:how to"/>
+                  <indexterm zone="Anchor474328" significance="normal">
+               <primary>exiting</primary>
+               <secondary>how to</secondary>
+            </indexterm>Exit the Application
+            </title>
+         <para id="Para474321">There are two ways to successfully exit an xTuple Application. Either use the "X" symbol associated with the desktop window. Or use the System menu's "Exit" option. Both work the same way and are equally valid methods for exiting the application.</para>
+         <para id="Para482887">To exit the application using the System menu, select the "Exit" option from the System module, as shown below:</para>
+         <para id="Para460904">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic460902" fileref="../images/Sys_Exit.png"/>
+                  </imageobject>
+                  <caption id="Caption482539">
+                        Exit xTuple Application
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para482540">After selecting this option, the application will close, returning you to your computer desktop</para>
+         <tip>
+            <para id="Para482552">Be sure to close all open screens before exiting your xTuple Application to help prevent data loss.</para>
+         </tip>
+      </section>
+   </section>
+   <section id="Section482543">
+      <title>
+               <anchor id="Anchor_Toc16496297" role="Cross-Ref" xreflabel="_Toc16496297"/>
+               <anchor id="Anchor482542" role="Index" xreflabel="application fundamentals"/>
+               <indexterm zone="Anchor482542" significance="normal">
+            <primary>application fundamentals</primary>
+         </indexterm>Application Fundamentals
+         </title>
+      <para id="Para456706">The xTuple Applications contain a number of fundamental features designed to simplify your use of the software. In this section, we describe those fundamentals in an effort to familiarize you with their use.</para>
+      <para id="Para462211">Let's look first at a sample Bill of Materials screen, as shown below. We will use this Bill of Materials screen to illustrate several of the application fundamentals to be found throughout the application--across multiple screens and modules.</para>
+      <para id="Para456742">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata id="Graphic456708" fileref="../images/INTRO_bomScreen.png"/>
+               </imageobject>
+               <caption id="Caption456710">
+                     Sample Bill of Materials
+                  </caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <section id="Section456193">
+         <title>
+                  <anchor id="Anchor_Toc16496298" role="Cross-Ref" xreflabel="_Toc16496298"/>
+                  <anchor id="Anchor474198" role="Index"
+                    xreflabel="browse button;lookup. See browse button"/>
+                  <indexterm zone="Anchor474198" significance="normal">
+               <primary>browse button</primary>
+            </indexterm>
+                  <indexterm zone="Anchor474198" significance="normal">
+               <primary>lookup</primary>
+               <see>browse button</see>
+            </indexterm>Browse Button
+            </title>
+         <para id="Para456194">Next to the "Item Number" field in the sample Bill of Materials screen is a square box with an ellipsis in the center of it. That square box is called a "browse button," and it looks like this:</para>
+         <para id="Para456724">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic456727" fileref="../images/INTRO_browseButton.png"/>
+                  </imageobject>
+                  <caption id="Caption456196">
+                        Browse Button
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para456197">Whenever you see a browse button in the application, you have the ability to locate information in an efficient manner. Using this feature saves time because rather than having to remember detailed strings of numbers or codes, you can look them up--browse for them--using the browse button tool. </para>
+         <para id="Para456198">
+            <anchor id="Anchor12329" role="Cross-Ref"
+                    xreflabel="12329: Figure: Figure 2.7:  Browse Button Detail"/>
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic456581" fileref="../images/INTRO_browseCallout.png"/>
+                  </imageobject>
+                  <caption id="Caption456199">
+                        Browse Button Detail
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para463624">In the case of our Bill of Materials example, the browse button is located next to the "Item Number" field. Obviously, you need to link an Item to a Bill of Materials. If that Item happens to be a "Boys 27 Speed Mountain Bike," you might not know the Item Number off the top of your head. Simply select the browse button, and you will automatically be brought to a searchable master list of Items. The master list shows not only Item Numbers but also Item descriptions. The list is displayed in ascending order by Item Number. If your master list of Items is extensive, you can scroll through the list using the scroll bar to the right of the screen. Or, simply begin typing the first letters or numbers of the Item Number in the "Search" field. The list will automatically begin scrolling toward your Item in sequential order.</para>
+         <para id="Para456201">As noted above, the application contains numerous screens where browse buttons are available. Browse buttons can be used to look up Item Numbers--as in the Bill of Materials example--or use them to look up a wide range of other references. The following list indicates a small sampling of references you can access using the browse button:</para>
+         <itemizedlist>
+            <listitem>
+               <para id="Para456202">Item Numbers</para>
+            </listitem>
+            <listitem>
+               <para id="Para456203">Item Aliases</para>
+            </listitem>
+            <listitem>
+               <para id="Para456205">Component Parts</para>
+            </listitem>
+            <listitem>
+               <para id="Para456206">Warehouses</para>
+            </listitem>
+            <listitem>
+               <para id="Para462628">Sales Orders</para>
+            </listitem>
+            <listitem>
+               <para id="Para462755">Customers</para>
+            </listitem>
+            <listitem>
+               <para id="Para462745">Purchase Orders</para>
+            </listitem>
+            <listitem>
+               <para id="Para462756">Vendors</para>
+            </listitem>
+            <listitem>
+               <para id="Para462629">And more....</para>
+            </listitem>
+         </itemizedlist>
+      </section>
+      <section id="Section456208">
+         <title>
+                  <anchor id="Anchor_Toc16496299" role="Cross-Ref" xreflabel="_Toc16496299"/>
+                  <anchor id="Anchor474200" role="Index" xreflabel="right-click;mouse options"/>
+                  <indexterm zone="Anchor474200" significance="normal">
+               <primary>right-click</primary>
+            </indexterm>
+                  <indexterm zone="Anchor474200" significance="normal">
+               <primary>mouse options</primary>
+            </indexterm>Right-Click Options
+            </title>
+         <para id="Para456209">Going back to our Bill of Materials example, let's look at another fundamental feature involving the right-click button on your computer mouse.</para>
+         <note>
+            <para id="Para480828">For Macintosh users who don"t have a dual button mouse, use the CTRL key on your keyboard when clicking on a record to reveal the right-click options.</para>
+         </note>
+         <para id="Para480825">The xTuple Applications are full of displays similar to our sample Bill of Materials example. Display screens feature parameter settings at the top of the screen--and a main display area located toward the bottom of the screen. Whenever you encounter a display like this, you can right-click on a line in the display to reveal a host of additional options, as shown in the following screen:</para>
+         <para id="Para456210">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic456851" fileref="../images/INTRO_bomRightClick.png"/>
+                  </imageobject>
+                  <caption id="Caption456211">
+                        Bill of Materials with Right-Click Detail
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para456212">As you can see, right-clicking on a component Item in the Bill of Materials screen gives you access to the following options:</para>
+         <itemizedlist>
+            <listitem>
+               <para id="Para456213">View: Gives you a read-only view of the Item</para>
+            </listitem>
+            <listitem>
+               <para id="Para456214">Edit: Enables you to edit the Item</para>
+            </listitem>
+            <listitem>
+               <para id="Para456215">Delete: Delete the Item</para>
+            </listitem>
+            <listitem>
+               <para id="Para456216">Replace: Replace one Item with another Item</para>
+            </listitem>
+            <listitem>
+               <para id="Para456217">Move Up: Move the Item up the Bill of Materials sequence</para>
+            </listitem>
+            <listitem>
+               <para id="Para456218">Move Down: Move the Item down the Bill of Materials sequence.</para>
+            </listitem>
+            <listitem>
+               <para id="Para456219">Export Contents: Export the data displayed on the screen into a plain-text, TAB-delimited file. This file may subsequently be imported into a spreadsheet or other office tool.</para>
+            </listitem>
+         </itemizedlist>
+         <para id="Para456220">Right-click options will vary from screen to screen. In our sample Bill of Materials example, the right-click options basically mirror the functionality of buttons already available within the screen. This will not always be the case, though. Often, the right-click feature reveals important and useful functionality not to be found on the main display screen.</para>
+      </section>
+      <section id="Section486620">
+         <title>
+                  <anchor id="Anchor486624" role="Index" xreflabel="columns:size remembered for"/>
+                  <indexterm zone="Anchor486624" significance="normal">
+               <primary>columns</primary>
+               <secondary>size remembered for</secondary>
+            </indexterm>Column Memory
+            </title>
+         <para id="Para486856">The system gives you the ability to customize the column layout of screens--and once customized, the columns will remember your preferences the next time you visit. To customize the column layout of a screen which supports this feature, simply right-click on any column header, as shown below:</para>
+         <para id="Para486727">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic486725" fileref="../images/INTRO_colMemory.png"/>
+                  </imageobject>
+                  <caption id="Caption486728">
+                        Typical Report Screen With Column Memory Options
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <note>
+            <para id="Para486931">The column configuration options will vary depending on the current status of the screen. And of course, individual column names will differ from screen to screen.</para>
+         </note>
+         <para id="Para486720">When right-clicking on a column header to configure the column settings, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para486784">Reset this Width</term>
+               <listitem>
+                  <para id="Para"> Select this option to reset the selected column to its default, system-defined width. You will only see this option if the width of column has been changed (i.e., made wider or narrower).</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para486900">Reset all Widths</term>
+               <listitem>
+                  <para id="Para"> Select this option to reset all columns on the screen to the default settings.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para486902">Do Not Remember Widths</term>
+               <listitem>
+                  <para id="Para"> Select this option if you do not want the screen to remember column width changes made during active sessions.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para486910">Remember Widths</term>
+               <listitem>
+                  <para id="Para"> Select this option if you want the screen to remember column width changes made during active sessions.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para486938">Beneath the column width options, you will see a list of all the column names in the screen. As a further customization, you may choose to show or hide as many columns as you want. For example, if you do not need the Username in the G/L Transactions screen, simply uncheck the Username row in the list. The screen will only display columns which have a check mark next to them in the column configuration list.</para>
+      </section>
+      <section id="Section483123">
+         <title>
+                  <anchor id="Anchor483177" role="Index" xreflabel="keyboard shortcuts:drag-and-drop"/>
+                  <indexterm zone="Anchor483177" significance="normal">
+               <primary>keyboard shortcuts</primary>
+               <secondary>drag-and-drop</secondary>
+            </indexterm>Drag-and-Drop
+            </title>
+         <para id="Para483127">The application supports drag-and-drop functionality for screens which use the Item Number widget. Using this functionality, you have the ability to drag an Item Number from one screen to another screen.</para>
+         <para id="Para483137">For example, let's say you have two xTuple Application screens open on your desktop at the same time: The Bill of Materials (BOM) for Item XYZ and also the Quantity on Hand (QOH) by Item display. In this example, the QOH display does not have an Item Number entered in it yet.</para>
+         <para id="Para483151">To drag Item Number XYZ from the BOM screen to the QOH display, simply click your mouse on the Item Number in the BOM--and then drag the Item Number over to the Item Number field on the QOH display. You may now QUERY the display to get QOH information on Item XYZ.</para>
+      </section>
+      <section id="Section456222">
+         <title>
+                  <anchor id="Anchor_Toc16496300" role="Cross-Ref" xreflabel="_Toc16496300"/>
+                  <anchor id="Anchor474202" role="Index"
+                    xreflabel="keyboard shortcuts:using instead of mouse"/>
+                  <indexterm zone="Anchor474202" significance="normal">
+               <primary>keyboard shortcuts</primary>
+               <secondary>using instead of mouse</secondary>
+            </indexterm>Keyboard Shortcuts
+            </title>
+         <para id="Para456223">Many people prefer to use keyboard shortcuts--instead of a mouse--when navigating within a software application. The xTuple Applications feature a number of keyboard shortcuts designed just for this purpose.</para>
+         <section id="Section456225">
+            <title>
+                     <anchor id="Anchor_Toc16496301" role="Cross-Ref" xreflabel="_Toc16496301"/>
+                     <anchor id="Anchor474204" role="Index" xreflabel="TAB key;keyboard shortcuts:TAB key"/>
+                     <indexterm zone="Anchor474204" significance="normal">
+                  <primary>TAB key</primary>
+               </indexterm>
+                     <indexterm zone="Anchor474204" significance="normal">
+                  <primary>keyboard shortcuts</primary>
+                  <secondary>TAB key</secondary>
+               </indexterm>TAB Key
+               </title>
+            <para id="Para456226">The <anchor id="AnchorTAB key" role="Cross-Ref" xreflabel="TAB key: completing dates with"/>TAB key on your keyboard may be used to move the cursor from one field to the next within any given data-entry screen. Simply place the cursor in the first field you want to enter data into--and when you"re done entering data, hit the TAB key to move the cursor to the next field.</para>
+            <para id="Para462862">Also use the TAB key as a shortcut for converting date field entries to the proper format for your system. For example, in a "Start Date" field you might enter the numbers "022503". Then, with the cursor still blinking in the field, hit the TAB key. The date will be converted to "02/25/03"--or whatever the proper date format is for your system. For more information on keyboard shortcuts related to dates, see the <link id="XRef474767" linkend="Anchor73705" endterm="Anchor73705"> Date Formats</link>"Date Shortcuts" section.</para>
+            <note>
+               <para id="Para462891">Date formats are controlled by Locale settings.</para>
+            </note>
+         </section>
+         <section id="Section456228">
+            <title>
+                     <anchor id="Anchor_Toc16496302" role="Cross-Ref" xreflabel="_Toc16496302"/>
+                     <anchor id="Anchor474206" role="Index" xreflabel="CTRL key;keyboard shortcuts:CTRL key"/>
+                     <indexterm zone="Anchor474206" significance="normal">
+                  <primary>CTRL key</primary>
+               </indexterm>
+                     <indexterm zone="Anchor474206" significance="normal">
+                  <primary>keyboard shortcuts</primary>
+                  <secondary>CTRL key</secondary>
+               </indexterm>CTRL Key
+               </title>
+            <para id="Para456229">Three keyboard shortcuts are available at several points throughout the application when you place the cursor in an "Item Number" field. You saw the "Item Number" field in the Bill of Materials example above. The "Item Number" field appears frequently throughout the application. Use the CTRL key--usually located on the bottom left-hand corner of your keyboard--in combination with either "L", "A", or "S" to reach the three screens shown in the following examples:</para>
+            <tip>
+               <para id="Para478939">Macintosh users should substitute the APPLE key for the CTRL key to achieve the results described in this section.</para>
+            </tip>
+            <para id="Para456230">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic456858" fileref="../images/INTRO_CTRL-L.png"/>
+                     </imageobject>
+                     <caption id="Caption456231">
+                           Item Lookup (CTRL + L)
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <variablelist>
+               <varlistentry>
+                  <term id="Para456232">List (CTRL + L)</term>
+                  <listitem>
+                     <para id="Para">This is the same Item lookup you would reach if you clicked your mouse on the browse button located next to the "Item Number" field.</para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+            <para id="Para456833">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic456865" fileref="../images/INTRO_CTRL-A.png"/>
+                     </imageobject>
+                     <caption id="Caption456233">
+                           Item Alias Lookup (CTRL + A)
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <variablelist>
+               <varlistentry>
+                  <term id="Para456234">
+                        <anchor id="Anchor474664" role="Index" xreflabel="item aliases:keyboard shortcut for"/>
+                        <indexterm zone="Anchor474664" significance="normal">
+                        <primary>item aliases</primary>
+                        <secondary>keyboard shortcut for</secondary>
+                     </indexterm>Aliases (CTRL + A)</term>
+                  <listitem>
+                     <para id="Para"> Locate an Item using its Item Alias. Item Aliases may correspond to a Customer Item Number--or some other equivalence.</para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+            <para id="Para456235">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic456868" fileref="../images/INTRO_CTRL-S.png"/>
+                     </imageobject>
+                     <caption id="Caption456236">
+                           Searchable List (CTRL + S)
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <variablelist>
+               <varlistentry>
+                  <term id="Para456237">Search (CTRL + S)</term>
+                  <listitem>
+                     <para id="Para">Search for Items using a variety of search criteria. This shortcut enables you to look up Manufactured Items using partial values. In the above example, the user selected all available search options--except for the "Show Inactive Items" option--to search for a match for "MB-B." In this case, the application will search the master list of Items for any Item containing "MB-B" in either the Item Number, the first line of the Item description, and/or the second line of the Item description.</para>
+                  </listitem>
+               </varlistentry>
+               <varlistentry>
+                  <term id="Para456238"/>
+                  <listitem>
+                     <para id="Para">You can also search for matches using any one or a combination of these search options. For example, let's say you are looking for any Manufactured Item containing the word "Bike" in the first line of the Item description. To perform this search, simply enter the word "Bike" in the "Search For" field, then select the "Search through Description 1" option. Leave the other options unchecked. Any Item containing the word "Bike" in the first line of its Item description will display in the results. </para>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
+         </section>
+         <section id="Section456240">
+            <title>
+                     <anchor id="Anchor_Toc16496303" role="Cross-Ref" xreflabel="_Toc16496303"/>
+                     <anchor id="Anchor474208" role="Index" xreflabel="ALT key;keyboard shortcuts:ALT key"/>
+                     <indexterm zone="Anchor474208" significance="normal">
+                  <primary>ALT key</primary>
+               </indexterm>
+                     <indexterm zone="Anchor474208" significance="normal">
+                  <primary>keyboard shortcuts</primary>
+                  <secondary>ALT key</secondary>
+               </indexterm>ALT Key
+               </title>
+            <para id="Para463068">You will notice throughout the application that several characters--or individual letters within words--are underlined. In the sample Bill of Materials screen, for example, the SAVE button has the first letter, "S", underlined. The first letter, "C", in the CANCEL button is also underlined. Alternately, notice that the MOVE DOWN button has the "W" underlined. The list could go on.</para>
+            <para id="Para456242">If you depress the ALT key on your keyboard in combination with any of these underlined letters, the effect is the same as if you had used the mouse to select that button or field. For example, the following combination of keys will activate the PRINT button: ALT + P. The following keyboard shortcut will cancel or close a screen: ALT + C. Or, move a component Item down a notch in a Bill of Materials display with the following shortcut: ALT + W.</para>
+         </section>
+         <section id="Section474757">
+            <title>
+                     <anchor id="Anchor73705" role="Cross-Ref" xreflabel="73705: Heading3: Date Formats"/>
+                     <anchor id="Anchor474770" role="Index"
+                       xreflabel="formats:related to dates;dates:formats for;keyboard shortcuts:for dates"/>
+                     <indexterm zone="Anchor474770" significance="normal">
+                  <primary>formats</primary>
+                  <secondary>related to dates</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor474770" significance="normal">
+                  <primary>dates</primary>
+                  <secondary>formats for</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor474770" significance="normal">
+                  <primary>keyboard shortcuts</primary>
+                  <secondary>for dates</secondary>
+               </indexterm>Date Shortcuts
+               </title>
+            <para id="Para474761">The xTuple Applications support a number of keyboard shortcuts for dates. These shortcuts are designed to save you time when entering dates in date fields. Keep in mind, you are required to hit the TAB key after entering a shortcut value in a date field. The TAB key is required to complete all date shortcut entries. The following table describes these date shortcuts in more detail:</para>
+            <note>
+               <para id="Para482683">The xTuple Applications accept a number of different "input" formats for dates. Any of the following date formats will be accepted by the application:</para>
+               <para id="Para482684">MM/DD/YY</para>
+               <para id="Para482685">MM/DD/YYYY</para>
+               <para id="Para482686">M or MM / D or DD / YY or YYYY</para>
+               <para id="Para482687">While date input formats may vary, the "output" format (i.e., how dates display on screen) is defined by your Locale settings.</para>
+            </note>
+            <table id="Table474948">
+               <title>Date Shortcuts</title>
+               <tgroup cols="2">
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para id="Para475168">0+TAB Key</para>
+                        </entry>
+                        <entry>
+                           <para id="Para475170">Entering the number "0" followed by the TAB key in an empty date field will automatically enter today's date in the date field.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para474958">+num</para>
+                        </entry>
+                        <entry>
+                           <para id="Para474960">The "+" symbol followed by a whole number will enter the date occurring num number of days after today's date:</para>
+                           <para id="Para475024">Example:</para>
+                           <para id="Para475025">Entering "+1" would give you tomorrow's date, "+2" would give you the day-after-tomorrow, etc.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para475048">-num</para>
+                        </entry>
+                        <entry>
+                           <para id="Para475050">The "-" symbol followed by a whole number will enter the date occurring num number of days before today's date:</para>
+                           <para id="Para475052">Example:</para>
+                           <para id="Para475053">Entering "-1" would give you yesterday's date, "-2" would give you the day-before-yesterday, etc.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para475081">num</para>
+                        </entry>
+                        <entry>
+                           <para id="Para475083">A standalone number will enter the day of the current month represented by that number.</para>
+                           <para id="Para475099">Examples:</para>
+                           <para id="Para475097">Entering "12" in the month of March, 2003 would give you March 12, 2003. Similarly, the number "23" would give you March 23, 2003, etc.</para>
+                           <para id="Para475109">Any number from 1 to 99 may be entered. If the number entered is greater than the last day of the current month, the date will automatically default to the last day of the month. In other words, entering the numbers "99" or "75" or "32" would automatically enter the last day of the current month.</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para475077">#num</para>
+                        </entry>
+                        <entry>
+                           <para id="Para475147">The "#" symbol followed by a whole number will enter the day of the current Julian calendar year represented by that number.</para>
+                           <para id="Para475149">Examples:</para>
+                           <para id="Para475150">Entering "#1" in the year 2003 would give you January 1, 2003. Similarly, "#100" would give you April 10, 2003. Entering "#365" would give you December 31, 2003.</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+            <tip>
+               <para id="Para475213">Some date fields support time-periods represented by words--such as "Earliest" and "Latest". Keep in mind that these words are case-sensitive. They will not work unless the first letter of the word is capitalized.</para>
+            </tip>
+         </section>
+         <section id="Section476479">
+            <title>
+                     <anchor id="Anchor476478" role="Index"
+                       xreflabel="keyboard shortcuts:for toolbar buttons"/>
+                     <indexterm zone="Anchor476478" significance="normal">
+                  <primary>keyboard shortcuts</primary>
+                  <secondary>for toolbar buttons</secondary>
+               </indexterm>
+                     <anchor id="Anchor51567" role="Cross-Ref" xreflabel="51567: Heading3: Toolbar Buttons"/>Toolbar Buttons
+               </title>
+            <para id="Para476475">For users who prefer using buttons instead of drop-down menus, the application offers a variety of toolbar button options. <anchor id="Anchor477263" role="Index"
+                       xreflabel="toolbar buttons:master list of;toolbars:buttons master list"/>
+                     <indexterm zone="Anchor477263" significance="normal">
+                  <primary>toolbar buttons</primary>
+                  <secondary>master list of</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor477263" significance="normal">
+                  <primary>toolbars</primary>
+                  <secondary>buttons master list</secondary>
+               </indexterm>The following screen shows the application desktop with all available toolbar buttons turned on:</para>
+            <note>
+               <para id="Para476701">You can control the display of toolbar buttons on your desktop. Turn them on or off on a module-by-module basis, using the settings available in the User Preferences section of the System module. In addition, you may drag-and-drop toolbar buttons, allowing them to float or attach to alternate locations on the application desktop.</para>
+            </note>
+            <para id="Para476537">
+               <screenshot>
+                  <mediaobject>
+                     <imageobject>
+                        <imagedata id="Graphic476535" fileref="../images/INTRO_toolbarMenu.png"/>
+                     </imageobject>
+                     <caption id="Caption476538">
+                           Toolbar Buttons
+                        </caption>
+                  </mediaobject>
+               </screenshot>
+            </para>
+            <para id="Para476693">To access the function described by a button, simply select the button using your mouse. Toolbar buttons function in the same way drop-down menu selections do--they simply provide a convenient shortcut. The complete list of available toolbar buttons is shown in the following table:</para>
+            <table id="Table476743">
+               <title>Toolbar Buttons Master List</title>
+               <tgroup cols="3">
+                  <thead>
+                     <row>
+                        <entry>
+                           <para id="Para476751">Image</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476753">Function</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476755">Module</para>
+                        </entry>
+                     </row>
+                  </thead>
+                  <tbody>
+                     <row>
+                        <entry>
+                           <para id="Para476757">
+                                    <screenshot id="Figure476899">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476899" fileref="../images/TOOLS_itemSites.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476759">List Item Sites</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476761">I/M</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476763">
+                                    <screenshot id="Figure476909">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476909"
+                                                  fileref="../images/TOOLS_dspInventoryAvailabilityByPlannerCode.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476765">Inventory Availability by Planner Code</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476767">I/M</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476769">
+                                    <screenshot id="Figure476914">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476914" fileref="../images/TOOLS_itemAvailabilityWorkbench.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476771">Item Availability Workbench</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476773">I/M</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476775">
+                                    <screenshot id="Figure476919">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476919" fileref="../images/TOOLS_items.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476777">List Items</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476779">P/D</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476781">
+                                    <screenshot id="Figure476924">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476924" fileref="../images/TOOLS_boms.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476783">List BOMs</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476785">P/D</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476787">
+                                    <screenshot id="Figure476971">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476971" fileref="../images/TOOLS_boos.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476789">List BOOs</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476791">P/D</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476793">
+                                    <screenshot id="Figure476976">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476976" fileref="../images/TOOLS_runMrpByPlannerCode.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476795">Run MRP by Planner Code</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476797">M/S</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476799">
+                                    <screenshot id="Figure476993">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476993" fileref="../images/TOOLS_dspPlannedOrdersByPlannerCode.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476801">Planned Orders by Planner Code</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476803">M/S</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476805">
+                                    <screenshot id="Figure476998">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic476998" fileref="../images/TOOLS_shopFloorWorkbench.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476807">Shop Floor Workbench</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476809">W/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476811">
+                                    <screenshot id="Figure480396">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic480396" fileref="../images/TOOLS_dspWoScheduleByPlannerCode.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476985">W/O Schedule by Planner Code</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476815">W/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476817">
+                                    <screenshot id="Figure477008">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477008" fileref="../images/TOOLS_listUnpostedPo.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476987">List Unposted P/Os</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476821">P/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476823">
+                                    <screenshot id="Figure477039">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477039" fileref="../images/TOOLS_dspPurchaseReqByPlannerCode.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476825">Purchase Requests by Planner Code</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476827">P/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483904">
+                                    <screenshot id="Figure483911">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483911" fileref="../images/TOOLS_customerInformationWorkbench.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483906">Customer Information Workbench</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483908">S/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476829">
+                                    <screenshot id="Figure477044">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477044" fileref="../images/TOOLS_listOpenSalesOrders.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476831">List Open Sales Orders</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476833">S/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476841">
+                                    <screenshot id="Figure477060">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477060" fileref="../images/TOOLS_uninvoicedShipments.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476843">Uninvoiced Shipments</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476845">S/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483768">
+                                    <screenshot id="Figure483775">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483775" fileref="../images/TOOLS_billingSelections.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483770">Billing Selections</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483772">S/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483753">
+                                    <screenshot id="Figure483760">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483760" fileref="../images/TOOLS_dspSummarizedBacklogByWhse.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483755">Summarized Backlog by Warehouse</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483757">S/O</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476847">
+                                    <screenshot id="Figure477068">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477068" fileref="../images/TOOLS_issueStockToShipping.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476849">Issue Stock to Shipping</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476851">S/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476853">
+                                    <screenshot id="Figure477081">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477081" fileref="../images/TOOLS_postReceipts.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para476855">UnPosted Receipts</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476857">S/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476859">
+                                    <screenshot id="Figure477113">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477113" fileref="../images/TOOLS_accounts.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477089">List Accounts</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476863">CRM</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para476865">
+                                    <screenshot id="Figure477118">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477118" fileref="../images/TOOLS_contacts.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477097">List Contacts</para>
+                        </entry>
+                        <entry>
+                           <para id="Para476869">CRM</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para477144">
+                                    <screenshot id="Figure477190">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477190" fileref="../images/TOOLS_incidents.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477146">Incident Workbench</para>
+                        </entry>
+                        <entry>
+                           <para id="Para477148">CRM</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para477153">
+                                    <screenshot id="Figure477195">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477195" fileref="../images/TOOLS_toDoList.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477155">List To-Do"s</para>
+                        </entry>
+                        <entry>
+                           <para id="Para477157">CRM</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para477162">
+                                    <screenshot id="Figure477200">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477200" fileref="../images/TOOLS_projects.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477164">List Projects</para>
+                        </entry>
+                        <entry>
+                           <para id="Para477166">P/M</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483590">
+                                    <screenshot id="Figure483597">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483597" fileref="../images/TOOLS_listUnpostedVouchers.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483592">List Unposted Vouchers</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483594">A/P</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483584">
+                                    <screenshot id="Figure483603">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483603" fileref="../images/TOOLS_selectPayments.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483586">Select Payments</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483588">A/P</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483578">
+                                    <screenshot id="Figure483609">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483609" fileref="../images/TOOLS_prepareCheckRun.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483580">Prepare Check Run</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483582">A/P</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483572">
+                                    <screenshot id="Figure483615">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483615" fileref="../images/TOOLS_viewCheckRun.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483574">View Check Run</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483576">A/P</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483566">
+                                    <screenshot id="Figure483621">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483621" fileref="../images/TOOLS_apAging.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483568">A/P Aging</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483570">A/P</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483560">
+                                    <screenshot id="Figure483627">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483627" fileref="../images/TOOLS_unpostedInvoices.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483562">List Unposted Invoices</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483564">A/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483554">
+                                    <screenshot id="Figure483633">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483633" fileref="../images/TOOLS_arWorkbench.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483556">A/R Workbench</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483558">A/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483548">
+                                    <screenshot id="Figure483639">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483639" fileref="../images/TOOLS_editCashReceipts.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483550">Cash Receipt Edit List</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483552">A/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483542">
+                                    <screenshot id="Figure483645">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483645" fileref="../images/TOOLS_arAging.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483544">A/R Aging</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483546">A/R</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483536">
+                                    <screenshot id="Figure483651">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483651" fileref="../images/TOOLS_journalEntries.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483538">List Unposted Journal Entries</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483540">G/L</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483530">
+                                    <screenshot id="Figure483657">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483657" fileref="../images/TOOLS_bankReconciliation.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483532">Reconcile Bank Account</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483534">G/L</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483524">
+                                    <screenshot id="Figure483663">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483663" fileref="../images/TOOLS_viewFinancialReport.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483526">View Financial Report</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483528">G/L</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para483518">
+                                    <screenshot id="Figure483669">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic483669" fileref="../images/TOOLS_viewTrialBalance.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para483520">View Trial Balances</para>
+                        </entry>
+                        <entry>
+                           <para id="Para483522">G/L</para>
+                        </entry>
+                     </row>
+                     <row>
+                        <entry>
+                           <para id="Para477168">
+                                    <screenshot id="Figure477208">
+                                 <mediaobject>
+                                    <imageobject>
+                                       <imagedata id="Graphic477208" fileref="../images/TOOLS_dspEvents.png"/>
+                                    </imageobject>
+                                 </mediaobject>
+                              </screenshot>
+                                 </para>
+                        </entry>
+                        <entry>
+                           <para id="Para477170">Event Notification</para>
+                        </entry>
+                        <entry>
+                           <para id="Para477172">System</para>
+                        </entry>
+                     </row>
+                  </tbody>
+               </tgroup>
+            </table>
+            <tip>
+               <para id="Para477218">If you hover your mouse above a toolbar button, the name of the function associated with the button will appear. Use this technique to quickly learn the identity of the toolbar buttons.</para>
+            </tip>
+         </section>
+      </section>
+      <section id="Section456244">
+         <title>
+                  <anchor id="Anchor_Toc16496304" role="Cross-Ref" xreflabel="_Toc16496304"/>
+                  <anchor id="Anchor474210" role="Index" xreflabel="common application buttons"/>
+                  <indexterm zone="Anchor474210" significance="normal">
+               <primary>common application buttons</primary>
+            </indexterm>Common Application Buttons
+            </title>
+         <para id="Para456245">A set of common buttons appear throughout the xTuple Applications. They are usually located to the far right side of the screen. They can be activated by a single mouse click, or by the use of associated keyboard shortcuts. The following descriptions explain some of the more common application buttons found within the xTuple Applications:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para456246">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen you are currently working on, without saving any information you may have entered. Returns you to the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456247">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Works the same way as the CLOSE button.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456248">SELECT</term>
+               <listitem>
+                  <para id="Para">Inserts a highlighted list item into a requesting field. The use of the SELECT button is illustrated in <link id="XRef469998" linkend="Anchor12329" endterm="Anchor12329">  Browse Button Detail</link>Figure Intro.7. In this Bill of Materials example, you would highlight an Item in the searchable master list of Items and then hit SELECT. The Item would then be automatically entered into the "Item Number" field on the Bill of Materials screen. You may bypass the SELECT button by double-clicking on a highlighted list item.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456249">EDIT</term>
+               <listitem>
+                  <para id="Para"> Allows editing of information displayed on screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para469879">VIEW</term>
+               <listitem>
+                  <para id="Para"> Opens a read-only view of information displayed on screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456250">SAVE</term>
+               <listitem>
+                  <para id="Para">Saves any information you have entered and stores it in the xTuple Database.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para456251">PRINT</term>
+               <listitem>
+                  <para id="Para"> Sends the contents of a screen or report to your default printer, assuming you have a default printer assigned to your work station.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section486955">
+         <title>
+                  <anchor id="Anchor77806" role="Cross-Ref"
+                    xreflabel="77806: Heading2: Topic: Pattern Matching with Regular Expressions"/>
+                  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/pattern_matching.fm"/>
+                  <anchor id="Anchor486954" role="Index"
+                    xreflabel="pattern matching:with regular expressions;regular expressions:pattern matching using"/>
+                  <indexterm zone="Anchor486954" significance="normal">
+               <primary>pattern matching</primary>
+               <secondary>with regular expressions</secondary>
+            </indexterm>
+                  <indexterm zone="Anchor486954" significance="normal">
+               <primary>regular expressions</primary>
+               <secondary>pattern matching using</secondary>
+            </indexterm>Topic: Pattern Matching with Regular Expressions
+            </title>
+         <para id="Para486956">OpenMFG supports the use of Regular Expressions (also known as "Regex") in fields where pattern matching is called for. This Regular Expression support gives you tremendous flexibility and control whenever you want to retrieve unique patterns from within any of the following groupings:</para>
+         <itemizedlist>
+            <listitem>
+               <para id="Para486957">Class Codes</para>
+            </listitem>
+            <listitem>
+               <para id="Para486958">Planner Codes</para>
+            </listitem>
+            <listitem>
+               <para id="Para486959">Item Groups</para>
+            </listitem>
+            <listitem>
+               <para id="Para486960">Product Categories</para>
+            </listitem>
+            <listitem>
+               <para id="Para486961">Customer Types</para>
+            </listitem>
+            <listitem>
+               <para id="Para486962">Customer Groups</para>
+            </listitem>
+            <listitem>
+               <para id="Para486963">Vendor Types</para>
+            </listitem>
+         </itemizedlist>
+         <para id="Para486964">Let's say, for example, you want to generate a report showing Internet sales during a given period. To access this data, you would need to look at sales made to your Internet Customers. Because Internet Customers are a subset of Customer Types, you would create a Regular Expression to retrieve this subset and send it to the report.</para>
+         <section id="Section486965">
+            <title>
+                  Characters and Metacharacters
+               </title>
+            <para id="Para486967">
+                     <anchor id="Anchor486966" role="Index"
+                       xreflabel="metacharacters:in regular expressions"/>
+                     <indexterm zone="Anchor486966" significance="normal">
+                  <primary>metacharacters</primary>
+                  <secondary>in regular expressions</secondary>
+               </indexterm>Regular Expressions are created using different combinations of characters and metacharacters. A character is defined as any alphanumeric character--both upper and lower case--including punctuation marks, white space, and other keyboard symbols. Metacharacters, sometimes referred to as "<anchor id="Anchor486968" role="Index" xreflabel="wildcards"/>
+                     <indexterm zone="Anchor486968" significance="normal">
+                  <primary>wildcards</primary>
+               </indexterm>wildcards," are special characters used to facilitate pattern matching. The most common metacharacters are described in the tables below. </para>
+            <tip>
+               <para id="Para486970">The more you understand the role of metacharacters, the more you will be able to control your pattern matching. </para>
+            </tip>
+            <para id="Para486972">The first thing to understand is that Regular Expressions match "<anchor id="Anchor486971" role="Index" xreflabel="substrings:metacharacters and"/>
+                     <indexterm zone="Anchor486971" significance="normal">
+                  <primary>substrings</primary>
+                  <secondary>metacharacters and</secondary>
+               </indexterm>substrings." A substring is a subset of a "<anchor id="Anchor486973" role="Index" xreflabel="strings:pattern matching and"/>
+                     <indexterm zone="Anchor486973" significance="normal">
+                  <primary>strings</primary>
+                  <secondary>pattern matching and</secondary>
+               </indexterm>string"--a string being a sequence of characters arranged in a line. For example, the numbers 123 are a substring of the string 012345. Similarly, the letters EAT are a substring of the strings MEAT, EATERY, and THEATER. Numbers and letters can also be combined to form a substring. The pattern INTCUST4 is a substring of a particular set of Internet Customer strings: INTCUST400, INTCUST401, INTCUST402, and so on. As you can see, substrings may appear anywhere in a string--at the beginning, the middle, or the end.</para>
+            <tip>
+               <para id="Para486975">Regular Expressions are case-sensitive. This means there is a difference between "a" and "A". Keep this in mind when using Regular Expressions for pattern matching.</para>
+            </tip>
+            <para id="Para486976">Metacharacters give you even more control over your substring definitions. With metacharacters, you can specify the exact location of a substring: beginning of a word or line, end of a word or line, etc. You can also specify ranges of data: Customers A-Z, Items 1-9, etc. This sort of control is especially vital when searching through large quantities of data. As you can imagine, metacharacters will not only save you time, they will also increase your precision. The following tables describe metacharacters in more detail.</para>
+            <para id="Para487010">
+                     <table id="Table486977">
+                  <title>
+                                    Single Character Metacharacters
+                                 </title>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry>
+                              <para id="Para486986">
+                                          .
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para486988">
+                                          Matches any single character.
+                                       </para>
+                              <para id="Para486990">
+                                          Example:
+                                       </para>
+                              <para id="Para486991">
+                                          The Regular Expression 
+                                          b.t
+                                           would match 
+                                          bat
+                                          , 
+                                          bet
+                                          , 
+                                          bit
+                                          , and 
+                                          bot
+                                          , but 
+                                          not
+                                          boot
+                                          , 
+                                          BAT
+                                          , 
+                                          BET
+                                          , etc. Because the substring might be part of a longer word, 
+                                          b.t
+                                           would also 
+                                          match 
+                                          bottle
+                                          , 
+                                          batch
+                                          , 
+                                          abbot
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para486993">
+                                          [...]
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para486995">
+                                          Matches any single character listed between the brackets.
+                                       </para>
+                              <para id="Para486997">
+                                          Examples:
+                                       </para>
+                              <para id="Para486998">
+                                          The Regular Expression 
+                                          b[aeo]t
+                                           would match 
+                                          bat
+                                          ,
+                                           bet
+                                          ,
+                                          and 
+                                          bot
+                                          . It would not match 
+                                          bit
+                                          . 
+                                       </para>
+                              <para id="Para486999">
+                                          Likewise, the expression 
+                                          CUST[A-M]
+                                           would match any strings containing the range 
+                                          of patterns from 
+                                          CUSTA
+                                           to 
+                                          CUSTM
+                                          . This would include 
+                                          CUSTABC
+                                          , 
+                                          CUSTA123
+                                          , 
+                                          CUSTBCD
+                                          , 
+                                          CUSTB123
+                                          , etc.
+                                       </para>
+                              <para id="Para487000">
+                                          To match both upper case and lower case occurrences, use the expression 
+                                          CUST[A-Ma-m]
+                                          . 
+                                       </para>
+                              <para id="Para487001">
+                                          You may also combine ranges of letters and numbers in the same expression. To 
+                                          locate product categories beginning with A-B and/or 1-5, you would use 
+                                          PROD
+                                          CAT[A-B1-5]
+                                          . This expression would match 
+                                          PRODCATABC
+                                          , 
+                                          PRODCATB123
+                                          , 
+                                          PRODCAT1ABC
+                                          , 
+                                          PRODCAT2123
+                                          , etc. 
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487003">
+                                          [^...]
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487005">
+                                          Matches any single character 
+                                          except
+                                           those listed between the brackets.
+                                       </para>
+                              <para id="Para487007">
+                                          Examples:
+                                       </para>
+                              <para id="Para487008">
+                                          Functions like the previous metacharacter, except that here the caret symbol "^" 
+                                          excludes
+                                           characters from the pattern. For example, the expression 
+                                          b[^ae]t
+                                           would 
+                                          match the substrings 
+                                          bit
+                                           and
+                                           bot
+                                          ,
+                                          but not 
+                                          bat
+                                           and 
+                                          bet
+                                          .
+                                       </para>
+                              <para id="Para487009">
+                                          To locate all product categories except those at the end of the alphabet, you would 
+                                          use 
+                                          PRODCAT[^X-Z]
+                                          . This expression would return the same results as 
+                                          PROD
+                                          CAT[A-W]
+                                          .
+                                       </para>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+                  </para>
+            <note>
+               <para id="Para487012">OpenMFG supports pattern matching with Regular Expressions in accordance with the <anchor id="Anchor487013" role="Index" xreflabel="posix:openmfg support for"/>
+                        <indexterm zone="Anchor487013" significance="normal">
+                     <primary>posix</primary>
+                     <secondary>openmfg support for</secondary>
+                  </indexterm>Portable Operating System Interface (POSIX) standard.</para>
+            </note>
+            <para id="Para487061">
+                     <table id="Table487014">
+                  <title>
+                                    Quantifiers
+                                 </title>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry>
+                              <para id="Para487023">
+                                          ?
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487025">
+                                          Matches the preceding element 
+                                          zero
+                                           or 
+                                          one
+                                           time.
+                                       </para>
+                              <para id="Para487027">
+                                          Definition:
+                                           The term "element" describes both single characters ("
+                                          A
+                                          ") and 
+                                          also ranges or lists of characters ("
+                                          [A-Z]
+                                          ", "
+                                          [acfrg]
+                                          ", "
+                                          [^2-7]
+                                          ", etc.). 
+                                       </para>
+                              <para id="Para487029">
+                                          Examples:
+                                       </para>
+                              <para id="Para487030">
+                                          The expression 
+                                          bo?ut
+                                           would match two separate substrings: those containing 
+                                          one
+                                          instance of the preceding "o" and those containing 
+                                          zero
+                                           instances of the 
+                                          preceding "o". As a result, the following matches would be returned: 
+                                          bout
+                                          , 
+                                          but
+                                          , 
+                                          about
+                                          , 
+                                          butter
+                                          , etc.
+                                       </para>
+                              <para id="Para487031">
+                                          CLASS[A-C]? would match any string containing the substrings 
+                                          CLASSA
+                                          ..., 
+                                          CLASSB
+                                          ..., 
+                                          CLASSC
+                                          .... Because 
+                                          zero
+                                           instances of 
+                                          [A-C
+                                          ] would also be 
+                                          included, matches would be returned for any string containing the root 
+                                          CLASS
+                                          --
+                                          for example, 
+                                          CLASS123
+                                          , 
+                                          CLASSDEF
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487033">
+                                          *
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487035">
+                                          Matches the preceding element 
+                                          zero
+                                           or 
+                                          more
+                                           times.
+                                       </para>
+                              <para id="Para487037">
+                                          Examples:
+                                       </para>
+                              <para id="Para487038">
+                                          Use a period followed by an asterisk (".*") to match 
+                                          all
+                                           existing patterns. For 
+                                          example, enter 
+                                          .*
+                                           to show all Customer Types where pattern matching by Cus
+                                          tomer Type is called for.
+                                       </para>
+                              <para id="Para487039">
+                                          The expression 
+                                          CUST*
+                                           would return Customer Type records for all Customer 
+                                          Types containing the substring 
+                                          CUST
+                                          . Records would also be returned for all 
+                                          Customer Types containing the substring 
+                                          CUS
+                                          , since the asterisk also 
+                                          matches the preceding element (in this case, the character "T") 
+                                          zero
+                                           times. To 
+                                          avoid matching the substring 
+                                          CUS
+                                          , insert a period before the asterisk. The 
+                                          expression 
+                                          CUST.*
+                                           will match all strings containing 
+                                          CUST
+                                          , but not all strings 
+                                          containing 
+                                          CUS
+                                          .
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487041">
+                                          +
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487043">
+                                          Matches the preceding element 
+                                          one
+                                           or 
+                                          more
+                                           times.
+                                       </para>
+                              <para id="Para487045">
+                                          Example:
+                                       </para>
+                              <para id="Para487046">
+                                          The Regular Expression 
+                                          PRODCAT10+
+                                           would match the "0" at the end of the 
+                                          pattern 
+                                          one
+                                           or 
+                                          more
+                                           times. Product Categories beginning with the numbers 
+                                          "10", "100", "1000", etc. would be found, as in 
+                                          PRODCAT10ABC
+                                          , 
+                                          PRODCAT100ABC
+                                          , 
+                                          PRODCAT1000ABC
+                                          , and so on.
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487048">
+                                          {num}
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487050">
+                                          Matches the preceding element 
+                                          num
+                                           times.
+                                       </para>
+                              <para id="Para487052">
+                                          Example:
+                                       </para>
+                              <para id="Para487053">
+                                          The expression 
+                                          CLASSA{3}
+                                           would match the "A" at the end of the pattern 
+                                          three
+                                           times. The following Class Codes would be found: 
+                                          CLASSAAA1
+                                          , 
+                                          CLASSAAA2
+                                          , 
+                                          CLASSAAA3
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487055">
+                                          {min,max}
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487057">
+                                          Matches the preceding element at least 
+                                          min
+                                           times, but not more than 
+                                          max
+                                          times.
+                                       </para>
+                              <para id="Para487059">
+                                          Example:
+                                       </para>
+                              <para id="Para487060">
+                                          The expression 
+                                          CLASSA{2,3}
+                                           would match the "A" at the end of the pattern a 
+                                          minimum of 
+                                          two
+                                           times and a maximum of 
+                                          three
+                                           times. The following Class 
+                                          Codes would be found: 
+                                          CLASSAA1
+                                          , 
+                                          CLASSAA2
+                                          , etc. and also 
+                                          CLASSAAA
+                                          1, 
+                                          CLASSAAA2
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+                  </para>
+            <tip>
+               <para id="Para487063">A space between characters is considered a character itself. You should avoid using spaces when writing Regular Expressions, unless the pattern you are matching expressly calls for them.</para>
+            </tip>
+            <para id="Para487086">
+                     <table id="Table487064">
+                  <title>
+                                    Anchors
+                                 </title>
+                  <tgroup cols="2">
+                     <tbody>
+                        <row>
+                           <entry>
+                              <para id="Para487073">
+                                          ^
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487075">
+                                          Matches at the start of the line.
+                                       </para>
+                              <para id="Para487077">
+                                          Example:
+                                       </para>
+                              <para id="Para487078">
+                                          Use the caret symbol "^" to specify that the substring you are trying to match occurs 
+                                          specifically at the 
+                                          beginning
+                                           of a line. For example, the expression 
+                                          ^ITEM
+                                           would 
+                                          match all lines beginning with the characters "ITEM", as in 
+                                          ITEM100
+                                          , 
+                                          ITEMABC
+                                          , etc. 
+                                          The expression 
+                                          ^ITEM
+                                           would 
+                                          not
+                                           match the following, since "ITEM" does not occur 
+                                          at the beginning of these lines: 
+                                          MFGITEM
+                                          , 
+                                          PURCHITEM
+                                          , 
+                                          REFITEM
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                        <row>
+                           <entry>
+                              <para id="Para487080">
+                                          $
+                                       </para>
+                           </entry>
+                           <entry>
+                              <para id="Para487082">
+                                          Matches at the end of the line.
+                                       </para>
+                              <para id="Para487084">
+                                          Example:
+                                       </para>
+                              <para id="Para487085">
+                                          Use the dollar symbol "$" to specify that the substring you are trying to match occurs 
+                                          specifically at the 
+                                          end
+                                           of a line. For example, the expression 
+                                          999$ 
+                                          would match all 
+                                          lines ending with the characters "999", as in 
+                                          ITEM100999
+                                          , 
+                                          ITEM200999
+                                          , 
+                                          ITEM300999
+                                          , etc. The expression 
+                                          999$
+                                           would 
+                                          not
+                                           match the following, since "999" 
+                                          does not occur at the end of these lines: 
+                                          ITEM
+                                          999123, 
+                                          ITEM999ABC
+                                          , etc.
+                                       </para>
+                           </entry>
+                        </row>
+                     </tbody>
+                  </tgroup>
+               </table>
+                  </para>
+            <tip>
+               <para id="Para487088">Build Regular Expressions using trial and error. If your first attempt doesn"t yield the desired results, modify the expression and try again.</para>
+            </tip>
+         </section>
+         <section id="Section487089">
+            <title>
+                  Hierarchical Structure
+               </title>
+            <para id="Para487091">
+                     <anchor id="Anchor487090" role="Index"
+                       xreflabel="hierarchical structure:pattern matching and;structure:hierarchical;pattern matching:hierarchical structure and"/>
+                     <indexterm zone="Anchor487090" significance="normal">
+                  <primary>hierarchical structure</primary>
+                  <secondary>pattern matching and</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor487090" significance="normal">
+                  <primary>structure</primary>
+                  <secondary>hierarchical</secondary>
+               </indexterm>
+                     <indexterm zone="Anchor487090" significance="normal">
+                  <primary>pattern matching</primary>
+                  <secondary>hierarchical structure and</secondary>
+               </indexterm>To simplify your pattern matching efforts, you should organize your groupings according to a hierarchical structure. Again, the following groupings support pattern matching using Regular Expressions:</para>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para487092">Class Codes</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487093">Planner Codes</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487094">Item Groups</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487095">Product Categories</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487096">Customer Types</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487097">Customer Groups</para>
+               </listitem>
+            </itemizedlist>
+            <para id="Para487098">Let's consider the Customer Type grouping to illustrate this point about hierarchies. If your Customer Types have been arranged hierarchically, the naming convention will exhibit a logical, sequential order. The following list shows an orderly, hierarchical arrangement of Customer Types:</para>
+            <itemizedlist>
+               <listitem>
+                  <para id="Para487099">CUSTUSA100, 101, 102, ...</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487100">CUSTEUROPE100, 101, 102, ...</para>
+               </listitem>
+               <listitem>
+                  <para id="Para487101">CUSTASIA100, 101, 102, ...</para>
+               </listitem>
+            </itemizedlist>
+            <para id="Para487102">Regular Expressions will find and match any pattern. But writing them will be easier if you arrange your groupings hierarchically, as shown in the example above. </para>
+            <para id="Para484569">
+                  </para>
+         </section>
+      </section>
+   </section>
+</chapter>

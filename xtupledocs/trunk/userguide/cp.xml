@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<chapter id="Chapter528777">
+   <title>Capacity Planning (C/P) Module</title>
+   <para id="Para528789">
+            <PgfTag>Body</PgfTag>
+            <PgfAutoNum>No</PgfAutoNum>
+            <PgfOptJLetterSpace>0</PgfOptJLetterSpace>
+            <PgfCellLMarginFixed>No</PgfCellLMarginFixed>
+         </para>
+   <para id="Para528776">
+xTuple Applications User Guide    
+         </para>
+   <para id="Para528759">xTuple Applications User Guide    
+         </para>
+   <para id="Para523501">This module enables you to analyze the impact of the <anchor id="Anchor523957" role="Index"
+              xreflabel="production plans:in capacity planning"/>
+            <indexterm zone="Anchor523957" significance="normal">
+         <primary>production plans</primary>
+         <secondary>in capacity planning</secondary>
+      </indexterm>Production Plan on machine and labor Capacity. The following categories will be covered:</para>
+   <itemizedlist>
+      <listitem>
+         <para id="Para523502">Work Center Capacity and Load</para>
+      </listitem>
+      <listitem>
+         <para id="Para523503">Planner Code Analysis</para>
+      </listitem>
+      <listitem>
+         <para id="Para523514">Item Production</para>
+      </listitem>
+   </itemizedlist>
+   <section id="Section529609" role="openmfg">
+      <title>
+            Master Information
+         </title>
+      <para id="Para529610">This is the section where you define Master Information for the module.</para>
+      <section id="Section530118" role="openmfg">
+         <title>
+               Work Centers
+            </title>
+         <para id="Para530119">Work Centers are collections of machines or labor that perform a specific task when building a manufactured Item. Work Centers are used by Bills of Operations to determine the amount of available and required manufacturing Capacity to produce the manufactured Item. Work Centers also determine the Cost, in direct labor, overhead, and, optionally, machine overhead, of such production. A single Warehouse may contain multiple Work Centers. To access the master list of Work Centers, select the "Work Centers" option. The following screen will appear.</para>
+         <para id="Para530123">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic530121" fileref="../images/PD_MI_workCenterList.png"/>
+                  </imageobject>
+                  <caption id="Caption530124">
+                        Work Centers Master List
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para530125">The "Work Centers" screen displays information on all existing Work Centers, including Warehouse Location, Work Center name, number of machines, and Work Center description.</para>
+         <tip>
+            <para id="Para530127">At least one Warehouse must be entered into the system before a Work Center may be added.</para>
+         </tip>
+         <para id="Para530128">To the far right of the list, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530129">CLOSE</term>
+               <listitem>
+                  <para id="Para">Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530130">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530131">NEW</term>
+               <listitem>
+                  <para id="Para"> Opens screen for creating a new Work Center.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530132">EDIT</term>
+               <listitem>
+                  <para id="Para"> Enables you to edit highlighted Work Centers. The edit screen is the same as that for creating a new Work Center --except that when editing, the fields will contain Work Center information. Double-clicking on Work Center will also bring you to the editing screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530133">VIEW</term>
+               <listitem>
+                  <para id="Para"> Highlight a Work Center and then select this button to reach a read-only view of the "Edit" screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530134">COPY</term>
+               <listitem>
+                  <para id="Para"> Highlight a Work Center and then select this button to reach a screen for copying the Work Center master.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530135">DELETE</term>
+               <listitem>
+                  <para id="Para"> Highlight a Work Center and then select this button to remove the Work Center from the list.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para530136">Right-clicking on a Work Center in the Work Center list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530137">Edit Work Center</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530138">View Work Center</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530139">Copy Work Center</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530140">Delete Work Center</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530141">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+         <para id="Para530143">To <anchor id="Anchor530142" role="Index" xreflabel="work centers:creating new"/>
+                  <indexterm zone="Anchor530142" significance="normal">
+               <primary>work centers</primary>
+               <secondary>creating new</secondary>
+            </indexterm>create a new Work Center, select the NEW button. The following screen will appear:</para>
+         <para id="Para530147">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic530145" fileref="../images/PD_MI_workCenterNew.png"/>
+                  </imageobject>
+                  <caption id="Caption530148">
+                        Create New Work Center
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para530149">When creating a new Work Center, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530150">Work Center #</term>
+               <listitem>
+                  <para id="Para"> Enter a unique code to identify the Work Center.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530151">Description</term>
+               <listitem>
+                  <para id="Para"> Enter a description to further identify the Work Center.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530152">Department</term>
+               <listitem>
+                  <para id="Para"> Specify a Department to be associated with the Work Center.</para>
+                  <para id="Para530153">This is an optional setting.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530154">Warehouse</term>
+               <listitem>
+                  <para id="Para"> Specify the Warehouse where the Work Center is located.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530155"># of Machines</term>
+               <listitem>
+                  <para id="Para"> Select a number using the arrow buttons, or manually enter a value up to a maximum of 99.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530156"># of People</term>
+               <listitem>
+                  <para id="Para">Select a number using the arrow buttons, or manually enter a value up to a maximum of 1,000.</para>
+                  <para id="Para530157">Value entered indicates the multiplier that will be used for man hour calculations.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530159">
+                     <anchor id="Anchor530158" role="Index"
+                          xreflabel="labor rates:for work centers;work centers:labor rates for"/>
+                     <indexterm zone="Anchor530158" significance="normal">
+                     <primary>labor rates</primary>
+                     <secondary>for work centers</secondary>
+                  </indexterm>
+                     <indexterm zone="Anchor530158" significance="normal">
+                     <primary>work centers</primary>
+                     <secondary>labor rates for</secondary>
+                  </indexterm>Run Labor Rate</term>
+               <listitem>
+                  <para id="Para"> Specify a run labor rate from the following options:</para>
+                  <para id="Para530160">Specify Labor Rate: Amount entered represents dollars per man hour that it Costs to complete the activity assigned to the Work Center. You have the choice of entering a specific run labor rate in this field, or selecting a pre-defined Standard Labor Rate from the list in the succeeding field.</para>
+                  <para id="Para530161">Select Standard Rate: Select a pre-defined labor rate to be applied for the activity assigned to the Work Center.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para530163">For the purposes of Work Order reporting, Work Centers are set up only once. As a result, the setup labor rate is charged only once per Work Order. The run labor rate, on the other hand, is charged per Item produced. These rates may be adjusted after Work Order explosion using the Maintain Work Order Operations screen.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530164">Setup Labor Rate</term>
+               <listitem>
+                  <para id="Para"> Specify a setup labor rate from the following options:</para>
+                  <para id="Para530165">Specify Labor Rate: Amount entered represents dollars per man hour that it Costs to set up the Operation that will be performed at the Work Center. You have the choice of entering a specific setup labor rate in this field, or selecting a pre-defined Standard Labor Rate from the list in the succeeding field. </para>
+                  <para id="Para530166">Select Standard Rate: Select a pre-defined labor rate to be applied to the setup activity assigned to the Work Center. If you determine that none of the Standard Labor Rates apply to the setup activity involved with the Work Center, then you can manually specify a rate in the preceding field.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <tip>
+            <para id="Para530168">To calculate hourly labor rates for a Work Center, multiply the number of people by the labor rate--either the run rate or the setup rate. To calculate all Work Center charges, add overhead Costs to the sum of the labor rates.</para>
+         </tip>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530170">
+                     <anchor id="Anchor530169" role="Index"
+                          xreflabel="overhead:in work centers;work centers:overhead in"/>
+                     <indexterm zone="Anchor530169" significance="normal">
+                     <primary>overhead</primary>
+                     <secondary>in work centers</secondary>
+                  </indexterm>
+                     <indexterm zone="Anchor530169" significance="normal">
+                     <primary>work centers</primary>
+                     <secondary>overhead in</secondary>
+                  </indexterm>Overhead % of Labor</term>
+               <listitem>
+                  <para id="Para">Amount entered represents overhead for this Work Center as a percentage of the hourly run labor rate. The hourly run labor rate is equal to the number of people multiplied by the run labor rate.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530171">Overhead per Labor Hr.</term>
+               <listitem>
+                  <para id="Para"> Amount entered represents overhead for this Work Center as the number of dollars per man hour.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530172">Overhead per Mach. Hr.</term>
+               <listitem>
+                  <para id="Para"> Hr.: Amount entered represents overhead for this Work Center as the number of dollars per machine hour.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530173">Overhead Rate/Hr.</term>
+               <listitem>
+                  <para id="Para"> Displays automatic calculation of the Work Center's overhead Costs, expressed in dollars per hour. Calculation is based on the following formula, using data entered into the Work Center screen: (overhead % of labor <!--Yen--> run labor rate) + (overhead per labor Hr. <!--Yen--> # of People) + (overhead per mach. hr. <!--Yen--> # of machines) = overhead rate/Hr.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530174">Overhead per Unit</term>
+               <listitem>
+                  <para id="Para"> Amount entered represents overhead for this Work Center as the number of dollars per unit produced.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530175">Avg. Queue Days</term>
+               <listitem>
+                  <para id="Para"> Queue Days: Select a number using the arrow buttons, or manually enter a value up to a maximum of 999.</para>
+                  <para id="Para530176">Amount entered represents the average number of days between the day a job arrives at the Work Center and the day work begins on the job.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530177">Avg. Setup Time</term>
+               <listitem>
+                  <para id="Para"> Setup Time: Amount entered represents the average amount of time required to set up the Work Center in preparation for starting the job.</para>
+                  <para id="Para530178">This option also enables you to specify whether setup time relates to labor time or machine time.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530180">
+                     <anchor id="Anchor530179" role="Index"
+                          xreflabel="capacity:daily in work centers;work centers:daily capacity"/>
+                     <indexterm zone="Anchor530179" significance="normal">
+                     <primary>capacity</primary>
+                     <secondary>daily in work centers</secondary>
+                  </indexterm>
+                     <indexterm zone="Anchor530179" significance="normal">
+                     <primary>work centers</primary>
+                     <secondary>daily capacity</secondary>
+                  </indexterm>Daily Capacity</term>
+               <listitem>
+                  <para id="Para"> The amount entered indicates the number of minutes worth of production the Work Center is available to perform in one day.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530181">Efficiency Factor</term>
+               <listitem>
+                  <para id="Para">Amount entered will be multiplied by the daily Capacity to determine the standard Capacity for the Work Center. The standard Capacity value will be used when determining the actual Capacity for this Work Center. The efficiency factor for a Work Center should be developed based on time studies.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530182">Comments</term>
+               <listitem>
+                  <para id="Para"> This is a scrolling text field with word-wrapping for entering Comments related to the Work Center.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para530183">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530184">CANCEL</term>
+               <listitem>
+                  <para id="Para"> Closes the screen without creating the Work Center, returning you to the previous screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530185">SAVE</term>
+               <listitem>
+                  <para id="Para"> Creates the Work Center and adds it to the master list of Work Centers.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section529751" role="openmfg">
+         <title>
+               C/P Reports
+            </title>
+         <para id="Para519756">This module offers a number of reports.</para>
+      </section>
+      <section id="Section518741" role="openmfg">
+         <title>
+               Time-Phased Capacity by Work Center
+            </title>
+         <para id="Para519885">To view time-phased Capacity by Work Center, select the "Time-Phased Capacity by Work Center" option. The following screen will appear:</para>
+         <para id="Para519803">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519871" fileref="../images/CP_Disp_tpCapByWCenter.png"/>
+                  </imageobject>
+                  <caption id="Caption519874">
+                        Time-Phased Capacity by Work Center
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para519909">When displaying time-phased Capacity by Work Center, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520600">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased Capacity by Work Center for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520602">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased Capacity by Work Center you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529455">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529456">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520606">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para523036">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520608">Capacity</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased Capacity by Work Center, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para520610">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520611">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525484">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para520613">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Capacity" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529877">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section527209" role="openmfg">
+         <title>
+               Time-Phased Available Capacity by Work Center
+            </title>
+         <para id="Para527210">To view time-phased available Capacity by Work Center, select the "Time-Phased Available Capacity by Work Center" option. The following screen will appear:</para>
+         <para id="Para527214">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic527212" fileref="../images/CP_Disp_tpAvailCapWC.png"/>
+                  </imageobject>
+                  <caption id="Caption527215">
+                        Time-Phased Available Capacity by Work Center
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para527216">When displaying time-phased available Capacity by Work Center, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527217">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased available Capacity by Work Center for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527218">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased available Capacity by Work Center you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529465">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529466">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527221">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para527222">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527223">Available Capacity</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased available Capacity by Work Center, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para527225">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527226">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527227">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para527228">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Available Capacity" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529884">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para527292">Right-clicking on a Work Center in the Available Capacity list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para527293">View Load</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527294">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518742" role="openmfg">
+         <title>
+               Time-Phased Load by Work Center
+            </title>
+         <para id="Para519924">To view time-phased load by Work Center, select the "Time-Phased Load by Work Center" option. The following screen will appear:</para>
+         <para id="Para519928">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519926" fileref="../images/CP_Disp_tpLoadByWCenter.png"/>
+                  </imageobject>
+                  <caption id="Caption519929">
+                        Time-Phased Load by Work Center
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para519930">When displaying time-phased load by Work Center, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520884">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased load by Work Center for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para524584">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased load by Work Center you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529471">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529472">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520890">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para523041">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520892">Load</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased load by Work Center, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para520894">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520895">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525491">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para520897">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Load" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529851">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para524611">Right-clicking on an Item in the Load list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para524612">View Load</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para524613">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518743" role="openmfg">
+         <title>
+               Time-Phased Demand by Planner Code
+            </title>
+         <para id="Para519941">To view time-phased demand by Planner Code, select the "Time-Phased Demand by Planner Code" option. The following screen will appear:</para>
+         <para id="Para519945">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519943" fileref="../images/CP_Disp_tpDemandByPCode.png"/>
+                  </imageobject>
+                  <caption id="Caption519946">
+                        Time-Phased Demand by Planner Code
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para519947">When displaying time-phased demand by Planner Code, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para520973">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased demand by Planner Code for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520975">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased demand by Planner Code you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521064">All Planner Codes</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased demand for all Planner Codes.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521065">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Planner Code whose time-phased demand you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522927">Pattern</term>
+               <listitem>
+                  <para id="Para">Enter a Planner Code pattern to select a range of Planner Codes.</para>
+                  <para id="Para530044">Refine your search using Regular Expressions, as described in <link id="XRef530043" linkend="Anchor77806" endterm="Anchor77806"> Pattern Matching with Regular Expressions</link>"Topic: Pattern Matching with Regular Expressions".</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para526130">Inventory Units</term>
+               <listitem>
+                  <para id="Para">Select to display Inventory Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521084">Capacity Units</term>
+               <listitem>
+                  <para id="Para">Select to display Capacity Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521085">Alt. Capacity Units</term>
+               <listitem>
+                  <para id="Para"> Capacity Units: Select to display Alternate Capacity Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529477">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529478">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520979">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para529521">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para520981">Demand</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased demand by Planner Code, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para525525">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para525526">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525533">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para520986">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Demand" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529858">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para528979">SUBMIT</term>
+               <listitem>
+                  <para id="Para"> Select to submit report to the Batch Manager. For additional information, see the <link id="XRef528981" linkend="Anchor61009" endterm="Anchor61009"> Submitting Reports and Jobs to the Batch Manager</link>"Topic: Submitting Reports and Jobs to the Batch Manager".</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para524665">Right-clicking on an Item in the Demand list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para524666">View Demand</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para524667">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518748" role="openmfg">
+         <title>
+               Time-Phased Production by Item
+            </title>
+         <para id="Para519962">To view time-phased production by Item, select the "Time-Phased Production by Item" option. The following screen will appear:</para>
+         <para id="Para519966">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519964" fileref="../images/CP_Disp_tpProdByItem.png"/>
+                  </imageobject>
+                  <caption id="Caption519967">
+                        Time-Phased Production by Item
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para519968">When displaying time-phased production by Item, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para521129">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased production by Item for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525828">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased production by Item you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525829">All Planner Codes</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased production by Item for all Planner Codes.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525830">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Planner Code whose time-phased production by Item you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522933">Pattern</term>
+               <listitem>
+                  <para id="Para">Enter a Planner Code pattern to select a range of Planner Codes.</para>
+                  <para id="Para530056">Refine your search using Regular Expressions, as described in <link id="XRef530055" linkend="Anchor77806" endterm="Anchor77806"> Pattern Matching with Regular Expressions</link>"Topic: Pattern Matching with Regular Expressions".</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529484">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529485">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521149">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para523051">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected. </para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521151">Production</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased production by Item, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para521153">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para521154">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525542">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para521156">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Production" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529864">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para529098">SUBMIT</term>
+               <listitem>
+                  <para id="Para"> Select to submit report to the Batch Manager. For additional information, see the <link id="XRef529100" linkend="Anchor61009" endterm="Anchor61009"> Submitting Reports and Jobs to the Batch Manager</link>"Topic: Submitting Reports and Jobs to the Batch Manager".</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para522874">Right-clicking on an Item in the Production list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para522876">View Transactions</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522879">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section518753" role="openmfg">
+         <title>
+               Time-Phased Production by Planner Code
+            </title>
+         <para id="Para519986">To view time-phased production by Planner Code, select the "Time-Phased Production by Planner Code" option. The following screen will appear:</para>
+         <para id="Para519990">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic519988" fileref="../images/CP_Disp_tpProdByPCode.png"/>
+                  </imageobject>
+                  <caption id="Caption519991">
+                        Time-Phased Production by Planner Code
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <para id="Para519992">When displaying time-phased production by Planner Code, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para521285">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased production by Planner Code for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521287">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose time-phased production by Planner Code you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521289">All Planner Codes</term>
+               <listitem>
+                  <para id="Para"> Select to display time-phased production for all Planner Codes.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521290">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Planner Code whose time-phased production you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para522939">Pattern</term>
+               <listitem>
+                  <para id="Para">Enter a Planner Code pattern to select a range of Planner Codes.</para>
+                  <para id="Para530064">Refine your search using Regular Expressions, as described in <link id="XRef530063" linkend="Anchor77806" endterm="Anchor77806"> Pattern Matching with Regular Expressions</link>"Topic: Pattern Matching with Regular Expressions".</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521300">Inventory Units</term>
+               <listitem>
+                  <para id="Para">Select to display Inventory Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521301">Capacity Units</term>
+               <listitem>
+                  <para id="Para">Select to display Capacity Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521302">Alt. Capacity Units</term>
+               <listitem>
+                  <para id="Para"> Capacity Units: Select to display Alternate Capacity Units of Measure.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529490">Calendar</term>
+               <listitem>
+                  <para id="Para"> Select the Calendar you want to use for the report.</para>
+                  <para id="Para529491">Associated Calendar periods will be displayed.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521305">Name/Selected Periods</term>
+               <listitem>
+                  <para id="Para"> Select as many periods as you want to display. Selected periods correspond to Calendar specified in the "Calendar" field. </para>
+                  <para id="Para523056">Select individual periods or groups of periods together. To select an individual period, highlight the period using your mouse button. The period is now selected. To select a sequence of periods, highlight the first in the sequence using your mouse button. Then, holding down the SHIFT key on your keyboard, highlight the last period in the sequence. The entire sequence is now selected. To select periods that are out of sequence (e.g., January, April, July, October), highlight the first period in the group. Then, holding down the CTRL key on your keyboard, highlight the next period you want to select. Continue highlighting periods with the CTRL key depressed until all desired periods are selected. The entire group is now selected.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521323">Show Inactive Item Sites</term>
+               <listitem>
+                  <para id="Para"> Select to include inactive Item Sites in the display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para521307">Production</term>
+               <listitem>
+                  <para id="Para"> Display lists time-phased production by Planner Code, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para521309">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para521310">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para525551">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+                  <para id="Para521312">Start date and end date must be entered for calculation to proceed. Results will be displayed in the "Production" display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para529870">PRINT</term>
+               <listitem>
+                  <para id="Para"> Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry role="openmfg">
+               <term id="Para529115">SUBMIT</term>
+               <listitem>
+                  <para id="Para"> Select to submit report to the Batch Manager. For additional information, see the <link id="XRef529117" linkend="Anchor61009" endterm="Anchor61009"> Submitting Reports and Jobs to the Batch Manager</link>"Topic: Submitting Reports and Jobs to the Batch Manager".</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para522915">Right-clicking on a Planner Code in the Production list enables you to select from the following menu options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para522916">View Transactions</term>
+               <listitem/>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para527612">Export Contents</term>
+               <listitem/>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section530193" role="openmfg">
+         <title>
+               Capacity Buffer Status by Work Center
+            </title>
+         <para id="Para530194">The capacity buffer status display provides information on your current capacity buffer levels. Capacity buffers apply to Work Centers. The capacity buffer screen enables us to view the current load in relation to a definable number of days of capacity. Keep in mind that buffer status information will only be displayed on days when the Buffer Management system is run. If you find your displays show no information, this probably means Buffer Management has not been run.</para>
+         <para id="Para530195">To view capacity buffer status by Work Center, select the "Capacity Buffer Status by Work Center" option. The following screen will appear:</para>
+         <para id="Para530199">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata id="Graphic530197" fileref="../images/MS_Buff_statusByWCenter.png"/>
+                  </imageobject>
+                  <caption id="Caption530200">
+                        Capacity Buffer Status by Work Center
+                     </caption>
+               </mediaobject>
+            </screenshot>
+         </para>
+         <note>
+            <para id="Para530202">When the buffer status for a Work Center hits 66 or higher, the status number will become red. By highlighting lines which are "red hot," the system is informing you which should be acted on immediately. The best remedy for red hot Item Sites is to expedite any associated Work Orders or Purchase Orders.</para>
+         </note>
+         <para id="Para530203">When displaying capacity buffer statuses by Work Center, you are presented with the following options:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530204">All Work Centers</term>
+               <listitem>
+                  <para id="Para"> Select to display capacity buffer statuses for all Work Centers.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530205">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Work Center whose Inventory buffer status you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530206">All Warehouses</term>
+               <listitem>
+                  <para id="Para"> Select to display capacity buffer statuses for all Warehouses.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530207">Selected</term>
+               <listitem>
+                  <para id="Para"> Specify Warehouse whose capacity buffer statuses you want to display.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530208">Max Days Load</term>
+               <listitem>
+                  <para id="Para"> Specify the maximum number of days worth of Work Center load you want to view, using the arrows to the right of the field. This is required information</para>
+                  <para id="Para530209">You must enter a value greater than 0 to generate buffer status information. The system uses the following equation to determine the capacity buffer status for a Work Center:</para>
+                  <para id="Para530210">(Total Setup + Total Run) / (Max Days Load x Daily Capacity) = Buffer (%)</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <note>
+            <para id="Para530212">By default, the display will sort Work Centers by buffer status in descending order. In other words, Work Centers with the highest buffer status will appear at the top of the list; Work Centers with the lowest buffer status will appear at the bottom.</para>
+         </note>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530213">Buffer Status by Work Center</term>
+               <listitem>
+                  <para id="Para"> Display lists capacity buffer status by Work Center, using the specified parameters. </para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+         <para id="Para530214">To the far right of the screen, the following buttons are available:</para>
+         <variablelist>
+            <varlistentry>
+               <term id="Para530215">CLOSE</term>
+               <listitem>
+                  <para id="Para"> Closes the screen, returning you to the application desktop.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530216">QUERY</term>
+               <listitem>
+                  <para id="Para">Select to generate the display, using the specified parameters.</para>
+               </listitem>
+            </varlistentry>
+            <varlistentry>
+               <term id="Para530217">PRINT</term>
+               <listitem>
+                  <para id="Para">Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
+      <section id="Section529967">
+         <title>
+            </title>
+      </section>
+   </section>
+</chapter>
