@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>The XTreeWidget</title>
+  <note>
+    <para>This file is currently a test of how widgets documentation should be
+    written. Let's build an outline as we figure out what the structure should
+    be, then do one or two more widgets until we find a structure that works.
+    Then we can start writing them all. A good place to get initial content
+    might be the Introduction chapter of the User Guide.</para>
+    <para>We should also be careful in how we word things. Some individual
+    elements (like the Export Contents... varlistentry in the variablelist
+    under Right-click menus) might eventually be incorporated by reference in
+    other sections or documents. Some elements might have roles that control
+    whether they're visible in other contexts, e.g. the entire document might
+    be included in the introduction but we might want the Application
+    Programming Interface section hidden there and visible in the Developers'
+    Guide. </para>
+  </note>
+  <para>introductory material describing the purpose of the XTreeWidget</para>
+  <para>presents data in tabular form</para>
+  <section>
+    <title>Behavior visible to the user</title>
+    <section>
+      <title>Sorting Data</title>
+      <para>sorting columns</para>
+    </section>
+    <section>
+      <title>Column Memory</title>
+      <para>column width memory</para>
+      <para>column visibility memory</para>
+    </section>
+    <section>
+      <title>Right-click menus</title>
+      <para>Every XTreeWidget can produce a popup menu. The contents of this
+      menu differ from one window to another, but every menu contains the
+      following:</para>
+      <variablelist>
+        <varlistentry id="xtreewidget.menu.exportcontents">
+          <term><guimenuitem>Export Contents...</guimenuitem></term>
+          <listitem>
+            <para>Export the data displayed on the screen into a plain-text,
+            TAB-delimited file. This file may subsequently be imported into a
+            spreadsheet or other office tool.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+  </section>
+  <section>
+    <title>Application Programming Interface</title>
+    <para>Slots</para>
+    <para>Signals</para>
+    <para>Public Methods</para>
+    <para>Protected Methods</para>
+    <para>Properties</para>
+  </section>
+  <section>
+    <title>Internals</title>
+    <para></para>
+  </section>
+</section>

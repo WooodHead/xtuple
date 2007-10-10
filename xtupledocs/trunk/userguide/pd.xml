@@ -839,11 +839,17 @@
       <variablelist>
         <varlistentry>
           <term id="Para665862">Edit Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section665843/7/4/2/1)" />
+          </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para665863">View Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section665843/7/5/2/1)" />
+          </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para665864">Copy Work Center</term>
@@ -853,10 +859,9 @@
           <term id="Para665865">Delete Work Center</term>
           <listitem></listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para665866">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
       <para id="Para665868">To <anchor id="Anchor665867" role="Index"
       xreflabel="work centers:creating new" /> <indexterm
