@@ -115,24 +115,35 @@
       <variablelist>
         <varlistentry>
           <term id="Para530137">Edit Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section530118/7/4/2/1)" />
+          </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para530138">View Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section530118/7/5/2/1)" />
+          </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para530139">Copy Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section530118/7/6/2/1)" />
+          </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para530140">Delete Work Center</term>
-          <listitem></listitem>
+          <listitem>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section530118/7/7/2/1)" />
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para530141">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
       <para id="Para530143">To <anchor id="Anchor530142" role="Index"
       xreflabel="work centers:creating new" /> <indexterm
@@ -587,12 +598,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para527293">View Load</term>
-          <listitem></listitem>
+          <listitem>
+            <para></para>
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para527294">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
     </section>
     <section id="Section518742" role="openmfg">
@@ -697,12 +709,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para524612">View Load</term>
-          <listitem></listitem>
+          <listitem>
+            <para></para>
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para524613">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
     </section>
     <section id="Section518743" role="openmfg">
@@ -864,12 +877,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para524666">View Demand</term>
-          <listitem></listitem>
+          <listitem>
+            <para></para>
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para524667">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
     </section>
     <section id="Section518748" role="openmfg">
@@ -1010,12 +1024,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para522876">View Transactions</term>
-          <listitem></listitem>
+          <listitem>
+            <para></para>
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para522879">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
     </section>
     <section id="Section518753" role="openmfg">
@@ -1184,12 +1199,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para522916">View Transactions</term>
-          <listitem></listitem>
+          <listitem>
+            <para></para>
+          </listitem>
         </varlistentry>
-        <varlistentry>
-          <term id="Para527612">Export Contents</term>
-          <listitem></listitem>
-        </varlistentry>
+        <xi:include href="widgets/xtreewidget.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(xtreewidget.menu.exportcontents)" />
       </variablelist>
     </section>
     <section id="Section530193" role="openmfg">
