@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Voucher Item
+  </title>
+   <subtitle>voucherItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/voucherItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Voucher Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>P/O Number:</guilabel>
+               </entry>
+               <entry>_poNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line #:</guilabel>
+               </entry>
+               <entry>_lineNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_lineNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>groupBox</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_lineFreight</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_extPrice</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_unitPrice</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Line Item Freight:</guilabel>
+               </entry>
+               <entry>_lineFreightLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Ext. Price:</guilabel>
+               </entry>
+               <entry>_extPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Unit Price:</guilabel>
+               </entry>
+               <entry>_unitPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Vend. Item Number:</guilabel>
+               </entry>
+               <entry>_vendItemNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendItemNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>UOM:</guilabel>
+               </entry>
+               <entry>_vendUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Vend. Item Descrip.:</guilabel>
+               </entry>
+               <entry>_vendItemDescripLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendDescription</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame_2</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Uninvoiced Receipts and Returns</guilabel>
+               </entry>
+               <entry>_uninvoiceReceivingsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_uninvoiced</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Due Date:</guilabel>
+               </entry>
+               <entry>_dueDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_ordered</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_received</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_rejected</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>0</guilabel>
+               </entry>
+               <entry>_qtyToVoucher</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Uninvoiced Qty. Received:</guilabel>
+               </entry>
+               <entry>_uninvoicedReceivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Uninvoiced Qty. Rejected:</guilabel>
+               </entry>
+               <entry>_uninvoicedRejectedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_uninvoicedReceived</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_uninvoicedRejected</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Quantity Ordered:</guilabel>
+               </entry>
+               <entry>_orderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Quantity Received:</guilabel>
+               </entry>
+               <entry>_receivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Quantity Rejected:</guilabel>
+               </entry>
+               <entry>_rejectedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dueDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>PO Line Freight to Voucher:</guilabel>
+               </entry>
+               <entry>_freightToVoucherLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_freightToVoucher</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close P/O Item</guilabel>
+               </entry>
+               <entry>_closePoitem</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. to Voucher:</guilabel>
+               </entry>
+               <entry>_toVoucherLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Distribution List:</guilabel>
+               </entry>
+               <entry>_distributionListLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_vodist</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Total Distributed:</guilabel>
+               </entry>
+               <entry>_totalDistributedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_totalDistributed</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ew</guilabel>
+               </entry>
+               <entry>_new</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

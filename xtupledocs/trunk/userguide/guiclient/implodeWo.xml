@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Implode Work Order
+  </title>
+   <subtitle>implodeWo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/implodeWo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Implode Work Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>mplode</guilabel>
+               </entry>
+               <entry>_implode</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

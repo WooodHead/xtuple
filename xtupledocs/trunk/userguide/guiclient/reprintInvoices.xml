@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Re-Print Invoices
+  </title>
+   <subtitle>reprintInvoices : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/reprintInvoices.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Re-Print Invoices
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Search for
+Invoice Number:</guilabel>
+               </entry>
+               <entry>_invoicePatternLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invoicePattern</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dates</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Invoices:</guilabel>
+               </entry>
+               <entry>_invoicesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invoice</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invoiceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_numOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_numOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_watermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Query</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Explode Work Order
+  </title>
+   <subtitle>explodeWo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/explodeWo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Explode Work Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_levelGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ingle Level Explosion</guilabel>
+               </entry>
+               <entry>_singleLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>M</accel>ultiple Level Explosion</guilabel>
+               </entry>
+               <entry>_multipleLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>E<accel>x</accel>plode</guilabel>
+               </entry>
+               <entry>_explode</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

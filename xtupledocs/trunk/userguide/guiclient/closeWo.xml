@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Close Work Order
+  </title>
+   <subtitle>closeWo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/closeWo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Close Work Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post <accel>M</accel>aterial Usage Variances</guilabel>
+               </entry>
+               <entry>_postMaterialVariance</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post <accel>L</accel>abor Variances</guilabel>
+               </entry>
+               <entry>_postLaborVariance</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close W/O</guilabel>
+               </entry>
+               <entry>_closeWo</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Comment</guilabel>
+               </entry>
+               <entry>_postComment</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_commentGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Comment Type:</guilabel>
+               </entry>
+               <entry>_cmnttypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_cmnttype</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comment</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      MRP Detail
+    </title>
+   <subtitle>dspMRPDetail : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspMRPDetail.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      MRP Detail
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_plannerCode</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+                              <row>
+               <entry>
+                  <guilabel>Calendar:</guilabel>
+               </entry>
+               <entry>_calendarLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                              <row>
+               <entry/>
+               <entry>_calendar</entry>
+               <entry>CalendarComboBox</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_periods</entry>
+               <entry>PeriodsListView</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Item Sites:</guilabel>
+               </entry>
+               <entry>_itemSitesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_itemsite</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>MRP Detail:</guilabel>
+               </entry>
+               <entry>_mrpLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_mrp</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

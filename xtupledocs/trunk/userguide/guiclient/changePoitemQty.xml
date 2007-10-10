@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Change P/O Item Quantity
+  </title>
+   <subtitle>changePoitemQty : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/changePoitemQty.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Change P/O Item Quantity
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_po</entry>
+               <entry>PoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line Item:</guilabel>
+               </entry>
+               <entry>_poitemLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poitem</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Change <accel>Q</accel>ty.</guilabel>
+               </entry>
+               <entry>_change</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>New</guilabel>
+               </entry>
+               <entry>_newLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_newQty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Received:</guilabel>
+               </entry>
+               <entry>_qtyReceivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_newQtyBalance</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_newQtyReceived</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currentQtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Current</guilabel>
+               </entry>
+               <entry>_currentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Balance:</guilabel>
+               </entry>
+               <entry>_qtyBalanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currentQtyBalance</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currentQtyReceived</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line Item Freight:</guilabel>
+               </entry>
+               <entry>textLabel1</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_freight</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Comment</guilabel>
+               </entry>
+               <entry>_postComment</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_commentGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Comment Type:</guilabel>
+               </entry>
+               <entry>_cmnttypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_cmnttype</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comment</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

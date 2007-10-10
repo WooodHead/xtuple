@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   User Preferences
+  </title>
+   <subtitle>userPreferences : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/userPreferences.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   User Preferences
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_userGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Current <accel>U</accel>ser</guilabel>
+               </entry>
+               <entry>_currentUser</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>elected User:</guilabel>
+               </entry>
+               <entry>_selectedUser</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_user</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_backgroundImageGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>None</guilabel>
+               </entry>
+               <entry>_noBackgroundImage</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Image:</guilabel>
+               </entry>
+               <entry>_backgroundImage</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_background</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_backgroundList</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_menuStyle</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Note: The Neo menu style will become the standard style in future versions of this product</guilabel>
+               </entry>
+               <entry>label</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Standard</guilabel>
+               </entry>
+               <entry>_standard</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Neo</guilabel>
+               </entry>
+               <entry>_neo</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_widgetStack</entry>
+               <entry>QStackedWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_old</entry>
+               <entry>QWidget</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show I/M Menu</guilabel>
+               </entry>
+               <entry>_imMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show I/M Toolbar</guilabel>
+               </entry>
+               <entry>_imToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show P/D Menu</guilabel>
+               </entry>
+               <entry>_pdMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show P/D Toolbar</guilabel>
+               </entry>
+               <entry>_pdToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show M/S Menu</guilabel>
+               </entry>
+               <entry>_msMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show M/S Toolbar</guilabel>
+               </entry>
+               <entry>_msToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show C/P Menu</guilabel>
+               </entry>
+               <entry>_cpMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show C/P Toolbar</guilabel>
+               </entry>
+               <entry>_cpToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show W/O Menu</guilabel>
+               </entry>
+               <entry>_woMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show W/O Toolbar</guilabel>
+               </entry>
+               <entry>_woToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show P/O Menu</guilabel>
+               </entry>
+               <entry>_poMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show P/O Toolbar</guilabel>
+               </entry>
+               <entry>_poToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show S/O Menu</guilabel>
+               </entry>
+               <entry>_soMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show S/O Toolbar</guilabel>
+               </entry>
+               <entry>_soToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show S/R Menu</guilabel>
+               </entry>
+               <entry>_srMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show S/R Toolbar</guilabel>
+               </entry>
+               <entry>_srToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show S/A Menu</guilabel>
+               </entry>
+               <entry>_saMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show S/A Toolbar</guilabel>
+               </entry>
+               <entry>_saToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show A/R Menu</guilabel>
+               </entry>
+               <entry>_arMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show A/R Toolbar</guilabel>
+               </entry>
+               <entry>_arToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show A/P Menu</guilabel>
+               </entry>
+               <entry>_apMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show A/P Toolbar</guilabel>
+               </entry>
+               <entry>_apToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show G/L Menu</guilabel>
+               </entry>
+               <entry>_glMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show G/L Toolbar</guilabel>
+               </entry>
+               <entry>_glToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show P/M Menu</guilabel>
+               </entry>
+               <entry>_pmMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show P/M Toolbar</guilabel>
+               </entry>
+               <entry>_pmToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show CRM Menu</guilabel>
+               </entry>
+               <entry>_crmMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Show CRM Toolbar</guilabel>
+               </entry>
+               <entry>_crmToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_neo</entry>
+               <entry>QWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Manufacture Menu</guilabel>
+               </entry>
+               <entry>_manufactureMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Manufacture Toolbar</guilabel>
+               </entry>
+               <entry>_manufactureToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show CRM Menu</guilabel>
+               </entry>
+               <entry>_crmMenu2</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show CRM Toolbar</guilabel>
+               </entry>
+               <entry>_crmToolbar2</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Sales Menu</guilabel>
+               </entry>
+               <entry>_salesMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Sales Toolbar</guilabel>
+               </entry>
+               <entry>_salesToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Accounting Menu</guilabel>
+               </entry>
+               <entry>_accountingMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Accountng Toolbar</guilabel>
+               </entry>
+               <entry>_accountingToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Inventory Menu</guilabel>
+               </entry>
+               <entry>_inventoryMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Inventory Toolbar</guilabel>
+               </entry>
+               <entry>_inventoryToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Products Menu</guilabel>
+               </entry>
+               <entry>_productsMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Products Toolbar</guilabel>
+               </entry>
+               <entry>_productsToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Schedule Menu</guilabel>
+               </entry>
+               <entry>_scheduleMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Schedule Toolbar</guilabel>
+               </entry>
+               <entry>_scheduleToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Show Purchase Menu</guilabel>
+               </entry>
+               <entry>_purchaseMenu</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Show Purchase Toolbar</guilabel>
+               </entry>
+               <entry>_purchaseToolbar</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>vents</guilabel>
+               </entry>
+               <entry>_events</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>H</accel>otkeys</guilabel>
+               </entry>
+               <entry>_hotkeys</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouseGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Warehouse:</guilabel>
+               </entry>
+               <entry>_selectedWarehouse</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>None</guilabel>
+               </entry>
+               <entry>_noWarehouse</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dataCacheGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Use Item Cache</guilabel>
+               </entry>
+               <entry>_itemCache</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Use Customer Cache</guilabel>
+               </entry>
+               <entry>_customerCache</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_interfaceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Show windows inside workspace</guilabel>
+               </entry>
+               <entry>_interfaceWorkspace</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Remember Check Box Settings</guilabel>
+               </entry>
+               <entry>_rememberCheckBoxes</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Show windows as free-floating</guilabel>
+               </entry>
+               <entry>_interfaceTopLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>line</entry>
+               <entry>Line</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_defaultsGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Use Fixed Width Fonts where Applicable</guilabel>
+               </entry>
+               <entry>_fixedWidthFonts</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Show Only Released and In-Process Work Orders</guilabel>
+               </entry>
+               <entry>_showRIWorkOrders</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>List Numeric Item Numbers First</guilabel>
+               </entry>
+               <entry>_listNumericItemsFirst</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Show S/O Item Availability when Entering</guilabel>
+               </entry>
+               <entry>_showSoitemAvailability</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Default Ellipses Action:</guilabel>
+               </entry>
+               <entry>_ellipsesActionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_ellipsesAction</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Idle Timeout:</guilabel>
+               </entry>
+               <entry>_idleTimeoutLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_idleTimeout</entry>
+               <entry>QSpinBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

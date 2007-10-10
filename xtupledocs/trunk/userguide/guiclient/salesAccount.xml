@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Sales Account Assignment
+    </title>
+   <subtitle>salesAccount : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/salesAccount.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Sales Account Assignment
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                    <row>
+               <entry>
+                  <guilabel>
+                     <accel>W</accel>arehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>XComboBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_customerTypes</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_productCategories</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Sa<accel>l</accel>es Account:</guilabel>
+               </entry>
+               <entry>_salesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Credit <accel>M</accel>emo Account:</guilabel>
+               </entry>
+               <entry>_creditLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>C<accel>o</accel>st of Sales Account:</guilabel>
+               </entry>
+               <entry>_cosLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry/>
+               <entry>_sales</entry>
+               <entry>GLCluster</entry>
+            </row>
+                        <row>
+               <entry/>
+               <entry>_credit</entry>
+               <entry>GLCluster</entry>
+            </row>
+                        <row>
+               <entry/>
+               <entry>_cos</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

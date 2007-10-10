@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Zero Uncounted Count Tags by Warehouse
+    </title>
+   <subtitle>zeroUncountedCountTagsByWarehouse : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/zeroUncountedCountTagsByWarehouse.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Zero Uncounted Count Tags by Warehouse
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>
+                     <accel>Z</accel>ero</guilabel>
+               </entry>
+               <entry>_zero</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Co<accel>m</accel>ments:</guilabel>
+               </entry>
+               <entry>_commentsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

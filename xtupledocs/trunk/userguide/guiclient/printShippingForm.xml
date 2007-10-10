@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Print Shipping Form
+  </title>
+   <subtitle>printShippingForm : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/printShippingForm.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Print Shipping Form
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_so</entry>
+               <entry>SoCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_to</entry>
+               <entry>ToCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipment</entry>
+               <entry>ShipmentCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ship To:</guilabel>
+               </entry>
+               <entry>_shipToLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipToName</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipToAddr1</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipping <accel>F</accel>orm:</guilabel>
+               </entry>
+               <entry>_shippingFormLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipping Charges:</guilabel>
+               </entry>
+               <entry>_shipchrgLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shippingForm</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipchrg</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipformGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_shipformNumOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipformNumOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipformWatermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

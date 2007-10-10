@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Material Receipt Transaction
+  </title>
+   <subtitle>materialReceiptTrans : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/materialReceiptTrans.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Material Receipt Transaction
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Transaction Date:</guilabel>
+               </entry>
+               <entry>lblTransactionDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_transDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Username:</guilabel>
+               </entry>
+               <entry>_usernameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_username</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Receipt Qty.:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Before</guilabel>
+               </entry>
+               <entry>_beforeQtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_beforeQty</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>After</guilabel>
+               </entry>
+               <entry>_afterQtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_afterQty</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Immediate Issue to Work Order</guilabel>
+               </entry>
+               <entry>_issueToWo</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Document #:</guilabel>
+               </entry>
+               <entry>_documentNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_documentNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Comments:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

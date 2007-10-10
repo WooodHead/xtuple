@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Cash Receipt
+  </title>
+   <subtitle>cashReceipt : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/cashReceipt.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Cash Receipt
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustCluster</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Amount Received:</guilabel>
+               </entry>
+               <entry>_receivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_received</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Misc. Distributions:</guilabel>
+               </entry>
+               <entry>_miscDistribsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_miscDistribs</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Amount Applied:</guilabel>
+               </entry>
+               <entry>_amountAppliedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_applied</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Balance:</guilabel>
+               </entry>
+               <entry>_balanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_balance</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_fundsType</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_docNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post to:</guilabel>
+               </entry>
+               <entry>_postToLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Distribution Date:</guilabel>
+               </entry>
+               <entry>_distDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Funds Type:</guilabel>
+               </entry>
+               <entry>_typeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Check/Document #:</guilabel>
+               </entry>
+               <entry>_doumentNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_distDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Apply Balance As:</guilabel>
+               </entry>
+               <entry>_applyBalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Credit Memo</guilabel>
+               </entry>
+               <entry>_balCreditMemo</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Customer Deposit</guilabel>
+               </entry>
+               <entry>_balCustomerDeposit</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Applications</entry>
+               <entry>applications</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_altAccnt</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Sales Category:</guilabel>
+               </entry>
+               <entry>_salescatLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_salescat</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Open Items:</guilabel>
+               </entry>
+               <entry>_openItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Find Document #:</guilabel>
+               </entry>
+               <entry>_searchOpenItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_searchDocNum</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>pply</guilabel>
+               </entry>
+               <entry>_apply</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Apply <accel>L</accel>ine Bal.</guilabel>
+               </entry>
+               <entry>_applyLineBalance</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Clear</guilabel>
+               </entry>
+               <entry>_clear</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Apply to <accel>B</accel>alance</guilabel>
+               </entry>
+               <entry>_applyToBalance</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_aropen</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Misc. Applications:</guilabel>
+               </entry>
+               <entry>_miscApplicationsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_cashrcptmisc</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Add</guilabel>
+               </entry>
+               <entry>_add</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>Credit Card</entry>
+               <entry>creditcard</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_cc</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>New</guilabel>
+               </entry>
+               <entry>_newCC</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editCC</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewCC</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Move Up</guilabel>
+               </entry>
+               <entry>_upCC</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Move Down</guilabel>
+               </entry>
+               <entry>_downCC</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>CVV Code</guilabel>
+               </entry>
+               <entry>_CCCVVLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_CCCVV</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>Notes</entry>
+               <entry>notes</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

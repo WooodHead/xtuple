@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Post Count Tags
+  </title>
+   <subtitle>postCountTags : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/postCountTags.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Post Count Tags
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Thaw Frozen Inventory</guilabel>
+               </entry>
+               <entry>_thaw</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_type</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Class Code</guilabel>
+               </entry>
+               <entry>_classcode</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Planner Code</guilabel>
+               </entry>
+               <entry>_plancode</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

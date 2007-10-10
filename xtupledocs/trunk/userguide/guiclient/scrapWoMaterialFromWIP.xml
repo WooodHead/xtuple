@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Scrap Work Order Material from W/O
+  </title>
+   <subtitle>scrapWoMaterialFromWIP : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/scrapWoMaterialFromWIP.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Scrap Work Order Material from W/O
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>crap</guilabel>
+               </entry>
+               <entry>_scrap</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_scrapButtonGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Top-Level Finished Item</guilabel>
+               </entry>
+               <entry>_scrapTopLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Qty. to Scrap:</guilabel>
+               </entry>
+               <entry>_topLevelQtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_topLevelQty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Scrap Component</guilabel>
+               </entry>
+               <entry>_scrapComponent</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_womatl</entry>
+               <entry>WomatlCluster</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Qty. Scrapped from WIP:</guilabel>
+               </entry>
+               <entry>_qtyScrappedFromWIPLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Qty. to Scrap:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_qtyScrappedFromWIP</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

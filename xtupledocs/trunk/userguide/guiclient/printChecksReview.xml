@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Review Printed Checks
+    </title>
+   <subtitle>printChecksReview : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/printChecksReview.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Review Printed Checks
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Make any necessary adjustments by marking the listed Checks appropriately.</guilabel>
+               </entry>
+               <entry>_label</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_checks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Complete</guilabel>
+               </entry>
+               <entry>_complete</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>line1</entry>
+               <entry>Line</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>
+                     <accel>U</accel>nmark</guilabel>
+               </entry>
+               <entry>_unmark</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Mark as <accel>P</accel>rinted</guilabel>
+               </entry>
+               <entry>_printed</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>oid</guilabel>
+               </entry>
+               <entry>_voided</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Void <accel>&amp;</accel> 
+                     <accel>R</accel>eplace</guilabel>
+               </entry>
+               <entry>_replace</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>line1_2</entry>
+               <entry>Line</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Select All</guilabel>
+               </entry>
+               <entry>_selectAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Financial Report
+  </title>
+   <subtitle>financialLayout : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/financialLayout.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Financial Report
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Row Layout</entry>
+               <entry>_rowLayout</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_layout</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Add Top Level Group</guilabel>
+               </entry>
+               <entry>_addTopLevelGroup</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>dd Group</guilabel>
+               </entry>
+               <entry>_addGroup</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Add Account</guilabel>
+               </entry>
+               <entry>_addAccount</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Add Special</guilabel>
+               </entry>
+               <entry>_addSpecial</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>iew</guilabel>
+               </entry>
+               <entry>_view</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Delete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>
+                     <accel>M</accel>ove Up</guilabel>
+               </entry>
+               <entry>_moveUp</entry>
+               <entry>QPushButton</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>
+                     <accel>M</accel>ove Down</guilabel>
+               </entry>
+               <entry>_moveDown</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>Column Layouts</entry>
+               <entry>_columnLayout</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_layouts</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>dd</guilabel>
+               </entry>
+               <entry>_addCol</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_editCol</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>iew</guilabel>
+               </entry>
+               <entry>_viewCol</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_deleteCol</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>Options</entry>
+               <entry>_options</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_showTotal</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Custom</guilabel>
+               </entry>
+               <entry>_showCustom</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Budget</guilabel>
+               </entry>
+               <entry>_showBudget</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Ending</guilabel>
+               </entry>
+               <entry>_showEnd</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Difference</guilabel>
+               </entry>
+               <entry>_showDiff</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Debits/Credits</guilabel>
+               </entry>
+               <entry>_showDelta</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Beginning</guilabel>
+               </entry>
+               <entry>_showStart</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Show Grand Total</guilabel>
+               </entry>
+               <entry>_showGrandTotal</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_altLabels</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altDebitsText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altDiffText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altTotalText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altCreditsText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Debits:</guilabel>
+               </entry>
+               <entry>_altDebits</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Difference:</guilabel>
+               </entry>
+               <entry>_altDiff</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altBeginText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altEndText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Credits:</guilabel>
+               </entry>
+               <entry>_altCredits</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_altBudgetText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Ending Balance:</guilabel>
+               </entry>
+               <entry>_altEnd</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Budget:</guilabel>
+               </entry>
+               <entry>_altBudget</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_customText</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Begining Balance:</guilabel>
+               </entry>
+               <entry>_altBegin</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Grand Total:</guilabel>
+               </entry>
+               <entry>_altTotal</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Alternate Custom Label:</guilabel>
+               </entry>
+               <entry>_customLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ame:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>escription:</guilabel>
+               </entry>
+               <entry>_descripLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Active</guilabel>
+               </entry>
+               <entry>_active</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_descrip</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_reportType</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>ncome Statement</guilabel>
+               </entry>
+               <entry>_income</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>B</accel>alance Sheet</guilabel>
+               </entry>
+               <entry>_balance</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ash Flow</guilabel>
+               </entry>
+               <entry>_cash</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>d Hoc</guilabel>
+               </entry>
+               <entry>_adHoc</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

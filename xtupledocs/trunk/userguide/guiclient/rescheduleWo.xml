@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Reschedule Work Order
+  </title>
+   <subtitle>rescheduleWo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/rescheduleWo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Reschedule Work Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>eschedule</guilabel>
+               </entry>
+               <entry>_reschedule</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currentDueDate</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_newDueDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_newStartDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Due Date:</guilabel>
+               </entry>
+               <entry>_dueDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Current</guilabel>
+               </entry>
+               <entry>_currentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Start Date:</guilabel>
+               </entry>
+               <entry>_startDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Rescheduled</guilabel>
+               </entry>
+               <entry>_rescheduledLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currentStartDate</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Reschedule Child Work Orders (if any)</guilabel>
+               </entry>
+               <entry>_changeChildren</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Comment</guilabel>
+               </entry>
+               <entry>_postComment</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_commentGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Comment Type:</guilabel>
+               </entry>
+               <entry>_cmnttypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_cmnttype</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comment</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

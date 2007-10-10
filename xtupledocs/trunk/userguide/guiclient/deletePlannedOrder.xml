@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Delete Planned Order
+  </title>
+   <subtitle>deletePlannedOrder : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/deletePlannedOrder.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Delete Planned Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_planord</entry>
+               <entry>PlanOrdCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Delete <accel>C</accel>hild Orders</guilabel>
+               </entry>
+               <entry>_deleteChildren</entry>
+               <entry>QCheckBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

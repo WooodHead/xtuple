@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Credit Memo Item
+  </title>
+   <subtitle>creditMemoItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/creditMemoItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Credit Memo Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+              <row>
+               <entry>
+                  <guilabel>Order #:</guilabel>
+               </entry>
+               <entry>_orderNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Line #:</guilabel>
+               </entry>
+               <entry>_lineNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_orderNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_lineNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Shipped:</guilabel>
+               </entry>
+               <entry>_shippedToDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. <accel>R</accel>eturned:</guilabel>
+               </entry>
+               <entry>_qtyReturnedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. To Credit:</guilabel>
+               </entry>
+               <entry>_qtyToCreditLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyShipped</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyReturned</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyToCredit</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Net Unit Price:</guilabel>
+               </entry>
+               <entry>_netUnitPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_netUnitPrice</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_listPrices</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Extended Price:</guilabel>
+               </entry>
+               <entry>_extendedPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_extendedPrice</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Type:</guilabel>
+               </entry>
+               <entry>_taxTypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_taxType</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Code:</guilabel>
+               </entry>
+               <entry>_taxCodeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_taxCode</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax:</guilabel>
+               </entry>
+               <entry>_taxLit</entry>
+               <entry>XURLLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tax</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Pricing UOM:</guilabel>
+               </entry>
+               <entry>_pricingUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ratio:</guilabel>
+               </entry>
+               <entry>_ratioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_pricingUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_ratio</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_priceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_salePrice</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_unitCost</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_listPrice</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>List Price:</guilabel>
+               </entry>
+               <entry>_listPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Sale Price:</guilabel>
+               </entry>
+               <entry>_salePriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Unit Cost:</guilabel>
+               </entry>
+               <entry>_unitCostLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Discount % from List:</guilabel>
+               </entry>
+               <entry>_discountFromListPrcntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Discount % from Sale:</guilabel>
+               </entry>
+               <entry>_discountFromSalePrcntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Receiving <accel>W</accel>hse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_discountFromList</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_discountFromSale</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Reason Code:</guilabel>
+               </entry>
+               <entry>_rsnCodeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_rsnCode</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Notes:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

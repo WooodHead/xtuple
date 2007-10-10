@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Currency Exchange Rates
+    </title>
+   <subtitle>currencyConversions : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/currencyConversions.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Currency Exchange Rates
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_queryParameters</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_dateCluster</entry>
+               <entry>DateCluster</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>Base Currency:</guilabel>
+               </entry>
+               <entry>_currencyLiteral</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>NONE DEFINED</guilabel>
+               </entry>
+               <entry>_baseCurrency</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_exchSenseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Foreign Currencies:</guilabel>
+               </entry>
+               <entry>foreignCurrenciesTableLabel</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_conversionRates</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Query</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>line1</entry>
+               <entry>Line</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ew</guilabel>
+               </entry>
+               <entry>_new</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>iew</guilabel>
+               </entry>
+               <entry>_view</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>line1_2</entry>
+               <entry>Line</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>New Currency</guilabel>
+               </entry>
+               <entry>_newCurrency</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

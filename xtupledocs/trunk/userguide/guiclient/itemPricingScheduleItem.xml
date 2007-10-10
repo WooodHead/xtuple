@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Pricing Schedule Item
+  </title>
+   <subtitle>itemPricingScheduleItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/itemPricingScheduleItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Pricing Schedule Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_typeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Item</guilabel>
+               </entry>
+               <entry>_itemSelected</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Product Category</guilabel>
+               </entry>
+               <entry>_prodcatSelected</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_widgetStack</entry>
+               <entry>QStackedWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>item</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. Break (Inv. UOM):</guilabel>
+               </entry>
+               <entry>_qtyBreakLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyBreak</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>List Price:</guilabel>
+               </entry>
+               <entry>_listPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_listPrice</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rice (Pricing UOM):</guilabel>
+               </entry>
+               <entry>_priceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_price</entry>
+               <entry>CurrCluster</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Price UOM:</guilabel>
+               </entry>
+               <entry>_priceUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_priceUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Price/Inv. Ratio:</guilabel>
+               </entry>
+               <entry>_priceRatioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_pricingRatio</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Cost (Pricing UOM):</guilabel>
+               </entry>
+               <entry>_costLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Margin:</guilabel>
+               </entry>
+               <entry>_marginLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Standard</guilabel>
+               </entry>
+               <entry>_stdLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Actual</guilabel>
+               </entry>
+               <entry>_actLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_stdCost</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_actCost</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_stdMargin</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_actMargin</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>prodcat</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Product Category:</guilabel>
+               </entry>
+               <entry>_prodcatLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_prodcat</entry>
+               <entry>XComboBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. Break (Inventory UOM):</guilabel>
+               </entry>
+               <entry>_qtyBreakCatLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Discount Percent (List Price):</guilabel>
+               </entry>
+               <entry>_discountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_qtyBreakCat</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_discount</entry>
+               <entry>XLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Reconcile Bank Account
+  </title>
+   <subtitle>reconcileBankaccount : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/reconcileBankaccount.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Reconcile Bank Account
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_currency</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Currency:</guilabel>
+               </entry>
+               <entry>_currencyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Bank Account:</guilabel>
+               </entry>
+               <entry>_bankAccountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Opening Balance:</guilabel>
+               </entry>
+               <entry>_openBalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_openBal</entry>
+               <entry>CurrCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Ending Balance:</guilabel>
+               </entry>
+               <entry>_endBalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_endBal</entry>
+               <entry>CurrCluster</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_endDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_startDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Start Date:</guilabel>
+               </entry>
+               <entry>_startDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>End Date:</guilabel>
+               </entry>
+               <entry>_endDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_cancel</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Reconcile</guilabel>
+               </entry>
+               <entry>_reconcile</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Save</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_line1</entry>
+               <entry>Line</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Update</guilabel>
+               </entry>
+               <entry>_update</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Add Adjustment</guilabel>
+               </entry>
+               <entry>_addAdjustment</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_clearedReceipts</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Cleared Receipts and Deposits:</guilabel>
+               </entry>
+               <entry>_clearedReceiptsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_clearedChecks</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Cleared Checks and Payments:</guilabel>
+               </entry>
+               <entry>_clearedChecksLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Difference:</guilabel>
+               </entry>
+               <entry>_diffBalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_diffBal</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_clearBal</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_endBal2</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cleared Balance:</guilabel>
+               </entry>
+               <entry>_clearBalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ending Balance:</guilabel>
+               </entry>
+               <entry>_endBal2Lit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Receipts and Other Deposits:</guilabel>
+               </entry>
+               <entry>_receiptsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_receipts</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Checks and Other Payments:</guilabel>
+               </entry>
+               <entry>_checksLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_checks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

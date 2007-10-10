@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   User Information
+  </title>
+   <subtitle>user : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/user.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   User Information
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_userInfoGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>U</accel>sername:</guilabel>
+               </entry>
+               <entry>_userNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Proper <accel>N</accel>ame:</guilabel>
+               </entry>
+               <entry>_properNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>mail Address:</guilabel>
+               </entry>
+               <entry>_emailLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_username</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>ctive</guilabel>
+               </entry>
+               <entry>_active</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_properName</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                     <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>nitials:</guilabel>
+               </entry>
+               <entry>_initialsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                     <row>
+               <entry/>
+               <entry>_initials</entry>
+               <entry>XLineEdit</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_email</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>assword:</guilabel>
+               </entry>
+               <entry>_passwordLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>erify:</guilabel>
+               </entry>
+               <entry>_verifyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_passwd</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_verify</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_dept</entry>
+               <entry>DeptCluster</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shift</entry>
+               <entry>ShiftCluster</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Purchasing Agent</guilabel>
+               </entry>
+               <entry>_agent</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Can Create System Users</guilabel>
+               </entry>
+               <entry>_createUsers</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Disable Export Display Contents</guilabel>
+               </entry>
+               <entry>_exportContents</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Use Enhanced Authentication</guilabel>
+               </entry>
+               <entry>_enhancedAuth</entry>
+               <entry>QCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>May only use Shop Floor Workbench</guilabel>
+               </entry>
+               <entry>_woTimeClockOnly</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>L<accel>o</accel>cale:</guilabel>
+               </entry>
+               <entry>_localeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_locale</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>M</accel>odule:</guilabel>
+               </entry>
+               <entry>_moduleLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_module</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_available</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Add-&gt;</guilabel>
+               </entry>
+               <entry>_add</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Add All-&gt;&gt;</guilabel>
+               </entry>
+               <entry>_addAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>&lt;-Revoke</guilabel>
+               </entry>
+               <entry>_revoke</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>&lt;&lt;-Revoke All</guilabel>
+               </entry>
+               <entry>_revokeAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_granted</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

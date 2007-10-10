@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   S/O Module Configuration
+  </title>
+   <subtitle>configureSO : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configureSO.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   S/O Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Sales Order # Generation:</guilabel>
+               </entry>
+               <entry>_orderNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Quote # Generation:</guilabel>
+               </entry>
+               <entry>_quoteNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Credit Memo # Generation:</guilabel>
+               </entry>
+               <entry>_creditMemoNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Invoice # Generation:</guilabel>
+               </entry>
+               <entry>_invoiceNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_orderNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_quoteNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_creditMemoNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invoiceNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextSoNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextQuoteNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextCmNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextInNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextSoNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextQuNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextCmNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextInNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>General</entry>
+               <entry>general</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Allow Price Discounts</guilabel>
+               </entry>
+               <entry>_allowDiscounts</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Allow ASAP Schedule Dates</guilabel>
+               </entry>
+               <entry>_allowASAP</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Post Customer Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_customerChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Post Sales Order Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_salesOrderChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Restrict Credit Memos to Items that appear on their Apply-To Document</guilabel>
+               </entry>
+               <entry>_restrictCreditMemos</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Automatically check 'Select for Billing' option on Ship Order screen</guilabel>
+               </entry>
+               <entry>_autoSelectForBilling</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Always show 'Save and Add to Packing List' button on Sales Order screen</guilabel>
+               </entry>
+               <entry>_saveAndAdd</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Disallow Override of Sales Price on Sales Order Entry</guilabel>
+               </entry>
+               <entry>_priceOverride</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Automatically Allocate Credit Memos to New Sales Order on Save</guilabel>
+               </entry>
+               <entry>_autoAllocateCM</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Hide Misc. Charges on Sales Order screen</guilabel>
+               </entry>
+               <entry>_hideSOMiscChrg</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Shipping interface from Sales Order screen</guilabel>
+               </entry>
+               <entry>_enableSOShipping</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Check Print S/O on Save by Default</guilabel>
+               </entry>
+               <entry>_printSO</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Promise Dates</guilabel>
+               </entry>
+               <entry>_enablePromiseDate</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_lineItemPriceing</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Update Price on Line Item Edit</guilabel>
+               </entry>
+               <entry>_updatePrice</entry>
+               <entry>QRadioButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Prompt before Updating Price</guilabel>
+               </entry>
+               <entry>_askUpdatePrice</entry>
+               <entry>QRadioButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Do not Update Price on Line Edit</guilabel>
+               </entry>
+               <entry>_dontUpdatePrice</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>Invoice</entry>
+               <entry>invoice</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invcDateGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Shipped Date</guilabel>
+               </entry>
+               <entry>_invcShipdate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Scheduled Date</guilabel>
+               </entry>
+               <entry>_invcScheddate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_invoiceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_invoiceNumOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_invoiceNumOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_invoiceWatermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_creditMemoGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_creditMemoNumOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_creditMemoNumOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_creditMemoWatermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>Customer Defaults</entry>
+               <entry>customerDefaults</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Shipping Form:</guilabel>
+               </entry>
+               <entry>_shippingFormLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Ship Via:</guilabel>
+               </entry>
+               <entry>_shipViaLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Balance Method:</guilabel>
+               </entry>
+               <entry>_balanceMethodLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Customer Type:</guilabel>
+               </entry>
+               <entry>_custtypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_shipform</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_shipvia</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_balanceMethod</entry>
+               <entry>QComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_custtype</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Accepts Partial Shipments</guilabel>
+               </entry>
+               <entry>_partial</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Accepts Backorders</guilabel>
+               </entry>
+               <entry>_backorders</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Allow Free Form Ship-Tos</guilabel>
+               </entry>
+               <entry>_freeFormShiptos</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Credit Limit:</guilabel>
+               </entry>
+               <entry>_creditLimitLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Credit Rating:</guilabel>
+               </entry>
+               <entry>_creditRatingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_creditLimit</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_creditRating</entry>
+               <entry>XLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

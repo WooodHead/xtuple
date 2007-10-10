@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Issue Stock to Shipping
+  </title>
+   <subtitle>issueToShipping : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/issueToShipping.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Issue Stock to Shipping
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_so</entry>
+               <entry>SoCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_to</entry>
+               <entry>ToCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Require sufficient Inventory</guilabel>
+               </entry>
+               <entry>_requireInventory</entry>
+               <entry>XCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>hip Order</guilabel>
+               </entry>
+               <entry>_ship</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line Items:</guilabel>
+               </entry>
+               <entry>lblLineItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_soitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>ssue Stock</guilabel>
+               </entry>
+               <entry>_issueStock</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Issue <accel>L</accel>ine Bal.</guilabel>
+               </entry>
+               <entry>_issueLine</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>eturn Stock</guilabel>
+               </entry>
+               <entry>_returnStock</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Issue All <accel>B</accel>al.</guilabel>
+               </entry>
+               <entry>_issueAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Issue Items Using Bar Code:</guilabel>
+               </entry>
+               <entry>_bcLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_bc</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty.</guilabel>
+               </entry>
+               <entry>_bcQtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>1</guilabel>
+               </entry>
+               <entry>_bcQty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Find</guilabel>
+               </entry>
+               <entry>_bcFind</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

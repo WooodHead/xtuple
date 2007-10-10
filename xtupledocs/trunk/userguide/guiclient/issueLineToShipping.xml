@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Issue Line to Shipping
+  </title>
+   <subtitle>issueLineToShipping : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/issueLineToShipping.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Issue Line to Shipping
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Shipment #:</guilabel>
+               </entry>
+               <entry>_shipmentNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Order #:</guilabel>
+               </entry>
+               <entry>_orderNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_orderNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipment</entry>
+               <entry>ShipmentCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>ssue</guilabel>
+               </entry>
+               <entry>_issue</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Qty. Shipped:</guilabel>
+               </entry>
+               <entry>_qtyShippedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Qty. Returned:</guilabel>
+               </entry>
+               <entry>_qtyReturnedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Balance Due:</guilabel>
+               </entry>
+               <entry>_balanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Qty. at Shipping:</guilabel>
+               </entry>
+               <entry>_qtyAtShipLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_warehouse</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyShipped</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyReturned</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_balance</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyAtShip</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Qty. to Issue:</guilabel>
+               </entry>
+               <entry>_qtyToIssueLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyToIssue</entry>
+               <entry>XLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

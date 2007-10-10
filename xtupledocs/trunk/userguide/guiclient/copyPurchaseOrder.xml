@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Copy Purchase Order
+  </title>
+   <subtitle>copyPurchaseOrder : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/copyPurchaseOrder.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Copy Purchase Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Purchase Order #:</guilabel>
+               </entry>
+               <entry>_salesOrderLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Order Date:</guilabel>
+               </entry>
+               <entry>_orderDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Currency:</guilabel>
+               </entry>
+               <entry>_currencyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_po</entry>
+               <entry>PoLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_poList</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_orderDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_currency</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vend</entry>
+               <entry>VendorCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Vendor Phone:</guilabel>
+               </entry>
+               <entry>_vendPhoneLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_vendPhone</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Co<accel>p</accel>y</guilabel>
+               </entry>
+               <entry>_copy</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Original Line Items:</guilabel>
+               </entry>
+               <entry>_polineLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_scheduleGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use Today's Date</guilabel>
+               </entry>
+               <entry>_useCurrentDate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Schedule Purchase Order for:</guilabel>
+               </entry>
+               <entry>_reschedule</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_scheduleDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use latest Item Sources and Prices</guilabel>
+               </entry>
+               <entry>_recheck</entry>
+               <entry>QCheckBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

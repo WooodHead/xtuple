@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Work Order Operation
+  </title>
+   <subtitle>woOperation : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/woOperation.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Work Order Operation
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Oper. Seq. #:</guilabel>
+               </entry>
+               <entry>_operSeqNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Execution Day:</guilabel>
+               </entry>
+               <entry>_executionDayLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_operSeqNum</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_executionDay</entry>
+               <entry>QSpinBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_qtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Standard <accel>O</accel>per.:</guilabel>
+               </entry>
+               <entry>_standardOperLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_stdopn</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>escription:</guilabel>
+               </entry>
+               <entry>_descriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description1</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description2</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>W</accel>ork Center:</guilabel>
+               </entry>
+               <entry>_workCenterLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wrkcnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Production <accel>U</accel>OM:</guilabel>
+               </entry>
+               <entry>_prodUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_prodUOM</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>T</accel>ooling Reference:</guilabel>
+               </entry>
+               <entry>_toolingReferenceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_toolingReference</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory/Production UOM <accel>R</accel>atio:</guilabel>
+               </entry>
+               <entry>_invProdUOMRatioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invProdUOMRatio</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Setup Time:</guilabel>
+               </entry>
+               <entry>_totalSetupTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Run Time:</guilabel>
+               </entry>
+               <entry>_totalRunTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_setupTime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_runTime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Report Setup T<accel>i</accel>me</guilabel>
+               </entry>
+               <entry>_reportSetup</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Report Run Ti<accel>m</accel>e</guilabel>
+               </entry>
+               <entry>_reportRun</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Setup Time Consumed:</guilabel>
+               </entry>
+               <entry>_setupTimeConsumedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Run Time Consumed:</guilabel>
+               </entry>
+               <entry>_runTimeConsumedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_setupTimeConsumed</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_runTimeConsumed</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Recei<accel>v</accel>e to Stock at this Operation</guilabel>
+               </entry>
+               <entry>_receiveStock</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>uto. Issue Components at this Operation</guilabel>
+               </entry>
+               <entry>_issueComp</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Setup Time Remaining:</guilabel>
+               </entry>
+               <entry>_setupTimeRemainingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Run Time Remaining:</guilabel>
+               </entry>
+               <entry>_runTimeRemainingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_setupTimeRemaining</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_runTimeRemaining</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Setup Complete</guilabel>
+               </entry>
+               <entry>_setupComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Run Complete</guilabel>
+               </entry>
+               <entry>_runComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_throughputGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_invPerMinute</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_invUOM2</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>per Minute</guilabel>
+               </entry>
+               <entry>_invPerMinuteLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_invRunTime</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>(min.) per</guilabel>
+               </entry>
+               <entry>_invRunTimePerLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_invUOM1</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Instructions:</guilabel>
+               </entry>
+               <entry>_instructionsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use Fixed-Width Font</guilabel>
+               </entry>
+               <entry>_fixedFont</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_instructions</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

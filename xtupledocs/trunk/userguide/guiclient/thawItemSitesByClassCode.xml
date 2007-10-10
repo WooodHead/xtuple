@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Thaw Item Sites by Class Code/Warehouse
+    </title>
+   <subtitle>thawItemSitesByClassCode : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/thawItemSitesByClassCode.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Thaw Item Sites by Class Code/Warehouse
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                <row>
+               <entry/>
+               <entry>_classCode</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>
+                     <accel>T</accel>haw</guilabel>
+               </entry>
+               <entry>_thaw</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

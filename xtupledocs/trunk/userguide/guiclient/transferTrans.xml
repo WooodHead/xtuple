@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Inter-Warehouse Transaction
+    </title>
+   <subtitle>transferTrans : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/transferTrans.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Inter-Warehouse Transaction
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Transaction Date:</guilabel>
+               </entry>
+               <entry>_transDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_transDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Username:</guilabel>
+               </entry>
+               <entry>_usernameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_username</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Before</guilabel>
+               </entry>
+               <entry>_beforeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>After</guilabel>
+               </entry>
+               <entry>_afterLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>From Whse.:</guilabel>
+               </entry>
+               <entry>_fromWarehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>To Whse.:</guilabel>
+               </entry>
+               <entry>_toWarehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_fromWarehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_toWarehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_fromBeforeQty</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_toBeforeQty</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_fromAfterQty</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_toAfterQty</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Transferred Qty.:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Document #:</guilabel>
+               </entry>
+               <entry>_documentNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_documentNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Notes:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

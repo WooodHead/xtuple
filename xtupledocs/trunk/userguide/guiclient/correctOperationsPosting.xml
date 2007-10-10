@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Correct Operation Posting
+  </title>
+   <subtitle>correctOperationsPosting : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/correctOperationsPosting.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Correct Operation Posting
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost Correction</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>W/O Operation:</guilabel>
+               </entry>
+               <entry>_woOperationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wooper</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. to Correct:</guilabel>
+               </entry>
+               <entry>_qtyToCorrectLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_uomGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Correct in Production UOMs</guilabel>
+               </entry>
+               <entry>_productionUOM</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Correct in Inventory UOMs</guilabel>
+               </entry>
+               <entry>_inventoryUOM</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>W/O Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Operation Qty. Received:</guilabel>
+               </entry>
+               <entry>_qtyReceivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Operation Balance Due:</guilabel>
+               </entry>
+               <entry>_qtyBalanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyReceived</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qtyBalance</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>eturn Components</guilabel>
+               </entry>
+               <entry>_returnComponents</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_womatl</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>orrect Inventory</guilabel>
+               </entry>
+               <entry>_correctInventory</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Clear Setup Complete Flag</guilabel>
+               </entry>
+               <entry>_clearSuComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Correct Setup Time</guilabel>
+               </entry>
+               <entry>_correctSutime</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_sutimeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Correct Standard Setup Time:</guilabel>
+               </entry>
+               <entry>_correctStandardSutime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_standardSutime</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Correct Specified Setup Time:</guilabel>
+               </entry>
+               <entry>_correctSpecifiedSutime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_specifiedSutime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Clear Operation Complete Flag</guilabel>
+               </entry>
+               <entry>_clearRnComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Correct Run Time</guilabel>
+               </entry>
+               <entry>_correctRntime</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_rntimeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Correct Standard Run Time:</guilabel>
+               </entry>
+               <entry>_correctStandardRntime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_standardRntime</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Correct Specified Run Time:</guilabel>
+               </entry>
+               <entry>_correctSpecifiedRntime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_specifiedRntime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

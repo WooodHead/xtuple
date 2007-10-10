@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Release Work Orders by Planner Code
+  </title>
+   <subtitle>releaseWorkOrdersByPlannerCode : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/releaseWorkOrdersByPlannerCode.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Release Work Orders by Planner Code
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_dateGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>by Due Date</guilabel>
+               </entry>
+               <entry>_dueDate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>by Start Date</guilabel>
+               </entry>
+               <entry>_startDate</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_cutoffDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cutoff Date:</guilabel>
+               </entry>
+               <entry>_cutoffDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>elease</guilabel>
+               </entry>
+               <entry>_release</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_plannerCode</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

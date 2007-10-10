@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Miscellaneous Check
+  </title>
+   <subtitle>miscCheck : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/miscCheck.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Miscellaneous Check
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_recipGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_vend</entry>
+               <entry>VendorCluster</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_taxauthRB</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Tax Authority #:</guilabel>
+               </entry>
+               <entry>_taxauthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_taxauth</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_custRB</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_vendRB</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_checkNum</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Check Number:</guilabel>
+               </entry>
+               <entry>_checkNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Bank Account:</guilabel>
+               </entry>
+               <entry>_bankaccntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_date</entry>
+               <entry>DLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Amount:</guilabel>
+               </entry>
+               <entry>_amountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_amount</entry>
+               <entry>CurrCluster</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Date:</guilabel>
+               </entry>
+               <entry>_dateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_expenseToGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_expcat</entry>
+               <entry>ExpenseCluster</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Create Credit Memo</guilabel>
+               </entry>
+               <entry>_cm</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Expense Category</guilabel>
+               </entry>
+               <entry>_expense</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Save</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Memo:</guilabel>
+               </entry>
+               <entry>_forLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_for</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Notes:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Post Operations
+  </title>
+   <subtitle>postOperations : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/postOperations.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Post Operations
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Scrap Materials</guilabel>
+               </entry>
+               <entry>_scrap</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost Operation</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>W/O Operation:</guilabel>
+               </entry>
+               <entry>_woOperationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wooper</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. to Post:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_uomGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post in Production UOMs</guilabel>
+               </entry>
+               <entry>_productionUOM</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post in Inventory UOMs</guilabel>
+               </entry>
+               <entry>_inventoryUOM</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>W/O Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Operation Qty. Received:</guilabel>
+               </entry>
+               <entry>_qtyReceivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Operation Balance Due:</guilabel>
+               </entry>
+               <entry>_qtyBalanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyReceived</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_qtyBalance</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wrkcnt</entry>
+               <entry>WorkCenterCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>ssue Components</guilabel>
+               </entry>
+               <entry>_issueComponents</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_womatl</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>eceive Inventory</guilabel>
+               </entry>
+               <entry>_receiveInventory</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close W/O</guilabel>
+               </entry>
+               <entry>_closeWO</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Setup Time</guilabel>
+               </entry>
+               <entry>_postSutime</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Mark Setup as Complete</guilabel>
+               </entry>
+               <entry>_markSuComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_sutimeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post Standard Setup Time:</guilabel>
+               </entry>
+               <entry>_postStandardSutime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_standardSutime</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post Specified Setup Time:</guilabel>
+               </entry>
+               <entry>_postSpecifiedSutime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_specifiedSutime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_setupUser</entry>
+               <entry>UsernameCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Run Time</guilabel>
+               </entry>
+               <entry>_postRntime</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Mark Operation as Complete</guilabel>
+               </entry>
+               <entry>_markRnComplete</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_rntimeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post Standard Run Time:</guilabel>
+               </entry>
+               <entry>_postStandardRntime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_standardRntime</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post Specified Run Time:</guilabel>
+               </entry>
+               <entry>_postSpecifiedRntime</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_specifiedRntime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_runUser</entry>
+               <entry>UsernameCluster</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

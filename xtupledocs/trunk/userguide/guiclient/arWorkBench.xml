@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   A/R Workbench
+  </title>
+   <subtitle>arWorkBench : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/arWorkBench.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   A/R Workbench
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total Open Items:</guilabel>
+               </entry>
+               <entry>_aropenTotalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_aropenTotal</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cash Receipts:</guilabel>
+               </entry>
+               <entry>_cashrcptLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_cashrcpt</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>New</guilabel>
+               </entry>
+               <entry>_newCashrcpt</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editCashrcpt</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewCashrcpt</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Delete</guilabel>
+               </entry>
+               <entry>_deleteCashrcpt</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post</guilabel>
+               </entry>
+               <entry>_postCashrcpt</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>A/R Open Credit Memos:</guilabel>
+               </entry>
+               <entry>_aropenCMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_aropenCM</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Apply</guilabel>
+               </entry>
+               <entry>_applyAropenCM</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editAropenCM</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewAropenCM</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>A/R Open Items:</guilabel>
+               </entry>
+               <entry>_aropenLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_aropen</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editAropen</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewAropen</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Pre-auth Credit Card Charges:</guilabel>
+               </entry>
+               <entry>_preauthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_preauth</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Post</guilabel>
+               </entry>
+               <entry>_editPreauth</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Amount:</guilabel>
+               </entry>
+               <entry>_CCAmountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_CCAmount</entry>
+               <entry>CurrCluster</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

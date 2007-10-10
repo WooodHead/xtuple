@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   P/D Module Configuration
+  </title>
+   <subtitle>configurePD : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configurePD.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   P/D Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_routings</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>QButtonGroup_1</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>as Machine Overhead</guilabel>
+               </entry>
+               <entry>_machineOverhead</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>with General Overhead</guilabel>
+               </entry>
+               <entry>_generalOverhead</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Breeder Bills of Materials</guilabel>
+               </entry>
+               <entry>_bbom</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Transforms</guilabel>
+               </entry>
+               <entry>_transforms</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Item Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_changeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Allow Inactive Items to be Added to BOMs</guilabel>
+               </entry>
+               <entry>_inactiveBomItems</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_defaultGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Set Sold Items as E<accel>x</accel>clusive</guilabel>
+               </entry>
+               <entry>_exclusive</entry>
+               <entry>QCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>W/O Material <accel>I</accel>ssue Method:</guilabel>
+               </entry>
+               <entry>_issueMethodLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_issueMethod</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

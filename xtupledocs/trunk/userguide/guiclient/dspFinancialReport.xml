@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   View Financial Report
+  </title>
+   <subtitle>dspFinancialReport : QWidget</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspFinancialReport.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   View Financial Report
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <row>
+      <entry/>
+      <entry>dspFinancialReport</entry>
+      <entry>QWidget</entry>
+   </row>
+    <row>
+      <entry/>
+      <entry>_layout</entry>
+      <entry>XTreeWidget</entry>
+   </row>
+          <row>
+      <entry>
+         <guilabel>Report Type:</guilabel>
+      </entry>
+      <entry>_typeLit</entry>
+      <entry>QLabel</entry>
+   </row>
+          <row>
+      <entry>
+         <guilabel/>
+      </entry>
+      <entry>_type</entry>
+      <entry>QLabel</entry>
+   </row>
+          <row>
+      <entry/>
+      <entry>_showColumnsGroup</entry>
+      <entry>QGroupBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Beg. Bal.</guilabel>
+      </entry>
+      <entry>_showBegBal</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Debits</guilabel>
+      </entry>
+      <entry>_showDebits</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Credits</guilabel>
+      </entry>
+      <entry>_showCredits</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>End. Bal.</guilabel>
+      </entry>
+      <entry>_showEndBal</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Budget</guilabel>
+      </entry>
+      <entry>_showBudget</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Difference</guilabel>
+      </entry>
+      <entry>_showDiff</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Custom</guilabel>
+      </entry>
+      <entry>_showCustom</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Beg. Bal. %</guilabel>
+      </entry>
+      <entry>_showBegBalPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Debits %</guilabel>
+      </entry>
+      <entry>_showDebitsPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Credits %</guilabel>
+      </entry>
+      <entry>_showCreditsPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>End. Bal. %</guilabel>
+      </entry>
+      <entry>_showEndBalPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Budget %</guilabel>
+      </entry>
+      <entry>_showBudgetPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Difference %</guilabel>
+      </entry>
+      <entry>_showDiffPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+             <row>
+      <entry>
+         <guilabel>Custom %</guilabel>
+      </entry>
+      <entry>_showCustomPrcnt</entry>
+      <entry>XCheckBox</entry>
+   </row>
+            <row>
+      <entry/>
+      <entry>_trend</entry>
+      <entry>QGroupBox</entry>
+   </row>
+                   <row>
+      <entry>
+         <guilabel>Month</guilabel>
+      </entry>
+      <entry>_month</entry>
+      <entry>QRadioButton</entry>
+   </row>
+                   <row>
+      <entry>
+         <guilabel>Quarter</guilabel>
+      </entry>
+      <entry>_quarter</entry>
+      <entry>QRadioButton</entry>
+   </row>
+                   <row>
+      <entry>
+         <guilabel>Year</guilabel>
+      </entry>
+      <entry>_year</entry>
+      <entry>QRadioButton</entry>
+   </row>
+            <row>
+      <entry/>
+      <entry>_options</entry>
+      <entry>QGroupBox</entry>
+   </row>
+                   <row>
+      <entry>
+         <guilabel>Show Account Numbers</guilabel>
+      </entry>
+      <entry>_shownumbers</entry>
+      <entry>XCheckBox</entry>
+   </row>
+                   <row>
+      <entry>
+         <guilabel>Show Accounts with Zero Amounts</guilabel>
+      </entry>
+      <entry>_showzeros</entry>
+      <entry>XCheckBox</entry>
+   </row>
+        <row>
+      <entry>
+         <guilabel>
+            <accel>C</accel>lose</guilabel>
+      </entry>
+      <entry>_close</entry>
+      <entry>QPushButton</entry>
+   </row>
+        <row>
+      <entry>
+         <guilabel>
+            <accel>Q</accel>uery</guilabel>
+      </entry>
+      <entry>_query</entry>
+      <entry>QPushButton</entry>
+   </row>
+        <row>
+      <entry>
+         <guilabel>
+            <accel>P</accel>rint</guilabel>
+      </entry>
+      <entry>_print</entry>
+      <entry>QPushButton</entry>
+   </row>
+          <row>
+      <entry>
+         <guilabel>Financial Report:</guilabel>
+      </entry>
+      <entry>_nameLit</entry>
+      <entry>QLabel</entry>
+   </row>
+          <row>
+      <entry>
+         <guilabel>Column Layout:</guilabel>
+      </entry>
+      <entry>_flcolLit</entry>
+      <entry>QLabel</entry>
+   </row>
+          <row>
+      <entry/>
+      <entry>_flhead</entry>
+      <entry>XComboBox</entry>
+   </row>
+          <row>
+      <entry/>
+      <entry>_flcol</entry>
+      <entry>XComboBox</entry>
+   </row>
+        <row>
+      <entry>
+         <guilabel>Periods:</guilabel>
+      </entry>
+      <entry>_periodLit</entry>
+      <entry>QLabel</entry>
+   </row>
+        <row>
+      <entry/>
+      <entry>_periods</entry>
+      <entry>XTreeWidget</entry>
+   </row>
+    <row>
+      <entry>
+         <guilabel>Layout:</guilabel>
+      </entry>
+      <entry>_layoutLit</entry>
+      <entry>QLabel</entry>
+   </row>
+</section>

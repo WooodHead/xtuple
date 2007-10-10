@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Mass Replace Component Item
+    </title>
+   <subtitle>massReplaceComponent : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/massReplaceComponent.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Mass Replace Component Item
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Original Item:</guilabel>
+               </entry>
+               <entry>_originalItemLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_original</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Replacement Item:</guilabel>
+               </entry>
+               <entry>_replacementItemLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_replacement</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>ffective:</guilabel>
+               </entry>
+               <entry>_effectiveLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>EC<accel>N</accel> #:</guilabel>
+               </entry>
+               <entry>_ecnNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                              <row>
+               <entry/>
+               <entry>_effective</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                              <row>
+               <entry/>
+               <entry>_ecn</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>
+                     <accel>R</accel>eplace</guilabel>
+               </entry>
+               <entry>_replace</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

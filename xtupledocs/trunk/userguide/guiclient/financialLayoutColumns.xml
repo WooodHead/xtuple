@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Column Layout
+  </title>
+   <subtitle>financialLayoutColumns : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/financialLayoutColumns.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Column Layout
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_budget</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>% of Group Total</guilabel>
+               </entry>
+               <entry>_budgetprcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Difference</guilabel>
+               </entry>
+               <entry>_budgetdiff</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>% Difference</guilabel>
+               </entry>
+               <entry>_budgetdiffprcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_descrip</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_report</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_selected</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Month</guilabel>
+               </entry>
+               <entry>_month</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Quarter</guilabel>
+               </entry>
+               <entry>_quarter</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Year</guilabel>
+               </entry>
+               <entry>_year</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Show Debits and Credits</guilabel>
+               </entry>
+               <entry>_showdb</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>% of Group Total</guilabel>
+               </entry>
+               <entry>_prcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Name</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Description</guilabel>
+               </entry>
+               <entry>_descipLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Report Template</guilabel>
+               </entry>
+               <entry>_reportLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Save</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_prior</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Period</guilabel>
+               </entry>
+               <entry>_priorperiod</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Year</guilabel>
+               </entry>
+               <entry>_prioryear</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Full Month</guilabel>
+               </entry>
+               <entry>_fullmonth</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Full Quarter</guilabel>
+               </entry>
+               <entry>_fullquarter</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Full Year</guilabel>
+               </entry>
+               <entry>_fullyear</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Year To Date</guilabel>
+               </entry>
+               <entry>_yeartodate</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>% of Group Total</guilabel>
+               </entry>
+               <entry>_priorprcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Difference</guilabel>
+               </entry>
+               <entry>_priordiff</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>% Difference</guilabel>
+               </entry>
+               <entry>_priordiffprcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Print Credit Memo
+    </title>
+   <subtitle>printCreditMemo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/printCreditMemo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Print Credit Memo
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                    <row>
+               <entry>
+                  <guilabel>Credit Memo #:</guilabel>
+               </entry>
+               <entry>_numberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_number</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Post Credit Memo after Printing</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_creditMemoCopiesGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_numberOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry/>
+               <entry>_numberOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_watermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

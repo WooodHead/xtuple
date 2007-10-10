@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Post Production
+  </title>
+   <subtitle>postProduction : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/postProduction.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Post Production
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost Production</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>crap</guilabel>
+               </entry>
+               <entry>_scrap</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyOrdered</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyReceived</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyBalance</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyOrderedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Received:</guilabel>
+               </entry>
+               <entry>_qtyReceivedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Balance Due:</guilabel>
+               </entry>
+               <entry>_qtyBalanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. to Post:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Backflush <accel>M</accel>aterials</guilabel>
+               </entry>
+               <entry>_backflush</entry>
+               <entry>XCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>I</accel>ssue Items not on Pick List</guilabel>
+               </entry>
+               <entry>_nonPickItems</entry>
+               <entry>XCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Backflush <accel>O</accel>perations</guilabel>
+               </entry>
+               <entry>_backflushOperations</entry>
+               <entry>XCheckBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_setupUser</entry>
+               <entry>UsernameCluster</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_runUser</entry>
+               <entry>UsernameCluster</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Close <accel>W</accel>/O after Posting</guilabel>
+               </entry>
+               <entry>_closeWo</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Production Notes:</guilabel>
+               </entry>
+               <entry>_productionNotesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_productionNotes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Immediate <accel>T</accel>ransfer to Warehouse:</guilabel>
+               </entry>
+               <entry>_immediateTransfer</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_transferWarehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

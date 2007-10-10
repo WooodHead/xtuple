@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Cost Category
+  </title>
+   <subtitle>costCategory : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/costCategory.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Cost Category
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+              <row>
+               <entry>
+                  <guilabel>Category:</guilabel>
+               </entry>
+               <entry>_categoryLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Description:</guilabel>
+               </entry>
+               <entry>_descriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_category</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_description</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory Asset:</guilabel>
+               </entry>
+               <entry>_inventoryAssetLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_laborAndOverhead</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wip</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory Scrap:</guilabel>
+               </entry>
+               <entry>_invScrapLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Transform Clearing:</guilabel>
+               </entry>
+               <entry>_transformClearingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_purchasePrice</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_liability</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invScrap</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_mfgScrap</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>P/O Liability Clearing:</guilabel>
+               </entry>
+               <entry>_poLiabilityClearingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_asset</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shippingAsset</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>WIP Asset:</guilabel>
+               </entry>
+               <entry>_wipAssetLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_adjustment</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_transformClearing</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory Adjustment:</guilabel>
+               </entry>
+               <entry>_adjustmentsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Manufacturing Scrap:</guilabel>
+               </entry>
+               <entry>_mfgScrapLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory Cost Variance:</guilabel>
+               </entry>
+               <entry>_inventoryCostVarianceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_freight</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Labor and Overhead Costs:</guilabel>
+               </entry>
+               <entry>_laborAndOverheadClearingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Purchase Price Variance:</guilabel>
+               </entry>
+               <entry>_purchasePriceVarianceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line Item Freight Expense:</guilabel>
+               </entry>
+               <entry>_freightLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_inventoryCost</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipping Asset:</guilabel>
+               </entry>
+               <entry>_shippingAssetLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Transfer Order Liability Clearing:</guilabel>
+               </entry>
+               <entry>_toLiabilityClearingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_toLiabilityClearing</entry>
+               <entry>GLCluster</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

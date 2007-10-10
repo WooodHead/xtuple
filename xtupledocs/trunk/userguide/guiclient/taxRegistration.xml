@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Tax Registration Information
+  </title>
+   <subtitle>taxRegistration : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/taxRegistration.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Tax Registration Information
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustInfo</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vend</entry>
+               <entry>VendorInfo</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Authority:</guilabel>
+               </entry>
+               <entry>_taxauthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_taxauth</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Registration Number:</guilabel>
+               </entry>
+               <entry>_numberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_number</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Save</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

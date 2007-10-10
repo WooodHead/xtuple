@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Pricing Schedule Assignment
+  </title>
+   <subtitle>pricingScheduleAssignment : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/pricingScheduleAssignment.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Pricing Schedule Assignment
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_customerGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Selected Customer:</guilabel>
+               </entry>
+               <entry>_selectedCustomer</entry>
+               <entry>QRadioButton</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_cust</entry>
+               <entry>CustInfo</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Selected Customer Ship-To:</guilabel>
+               </entry>
+               <entry>_selectedCustomerShipto</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_customerShipto</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Selected Cust. Ship-To Pattern:</guilabel>
+               </entry>
+               <entry>_selectedShiptoPattern</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shiptoPattern</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Selected Customer Type:</guilabel>
+               </entry>
+               <entry>_selectedCustomerType</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_customerTypes</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Customer Type Pattern:</guilabel>
+               </entry>
+               <entry>_customerTypePattern</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_customerType</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Pricing Schedule:</guilabel>
+               </entry>
+               <entry>_scheduleLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_ipshead</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Planned Order
+  </title>
+   <subtitle>plannedOrder : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/plannedOrder.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Planned Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Planned Order #:</guilabel>
+               </entry>
+               <entry>_numberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_number</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>C<accel>r</accel>eate</guilabel>
+               </entry>
+               <entry>_create</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Warehouse:</guilabel>
+               </entry>
+               <entry>_warehouseLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Qty. Ordered:</guilabel>
+               </entry>
+               <entry>_qtyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_qty</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Due Date:</guilabel>
+               </entry>
+               <entry>_eueDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Start Date:</guilabel>
+               </entry>
+               <entry>_startDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_dueDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Lead Time:</guilabel>
+               </entry>
+               <entry>_leadTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_leadTime</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Days</guilabel>
+               </entry>
+               <entry>_daysLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_startDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

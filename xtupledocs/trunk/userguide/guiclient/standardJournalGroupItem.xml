@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Standard Journal Group Item
+  </title>
+   <subtitle>standardJournalGroupItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/standardJournalGroupItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Standard Journal Group Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Standard Journal:</guilabel>
+               </entry>
+               <entry>_stdjrnlLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_stdjrnl</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dates</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_applyGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>May be Applied any Amount of Times</guilabel>
+               </entry>
+               <entry>_unlimited</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>May only be applied</guilabel>
+               </entry>
+               <entry>_limited</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_toApply</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Times</guilabel>
+               </entry>
+               <entry>_timesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

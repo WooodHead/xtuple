@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      User Event Notification
+    </title>
+   <subtitle>userEventNotification : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/userEventNotification.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      User Event Notification
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                    <row>
+               <entry>
+                  <guilabel>Username:</guilabel>
+               </entry>
+               <entry>_usernameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Proper Name:</guilabel>
+               </entry>
+               <entry>_properNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_username</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_properName</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>Splitter1</entry>
+               <entry>QSplitter</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>Layout62</entry>
+               <entry>QWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Event:</guilabel>
+               </entry>
+               <entry>_eventsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_event</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>Layout63</entry>
+               <entry>QWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Warehouses:</guilabel>
+               </entry>
+               <entry>_warehousesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

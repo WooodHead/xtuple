@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Select Payments
+  </title>
+   <subtitle>selectPayments : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/selectPayments.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Select Payments
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendorGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All Vendors</guilabel>
+               </entry>
+               <entry>_allVendors</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Selected Vendor:</guilabel>
+               </entry>
+               <entry>_selectedVendor</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_vend</entry>
+               <entry>VendorInfo</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Selected Vendor Type:</guilabel>
+               </entry>
+               <entry>_selectedVendorType</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendorTypes</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Vendor Type Pattern:</guilabel>
+               </entry>
+               <entry>_vendorTypePattern</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendorType</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>buttonGroup2</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All</guilabel>
+               </entry>
+               <entry>_dueAll</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Older than</guilabel>
+               </entry>
+               <entry>_dueOlder</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_dueOlderDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Due between</guilabel>
+               </entry>
+               <entry>_dueBetween</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dueBetweenDates</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>A/P Open Items:</guilabel>
+               </entry>
+               <entry>_openAPItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_apopen</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Select...</guilabel>
+               </entry>
+               <entry>_select</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Select Line</guilabel>
+               </entry>
+               <entry>_selectLine</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Clear Selection</guilabel>
+               </entry>
+               <entry>_clear</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Select all Due</guilabel>
+               </entry>
+               <entry>_selectDue</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Select all Discounts</guilabel>
+               </entry>
+               <entry>_selectDiscount</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Clear Selections</guilabel>
+               </entry>
+               <entry>_clearAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use default Bank Account:</guilabel>
+               </entry>
+               <entry>_bankaccntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

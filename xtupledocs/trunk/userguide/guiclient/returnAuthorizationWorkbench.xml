@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Return Authorization Workbench
+  </title>
+   <subtitle>returnAuthorizationWorkbench : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/returnAuthorizationWorkbench.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Return Authorization Workbench
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_type</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_parameter</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Customer Type</guilabel>
+               </entry>
+               <entry>_custtype</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Customer</guilabel>
+               </entry>
+               <entry>_cust</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Query</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Open</entry>
+               <entry>_open</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_show</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Show Expired</guilabel>
+               </entry>
+               <entry>_expired</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_showpending</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipments</guilabel>
+               </entry>
+               <entry>_shipments</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Credits</guilabel>
+               </entry>
+               <entry>_credits</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Refunds</guilabel>
+               </entry>
+               <entry>_refunds</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Receipts</guilabel>
+               </entry>
+               <entry>_receipts</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_printopn</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editopn</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewopn</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_raopen</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Open Returns:</guilabel>
+               </entry>
+               <entry>_raopenLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>Due Credit</entry>
+               <entry>_dueCredit</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Print Credit Memo after Post</guilabel>
+               </entry>
+               <entry>_printonpost</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Returns Eligible for Credit:</guilabel>
+               </entry>
+               <entry>_radueLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_radue</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_printdue</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editdue</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>View</guilabel>
+               </entry>
+               <entry>_viewdue</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Post</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Credit Memo</guilabel>
+               </entry>
+               <entry>_creditmemo</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Check</guilabel>
+               </entry>
+               <entry>_check</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Credit Card</guilabel>
+               </entry>
+               <entry>_creditcard</entry>
+               <entry>QCheckBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

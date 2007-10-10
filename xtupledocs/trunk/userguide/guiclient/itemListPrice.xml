@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Item List Price
+    </title>
+   <subtitle>itemListPrice : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/itemListPrice.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Item List Price
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>List Price:</guilabel>
+               </entry>
+               <entry>_listPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry/>
+               <entry>_listPrice</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>Price UOM:</guilabel>
+               </entry>
+               <entry>_priceUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>Inv./Price Ratio:</guilabel>
+               </entry>
+               <entry>_priceRatioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>Inventory UOM Price:</guilabel>
+               </entry>
+               <entry>_extPriceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_priceUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_pricingRatio</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_extPrice</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Cost:</guilabel>
+               </entry>
+               <entry>_costLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Extended Cost:</guilabel>
+               </entry>
+               <entry>_extendedCostLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Margin:</guilabel>
+               </entry>
+               <entry>_marginLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>Standard</guilabel>
+               </entry>
+               <entry>_stdLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel>Actual</guilabel>
+               </entry>
+               <entry>_actLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_stdCost</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_actCost</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_extStdCost</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_extActCost</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_stdMargin</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_actMargin</entry>
+               <entry>QLabel</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

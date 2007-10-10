@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   P/O Items by Vendor
+  </title>
+   <subtitle>dspPoItemsByVendor : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspPoItemsByVendor.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   P/O Items by Vendor
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendor</entry>
+               <entry>VendorCluster</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_statusGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>All Items</guilabel>
+               </entry>
+               <entry>_allItems</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Open Items</guilabel>
+               </entry>
+               <entry>_openItems</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Closed Items</guilabel>
+               </entry>
+               <entry>_closedItems</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All PO #s</guilabel>
+               </entry>
+               <entry>_allPOs</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Selected PO #:</guilabel>
+               </entry>
+               <entry>_selectedPO</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_poNumber</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_agentGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All Purchasing Agents</guilabel>
+               </entry>
+               <entry>_allPurchasingAgents</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Selected:</guilabel>
+               </entry>
+               <entry>_selectedPurchasingAgent</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_agent</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>uery</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>P/O Items:</guilabel>
+               </entry>
+               <entry>_poitemLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   View Check Run
+  </title>
+   <subtitle>viewCheckRun : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/viewCheckRun.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   View Check Run
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Bank Account:</guilabel>
+               </entry>
+               <entry>_bankaccntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint Edit List</guilabel>
+               </entry>
+               <entry>_printEditList</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Print Check Run</guilabel>
+               </entry>
+               <entry>_printCheckRun</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Checks:</guilabel>
+               </entry>
+               <entry>_checksLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_check</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Print Chec<accel>k</accel>
+                  </guilabel>
+               </entry>
+               <entry>_printCheck</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Po<accel>s</accel>t Check</guilabel>
+               </entry>
+               <entry>_postCheck</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>oid Check</guilabel>
+               </entry>
+               <entry>_void</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Edit Check</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Delete Check</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Replace Check</guilabel>
+               </entry>
+               <entry>_replace</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Replace All</guilabel>
+               </entry>
+               <entry>_replaceAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

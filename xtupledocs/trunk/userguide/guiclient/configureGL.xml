@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   G/L Module Configuration
+  </title>
+   <subtitle>configureGL : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configureGL.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   G/L Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Accounts Payable</entry>
+               <entry>tab</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Next A/P Memo #:</guilabel>
+               </entry>
+               <entry>_nextAPMemoNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_nextAPMemoNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>Accounts Receivable</entry>
+               <entry>_ar</entry>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Next A/R Memo #:</guilabel>
+               </entry>
+               <entry>_nextARMemoNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_nextARMemoNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Hide 'Apply to Balance' button</guilabel>
+               </entry>
+               <entry>_hideApplyto</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Customer Deposits</guilabel>
+               </entry>
+               <entry>_customerDeposits</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_remitToGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Name:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>XLineEdit</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_address</entry>
+               <entry>AddressCluster</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Phone:</guilabel>
+               </entry>
+               <entry>_phoneLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_phone</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>General Ledger</entry>
+               <entry>_gl</entry>
+               <entry>QWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Main Segment Size:</guilabel>
+               </entry>
+               <entry>_mainSizeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_mainSize</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>Use Company Segment</guilabel>
+               </entry>
+               <entry>_useCompanySegment</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_companyGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Company Segment Size:</guilabel>
+               </entry>
+               <entry>_companySizeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_companySegmentSize</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Use Profit Centers</guilabel>
+               </entry>
+               <entry>_useProfitCenters</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_profitCenterGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                       <row>
+               <entry>
+                  <guilabel>Profit Center Segment Size:</guilabel>
+               </entry>
+               <entry>_profitCenterSizeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                       <row>
+               <entry/>
+               <entry>_profitCenterSize</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                     <row>
+               <entry>
+                  <guilabel>Allow Free-Form Profit Centers</guilabel>
+               </entry>
+               <entry>_ffProfitCenters</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Use Subaccounts</guilabel>
+               </entry>
+               <entry>_useSubaccounts</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_subaccountGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                       <row>
+               <entry>
+                  <guilabel>Subaccount Segment Size:</guilabel>
+               </entry>
+               <entry>_subAccountSizeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                       <row>
+               <entry/>
+               <entry>_subaccountSize</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                     <row>
+               <entry>
+                  <guilabel>Allow Free-Form Subaccounts</guilabel>
+               </entry>
+               <entry>_ffSubaccounts</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enforce mandatory notes for Manual G/L Entries</guilabel>
+               </entry>
+               <entry>_mandatoryNotes</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Allow manual entry of G/L Account Numbers</guilabel>
+               </entry>
+               <entry>_manualGlaccnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Default Tax Authority:</guilabel>
+               </entry>
+               <entry>_taxauthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_taxauth</entry>
+               <entry>XComboBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Retained Earnings, Year End Account:</guilabel>
+               </entry>
+               <entry>_yearendLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Currency Gain/Loss Account:</guilabel>
+               </entry>
+               <entry>_gainLossLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>G/L Series Discrepancy Acct.:</guilabel>
+               </entry>
+               <entry>_discrepancyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_yearend</entry>
+               <entry>GLCluster</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_gainLoss</entry>
+               <entry>GLCluster</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_discrepancy</entry>
+               <entry>GLCluster</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_exchangeRateSense</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Base &#215; Exchange Rate = Foreign</guilabel>
+               </entry>
+               <entry>_baseToLocal</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Foreign &#215; Exchange Rate = Base</guilabel>
+               </entry>
+               <entry>_localToBase</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

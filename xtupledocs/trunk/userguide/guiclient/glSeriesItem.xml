@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   G/L Transaction Series Item
+  </title>
+   <subtitle>glSeriesItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/glSeriesItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   G/L Transaction Series Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                <row>
+               <entry>
+                  <guilabel>Amount:</guilabel>
+               </entry>
+               <entry>_amountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_amount</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_senseGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Debit</guilabel>
+               </entry>
+               <entry>_debit</entry>
+               <entry>QRadioButton</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Credit</guilabel>
+               </entry>
+               <entry>_credit</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Account #:</guilabel>
+               </entry>
+               <entry>_accountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_account</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

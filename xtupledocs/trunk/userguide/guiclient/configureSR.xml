@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   S/R Module Configuration
+  </title>
+   <subtitle>configureSR : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configureSR.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   S/R Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Shipment # Generation:</guilabel>
+               </entry>
+               <entry>_shipmentNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextShipmentNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipmentNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextShipmentNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Disallow P/O Receipt of Qty greater than ordered</guilabel>
+               </entry>
+               <entry>_disallowReceiptExcess</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Warn if P/O Receipt Qty differs from receivable Qty</guilabel>
+               </entry>
+               <entry>_warnIfReceiptDiffers</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>By the following amount:</guilabel>
+               </entry>
+               <entry>_toleranceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tolerance</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>%</guilabel>
+               </entry>
+               <entry>_percentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipformGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_shipformNumOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipformNumOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipformWatermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Currencies
+    </title>
+   <subtitle>currencies : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/currencies.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Currencies
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Currencies:</guilabel>
+               </entry>
+               <entry>_currenciesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_curr</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ew</guilabel>
+               </entry>
+               <entry>_new</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>iew</guilabel>
+               </entry>
+               <entry>_view</entry>
+               <entry>QPushButton</entry>
+            </row>
+                  <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_delete</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   P/O Module Configuration
+  </title>
+   <subtitle>configurePO : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configurePO.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   P/O Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+              <row>
+               <entry>
+                  <guilabel>Order # Generation:</guilabel>
+               </entry>
+               <entry>_orderNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Voucher # Generation:</guilabel>
+               </entry>
+               <entry>_voucherNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>P/R # Generation:</guilabel>
+               </entry>
+               <entry>_prNumberGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_orderNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_voucherNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_prNumberGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextSoNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextSoNumberLit_2</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextSoNumberLit_3</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_nextPoNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_nextVcNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_nextPrNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_poGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Vendor</guilabel>
+               </entry>
+               <entry>_vendorCopy</entry>
+               <entry>QCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Internal</guilabel>
+               </entry>
+               <entry>_internalCopy</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_numOfCopiesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                   <row>
+               <entry/>
+               <entry>_numOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post P/O Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_poChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Vendor Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_vendorChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use Earliest Avail. as Due Date for P/O Item</guilabel>
+               </entry>
+               <entry>_earliestPO</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Prevent P/O Items when no Std. Cost Exists</guilabel>
+               </entry>
+               <entry>_requirePoitemStdCost</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Check Print P/O on Save by Default</guilabel>
+               </entry>
+               <entry>_printPO</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendorDefaultsGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Ship Via:</guilabel>
+               </entry>
+               <entry>_defaultShipViaLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_defaultShipVia</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

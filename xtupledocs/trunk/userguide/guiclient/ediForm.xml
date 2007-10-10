@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   EDI Form
+  </title>
+   <subtitle>ediForm : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/ediForm.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   EDI Form
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_type</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Output:</guilabel>
+               </entry>
+               <entry>_outputLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_file</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_output</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>File Name:</guilabel>
+               </entry>
+               <entry>_fileLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Type:</guilabel>
+               </entry>
+               <entry>_typeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_cancel</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>O</accel>K</guilabel>
+               </entry>
+               <entry>_accept</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Query:</guilabel>
+               </entry>
+               <entry>_queryLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_query</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_stack</entry>
+               <entry>Q3WidgetStack</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>reportOptions</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Report:</guilabel>
+               </entry>
+               <entry>_reportReportLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_reportReport</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>csvOptions</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Delimeter:</guilabel>
+               </entry>
+               <entry>_csvDelimeterLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_csvDelimeter</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>EDI Form Details:</guilabel>
+               </entry>
+               <entry>textLabel5</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_csvDetails</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ew</guilabel>
+               </entry>
+               <entry>_csvNew</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_csvEdit</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>D</accel>elete</guilabel>
+               </entry>
+               <entry>_csvDelete</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

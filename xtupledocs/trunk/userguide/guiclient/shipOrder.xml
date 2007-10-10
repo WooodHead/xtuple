@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Ship Order
+  </title>
+   <subtitle>shipOrder : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/shipOrder.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Ship Order
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_shipToName</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipToAddr1</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ship To:</guilabel>
+               </entry>
+               <entry>_shipToLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_billToName</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Bill To:</guilabel>
+               </entry>
+               <entry>_billToLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Select for Billing</guilabel>
+               </entry>
+               <entry>_select</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Create and Print Invoice</guilabel>
+               </entry>
+               <entry>_create</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Print Packing List</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Receive Immediately</guilabel>
+               </entry>
+               <entry>_receive</entry>
+               <entry>XCheckBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_soNumber</entry>
+               <entry>SoLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_soList</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipment</entry>
+               <entry>ShipmentCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Sales Order #:</guilabel>
+               </entry>
+               <entry>_soNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipment #:</guilabel>
+               </entry>
+               <entry>_shipmentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_toNumber</entry>
+               <entry>ToCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>hip</guilabel>
+               </entry>
+               <entry>_ship</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Items to Ship:</guilabel>
+               </entry>
+               <entry>_itemToShipLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipment Value:</guilabel>
+               </entry>
+               <entry>_shipValueLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>0.00</guilabel>
+               </entry>
+               <entry>_shipValue</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_coitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Freight:</guilabel>
+               </entry>
+               <entry>_freightLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ship Via:</guilabel>
+               </entry>
+               <entry>_shipViaLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_freight</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipVia</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tracking Number:</guilabel>
+               </entry>
+               <entry>_tracknumlit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tracknum</entry>
+               <entry>XComboBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

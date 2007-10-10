@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Backlog by Sales Order
+    </title>
+   <subtitle>dspBacklogBySalesOrder : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspBacklogBySalesOrder.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Backlog by Sales Order
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>Sales Order #:</guilabel>
+               </entry>
+               <entry>_salesOrderLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>Order Date:</guilabel>
+               </entry>
+               <entry>_orderDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                              <row>
+               <entry/>
+               <entry>_salesOrder</entry>
+               <entry>SoLineEdit</entry>
+            </row>
+                              <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_salesOrderList</entry>
+               <entry>QPushButton</entry>
+            </row>
+                              <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_orderDate</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Cust. Name:</guilabel>
+               </entry>
+               <entry>_custNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Cust. Phone:</guilabel>
+               </entry>
+               <entry>_custPhoneLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>P/O Number:</guilabel>
+               </entry>
+               <entry>_poNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_custName</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_custPhone</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_poNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Shipment Status:</guilabel>
+               </entry>
+               <entry>_shipmentStatusLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_soitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

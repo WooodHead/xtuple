@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Bank Reconciliation History
+    </title>
+   <subtitle>dspBankrecHistory : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspBankrecHistory.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Bank Reconciliation History
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry/>
+               <entry>QWidget</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Bank Account:</guilabel>
+               </entry>
+               <entry>_bankaccntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+                      <row>
+               <entry/>
+               <entry>_bankrec</entry>
+               <entry>XComboBox</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Bank Rec. Post:</guilabel>
+               </entry>
+               <entry>_bankrecLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>N/A</guilabel>
+               </entry>
+               <entry>_poster</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Posted By:</guilabel>
+               </entry>
+               <entry>_posterLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>Date Posted:</guilabel>
+               </entry>
+               <entry>_dateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                      <row>
+               <entry>
+                  <guilabel>N/A</guilabel>
+               </entry>
+               <entry>_postdate</entry>
+               <entry>QLabel</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                          <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>History:</guilabel>
+               </entry>
+               <entry>_detailsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_details</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

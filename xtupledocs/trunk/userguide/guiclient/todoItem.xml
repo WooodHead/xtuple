@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   To-Do List Item
+  </title>
+   <subtitle>todoItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/todoItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   To-Do List Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Assigned to:</guilabel>
+               </entry>
+               <entry>_usrLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Task Name:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Sequence #:</guilabel>
+               </entry>
+               <entry>_seqLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_usr</entry>
+               <entry>UsernameLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>QLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_seq</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_incident</entry>
+               <entry>IncidentCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_ophead</entry>
+               <entry>OpportunityCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_crmacct</entry>
+               <entry>CRMAcctCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Date Due:</guilabel>
+               </entry>
+               <entry>_dueLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Date Assigned:</guilabel>
+               </entry>
+               <entry>_assignedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Date Started:</guilabel>
+               </entry>
+               <entry>_startedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Date Completed:</guilabel>
+               </entry>
+               <entry>_completedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_due</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_assigned</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_started</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_completed</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>groupBox</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Pending Input</guilabel>
+               </entry>
+               <entry>_pending</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Deferred</guilabel>
+               </entry>
+               <entry>_deferred</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Neither</guilabel>
+               </entry>
+               <entry>_neither</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Active</guilabel>
+               </entry>
+               <entry>_active</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Save</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_reassignUsr</entry>
+               <entry>UsernameCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Description:</guilabel>
+               </entry>
+               <entry>_descripLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Notes:</guilabel>
+               </entry>
+               <entry>_notesLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_notes</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

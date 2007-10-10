@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Item Substitution
+    </title>
+   <subtitle>itemSubstitute : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/itemSubstitute.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Item Substitution
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                    <row>
+               <entry>
+                  <guilabel>Root Item:</guilabel>
+               </entry>
+               <entry>_rootItemLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Substitution:</guilabel>
+               </entry>
+               <entry>_substitutionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_substitute</entry>
+               <entry>ItemCluster</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Subsitute/Parent UOM Ratio:</guilabel>
+               </entry>
+               <entry>_uomRatioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>Ranking:</guilabel>
+               </entry>
+               <entry>_rankingLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                            <row>
+               <entry/>
+               <entry>_uomRatio</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                            <row>
+               <entry/>
+               <entry>_ranking</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                        <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+      Custom Command Argument
+    </title>
+   <subtitle>customCommandArgument : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/customCommandArgument.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+      Custom Command Argument
+    </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+  <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+                <row>
+               <entry>
+                  <guilabel>Order:</guilabel>
+               </entry>
+               <entry>_orderLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Argument:</guilabel>
+               </entry>
+               <entry>_argumentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                    <row>
+               <entry/>
+               <entry>_order</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_argument</entry>
+               <entry>QLineEdit</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>O</accel>K</guilabel>
+               </entry>
+               <entry>_accept</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

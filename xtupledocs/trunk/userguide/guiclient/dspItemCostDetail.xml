@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Detailed Item Costs
+  </title>
+   <subtitle>dspItemCostDetail : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspItemCostDetail.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Detailed Item Costs
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Cost Type:</guilabel>
+               </entry>
+               <entry>_costTypeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_costType</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_costTypeGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Show Standard Costs</guilabel>
+               </entry>
+               <entry>_standardCosts</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Show Actual Costs</guilabel>
+               </entry>
+               <entry>_actualCosts</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Costing Detail:</guilabel>
+               </entry>
+               <entry>_costingDetailLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_bom</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

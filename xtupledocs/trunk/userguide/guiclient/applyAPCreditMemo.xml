@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Apply A/P Credit Memo
+  </title>
+   <subtitle>applyAPCreditMemo : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/applyAPCreditMemo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Apply A/P Credit Memo
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_vend</entry>
+               <entry>VendorCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>ost</guilabel>
+               </entry>
+               <entry>_post</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_priceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_available</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Available to Apply:</guilabel>
+               </entry>
+               <entry>_availableLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Applied:</guilabel>
+               </entry>
+               <entry>_appliedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Balance:</guilabel>
+               </entry>
+               <entry>_balanceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_balance</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_applied</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Document #:</guilabel>
+               </entry>
+               <entry>_doumentNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Distribution Date:</guilabel>
+               </entry>
+               <entry>_distDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_docNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_docDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_apopen</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Apply to <accel>B</accel>alance</guilabel>
+               </entry>
+               <entry>_applyToBalance</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>A</accel>pply</guilabel>
+               </entry>
+               <entry>_apply</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Clear Application</guilabel>
+               </entry>
+               <entry>_clear</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

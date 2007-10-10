@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Print W/O Traveler
+  </title>
+   <subtitle>printWoTraveler : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/printWoTraveler.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Print W/O Traveler
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_wo</entry>
+               <entry>WoCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Release <accel>W</accel>ork Order</guilabel>
+               </entry>
+               <entry>_releaseWo</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_documentsGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Print P<accel>i</accel>ck List</guilabel>
+               </entry>
+               <entry>_pickList</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Print <accel>R</accel>outing</guilabel>
+               </entry>
+               <entry>_routing</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Print Packing List</guilabel>
+               </entry>
+               <entry>_packingList</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Print Work Order Label</guilabel>
+               </entry>
+               <entry>_woLabel</entry>
+               <entry>QCheckBox</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

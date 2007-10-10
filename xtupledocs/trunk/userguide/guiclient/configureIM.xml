@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   I/M Module Configuration
+  </title>
+   <subtitle>configureIM : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configureIM.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   I/M Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Inventory</entry>
+               <entry>_inventory</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_defaultGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Event Fence:</guilabel>
+               </entry>
+               <entry>_eventFenceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_eventFence</entry>
+               <entry>QSpinBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Days</guilabel>
+               </entry>
+               <entry>_daysLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Post Item Site Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_itemSiteChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Post Warehouse Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_warehouseChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_multiWhs</entry>
+               <entry>QGroupBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Enable Shipping Interface from Transfer Order screen</guilabel>
+               </entry>
+               <entry>_enableToShipping</entry>
+               <entry>QCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Post Transfer Order Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_transferOrderChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_toNextNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_defaultTransWhs</entry>
+               <entry>WComboBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_toNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Transfer Order # Generation:</guilabel>
+               </entry>
+               <entry>_toNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_toNextNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Default Transit Warehouse:</guilabel>
+               </entry>
+               <entry>_defaultTransWhsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Enable Lot/Serial Control</guilabel>
+               </entry>
+               <entry>_lotSerial</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_countTagGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Post Difference to Default Location, if any</guilabel>
+               </entry>
+               <entry>_postToDefault</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Do Not Post Count Tag</guilabel>
+               </entry>
+               <entry>_doNotPost</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_countSlipGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>No Slip # Checks, allow Duplications</guilabel>
+               </entry>
+               <entry>_noSlipChecks</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Disallow Unposted Slip # Duplications within a Warehouse</guilabel>
+               </entry>
+               <entry>_checkOnUnpostedWarehouse</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Disallow All Unposted Slip # Duplications</guilabel>
+               </entry>
+               <entry>_checkOnUnposted</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Disallow All Slip # Duplications within a Warehouse</guilabel>
+               </entry>
+               <entry>_checkOnAllWarehouse</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Disallow All Slip # Duplications</guilabel>
+               </entry>
+               <entry>_checkOnAll</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>Shipping and Receiving</entry>
+               <entry>tab_2</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Shipment # Generation:</guilabel>
+               </entry>
+               <entry>_shipmentNumGenerationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Next #:</guilabel>
+               </entry>
+               <entry>_nextShipmentNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipmentNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_nextShipmentNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Disallow P/O Receipt of Qty greater than ordered</guilabel>
+               </entry>
+               <entry>_disallowReceiptExcess</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Warn if P/O Receipt Qty differs from receivable Qty</guilabel>
+               </entry>
+               <entry>_warnIfReceiptDiffers</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>By the following amount:</guilabel>
+               </entry>
+               <entry>_toleranceLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tolerance</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>%</guilabel>
+               </entry>
+               <entry>_percentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipformGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel># of Copies:</guilabel>
+               </entry>
+               <entry>_shipformNumOfCopiesLit_2</entry>
+               <entry>QLabel</entry>
+            </row>
+                 <row>
+               <entry/>
+               <entry>_shipformNumOfCopies</entry>
+               <entry>QSpinBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipformWatermarks</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   System Message
+  </title>
+   <subtitle>systemMessage : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/systemMessage.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   System Message
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Scheduled:</guilabel>
+               </entry>
+               <entry>_scheduledLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Expires:</guilabel>
+               </entry>
+               <entry>_expiresLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_postedDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>at</guilabel>
+               </entry>
+               <entry>_postedAtLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_postedTime</entry>
+               <entry>Q3TimeEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_user</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_scheduledDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>at</guilabel>
+               </entry>
+               <entry>_scheduledAtLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_scheduledTime</entry>
+               <entry>Q3TimeEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_expiresDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>at</guilabel>
+               </entry>
+               <entry>_expiresAtLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_expiresTime</entry>
+               <entry>Q3TimeEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Posted:</guilabel>
+               </entry>
+               <entry>_postedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Posted by:</guilabel>
+               </entry>
+               <entry>_postedByLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Message:</guilabel>
+               </entry>
+               <entry>_messageLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_message</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

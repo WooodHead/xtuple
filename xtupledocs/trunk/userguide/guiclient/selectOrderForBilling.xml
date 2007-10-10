@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Select Order for Billing
+  </title>
+   <subtitle>selectOrderForBilling : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/selectOrderForBilling.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Select Order for Billing
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Sales Order #:</guilabel>
+               </entry>
+               <entry>_soNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_so</entry>
+               <entry>SoLineEdit</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_soList</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Order Date:</guilabel>
+               </entry>
+               <entry>_orderDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Ship Date:</guilabel>
+               </entry>
+               <entry>_shipDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Invoice Date:</guilabel>
+               </entry>
+               <entry>_invoiceDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_orderDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_shipDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_invoiceDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Cust. Name:</guilabel>
+               </entry>
+               <entry>_custNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>P/O Number:</guilabel>
+               </entry>
+               <entry>_poNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Ship-To Name:</guilabel>
+               </entry>
+               <entry>_shipToNameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Currency:</guilabel>
+               </entry>
+               <entry>_custCurrencyLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Tax Authority:</guilabel>
+               </entry>
+               <entry>_taxauthLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_custName</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_poNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_shipToName</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_custCurrency</entry>
+               <entry>XComboBox</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_taxauth</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit Order</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Line Items:</guilabel>
+               </entry>
+               <entry>_lineItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Show Closed Line Items</guilabel>
+               </entry>
+               <entry>_showClosed</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_soitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Edit Se<accel>l</accel>ection</guilabel>
+               </entry>
+               <entry>_select</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Ca<accel>n</accel>cel Selection</guilabel>
+               </entry>
+               <entry>_cancel</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Select <accel>B</accel>alance</guilabel>
+               </entry>
+               <entry>_selectBalance</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_salesTax</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_miscCharge</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_total</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_payment</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Freight:</guilabel>
+               </entry>
+               <entry>_freightLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Subtotal:</guilabel>
+               </entry>
+               <entry>_subtotalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Misc. Charge Description:</guilabel>
+               </entry>
+               <entry>_miscChargeDescriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Misc. Charge Sales Account:</guilabel>
+               </entry>
+               <entry>_miscChargeAccountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_miscChargeDescription</entry>
+               <entry>XLineEdit</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_miscChargeAccount</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Payment Received:</guilabel>
+               </entry>
+               <entry>_paymentLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_freight</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Ship Via:</guilabel>
+               </entry>
+               <entry>_shipviaLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_shipvia</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close all Open Items</guilabel>
+               </entry>
+               <entry>_closeOpenItems</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Total:</guilabel>
+               </entry>
+               <entry>_totalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_subtotal</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Notes:</guilabel>
+               </entry>
+               <entry>_commentsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Misc. Charge Amount:</guilabel>
+               </entry>
+               <entry>_miscChargeAmountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax:</guilabel>
+               </entry>
+               <entry>_salesTaxLit</entry>
+               <entry>XURLLabel</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

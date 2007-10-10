@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   To-Do List Items by User and Incident
+  </title>
+   <subtitle>dspTodoByUserAndIncident : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspTodoByUserAndIncident.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   To-Do List Items by User and Incident
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_usr</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_incidentBox</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All Incidents</guilabel>
+               </entry>
+               <entry>_allIncidents</entry>
+               <entry>QRadioButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Selected</guilabel>
+               </entry>
+               <entry>_selectedIncident</entry>
+               <entry>QRadioButton</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_incident</entry>
+               <entry>IncidentCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>groupBox</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_startDate</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>groupBox_2</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dueDate</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Show Completed Items</guilabel>
+               </entry>
+               <entry>_showCompleted</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Show Inactive Items</guilabel>
+               </entry>
+               <entry>_showInactive</entry>
+               <entry>XCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Query</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Print</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_todoitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

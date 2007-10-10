@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Standard Operation
+  </title>
+   <subtitle>standardOperation : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/standardOperation.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Standard Operation
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Tool Reference:</guilabel>
+               </entry>
+               <entry>_toolRefLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_number</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_prodUOM</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Work Center #:</guilabel>
+               </entry>
+               <entry>_workCenterLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Description:</guilabel>
+               </entry>
+               <entry>_descriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wrkcnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Production UOM:</guilabel>
+               </entry>
+               <entry>_prodUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Std. Oper. #:</guilabel>
+               </entry>
+               <entry>_stdopnNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_toolReference</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description1</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description2</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Inventory/Production UOM Ratio:</guilabel>
+               </entry>
+               <entry>_invProdUOMRatioLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_invProdUOMRatio</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Use Standard Times</guilabel>
+               </entry>
+               <entry>_stdTimes</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_standardGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_runQtyPer</entry>
+               <entry>XLineEdit</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>lblProdUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_setupTime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Report Cost as:</guilabel>
+               </entry>
+               <entry>_reportSetupCostLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_setupReport</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Report Setup T<accel>i</accel>me</guilabel>
+               </entry>
+               <entry>_reportSetup</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_runTime</entry>
+               <entry>XLineEdit</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Report Cost as:</guilabel>
+               </entry>
+               <entry>_reportRunCostLit</entry>
+               <entry>QLabel</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_runReport</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Report Run Ti<accel>m</accel>e</guilabel>
+               </entry>
+               <entry>_reportRun</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>per:</guilabel>
+               </entry>
+               <entry>_perLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Run Time (min.):</guilabel>
+               </entry>
+               <entry>_runTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Setup Time (min.):</guilabel>
+               </entry>
+               <entry>_setupTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Instructions:</guilabel>
+               </entry>
+               <entry>_instructionsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_instructions</entry>
+               <entry>QTextEdit</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Failed Post List
+  </title>
+   <subtitle>failedPostList : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/failedPostList.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Failed Post List
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>&lt;p&gt;Could not post these documents to the G/L because the accounting periods for the posting dates are closed:&lt;/p&gt;</guilabel>
+               </entry>
+               <entry>_label</entry>
+               <entry>QTextEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_doclist</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>OK</guilabel>
+               </entry>
+               <entry>_ok</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Retry</guilabel>
+               </entry>
+               <entry>_retry</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

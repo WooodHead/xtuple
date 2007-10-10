@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Financial Report Group
+  </title>
+   <subtitle>financialLayoutGroup : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/financialLayoutGroup.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Financial Report Group
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Name:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Description</guilabel>
+               </entry>
+               <entry>_descriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_subSummGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Subtotal</guilabel>
+               </entry>
+               <entry>_showSubtotal</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Use Alt. Label</guilabel>
+               </entry>
+               <entry>_altSubtotal</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Summarized</guilabel>
+               </entry>
+               <entry>_summarize</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Beginning Balance</guilabel>
+               </entry>
+               <entry>_showStart</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showStartPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Ending Balance</guilabel>
+               </entry>
+               <entry>_showEnd</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showEndPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Debits/Credits</guilabel>
+               </entry>
+               <entry>_showDelta</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showDeltaPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Budget</guilabel>
+               </entry>
+               <entry>_showBudget</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showBudgetPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Difference</guilabel>
+               </entry>
+               <entry>_showDiff</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showDiffPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Show Custom Column</guilabel>
+               </entry>
+               <entry>_showCustom</entry>
+               <entry>QCheckBox</entry>
+            </row>
+                   <row>
+               <entry>
+                  <guilabel>Show % of Group Total</guilabel>
+               </entry>
+               <entry>_showCustomPrcnt</entry>
+               <entry>QCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Use Group</guilabel>
+               </entry>
+               <entry>_groupLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_group</entry>
+               <entry>XComboBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>for % Total calculation</guilabel>
+               </entry>
+               <entry>_groupLit2</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Alt. Subtotal Label:</guilabel>
+               </entry>
+               <entry>_altSubtotalLabelLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_altSubtotalLabel</entry>
+               <entry>QLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_operationGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Add to Group Total</guilabel>
+               </entry>
+               <entry>_add</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Subtract from Group Total</guilabel>
+               </entry>
+               <entry>_subtract</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

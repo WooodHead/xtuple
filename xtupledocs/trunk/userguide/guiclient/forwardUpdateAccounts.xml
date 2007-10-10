@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Forward Update Accounts
+  </title>
+   <subtitle>forwardUpdateAccounts : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/forwardUpdateAccounts.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Forward Update Accounts
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_accntGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>All Accounts</guilabel>
+               </entry>
+               <entry>_allSelected</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Selected Account:</guilabel>
+               </entry>
+               <entry>_accntSelected</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_accnt</entry>
+               <entry>GLCluster</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Account Type:</guilabel>
+               </entry>
+               <entry>_typeSelected</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_type</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Update</guilabel>
+               </entry>
+               <entry>_update</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

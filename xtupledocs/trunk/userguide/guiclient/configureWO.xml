@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   W/O Module Configuration
+  </title>
+   <subtitle>configureWO : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/configureWO.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   W/O Module Configuration
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+              <row>
+               <entry>
+                  <guilabel>Next Work Order #:</guilabel>
+               </entry>
+               <entry>_nextWoNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>W/O Number Creation:</guilabel>
+               </entry>
+               <entry>_woNumCreationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_nextWoNumber</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_woNumGeneration</entry>
+               <entry>QComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Auto fill Post Operation Qty. to Balance</guilabel>
+               </entry>
+               <entry>_postopFillQty</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Post Work Order Changes to the Change Log</guilabel>
+               </entry>
+               <entry>_workOrderChangeLog</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Automatically Explode W/O's</guilabel>
+               </entry>
+               <entry>_autoExplode</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_explodeEffectiveGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Date of Explosion</guilabel>
+               </entry>
+               <entry>_explodeDateEffective</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>W/O Start Date</guilabel>
+               </entry>
+               <entry>_startDateEffective</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>QButtonGroup_1</entry>
+               <entry>QGroupBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Single Level</guilabel>
+               </entry>
+               <entry>_singleLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Multiple Level</guilabel>
+               </entry>
+               <entry>_multiLevel</entry>
+               <entry>QRadioButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_defaultGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Post Material Usage Variances</guilabel>
+               </entry>
+               <entry>_materialVariances</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Post Labor Variances</guilabel>
+               </entry>
+               <entry>_laborVariances</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_wotcPostStyle</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Production</guilabel>
+               </entry>
+               <entry>_production</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Operations</guilabel>
+               </entry>
+               <entry>_operations</entry>
+               <entry>QRadioButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Select Payment
+  </title>
+   <subtitle>selectPayment : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/selectPayment.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Select Payment
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Document #:</guilabel>
+               </entry>
+               <entry>_docNumberLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>P/O #:</guilabel>
+               </entry>
+               <entry>_poNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_terms</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Payment Amount:</guilabel>
+               </entry>
+               <entry>_selectedLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_docDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dueDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_docNumber</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_poNum</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_priceGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_total</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_discountAmount</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Total Owed:</guilabel>
+               </entry>
+               <entry>_totalLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Discount:</guilabel>
+               </entry>
+               <entry>_discountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_amount</entry>
+               <entry>CurrDisplay</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Balance Owed:</guilabel>
+               </entry>
+               <entry>_amountLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Doc. Date:</guilabel>
+               </entry>
+               <entry>_docDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Due Date:</guilabel>
+               </entry>
+               <entry>_dueDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_selected</entry>
+               <entry>CurrCluster</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_vendor</entry>
+               <entry>VendorCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Terms:</guilabel>
+               </entry>
+               <entry>_termsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Bank Account:</guilabel>
+               </entry>
+               <entry>_bankaccntLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_bankaccnt</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Edit Discount</guilabel>
+               </entry>
+               <entry>_discount</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

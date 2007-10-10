@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Brief Sales History by Sales Rep.
+  </title>
+   <subtitle>dspBriefSalesHistoryBySalesRep : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/dspBriefSalesHistoryBySalesRep.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Brief Sales History by Sales Rep.
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Sales Rep.:</guilabel>
+               </entry>
+               <entry>_salesrepLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_salesrep</entry>
+               <entry>XComboBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_warehouse</entry>
+               <entry>WarehouseGroup</entry>
+            </row>
+             <row>
+               <entry/>
+               <entry>_dates</entry>
+               <entry>DateCluster</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_productCategory</entry>
+               <entry>ParameterGroup</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Show Costs</guilabel>
+               </entry>
+               <entry>_showCosts</entry>
+               <entry>XCheckBox</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel>Show Prices</guilabel>
+               </entry>
+               <entry>_showPrices</entry>
+               <entry>XCheckBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>uery</guilabel>
+               </entry>
+               <entry>_query</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Sales History:</guilabel>
+               </entry>
+               <entry>_cohistLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_sohist</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

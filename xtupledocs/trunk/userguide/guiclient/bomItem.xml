@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Bill of Materials Item
+  </title>
+   <subtitle>bomItem : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/bomItem.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Bill of Materials Item
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_effectivityGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_dates</entry>
+               <entry>DateCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>Q</accel>ty. Per:</guilabel>
+               </entry>
+               <entry>_qtyPerLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Sc<accel>r</accel>ap %:</guilabel>
+               </entry>
+               <entry>_scrapLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_qtyPer</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_scrap</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Issue UOM:</guilabel>
+               </entry>
+               <entry>_issueUOMLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_issueUOM</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Create C<accel>h</accel>ild W/O at Parent W/O Explosion</guilabel>
+               </entry>
+               <entry>_createWo</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Issue Method:</guilabel>
+               </entry>
+               <entry>_issueMethodLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Used At:</guilabel>
+               </entry>
+               <entry>_usedAtLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>ECN #:</guilabel>
+               </entry>
+               <entry>_ecnNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_issueMethod</entry>
+               <entry>XComboBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_usedAt</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>...</guilabel>
+               </entry>
+               <entry>_booitemList</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Schedule w/ W/O <accel>O</accel>peration</guilabel>
+               </entry>
+               <entry>_scheduleAtWooper</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_ecn</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_tab</entry>
+               <entry>QTabWidget</entry>
+            </row>
+            <row>
+               <entry>Substitutions</entry>
+               <entry>_substitutionsTab</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_substituteGroup</entry>
+               <entry>QGroupBox</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>No Substitutions</guilabel>
+               </entry>
+               <entry>_noSubstitutes</entry>
+               <entry>QRadioButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Item-Defined Substitutions</guilabel>
+               </entry>
+               <entry>_itemDefinedSubstitutes</entry>
+               <entry>QRadioButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>BOM-Defined Substitutions</guilabel>
+               </entry>
+               <entry>_bomDefinedSubstitutes</entry>
+               <entry>QRadioButton</entry>
+            </row>
+               <row>
+               <entry/>
+               <entry>_bomitemsub</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>New</guilabel>
+               </entry>
+               <entry>_newSubstitution</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Edit</guilabel>
+               </entry>
+               <entry>_editSubstitution</entry>
+               <entry>QPushButton</entry>
+            </row>
+                 <row>
+               <entry>
+                  <guilabel>Delete</guilabel>
+               </entry>
+               <entry>_deleteSubstitution</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>Comments</entry>
+               <entry>_commentsTab</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_comments</entry>
+               <entry>Comments</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

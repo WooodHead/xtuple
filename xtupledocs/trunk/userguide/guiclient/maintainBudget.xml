@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Maintain Budget
+  </title>
+   <subtitle>maintainBudget : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/maintainBudget.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Maintain Budget
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Description:</guilabel>
+               </entry>
+               <entry>_descripLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_descrip</entry>
+               <entry>QLineEdit</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_name</entry>
+               <entry>QLineEdit</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Name:</guilabel>
+               </entry>
+               <entry>_nameLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>groupBox1</entry>
+               <entry>QGroupBox</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Accounts:</guilabel>
+               </entry>
+               <entry>_accountsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_accounts</entry>
+               <entry>Q3ListBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Add</guilabel>
+               </entry>
+               <entry>_accountsAdd</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Move Up</guilabel>
+               </entry>
+               <entry>_accountsUp</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Move Down</guilabel>
+               </entry>
+               <entry>_accountsDown</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Remove</guilabel>
+               </entry>
+               <entry>_accountsRemove</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Accounting Periods:</guilabel>
+               </entry>
+               <entry>_periodsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                  <row>
+               <entry/>
+               <entry>_periods</entry>
+               <entry>Q3ListBox</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Select All</guilabel>
+               </entry>
+               <entry>_periodsAll</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Invert</guilabel>
+               </entry>
+               <entry>_periodsInvert</entry>
+               <entry>QPushButton</entry>
+            </row>
+                    <row>
+               <entry>
+                  <guilabel>Unselect All</guilabel>
+               </entry>
+               <entry>_periodsNone</entry>
+               <entry>QPushButton</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Generate Table</guilabel>
+               </entry>
+               <entry>_generate</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Close</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_table</entry>
+               <entry>Q3Table</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

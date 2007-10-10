@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Tax Code
+  </title>
+   <subtitle>taxCode : QDialog</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/taxCode.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Tax Code
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry>
+                  <guilabel>Code:</guilabel>
+               </entry>
+               <entry>_codeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Description:</guilabel>
+               </entry>
+               <entry>_descriptionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_code</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_description</entry>
+               <entry>XLineEdit</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Cumulative</guilabel>
+               </entry>
+               <entry>_cumulative</entry>
+               <entry>QCheckBox</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>ancel</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_taxRateB</entry>
+               <entry>XLineEdit</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>%</guilabel>
+               </entry>
+               <entry>_percentBLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_taxRateC</entry>
+               <entry>XLineEdit</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>%</guilabel>
+               </entry>
+               <entry>_percentCLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Account:</guilabel>
+               </entry>
+               <entry>_salesBLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_accountB</entry>
+               <entry>GLCluster</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_taxRateA</entry>
+               <entry>XLineEdit</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>%</guilabel>
+               </entry>
+               <entry>_percentALit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Account:</guilabel>
+               </entry>
+               <entry>_salesCLit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_accountC</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Rate A:</guilabel>
+               </entry>
+               <entry>_taxRateALit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>Account:</guilabel>
+               </entry>
+               <entry>_salesALit</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>_accountA</entry>
+               <entry>GLCluster</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Rate B:</guilabel>
+               </entry>
+               <entry>_taxRateBLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Tax Rate C:</guilabel>
+               </entry>
+               <entry>_taxRateCLit</entry>
+               <entry>QLabel</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>

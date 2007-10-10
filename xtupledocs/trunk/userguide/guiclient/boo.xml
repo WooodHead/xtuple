@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section>
+   <title>
+   Bill of Operations
+  </title>
+   <subtitle>boo : QMainWindow</subtitle>
+   <para>
+	Introductory description, perhaps the What's This property of the
+	window or dialog itself.
+      </para>
+   <para id="ScreenShotd1e1">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/boo.png"/>
+            </imageobject>
+            <caption id="Captiond1e1">
+   Bill of Operations
+  </caption>
+         </mediaobject>
+      </screenshot>
+   </para>
+   <table>
+      <title>
+	List of Widgets
+      </title>
+      <tgroup cols="3">
+         <thead>
+            <row>
+               <entry>Title</entry>
+               <entry>Internal Name</entry>
+               <entry>Widget Type</entry>
+            </row>
+         </thead>
+         <tbody>
+            <row>
+               <entry/>
+               <entry>widget</entry>
+               <entry>QWidget</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_item</entry>
+               <entry>ItemCluster</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Show Expi<accel>r</accel>ed Operations</guilabel>
+               </entry>
+               <entry>_showExpired</entry>
+               <entry>QCheckBox</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Show <accel>F</accel>uture Operations</guilabel>
+               </entry>
+               <entry>_showFuture</entry>
+               <entry>QCheckBox</entry>
+            </row>
+           <row>
+               <entry/>
+               <entry>GroupBox1</entry>
+               <entry>QGroupBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_finalLocation</entry>
+               <entry>XComboBox</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Final Location:</guilabel>
+               </entry>
+               <entry>_finalLocationLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Close W/O when full Qty. Posted</guilabel>
+               </entry>
+               <entry>_closeWO</entry>
+               <entry>QCheckBox</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_revision</entry>
+               <entry>XLineEdit</entry>
+            </row>
+              <row>
+               <entry/>
+               <entry>_documentNum</entry>
+               <entry>XLineEdit</entry>
+            </row>
+                <row>
+               <entry/>
+               <entry>_revisionDate</entry>
+               <entry>DLineEdit</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Revision Da<accel>t</accel>e:</guilabel>
+               </entry>
+               <entry>_revisionDateLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Revisi<accel>o</accel>n:</guilabel>
+               </entry>
+               <entry>_revisionLit</entry>
+               <entry>QLabel</entry>
+            </row>
+              <row>
+               <entry>
+                  <guilabel>Docu<accel>m</accel>ent #:</guilabel>
+               </entry>
+               <entry>_documentNumLit</entry>
+               <entry>QLabel</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>S</accel>ave</guilabel>
+               </entry>
+               <entry>_save</entry>
+               <entry>QPushButton</entry>
+            </row>
+             <row>
+               <entry>
+                  <guilabel>Production <accel>L</accel>ead Time:</guilabel>
+               </entry>
+               <entry>_productionLeadTimeLit</entry>
+               <entry>QLabel</entry>
+            </row>
+               <row>
+               <entry>
+                  <guilabel/>
+               </entry>
+               <entry>_productionLeadTime</entry>
+               <entry>QLabel</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>C</accel>lose</guilabel>
+               </entry>
+               <entry>_close</entry>
+               <entry>QPushButton</entry>
+            </row>
+           <row>
+               <entry>
+                  <guilabel>
+                     <accel>P</accel>rint</guilabel>
+               </entry>
+               <entry>_print</entry>
+               <entry>QPushButton</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>frame</entry>
+               <entry>QFrame</entry>
+            </row>
+            <row>
+               <entry>
+                  <guilabel>Oper<accel>a</accel>tions:</guilabel>
+               </entry>
+               <entry>_booItemsLit</entry>
+               <entry>QLabel</entry>
+            </row>
+            <row>
+               <entry/>
+               <entry>_booitem</entry>
+               <entry>XTreeWidget</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>N</accel>ew</guilabel>
+               </entry>
+               <entry>_new</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>E</accel>dit</guilabel>
+               </entry>
+               <entry>_edit</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>
+                     <accel>V</accel>iew</guilabel>
+               </entry>
+               <entry>_view</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>E<accel>x</accel>pire</guilabel>
+               </entry>
+               <entry>_expire</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Move <accel>U</accel>p</guilabel>
+               </entry>
+               <entry>_moveUp</entry>
+               <entry>QPushButton</entry>
+            </row>
+                <row>
+               <entry>
+                  <guilabel>Move Do<accel>w</accel>n</guilabel>
+               </entry>
+               <entry>_moveDown</entry>
+               <entry>QPushButton</entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </table>
+</section>
