@@ -1,5 +1,5 @@
 BEGIN;
 
-ALTER TABLE boohead ADD COLUMN boohead_rev_id INTEGER;
+ALTER TABLE boohead ADD COLUMN boohead_rev_id INTEGER DEFAULT -1;
 
 COMMIT;
