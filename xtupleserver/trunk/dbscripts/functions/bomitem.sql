@@ -10,8 +10,8 @@ BEGIN
   IF (fetchmetricbool(''RevControl'')) THEN
     SELECT rev_id INTO _revid
     FROM rev 
-    WHERE ((target_type=''BOM'') 
-    AND (target_id=pItemid) 
+    WHERE ((rev_target_type=''BOM'') 
+    AND (rev_target_id=pItemid) 
     AND (rev_status=''A''));
     IF (NOT FOUND) THEN
       _revid:=-1;
@@ -29,7 +29,7 @@ BEGIN
     _row.bomitem_item_id:=_r.bomitem_item_id;
     _row.bomitem_qtyper:=_r.bomitem_qtyper;
     _row.bomitem_scrap:=_r.bomitem_scrap;
-    _row.bomitem_booitem_id:=_r.bomitem_booitem_id;
+    _row.bomitem_booitem_seq_id:=_r.bomitem_booitem_seq_id;
     _row.bomitem_status:=_r.bomitem_status;
     _row.bomitem_effective:=_r.bomitem_effective;
     _row.bomitem_expires:=_r.bomitem_expires;
@@ -73,7 +73,7 @@ BEGIN
     _row.bomitem_item_id:=_r.bomitem_item_id;
     _row.bomitem_qtyper:=_r.bomitem_qtyper;
     _row.bomitem_scrap:=_r.bomitem_scrap;
-    _row.bomitem_booitem_id:=_r.bomitem_booitem_id;
+    _row.bomitem_booitem_seq_id:=_r.bomitem_booitem_seq_id;
     _row.bomitem_status:=_r.bomitem_status;
     _row.bomitem_effective:=_r.bomitem_effective;
     _row.bomitem_expires:=_r.bomitem_expires;

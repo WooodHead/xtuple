@@ -31,9 +31,8 @@ BEGIN
                    bomitem_configtype, bomitem_configid,
                    bomitem_expires, bomitem_ecn,
                    bomitem_createwo, bomitem_issuemethod, bomitem_subtype
-            FROM bomitem 
-            WHERE ( (bomitem_parent_item_id=pSItemid)
-             AND (bomitem_expires>CURRENT_DATE) ) LOOP
+            FROM bomitem(pSItemid) 
+            WHERE (bomitem_expires>CURRENT_DATE) LOOP
 
     SELECT NEXTVAL(''bomitem_bomitem_id_seq'') INTO _bomitemid;
 

@@ -19,7 +19,7 @@ DECLARE
   pEffective ALIAS FOR $12;
   pExpires ALIAS FOR $13;
   pCreateWo ALIAS FOR $14;
-  pBOOItemid ALIAS FOR $15;
+  pBOOItemseqid ALIAS FOR $15;
   pSchedAtWooper ALIAS FOR $16;
   pECN ALIAS FOR $17;
   pSubType ALIAS FOR $18;
@@ -59,7 +59,7 @@ BEGIN
     bomitem_configtype, bomitem_configid, bomitem_configflag,
     bomitem_effective, bomitem_expires,
     bomitem_createwo,
-    bomitem_booitem_id, bomitem_schedatwooper,
+    bomitem_booitem_seq_id, bomitem_schedatwooper,
     bomitem_ecn, bomitem_subtype, bomitem_moddate )
   VALUES
   ( pBomitemid, pParentItemid, pComponentItemid,
@@ -68,7 +68,7 @@ BEGIN
     pConfigType, pConfigId, pConfigFlag,
     pEffective, pExpires,
     pCreateWo,
-    pBOOItemid, pSchedAtWooper,
+    pBOOItemseqid, pSchedAtWooper,
     pECN, pSubType, CURRENT_DATE );
 
   RETURN pBomitemid;
@@ -97,7 +97,7 @@ DECLARE
   pEffective ALIAS FOR $11;
   pExpires ALIAS FOR $12;
   pCreateWo ALIAS FOR $13;
-  pBOOItemid ALIAS FOR $14;
+  pBOOItemseqid ALIAS FOR $14;
   pSchedAtWooper ALIAS FOR $15;
   pECN ALIAS FOR $16;
   pSubType ALIAS FOR $17;
@@ -122,7 +122,7 @@ BEGIN
                         pUomId, pQtyPer, pScrap,
                         pConfigType, pConfigId, pConfigFlag,
                         pEffective, pExpires,
-                        pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType ) INTO _bomitemid;
+                        pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType ) INTO _bomitemid;
 
   RETURN _bomitemid;
 
@@ -149,7 +149,7 @@ DECLARE
   pEffective ALIAS FOR $11;
   pExpires ALIAS FOR $12;
   pCreateWo ALIAS FOR $13;
-  pBOOItemid ALIAS FOR $14;
+  pBOOItemseqid ALIAS FOR $14;
   pSchedAtWooper ALIAS FOR $15;
   pECN ALIAS FOR $16;
   pSubType ALIAS FOR $17;
@@ -158,7 +158,7 @@ BEGIN
   SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
             pSeqNumber, pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
             pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
-            pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType)
+            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType)
     INTO _result
     FROM item
    WHERE(item_id=pParentItemid);
@@ -185,7 +185,7 @@ DECLARE
   pEffective ALIAS FOR $10;
   pExpires ALIAS FOR $11;
   pCreateWo ALIAS FOR $12;
-  pBOOItemid ALIAS FOR $13;
+  pBOOItemseqid ALIAS FOR $13;
   pSchedAtWooper ALIAS FOR $14;
   pECN ALIAS FOR $15;
   pSubType ALIAS FOR $16;
@@ -195,7 +195,7 @@ BEGIN
   SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
             pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
             pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
-            pCreateWo, pBOOItemid, pSchedAtWooper, pECN, pSubType)
+            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType)
     INTO _result
     FROM item
    WHERE(item_id=pParentItemid);

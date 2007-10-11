@@ -117,22 +117,14 @@ BEGIN
 
   IF (pCopyBOM AND pCopyBOO AND pCopyUsedAt) THEN
     UPDATE bomitem
-       SET bomitem_booitem_id=Tbomitem_booitem_id,
-           bomitem_schedatwooper=Tbomitem_schedatwooper
-      FROM (SELECT tb.booitem_id AS Tbomitem_booitem_id,
-                   sm.bomitem_schedatwooper AS Tbomitem_schedatwooper,
-                   tm.bomitem_id AS Tbomitem_id
-              FROM booitem tb, booitem sb, bomitem tm, bomitem sm, item
-             WHERE ((item_id=pSItemid)
-               AND  (sb.booitem_item_id=item_id)
-               AND  (sm.bomitem_parent_item_id=item_id)
-               AND  (sm.bomitem_booitem_id=sb.booitem_id)
-               AND  (tb.booitem_item_id=_itemid)
-               AND  (tm.bomitem_parent_item_id=_itemid)
-               AND  (sb.booitem_seqnumber=tb.booitem_seqnumber)
-               AND  (sm.bomitem_seqnumber=tm.bomitem_seqnumber))
-           ) AS data
-     WHERE (bomitem_id=Tbomitem_id);
+       SET bomitem_booitem_seq_id=Sbomitem_booitem_seq_id,
+           bomitem_schedatwooper=Sbomitem_schedatwooper
+      FROM (SELECT 
+             bomitem_item_id AS Sbomitem_item_id,
+             bomitem_schedatwooper AS Sbomitem_schedatwooper,
+             bomitem_booitem_seq_id AS Sbomitem_booitem_seq_id
+            FROM bomitem(pSItemid)) as data
+      WHERE (bomitem_item_id=Sbomitem_item_id);
   END IF;
 
   IF (pCopyCosts) THEN
