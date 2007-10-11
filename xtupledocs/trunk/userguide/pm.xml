@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
 <chapter id="Chapter557657">
   <title>Project Management (P/M) Module</title>
   <para id="Para524650">In this chapter, we describe Project Management. The
   following topics will be covered:</para>
   <itemizedlist>
-    <listitem>
+    <listitem id="listitemN0x180ac00N0x1819e48">
       <para id="Para556049">Creating Projects</para>
     </listitem>
-    <listitem>
+    <listitem id="listitemN0x180ac00N0x1819e6c">
       <para id="Para556053">Linking Projects and Orders</para>
     </listitem>
-    <listitem>
+    <listitem id="listitemN0x180ac00N0x1819e90">
       <para id="Para556070">Tracking Project Activity</para>
     </listitem>
   </itemizedlist>
@@ -25,9 +24,8 @@
     Project level, you also have the ability to enter descriptive information,
     as well as to-do items (i.e., Tasks) related to the Project.</para>
     <section id="Section556014">
-      <title><anchor id="Anchor557389" role="Index"
-      xreflabel="projects:creating new" /> <indexterm significance="normal"
-          zone="Anchor557389">
+      <title>
+<anchor id="Anchor557389" role="Index" xreflabel="projects:creating new"/> <indexterm significance="normal" zone="Anchor557389">
           <primary>projects</primary>
           <secondary>creating new</secondary>
         </indexterm>New Project</title>
@@ -43,8 +41,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/PM_Proj_newProject.png"
-                         id="Graphic556106" />
+              <imagedata fileref="images/PM_Proj_newProject.png" id="Graphic556106"/>
             </imageobject>
             <caption id="Caption556109">Create New Project</caption>
           </mediaobject>
@@ -55,26 +52,26 @@
       <variablelist>
         <varlistentry>
           <term id="Para556124">Number</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x1819ff8">
             <para id="Para">Enter a code to identify the Project.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556366">Name</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a040">
             <para id="Para">Enter a brief name to identify the Project.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556373">Description</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a088">
             <para id="Para">Enter a description to identify the
             Project.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556374">Status</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a0d0">
             <para id="Para">Specify one of the following statuses to
             characterize the Project:</para>
             <para id="Para556511">Concept: Use this status to indicate the
@@ -96,7 +93,7 @@
         <varlistentry>
           <term id="Para556375">Types of Orders that may be assigned to this
           Project</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a160">
             <para id="Para">Specify which of the following Order types can be
             linked to the Project.</para>
             <para id="Para556376">Sales Orders: Select to indicate Sales
@@ -109,7 +106,7 @@
         </varlistentry>
         <varlistentry>
           <term id="Para556389">Tasks</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a1a8">
             <para id="Para">Displays any Tasks associated with the
             Project.</para>
           </listitem>
@@ -120,33 +117,33 @@
       <variablelist>
         <varlistentry>
           <term id="Para556666">CANCEL</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a214">
             <para id="Para">Closes the screen, returning you to the
             application desktop.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557823">SAVE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a25c">
             <para id="Para">Creates the new Project and adds it to the master
             list of Projects.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557824">PRINT</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a2a4">
             <para id="Para">Prints a copy of the Task list.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557825">NEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a2ec">
             <para id="Para">Opens screen for creating a new Task.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557826">EDIT</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a334">
             <para id="Para">Enables you to edit highlighted Task. The edit
             screen is the same as that for creating a new Task--except that
             when editing, the fields will contain Task information.
@@ -156,22 +153,21 @@
         </varlistentry>
         <varlistentry>
           <term id="Para556669">VIEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a37c">
             <para id="Para">Highlight a Task and then select this button to
             reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556672">DELETE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a3c4">
             <para id="Para">Highlight a Task and then select this button to
             remove the Task from the master list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
-      <para id="Para556845"><anchor id="Anchor556844" role="Index"
-      xreflabel="tasks:creating new" /> <indexterm significance="normal"
-          zone="Anchor556844">
+      <para id="Para556845">
+<anchor id="Anchor556844" role="Index" xreflabel="tasks:creating new"/> <indexterm significance="normal" zone="Anchor556844">
           <primary>tasks</primary>
           <secondary>creating new</secondary>
         </indexterm>To create a new Task, select the NEW button. The following
@@ -180,8 +176,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/PM_Proj_newTask.png"
-                         id="Graphic556852" />
+              <imagedata fileref="images/PM_Proj_newTask.png" id="Graphic556852"/>
             </imageobject>
             <caption id="Caption556855">Create New Task</caption>
           </mediaobject>
@@ -192,19 +187,19 @@
       <variablelist>
         <varlistentry>
           <term id="Para556876">Number</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a4e4">
             <para id="Para">Enter a code to identify the Task.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556881">Name</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a52c">
             <para id="Para">Enter a brief name to identify the Task.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556888">Status</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a574">
             <para id="Para">Specify one of the following statuses to
             characterize the Task:</para>
             <para id="Para556889">Concept: Use this status to indicate the
@@ -217,13 +212,13 @@
         </varlistentry>
         <varlistentry>
           <term id="Para556900">Description</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a5bc">
             <para id="Para">Enter a description to identify the Task.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556038">Hours</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a604">
             <para id="Para">Specify the number of hours associated with the
             Task using the following fields:</para>
             <para id="Para556965">Budgeted: Enter the number of hours budgeted
@@ -238,7 +233,7 @@
         </varlistentry>
         <varlistentry>
           <term id="Para556991">Expenses</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a64c">
             <para id="Para">Specify the Expenses associated with the Task
             using the following fields:</para>
             <para id="Para557067">Budgeted: Enter the total Expenses budgeted
@@ -257,14 +252,14 @@
       <variablelist>
         <varlistentry>
           <term id="Para557023">CANCEL</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a6b8">
             <para id="Para">Closes the screen, returning you to the previous
             screen.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557024">SAVE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a700">
             <para id="Para">Creates the new Task and adds it to the Project's
             list of Tasks.</para>
           </listitem>
@@ -276,8 +271,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/PM_Proj_newProjComm.png"
-                         id="Graphic556716" />
+              <imagedata fileref="images/PM_Proj_newProjComm.png" id="Graphic556716"/>
             </imageobject>
             <caption id="Caption556719">Comments Added to Project</caption>
           </mediaobject>
@@ -288,7 +282,7 @@
       <variablelist>
         <varlistentry>
           <term id="Para556743">Comments</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a7d8">
             <para id="Para">Display lists Comments for the specified
             Project.</para>
           </listitem>
@@ -299,13 +293,13 @@
       <variablelist>
         <varlistentry>
           <term id="Para556746">NEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a844">
             <para id="Para">Opens screen for creating a new Comment.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556748">VIEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a88c">
             <para id="Para">Highlight a Comment and then select this button to
             reach a read-only view of the Comment.</para>
           </listitem>
@@ -317,7 +311,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/CommentNew.png" id="Graphic556751" />
+              <imagedata fileref="images/CommentNew.png" id="Graphic556751"/>
             </imageobject>
             <caption id="Caption556754">Create New Comment</caption>
           </mediaobject>
@@ -326,7 +320,7 @@
       <variablelist>
         <varlistentry>
           <term id="Para556755">Comment Type</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a964">
             <para id="Para">Specify one of the following Comment Types from
             the drop-down list: ChangeLog or General.</para>
             <para id="Para556756">Comment Types are used to categorize
@@ -341,14 +335,14 @@
       <variablelist>
         <varlistentry>
           <term id="Para556758">CANCEL</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181a9d0">
             <para id="Para">Closes the screen without creating a new Comment,
             returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556759">SAVE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181aa18">
             <para id="Para">Creates the Comment and adds it to the list of
             Project Comments.</para>
           </listitem>
@@ -363,8 +357,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/PM_Proj_listProjects.png"
-                         id="Graphic556153" />
+              <imagedata fileref="images/PM_Proj_listProjects.png" id="Graphic556153"/>
             </imageobject>
             <caption id="Caption556156">Projects Master List</caption>
           </mediaobject>
@@ -378,20 +371,20 @@
       <variablelist>
         <varlistentry>
           <term id="Para556159">CLOSE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181ab14">
             <para id="Para">Closes the screen, returning you to the
             application desktop.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556180">NEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181ab5c">
             <para id="Para">Opens screen for creating a new Project.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556181">EDIT</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181aba4">
             <para id="Para">Enables you to edit highlighted Projects. The edit
             screen is the same as that for creating a new Project--except that
             when editing, the fields will contain Project information.
@@ -401,14 +394,14 @@
         </varlistentry>
         <varlistentry>
           <term id="Para556182">VIEW</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x181abec">
             <para id="Para">Highlight a Project and then select this button to
             reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para556183">DELETE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182fa24">
             <para id="Para">Highlight a Project and then select this button to
             remove the Project from the master list</para>
           </listitem>
@@ -419,19 +412,19 @@
       <variablelist>
         <varlistentry>
           <term id="Para556221">View</term>
-          <listitem />
+          <listitem id="listitemN0x180ac00N0x182fa90"/>
         </varlistentry>
         <varlistentry>
           <term id="Para556222">Edit</term>
-          <listitem />
+          <listitem id="listitemN0x180ac00N0x182fad8"/>
         </varlistentry>
         <varlistentry>
           <term id="Para556223">Delete</term>
-          <listitem />
+          <listitem id="listitemN0x180ac00N0x182fb20"/>
         </varlistentry>
         <varlistentry>
           <term id="Para556251">Export Contents</term>
-          <listitem />
+          <listitem id="listitemN0x180ac00N0x182fb68"/>
         </varlistentry>
       </variablelist>
     </section>
@@ -440,8 +433,8 @@
     <title>P/M Reports</title>
     <para id="Para556245">This section describes the reports.</para>
     <section id="Section519408">
-      <title><anchor id="Anchor533217" role="Index"
-      xreflabel="projects:order activity for;sales orders:projects and;work orders:projects and;purchase orders:projects and" />
+      <title>
+<anchor id="Anchor533217" role="Index" xreflabel="projects:order activity for;sales orders:projects and;work orders:projects and;purchase orders:projects and"/>
       <indexterm significance="normal" zone="Anchor533217">
           <primary>projects</primary>
           <secondary>order activity for</secondary>
@@ -462,8 +455,7 @@
         <screenshot>
           <mediaobject>
             <imageobject>
-              <imagedata fileref="images/PM_Disp_orderActivity.png"
-                         id="Graphic523849" />
+              <imagedata fileref="images/PM_Disp_orderActivity.png" id="Graphic523849"/>
             </imageobject>
             <caption id="Caption519414">Order Activity by Project</caption>
           </mediaobject>
@@ -474,14 +466,14 @@
       <variablelist>
         <varlistentry>
           <term id="Para555721">Project #</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182fda8">
             <para id="Para">Select a Project Number whose Order activity you
             want to display.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para555977">Show Types</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182fdf0">
             <para id="Para">Specify which Order type information you want to
             include in the display:</para>
             <para id="Para555989">Sales Orders: Select to include details for
@@ -501,7 +493,7 @@
       <variablelist>
         <varlistentry>
           <term id="Para519443">Orders</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182fe80">
             <para id="Para">Display lists Orders associated with the selected
             Project, using the specified parameters.</para>
           </listitem>
@@ -512,14 +504,14 @@
       <variablelist>
         <varlistentry>
           <term id="Para519447">CLOSE</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182feec">
             <para id="Para">Closes the screen, returning you to the
             application desktop.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term id="Para557831">PRINT</term>
-          <listitem>
+          <listitem id="listitemN0x180ac00N0x182ff34">
             <para id="Para">Runs the report associated with this
             screen.</para>
           </listitem>
