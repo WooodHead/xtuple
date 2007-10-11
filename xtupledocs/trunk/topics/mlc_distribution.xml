@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title> <anchor id="Anchor672843" role="Index"
+  xreflabel="topics:multiple location control;MLC. See multiple location control" />
+  <indexterm significance="normal" zone="Anchor672843">
+      <primary>topics</primary>
+      <secondary>multiple location control</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor672843">
+      <primary>MLC</primary>
+      <see>multiple location control</see>
+    </indexterm>Topic: Distributing Multiple Location Control (MLC)
+  Items</title>
+    <para id="Para672845">Whenever you attempt to change the Quantity on Hand
+    of a Multiple Location Control (MLC) Item, you are presented with several
+    distribution options. <anchor id="Anchor672846" role="Index"
+    xreflabel="multiple location control:explained" /> <indexterm
+        significance="normal" zone="Anchor672846">
+        <primary>multiple location control</primary>
+        <secondary>explained</secondary>
+      </indexterm>In this section we describe those options, taking you
+    step-by-step through the distribution process.</para>
+    <note>
+      <para id="Para672848">These extra distribution options are required for
+      MLC Items. Items that do not have Multiple Location Control turned on
+      are not affected.</para>
+    </note>
+    <section id="Section672849">
+      <title>Receiving into Inventory</title>
+      <para id="Para672850">In the example we will be using here, the Item in
+      question is Item TDMR100, a yellow toy truck. We will be receiving
+      quantity of this Item into Inventory, using a miscellaneous Material
+      Receipt transaction--as found under the Inventory Transactions menu in
+      the I/M Module.</para>
+      <note>
+        <para id="Para672852">Items are received into Inventory by various
+        paths--from Shipping, from Manufacturing, or through miscellaneous
+        Material Receipt transactions. Although this example describes a
+        miscellaneous Material Receipt transaction, the distribution sequence
+        is the same when receiving MLC Items by other means.</para>
+      </note>
+      <para id="Para672853">As you can see from the following screen, the
+      truck is located in three Warehouse Locations--"01-01-01", "01-01-02"
+      and "01-01-03". That is the definition of an MLC Item. It is an Item
+      that is located in more than one Warehouse Location. You will notice
+      that "01-01-01" is the Default Location for this Item.</para>
+      <para id="Para672857"><anchor id="Anchor82518" role="Cross-Ref"
+      xreflabel="82518: Figure: Figure 2.14:  Distribute Stock To/From Warehouse Locations" />
+      <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrStockToLoc.png"
+                         id="Graphic672855" />
+            </imageobject>
+            <caption id="Caption672859">Distribute Stock To/From Warehouse
+            Locations</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para id="Para672861">The "Distribute Stock To/From Warehouse
+        Locations" sequence described in this example cannot be cancelled once
+        it is begun. If you arrive at a distribution screen from an affiliated
+        operation, you must completely distribute all quantities before you
+        exit the sequence. This requirement ensures Inventory totals will be
+        accurate.</para>
+      </note>
+      <para id="Para672862">The "Distribute Stock To/From Warehouse Locations"
+      screen will display whenever you are performing operations that change
+      the Quantity on Hand of MLC Items. You may encounter this screen in any
+      of the following modules:</para>
+      <itemizedlist>
+        <listitem id="listitemN0x180ac00N0x188aa4c">
+          <para id="Para672863">I/M Module: Most all options listed under the
+          "Inventory Transactions" submenu.</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188aa70">
+          <para id="Para672864">W/O Module: Any option that involves
+          production posting, operations posting, or the issuing and returning
+          of materials.</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188aa94">
+          <para id="Para672865">S/R Module: Any option that involves issuing
+          goods to shipping or receiving goods into Inventory.</para>
+        </listitem>
+      </itemizedlist>
+      <para id="Para672868">As you can see from <link endterm="Anchor82518"
+      id="XRef672867" linkend="Anchor82518"> Distribute Stock To/From
+      Warehouse Locations</link>Figure 6.39, the Material Receipt operation
+      that brought us to this point calls for the distribution of 300 units of
+      Item TDMR100. None of the units have been distributed so far--leaving
+      all 300 units still to be distributed. At the bottom of the screen you
+      can see that 680 trucks are located in Location "01-01-01"--which is
+      also the Default Location--and 500 are located in "01-01-02." The next
+      question is this: Which Location(s) do we want to distribute the 300
+      trucks to?</para>
+      <note>
+        <para id="Para672871">Items are not required to have a default
+        Location. Instead, default Locations may optionally be assigned to
+        Items within Item Site definitions.</para>
+      </note>
+      <para id="Para672872">Several options are available to us:</para>
+      <orderedlist continuation="restarts" inheritnum="ignore">
+        <listitem id="listitemN0x180ac00N0x188aadc">
+          <para id="Para672873">We can select the DEFAULT AND POST button.
+          Doing so will automatically distribute 300 truck units to the
+          Default Location--in this case, "01-01-01"--and then post the
+          distribution, creating a transaction record.</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188ab00">
+          <para id="Para672874">We can select the DEFAULT button, which will
+          distribute any balance to the Default Location. This option is
+          typically used after you have already distributed quantities to
+          other Locations and have a balance remaining.</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188ab24">
+          <para id="Para672875">Or we can decide to distribute some to each
+          Location by selecting the Locations individually from the "Valid
+          Locations" list.</para>
+        </listitem>
+      </orderedlist>
+    </section>
+    <section id="Section672877">
+      <title><anchor id="Anchor672876" role="Index"
+      xreflabel="inventory:mlc distribution of;multiple location control:distributing quantity and" />
+      <indexterm significance="normal" zone="Anchor672876">
+          <primary>inventory</primary>
+          <secondary>mlc distribution of</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor672876">
+          <primary>multiple location control</primary>
+          <secondary>distributing quantity and</secondary>
+        </indexterm>Distributing Quantity</title>
+      <para id="Para672878">For the purpose of this exercise, let's choose the
+      third option--distributing some to one Location and some to the other.
+      To begin, we will double-click on Location "01-01-02". The following
+      distribution screen will appear:</para>
+      <para id="Para672882"><anchor id="Anchor31853" role="Cross-Ref"
+      xreflabel="31853: Figure: Figure 2.15:  Distribution to Second Location" />
+      <screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrToLoc.png"
+                         id="Graphic672880" />
+            </imageobject>
+            <caption id="Caption672884">Initial Distribution to First
+            Location</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para id="Para672887">As you can see from <link endterm="Anchor31853"
+      id="XRef672886" linkend="Anchor31853"> Distribution to Second
+      Location</link>Figure 6.40, we must specify how many toy trucks to
+      distribute to this Location. We decide to distribute 100 trucks,
+      entering this amount in the "Qty. to this Location" field.</para>
+      <note>
+        <para id="Para672890">Because this initial distribution of 100 units
+        is the first distribution for this transaction, the Quantity Tagged
+        displays as "0".</para>
+      </note>
+      <para id="Para672891">Once we have entered the quantity of 100, we then
+      select the DISTRIBUTE button, which returns us to the previous
+      screen:</para>
+      <para id="Para672895"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrStockToLoc2.png"
+                         id="Graphic672893" />
+            </imageobject>
+            <caption id="Caption672896">Display Showing Partial Distribution
+            to First Location</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para id="Para672897">The display now shows 100 trucks tagged for
+      distribution to Location "01-01-02". If we were to select the POST
+      button at this point, the following error message would appear:</para>
+      <para id="Para672901"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrError.png"
+                         id="Graphic672899" />
+            </imageobject>
+            <caption id="Caption672902">Error Message: Cannot Perform Partial
+            Distribution</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para id="Para672903">As the error message indicates, OpenMFG does not
+      allow the posting of partial distributions. The entire transaction
+      quantity of an MLC Item must be completely distributed before the
+      transaction can be posted. The next step, then, is to distribute the
+      remaining quantity. Let's distribute the remaining 200 truck units to
+      Location "01-01-01".</para>
+      <para id="Para672904">Since "01-01-01" is the default location, we have
+      a couple of options here:</para>
+      <orderedlist continuation="restarts" inheritnum="ignore">
+        <listitem id="listitemN0x180ac00N0x188ad64">
+          <para id="Para672905">We could select the DEFAULT button. Doing so
+          would automatically distribute the remaining quantity to "01-01-01".
+          The operation would then be ready for posting.</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188ad88">
+          <para id="Para672906">Or we could double-click on "01-01-01" to
+          bring us to the distribution screen we saw earlier.</para>
+        </listitem>
+      </orderedlist>
+      <para id="Para672907">Let's choose the second option--double-clicking on
+      the line for Location "01-01-01". The following distribution screen will
+      appear:</para>
+      <para id="Para672911"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrToLoc-2.png"
+                         id="Graphic672909" />
+            </imageobject>
+            <caption id="Caption672912">Partial Distribution to Default
+            Location</caption>
+          </mediaobject>
+        </screenshot></para>
+      <para id="Para672913">The screen shows a balance of 200 truck units
+      remaining to be distributed--with a quantity of 100 units already
+      tagged. We enter "200" into the "Qty. to this Location" field and then
+      select the DISTRIBUTE button, which returns us to the previous
+      screen:</para>
+      <para id="Para672917"><screenshot>
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="images/Topic_distrStockToLoc3.png"
+                         id="Graphic672915" />
+            </imageobject>
+            <caption id="Caption672918">Display Showing Distribution to Second
+            Location</caption>
+          </mediaobject>
+        </screenshot></para>
+      <note>
+        <para id="Para672920">If you decide to distribute quantities
+        differently--after having distributed them once already--you may do so
+        before you select the POST button. Simply follow the steps above,
+        substituting new quantities where appropriate.</para>
+      </note>
+      <para id="Para672921">The required quantity has now been completely
+      tagged--100 trucks for distribution to "01-01-02" and 200 trucks for
+      distribution to "01-01-01". We are now ready to select the POST button.
+      Doing so will complete the transaction, returning you to the operation
+      screen that initially precipitated the distribution sequence. The MLC
+      Item has been successfully distributed.</para>
+    </section>
+    <section id="Section672923">
+      <title><anchor id="Anchor672922" role="Index"
+      xreflabel="multiple location control:issuing from inventory;inventory:mlc distribution of" />
+      <indexterm significance="normal" zone="Anchor672922">
+          <primary>multiple location control</primary>
+          <secondary>issuing from inventory</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor672922">
+          <primary>inventory</primary>
+          <secondary>mlc distribution of</secondary>
+        </indexterm>Issuing from Inventory</title>
+      <para id="Para672924">You follow a similar procedure as described in the
+      examples above when issuing (i.e., removing) Stock from Inventory.
+      However, instead of increasing the Quantity on Hand in a Location, the
+      quantity is decreased when Stock is issued. The following scenarios
+      represent some of the instances in which Stock is removed from
+      Inventory:</para>
+      <itemizedlist>
+        <listitem id="listitemN0x180ac00N0x188af80">
+          <para id="Para672925">Shipping a Sales Order</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188afa4">
+          <para id="Para672926">Issuing Materials to a Work Order</para>
+        </listitem>
+        <listitem id="listitemN0x180ac00N0x188afc8">
+          <para id="Para672927">Scrapping quantity from a Location</para>
+        </listitem>
+      </itemizedlist>
+      <note>
+        <para id="Para672929">When you issue Stock for an MLC Item, you will
+        only be able to remove quantity from Locations whose Quantity on Hand
+        (QOH) is greater than "0". This means that if a Location has no QOH,
+        you will not be able to issue stock from that Location. The MLC
+        distribution screen will only feature Locations with a positive QOH.
+        By way of contrast, all valid Locations will be display when receiving
+        Stock into Inventory--regardless of the QOH.</para>
+      </note>
+    </section>
+</section>
