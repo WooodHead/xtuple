@@ -44,10 +44,14 @@ BEGIN
       SELECT wo_number, wo_subnumber, CURRENT_DATE,
              wo_itemsite_id, womatl_itemsite_id,
              wo_qtyord, wo_qtyrcv,
-             womatl_qtyiss, womatl_qtyper,
-             womatl_scrap, womatl_qtywipscrap, womatl_bomitem_id
-      FROM wo, womatl
+             itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyiss),
+             itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyper),
+             womatl_scrap,
+             itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtywipscrap),
+             womatl_bomitem_id
+      FROM wo, womatl, itemsite
       WHERE ((womatl_wo_id=wo_id)
+       AND (womatl_itemsite_id=itemsite_id)
        AND (wo_id=pWoid));
     END IF;
 

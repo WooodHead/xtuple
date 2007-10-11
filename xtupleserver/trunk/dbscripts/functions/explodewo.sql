@@ -97,7 +97,7 @@ BEGIN
               ELSE wo_startdate
          END,
          bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
-         roundQty(itemuomfractionalbytype(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
+         roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (bomitem_qtyper * wo_qtyord * (1 + bomitem_scrap))),
          0, 0,
          startOfTime(), startOfTime(), 0,
          item_picklist, ( (item_type=''M'') AND (bomitem_createwo) ), bomitem_issuemethod
@@ -231,7 +231,7 @@ BEGIN
       SELECT pWoid, cs.itemsite_id, _p.womatl_wooper_id,
              womatl_schedatwooper, womatl_duedate,
              bomitem_uom_id, (bomitem_qtyper * womatl_qtyper), bomitem_scrap,
-             roundQty(itemuomfractionalbytype(bomitem_item_id, bomitem_uom_id), (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
+             roundQty(itemuomfractionalbyuom(bomitem_item_id, bomitem_uom_id), (_p.wo_qtyord * bomitem_qtyper * womatl_qtyper * (1 + bomitem_scrap))),
              0, 0,
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),

@@ -9,7 +9,7 @@ BEGIN
 
   SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
 
-  FOR _r IN SELECT womatl_id, roundQty(item_fractional, noNeg(womatl_qtyreq - womatl_qtyiss)) AS qty
+  FOR _r IN SELECT womatl_id, roundQty(itemuomfractionalbyuom(item_id, womatl_uom_id), noNeg(womatl_qtyreq - womatl_qtyiss)) AS qty
             FROM womatl, itemsite, item
             WHERE ( (womatl_itemsite_id=itemsite_id)
              AND (itemsite_item_id=item_id)

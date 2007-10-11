@@ -7,6 +7,7 @@ DECLARE
   _woNumber TEXT;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
+  _qty NUMERIC;
 
 BEGIN
 
@@ -18,6 +19,15 @@ BEGIN
     RETURN pItemlocSeries;
   END IF;
 
+  SELECT itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)
+    INTO _qty
+    FROM womatl, itemsite
+   WHERE((womatl_itemsite_id=itemsite_id)
+     AND (womatl_id=pWomatlid));
+  IF (NOT FOUND) THEN
+    _qty := pQty;
+  END IF;
+
   SELECT formatWoNumber(womatl_wo_id) INTO _woNumber
   FROM womatl
   WHERE (womatl_id=pWomatlid);
@@ -27,7 +37,7 @@ BEGIN
   ELSE
     _itemlocSeries = pItemlocSeries;
   END IF;
-  SELECT postInvTrans( itemsite_id, ''IM'', (pQty * -1), 
+  SELECT postInvTrans( itemsite_id, ''IM'', (_qty * -1), 
                        ''W/O'', ''WO'', _woNumber, '''', ''Return Material from Work Order'',
                        costcat_wip_accnt_id, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
   FROM womatl, itemsite, costcat
@@ -37,8 +47,8 @@ BEGIN
 
 --  Decrease the parent W/O''s WIP value by the value of the returned components
   UPDATE wo
-  SET wo_wipvalue = (wo_wipvalue - (stdcost(itemsite_item_id) * pQty)),
-      wo_postedvalue = (wo_postedvalue - (stdcost(itemsite_item_id) * pQty))
+  SET wo_wipvalue = (wo_wipvalue - (stdcost(itemsite_item_id) * _qty)),
+      wo_postedvalue = (wo_postedvalue - (stdcost(itemsite_item_id) * _qty))
   FROM womatl, itemsite
   WHERE ( (wo_id=womatl_wo_id)
    AND (womatl_itemsite_id=itemsite_id)

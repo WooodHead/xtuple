@@ -58,7 +58,7 @@ BEGIN
          wo_itemsite_id AS p_itemsite_id,
          itemsite_loccntrl, itemsite_controlmethod,
          womatl_wo_id,
-         roundQty(item_fractional, pQty) AS qty,
+         roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
          formatWoNumber(wo_id) AS woNumber,
          womatl_issuemethod AS issueMethod INTO _p
   FROM wo, womatl, itemsite, item
@@ -90,7 +90,7 @@ BEGIN
   WHERE (wo_id=_p.womatl_wo_id);
 
   UPDATE womatl
-  SET womatl_qtyiss = (womatl_qtyiss + _p.qty),
+  SET womatl_qtyiss = (womatl_qtyiss + pQty),
       womatl_lastissue = CURRENT_DATE
   WHERE (womatl_id=pWomatlid);
 

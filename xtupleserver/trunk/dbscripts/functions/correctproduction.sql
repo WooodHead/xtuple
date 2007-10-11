@@ -27,6 +27,7 @@ DECLARE
   _parentWIPAccntid INTEGER;
   _parentQty NUMERIC;
   _qty NUMERIC;
+  _invqty NUMERIC;
   _rntime NUMERIC;
 
 BEGIN
@@ -87,7 +88,7 @@ BEGIN
                       itemsite_id, itemsite_warehous_id,
                       itemsite_controlmethod, itemsite_loccntrl,
                       womatl_id, womatl_qtyper, womatl_scrap,
-                      womatl_issuemethod
+                      womatl_issuemethod, womatl_uom_id
                FROM womatl, wo, itemsite, item
                WHERE ( (womatl_wo_id=wo_id)
                 AND (womatl_itemsite_id=itemsite_id)
@@ -97,12 +98,13 @@ BEGIN
 
 --  Cache the qty to be issued
       _qty = roundQty(_r.item_fractional, (_parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)));
+      _invqty = itemuomtouom(_r.item_id, _r.womatl_uom_id, NULL, (_parentQty * _r.womatl_qtyper * (1 + _r.womatl_scrap)));
 
       IF (_itemlocSeries = 0) THEN
         SELECT NEXTVAL(''itemloc_series_seq'') INTO _itemlocSeries;
       END IF;
 
-      SELECT postInvTrans( itemsite_id, ''IM'', (_qty * -1),
+      SELECT postInvTrans( itemsite_id, ''IM'', (_invqty * -1),
                            ''W/O'', ''WO'', formatwonumber(pWoid), '''', ''Correct Receive from Manufacturing'',
                            _parentWIPAccntid, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
       FROM itemsite, costcat
@@ -111,8 +113,8 @@ BEGIN
 
 --  Decrease the parent W/O''s WIP value by the value of the returned components
       UPDATE wo
-      SET wo_wipvalue = (wo_wipvalue - ((stdcost(_r.item_id) * _qty))),
-          wo_postedvalue = (wo_postedvalue - ((stdcost(_r.item_id) * _qty)))
+      SET wo_wipvalue = (wo_wipvalue - ((stdcost(_r.item_id) * _invqty))),
+          wo_postedvalue = (wo_postedvalue - ((stdcost(_r.item_id) * _invqty)))
       WHERE (wo_id=pWoid);
 
       UPDATE womatl

@@ -73,9 +73,10 @@ BEGIN
 
   IF (pParentType = ''W'') THEN
     SELECT womatl_itemsite_id AS itemsiteid,
-           womatl_qtyreq AS qty, womatl_duedate AS duedate INTO _parent
-    FROM wo, womatl
+           itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq) AS qty, womatl_duedate AS duedate INTO _parent
+    FROM wo, womatl, itemsite
     WHERE ((womatl_wo_id=wo_id)
+     AND (womatl_itemsite_id=itemsite_id)
      AND (womatl_id=pParentId));
 
   ELSIF (pParentType = ''S'') THEN

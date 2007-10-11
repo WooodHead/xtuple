@@ -33,9 +33,10 @@ DECLARE
 
 BEGIN
 
-  SELECT COALESCE(SUM(noNeg(womatl_qtyreq - womatl_qtyiss)), 0.0) INTO _qty
-  FROM wo, womatl
+  SELECT COALESCE(SUM(noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq - womatl_qtyiss))), 0.0) INTO _qty
+  FROM wo, womatl, itemsite
   WHERE ( (womatl_itemsite_id=pItemsiteid)
+   AND (womatl_itemsite_id=itemsite_id)
    AND (womatl_duedate BETWEEN pStartDate AND pEndDate) 
    AND (wo_id=womatl_wo_id)
    AND (wo_status IN (''E'',''I'',''R'')) );

@@ -5,6 +5,24 @@ DECLARE
   pIssueMethod ALIAS FOR $3;
   pQtyPer ALIAS FOR $4;
   pScrap ALIAS FOR $5;
+  _result INTEGER;
+BEGIN
+  SELECT createWoMaterial(pWoid, pItemsiteid, pIssueMethod, item_inv_uom_id, pQtyPer, pScrap)
+    INTO _result
+    FROM itemsite JOIN item ON (itemsite_item_id=item_id)
+   WHERE(itemsite_id=pItemsiteid);
+  RETURN _result;
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createWoMaterial(INTEGER, INTEGER, char(1), INTEGER, NUMERIC, NUMERIC) RETURNS INTEGER AS '
+DECLARE
+  pWoid ALIAS FOR $1;
+  pItemsiteid ALIAS FOR $2;
+  pIssueMethod ALIAS FOR $3;
+  pUomId ALIAS FOR $4;
+  pQtyPer ALIAS FOR $5;
+  pScrap ALIAS FOR $6;
   _womatlid INTEGER;
 
 BEGIN
@@ -13,11 +31,11 @@ BEGIN
 
   INSERT INTO womatl
   ( womatl_id, womatl_wo_id, womatl_itemsite_id,
-    womatl_issuemethod, womatl_qtyper, womatl_scrap,
+    womatl_issuemethod, womatl_uom_id, womatl_qtyper, womatl_scrap,
     womatl_qtyreq, womatl_qtyiss, womatl_qtywipscrap,
     womatl_wooper_id, womatl_bomitem_id, womatl_duedate )
   SELECT _womatlid, wo_id, pItemsiteid,
-         pIssueMethod, pQtyPer, pScrap,
+         pIssueMethod, pUomId, pQtyPer, pScrap,
          roundQty(item_fractional, (wo_qtyord * (pQtyPer * (1 + pScrap)))), 0, 0,
          -1, -1, wo_startdate
   FROM wo, itemsite, item

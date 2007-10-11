@@ -61,9 +61,11 @@ BEGIN
    AND (womatl_id=pWomatlid) );
 
   UPDATE womatl
-  SET womatl_qtyiss = (womatl_qtyiss + pQty),
-      womatl_lastissue = CURRENT_DATE
-  WHERE (womatl_id=pWomatlid);
+     SET womatl_qtyiss = (womatl_qtyiss + itemuomtouom(itemsite_item_id, NULL, womatl_uom_id, pQty)),
+         womatl_lastissue = CURRENT_DATE
+    FROM itemsite
+   WHERE((womatl_id=pWomatlid)
+     AND (womatl_itemsite_id=itemsite_id));
 
   UPDATE wo
   SET wo_status=''I''

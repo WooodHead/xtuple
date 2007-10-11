@@ -50,10 +50,11 @@ BEGIN
 
                       UNION SELECT 2 AS seq,
                                    womatl_duedate AS orderdate,
-                                   (noNeg(womatl_qtyreq - womatl_qtyiss) * -1) AS balance
-                      FROM womatl, wo
+                                   (noNeg(itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, womatl_qtyreq - womatl_qtyiss)) * -1) AS balance
+                      FROM womatl, wo, itemsite
                       WHERE ((wo_status IN (''O'', ''E'', ''R'', ''I''))
                        AND (womatl_wo_id=wo_id)
+                       AND (womatl_itemsite_id=itemsite_id)
                        AND (womatl_duedate <= (CURRENT_DATE + pLookahead))
                        AND (womatl_itemsite_id=pItemsiteid))
 
