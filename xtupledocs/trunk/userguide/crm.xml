@@ -91,8 +91,8 @@
           <term id="Para560671">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x181a118">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -100,8 +100,7 @@
           <term id="Para577370">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x181a160">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -117,9 +116,9 @@
           <term id="Para560674">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x181a1f0">
-            <para>Enables you to edit highlighted Titles. The edit
-            screen is the same as that for creating a new Title--except that
-            when editing, the fields will contain Title information.
+            <para>Enables you to edit highlighted Titles. The edit screen is
+            the same as that for creating a new Title--except that when
+            editing, the fields will contain Title information.
             Double-clicking on a Title will also bring you to the editing
             screen.</para>
           </listitem>
@@ -129,8 +128,8 @@
           <term id="Para560675">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x181a238">
-            <para>Highlight a Title and then select this button to
-            reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a Title and then select this button to reach a
+            read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -138,8 +137,8 @@
           <term id="Para560676">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x181a280">
-            <para>Highlight a Title and then select this button to
-            remove the Title from the list.</para>
+            <para>Highlight a Title and then select this button to remove the
+            Title from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -172,8 +171,7 @@
           <term id="Para560748">Title</term>
 
           <listitem id="listitemN0x180ac00N0x181a3a0">
-            <para>Enter the Title here (e.g., Dr., Mr., Ms.,
-            etc.).</para>
+            <para>Enter the Title here (e.g., Dr., Mr., Ms., etc.).</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -186,8 +184,8 @@
           <term id="Para560689">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x181a40c">
-            <para>Closes the screen without creating a Title,
-            returning you to the previous screen.</para>
+            <para>Closes the screen without creating a Title, returning you to
+            the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -195,8 +193,8 @@
           <term id="Para560690">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x181a454">
-            <para>Creates the Title and adds it to the master list
-            of Titles.</para>
+            <para>Creates the Title and adds it to the master list of
+            Titles.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -208,19 +206,22 @@
         <varlistentry>
           <term id="Para560776">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x181a4c0"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a1f0)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para560777">View</term>
 
-          <listitem id="listitemN0x180ac00N0x181a508"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a238)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para560779">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x181a550"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a280)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -282,8 +283,8 @@
           <term id="Para560942">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x181a748">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -291,8 +292,7 @@
           <term id="Para577380">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x181a790">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -300,8 +300,7 @@
           <term id="Para560944">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x181a7d8">
-            <para>Opens screen for creating a new Incident
-            Category.</para>
+            <para>Opens screen for creating a new Incident Category.</para>
           </listitem>
         </varlistentry>
 
@@ -309,12 +308,11 @@
           <term id="Para560945">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x181a820">
-            <para>Enables you to edit highlighted Incident
-            Categories. The edit screen is the same as that for creating a new
-            Incident Category--except that when editing, the fields will
-            contain Incident Category information. Double-clicking on an
-            Incident Category will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Incident Categories. The
+            edit screen is the same as that for creating a new Incident
+            Category--except that when editing, the fields will contain
+            Incident Category information. Double-clicking on an Incident
+            Category will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -322,8 +320,8 @@
           <term id="Para560946">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x181a868">
-            <para>Highlight an Incident Category and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident Category and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -331,8 +329,8 @@
           <term id="Para560947">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x181a8b0">
-            <para>Highlight an Incident Category and then select
-            this button to remove the Incident Category from the list.</para>
+            <para>Highlight an Incident Category and then select this button
+            to remove the Incident Category from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -365,8 +363,8 @@
           <term id="Para560956">Incident Category</term>
 
           <listitem id="listitemN0x180ac00N0x181a9d0">
-            <para>Enter a name to define the Category (e.g.,
-            Customer Issue, Vendor Issue, etc.).</para>
+            <para>Enter a name to define the Category (e.g., Customer Issue,
+            Vendor Issue, etc.).</para>
           </listitem>
         </varlistentry>
 
@@ -374,9 +372,8 @@
           <term id="Para561081">Order</term>
 
           <listitem id="listitemN0x180ac00N0x181aa18">
-            <para>Specify the order in which the Category should
-            appear when using the drop-down list on the Incident
-            screen.</para>
+            <para>Specify the order in which the Category should appear when
+            using the drop-down list on the Incident screen.</para>
           </listitem>
         </varlistentry>
 
@@ -384,8 +381,7 @@
           <term id="Para561228">Description</term>
 
           <listitem id="listitemN0x180ac00N0x181aa60">
-            <para>Enter a brief description of the Incident
-            Category.</para>
+            <para>Enter a brief description of the Incident Category.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -398,8 +394,8 @@
           <term id="Para560958">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x181aacc">
-            <para>Closes the screen without creating an Incident
-            Category, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Incident Category,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -407,8 +403,8 @@
           <term id="Para560959">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x181ab14">
-            <para>Creates the Incident Category and adds it to the
-            master list of Incident Categories.</para>
+            <para>Creates the Incident Category and adds it to the master list
+            of Incident Categories.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -421,19 +417,22 @@
         <varlistentry>
           <term id="Para560962">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x181ab80"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a820)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para560963">View</term>
 
-          <listitem id="listitemN0x180ac00N0x181abc8"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a868)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para560964">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x182b400"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x181a8b0)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -495,8 +494,8 @@
           <term id="Para561242">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x182b5f8">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -504,8 +503,7 @@
           <term id="Para577386">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x182b640">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -513,8 +511,7 @@
           <term id="Para561244">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x182b688">
-            <para>Opens screen for creating a new Incident
-            Priority.</para>
+            <para>Opens screen for creating a new Incident Priority.</para>
           </listitem>
         </varlistentry>
 
@@ -522,12 +519,11 @@
           <term id="Para561865">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x182b6d0">
-            <para>Enables you to edit highlighted Incident
-            Priorities. The edit screen is the same as that for creating a new
-            Incident Priority--except that when editing, the fields will
-            contain Incident Priority information. Double-clicking on an
-            Incident Priority will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Incident Priorities. The
+            edit screen is the same as that for creating a new Incident
+            Priority--except that when editing, the fields will contain
+            Incident Priority information. Double-clicking on an Incident
+            Priority will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -535,8 +531,8 @@
           <term id="Para561246">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x182b718">
-            <para>Highlight an Incident Priority and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident Priority and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -544,8 +540,8 @@
           <term id="Para561247">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x182b760">
-            <para>Highlight an Incident Priority and then select
-            this button to remove the Incident Priority from the list.</para>
+            <para>Highlight an Incident Priority and then select this button
+            to remove the Incident Priority from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -578,8 +574,8 @@
           <term id="Para561256">Incident Priority</term>
 
           <listitem id="listitemN0x180ac00N0x182b880">
-            <para>Enter a name to define the Priority (e.g., High,
-            Medium, Low, etc.).</para>
+            <para>Enter a name to define the Priority (e.g., High, Medium,
+            Low, etc.).</para>
           </listitem>
         </varlistentry>
 
@@ -587,9 +583,8 @@
           <term id="Para561257">Order</term>
 
           <listitem id="listitemN0x180ac00N0x182b8c8">
-            <para>Specify the order in which the Priority should
-            appear when using the drop-down list on the Incident
-            screen.</para>
+            <para>Specify the order in which the Priority should appear when
+            using the drop-down list on the Incident screen.</para>
           </listitem>
         </varlistentry>
 
@@ -597,8 +592,7 @@
           <term id="Para561258">Description</term>
 
           <listitem id="listitemN0x180ac00N0x182b910">
-            <para>Enter a brief description of the Incident
-            Priority.</para>
+            <para>Enter a brief description of the Incident Priority.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -611,8 +605,8 @@
           <term id="Para561260">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x182b97c">
-            <para>Closes the screen without creating an Incident
-            Priority, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Incident Priority,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -620,8 +614,8 @@
           <term id="Para561261">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x182b9c4">
-            <para>Creates the Incident Priority and adds it to the
-            master list of Incident Priorities.</para>
+            <para>Creates the Incident Priority and adds it to the master list
+            of Incident Priorities.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -634,19 +628,22 @@
         <varlistentry>
           <term id="Para561264">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x182ba30"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182b6d0)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para561265">View</term>
 
-          <listitem id="listitemN0x180ac00N0x182ba78"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182b718)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para561266">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x182bac0"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182b760)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -709,8 +706,8 @@
           <term id="Para561966">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x182bcb8">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -718,8 +715,7 @@
           <term id="Para577393">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x182bd00">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -727,8 +723,7 @@
           <term id="Para561968">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x182bd48">
-            <para>Opens screen for creating a new Incident
-            Severity.</para>
+            <para>Opens screen for creating a new Incident Severity.</para>
           </listitem>
         </varlistentry>
 
@@ -736,12 +731,11 @@
           <term id="Para561969">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x182bd90">
-            <para>Enables you to edit highlighted Incident
-            Severities. The edit screen is the same as that for creating a new
-            Incident Severity--except that when editing, the fields will
-            contain Incident Severity information. Double-clicking on an
-            Incident Severity will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Incident Severities. The
+            edit screen is the same as that for creating a new Incident
+            Severity--except that when editing, the fields will contain
+            Incident Severity information. Double-clicking on an Incident
+            Severity will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -749,8 +743,8 @@
           <term id="Para561970">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x182bdd8">
-            <para>Highlight an Incident Severity and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident Severity and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -758,8 +752,8 @@
           <term id="Para561971">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x182be20">
-            <para>Highlight an Incident Severity and then select
-            this button to remove the Incident Severity from the list.</para>
+            <para>Highlight an Incident Severity and then select this button
+            to remove the Incident Severity from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -792,8 +786,8 @@
           <term id="Para561980">Incident Priority</term>
 
           <listitem id="listitemN0x180ac00N0x182bf40">
-            <para>Enter a name to define the Severity (e.g., High,
-            Medium, Low, etc.).</para>
+            <para>Enter a name to define the Severity (e.g., High, Medium,
+            Low, etc.).</para>
           </listitem>
         </varlistentry>
 
@@ -801,9 +795,8 @@
           <term id="Para561981">Order</term>
 
           <listitem id="listitemN0x180ac00N0x182bf88">
-            <para>Specify the order in which the Severity should
-            appear when using the drop-down list on the Incident
-            screen.</para>
+            <para>Specify the order in which the Severity should appear when
+            using the drop-down list on the Incident screen.</para>
           </listitem>
         </varlistentry>
 
@@ -811,8 +804,7 @@
           <term id="Para561982">Description</term>
 
           <listitem id="listitemN0x180ac00N0x182bfd0">
-            <para>Enter a brief description of the Incident
-            Severity.</para>
+            <para>Enter a brief description of the Incident Severity.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -825,8 +817,8 @@
           <term id="Para561984">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x182c03c">
-            <para>Closes the screen without creating an Incident
-            Severity, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Incident Severity,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -834,8 +826,8 @@
           <term id="Para561985">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x182c084">
-            <para>Creates the Incident Severity and adds it to the
-            master list of Incident Severities.</para>
+            <para>Creates the Incident Severity and adds it to the master list
+            of Incident Severities.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -848,19 +840,22 @@
         <varlistentry>
           <term id="Para561988">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x182c0f0"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182bd90)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para561989">View</term>
 
-          <listitem id="listitemN0x180ac00N0x182c138"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182bdd8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para561990">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x182c180"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x182be20)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -923,8 +918,8 @@
           <term id="Para562203">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x183e968">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -932,8 +927,7 @@
           <term id="Para577399">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x183e9b0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -941,8 +935,7 @@
           <term id="Para562205">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x183e9f8">
-            <para>Opens screen for creating a new Incident
-            Resolution.</para>
+            <para>Opens screen for creating a new Incident Resolution.</para>
           </listitem>
         </varlistentry>
 
@@ -950,12 +943,11 @@
           <term id="Para562206">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x183ea40">
-            <para>Enables you to edit highlighted Incident
-            Resolutions. The edit screen is the same as that for creating a
-            new Incident Resolution--except that when editing, the fields will
-            contain Incident Resolution information. Double-clicking on an
-            Incident Resolution will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Incident Resolutions. The
+            edit screen is the same as that for creating a new Incident
+            Resolution--except that when editing, the fields will contain
+            Incident Resolution information. Double-clicking on an Incident
+            Resolution will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -963,8 +955,8 @@
           <term id="Para562207">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x183ea88">
-            <para>Highlight an Incident Resolution and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident Resolution and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -972,9 +964,8 @@
           <term id="Para562208">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x183ead0">
-            <para>Highlight an Incident Resolution and then select
-            this button to remove the Incident Resolution from the
-            list.</para>
+            <para>Highlight an Incident Resolution and then select this button
+            to remove the Incident Resolution from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1008,8 +999,8 @@
           <term id="Para562217">Incident Priority</term>
 
           <listitem id="listitemN0x180ac00N0x183ebf0">
-            <para>Enter a name to define the Resolution (e.g.,
-            Fixed, Pending, Open, etc.).</para>
+            <para>Enter a name to define the Resolution (e.g., Fixed, Pending,
+            Open, etc.).</para>
           </listitem>
         </varlistentry>
 
@@ -1017,9 +1008,8 @@
           <term id="Para562218">Order</term>
 
           <listitem id="listitemN0x180ac00N0x183ec38">
-            <para>Specify the order in which the Resolution should
-            appear when using the drop-down list on the Incident
-            screen.</para>
+            <para>Specify the order in which the Resolution should appear when
+            using the drop-down list on the Incident screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1027,8 +1017,7 @@
           <term id="Para562219">Description</term>
 
           <listitem id="listitemN0x180ac00N0x183ec80">
-            <para>Enter a brief description of the Incident
-            Resolution.</para>
+            <para>Enter a brief description of the Incident Resolution.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1041,8 +1030,8 @@
           <term id="Para562221">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x183ecec">
-            <para>Closes the screen without creating an Incident
-            Resolution, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Incident Resolution,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1050,8 +1039,8 @@
           <term id="Para562222">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x183ed34">
-            <para>Creates the Incident Resolution and adds it to the
-            master list of Incident Resolutions.</para>
+            <para>Creates the Incident Resolution and adds it to the master
+            list of Incident Resolutions.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1064,19 +1053,22 @@
         <varlistentry>
           <term id="Para562225">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x183eda0"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x183ea40)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para562226">View</term>
 
-          <listitem id="listitemN0x180ac00N0x183ede8"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x183ea88)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para562227">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x183ee30"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x183ead0)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -1135,8 +1127,8 @@
           <term id="Para575064">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x183efe0">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1144,8 +1136,7 @@
           <term id="Para575066">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x183f028">
-            <para>Opens screen for creating a new Opportunity
-            Source.</para>
+            <para>Opens screen for creating a new Opportunity Source.</para>
           </listitem>
         </varlistentry>
 
@@ -1153,12 +1144,11 @@
           <term id="Para575067">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x183f070">
-            <para>Enables you to edit highlighted Opportunity
-            Sources. The edit screen is the same as that for creating a new
-            Opportunity Source--except that when editing, the fields will
-            contain Opportunity Source information. Double-clicking on an
-            Opportunity Source will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Opportunity Sources. The
+            edit screen is the same as that for creating a new Opportunity
+            Source--except that when editing, the fields will contain
+            Opportunity Source information. Double-clicking on an Opportunity
+            Source will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1166,8 +1156,8 @@
           <term id="Para575068">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x183f0b8">
-            <para>Highlight an Opportunity Source and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Opportunity Source and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1175,8 +1165,8 @@
           <term id="Para575069">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x183f100">
-            <para>Highlight an Opportunity Source and then select
-            this button to remove the Opportunity Source from the list.</para>
+            <para>Highlight an Opportunity Source and then select this button
+            to remove the Opportunity Source from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1210,8 +1200,7 @@
           <term id="Para575078">Name</term>
 
           <listitem id="listitemN0x180ac00N0x183f220">
-            <para>Enter a name to define the Opportunity
-            Source.</para>
+            <para>Enter a name to define the Opportunity Source.</para>
           </listitem>
         </varlistentry>
 
@@ -1219,8 +1208,7 @@
           <term id="Para575080">Description</term>
 
           <listitem id="listitemN0x180ac00N0x183f268">
-            <para>Enter a brief description of the Opportunity
-            Source.</para>
+            <para>Enter a brief description of the Opportunity Source.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1233,8 +1221,8 @@
           <term id="Para575082">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x183f2d4">
-            <para>Closes the screen without creating an Opportunity
-            Source, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Opportunity Source,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1242,8 +1230,8 @@
           <term id="Para575198">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x183f31c">
-            <para>Creates the Opportunity Source and adds it to the
-            master list of Opportunity Sources.</para>
+            <para>Creates the Opportunity Source and adds it to the master
+            list of Opportunity Sources.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1299,8 +1287,8 @@
           <term id="Para575232">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x183f484">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1308,8 +1296,7 @@
           <term id="Para575233">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x183f4cc">
-            <para>Opens screen for creating a new Opportunity
-            Stage.</para>
+            <para>Opens screen for creating a new Opportunity Stage.</para>
           </listitem>
         </varlistentry>
 
@@ -1317,12 +1304,11 @@
           <term id="Para575234">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x183f514">
-            <para>Enables you to edit highlighted Opportunity
-            Stages. The edit screen is the same as that for creating a new
-            Opportunity Stage--except that when editing, the fields will
-            contain Opportunity Stage information. Double-clicking on an
-            Opportunity Stage will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Opportunity Stages. The edit
+            screen is the same as that for creating a new Opportunity
+            Stage--except that when editing, the fields will contain
+            Opportunity Stage information. Double-clicking on an Opportunity
+            Stage will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1330,8 +1316,8 @@
           <term id="Para575235">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x183f55c">
-            <para>Highlight an Opportunity Stage and then select
-            this button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Opportunity Stage and then select this button
+            to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1339,8 +1325,8 @@
           <term id="Para575236">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x183f5a4">
-            <para>Highlight an Opportunity Stage and then select
-            this button to remove the Opportunity Stage from the list.</para>
+            <para>Highlight an Opportunity Stage and then select this button
+            to remove the Opportunity Stage from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1373,8 +1359,7 @@
           <term id="Para575245">Name</term>
 
           <listitem id="listitemN0x180ac00N0x1848ab4">
-            <para>Enter a name to define the Opportunity
-            Stage.</para>
+            <para>Enter a name to define the Opportunity Stage.</para>
           </listitem>
         </varlistentry>
 
@@ -1382,8 +1367,7 @@
           <term id="Para575246">Description</term>
 
           <listitem id="listitemN0x180ac00N0x1848afc">
-            <para>Enter a brief description of the Opportunity
-            Stage.</para>
+            <para>Enter a brief description of the Opportunity Stage.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1396,8 +1380,8 @@
           <term id="Para575248">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1848b68">
-            <para>Closes the screen without creating an Opportunity
-            Stage, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Opportunity Stage,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1405,8 +1389,8 @@
           <term id="Para575249">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1848bb0">
-            <para>Creates the Opportunity Stage and adds it to the
-            master list of Opportunity Stages.</para>
+            <para>Creates the Opportunity Stage and adds it to the master list
+            of Opportunity Stages.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1461,8 +1445,8 @@
           <term id="Para575256">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1848d18">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1470,8 +1454,7 @@
           <term id="Para575257">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x1848d60">
-            <para>Opens screen for creating a new Opportunity
-            Type.</para>
+            <para>Opens screen for creating a new Opportunity Type.</para>
           </listitem>
         </varlistentry>
 
@@ -1479,8 +1462,8 @@
           <term id="Para575258">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1848da8">
-            <para>Enables you to edit highlighted Opportunity Types.
-            The edit screen is the same as that for creating a new Opportunity
+            <para>Enables you to edit highlighted Opportunity Types. The edit
+            screen is the same as that for creating a new Opportunity
             Type--except that when editing, the fields will contain
             Opportunity Type information. Double-clicking on an Opportunity
             Type will also bring you to the editing screen.</para>
@@ -1491,8 +1474,8 @@
           <term id="Para575259">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1848df0">
-            <para>Highlight an Opportunity Type and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Opportunity Type and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1500,8 +1483,8 @@
           <term id="Para575260">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1848e38">
-            <para>Highlight an Opportunity Type and then select this
-            button to remove the Opportunity Type from the list.</para>
+            <para>Highlight an Opportunity Type and then select this button to
+            remove the Opportunity Type from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1534,8 +1517,7 @@
           <term id="Para575269">Name</term>
 
           <listitem id="listitemN0x180ac00N0x1848f58">
-            <para>Enter a name to define the Opportunity
-            Type.</para>
+            <para>Enter a name to define the Opportunity Type.</para>
           </listitem>
         </varlistentry>
 
@@ -1543,8 +1525,7 @@
           <term id="Para575270">Description</term>
 
           <listitem id="listitemN0x180ac00N0x1848fa0">
-            <para>Enter a brief description of the Opportunity
-            Type.</para>
+            <para>Enter a brief description of the Opportunity Type.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1557,8 +1538,8 @@
           <term id="Para575272">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x184900c">
-            <para>Closes the screen without creating an Opportunity
-            Type, returning you to the previous screen.</para>
+            <para>Closes the screen without creating an Opportunity Type,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1566,8 +1547,8 @@
           <term id="Para575273">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1849054">
-            <para>Creates the Opportunity Type and adds it to the
-            master list of Opportunity Types.</para>
+            <para>Creates the Opportunity Type and adds it to the master list
+            of Opportunity Types.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1618,8 +1599,8 @@
           <term id="Para577902">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1849198">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1627,8 +1608,7 @@
           <term id="Para577903">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18491e0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1636,8 +1616,7 @@
           <term id="Para577904">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x1849228">
-            <para>Opens screen for creating a new
-            Characteristic.</para>
+            <para>Opens screen for creating a new Characteristic.</para>
           </listitem>
         </varlistentry>
 
@@ -1645,8 +1624,8 @@
           <term id="Para577905">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1849270">
-            <para>Enables you to edit highlighted Characteristics.
-            The edit screen is the same as that for creating a new
+            <para>Enables you to edit highlighted Characteristics. The edit
+            screen is the same as that for creating a new
             Characteristic--except that when editing, the fields will contain
             Characteristic information. Double-clicking on a Characteristic
             will also bring you to the editing screen.</para>
@@ -1657,8 +1636,8 @@
           <term id="Para577906">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x18492b8">
-            <para>Highlight a Characteristic and then select this
-            button to remove the Characteristics from the list.</para>
+            <para>Highlight a Characteristic and then select this button to
+            remove the Characteristics from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1699,8 +1678,8 @@
           <term id="Para577916">May be used for</term>
 
           <listitem id="listitemN0x180ac00N0x1849420">
-            <para>Select one of the following Characteristic
-            assignment options:</para>
+            <para>Select one of the following Characteristic assignment
+            options:</para>
 
             <para id="Para577917">Item Characteristics: Select to make
             Characteristic available for Item Characteristics.</para>
@@ -1729,8 +1708,7 @@
           <term id="Para577924">Description</term>
 
           <listitem id="listitemN0x180ac00N0x1849468">
-            <para>Enter a brief description of the
-            Characteristic.</para>
+            <para>Enter a brief description of the Characteristic.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1743,8 +1721,8 @@
           <term id="Para577926">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x18494d4">
-            <para>Closes the screen without creating a
-            Characteristic, returning you to the previous screen.</para>
+            <para>Closes the screen without creating a Characteristic,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -1752,8 +1730,8 @@
           <term id="Para577927">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x184951c">
-            <para>Creates the Characteristic and adds it to the
-            master list of Characteristics.</para>
+            <para>Creates the Characteristic and adds it to the master list of
+            Characteristics.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1814,8 +1792,8 @@
           <term id="Para564214">Account Name</term>
 
           <listitem id="listitemN0x180ac00N0x1849714">
-            <para>Enter the name of the Account you do business with
-            (e.g., Customer Name or Vendor Name). This field should not to be
+            <para>Enter the name of the Account you do business with (e.g.,
+            Customer Name or Vendor Name). This field should not to be
             confused with the Contact name of an individual at the
             company.</para>
           </listitem>
@@ -1825,8 +1803,8 @@
           <term id="Para565432">Active</term>
 
           <listitem id="listitemN0x180ac00N0x184975c">
-            <para>Select if you are actively doing business with
-            this Account. Not selecting makes the Account inactive.</para>
+            <para>Select if you are actively doing business with this Account.
+            Not selecting makes the Account inactive.</para>
           </listitem>
         </varlistentry>
 
@@ -1834,8 +1812,8 @@
           <term id="Para564216">Parent Account</term>
 
           <listitem id="listitemN0x180ac00N0x18497a4">
-            <para>Enter the Account Number of the CRM Account (if
-            any) which serves as the parent for the Account.</para>
+            <para>Enter the Account Number of the CRM Account (if any) which
+            serves as the parent for the Account.</para>
           </listitem>
         </varlistentry>
 
@@ -1857,8 +1835,8 @@
           <term id="Para564223">Relationships</term>
 
           <listitem id="listitemN0x180ac00N0x1851a24">
-            <para>Indicate how the Account relates to your business
-            by selecting from the available options. You may select multiple
+            <para>Indicate how the Account relates to your business by
+            selecting from the available options. You may select multiple
             relationships from the list:</para>
 
             <para id="Para564230">Customer: Select if the Account is a
@@ -1908,8 +1886,8 @@
           <term id="Para564246">Primary Contact</term>
 
           <listitem id="listitemN0x180ac00N0x1851ab4">
-            <para>Manually enter Contact information in the fields
-            below--or use the browse button to select pre-existing Contact
+            <para>Manually enter Contact information in the fields below--or
+            use the browse button to select pre-existing Contact
             information.</para>
 
             <para id="Para577030">Title: Select a Title from the list of
@@ -1937,8 +1915,8 @@
           <term id="Para564260">Secondary Contact</term>
 
           <listitem id="listitemN0x180ac00N0x1851afc">
-            <para>Manually enter Contact information in the fields
-            below--or use the browse button to select pre-existing Contact
+            <para>Manually enter Contact information in the fields below--or
+            use the browse button to select pre-existing Contact
             information.</para>
 
             <para id="Para577040">Title: Select a Title from the list of
@@ -1971,8 +1949,8 @@
           <term id="Para565499">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1851b68">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1989,9 +1967,9 @@
           <term id="Para565501">CUSTOMER</term>
 
           <listitem id="listitemN0x180ac00N0x1851bf8">
-            <para>Select to open the Customer master for the
-            Account--if applicable. The button will be disabled if the Account
-            does not have a Customer relationship defined.</para>
+            <para>Select to open the Customer master for the Account--if
+            applicable. The button will be disabled if the Account does not
+            have a Customer relationship defined.</para>
           </listitem>
         </varlistentry>
 
@@ -1999,9 +1977,9 @@
           <term id="Para573384">PROSPECT</term>
 
           <listitem id="listitemN0x180ac00N0x1851c40">
-            <para>Select to open the Prospect master for the
-            Account--if applicable. The button will be disabled if the Account
-            does not have a Prospect relationship defined.</para>
+            <para>Select to open the Prospect master for the Account--if
+            applicable. The button will be disabled if the Account does not
+            have a Prospect relationship defined.</para>
           </listitem>
         </varlistentry>
 
@@ -2009,9 +1987,9 @@
           <term id="Para565508">VENDOR</term>
 
           <listitem id="listitemN0x180ac00N0x1851c88">
-            <para>Select to open the Vendor master for the
-            Account--if applicable. The button will be disabled if the Account
-            does not have a Vendor relationship defined.</para>
+            <para>Select to open the Vendor master for the Account--if
+            applicable. The button will be disabled if the Account does not
+            have a Vendor relationship defined.</para>
           </listitem>
         </varlistentry>
 
@@ -2019,9 +1997,9 @@
           <term id="Para573385">TAX AUTHORITY</term>
 
           <listitem id="listitemN0x180ac00N0x1851cd0">
-            <para>Select to open the Customer master for the
-            Account--if applicable. The button will be disabled if the Account
-            does not have a Customer relationship defined.</para>
+            <para>Select to open the Customer master for the Account--if
+            applicable. The button will be disabled if the Account does not
+            have a Customer relationship defined.</para>
           </listitem>
         </varlistentry>
 
@@ -2029,9 +2007,9 @@
           <term id="Para564555">Notes</term>
 
           <listitem id="listitemN0x180ac00N0x1851d18">
-            <para>This is a scrolling text field with word-wrapping
-            for entering Notes related to the CRM Account. Any Notes entered
-            on this screen are for internal purposes only.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering Notes related to the CRM Account. Any Notes entered on
+            this screen are for internal purposes only.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2059,8 +2037,8 @@
           <term id="Para564476">Comments</term>
 
           <listitem id="listitemN0x180ac00N0x1851df0">
-            <para>Display lists Comments related to the CRM Account,
-            using the specified parameters.</para>
+            <para>Display lists Comments related to the CRM Account, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2082,8 +2060,7 @@
           <term id="Para564480">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1851ea4">
-            <para>Opens a read-only view of the CRM Account
-            Comment.</para>
+            <para>Opens a read-only view of the CRM Account Comment.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2106,8 +2083,8 @@
           <term id="Para564487">Comment Type</term>
 
           <listitem id="listitemN0x180ac00N0x1851f7c">
-            <para>Specify one of the following Comment Types from
-            the drop-down list: ChangeLog or General.</para>
+            <para>Specify one of the following Comment Types from the
+            drop-down list: ChangeLog or General.</para>
 
             <para id="Para564488">Comment Types are used to categorize
             Comments. Once you have specified a Comment Type, you may type
@@ -2125,8 +2102,8 @@
           <term id="Para564490">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1851fe8">
-            <para>Closes the screen without creating the CRM Account
-            Comment, returning you to the previous screen.</para>
+            <para>Closes the screen without creating the CRM Account Comment,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2134,8 +2111,8 @@
           <term id="Para564491">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1852030">
-            <para>Creates the Comment and adds it to the list of CRM
-            Account Comments.</para>
+            <para>Creates the Comment and adds it to the list of CRM Account
+            Comments.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2197,12 +2174,12 @@
           <term id="Para564609">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x185224c">
-            <para>Enables you to edit highlighted CRM Account
-            Characteristics. The edit screen is the same as that for creating
-            a new CRM Account Characteristic--except that when editing, the
-            fields will contain CRM Account Characteristic information.
-            Double-clicking on a CRM Account Characteristic will also bring
-            you to the editing screen.</para>
+            <para>Enables you to edit highlighted CRM Account Characteristics.
+            The edit screen is the same as that for creating a new CRM Account
+            Characteristic--except that when editing, the fields will contain
+            CRM Account Characteristic information. Double-clicking on a CRM
+            Account Characteristic will also bring you to the editing
+            screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2210,9 +2187,9 @@
           <term id="Para564610">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1852294">
-            <para>Highlight a CRM Account Characteristic and then
-            select this button to remove the CRM Account Characteristic from
-            the list.</para>
+            <para>Highlight a CRM Account Characteristic and then select this
+            button to remove the CRM Account Characteristic from the
+            list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2240,9 +2217,9 @@
           <term id="Para576997">Characteristic</term>
 
           <listitem id="listitemN0x180ac00N0x185236c">
-            <para>Select a Characteristic from the list of
-            Characteristics designated as being available for use as CRM
-            Account Characteristics.</para>
+            <para>Select a Characteristic from the list of Characteristics
+            designated as being available for use as CRM Account
+            Characteristics.</para>
           </listitem>
         </varlistentry>
 
@@ -2273,8 +2250,8 @@
           <term id="Para564628">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1852468">
-            <para>Creates the CRM Account Characteristic and adds it
-            to the list of CRM Account Characteristics.</para>
+            <para>Creates the CRM Account Characteristic and adds it to the
+            list of CRM Account Characteristics.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2329,9 +2306,9 @@
           <term id="Para565184">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x185263c">
-            <para>Enables you to edit highlighted Contacts. The edit
-            screen is the same as that for creating a new Contact--except that
-            when editing, the fields will contain Contact information.
+            <para>Enables you to edit highlighted Contacts. The edit screen is
+            the same as that for creating a new Contact--except that when
+            editing, the fields will contain Contact information.
             Double-clicking on a Contact will also bring you to the editing
             screen.</para>
           </listitem>
@@ -2341,9 +2318,8 @@
           <term id="Para564858">DETACH</term>
 
           <listitem id="listitemN0x180ac00N0x1852684">
-            <para>Highlight a Contact and then select this button to
-            remove the association between the Contact and the CRM
-            Account.</para>
+            <para>Highlight a Contact and then select this button to remove
+            the association between the Contact and the CRM Account.</para>
           </listitem>
         </varlistentry>
 
@@ -2364,13 +2340,15 @@
         <varlistentry>
           <term id="Para564924">New</term>
 
-          <listitem id="listitemN0x180ac00N0x1852738"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x18525ac)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para564934">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x1852780"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x185263c)" />
         </varlistentry>
 
         <varlistentry>
@@ -2382,13 +2360,15 @@
         <varlistentry>
           <term id="Para564941">Attach</term>
 
-          <listitem id="listitemN0x180ac00N0x185a000"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x18526cc)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para564942">Detach</term>
 
-          <listitem id="listitemN0x180ac00N0x185a048"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1852684)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -2442,8 +2422,7 @@
           <term id="Para573957">Active Only</term>
 
           <listitem id="listitemN0x180ac00N0x185a1f8">
-            <para>Select to include only active To-Dos in the
-            display.</para>
+            <para>Select to include only active To-Dos in the display.</para>
 
             <para id="Para574062">If not selected, inactive To-Dos will not be
             included.</para>
@@ -2454,8 +2433,7 @@
           <term id="Para573958">Completed</term>
 
           <listitem id="listitemN0x180ac00N0x185a240">
-            <para>Select to include completed Incidents in the
-            display.</para>
+            <para>Select to include completed Incidents in the display.</para>
 
             <para id="Para574078">An Incident is considered completed when its
             status is "Closed." If this option is not selected, then completed
@@ -2467,8 +2445,7 @@
           <term id="Para573959">To-Do List</term>
 
           <listitem id="listitemN0x180ac00N0x185a288">
-            <para>Displays To-Dos associated with the
-            Account.</para>
+            <para>Displays To-Dos associated with the Account.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2481,8 +2458,7 @@
           <term id="Para573970">NEW TO-DO ITEM</term>
 
           <listitem id="listitemN0x180ac00N0x185a2f4">
-            <para>Opens screen for creating a new To-Do List
-            item.</para>
+            <para>Opens screen for creating a new To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -2498,10 +2474,10 @@
           <term id="Para574016">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x185a384">
-            <para>Enables you to edit highlighted To-Do List items
-            or Incidents. The edit screen is the same as that for creating a
-            new To-Do List item or Incident--except that when editing, the
-            fields will contain To-Do List item or Incident information.
+            <para>Enables you to edit highlighted To-Do List items or
+            Incidents. The edit screen is the same as that for creating a new
+            To-Do List item or Incident--except that when editing, the fields
+            will contain To-Do List item or Incident information.
             Double-clicking on a To-Do List item or Incident will also bring
             you to the editing screen.</para>
           </listitem>
@@ -2511,9 +2487,8 @@
           <term id="Para574017">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x185a3cc">
-            <para>Highlight a To-Do List item or Incident and then
-            select this button to reach a read-only view of the "Edit"
-            screen.</para>
+            <para>Highlight a To-Do List item or Incident and then select this
+            button to reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2521,9 +2496,9 @@
           <term id="Para574018">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x185a414">
-            <para>Highlight a To-Do List item or Incident and then
-            select this button to remove the association between the To-Do
-            List item/Incident and the CRM Account.</para>
+            <para>Highlight a To-Do List item or Incident and then select this
+            button to remove the association between the To-Do List
+            item/Incident and the CRM Account.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2564,8 +2539,8 @@
           <term id="Para577717">Search for</term>
 
           <listitem id="listitemN0x180ac00N0x1866914">
-            <para>Enter any character or combination of characters
-            you want to match, followed by the TAB key.</para>
+            <para>Enter any character or combination of characters you want to
+            match, followed by the TAB key.</para>
 
             <para id="Para577718">The "Search for" field supports pattern
             matching with Regular Expressions. For more information on
@@ -2587,35 +2562,83 @@
           <term id="Para571700">Search through</term>
 
           <listitem id="listitemN0x180ac00N0x18669a4">
-            <para>Specify which of the following criteria you want
-            to include in the search:</para>
+            <para>Specify which of the following criteria you want to include
+            in the search:<variablelist>
+                <varlistentry>
+                  <term>CRM Account Number</term>
 
-            <para id="Para571701">CRM Account Number: Select to search by CRM
-            Account Number.</para>
+                  <listitem>
+                    <para>Select to search by CRM Account Number.</para>
+                  </listitem>
+                </varlistentry>
 
-            <para id="Para571702">CRM Account Name: Select to search by CRM
-            Account Name.</para>
+                <varlistentry>
+                  <term>CRM Account Name</term>
 
-            <para id="Para571641">Primary Contact Name: Select to search by
-            Primary Contact Name.</para>
+                  <listitem>
+                    <para>Select to search by CRM Account Name.</para>
+                  </listitem>
+                </varlistentry>
 
-            <para id="Para571642">Primary Contact Phone #: Select to search by
-            Primary Contact Phone Number.</para>
+                <varlistentry>
+                  <term>Primary Contact Name</term>
 
-            <para id="Para571643">Street Address: Select to search by Primary
-            Contact Street Address.</para>
+                  <listitem>
+                    <para>Select to search by Primary Contact Name.</para>
+                  </listitem>
+                </varlistentry>
 
-            <para id="Para571644">City: Select to search by Primary Contact
-            City.</para>
+                <varlistentry>
+                  <term>Primary Contact Phone #</term>
 
-            <para id="Para571645">State: Select to search by Primary Contact
-            State.</para>
+                  <listitem>
+                    <para>Select to search by Primary Contact Phone
+                    Number.</para>
+                  </listitem>
+                </varlistentry>
 
-            <para id="Para571646">Postal Code: Select to search by Primary
-            Contact Postal Code.</para>
+                <varlistentry>
+                  <term>Street Address</term>
 
-            <para id="Para571647">Country: Select to search by Primary Contact
-            Country.</para>
+                  <listitem>
+                    <para>Select to search by Primary Contact Street
+                    Address.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term>City</term>
+
+                  <listitem>
+                    <para>Select to search by Primary Contact City.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term>State</term>
+
+                  <listitem>
+                    <para>Select to search by Primary Contact State.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term>Postal Code</term>
+
+                  <listitem>
+                    <para>Select to search by Primary Contact Postal
+                    Code.</para>
+                  </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                  <term>Country</term>
+
+                  <listitem>
+                    <para>Select to search by Primary Contact Country.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist></para>
           </listitem>
         </varlistentry>
 
@@ -2623,8 +2646,8 @@
           <term id="Para571648">Show Inactive CRM Accounts</term>
 
           <listitem id="listitemN0x180ac00N0x18669ec">
-            <para>Select to show inactive CRM Accounts as well as
-            active CRM Accounts. By default, inactive CRM Accounts are not
+            <para>Select to show inactive CRM Accounts as well as active CRM
+            Accounts. By default, inactive CRM Accounts are not
             displayed.</para>
           </listitem>
         </varlistentry>
@@ -2633,8 +2656,8 @@
           <term id="Para571649">CRM Accounts</term>
 
           <listitem id="listitemN0x180ac00N0x186d424">
-            <para>Display will show search results for CRM Accounts,
-            using specified parameters.</para>
+            <para>Display will show search results for CRM Accounts, using
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2647,8 +2670,8 @@
           <term id="Para571652">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x186d490">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2656,11 +2679,11 @@
           <term id="Para571653">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x186d4d8">
-            <para>Enables you to edit highlighted CRM Account. The
-            edit screen is the same as that for creating a new CRM
-            Account--except that when editing, the fields will contain CRM
-            Account information. Double-clicking on a CRM Account will also
-            bring you to the editing screen.</para>
+            <para>Enables you to edit highlighted CRM Account. The edit screen
+            is the same as that for creating a new CRM Account--except that
+            when editing, the fields will contain CRM Account information.
+            Double-clicking on a CRM Account will also bring you to the
+            editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2668,8 +2691,8 @@
           <term id="Para571654">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x186d520">
-            <para>Highlight a CRM Account and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a CRM Account and then select this button to reach
+            a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2681,13 +2704,15 @@
         <varlistentry>
           <term id="Para571657">View</term>
 
-          <listitem id="listitemN0x180ac00N0x186d58c"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x186d520)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para571658">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x186d5d4"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x186d4d8)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -2738,8 +2763,8 @@
           <term id="Para562714">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x186d7a8">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2747,8 +2772,7 @@
           <term id="Para577404">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x186d7f0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2756,8 +2780,7 @@
           <term id="Para562716">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x186d838">
-            <para>Opens screen for creating a new CRM
-            Account.</para>
+            <para>Opens screen for creating a new CRM Account.</para>
           </listitem>
         </varlistentry>
 
@@ -2765,11 +2788,11 @@
           <term id="Para562717">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x186d880">
-            <para>Enables you to edit highlighted CRM Accounts. The
-            edit screen is the same as that for creating a new CRM
-            Account--except that when editing, the fields will contain CRM
-            Account information. Double-clicking on a CRM Account will also
-            bring you to the editing screen.</para>
+            <para>Enables you to edit highlighted CRM Accounts. The edit
+            screen is the same as that for creating a new CRM Account--except
+            that when editing, the fields will contain CRM Account
+            information. Double-clicking on a CRM Account will also bring you
+            to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2777,8 +2800,8 @@
           <term id="Para562718">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x186d8c8">
-            <para>Highlight a CRM Account and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a CRM Account and then select this button to reach
+            a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -2786,8 +2809,8 @@
           <term id="Para562719">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x186d910">
-            <para>Highlight a CRM Account and then select this
-            button to remove the CRM Account from the list.</para>
+            <para>Highlight a CRM Account and then select this button to
+            remove the CRM Account from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2800,19 +2823,22 @@
         <varlistentry>
           <term id="Para563176">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x186d97c"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x186d880)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563177">View</term>
 
-          <listitem id="listitemN0x180ac00N0x186d9c4"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x186d8c8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563178">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x186da0c"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x186d910)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -2858,8 +2884,7 @@
           <term id="Para577047">Title</term>
 
           <listitem id="listitemN0x180ac00N0x186dbe0">
-            <para>Select a Title from the list of available
-            Titles.</para>
+            <para>Select a Title from the list of available Titles.</para>
           </listitem>
         </varlistentry>
 
@@ -2891,8 +2916,8 @@
           <term id="Para566271">CRM Account</term>
 
           <listitem id="listitemN0x180ac00N0x186dd00">
-            <para>Specify the CRM Account the Contact is associated
-            with (if any).</para>
+            <para>Specify the CRM Account the Contact is associated with (if
+            any).</para>
 
             <para id="Para577267">Contacts may also be attached to a CRM
             Account on the Account master.</para>
@@ -2903,8 +2928,8 @@
           <term id="Para566423">Active</term>
 
           <listitem id="listitemN0x180ac00N0x186dd48">
-            <para>Select if you are actively doing business with
-            this Contact.</para>
+            <para>Select if you are actively doing business with this
+            Contact.</para>
 
             <para id="Para577271">Not selecting makes the Contact
             inactive.</para>
@@ -2931,8 +2956,7 @@
           <term id="Para566273">Alternate</term>
 
           <listitem id="listitemN0x180ac00N0x186de20">
-            <para>Enter an alternate phone number for the
-            Contact.</para>
+            <para>Enter an alternate phone number for the Contact.</para>
           </listitem>
         </varlistentry>
 
@@ -2972,8 +2996,8 @@
           <term id="Para570660">Address</term>
 
           <listitem id="listitemN0x180ac00N0x186df88">
-            <para>Manually enter Address information in the fields
-            below--or use the browse button to select pre-existing Address
+            <para>Manually enter Address information in the fields below--or
+            use the browse button to select pre-existing Address
             information.</para>
 
             <para id="Para570661">Street Address: Enter the street Address for
@@ -2997,9 +3021,9 @@
           <term id="Para566288">Notes</term>
 
           <listitem id="listitemN0x180ac00N0x186dfd0">
-            <para>This is a scrolling text field with word-wrapping
-            for entering Notes related to the Contact. Any Notes entered on
-            this screen are for internal purposes only.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering Notes related to the Contact. Any Notes entered on this
+            screen are for internal purposes only.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3027,8 +3051,7 @@
           <term id="Para566146">Comments</term>
 
           <listitem id="listitemN0x180ac00N0x186e0a8">
-            <para>Display lists Comments related to the
-            Contact.</para>
+            <para>Display lists Comments related to the Contact.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3041,8 +3064,7 @@
           <term id="Para566149">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x186e114">
-            <para>Opens the screen for creating a new Contact
-            Comment.</para>
+            <para>Opens the screen for creating a new Contact Comment.</para>
           </listitem>
         </varlistentry>
 
@@ -3050,8 +3072,7 @@
           <term id="Para566150">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x186e15c">
-            <para>Opens a read-only view of the Contact
-            Comment.</para>
+            <para>Opens a read-only view of the Contact Comment.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3074,8 +3095,8 @@
           <term id="Para566195">Comment Type</term>
 
           <listitem id="listitemN0x180ac00N0x1875424">
-            <para>Specify one of the following Comment Types from
-            the drop-down list: ChangeLog or General.</para>
+            <para>Specify one of the following Comment Types from the
+            drop-down list: ChangeLog or General.</para>
 
             <para id="Para566196">Comment Types are used to categorize
             Comments. Once you have specified a Comment Type, you may type
@@ -3093,8 +3114,8 @@
           <term id="Para566160">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1875490">
-            <para>Closes the screen without creating the Contact
-            Comment, returning you to the previous screen.</para>
+            <para>Closes the screen without creating the Contact Comment,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3102,8 +3123,8 @@
           <term id="Para566161">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x18754d8">
-            <para>Creates the Comment and adds it to the list of
-            Contact Comments.</para>
+            <para>Creates the Comment and adds it to the list of Contact
+            Comments.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3168,12 +3189,11 @@
           <term id="Para565878">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1875718">
-            <para>Enables you to edit highlighted Contact
-            Characteristics. The edit screen is the same as that for creating
-            a new Contact Characteristic--except that when editing, the fields
-            will contain Contact Characteristic information. Double-clicking
-            on a Contact Characteristic will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Contact Characteristics. The
+            edit screen is the same as that for creating a new Contact
+            Characteristic--except that when editing, the fields will contain
+            Contact Characteristic information. Double-clicking on a Contact
+            Characteristic will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3181,9 +3201,8 @@
           <term id="Para565879">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1875760">
-            <para>Highlight a Contact Characteristic and then select
-            this button to remove the Contact Characteristic from the
-            list.</para>
+            <para>Highlight a Contact Characteristic and then select this
+            button to remove the Contact Characteristic from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3211,8 +3230,8 @@
           <term id="Para577009">Characteristic</term>
 
           <listitem id="listitemN0x180ac00N0x1875838">
-            <para>Select a Characteristic from the list of
-            Characteristics designated as being available for use as Contact
+            <para>Select a Characteristic from the list of Characteristics
+            designated as being available for use as Contact
             Characteristics.</para>
           </listitem>
         </varlistentry>
@@ -3221,8 +3240,7 @@
           <term id="Para565888">Value</term>
 
           <listitem id="listitemN0x180ac00N0x1875880">
-            <para>Enter a value to associate with the
-            Characteristic.</para>
+            <para>Enter a value to associate with the Characteristic.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3244,8 +3262,8 @@
           <term id="Para566059">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1875934">
-            <para>Creates the Contact Characteristic and adds it to
-            the list of Contact Characteristics</para>
+            <para>Creates the Contact Characteristic and adds it to the list
+            of Contact Characteristics</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3278,8 +3296,7 @@
           <term id="Para572587">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1875a0c">
-            <para>Enables you to edit highlighted used-at
-            references.</para>
+            <para>Enables you to edit highlighted used-at references.</para>
           </listitem>
         </varlistentry>
 
@@ -3287,8 +3304,8 @@
           <term id="Para572588">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1875a54">
-            <para>Highlight a used-at reference and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a used-at reference and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3336,8 +3353,8 @@
           <term id="Para563434">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1875be0">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3345,8 +3362,7 @@
           <term id="Para577410">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1875c28">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3362,9 +3378,9 @@
           <term id="Para563437">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1875cb8">
-            <para>Enables you to edit highlighted Contacts. The edit
-            screen is the same as that for creating a new Contact--except that
-            when editing, the fields will contain Contact information.
+            <para>Enables you to edit highlighted Contacts. The edit screen is
+            the same as that for creating a new Contact--except that when
+            editing, the fields will contain Contact information.
             Double-clicking on a Contact will also bring you to the editing
             screen.</para>
           </listitem>
@@ -3374,8 +3390,8 @@
           <term id="Para563438">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1875d00">
-            <para>Highlight a Contact and then select this button to
-            reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a Contact and then select this button to reach a
+            read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3383,8 +3399,8 @@
           <term id="Para563439">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1875d48">
-            <para>Highlight a Contact and then select this button to
-            remove the Contact from the list.</para>
+            <para>Highlight a Contact and then select this button to remove
+            the Contact from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3396,19 +3412,22 @@
         <varlistentry>
           <term id="Para563442">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x1875db4"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1875cb8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563443">View</term>
 
-          <listitem id="listitemN0x180ac00N0x1875dfc"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1875d00)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563444">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x1875e44"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1875d48)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -3470,8 +3489,7 @@
           <term id="Para566864">State</term>
 
           <listitem id="listitemN0x180ac00N0x18760a8">
-            <para>Select a State from the list of available
-            options.</para>
+            <para>Select a State from the list of available options.</para>
           </listitem>
         </varlistentry>
 
@@ -3487,8 +3505,7 @@
           <term id="Para566866">Country</term>
 
           <listitem id="listitemN0x180ac00N0x1876138">
-            <para>Select a Country from the list of available
-            options.</para>
+            <para>Select a Country from the list of available options.</para>
           </listitem>
         </varlistentry>
 
@@ -3496,9 +3513,9 @@
           <term id="Para566951">Notes</term>
 
           <listitem id="listitemN0x180ac00N0x1876180">
-            <para>This is a scrolling text field with word-wrapping
-            for entering Notes related to the Address. Any Notes entered on
-            this screen are for internal purposes only.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering Notes related to the Address. Any Notes entered on this
+            screen are for internal purposes only.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3526,8 +3543,7 @@
           <term id="Para566973">Comments</term>
 
           <listitem id="listitemN0x180ac00N0x1879048">
-            <para>Display lists Comments related to the
-            Address.</para>
+            <para>Display lists Comments related to the Address.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3540,8 +3556,7 @@
           <term id="Para566816">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x18790b4">
-            <para>Opens the screen for creating a new Address
-            Comment.</para>
+            <para>Opens the screen for creating a new Address Comment.</para>
           </listitem>
         </varlistentry>
 
@@ -3549,8 +3564,7 @@
           <term id="Para566817">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x18790fc">
-            <para>Opens a read-only view of the Address
-            Comment.</para>
+            <para>Opens a read-only view of the Address Comment.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3573,8 +3587,8 @@
           <term id="Para566824">Comment Type</term>
 
           <listitem id="listitemN0x180ac00N0x18791d4">
-            <para>Specify one of the following Comment Types from
-            the drop-down list: ChangeLog or General.</para>
+            <para>Specify one of the following Comment Types from the
+            drop-down list: ChangeLog or General.</para>
 
             <para id="Para566825">Comment Types are used to categorize
             Comments. Once you have specified a Comment Type, you may type
@@ -3592,8 +3606,8 @@
           <term id="Para566827">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1879240">
-            <para>Closes the screen without creating the Address
-            Comment, returning you to the previous screen.</para>
+            <para>Closes the screen without creating the Address Comment,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3601,8 +3615,8 @@
           <term id="Para566828">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1879288">
-            <para>Creates the Comment and adds it to the list of
-            Address Comments.</para>
+            <para>Creates the Comment and adds it to the list of Address
+            Comments.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3661,12 +3675,11 @@
           <term id="Para566784">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x18794a4">
-            <para>Enables you to edit highlighted Address
-            Characteristics. The edit screen is the same as that for creating
-            a new Address Characteristic--except that when editing, the fields
-            will contain Address Characteristic information. Double-clicking
-            on an Address Characteristic will also bring you to the editing
-            screen.</para>
+            <para>Enables you to edit highlighted Address Characteristics. The
+            edit screen is the same as that for creating a new Address
+            Characteristic--except that when editing, the fields will contain
+            Address Characteristic information. Double-clicking on an Address
+            Characteristic will also bring you to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3674,9 +3687,8 @@
           <term id="Para566785">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x18794ec">
-            <para>Highlight an Address Characteristic and then
-            select this button to remove the Address Characteristic from the
-            list.</para>
+            <para>Highlight an Address Characteristic and then select this
+            button to remove the Address Characteristic from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3704,8 +3716,8 @@
           <term id="Para577018">Characteristic</term>
 
           <listitem id="listitemN0x180ac00N0x18795c4">
-            <para>Select a Characteristic from the list of
-            Characteristics designated as being available for use as Address
+            <para>Select a Characteristic from the list of Characteristics
+            designated as being available for use as Address
             Characteristics.</para>
           </listitem>
         </varlistentry>
@@ -3714,8 +3726,7 @@
           <term id="Para566794">Value</term>
 
           <listitem id="listitemN0x180ac00N0x187960c">
-            <para>Enter a value to associate with the
-            Characteristic.</para>
+            <para>Enter a value to associate with the Characteristic.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3737,8 +3748,8 @@
           <term id="Para566797">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x18796c0">
-            <para>Creates the Address Characteristic and adds it to
-            the list of Address Characteristics</para>
+            <para>Creates the Address Characteristic and adds it to the list
+            of Address Characteristics</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3772,8 +3783,7 @@
           <term id="Para567135">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1879798">
-            <para>Enables you to edit highlighted used-at
-            references.</para>
+            <para>Enables you to edit highlighted used-at references.</para>
           </listitem>
         </varlistentry>
 
@@ -3781,8 +3791,8 @@
           <term id="Para567136">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x18797e0">
-            <para>Highlight a used-at reference and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a used-at reference and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3829,8 +3839,8 @@
           <term id="Para563745">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x187996c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3838,8 +3848,7 @@
           <term id="Para577420">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18799b4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3855,9 +3864,9 @@
           <term id="Para563748">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1879a44">
-            <para>Enables you to edit highlighted Addresses. The
-            edit screen is the same as that for creating a new Address--except
-            that when editing, the fields will contain Address information.
+            <para>Enables you to edit highlighted Addresses. The edit screen
+            is the same as that for creating a new Address--except that when
+            editing, the fields will contain Address information.
             Double-clicking on an Address will also bring you to the editing
             screen.</para>
           </listitem>
@@ -3867,8 +3876,8 @@
           <term id="Para563749">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1879a8c">
-            <para>Highlight an Address and then select this button
-            to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Address and then select this button to reach a
+            read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -3876,8 +3885,8 @@
           <term id="Para563750">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1879ad4">
-            <para>Highlight an Address and then select this button
-            to remove the Address from the list.</para>
+            <para>Highlight an Address and then select this button to remove
+            the Address from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3889,19 +3898,22 @@
         <varlistentry>
           <term id="Para563753">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x1879b40"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1879a44)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563754">View</term>
 
-          <listitem id="listitemN0x180ac00N0x1879b88"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1879a8c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para563755">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x1879bd0"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1879ad4)" />
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -3998,8 +4010,7 @@
           <term id="Para567643">Selected User</term>
 
           <listitem id="listitemN0x180ac00N0x187f768">
-            <para>Specify the user whose Incidents you want to
-            display.</para>
+            <para>Specify the user whose Incidents you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4007,8 +4018,7 @@
           <term id="Para567658">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x187f7b0">
-            <para>Enter a user pattern to select a range of
-            users.</para>
+            <para>Enter a user pattern to select a range of users.</para>
 
             <para id="Para577667">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4022,10 +4032,10 @@
           <term id="Para567647">Status</term>
 
           <listitem id="listitemN0x180ac00N0x187f7f8">
-            <para>Specify which of the following system-defined
-            Incident statuses you want to include in the display. Not
-            selecting a status means Incidents having that status will not be
-            included in the display:</para>
+            <para>Specify which of the following system-defined Incident
+            statuses you want to include in the display. Not selecting a
+            status means Incidents having that status will not be included in
+            the display:</para>
 
             <para id="Para567702">New: Select to include Incidents having
             "New" status in the display. This is the default Incident status
@@ -4060,8 +4070,8 @@
           <term id="Para567978">First Creation Date</term>
 
           <listitem id="listitemN0x180ac00N0x187f840">
-            <para>Incidents created on or after this date will be
-            included in the display.</para>
+            <para>Incidents created on or after this date will be included in
+            the display.</para>
           </listitem>
         </varlistentry>
 
@@ -4069,8 +4079,8 @@
           <term id="Para567979">Last Creation Date</term>
 
           <listitem id="listitemN0x180ac00N0x187f888">
-            <para>Incidents created on or before this date will be
-            included in the display.</para>
+            <para>Incidents created on or before this date will be included in
+            the display.</para>
           </listitem>
         </varlistentry>
 
@@ -4078,8 +4088,8 @@
           <term id="Para567697">Summary/Description Matches</term>
 
           <listitem id="listitemN0x180ac00N0x187f8d0">
-            <para>Enter a text pattern to locate keywords found in
-            Incident "Summary" and/or "Description" fields.</para>
+            <para>Enter a text pattern to locate keywords found in Incident
+            "Summary" and/or "Description" fields.</para>
 
             <para id="Para577679">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4102,8 +4112,8 @@
           <term id="Para568014">Automatically Update</term>
 
           <listitem id="listitemN0x180ac00N0x187f960">
-            <para>Select to automatically update the display every
-            five minutes.</para>
+            <para>Select to automatically update the display every five
+            minutes.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4116,8 +4126,8 @@
           <term id="Para567747">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x187f9cc">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4125,8 +4135,8 @@
           <term id="Para567748">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x187fa14">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4134,8 +4144,7 @@
           <term id="Para577425">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x187fa5c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4160,11 +4169,11 @@
           <term id="Para567771">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x187fb34">
-            <para>Enables you to edit highlighted Incidents. The
-            edit screen is the same as that for creating a new
-            Incident--except that when editing, the fields will contain
-            Incident information. Double-clicking on an Incident will also
-            bring you to the editing screen.</para>
+            <para>Enables you to edit highlighted Incidents. The edit screen
+            is the same as that for creating a new Incident--except that when
+            editing, the fields will contain Incident information.
+            Double-clicking on an Incident will also bring you to the editing
+            screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4172,8 +4181,8 @@
           <term id="Para567772">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x187fb7c">
-            <para>Highlight an Incident and then select this button
-            to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident and then select this button to reach a
+            read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4243,8 +4252,8 @@
           <term id="Para568127">Status</term>
 
           <listitem id="listitemN0x180ac00N0x187fde0">
-            <para>Specify a system-defined Incident status to assign
-            to the Incident from the available options:</para>
+            <para>Specify a system-defined Incident status to assign to the
+            Incident from the available options:</para>
 
             <para id="Para568128">New: This is the default Incident status
             when a new Incident is entered.</para>
@@ -4300,8 +4309,7 @@
           <term id="Para568231">Assigned To</term>
 
           <listitem id="listitemN0x180ac00N0x187ff00">
-            <para>Specify the user you want to assign the Incident
-            to.</para>
+            <para>Specify the user you want to assign the Incident to.</para>
           </listitem>
         </varlistentry>
 
@@ -4309,8 +4317,8 @@
           <term id="Para568385">Contact</term>
 
           <listitem id="listitemN0x180ac00N0x187ff48">
-            <para>Manually enter Contact information in the fields
-            below--or use the browse button to select pre-existing Contact
+            <para>Manually enter Contact information in the fields below--or
+            use the browse button to select pre-existing Contact
             information.</para>
 
             <para id="Para577062">Title: Select a Title from the list of
@@ -4338,8 +4346,8 @@
           <term id="Para568417">Item Number</term>
 
           <listitem id="listitemN0x180ac00N0x187ff90">
-            <para>Enter the Item Number of the Item (if any) you
-            want to associate with the Incident.</para>
+            <para>Enter the Item Number of the Item (if any) you want to
+            associate with the Incident.</para>
           </listitem>
         </varlistentry>
 
@@ -4355,8 +4363,8 @@
           <term id="Para568232">Lot/Serial #</term>
 
           <listitem id="listitemN0x180ac00N0x187fffc">
-            <para>Enter a Lot or Serial Number (if any) for the
-            selected Item.</para>
+            <para>Enter a Lot or Serial Number (if any) for the selected
+            Item.</para>
 
             <para id="Para574397">The date the Lot/Serial Number was created
             will also be displayed. Select the "?" button to learn more about
@@ -4368,8 +4376,7 @@
           <term id="Para568233">Summary</term>
 
           <listitem id="listitemN0x180ac00N0x1880044">
-            <para>Enter a short line of text to describe the
-            Incident.</para>
+            <para>Enter a short line of text to describe the Incident.</para>
           </listitem>
         </varlistentry>
 
@@ -4377,9 +4384,9 @@
           <term id="Para568234">Description</term>
 
           <listitem id="listitemN0x180ac00N0x188008c">
-            <para>This is a scrolling text field with word-wrapping
-            for entering an extended description--or general notes--related to
-            the Incident.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering an extended description--or general notes--related to the
+            Incident.</para>
           </listitem>
         </varlistentry>
 
@@ -4401,8 +4408,7 @@
           <term id="Para568553">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x1880140">
-            <para>Opens screen for creating a new To-Do List
-            item.</para>
+            <para>Opens screen for creating a new To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -4410,8 +4416,8 @@
           <term id="Para568554">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1880188">
-            <para>Enables you to edit highlighted To-Do List items.
-            The edit screen is the same as that for creating a new To-Do List
+            <para>Enables you to edit highlighted To-Do List items. The edit
+            screen is the same as that for creating a new To-Do List
             item--except that when editing, the fields will contain To-Do List
             item information. Double-clicking on a To-Do List item will also
             bring you to the editing screen.</para>
@@ -4422,8 +4428,8 @@
           <term id="Para568555">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x18801d0">
-            <para>Highlight a To-Do List item and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4431,9 +4437,9 @@
           <term id="Para568556">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1880218">
-            <para>Highlight a To-Do List item and then select this
-            button to remove the association between the To-Do List item and
-            the Incident.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            remove the association between the To-Do List item and the
+            Incident.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4483,8 +4489,7 @@
           <term id="Para568966">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x188035c">
-            <para>Opens screen for creating a new Incident
-            Note.</para>
+            <para>Opens screen for creating a new Incident Note.</para>
           </listitem>
         </varlistentry>
 
@@ -4492,8 +4497,8 @@
           <term id="Para568967">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x18803a4">
-            <para>Enables you to edit highlighted Incident Notes.
-            The edit screen is the same as that for creating a new Incident
+            <para>Enables you to edit highlighted Incident Notes. The edit
+            screen is the same as that for creating a new Incident
             Note--except that when editing, the fields will contain Incident
             Note information. Double-clicking on an Incident Note will also
             bring you to the editing screen.</para>
@@ -4504,8 +4509,8 @@
           <term id="Para568968">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x18803ec">
-            <para>Highlight an Incident Note and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Incident Note and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4513,8 +4518,8 @@
           <term id="Para568969">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1889824">
-            <para>Highlight an Incident Note and then select this
-            button to remove the Incident Note from the list.</para>
+            <para>Highlight an Incident Note and then select this button to
+            remove the Incident Note from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4538,8 +4543,8 @@
           <term id="Para569053">Incident Note</term>
 
           <listitem id="listitemN0x180ac00N0x18898fc">
-            <para>This is a scrolling text field with word-wrapping
-            for entering a Note related to the Incident.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering a Note related to the Incident.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4552,8 +4557,8 @@
           <term id="Para569056">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1889968">
-            <para>Closes the screen without creating the Incident
-            Note, returning you to the previous screen.</para>
+            <para>Closes the screen without creating the Incident Note,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4561,8 +4566,8 @@
           <term id="Para569072">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x18899b0">
-            <para>Creates the Note and adds it to the list of
-            Incident Notes.</para>
+            <para>Creates the Note and adds it to the list of Incident
+            Notes.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4624,8 +4629,7 @@
           <term id="Para569484">All Users</term>
 
           <listitem id="listitemN0x180ac00N0x1889c14">
-            <para>Select to display To-Do List items for all
-            users.</para>
+            <para>Select to display To-Do List items for all users.</para>
           </listitem>
         </varlistentry>
 
@@ -4642,8 +4646,7 @@
           <term id="Para569486">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1889ca4">
-            <para>Enter a user pattern to select a range of
-            users.</para>
+            <para>Enter a user pattern to select a range of users.</para>
 
             <para id="Para577688">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4657,8 +4660,8 @@
           <term id="Para560395">Active Only</term>
 
           <listitem id="listitemN0x180ac00N0x1889cec">
-            <para>Select to include only active To-Do List items in
-            the display.</para>
+            <para>Select to include only active To-Do List items in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -4666,8 +4669,8 @@
           <term id="Para569673">Completed</term>
 
           <listitem id="listitemN0x180ac00N0x1889d34">
-            <para>Select to include completed To-Do List items in
-            the display.</para>
+            <para>Select to include completed To-Do List items in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -4683,8 +4686,8 @@
           <term id="Para574188">First Due Date</term>
 
           <listitem id="listitemN0x180ac00N0x1889dc4">
-            <para>To-Dos due on or after this date will be included
-            in the display.</para>
+            <para>To-Dos due on or after this date will be included in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -4692,8 +4695,8 @@
           <term id="Para574228">Last Due Date</term>
 
           <listitem id="listitemN0x180ac00N0x1889e0c">
-            <para>To-Dos due on or before this date will be included
-            in the display.</para>
+            <para>To-Dos due on or before this date will be included in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -4701,8 +4704,8 @@
           <term id="Para574229">First Incident Date</term>
 
           <listitem id="listitemN0x180ac00N0x1889e54">
-            <para>Incidents created on or after this date will be
-            included in the display.</para>
+            <para>Incidents created on or after this date will be included in
+            the display.</para>
           </listitem>
         </varlistentry>
 
@@ -4710,8 +4713,8 @@
           <term id="Para574230">Last Incident Date</term>
 
           <listitem id="listitemN0x180ac00N0x1889e9c">
-            <para>Incidents created on or after this date will be
-            included in the display.</para>
+            <para>Incidents created on or after this date will be included in
+            the display.</para>
           </listitem>
         </varlistentry>
 
@@ -4719,8 +4722,8 @@
           <term id="Para569675">To-Do List</term>
 
           <listitem id="listitemN0x180ac00N0x1889ee4">
-            <para>Display lists To-Do List items, using the
-            specified parameters.</para>
+            <para>Display lists To-Do List items, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4728,8 +4731,8 @@
           <term id="Para574265">Automatically Update</term>
 
           <listitem id="listitemN0x180ac00N0x1889f2c">
-            <para>Select to automatically update the display every
-            five minutes.</para>
+            <para>Select to automatically update the display every five
+            minutes.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4742,8 +4745,8 @@
           <term id="Para569710">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1889f98">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4751,9 +4754,9 @@
           <term id="Para569757">MOVE UP</term>
 
           <listitem id="listitemN0x180ac00N0x1889fe0">
-            <para>Highlight a To-Do List item and then select this
-            button to move the To-Do List item up the list. Sequence numbers
-            are user-defined and must be manually assigned.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            move the To-Do List item up the list. Sequence numbers are
+            user-defined and must be manually assigned.</para>
           </listitem>
         </varlistentry>
 
@@ -4761,9 +4764,9 @@
           <term id="Para569759">MOVE DOWN</term>
 
           <listitem id="listitemN0x180ac00N0x188a028">
-            <para>Highlight a To-Do List item and then select this
-            button to move the To-Do List item down the list. Sequence numbers
-            are user-defined and must be manually assigned.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            move the To-Do List item down the list. Sequence numbers are
+            user-defined and must be manually assigned.</para>
           </listitem>
         </varlistentry>
 
@@ -4771,8 +4774,7 @@
           <term id="Para569766">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x188a070">
-            <para>Opens screen for creating a new To-Do List
-            item.</para>
+            <para>Opens screen for creating a new To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -4780,8 +4782,8 @@
           <term id="Para569772">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x188a0b8">
-            <para>Enables you to edit highlighted To-Do List items.
-            The edit screen is the same as that for creating a new To-Do List
+            <para>Enables you to edit highlighted To-Do List items. The edit
+            screen is the same as that for creating a new To-Do List
             item--except that when editing, the fields will contain To-Do List
             item information. Double-clicking on a To-Do List item will also
             bring you to the editing screen.</para>
@@ -4792,8 +4794,8 @@
           <term id="Para569773">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x188a100">
-            <para>Highlight a To-Do List item and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4801,8 +4803,8 @@
           <term id="Para569715">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x188a148">
-            <para>Highlight a To-Do List item and then select this
-            button to remove the To-Do List item from the list.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            remove the To-Do List item from the list.</para>
           </listitem>
         </varlistentry>
 
@@ -4810,8 +4812,7 @@
           <term id="Para577430">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x188a190">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4823,37 +4824,43 @@
         <varlistentry>
           <term id="Para569736">Move Up</term>
 
-          <listitem id="listitemN0x180ac00N0x188a1fc"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x1889fe0)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para569737">Move Down</term>
 
-          <listitem id="listitemN0x180ac00N0x188a244"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x188a028)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para569740">New</term>
 
-          <listitem id="listitemN0x180ac00N0x188a28c"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x188a070)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para569723">Edit</term>
 
-          <listitem id="listitemN0x180ac00N0x188a2d4"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x188a0b8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para569744">View</term>
 
-          <listitem id="listitemN0x180ac00N0x188a31c"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x188a0b8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para569724">Delete</term>
 
-          <listitem id="listitemN0x180ac00N0x188a364"></listitem>
+          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                      xpointer="element(listitemN0x180ac00N0x188a148)" />
         </varlistentry>
 
         <varlistentry>
@@ -4909,9 +4916,9 @@
           <term id="Para560393">Assigned to</term>
 
           <listitem id="listitemN0x180ac00N0x188a5c8">
-            <para>By default, a new To-Do List item is assigned to
-            the user who creates it. Once a To-Do List item has been created,
-            it may be reassigned to another user.</para>
+            <para>By default, a new To-Do List item is assigned to the user
+            who creates it. Once a To-Do List item has been created, it may be
+            reassigned to another user.</para>
           </listitem>
         </varlistentry>
 
@@ -4929,9 +4936,9 @@
           <term id="Para569962">Sequence #</term>
 
           <listitem id="listitemN0x180ac00N0x188ee48">
-            <para>Enter a sequence number to help you prioritize
-            your To-Do List items. Sequence numbers are manually entered and
-            may be changed at any point.</para>
+            <para>Enter a sequence number to help you prioritize your To-Do
+            List items. Sequence numbers are manually entered and may be
+            changed at any point.</para>
           </listitem>
         </varlistentry>
 
@@ -4939,8 +4946,8 @@
           <term id="Para569963">Incident</term>
 
           <listitem id="listitemN0x180ac00N0x188ee90">
-            <para>Select an Incident (if applicable) to associate
-            with the To-Do List item.</para>
+            <para>Select an Incident (if applicable) to associate with the
+            To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -4948,8 +4955,8 @@
           <term id="Para574292">Account</term>
 
           <listitem id="listitemN0x180ac00N0x188eed8">
-            <para>Specify the CRM Account the To-Do item is
-            associated with (if any).</para>
+            <para>Specify the CRM Account the To-Do item is associated with
+            (if any).</para>
           </listitem>
         </varlistentry>
 
@@ -4957,8 +4964,8 @@
           <term id="Para574282">Reassign to User</term>
 
           <listitem id="listitemN0x180ac00N0x188ef20">
-            <para>To reassign the To-Do List item to another user,
-            use the browse button located to the right of the field.</para>
+            <para>To reassign the To-Do List item to another user, use the
+            browse button located to the right of the field.</para>
 
             <para id="Para577294">By default, To-Do List items are assigned
             originally to the user who creates them.</para>
@@ -4969,8 +4976,7 @@
           <term id="Para569964">Date Due</term>
 
           <listitem id="listitemN0x180ac00N0x188ef68">
-            <para>Specify the date when the To-Do List item is
-            due.</para>
+            <para>Specify the date when the To-Do List item is due.</para>
           </listitem>
         </varlistentry>
 
@@ -4978,8 +4984,8 @@
           <term id="Para569965">Date Assigned</term>
 
           <listitem id="listitemN0x180ac00N0x188efb0">
-            <para>Specify the date when the To-Do List item was
-            assigned--or reassigned.</para>
+            <para>Specify the date when the To-Do List item was assigned--or
+            reassigned.</para>
           </listitem>
         </varlistentry>
 
@@ -4987,8 +4993,8 @@
           <term id="Para569966">Date Started</term>
 
           <listitem id="listitemN0x180ac00N0x188eff8">
-            <para>Specify the date when work on the To-Do List item
-            was started.</para>
+            <para>Specify the date when work on the To-Do List item was
+            started.</para>
           </listitem>
         </varlistentry>
 
@@ -4996,8 +5002,8 @@
           <term id="Para569967">Date Completed</term>
 
           <listitem id="listitemN0x180ac00N0x188f040">
-            <para>Specify the date when work on the To-Do List item
-            was completed.</para>
+            <para>Specify the date when work on the To-Do List item was
+            completed.</para>
           </listitem>
         </varlistentry>
 
@@ -5005,8 +5011,8 @@
           <term id="Para569968">Status</term>
 
           <listitem id="listitemN0x180ac00N0x188f088">
-            <para>Specify one of the following statuses to assign to
-            the To-Do List item:</para>
+            <para>Specify one of the following statuses to assign to the To-Do
+            List item:</para>
 
             <para id="Para569991">Pending Input: Select to indicate the To-Do
             List item is pending input. To-Do List items having this status
@@ -5029,8 +5035,7 @@
           <term id="Para570273">Active</term>
 
           <listitem id="listitemN0x180ac00N0x188f0d0">
-            <para>Select to indicate the To-Do List item is
-            active.</para>
+            <para>Select to indicate the To-Do List item is active.</para>
           </listitem>
         </varlistentry>
 
@@ -5038,8 +5043,7 @@
           <term id="Para570319">Description</term>
 
           <listitem id="listitemN0x180ac00N0x188f118">
-            <para>Enter a brief description of the To-Do List
-            item.</para>
+            <para>Enter a brief description of the To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -5047,8 +5051,8 @@
           <term id="Para570305">Notes</term>
 
           <listitem id="listitemN0x180ac00N0x188f160">
-            <para>This is a scrolling text field with word-wrapping
-            for entering Notes related to the To-Do List item.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering Notes related to the To-Do List item.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5061,8 +5065,8 @@
           <term id="Para570018">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x188f1cc">
-            <para>Closes the screen without creating a To-Do List
-            item, returning you to the previous screen.</para>
+            <para>Closes the screen without creating a To-Do List item,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5070,8 +5074,8 @@
           <term id="Para570019">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x188f214">
-            <para>Creates the To-Do List item and adds it to the
-            To-Do List.</para>
+            <para>Creates the To-Do List item and adds it to the To-Do
+            List.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5130,8 +5134,8 @@
           <term id="Para575692">CRM Account</term>
 
           <listitem id="listitemN0x180ac00N0x188f40c">
-            <para>Specify the CRM Account the Opportunity is
-            associated with.</para>
+            <para>Specify the CRM Account the Opportunity is associated
+            with.</para>
           </listitem>
         </varlistentry>
 
@@ -5139,8 +5143,7 @@
           <term id="Para575634">Amount</term>
 
           <listitem id="listitemN0x180ac00N0x188f454">
-            <para>Enter the monetary value of the
-            Opportunity.</para>
+            <para>Enter the monetary value of the Opportunity.</para>
           </listitem>
         </varlistentry>
 
@@ -5174,8 +5177,7 @@
           <term id="Para575786">Stage</term>
 
           <listitem id="listitemN0x180ac00N0x188f574">
-            <para>Specify the current stage of the
-            Opportunity.</para>
+            <para>Specify the current stage of the Opportunity.</para>
           </listitem>
         </varlistentry>
 
@@ -5183,8 +5185,7 @@
           <term id="Para575639">Lead Source</term>
 
           <listitem id="listitemN0x180ac00N0x188f5bc">
-            <para>Specify the source which generated the
-            Opportunity.</para>
+            <para>Specify the source which generated the Opportunity.</para>
           </listitem>
         </varlistentry>
 
@@ -5200,8 +5201,7 @@
           <term id="Para575641">Actual Close</term>
 
           <listitem id="listitemN0x180ac00N0x188f64c">
-            <para>Specify the date when the Opportunity
-            closed.</para>
+            <para>Specify the date when the Opportunity closed.</para>
           </listitem>
         </varlistentry>
 
@@ -5209,9 +5209,9 @@
           <term id="Para576027">Notes</term>
 
           <listitem id="listitemN0x180ac00N0x188f694">
-            <para>This is a scrolling text field with word-wrapping
-            for entering Notes related to the Opportunity. Any Notes entered
-            on this screen are for internal purposes only.</para>
+            <para>This is a scrolling text field with word-wrapping for
+            entering Notes related to the Opportunity. Any Notes entered on
+            this screen are for internal purposes only.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5224,8 +5224,7 @@
           <term id="Para575985">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x188f700">
-            <para>Closes the screen without creating an
-            Opportunity.</para>
+            <para>Closes the screen without creating an Opportunity.</para>
           </listitem>
         </varlistentry>
 
@@ -5233,8 +5232,8 @@
           <term id="Para575986">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x188f748">
-            <para>Creates the Opportunity and adds it to the master
-            list of Opportunities.</para>
+            <para>Creates the Opportunity and adds it to the master list of
+            Opportunities.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5272,8 +5271,7 @@
           <term id="Para576091">To-Do List</term>
 
           <listitem id="listitemN0x180ac00N0x188f8b0">
-            <para>Display lists To-Dos related to the
-            Opportunity.</para>
+            <para>Display lists To-Dos related to the Opportunity.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5286,8 +5284,7 @@
           <term id="Para576134">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x188f91c">
-            <para>Opens screen for creating a new To-Do List
-            item.</para>
+            <para>Opens screen for creating a new To-Do List item.</para>
           </listitem>
         </varlistentry>
 
@@ -5295,8 +5292,8 @@
           <term id="Para576136">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x188f964">
-            <para>Enables you to edit highlighted To-Do List items.
-            The edit screen is the same as that for creating a new To-Do List
+            <para>Enables you to edit highlighted To-Do List items. The edit
+            screen is the same as that for creating a new To-Do List
             item--except that when editing, the fields will contain To-Do List
             item information. Double-clicking on a To-Do List item will also
             bring you to the editing screen.</para>
@@ -5307,8 +5304,8 @@
           <term id="Para576097">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x188f9ac">
-            <para>Highlight a To-Do List item and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight a To-Do List item and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5316,9 +5313,9 @@
           <term id="Para576098">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x188f9f4">
-            <para>Highlight a To-Do List item and then select this
-            button to remove the association between the To-Do List item and
-            the Opportunity</para>
+            <para>Highlight a To-Do List item and then select this button to
+            remove the association between the To-Do List item and the
+            Opportunity</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5379,12 +5376,12 @@
           <term id="Para576239">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x1896e00">
-            <para>Enables you to edit highlighted Opportunity
-            Characteristics. The edit screen is the same as that for creating
-            a new Opportunity Characteristic--except that when editing, the
-            fields will contain Opportunity Characteristic information.
-            Double-clicking on an Opportunity Characteristic will also bring
-            you to the editing screen.</para>
+            <para>Enables you to edit highlighted Opportunity Characteristics.
+            The edit screen is the same as that for creating a new Opportunity
+            Characteristic--except that when editing, the fields will contain
+            Opportunity Characteristic information. Double-clicking on an
+            Opportunity Characteristic will also bring you to the editing
+            screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5392,9 +5389,8 @@
           <term id="Para576240">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x1896e48">
-            <para>Highlight an Opportunity Characteristic and then
-            select this button to remove the Characteristic from the
-            list.</para>
+            <para>Highlight an Opportunity Characteristic and then select this
+            button to remove the Characteristic from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5421,8 +5417,8 @@
           <term id="Para576321">Comments</term>
 
           <listitem id="listitemN0x180ac00N0x1896f20">
-            <para>Display lists Comments related to the Opportunity,
-            using the specified parameters.</para>
+            <para>Display lists Comments related to the Opportunity, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5444,8 +5440,7 @@
           <term id="Para576325">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x1896fd4">
-            <para>Opens a read-only view of the Opportunity
-            Comment.</para>
+            <para>Opens a read-only view of the Opportunity Comment.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5468,8 +5463,8 @@
           <term id="Para576332">Comment Type</term>
 
           <listitem id="listitemN0x180ac00N0x18970ac">
-            <para>Specify one of the following Comment Types from
-            the drop-down list: ChangeLog or General.</para>
+            <para>Specify one of the following Comment Types from the
+            drop-down list: ChangeLog or General.</para>
 
             <para id="Para576333">Comment Types are used to categorize
             Comments. Once you have specified a Comment Type, you may type
@@ -5487,8 +5482,8 @@
           <term id="Para576335">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x1897118">
-            <para>Closes the screen without creating the Opportunity
-            Comment, returning you to the previous screen.</para>
+            <para>Closes the screen without creating the Opportunity Comment,
+            returning you to the previous screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5496,8 +5491,8 @@
           <term id="Para576336">SAVE</term>
 
           <listitem id="listitemN0x180ac00N0x1897160">
-            <para>Creates the Comment and adds it to the list of
-            Opportunity Comments.</para>
+            <para>Creates the Comment and adds it to the list of Opportunity
+            Comments.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5539,8 +5534,8 @@
           <term id="Para576482">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x18972a4">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5548,8 +5543,7 @@
           <term id="Para577436">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18972ec">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5557,8 +5551,7 @@
           <term id="Para576484">NEW</term>
 
           <listitem id="listitemN0x180ac00N0x1897334">
-            <para>Opens screen for creating a new
-            Opportunity.</para>
+            <para>Opens screen for creating a new Opportunity.</para>
           </listitem>
         </varlistentry>
 
@@ -5566,11 +5559,11 @@
           <term id="Para576485">EDIT</term>
 
           <listitem id="listitemN0x180ac00N0x189737c">
-            <para>Enables you to edit highlighted Opportunities. The
-            edit screen is the same as that for creating a new
-            Opportunity--except that when editing, the fields will contain
-            Opportunity information. Double-clicking on an Opportunity will
-            also bring you to the editing screen.</para>
+            <para>Enables you to edit highlighted Opportunities. The edit
+            screen is the same as that for creating a new Opportunity--except
+            that when editing, the fields will contain Opportunity
+            information. Double-clicking on an Opportunity will also bring you
+            to the editing screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5578,8 +5571,8 @@
           <term id="Para576486">VIEW</term>
 
           <listitem id="listitemN0x180ac00N0x18973c4">
-            <para>Highlight an Opportunity and then select this
-            button to reach a read-only view of the "Edit" screen.</para>
+            <para>Highlight an Opportunity and then select this button to
+            reach a read-only view of the "Edit" screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5587,8 +5580,8 @@
           <term id="Para576487">DELETE</term>
 
           <listitem id="listitemN0x180ac00N0x189740c">
-            <para>Highlight an Opportunity and then select this
-            button to remove the Opportunity from the list.</para>
+            <para>Highlight an Opportunity and then select this button to
+            remove the Opportunity from the list.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5626,8 +5619,8 @@
           <term id="Para571323">All CRM Accounts</term>
 
           <listitem id="listitemN0x180ac00N0x189752c">
-            <para>Select to include Incidents for all CRM Accounts
-            in the display.</para>
+            <para>Select to include Incidents for all CRM Accounts in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -5658,8 +5651,8 @@
           <term id="Para571236">Show Accounts with No Incidents</term>
 
           <listitem id="listitemN0x180ac00N0x1897604">
-            <para>Select to include CRM Accounts which have no
-            Incidents associated with them in the display.</para>
+            <para>Select to include CRM Accounts which have no Incidents
+            associated with them in the display.</para>
           </listitem>
         </varlistentry>
 
@@ -5667,8 +5660,7 @@
           <term id="Para571237">Show Closed Incidents</term>
 
           <listitem id="listitemN0x180ac00N0x189764c">
-            <para>Select in include closed Incidents in the
-            display.</para>
+            <para>Select in include closed Incidents in the display.</para>
           </listitem>
         </varlistentry>
 
@@ -5676,8 +5668,8 @@
           <term id="Para571238">Incidents</term>
 
           <listitem id="listitemN0x180ac00N0x1897694">
-            <para>Display lists Incidents by CRM Account, using the
-            specified parameters.</para>
+            <para>Display lists Incidents by CRM Account, using the specified
+            parameters.</para>
 
             <para id="Para577592">This display is a nested list, with a plus
             ("+") sign located to the far left of the display next to each CRM
@@ -5696,8 +5688,8 @@
           <term id="Para571241">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1897700">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5705,8 +5697,8 @@
           <term id="Para571242">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1897748">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5714,8 +5706,7 @@
           <term id="Para577441">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1897790">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5786,8 +5777,7 @@
           <term id="Para570402">All Users</term>
 
           <listitem id="listitemN0x180ac00N0x1897a3c">
-            <para>Select to display To-Do List items for all
-            users.</para>
+            <para>Select to display To-Do List items for all users.</para>
           </listitem>
         </varlistentry>
 
@@ -5804,8 +5794,7 @@
           <term id="Para570404">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1897acc">
-            <para>Enter a user pattern to select a range of
-            users.</para>
+            <para>Enter a user pattern to select a range of users.</para>
 
             <para id="Para577696">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5819,8 +5808,8 @@
           <term id="Para560420">All Incidents</term>
 
           <listitem id="listitemN0x180ac00N0x1897b14">
-            <para>Select to include all Incidents for the specified
-            user(s) in the display.</para>
+            <para>Select to include all Incidents for the specified user(s) in
+            the display.</para>
           </listitem>
         </varlistentry>
 
@@ -5828,8 +5817,8 @@
           <term id="Para570529">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1897b5c">
-            <para>Select the Incident you want to display
-            information about.</para>
+            <para>Select the Incident you want to display information
+            about.</para>
           </listitem>
         </varlistentry>
 
@@ -5837,8 +5826,7 @@
           <term id="Para570530">Date Started</term>
 
           <listitem id="listitemN0x180ac00N0x1897ba4">
-            <para>Enter a range of To-Do List item start
-            dates:</para>
+            <para>Enter a range of To-Do List item start dates:</para>
 
             <para id="Para570531">Start Date: To-Do List items started on or
             after this date will be included in the display.</para>
@@ -5866,8 +5854,8 @@
           <term id="Para560399">Show Completed Items</term>
 
           <listitem id="listitemN0x180ac00N0x189e824">
-            <para>Select to include completed To-Do List items in
-            the display.</para>
+            <para>Select to include completed To-Do List items in the
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -5884,8 +5872,8 @@
           <term id="Para570455">To-Do List Items</term>
 
           <listitem id="listitemN0x180ac00N0x189e8b4">
-            <para>Display lists To-Do List items, using the
-            specified parameters.</para>
+            <para>Display lists To-Do List items, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5898,8 +5886,8 @@
           <term id="Para570472">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x189e920">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5907,8 +5895,8 @@
           <term id="Para570473">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x189e968">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5916,8 +5904,7 @@
           <term id="Para577446">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x189e9b0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
