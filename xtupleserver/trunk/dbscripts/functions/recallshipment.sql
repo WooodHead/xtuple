@@ -56,7 +56,7 @@ BEGIN
                                       FROM shipitem, shiphead
                                      WHERE((shipitem_shiphead_id=shiphead_id)
                                        AND (shiphead_shipped)
-                                       AND (shiphead_id=252)))) FOR UPDATE LOOP
+                                       AND (shiphead_id=pshipheadid)))) FOR UPDATE LOOP
 
       SELECT SUM(shipitem_qty) INTO _qty
       FROM shipitem
