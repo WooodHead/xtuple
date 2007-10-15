@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section612645">
-  <title> <anchor id="Anchor612644" role="Index"
+  <title><anchor id="Anchor612644" role="Index"
   xreflabel="topics:closing periods and years;fiscal years:closing of explained;accounting periods:closing of explained" />
   <indexterm significance="normal" zone="Anchor612644">
       <primary>topics</primary>
@@ -860,30 +860,42 @@
         the following kinds of transactions which may not have been posted
         yet:</para>
       </listitem>
+
+      <listitem>
+        <para>Invoices with an invoice date in the Accounting Period being
+        closed have been posted</para>
+      </listitem>
+
+      <listitem>
+        <para>Unapplied credit memos (customer returns for credit) with a memo
+        date in the Accounting Period being closed have been posted or the
+        date changed</para>
+      </listitem>
+
+      <listitem>
+        <para>Cash Receipts with a distribution date in the Accounting Period
+        being closed have been posted</para>
+      </listitem>
+
+      <listitem>
+        <para>Vouchers and Miscellaneous Vouchers with a distribution date in
+        the Accounting Period being closed have been posted</para>
+      </listitem>
+
+      <listitem>
+        <para>Checks with check dates in the Accounting Period being closed
+        have been posted</para>
+      </listitem>
+
+      <listitem>
+        <para>Bank Adjustments with a distribution date in the Accounting
+        Period being closed have been posted</para>
+      </listitem>
     </orderedlist>
 
-    <para id="Para612892"><PgfTag>Bulleted1</PgfTag> Invoices with an invoice
-    date in the Accounting Period being closed have been posted</para>
-
-    <para id="Para612893">Unapplied credit memos (customer returns for credit)
-    with a memo date in the Accounting Period being closed have been posted or
-    the date changed</para>
-
-    <para id="Para612894">Cash Receipts with a distribution date in the
-    Accounting Period being closed have been posted</para>
-
-    <para id="Para612895">Vouchers and Miscellaneous Vouchers with a
-    distribution date in the Accounting Period being closed have been
-    posted</para>
-
-    <para id="Para612896">Checks with check dates in the Accounting Period
-    being closed have been posted</para>
-
-    <para id="Para612897">Bank Adjustments with a distribution date in the
-    Accounting Period being closed have been posted</para>
-
-    <para id="Para612898">In short, make sure any pending transactions are
-    posted and processed prior to closing a Period.</para>
+    <para>In short, make sure any pending transactions are posted and
+    processed prior to closing a Period. And keep the following points in
+    mind:</para>
 
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem id="listitemN0x180ac00N0x188c040">
