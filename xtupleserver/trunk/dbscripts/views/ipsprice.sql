@@ -5,8 +5,8 @@ CREATE OR REPLACE VIEW ipsprice AS
          'I' AS ipsprice_source,
          ipsitem_ipshead_id AS ipsprice_ipshead_id,
          ipsitem_item_id AS ipsprice_item_id,
-         ipsitem_qtybreak AS ipsprice_qtybreak,
-         ipsitem_price AS ipsprice_price
+         itemuomtouom(ipsitem_item_id, ipsitem_qty_uom_id, NULL, ipsitem_qtybreak) AS ipsprice_qtybreak,
+         (ipsitem_price * itemuomtouomratio(ipsitem_item_id, NULL, ipsitem_price_uom_id)) * iteminvpricerat(ipsitem_item_id) AS ipsprice_price
     FROM ipsitem
    UNION
   SELECT ipsprodcat_id AS ipsprice_id,
