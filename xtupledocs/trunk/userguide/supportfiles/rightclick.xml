@@ -29,10 +29,18 @@
       </varlistentry>
 
       <varlistentry>
-        <term></term>
+        <term>New</term>
 
         <listitem>
-          <para></para>
+          <para>Select to create a new item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Delete</term>
+
+        <listitem>
+          <para>Select to delete the specified item.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -74,6 +82,14 @@
         <listitem>
           <para>Select to correct Production Posting for the specified Work
           Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Delete Operation</term>
+
+        <listitem>
+          <para>Select to delete the specified Operation.</para>
         </listitem>
       </varlistentry>
 
@@ -137,6 +153,15 @@
       </varlistentry>
 
       <varlistentry>
+        <term>Print Pick Lists</term>
+
+        <listitem>
+          <para>Select to print a Pick List(s) for the specified Work
+          Order(s).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term id="Para553984">Print Traveler</term>
 
         <listitem>
@@ -182,10 +207,62 @@
       </varlistentry>
 
       <varlistentry>
+        <term>Substitute Availability</term>
+
+        <listitem>
+          <para>Select to view availability of substitute Items, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Allocations</term>
+
+        <listitem>
+          <para>Select to view all the Orders where the specified Item is
+          allocated.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Availability</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Operation</term>
+
+        <listitem>
+          <para>Select to view the specified Operation detail.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Orders</term>
+
+        <listitem>
+          <para>Select to view all the pending Orders for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Requirement</term>
+
+        <listitem>
+          <para>Select to view the specified Work Order Material Requirement
+          detail.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term>View W/O</term>
 
         <listitem>
-          <para>Select to view the specified Work Order.</para>
+          <para>Select to view the specified Work Order detail.</para>
         </listitem>
       </varlistentry>
 
@@ -222,6 +299,38 @@
         <listitem>
           <para>Select to view the Parent Work Order information for the
           specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section>
+    <title>Planning Systems</title>
+
+    <variablelist>
+      <varlistentry>
+        <term></term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>MPS Detail</term>
+
+        <listitem>
+          <para>Select to view the Master Production Scheduling detail for the
+          specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Running Availability</term>
+
+        <listitem>
+          <para>Select to view Running Availability for the specified Item
+          Site.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -265,17 +374,17 @@
         <term>Issue Count Tag</term>
 
         <listitem>
-          <para>Select to issue a Count Tag for the specified Item
+          <para>Select to create a Count Tag for the specified Item
           Site.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term>Running Availability</term>
+        <term>Issue Purchase Order</term>
 
         <listitem>
-          <para>Select to view Running Availability for the specified Item
-          Site.</para>
+          <para>Select to create a Purchase Order for the specified
+          Item.</para>
         </listitem>
       </varlistentry>
 
