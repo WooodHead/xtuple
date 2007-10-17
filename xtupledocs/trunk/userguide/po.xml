@@ -1246,14 +1246,14 @@
         <varlistentry>
           <term id="Para957695">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1841a30)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para957696">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18419e8)" />
         </varlistentry>
 
@@ -1357,21 +1357,21 @@
         <varlistentry>
           <term id="Para972599">Edit Vendor</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1841d48)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972600">View Vendor</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1841d90)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972601">Delete Vendor</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1841dd8)" />
         </varlistentry>
 
@@ -3607,41 +3607,39 @@
         <varlistentry>
           <term id="Para972537">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186fb68)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972538">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186fbf8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972539">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186fc40)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972540">Print</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186fc88)" />
         </varlistentry>
 
-        <varlistentry>
-          <term id="Para972541">Deliver</term>
-
-          <listitem id="listitemN0x180ac00N0x186fe5c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
         <varlistentry>
           <term id="Para972542">Post</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186fcd0)" />
         </varlistentry>
 
@@ -4618,17 +4616,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para972037">Mark as Invoiced</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x187b134"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para972038">Correct Receiving</term>
-
-          <listitem id="listitemN0x180ac00N0x187b17c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/3)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4639,11 +4633,9 @@
       option will be available:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para972041">Create Credit Memo</term>
-
-          <listitem id="listitemN0x180ac00N0x187b230"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/4)" />
       </variablelist>
 
       <para id="Para972042">To mark a Line Item Receipt as invoiced, highlight
@@ -5201,7 +5193,9 @@
         <varlistentry>
           <term id="Para972126">View P/O Item</term>
 
-          <listitem id="listitemN0x180ac00N0x1882924"></listitem>
+          <listitem id="listitemN0x180ac00N0x1882924">
+            <para></para>
+          </listitem>
         </varlistentry>
       </variablelist>
 
@@ -6152,28 +6146,28 @@
         <varlistentry>
           <term id="Para972277">Edit Voucher</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1891254)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972278">View Voucher</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x189129c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972279">Delete Voucher</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1891374)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para972280">Post Voucher</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x189132c)" />
         </varlistentry>
 
@@ -6243,16 +6237,16 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para972295">Edit</term>
-
-          <listitem id="listitemN0x180ac00N0x1891764"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
         <varlistentry>
           <term id="Para972296">View</term>
 
-          <listitem id="listitemN0x180ac00N0x18917ac"></listitem>
+          <listitem id="listitemN0x180ac00N0x18917ac">
+            <para></para>
+          </listitem>
         </varlistentry>
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -6997,23 +6991,17 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para521830">Running Availability</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/5)" />
 
-          <listitem id="listitemN0x180ac00N0x18a2b2c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/8)" />
 
-        <varlistentry>
-          <term id="Para532714">Release P/R</term>
-
-          <listitem id="listitemN0x180ac00N0x18a2b74"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para532715">Delete P/R</term>
-
-          <listitem id="listitemN0x180ac00N0x18a2bbc"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/5)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7202,23 +7190,17 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para935987">Running Availability</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/5)" />
 
-          <listitem id="listitemN0x180ac00N0x18a315c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/8)" />
 
-        <varlistentry>
-          <term id="Para935988">Release P/R</term>
-
-          <listitem id="listitemN0x180ac00N0x18a31a4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para935989">Delete P/R</term>
-
-          <listitem id="listitemN0x180ac00N0x18a31ec"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/5)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7362,29 +7344,21 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para971957">View Item Site</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x18aa2c8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/3)" />
 
-        <varlistentry>
-          <term id="Para971958">Edit Item Site</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x18aa310"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para971959">View Inventory Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x18aa358"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para971960">Issue Count Tag</term>
-
-          <listitem id="listitemN0x180ac00N0x18aa3a0"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/4)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7528,11 +7502,9 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para956033">View Order</term>
-
-          <listitem id="listitemN0x180ac00N0x18aa820"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7702,11 +7674,9 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para958442">View Order</term>
-
-          <listitem id="listitemN0x180ac00N0x18b2f20"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7891,41 +7861,29 @@
       Order list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para920898">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
-          <listitem id="listitemN0x180ac00N0x18b3508"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/5)" />
 
-        <varlistentry>
-          <term id="Para947828">Running Availability</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/11)" />
 
-          <listitem id="listitemN0x180ac00N0x18b3550"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/9)" />
 
-        <varlistentry>
-          <term id="Para920899">View Item</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18b3598"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946433">Reschedule</term>
-
-          <listitem id="listitemN0x180ac00N0x18b35e0"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946434">Change Qty</term>
-
-          <listitem id="listitemN0x180ac00N0x18b3628"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946496">Close Item</term>
-
-          <listitem id="listitemN0x180ac00N0x18b3670"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -7939,7 +7897,9 @@
         <varlistentry>
           <term id="Para929482">Open Item</term>
 
-          <listitem id="listitemN0x180ac00N0x18b3724"></listitem>
+          <listitem id="listitemN0x180ac00N0x18b3724">
+            <para></para>
+          </listitem>
         </varlistentry>
       </variablelist>
     </section>
@@ -8110,41 +8070,29 @@
       Order list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para946514">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
-          <listitem id="listitemN0x180ac00N0x18b906c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/5)" />
 
-        <varlistentry>
-          <term id="Para947869">Running Availability</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/11)" />
 
-          <listitem id="listitemN0x180ac00N0x18b90b4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/9)" />
 
-        <varlistentry>
-          <term id="Para946515">View Item</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18b90fc"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946516">Reschedule</term>
-
-          <listitem id="listitemN0x180ac00N0x18b9144"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946517">Change Qty</term>
-
-          <listitem id="listitemN0x180ac00N0x18b918c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946518">Close Item</term>
-
-          <listitem id="listitemN0x180ac00N0x18b91d4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -8158,7 +8106,9 @@
         <varlistentry>
           <term id="Para946521">Open Item</term>
 
-          <listitem id="listitemN0x180ac00N0x18b9288"></listitem>
+          <listitem id="listitemN0x180ac00N0x18b9288">
+            <para></para>
+          </listitem>
         </varlistentry>
       </variablelist>
     </section>
@@ -8326,41 +8276,29 @@
       Order list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para946559">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
-          <listitem id="listitemN0x180ac00N0x18b9798"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/5)" />
 
-        <varlistentry>
-          <term id="Para947884">Running Availability</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/11)" />
 
-          <listitem id="listitemN0x180ac00N0x18b97e0"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/9)" />
 
-        <varlistentry>
-          <term id="Para946560">View Item</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18b9828"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946561">Reschedule</term>
-
-          <listitem id="listitemN0x180ac00N0x18b9870"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946562">Change Qty</term>
-
-          <listitem id="listitemN0x180ac00N0x18b98b8"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para946563">Close Item</term>
-
-          <listitem id="listitemN0x180ac00N0x18b9900"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -8374,7 +8312,9 @@
         <varlistentry>
           <term id="Para953778">Open Item</term>
 
-          <listitem id="listitemN0x180ac00N0x18b99b4"></listitem>
+          <listitem id="listitemN0x180ac00N0x18b99b4">
+            <para></para>
+          </listitem>
         </varlistentry>
       </variablelist>
     </section>
@@ -8836,17 +8776,13 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para931312">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18c0db4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para931313">View Buy Card</term>
-
-          <listitem id="listitemN0x180ac00N0x18c0dfc"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -8939,23 +8875,17 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para526561">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18c1180"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
-        <varlistentry>
-          <term id="Para526562">View Buy Card</term>
-
-          <listitem id="listitemN0x180ac00N0x18c11c8"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para526563">View P/Os</term>
-
-          <listitem id="listitemN0x180ac00N0x18c7000"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/14)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
