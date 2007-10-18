@@ -41,6 +41,7 @@ BEGIN
     coitem_promdate,
     coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
     coitem_price, coitem_custprice, coitem_unitcost,
+    coitem_qty_invuomratio, coitem_price_invuomratio,
     coitem_order_type, coitem_order_id,
     coitem_memo, coitem_custpn,
     coitem_imported, coitem_tax_id )
@@ -49,6 +50,7 @@ BEGIN
          coitem_promdate,
          coitem_qtyord, 0, 0,
          coitem_price, coitem_custprice, stdCost(itemsite_item_id),
+         coitem_qty_invuomratio, coitem_price_invuomratio,
          '''', -1,
          coitem_memo, coitem_custpn,
          FALSE, coitem_tax_id

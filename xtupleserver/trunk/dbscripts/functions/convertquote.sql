@@ -109,7 +109,7 @@ BEGIN
     IF (_r.quitem_createorder) THEN
 
       IF (_r.item_type = ''M'') THEN
-        SELECT createWo( _r.quhead_number, supply.itemsite_id, 1, _r.quitem_qtyord,
+        SELECT createWo( _r.quhead_number, supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, ''S'', _soitemid, _r.quhead_prj_id ) INTO _orderId
         FROM itemsite sold, itemsite supply
         WHERE ((sold.itemsite_item_id=supply.itemsite_item_id)
@@ -125,7 +125,7 @@ BEGIN
            AND  (charass_target_id=_r.quitem_id));
 
       ELSIF (_r.item_type IN (''P'', ''O'')) THEN
-        SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, _r.quitem_qtyord,
+        SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.quitem_scheddate, '''', ''S'', _soitemid ) INTO _orderId;
         _orderType := ''P'';
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
@@ -138,6 +138,7 @@ BEGIN
       coitem_status, coitem_scheddate,
       coitem_price, coitem_custprice, 
       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
+      coitem_qty_invuomratio, coitem_price_invuomratio,
       coitem_order_type, coitem_order_id,
       coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
     VALUES
@@ -145,6 +146,7 @@ BEGIN
       ''O'', _r.quitem_scheddate,
       _r.quitem_price, _r.quitem_custprice,
       _r.quitem_qtyord, 0, 0,
+      _r.quitem_qty_invuomratio, _r.quitem_price_invuomratio,
       _ordertype, _orderid,
       _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
 

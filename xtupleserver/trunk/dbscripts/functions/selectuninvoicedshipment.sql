@@ -13,7 +13,7 @@ BEGIN
 
 --  Grab all of the uninvoiced coship records
   FOR _r IN SELECT cohead_id, coitem_id, SUM(coship_qty) AS qty,
-                   coitem_price, iteminvpricerat(item_id) AS invpricerat, item_id,
+                   coitem_price, coitem_price_invuomratio AS invpricerat, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
                     OR (NOT cust_partialship) ) AS toclose, coitem_tax_id
             FROM cosmisc, coship, coitem, cohead, custinfo, itemsite, item
@@ -48,9 +48,9 @@ BEGIN
              cobill_select_username = CURRENT_USER,
              cobill_qty = cobill_qty + _r.qty,
              cobill_toclose = _r.toclose,
-             cobill_tax_ratea = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * _r.coitem_price / _r.invpricerat, 2), 0.0, ''A''),
-             cobill_tax_rateb = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * _r.coitem_price / _r.invpricerat, 2), 0.0, ''B''),
-             cobill_tax_ratec = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * _r.coitem_price / _r.invpricerat, 2), 0.0, ''C'')
+             cobill_tax_ratea = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+             cobill_tax_rateb = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+             cobill_tax_ratec = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'')
        WHERE (cobill_id=_cobillid);
     ELSE
 --  Now insert the cobill line
@@ -81,9 +81,9 @@ BEGIN
         _r.qty, _r.toclose,
         _taxid, _taxtypeid,
         _pcnta, _pcntb, _pcntc,
-        calculateTax(_taxid, round(_r.qty * _r.coitem_price / _r.invpricerat, 2), 0.0, ''A''),
-        calculateTax(_taxid, round(_r.qty * _r.coitem_price / _r.invpricerat, 2), 0.0, ''B''),
-        calculateTax(_taxid, round(_r.qty * _r.coitem_price / _r.invpricerat, 2), 0.0, ''C'') );
+        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'') );
     END IF;
 
   END LOOP;
