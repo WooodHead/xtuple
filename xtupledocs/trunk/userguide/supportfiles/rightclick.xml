@@ -102,6 +102,14 @@
       </varlistentry>
 
       <varlistentry>
+        <term>Edit Operation</term>
+
+        <listitem>
+          <para>Select to edit the specified Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term>Edit W/O</term>
 
         <listitem>
@@ -210,16 +218,7 @@
         <term>Substitute</term>
 
         <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Substitute Availability</term>
-
-        <listitem>
-          <para>Select to view availability of substitute Items, if
-          any.</para>
+          <para>Select to choose a BOM-defined substitute Item, if any.</para>
         </listitem>
       </varlistentry>
 
@@ -236,8 +235,8 @@
         <term>View Item-Defined Substitute Availability</term>
 
         <listitem>
-          <para>Select to view availability of substitute Items, if
-          any.</para>
+          <para>Select to view availability of substitute Items defined at the
+          Item level, if any.</para>
         </listitem>
       </varlistentry>
 
@@ -246,15 +245,6 @@
 
         <listitem>
           <para>Select to view the specified Operation detail.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>View Orders</term>
-
-        <listitem>
-          <para>Select to view all the pending Orders for the specified
-          Item.</para>
         </listitem>
       </varlistentry>
 
@@ -356,10 +346,63 @@
 
     <variablelist>
       <varlistentry>
+        <term>Adjust this QOH</term>
+
+        <listitem>
+          <para>Select to enter a Miscellaneous Adjustment for the specified
+          Item Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Count Slip Edit List</term>
+
+        <listitem>
+          <para>Select to display the Count Slip Edit List for the specified
+          Count Tag, if any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Create P/O</term>
+
+        <listitem>
+          <para>Select to create a Purchase Order for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Create P/R</term>
+
+        <listitem>
+          <para>Select to create a Purchase Request for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Create W/O</term>
+
+        <listitem>
+          <para>Select to create a Work Order for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term>Edit Item Site</term>
 
         <listitem>
           <para>Select to edit the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Enter Misc. Count</term>
+
+        <listitem>
+          <para>Select to enter a Miscellaneous Inventory Count for the
+          specified Item Site.</para>
         </listitem>
       </varlistentry>
 
@@ -382,6 +425,78 @@
       </varlistentry>
 
       <varlistentry>
+        <term>List Items in this Inventory Cost Category</term>
+
+        <listitem>
+          <para>Select to display Item Sites using the specified Cost
+          Category</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>List Item Sites</term>
+
+        <listitem>
+          <para>Select to display a list of Item Sites for the specified
+          Warehouse.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Post Misc. Production</term>
+
+        <listitem>
+          <para>Select to post Miscellaneous Production for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Reset this QOH to 0</term>
+
+        <listitem>
+          <para>Select to change the Quantity on Hand for the specified Item
+          Site to zero.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Substitute Availability</term>
+
+        <listitem>
+          <para>Select to view availability of substitute Items, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Transfer to another Warehouse</term>
+
+        <listitem>
+          <para>Select to transfer Inventory from the specified Warehouse to
+          another Warehouse.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View All Transactions</term>
+
+        <listitem>
+          <para>Select to view all Inventory transactions for the specified
+          Item Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Allocations</term>
+
+        <listitem>
+          <para>Select to view Orders the specified Item Site is allocated
+          to.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term>View Availability</term>
 
         <listitem>
@@ -400,10 +515,55 @@
       </varlistentry>
 
       <varlistentry>
+        <term>View Inventory History</term>
+
+        <listitem>
+          <para>Select to view Inventory history for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term>View Item Site</term>
 
         <listitem>
           <para>Select to view the specified Item Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Location/Lot/Serial # Detail</term>
+
+        <listitem>
+          <para>Select to view detailed information for the specified Item
+          Site.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Orders</term>
+
+        <listitem>
+          <para>Select to view all the pending Orders for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Pending Inventory History</term>
+
+        <listitem>
+          <para>Select to view Inventory transactions for the Item Site since
+          the date the specified Count Tag was created.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>View Substitute Availability</term>
+
+        <listitem>
+          <para>Select to view availability of substitute Items, if
+          any.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -470,6 +630,14 @@
 
         <listitem id="listitemN0x180ac00N0x187b134">
           <para>Select to mark the specified Receipt as invoiced.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Open Item</term>
+
+        <listitem>
+          <para>Select to open the specified Purchase Order Item.</para>
         </listitem>
       </varlistentry>
 

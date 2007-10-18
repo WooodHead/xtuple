@@ -6,53 +6,68 @@
   xreflabel="cost categories:master list of" /> <indexterm
       significance="normal" zone="Anchor677945">
       <primary>cost categories</primary>
+
       <secondary>master list of</secondary>
     </indexterm>Cost Categories</title>
+
   <para id="Para677947">Cost Categories are applied to Item Sites as a
   mechanism for specifying how Costs should be distributed to the General
   Ledger whenever Inventory is received, moved, consumed, produced, shipped,
   scrapped, or returned. To access the master list of Cost Categories, select
   the "Cost Categories" option.</para>
+
   <para id="Para677951"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_MI_costCat.png" id="Graphic677949" />
         </imageobject>
+
         <caption id="Caption677952">Cost Categories Master List</caption>
       </mediaobject>
     </screenshot></para>
+
   <note>
     <para id="Para677954">Cost Categories define Cost distributions for
     Inventory Items. The distribution of Costs for non-Inventory Items are
     determined by Expense Categories.</para>
   </note>
+
   <para id="Para677955">The "Cost Categories" screen displays information on
   all existing Cost Categories, including Cost Category code and Cost Category
   description.</para>
+
   <para id="Para677956">To the far right of the screen, the following buttons
   are available:</para>
+
   <variablelist>
     <varlistentry>
       <term id="Para677957">CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x1844bbc">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677958">PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x1844c04">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677959">NEW</term>
+
       <listitem id="listitemN0x180ac00N0x1844c4c">
         <para>Opens screen for creating a new Cost Category.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677960">EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x1844c94">
         <para>Enables you to edit highlighted Cost Categories. The edit screen
         is the same as that for creating a new Cost Category--except that when
@@ -61,70 +76,89 @@
         screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677961">VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x1844cdc">
         <para>Highlight a Cost Category and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677962">COPY</term>
+
       <listitem id="listitemN0x180ac00N0x1844d24">
         <para>Highlight a Cost Category and then select this button to reach a
         screen for copying the Cost Category master.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677963">DELETE</term>
+
       <listitem id="listitemN0x180ac00N0x1844d6c">
         <para>Highlight a Cost Category and then select this button to remove
         the category from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para id="Para677964">Right-clicking on a Cost Category in the Cost
   Categories list enables you to select from the following menu
   options:</para>
+
   <variablelist>
     <varlistentry>
       <term id="Para677965">Edit Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x1844c94)" />
     </varlistentry>
+
     <varlistentry>
       <term id="Para677966">View Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x1844cdc)" />
     </varlistentry>
+
     <varlistentry>
       <term id="Para677967">Delete Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x1844d6c)" />
     </varlistentry>
-    <varlistentry>
-      <term id="Para677968">List Items in this Inventory Cost Category</term>
-      <listitem id="listitemN0x180ac00N0x1844eb0"></listitem>
-    </varlistentry>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/4)" />
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+
   <para id="Para677971">To <anchor id="Anchor677970" role="Index"
   xreflabel="cost categories:creating new" /> <indexterm significance="normal"
       zone="Anchor677970">
       <primary>cost categories</primary>
+
       <secondary>creating new</secondary>
     </indexterm>create a new Cost Category, select the NEW button. The
   following screen will appear:</para>
+
   <para id="Para677975"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_MI_costCatNew.png" id="Graphic677973" />
         </imageobject>
+
         <caption id="Caption677976">Create New Cost Category</caption>
       </mediaobject>
     </screenshot></para>
+
   <tip>
     <para id="Para677978">The Account Numbers assigned to Cost Categories
     should not all be the Inventory Account. Instead, they should be
@@ -132,52 +166,67 @@
     This will increase your visibility into your Inventory Costs and
     valuation.</para>
   </tip>
+
   <para id="Para677979">When creating a new Cost Category, you are presented
   with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term id="Para677980">Category</term>
+
       <listitem id="listitemN0x180ac00N0x184503c">
         <para>Enter the Cost Category name.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677981">Description</term>
+
       <listitem id="listitemN0x180ac00N0x1845084">
         <para>Enter a brief description of the Cost Category.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677982">Inventory Asset</term>
+
       <listitem id="listitemN0x180ac00N0x18450cc">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         assets to.</para>
+
         <para id="Para677983">This is an Asset Account. It will be debited
         when Inventory is received and credited whenever Inventory Items are
         removed from Inventory.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677984">WIP Asset</term>
+
       <listitem id="listitemN0x180ac00N0x1845114">
         <para>Identify a General Ledger (G/L) Account to distribute
         work-in-process (WIP) assets to.</para>
+
         <para id="Para677985">This is an Asset Account. It will be credited
         and/or debited with labor, material, and <anchor id="Anchor677986"
         role="Index" xreflabel="overhead:linking to wip assets" /> <indexterm
             significance="normal" zone="Anchor677986">
             <primary>overhead</primary>
+
             <secondary>linking to wip assets</secondary>
           </indexterm>overhead Costs while a Work Order is in-process. The
         sense of the transaction record depends on the circumstances of the
         transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677987">Inventory Cost Variance</term>
+
       <listitem id="listitemN0x180ac00N0x18451a4">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         Cost variances to.</para>
+
         <para id="Para677988">This is an Asset Account. It is used in several
         scenarios: 1) If there is a difference between new Actual Cost and old
         Standard Cost when posting Actual Costs to Standard; 2) during Work
@@ -189,33 +238,42 @@
         transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677989">Transform Clearing</term>
+
       <listitem id="listitemN0x180ac00N0x18451ec">
         <para>Identify a General Ledger (G/L) Account to distribute Transform
         transactions to.</para>
+
         <para id="Para677990">This is an Asset Account. It will be credited
         when a source Item quantity is transformed, and debited for an equal
         amount when the target Item quantity is received into
         Inventory.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677991">Purchase Price Variance</term>
+
       <listitem id="listitemN0x180ac00N0x184da24">
         <para>Identify a General Ledger (G/L) Account to distribute purchase
         Price variances to.</para>
+
         <para id="Para677992">This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
         is posted. The sense of the transaction record depends on the
         circumstances of the transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677993">Inventory Adjustment</term>
+
       <listitem id="listitemN0x180ac00N0x184da6c">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
         adjustments to.</para>
+
         <para id="Para677994">This is an Expense Account. It will be credited
         or debited with the value of any variance that may arise when a
         Miscellaneous Adjustment transaction or Cycle Count transaction is
@@ -223,78 +281,101 @@
         the circumstances of the transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677995">Inventory Scrap</term>
+
       <listitem id="listitemN0x180ac00N0x184dab4">
         <para>Identify a G/L Account to distribute Inventory Scrap to.</para>
+
         <para id="Para677996">This is an Expense Account. It will be credited
         when a Scrap transaction is posted against an Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677997">Manufacturing Scrap</term>
+
       <listitem id="listitemN0x180ac00N0x184dafc">
         <para>Identify a G/L Account to distribute Manufacturing Scrap
         to.</para>
+
         <para id="Para677998">This is an Expense Account. It will be credited
         when Work Order Material Requirements are scrapped from a Work
         Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry role="openmfg">
       <term id="Para678003">Labor and Overhead Costs</term>
+
       <listitem id="listitemN0x180ac00N0x184db20">
         <para>Overhead Costs: Identify a General Ledger (G/L) Account to
         distribute labor and overhead Costs to.</para>
+
         <para id="Para678004">This is a Liability Account. It will be debited
         and/or credited with labor and overhead Costs when Work Orders are
         in-process or posted. The sense of the transaction record depends on
         the circumstances of the transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para678005">P/O Liability Clearing</term>
+
       <listitem id="listitemN0x180ac00N0x184db68">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order liability clearing to.</para>
+
         <para id="Para678006">This is a Liability Account. It will be credited
         when a Purchase Order Receipt is posted and debited when a Voucher is
         posted.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para678007">Shipping Asset</term>
+
       <listitem id="listitemN0x180ac00N0x184dbb0">
         <para>Identify a General Ledger (G/L) Account to distribute shipping
         assets to.</para>
+
         <para id="Para678008">This is an Asset Account. It will be debited
         with the Standard Cost of a Sales Order Item when the Item is issued
         to Shipping and credited once the Item has been shipped.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para678009">P/O Line Freight Expense</term>
+
       <listitem id="listitemN0x180ac00N0x184dbf8">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order Line Item freight expenses to.</para>
+
         <para id="Para678010">This is an Expense Account. It will be debited
         when Purchase Order Line Items are received. The Account may be
         debited or credited when correcting Purchase Order Receipts.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para id="Para678011">To the far right of the screen, the following buttons
   are available:</para>
+
   <variablelist>
     <varlistentry>
       <term id="Para678012">CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x184dc64">
         <para>Closes the screen without creating a Cost Category, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para678013">SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x184dcac">
         <para>Creates the Cost Category and adds it to the master list of Cost
         Categories.</para>

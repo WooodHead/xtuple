@@ -2634,7 +2634,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
+                    xpointer="element(/1/4/2/23)" />
+
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/4/2/20)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -3345,17 +3349,22 @@
 
           <listitem>
             <para>Select if you want to scrap parent-level Items.</para>
+          </listitem>
+        </varlistentry>
 
-            <para id="Para557856">Qty. to Scrap: Enter the quantity of
-            top-level finished Items you want to scrap. You may scrap
-            top-level Items after they have been received into Inventory--or
-            before. Keep in mind that if you scrap top-level Items prior to
-            receiving them, material requirements for those Items may or may
-            not have been issued to the Work Order yet. You should make any
-            necessary adjustments to account for those requirements. For
-            example, you may need to issue the components--either manually or
-            through a material backflush--and then scrap them
-            retroactively.</para>
+        <varlistentry>
+          <term>Qty. to Scrap</term>
+
+          <listitem>
+            <para>Enter the quantity of top-level finished Items you want to
+            scrap. You may scrap top-level Items after they have been received
+            into Inventory--or before. Keep in mind that if you scrap
+            top-level Items prior to receiving them, material requirements for
+            those Items may or may not have been issued to the Work Order yet.
+            You should make any necessary adjustments to account for those
+            requirements. For example, you may need to issue the
+            components--either manually or through a material backflush--and
+            then scrap them retroactively.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3376,56 +3385,95 @@
           <listitem>
             <para>Select if you want to scrap component Items issued to the
             Work Order.</para>
+          </listitem>
+        </varlistentry>
 
-            <para id="Para557758">Component Item Number: Select one of the
-            component Items from the parent Item's Work Order Material
-            Requirements will be listed.</para>
+        <varlistentry>
+          <term>Component Item Number</term>
+
+          <listitem>
+            <para>Select one of the component Items from the parent Item's
+            Work Order Material Requirements will be listed.</para>
+
+            <note>
+              <para>You may scrap component Items regardless of their issue
+              method. However, components must first be issued to a Work Order
+              before they can be scrapped from it. Components are issued to
+              Work Orders either manually or through a material
+              backflush.</para>
+            </note>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>UOM</term>
+
+          <listitem>
+            <para>Inventory Unit of Measure.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Qty. Per</term>
+
+          <listitem>
+            <para>Displays the component quantity per each specified on the
+            parent Item's Work Order Material Requirements.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Scrap %</term>
+
+          <listitem>
+            <para>Displays the component scrap percentage specified on the
+            Item's Bill of Materials.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Qty. Required</term>
+
+          <listitem>
+            <para>Displays the component quantity required to fulfill the Work
+            Order Material Requirements.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Qty. Issued</term>
+
+          <listitem>
+            <para>Displays the component quantity currently issued to the Work
+            Order. You may only scrap components which have already been
+            issued to a Work Order--either manually or through a material
+            backflush.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Qty. Scrapped from WIP</term>
+
+          <listitem>
+            <para>Displays a running total of the component quantity already
+            scrapped--if any.</para>
+
+            <tip>
+              <para>You may not scrap the full quantity of a Work Order
+              Material Requirement from a Work Order.</para>
+            </tip>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Qty. to Scrap</term>
+
+          <listitem>
+            <para>Enter the quantity of the component Item you want to scrap
+            from the Work Order.</para>
           </listitem>
         </varlistentry>
       </variablelist>
-
-      <note>
-        <para id="Para568717">You may scrap component Items regardless of
-        their issue method. However, components must first be issued to a Work
-        Order before they can be scrapped from it. Components are issued to
-        Work Orders either manually or through a material backflush.</para>
-      </note>
-
-      <itemizedlist>
-        <listitem>
-          <para id="Para568718">UOM: Inventory Unit of Measure.</para>
-
-          <para id="Para568719">Qty. Per: Displays the component quantity per
-          each specified on the parent Item's Work Order Material
-          Requirements.</para>
-
-          <para id="Para519055">Scrap %: Displays the component scrap
-          percentage specified on the Item's Bill of Materials.</para>
-
-          <para id="Para519057">Qty. Required: Displays the component quantity
-          required to fulfill the Work Order Material Requirements.</para>
-
-          <para id="Para557765">Qty. Issued: Displays the component quantity
-          currently issued to the Work Order. You may only scrap components
-          which have already been issued to a Work Order--either manually or
-          through a material backflush.</para>
-
-          <para id="Para519059">Qty. Scrapped from WIP: Displays a running
-          total of the component quantity already scrapped--if any.</para>
-        </listitem>
-      </itemizedlist>
-
-      <tip>
-        <para id="Para552830">You may not scrap the full quantity of a Work
-        Order Material Requirement from a Work Order.</para>
-      </tip>
-
-      <itemizedlist>
-        <listitem>
-          <para id="Para519064">Qty. to Scrap: Enter the quantity of the
-          component Item you want to scrap from the Work Order.</para>
-        </listitem>
-      </itemizedlist>
 
       <para id="Para519066">To the far right of the screen, the following
       buttons are available:</para>
@@ -3589,12 +3637,23 @@
             <para>Select to indicate that the amount of time and labor
             indicated by the associated Work Order Operation record will be
             issued to the selected Work Order.</para>
+          </listitem>
+        </varlistentry>
 
-            <para id="Para554950">Setup By: Enter the name of the user who
-            performed the set up.</para>
+        <varlistentry>
+          <term>Setup By</term>
 
-            <para id="Para554953">Run By: Enter the name of the user who
-            performed the production run.</para>
+          <listitem>
+            <para>Enter the name of the user who performed the set up.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Run By</term>
+
+          <listitem>
+            <para>Enter the name of the user who performed the production
+            run.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3632,10 +3691,8 @@
 
           <listitem>
             <para>Select to transfer Work Order production to specified
-            Warehouse.</para>
-
-            <para id="Para543762">Specify the Warehouse you want to transfer
-            production to.</para>
+            Warehouse. Specify the Warehouse you want to transfer production
+            to.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4624,7 +4681,8 @@
           <term id="Para519288">Edit Operation</term>
 
           <listitem>
-            <para></para>
+            <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(Section519256/7/3/2/1)" />
           </listitem>
         </varlistentry>
 
@@ -5529,10 +5587,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -5591,10 +5645,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -5638,10 +5688,6 @@
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/19)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5956,10 +6002,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -6022,10 +6064,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -6072,24 +6110,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para554071">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -6396,10 +6421,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -6462,10 +6483,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -6512,24 +6529,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para554002">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -6752,7 +6756,9 @@
           <term id="Para554471">PRINT TRAVELER</term>
 
           <listitem>
-            <para></para>
+            <xi:include href="supportfiles/rightclick.xml"
+                        xmlns:xi="http://www.w3.org/2001/XInclude"
+                        xpointer="element(/1/4/2/15/2/1)" />
           </listitem>
         </varlistentry>
       </variablelist>
@@ -6835,10 +6841,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -6901,10 +6903,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -6951,24 +6949,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para544254">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -7087,11 +7072,9 @@
           <term id="Para554270">Only Show Top Level Work Orders</term>
 
           <listitem>
-            <para>Select to display only top level Work Orders.</para>
-
-            <para id="Para554271">Top level Work Orders are Work Orders that
-            have not been created to meet the component demands of a parent
-            Work Order.</para>
+            <para>Select to display only top level Work Orders. Top level Work
+            Orders are Work Orders that have not been created to meet the
+            component demands of a parent Work Order.</para>
           </listitem>
         </varlistentry>
 
@@ -7100,9 +7083,7 @@
 
           <listitem>
             <para>Display lists Work Order schedules by Work Center, using the
-            specified parameters.</para>
-
-            <para id="Para569308">The start dates and end dates are
+            specified parameters. The start dates and end dates are
             color-coded for ease of use. Both dates will display in red type
             if the Work Order is not yet in-process and is also past due. Once
             a Work Order's Status is changed to in-process ("I"), the start
@@ -7265,10 +7246,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -7331,10 +7308,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -7381,24 +7354,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para554328">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -7647,10 +7607,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -7709,10 +7665,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -7755,24 +7707,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para570901">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -8021,10 +7960,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -8083,10 +8018,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -8129,24 +8060,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para570990">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -8395,10 +8313,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="supportfiles/rightclick.xml"
@@ -8457,10 +8371,6 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
@@ -8473,13 +8383,9 @@
       Order:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para571064">View W/O</term>
-
-          <listitem>
-            <para></para>
-          </listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/4/2/27)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -8507,24 +8413,11 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para571075">If the Work Order is a child Work Order, the
-      following additional option will appear:</para>
-
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
       </variablelist>
     </section>
 
@@ -9377,19 +9270,27 @@
       <variablelist>
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/19)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/22)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/18)" />
+                    xpointer="element(/1/4/2/25)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/7/2/5)" />
+                    xpointer="element(/1/5/2/3)" />
+
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/4/2/21)" />
+
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/3)" />
+
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -9670,11 +9571,11 @@
       <variablelist>
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/21)" />
+                    xpointer="element(/1/4/2/24)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/3/2/1)" />
+                    xpointer="element(/1/4/2/7)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -9682,11 +9583,15 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/10)" />
+                    xpointer="element(/1/4/2/12)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/11)" />
+                    xpointer="element(/1/4/2/13)" />
+
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/5/2/3)" />
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -9694,7 +9599,7 @@
 
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/13)" />
+                    xpointer="element(/1/4/2/14)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -10215,10 +10120,6 @@
         <xi:include href="supportfiles/rightclick.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(/1/4/2/19)" />
-
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/4/2/20)" />
       </variablelist>
     </section>
 
