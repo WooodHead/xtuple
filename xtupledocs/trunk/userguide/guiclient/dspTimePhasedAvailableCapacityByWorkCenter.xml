@@ -1,104 +1,142 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Time Phased Available Capacity by Work Center
-    </title>
-   <subtitle>dspTimePhasedAvailableCapacityByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspTimePhasedAvailableCapacityByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Time Phased Available Capacity by Work Center
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Calendar:</guilabel>
-               </entry>
-               <entry>_calendarLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_calendar</entry>
-               <entry>CalendarComboBox</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_periods</entry>
-               <entry>PeriodsListView</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Available Capacity:</guilabel>
-               </entry>
-               <entry>_loadLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_load</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section527209" role="openmfg">
+    <title>Time-Phased Available Capacity by Work Center</title>
+
+    <para id="Para527210">To view time-phased available Capacity by Work
+    Center, select the "Time-Phased Available Capacity by Work Center" option.
+    The following screen will appear:</para>
+
+    <para id="Para527214"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CP_Disp_tpAvailCapWC.png"
+                       id="Graphic527212" />
+          </imageobject>
+
+          <caption id="Caption527215">Time-Phased Available Capacity by Work
+          Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para527216">When displaying time-phased available Capacity by
+    Work Center, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527217">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display time-phased available Capacity by Work
+          Center for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para527218">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose time-phased available Capacity by Work
+          Center you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529465">Calendar</term>
+
+        <listitem>
+          <para>Select the Calendar you want to use for the report.</para>
+
+          <para id="Para529466">Associated Calendar periods will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para527221">Name/Selected Periods</term>
+
+        <listitem>
+          <para>Select as many periods as you want to display. Selected
+          periods correspond to Calendar specified in the "Calendar"
+          field.</para>
+
+          <para id="Para527222">Select individual periods or groups of periods
+          together. To select an individual period, highlight the period using
+          your mouse button. The period is now selected. To select a sequence
+          of periods, highlight the first in the sequence using your mouse
+          button. Then, holding down the SHIFT key on your keyboard, highlight
+          the last period in the sequence. The entire sequence is now
+          selected. To select periods that are out of sequence (e.g., January,
+          April, July, October), highlight the first period in the group.
+          Then, holding down the CTRL key on your keyboard, highlight the next
+          period you want to select. Continue highlighting periods with the
+          CTRL key depressed until all desired periods are selected. The
+          entire group is now selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para527223">Available Capacity</term>
+
+        <listitem>
+          <para>Display lists time-phased available Capacity by Work Center,
+          using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para527225">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527226">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para527227">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+
+          <para id="Para527228">Start date and end date must be entered for
+          calculation to proceed. Results will be displayed in the "Available
+          Capacity" display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529884">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para527292">Right-clicking on a Work Center in the Available
+    Capacity list enables you to select from the following menu
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527293">View Load</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>
