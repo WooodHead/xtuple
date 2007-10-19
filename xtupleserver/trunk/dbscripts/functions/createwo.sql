@@ -54,6 +54,45 @@ DECLARE
   _woid INTEGER;
   _result INTEGER;
   _parentType char(1);
+  _bomrevid INTEGER;
+  _boorevid INTEGER;
+
+BEGIN
+
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT getActiveRevId(''BOM'',itemsite_item_id) INTO _bomrevid
+    FROM itemsite
+    WHERE (itemsite_id=pItemsiteid);
+
+    SELECT getActiveRevId(''BOO'',itemsite_item_id) INTO _boorevid
+    FROM itemsite
+    WHERE (itemsite_id=pItemsiteid);
+  END IF;
+  
+  RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
+                  pStartDate, pDueDate, pProductionNotes,
+                  pParentType, pParentId, pProjectId, _bomrevid, _boorevid);
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pWoNumber ALIAS FOR $1;
+  pItemsiteid ALIAS FOR $2;
+  pPriority ALIAS FOR $3;
+  pQtyOrdered ALIAS FOR $4;
+  pStartDate ALIAS FOR $5;
+  pDueDate ALIAS FOR $6;
+  pProductionNotes ALIAS FOR $7;
+  pParentType ALIAS FOR $8;
+  pParentId ALIAS FOR $9;
+  pProjectId ALIAS FOR $10;
+  pBomRevId ALIAS FOR $11;
+  pBooRevId ALIAS FOR $12;
+  _woid INTEGER;
+  _result INTEGER;
+  _parentType char(1);
 
 BEGIN
 
@@ -78,11 +117,13 @@ BEGIN
   ( wo_id, wo_number, wo_subnumber, wo_itemsite_id,
     wo_priority, wo_ordtype, wo_ordid,
     wo_status, wo_startdate, wo_duedate,
-    wo_qtyord, wo_qtyrcv, wo_prodnotes, wo_prj_id )
+    wo_qtyord, wo_qtyrcv, wo_prodnotes, wo_prj_id,
+    wo_bom_rev_id, wo_boo_rev_id )
   SELECT _woid, pWoNumber, nextWoSubnumber(pWoNumber), itemsite_id,
          pPriority, _parentType, pParentId,
          ''O'', pStartDate, pDueDate,
-         roundQty(item_fractional, pQtyOrdered), 0, pProductionNotes, pProjectId
+         roundQty(item_fractional, pQtyOrdered), 0, pProductionNotes, pProjectId, 
+         pBomRevid, pBooRevid
   FROM itemsite, item
   WHERE ((itemsite_item_id=item_id)
    AND (itemsite_id=pItemsiteid));
@@ -102,7 +143,6 @@ BEGIN
 
 END;
 ' LANGUAGE 'plpgsql';
-
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT) RETURNS INTEGER AS '
 DECLARE

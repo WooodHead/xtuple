@@ -8,14 +8,7 @@ DECLARE
 BEGIN
   --See if revcontrol turned on
   IF (fetchmetricbool(''RevControl'')) THEN
-    SELECT rev_id INTO _revid
-    FROM rev 
-    WHERE ((rev_target_type=''BOM'') 
-    AND (rev_target_id=pItemid) 
-    AND (rev_status=''A''));
-    IF (NOT FOUND) THEN
-      _revid:=-1;
-    END IF;
+    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
   ELSE
     _revid:=-1;
   END IF;

@@ -5,6 +5,7 @@ DECLARE
   resultCode INTEGER;
   newWo RECORD;
   _p RECORD;
+  _r RECORD;
   _bbom BOOLEAN;
 
 BEGIN
@@ -29,6 +30,7 @@ BEGIN
    AND (itemsite_item_id=bomitem_parent_item_id)
    AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
    AND (wo_id=pWoid)
+   AND (bomitem_rev_id=wo_bom_rev_id)
    AND (bomitem_item_id NOT IN
         ( SELECT component.itemsite_item_id
           FROM itemsite AS component, itemsite AS parent
@@ -91,7 +93,7 @@ BEGIN
     womatl_qtyiss, womatl_qtywipscrap,
     womatl_lastissue, womatl_lastreturn, womatl_cost,
     womatl_picklist, womatl_createwo, womatl_issuemethod )
-  SELECT wo_id, bomitem_id, bomitem_booitem_id, bomitem_schedatwooper,
+  SELECT wo_id, bomitem_id, bomitem_booitem_seq_id, bomitem_schedatwooper,
          cs.itemsite_id,
          CASE WHEN bomitem_schedatwooper THEN COALESCE(calcWooperStart(wo_id,bomitem_booitem_id), wo_startdate)
               ELSE wo_startdate
@@ -105,6 +107,7 @@ BEGIN
   WHERE ( (wo_itemsite_id=ps.itemsite_id)
    AND (bomitem_parent_item_id=ps.itemsite_item_id)
    AND (bomitem_item_id=cs.itemsite_item_id)
+   AND (bomitem_rev_id=wo_bom_rev_id)
    AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
    AND (cs.itemsite_item_id=item_id)
    AND (woEffectiveDate(wo_startdate) BETWEEN bomitem_effective AND (bomitem_expires - 1))
@@ -152,7 +155,7 @@ BEGIN
          WHERE (metric_name=''Routings'') ) ) THEN
 
     INSERT INTO wooper
-    ( wooper_wo_id, wooper_booitem_id, wooper_seqnumber,
+    ( wooper_wo_id, wooper_booitem_seq_id, wooper_seqnumber,
       wooper_wrkcnt_id, wooper_stdopn_id,
       wooper_descrip1, wooper_descrip2, wooper_toolref,
       wooper_sutime, wooper_sucosttype, wooper_surpt,
@@ -164,7 +167,7 @@ BEGIN
       wooper_rnconsumed, wooper_rncomplete,
       wooper_qtyrcv, wooper_instruc, wooper_scheduled,
       wooper_wip_location_id )
-    SELECT wo_id, booitem_id, booitem_seqnumber,
+    SELECT wo_id, booitem_seq_id, booitem_seqnumber,
            booitem_wrkcnt_id, booitem_stdopn_id,
            booitem_descrip1, booitem_descrip2, booitem_toolref,
            CASE WHEN (booitem_surpt) THEN booitem_sutime
@@ -190,6 +193,7 @@ BEGIN
     FROM booitem, wo, itemsite
     WHERE ((wo_itemsite_id=itemsite_id)
      AND (itemsite_item_id=booitem_item_id)
+     AND (booitem_rev_id=wo_boo_rev_id)
      AND (woEffectiveDate(wo_startdate) BETWEEN booitem_effective AND (booitem_expires - 1))
      AND (wo_id=pWoid));
 
@@ -198,7 +202,7 @@ BEGIN
     UPDATE womatl
     SET womatl_wooper_id=wooper_id
     FROM wooper
-    WHERE ((womatl_wooper_id=wooper_booitem_id)
+    WHERE ((womatl_wooper_id=wooper_booitem_seq_id)
      AND (womatl_wo_id=pWoid)
      AND (wooper_wo_id=pWoid));
     END IF;
@@ -236,10 +240,11 @@ BEGIN
              startOfTime(), startOfTime(),
              0, ci.item_picklist, ( (ci.item_type=''M'') AND (bomitem_createwo) ),
              bomitem_issuemethod
-      FROM womatl, bomitem,
+      FROM wo, womatl, bomitem,
            itemsite AS cs, itemsite AS ps,
            item AS ci, item AS pi
       WHERE ( (womatl_itemsite_id=ps.itemsite_id)
+       AND (womatl_wo_id=wo_id)
        AND (bomitem_parent_item_id=pi.item_id)
        AND (bomitem_item_id=ci.item_id)
        AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
