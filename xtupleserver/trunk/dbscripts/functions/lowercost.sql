@@ -35,7 +35,7 @@ BEGIN
     SELECT SUM( ROUND(currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE),4) * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) ),
            SUM( itemcost_stdcost * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper * (1 + bomitem_scrap)) )
 	INTO _actCost, _stdCost
-    FROM itemcost, costelem, bomitem
+    FROM itemcost, costelem, bomitem(pItemid)
     WHERE ( (bomitem_parent_item_id=pItemid)
      AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1))
      AND (bomitem_item_id=itemcost_item_id)

@@ -38,6 +38,28 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, INTEGER, DATE, TEXT, CHAR, INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pWoNumber ALIAS FOR $1;
+  pItemsiteid ALIAS FOR $2;
+  pPriority ALIAS FOR $3;
+  pQtyOrdered ALIAS FOR $4;
+  pLeadTime ALIAS FOR $5;
+  pDueDate ALIAS FOR $6;
+  pProductionNotes ALIAS FOR $7;
+  pParentType ALIAS FOR $8;
+  pParentId ALIAS FOR $9;
+  pProjectId ALIAS FOR $10;
+  pBomRevId ALIAS FOR $11;
+  pBooRevId ALIAS FOR $12;
+
+BEGIN
+  RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
+                  (pDueDate - pLeadTime), pDueDate, pProductionNotes,
+                  pParentType, pParentId, pProjectId, pBomRevId, pBooRevId);
+END;
+' LANGUAGE 'plpgsql';
+
 
 CREATE OR REPLACE FUNCTION createWo(INTEGER, INTEGER, INTEGER, NUMERIC, DATE, DATE, TEXT, CHAR, INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
