@@ -2,7 +2,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           INTEGER, NUMERIC, NUMERIC,
                                           CHAR(1), INTEGER, BOOLEAN,
                                           DATE, DATE,
-                                          BOOL, INTEGER, BOOL, TEXT, CHAR )
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -23,6 +23,7 @@ DECLARE
   pSchedAtWooper ALIAS FOR $16;
   pECN ALIAS FOR $17;
   pSubType ALIAS FOR $18;
+  pRevisionid ALIAS FOR $19;
   _bomworksetid INTEGER;
   _temp INTEGER;
 
@@ -60,7 +61,7 @@ BEGIN
     bomitem_effective, bomitem_expires,
     bomitem_createwo,
     bomitem_booitem_seq_id, bomitem_schedatwooper,
-    bomitem_ecn, bomitem_subtype, bomitem_moddate )
+    bomitem_ecn, bomitem_subtype, bomitem_moddate, bomitem_rev_id )
   VALUES
   ( pBomitemid, pParentItemid, pComponentItemid,
     pSeqNumber, pIssueMethod,
@@ -69,7 +70,7 @@ BEGIN
     pEffective, pExpires,
     pCreateWo,
     pBOOItemseqid, pSchedAtWooper,
-    pECN, pSubType, CURRENT_DATE );
+    pECN, pSubType, CURRENT_DATE, pRevisionid );
 
   RETURN pBomitemid;
 
@@ -81,7 +82,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           INTEGER, NUMERIC, NUMERIC,
                                           CHAR(1), INTEGER, BOOLEAN,
                                           DATE, DATE,
-                                          BOOL, INTEGER, BOOL, TEXT, CHAR(1) )
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR(1), INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -101,6 +102,7 @@ DECLARE
   pSchedAtWooper ALIAS FOR $15;
   pECN ALIAS FOR $16;
   pSubType ALIAS FOR $17;
+  pRevisionid ALIAS FOR $18;
   _seqNumber INTEGER;
   _bomitemid INTEGER;
 
@@ -122,7 +124,7 @@ BEGIN
                         pUomId, pQtyPer, pScrap,
                         pConfigType, pConfigId, pConfigFlag,
                         pEffective, pExpires,
-                        pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType ) INTO _bomitemid;
+                        pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid ) INTO _bomitemid;
 
   RETURN _bomitemid;
 
@@ -133,7 +135,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, INTEGER, CH
                                           NUMERIC, NUMERIC,
                                           CHAR(1), INTEGER, BOOLEAN,
                                           DATE, DATE,
-                                          BOOL, INTEGER, BOOL, TEXT, CHAR )
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR, INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -153,12 +155,13 @@ DECLARE
   pSchedAtWooper ALIAS FOR $15;
   pECN ALIAS FOR $16;
   pSubType ALIAS FOR $17;
+  pRevisionid ALIAS FOR $18;
   _result INTEGER;
 BEGIN
   SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
             pSeqNumber, pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
             pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
-            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType)
+            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid)
     INTO _result
     FROM item
    WHERE(item_id=pParentItemid);
@@ -170,7 +173,7 @@ CREATE OR REPLACE FUNCTION createBOMItem( INTEGER, INTEGER, INTEGER, CHAR,
                                           NUMERIC, NUMERIC,
                                           CHAR(1), INTEGER, BOOLEAN,
                                           DATE, DATE,
-                                          BOOL, INTEGER, BOOL, TEXT, CHAR(1) )
+                                          BOOL, INTEGER, BOOL, TEXT, CHAR(1), INTEGER )
                            RETURNS INTEGER AS '
 DECLARE
   pBomitemid ALIAS FOR $1;
@@ -189,13 +192,14 @@ DECLARE
   pSchedAtWooper ALIAS FOR $14;
   pECN ALIAS FOR $15;
   pSubType ALIAS FOR $16;
+  pRevisionid ALIAS FOR $17;
   _result INTEGER;
 
 BEGIN
   SELECT createBOMItem(pBomitemid, pParentItemid, pComponentItemid,
             pIssueMethod, item_inv_uom_id, pQtyPer, pScrap,
             pConfigType, pConfigId, pConfigFlag, pEffective, pExpires,
-            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType)
+            pCreateWo, pBOOItemseqid, pSchedAtWooper, pECN, pSubType, pRevisionid)
     INTO _result
     FROM item
    WHERE(item_id=pParentItemid);

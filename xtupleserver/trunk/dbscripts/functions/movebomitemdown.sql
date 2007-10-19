@@ -10,6 +10,7 @@ BEGIN
   FROM bomitem AS nextbomitem, bomitem AS thisbomitem
   WHERE ((nextbomitem.bomitem_seqnumber > thisbomitem.bomitem_seqnumber)
    AND (nextbomitem.bomitem_parent_item_id=thisbomitem.bomitem_parent_item_id)
+   AND (nextbomitem.bomitem_rev_id=thisbomitem.bomitem_rev_id)
    AND (thisbomitem.bomitem_id=pBomitemid))
   ORDER BY next_seqnumber
   LIMIT 1;
