@@ -1,81 +1,81 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Product Category
-    </title>
-   <subtitle>productCategory : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/productCategory.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Product Category
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Category:</guilabel>
-               </entry>
-               <entry>_categoryLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_category</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518621">
+  <title><anchor id="Anchor595414" role="Index"
+  xreflabel="product categories:master list of" /> <indexterm
+      significance="normal" zone="Anchor599213">
+      <primary>product categories</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Product Category</title>
+
+  <para id="Para518643">To<anchor id="Anchor599213" role="Index"
+  xreflabel="product categories:creating new" /> create a new Product
+  Category, select the NEW button. The following screen will appear:</para>
+
+  <para id="Para518647"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_prodCatNew.png" id="Graphic562578" />
+        </imageobject>
+
+        <caption id="Caption518648">Create New Product Category</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para595229">Create your Product Categories using a logical,
+    hierarchical structure. This will make it easier to retrieve Product
+    Category information in the future. For more information on matching
+    patterns using Regular Expressions, see <link endterm="Anchor77806"
+    id="XRef664904" linkend="Anchor77806"> Pattern Matching with Regular
+    Expressions</link>"Topic: Pattern Matching with Regular
+    Expressions".</para>
+  </tip>
+
+  <para id="Para595203">When creating a new Product Category, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para518653">Category</term>
+
+      <listitem id="listitemN0x180ac00N0x182fcd0">
+        <para>Enter a unique code to identify the Product Category.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518657">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x182fd18">
+        <para>Enter a description to further identify the Product
+        Category.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para518658">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para518659">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x182fd84">
+        <para>Closes the screen without creating a Product Category, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518660">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x182fdcc">
+        <para>Creates the Product Category and adds it to the master list of
+        Product Categories.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
