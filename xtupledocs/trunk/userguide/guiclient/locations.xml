@@ -1,287 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section653127">
-    <title><anchor id="Anchor653126" role="Index"
-    xreflabel="warehouse locations:master list of;locations:in warehouses;warehouses:locations in;warehouse locations:See also locations[warehouse locations:aaa]" />
-    <indexterm significance="normal" zone="Anchor653126">
-        <primary>warehouse locations</primary>
-        <secondary>master list of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor653126">
-        <primary>locations</primary>
-        <secondary>in warehouses</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor653126">
-        <primary>warehouses</primary>
-        <secondary>locations in</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor653126">
-        <primary>warehouse locations</primary>
-        <secondary>See also locations[warehouse locations</secondary>
-      </indexterm>Warehouse Locations</title>
-    <para id="Para653136">Warehouse Locations--also known as Locations--are
-    the specific, unique material sites where <anchor id="Anchor653132"
-    role="Index" xreflabel="inventory:warehouse locations and" /> <indexterm
-        significance="normal" zone="Anchor653132">
-        <primary>inventory</primary>
-        <secondary>warehouse locations and</secondary>
-      </indexterm>Inventory is located inside a Warehouse. If the ARBL naming
-    convention is being enforced within a Warehouse, Locations may be
-    identified by aisle, rack, bin, and Location number. Locations may also
-    exist within Warehouse Zones, if Zones are defined for the specified
-    Warehouse. In most cases, related Items will be stored near to each other
-    to simplify picking and Inventory counting. To access a master list of
-    Warehouse Locations, select the "Warehouse Locations" option. The
-    following screen will appear:</para>
-    <para id="Para518588"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_MI_warehouseLocations.png"
-                       id="Graphic525442" />
-          </imageobject>
-          <caption id="Caption518589">Warehouse Locations Master
-          List</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para569706">The "Warehouse Locations" screen displays
-    information on all existing Warehouse Locations, including Warehouse code,
-    Location name, Location description, and whether the Location is netable
-    or restricted. When displaying available Warehouse Locations, you are
-    presented with the following options:</para>
-    <variablelist>
-      <varlistentry role="openmfg">
-        <term id="Para543672">All Warehouses</term>
-        <listitem id="listitemN0x180ac00N0x1831940">
-          <para>Select to display Warehouse Locations for all
-          Warehouses.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-        <term id="Para543674">Selected</term>
-        <listitem id="listitemN0x180ac00N0x1831964">
-          <para>Specify Warehouse whose Locations you want to
-          display.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para id="Para543550">To the far right of the screen, the following
-    buttons are available:</para>
-    <variablelist>
-      <varlistentry>
-        <term id="Para518595">CLOSE</term>
-        <listitem id="listitemN0x180ac00N0x18319d0">
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518596">PRINT</term>
-        <listitem id="listitemN0x180ac00N0x1831a18">
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518597">NEW</term>
-        <listitem id="listitemN0x180ac00N0x1831a60">
-          <para>Opens screen for creating a new Warehouse
-          Location.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518598">EDIT</term>
-        <listitem id="listitemN0x180ac00N0x1831aa8">
-          <para>Enables you to edit highlighted Warehouse Locations.
-          The edit screen is the same as that for creating a new Warehouse
-          Location--except that when editing, the fields will contain
-          Warehouse Location information. Double-clicking on a Warehouse
-          Location also bring you to the editing screen.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518599">VIEW</term>
-        <listitem id="listitemN0x180ac00N0x1831af0">
-          <para>Highlight a Warehouse Location and then select this
-          button to reach a read-only view of the "Edit" screen.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518600">DELETE</term>
-        <listitem id="listitemN0x180ac00N0x1831b38">
-          <para>Highlight a Warehouse Location and then select this
-          button to remove the Location from the list.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para id="Para518601">To <anchor id="Anchor557646" role="Index"
-    xreflabel="warehouse locations:creating new" /> <indexterm
-        significance="normal" zone="Anchor557646">
-        <primary>warehouse locations</primary>
-        <secondary>creating new</secondary>
-      </indexterm>create a new Warehouse Location, select the NEW button. The
-    following screen will appear:</para>
-    <para id="Para518605"><anchor id="Anchor71321" role="Cross-Ref"
-    xreflabel="71321: Figure: Figure 1.6:  Create New Warehouse Location" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_MI_warehouseLocationNew.png"
-                       id="Graphic525455" />
-          </imageobject>
-          <caption id="Caption518606">Create New Warehouse Location</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para581452">When creating a new Warehouse Location, you are
-    presented with the following options:</para>
-    <variablelist>
-      <varlistentry>
-        <term id="Para581453">Warehouse</term>
-        <listitem id="listitemN0x180ac00N0x1844448">
-          <para>Specify Warehouse for the Warehouse Location.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para579520"><anchor id="Anchor579519" role="Index"
-        xreflabel="warehouse locations:netable;netable:warehouse location as;non-netable:warehouse location as" />
-        <indexterm significance="normal" zone="Anchor579519">
-            <primary>warehouse locations</primary>
-            <secondary>netable</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor579519">
-            <primary>netable</primary>
-            <secondary>warehouse location as</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor579519">
-            <primary>non-netable</primary>
-            <secondary>warehouse location as</secondary>
-          </indexterm>Netable</term>
-        <listitem id="listitemN0x180ac00N0x1844568">
-          <para>Select if you want Items in the Location to be
-          included in Quantity on Hand and Availability calculations.</para>
-          <para id="Para579521">Not selecting means Items in the Location are
-          non-netable. Items stored in a non-netable Location are not included
-          in Quantity on Hand or Availability totals.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <note>
-      <para id="Para610620">When an Item is received into a non-netable
-      Location, the Inventory transaction history will reflect a two-step
-      process. First, the Quantity on Hand for the Item will be increased in
-      the quantity received. Second, a non-netable (NN) correction will occur.
-      This correction returns the Quantity on Hand to the pre-receipt
-      levels--indicating a receipt into a non-netable Location. Again,
-      quantity stored in a non-netable Location is considered separately.
-      Changes in non-netable quantity do not affect bottom-line Quantity on
-      Hand levels.</para>
-    </note>
-    <variablelist>
-      <varlistentry>
-        <term id="Para579523"><anchor id="Anchor579522" role="Index"
-        xreflabel="warehouse locations:restricted;restricted:warehouse location as" />
-        <indexterm significance="normal" zone="Anchor579522">
-            <primary>warehouse locations</primary>
-            <secondary>restricted</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor579522">
-            <primary>restricted</primary>
-            <secondary>warehouse location as</secondary>
-          </indexterm>Restricted</term>
-        <listitem id="listitemN0x180ac00N0x1844688">
-          <para>Select if only a restricted set of Items may be
-          placed in this Location.</para>
-          <para id="Para579524">Not selecting means any Item that exists in
-          the same Warehouse as this Location may be placed into it.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para579500"><anchor id="Anchor599203" role="Index"
-        xreflabel="warehouse zones:locations within;warehouse locations:within zones" />
-        <indexterm significance="normal" zone="Anchor599203">
-            <primary>warehouse zones</primary>
-            <secondary>locations within</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor599203">
-            <primary>warehouse locations</primary>
-            <secondary>within zones</secondary>
-          </indexterm>Zone</term>
-        <listitem id="listitemN0x180ac00N0x1844760">
-          <para>Specify the Warehouse Zone you want to associate
-          with the Location, if any.</para>
-          <para id="Para579501">Zone selection will be activated only if
-          Warehouse Zones have been defined for the specified
-          Warehouse.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518613">Name</term>
-        <listitem id="listitemN0x180ac00N0x18447a8">
-          <para>Enter a name to identify the Location.</para>
-          <para id="Para518614">The name of the Location will vary, depending
-          on whether the specified Warehouse enforces the aisle, rack, bin,
-          Location (ARBL) naming convention. If the convention is enforced,
-          then the name for the Location may also include aisle, rack, or bin
-          information, as shown in <link endterm="Anchor71321" id="XRef579560"
-          linkend="Anchor71321"> Create New Warehouse Location</link>Figure
-          6.10. If ARBL is not enforced, then the Location name will consist
-          of only one field.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <note>
-      <para id="Para604070">The parameters for the ARBL naming convention are
-      set within a Warehouse master. These parameters include the maximum
-      length allowed for names and whether alpha characters or numeric only
-      may be used.</para>
-    </note>
-    <variablelist>
-      <varlistentry>
-        <term id="Para604074">Description</term>
-        <listitem id="listitemN0x180ac00N0x1844838">
-          <para>This is a scrolling text field with word-wrapping
-          for entering a description of the Location.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para518627"><anchor id="Anchor557662" role="Index"
-        xreflabel="allowable items:in warehouse locations;warehouse locations:allowable items in" />
-        <indexterm significance="normal" zone="Anchor557662">
-            <primary>allowable items</primary>
-            <secondary>in warehouse locations</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor557662">
-            <primary>warehouse locations</primary>
-            <secondary>allowable items in</secondary>
-          </indexterm>Allowable Items</term>
-        <listitem id="listitemN0x180ac00N0x1844910">
-          <para>Display is only activated if the Location has been
-          designated as restricted. If a Location is restricted, only certain
-          Items are allowed to be stored there.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para id="Para518629">To the far right of the screen, the following
-    buttons are available:</para>
-    <variablelist>
-      <varlistentry>
-        <term id="Para579588">CANCEL</term>
-        <listitem id="listitemN0x180ac00N0x184497c">
-          <para>Closes the screen without creating the Warehouse
-          Location, returning you to the previous screen.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para579589">SAVE</term>
-        <listitem id="listitemN0x180ac00N0x18449c4">
-          <para>Creates the Warehouse Location and adds it to the
-          master list of Warehouse Locations.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para555787">NEW</term>
-        <listitem id="listitemN0x180ac00N0x1844a0c">
-          <para>Select to pick an Item from the master list of Items
-          and designate it as allowed within the restricted Location.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para560688">DELETE</term>
-        <listitem id="listitemN0x180ac00N0x1844a54">
-          <para>Highlight an Item and then select this button to
-          remove the Item from the list of allowable items.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+<section id="Section653127">
+  <title><anchor id="Anchor653126" role="Index"
+  xreflabel="warehouse locations:master list of;locations:in warehouses;warehouses:locations in;warehouse locations:See also locations[warehouse locations:aaa]" />
+  <indexterm significance="normal" zone="Anchor653126">
+      <primary>warehouse locations</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor653126">
+      <primary>locations</primary>
+
+      <secondary>in warehouses</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor653126">
+      <primary>warehouses</primary>
+
+      <secondary>locations in</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor653126">
+      <primary>warehouse locations</primary>
+
+      <secondary>See also locations[warehouse locations</secondary>
+    </indexterm>List Warehouse Locations</title>
+
+  <para id="Para653136">Warehouse Locations--also known as Locations--are the
+  specific, unique material sites where <anchor id="Anchor653132" role="Index"
+  xreflabel="inventory:warehouse locations and" /> <indexterm
+      significance="normal" zone="Anchor653132">
+      <primary>inventory</primary>
+
+      <secondary>warehouse locations and</secondary>
+    </indexterm>Inventory is located inside a Warehouse. If the ARBL naming
+  convention is being enforced within a Warehouse, Locations may be identified
+  by aisle, rack, bin, and Location number. Locations may also exist within
+  Warehouse Zones, if Zones are defined for the specified Warehouse. In most
+  cases, related Items will be stored near to each other to simplify picking
+  and Inventory counting. To access a master list of Warehouse Locations,
+  select the "Warehouse Locations" option. The following screen will
+  appear:</para>
+
+  <para id="Para518588"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_warehouseLocations.png"
+                     id="Graphic525442" />
+        </imageobject>
+
+        <caption id="Caption518589">Warehouse Locations Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para569706">The "Warehouse Locations" screen displays information
+  on all existing Warehouse Locations, including Warehouse code, Location
+  name, Location description, and whether the Location is netable or
+  restricted. When displaying available Warehouse Locations, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para543672">All Warehouses</term>
+
+      <listitem id="listitemN0x180ac00N0x1831940">
+        <para>Select to display Warehouse Locations for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para543674">Selected</term>
+
+      <listitem id="listitemN0x180ac00N0x1831964">
+        <para>Specify Warehouse whose Locations you want to display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para543550">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para518595">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18319d0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518596">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x1831a18">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518597">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1831a60">
+        <para>Opens screen for creating a new Warehouse Location.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518598">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x1831aa8">
+        <para>Enables you to edit highlighted Warehouse Locations. The edit
+        screen is the same as that for creating a new Warehouse
+        Location--except that when editing, the fields will contain Warehouse
+        Location information. Double-clicking on a Warehouse Location also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518599">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1831af0">
+        <para>Highlight a Warehouse Location and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para518600">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x1831b38">
+        <para>Highlight a Warehouse Location and then select this button to
+        remove the Location from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

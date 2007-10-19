@@ -1,420 +1,681 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Warehouse
-  </title>
-   <subtitle>warehouse : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/warehouse.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Warehouse
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>C<accel>o</accel>de:</guilabel>
-               </entry>
-               <entry>_codeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_code</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>A</accel>ctive</guilabel>
-               </entry>
-               <entry>_active</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_address</entry>
-               <entry>AddressCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_contact</entry>
-               <entry>ContactCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Post Unassigned Transactions to:</guilabel>
-               </entry>
-               <entry>_accountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_account</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>General</entry>
-               <entry>_generalTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Inventory Warehouse</guilabel>
-               </entry>
-               <entry>_standard</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Transit Warehouse</guilabel>
-               </entry>
-               <entry>_transit</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_whsTypeStack</entry>
-               <entry>QStackedWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_standardWhsStack</entry>
-               <entry>QWidget</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Next <accel>B</accel>ill of Lading #:</guilabel>
-               </entry>
-               <entry>_nextBOLNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Next Count <accel>T</accel>ag #:</guilabel>
-               </entry>
-               <entry>_nextCountTagNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_bolPrefix</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_bolNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Shipping <accel>W</accel>arehouse</guilabel>
-               </entry>
-               <entry>_shipping</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_countTagPrefix</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_countTagNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Force the use of Count Slips</guilabel>
-               </entry>
-               <entry>_useSlips</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Enforce the use of Zones</guilabel>
-               </entry>
-               <entry>_useZones</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Shipping Commission:</guilabel>
-               </entry>
-               <entry>_shipcommlit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_shipcomm</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Tax Authority:</guilabel>
-               </entry>
-               <entry>_taxauthLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_taxauth</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Default <accel>F</accel>.O.B.:</guilabel>
-               </entry>
-               <entry>_defaultFOBLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_defaultFOB</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_transitWhsStack</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Shipping Comments:</guilabel>
-               </entry>
-               <entry>_shipcommentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipform</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Default Shipping Form:</guilabel>
-               </entry>
-               <entry>_shipformLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Default Ship-Via:</guilabel>
-               </entry>
-               <entry>_shipviaLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipvia</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipcomments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Default Cost Category:</guilabel>
-               </entry>
-               <entry>_costcatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_costcat</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>Warehouse Locations</entry>
-               <entry>_locationsTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_arblGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Aisle Size:</guilabel>
-               </entry>
-               <entry>_aisleSizeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Rack Size:</guilabel>
-               </entry>
-               <entry>_rackSizeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Bin Size:</guilabel>
-               </entry>
-               <entry>_binSizeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Location Size:</guilabel>
-               </entry>
-               <entry>_locationSizeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_aisleSize</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_rackSize</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_binSize</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_locationSize</entry>
-               <entry>QSpinBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Allow Alpha Characters</guilabel>
-               </entry>
-               <entry>_aisleAlpha</entry>
-               <entry>QCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Allow Alpha Characters</guilabel>
-               </entry>
-               <entry>_rackAlpha</entry>
-               <entry>QCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Allow Alpha Characters</guilabel>
-               </entry>
-               <entry>_binAlpha</entry>
-               <entry>QCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Allow Alpha Characters</guilabel>
-               </entry>
-               <entry>_locationAlpha</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>Warehouse Zones</entry>
-               <entry>_zonesTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_whsezone</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>_commentsTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section518522">
+  <title><anchor id="Anchor552120" role="Index"
+  xreflabel="warehouses:master list of" /> <indexterm significance="normal"
+      zone="Anchor559094">
+      <primary>warehouses</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Warehouse</title>
+
+  <para id="Para518541">To create a new Warehouse, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para518545"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_warehouseNew.png"
+                     id="Graphic525430" />
+        </imageobject>
+
+        <caption id="Caption518546">Create New Inventory Warehouse</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para529971">Warehouse Codes are abbreviations used to quickly
+    and easily identify Warehouses. Keep these Codes short and meaningful so
+    employees will have an easy time identifying them.</para>
+  </tip>
+
+  <para id="Para518548">When creating a new Warehouse, you are presented with
+  the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para518552">Code</term>
+
+      <listitem id="listitemN0x180ac00N0x181a478">
+        <para id="Para">The Warehouse code is used to identify a given
+        Warehouse.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555667">Active</term>
+
+      <listitem id="listitemN0x180ac00N0x181a4c0">
+        <para id="Para">Select to specify the Warehouse is active.</para>
+
+        <para id="Para628603">Not selecting means the Warehouse will be
+        considered inactive. To re-activate a Warehouse, simply select this
+        option.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para628607">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x181a508">
+        <para id="Para">Enter a brief description of the Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para633951">If a new Address is manually entered here, that
+    Address will be added automatically to the master list of
+    Addresses.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para633907">Address</term>
+
+      <listitem id="listitemN0x180ac00N0x181a598">
+        <para id="Para">Manually enter Address information in the fields
+        below--or use the browse button to select pre-existing Address
+        information. The Warehouse Address is used on shipping and receiving
+        paperwork.</para>
+
+        <para id="Para633897">Street Address: Enter the street Address for the
+        Warehouse.</para>
+
+        <para id="Para633898">City: Enter the city where the Warehouse is
+        located.</para>
+
+        <para id="Para633899">State: Enter the state where the Warehouse is
+        located.</para>
+
+        <para id="Para633900">Postal Code: Enter the Postal Code for the
+        Warehouse.</para>
+
+        <para id="Para633901">Country: Enter the country where the Warehouse
+        is located.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para633956">If a new Contact is manually entered here, that
+    Contact will be added automatically to the master list of Contacts.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para633880">Contact</term>
+
+      <listitem id="listitemN0x180ac00N0x181a628">
+        <para id="Para">Manually enter Contact information in the fields
+        below--or use the browse button to select pre-existing Contact
+        information.</para>
+
+        <para id="Para633881">Title: Select a Title from the list of available
+        Titles.</para>
+
+        <para id="Para633882">First: Enter the Contact's first name.</para>
+
+        <para id="Para633883">Last: Enter the Contact's last name.</para>
+
+        <para id="Para634869">Job Title: Enter the Contact's job title.</para>
+
+        <para id="Para633884">Voice: Enter the Contact's phone number.</para>
+
+        <para id="Para633885">Fax: Enter the Contact's fax number.</para>
+
+        <para id="Para633886">E-Mail: Enter the Contact's e-mail
+        address.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662823">Post Unassigned Transactions to</term>
+
+      <listitem id="listitemN0x180ac00N0x181a670">
+        <para id="Para">Specify a General Ledger Account to post unassigned
+        transactions to.</para>
+
+        <para id="Para662824">This account is used as a general bucket for
+        General Ledger transactions which the system, for one reason or
+        another, may not know how to handle. A transaction is considered
+        unassigned if the affected Item Site does not have a Cost Category
+        assigned to it for the transaction type in question. By specifying an
+        Account to post unassigned transactions to, you can remove most of the
+        ambiguous error messages that may result from inadequately assigned
+        Item Site Cost Categories. For example, if an Inventory Asset Account
+        is not defined, Inventory transactions may proceed--but the Asset
+        portion of the transactions will be posted to the unassigned
+        transaction Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662841">Inventory Warehouse</term>
+
+      <listitem id="listitemN0x180ac00N0x181a6b8">
+        <para id="Para">Select if the Warehouse is to be used for Inventory
+        storage. The following options are available for Inventory
+        Warehouses:</para>
+
+        <para id="Para662855">Next <anchor id="Anchor662617" role="Index"
+        xreflabel="bills of lading:numbering of" /> <indexterm
+            significance="normal" zone="Anchor662617">
+            <primary>bills of lading</primary>
+
+            <secondary>numbering of</secondary>
+          </indexterm>Bill of Lading #: There are two parts to this field.
+        These two parts include a "prefix" that will appear at the beginning
+        of all system-generated bill of lading numbers for this Warehouse and
+        a starting number sequence (e.g., 10000, 20000, etc.). Use the first
+        field window to prefix the bill of lading number with user-defined
+        information (e.g., Warehouse code). Prefixing bill of lading numbers
+        may be helpful in tracking Items that were shipped to customers from a
+        specific Warehouse Location. Use the second part of this two-part
+        field window to enter an unlimited number of whole numbers.</para>
+
+        <para id="Para662858">Next <anchor id="Anchor662619" role="Index"
+        xreflabel="count tags:numbering of" /> <indexterm
+            significance="normal" zone="Anchor662619">
+            <primary>count tags</primary>
+
+            <secondary>numbering of</secondary>
+          </indexterm>Count Tag#: There are two parts to this field. These two
+        parts include a "prefix" that will appear at the beginning of all
+        system-generated Count Tag Numbers for this Warehouse and a starting
+        number sequence (e.g., 10000, 20000, etc.). Use the first field window
+        to prefix the Count Tag Number with user-defined information (e.g.,
+        Warehouse code). Use the second part of this two-part field window to
+        enter an unlimited number of whole numbers.</para>
+
+        <para id="Para662861"><anchor id="Anchor662621" role="Index"
+        xreflabel="shipping warehouses:designation of" /> <indexterm
+            significance="normal" zone="Anchor662621">
+            <primary>shipping warehouses</primary>
+
+            <secondary>designation of</secondary>
+          </indexterm>Shipping Warehouse: Select if the Warehouse is used for
+        Shipping. Not selecting means materials are not shipped from the
+        Warehouse.</para>
+
+        <para id="Para662866">Force the use of Count Slips: Select to enforce
+        the use of Count Slips. Not selecting means Count Slips will not be
+        required when counting Inventory in this Warehouse.</para>
+
+        <para id="Para662871"><anchor id="Anchor662626" role="Index"
+        xreflabel="zones:enforcing in warehouses;warehouses:enforcing zones in" />
+        <indexterm significance="normal" zone="Anchor662626">
+            <primary>zones</primary>
+
+            <secondary>enforcing in warehouses</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor662626">
+            <primary>warehouses</primary>
+
+            <secondary>enforcing zones in</secondary>
+          </indexterm>Enforce the use of Zones: Select to enforce the use of
+        Zones within the Warehouse. A Warehouse Zone is a defined section or
+        area within a Warehouse. For example, separate Warehouse Zones might
+        be designated to define areas where Orders are selected, Picked, and
+        Packed. If selected, Zones may be specified when defining Warehouse
+        Locations. If not selected, Warehouse Locations may not include
+        Zones.</para>
+
+        <para id="Para662876">Shipping Commission: Enter a commission
+        percentage to be charged whenever Inventory is shipped from the
+        Warehouse. This is an optional feature to be used specifically for
+        contract Warehouses, which charge a commission based on shipping
+        volume. If the Warehouse does not charge a commission, then this field
+        may be ignored, leaving the default value of "0.00".</para>
+
+        <para id="Para662929"><anchor id="Anchor662928" role="Index"
+        xreflabel="tax authorities:for warehouses" /> <indexterm
+            significance="normal" zone="Anchor662928">
+            <primary>tax authorities</primary>
+
+            <secondary>for warehouses</secondary>
+          </indexterm>Tax Authority: Specify the Tax Authority associated with
+        the Warehouse.</para>
+
+        <para id="Para662895"><anchor id="Anchor662894" role="Index"
+        xreflabel="default FOB:in warehouse master" /> <indexterm
+            significance="normal" zone="Anchor662894">
+            <primary>default FOB</primary>
+
+            <secondary>in warehouse master</secondary>
+          </indexterm>Default F.O.B.: Enter default free on board (FOB) Terms
+        for the Warehouse. The default F.O.B. Terms will be entered on the
+        Sales Order header for any Orders where the Warehouse is specified as
+        the Shipping Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para663278" role="openmfg">Transit Warehouses are special
+  Warehouses used by Transfer Orders. When Transfer Order Inventory is shipped
+  from the Source Warehouse, it is moved to a Transit Warehouse. Inventory
+  stays in the Transit Warehouse until it is received at the Destination
+  Warehouse. If the Warehouse is to be used as a Transit Warehouse, select the
+  "Transit Warehouse" option. The following changes to the main screen will
+  appear:</para>
+
+  <para id="Para663282"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_warehouseTransNew.png"
+                     id="Graphic663280" />
+        </imageobject>
+
+        <caption id="Caption663283">Create New Transit Warehouse</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para664202">Be sure to define a default Transit Warehouse on
+    your Inventory Configuration screen. This will make it easier to generate
+    Transfer Orders, as Transit Warehouses are required for Transfer
+    Orders.</para>
+  </tip>
+
+  <para id="Para662483">When defining a Warehouse as a Transit Warehouse, you
+  are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para663039">Default Ship Via</term>
+
+      <listitem id="listitemN0x180ac00N0x181a9ac">
+        <para id="Para">Specify a default Ship Via to be used by the Transit
+        Warehouse.</para>
+
+        <para id="Para663040">The selected Ship Via will be used by default on
+        the Transfer Order header whenever the specified Transit Warehouse is
+        used.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663041">Default Shipping Form</term>
+
+      <listitem id="listitemN0x180ac00N0x181a9f4">
+        <para id="Para">Specify a default Shipping Form to be used by the
+        Transit Warehouse.</para>
+
+        <para id="Para663042">The selected Shipping Form will be used by
+        default on the Transfer Order header whenever the specified Transit
+        Warehouse is used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para664084">The Shipping Form will be used when printing Packing
+    Lists for the Transfer Order.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para663107">Default Cost Category</term>
+
+      <listitem id="listitemN0x180ac00N0x181aa84">
+        <para id="Para">Specify a default Cost Category to be used by the
+        Transit Warehouse.</para>
+
+        <para id="Para663108">Associating a Cost Category with a Transit
+        Warehouse makes it possible for the system to create Item Sites for
+        Transit Warehouses automatically when Transfer Order Inventory is
+        shipped. This greatly simplifies the use of Transit Warehouses, as
+        Item Sites do not need to be created manually beforehand. The
+        accounting for in-transit goods is handled by the default Cost
+        Category associated with the Transit Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para id="Para663129">Consider creating a separate Cost Category for
+    Transit Warehouses. In this way you can use unique Accounts to reflect the
+    movement of Inventory which is in-transit.</para>
+  </tip>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para663125">Shipping Comments</term>
+
+      <listitem id="listitemN0x180ac00N0x181ab14">
+        <para id="Para">Enter shipping Comments you want to associate with the
+        Transit Warehouse.</para>
+
+        <para id="Para663150">Shipping Comments entered here will be used on
+        any Transfer Order which uses specified Transit Warehouse. This is a
+        scrolling text field with word-wrapping for entering shipping
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662834">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662835">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x181ab80">
+        <para id="Para">Closes the screen without creating a Warehouse,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662836">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x181abc8">
+        <para id="Para">Creates the Warehouse and adds it to the master list
+        of Warehouses.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para663173">To define ARBL (Aisle, Rack, Bin, Location) naming
+  conventions for your Warehouse Locations, select the "Warehouse Locations"
+  tab. The following screen will appear:</para>
+
+  <para id="Para662519"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_wareMasterLocs.png"
+                     id="Graphic662518" />
+        </imageobject>
+
+        <caption id="Caption662520">Warehouse Locations Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para662515">When defining ARBL naming conventions for your
+  Warehouse Locations, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662682"><anchor id="Anchor662681" role="Index"
+      xreflabel="ARBL:enforcing in warehouses" /> <indexterm
+          significance="normal" zone="Anchor662681">
+          <primary>ARBL</primary>
+
+          <secondary>enforcing in warehouses</secondary>
+        </indexterm>Enforce ARBL Naming Convention</term>
+
+      <listitem id="listitemN0x180ac00N0x1830ed8">
+        <para id="Para">Select to enforce the aisle, rack, bin, Location
+        (ARBL) naming convention when defining Warehouse Locations. Specify
+        values for the following ARBL parameters:</para>
+
+        <para id="Para662683">Aisle Size: Specify the maximum number of
+        characters allowed in an aisle name by using the arrow buttons or
+        manually entering a value up to a maximum of 99. Also specify whether
+        alpha characters are allowed in aisle names.</para>
+
+        <para id="Para662684">Rack Size: Specify the maximum number of
+        characters allowed in a rack name by using the arrow buttons or
+        manually entering a value up to a maximum of 99. Also specify whether
+        alpha characters are allowed in rack names.</para>
+
+        <para id="Para662685">Bin Size: Specify the maximum number of
+        characters allowed in a bin name by using the arrow buttons or
+        manually entering a value up to a maximum of 99. Also specify whether
+        alpha characters are allowed in bin names.</para>
+
+        <para id="Para662686">Location Size: Specify the maximum number of
+        characters allowed in a Location name by using the arrow buttons or
+        manually entering a value up to a maximum of 99. Also specify whether
+        alpha characters are allowed in Location names.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662530">Warehouse Zones are defined sections or areas within a
+  Warehouse. For example, separate Warehouse Zones might be designated to
+  define areas where Orders are selected, Picked, and Packed. To define or
+  maintain Warehouse Zones, select the "Warehouse Zones" tab. The following
+  screen will appear:</para>
+
+  <para id="Para662536"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_wareMasterZones.png"
+                     id="Graphic662535" />
+        </imageobject>
+
+        <caption id="Caption662537">Warehouse Zones Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para662532">When defining or maintaining Warehouse Zones, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662750"><anchor id="Anchor662749" role="Index"
+      xreflabel="zones:for warehouses;warehouses:zones for" /> <indexterm
+          significance="normal" zone="Anchor662749">
+          <primary>zones</primary>
+
+          <secondary>for warehouses</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor662749">
+          <primary>warehouses</primary>
+
+          <secondary>zones for</secondary>
+        </indexterm>Warehouse Zones</term>
+
+      <listitem id="listitemN0x180ac00N0x1831040">
+        <para id="Para">Display includes Warehouse Zones for the specified
+        Warehouse.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662752">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662755">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18310ac">
+        <para id="Para">Opens screen for creating a new Warehouse Zone.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662756">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18310f4">
+        <para id="Para">Enables you to edit highlighted Warehouse Zones. The
+        edit screen is the same as that for creating a new Warehouse
+        Zone--except that when editing, the fields will contain Warehouse Zone
+        information. Double-clicking on a Warehouse Zone also bring you to the
+        editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662757">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x183113c">
+        <para id="Para">Highlight a Warehouse Zone and then select this button
+        to remove the Zone from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662759">To <anchor id="Anchor662758" role="Index"
+  xreflabel="warehouses:creating zones in;zones:creating new in warehouse;warehouse zones:creating new" />
+  <indexterm significance="normal" zone="Anchor662758">
+      <primary>warehouses</primary>
+
+      <secondary>creating zones in</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor662758">
+      <primary>zones</primary>
+
+      <secondary>creating new in warehouse</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor662758">
+      <primary>warehouse zones</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>create a new Warehouse Zone, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para662763"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_wareZoneNew.png" id="Graphic662761" />
+        </imageobject>
+
+        <caption id="Caption662764">Create New Warehouse Zone</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para662765">When creating a new Warehouse Zone, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662766">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x18312ec">
+        <para id="Para">Enter a unique name for the Warehouse Zone.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662767">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x1831334">
+        <para id="Para">Enter a brief description of the Warehouse
+        Zone.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662768">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para662769">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18313a0">
+        <para id="Para">Closes the screen without adding a new Warehouse Zone
+        to the list of Warehouse Zones.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para662770">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18313e8">
+        <para id="Para">Creates the Warehouse Zone and adds it to the list of
+        Warehouse Zones.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para662497">To associate Comments with a Warehouse, select the
+  "Comments" tab. The following screen will appear:</para>
+
+  <para id="Para594324"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_MI_warehouseComm.png"
+                     id="Graphic594394" />
+        </imageobject>
+
+        <caption id="Caption594325">Add Warehouse Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para594326">Comments</term>
+
+      <listitem id="listitemN0x180ac00N0x18314c0">
+        <para id="Para">Display lists the date Comment entered, Comment Type,
+        user who entered Comment, and a content preview.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para594328">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para594329">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x183152c">
+        <para id="Para">Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para594330">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1831574">
+        <para id="Para">Highlight a Comment and then select this button to
+        reach a read-only view of the Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para594331">To create a new Comment, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para594335"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" id="Graphic594333" />
+        </imageobject>
+
+        <caption id="Caption594336">Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para594340">Comment Type</term>
+
+      <listitem id="listitemN0x180ac00N0x183164c">
+        <para id="Para">Specify one of the following Comment Types from the
+        drop-down list: ChangeLog or General.</para>
+
+        <para id="Para594341">Comment Types are used to categorize Comments.
+        Once you have specified a Comment Type, you may type your Comment in
+        the main text area. The text area features word-wrapping and
+        scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para594342">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para594343">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18316b8">
+        <para id="Para">Closes the screen without creating the Comment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para653109">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x1831700">
+        <para id="Para">Creates the Comment and adds it to the list of
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

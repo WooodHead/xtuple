@@ -73,8 +73,8 @@
           <term id="Para518514">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x181a088">
-            <para>Enter the Customer Number of the Customer whose
-            Sales history you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose Sales
+            history you want to display.</para>
 
             <para id="Para518515">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -94,8 +94,8 @@
           <term id="Para534259">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x181a0d0">
-            <para>Select to display Sales history by Customer for
-            all Product Categories.</para>
+            <para>Select to display Sales history by Customer for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -103,8 +103,8 @@
           <term id="Para534260">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x181a118">
-            <para>Specify Product Category whose Sales history by
-            Customer you want to display.</para>
+            <para>Specify Product Category whose Sales history by Customer you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -112,8 +112,8 @@
           <term id="Para534262">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x181a160">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555462">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -127,8 +127,8 @@
           <term id="Para518516">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x181a184">
-            <para>Select to display Sales history by Customer for
-            all Warehouses.</para>
+            <para>Select to display Sales history by Customer for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -136,8 +136,8 @@
           <term id="Para518518">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x181a1a8">
-            <para>Specify Warehouse whose Sales history by Customer
-            you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Customer you want
+            to display.</para>
           </listitem>
         </varlistentry>
 
@@ -145,8 +145,8 @@
           <term id="Para518523">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x181a1f0">
-            <para>Sales history by Customer generated on or after
-            this date will be displayed.</para>
+            <para>Sales history by Customer generated on or after this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -154,8 +154,8 @@
           <term id="Para518528">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x181a238">
-            <para>Sales history by Customer generated on or before
-            this date will be displayed.</para>
+            <para>Sales history by Customer generated on or before this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -179,8 +179,8 @@
           <term id="Para518535">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x181a310">
-            <para>Display lists Sales history by Customer, using the
-            specified parameters.</para>
+            <para>Display lists Sales history by Customer, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -193,8 +193,8 @@
           <term id="Para518538">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x181a37c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -202,8 +202,8 @@
           <term id="Para541729">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x181a3c4">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -211,8 +211,7 @@
           <term id="Para554906">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x181a40c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -221,23 +220,17 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537459">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x181a478"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para537466">View</term>
-
-          <listitem id="listitemN0x180ac00N0x181a4c0"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para540486">Invoice Information</term>
-
-          <listitem id="listitemN0x180ac00N0x181a508"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/9)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -283,8 +276,8 @@
           <term id="Para524810">Bill-To Name</term>
 
           <listitem id="listitemN0x180ac00N0x181a6dc">
-            <para>Specify the Bill-To Name for the Customer whose
-            Sales history you want to view.</para>
+            <para>Specify the Bill-To Name for the Customer whose Sales
+            history you want to view.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -303,8 +296,8 @@
           <term id="Para534291">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x181a76c">
-            <para>Select to display Sales history by Bill-To Name
-            for all Product Categories.</para>
+            <para>Select to display Sales history by Bill-To Name for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -312,8 +305,8 @@
           <term id="Para539734">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x181a7b4">
-            <para>Specify Product Category whose Sales history by
-            Bill-To Name you want to display.</para>
+            <para>Specify Product Category whose Sales history by Bill-To Name
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -321,8 +314,8 @@
           <term id="Para534294">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x181a7fc">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555476">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -336,8 +329,8 @@
           <term id="Para524862">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x181a820">
-            <para>Select to display Sales history by Bill-To Name
-            for all Warehouses.</para>
+            <para>Select to display Sales history by Bill-To Name for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -345,8 +338,8 @@
           <term id="Para524864">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x181a844">
-            <para>Specify Warehouse whose Sales history by Bill-To
-            Name you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Bill-To Name you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -354,8 +347,8 @@
           <term id="Para524869">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x181a88c">
-            <para>Sales history by Bill-To Name generated on or
-            after this date will be displayed.</para>
+            <para>Sales history by Bill-To Name generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -363,8 +356,8 @@
           <term id="Para524874">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x181a8d4">
-            <para>Sales history by Bill-To Name generated on or
-            before this date will be displayed.</para>
+            <para>Sales history by Bill-To Name generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -388,8 +381,8 @@
           <term id="Para524887">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x181a9ac">
-            <para>Display lists Sales history by Bill-To Name, using
-            the specified parameters.</para>
+            <para>Display lists Sales history by Bill-To Name, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -402,8 +395,8 @@
           <term id="Para524890">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x181aa18">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -411,8 +404,8 @@
           <term id="Para541736">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x181aa60">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -420,8 +413,7 @@
           <term id="Para554915">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x181aaa8">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -430,17 +422,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537474">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x181ab14"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para537475">View</term>
-
-          <listitem id="listitemN0x180ac00N0x181ab5c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -491,8 +479,8 @@
           <term id="Para518549">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x182d544">
-            <para>Enter the Customer Number of the Customer whose
-            Sales history by Ship-To you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose Sales
+            history by Ship-To you want to display.</para>
 
             <para id="Para518550">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -512,8 +500,8 @@
           <term id="Para518551">Ship-To #</term>
 
           <listitem id="listitemN0x180ac00N0x182d58c">
-            <para>Enter the Ship-To Number of the Ship-To whose
-            Sales history you want to display.</para>
+            <para>Enter the Ship-To Number of the Ship-To whose Sales history
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -530,8 +518,8 @@
           <term id="Para518555">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x182d5d4">
-            <para>Specify Warehouse whose Sales history by Ship-To
-            you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Ship-To you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -539,8 +527,8 @@
           <term id="Para539749">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x182d61c">
-            <para>Select to display Sales history by Ship-To for all
-            Product Categories.</para>
+            <para>Select to display Sales history by Ship-To for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -548,8 +536,8 @@
           <term id="Para539758">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x182d664">
-            <para>Specify Product Category whose Sales history by
-            Ship-To you want to display.</para>
+            <para>Specify Product Category whose Sales history by Ship-To you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -557,8 +545,8 @@
           <term id="Para534324">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x182d6ac">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555486">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -572,8 +560,8 @@
           <term id="Para518560">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x182d6f4">
-            <para>Sales history by Ship-To generated on or after
-            this date will be displayed.</para>
+            <para>Sales history by Ship-To generated on or after this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -581,8 +569,8 @@
           <term id="Para518565">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x182d73c">
-            <para>Sales history by Ship-To generated on or before
-            this date will be displayed.</para>
+            <para>Sales history by Ship-To generated on or before this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -606,8 +594,8 @@
           <term id="Para540555">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x182d814">
-            <para>Display lists Sales history by Ship-To, using the
-            specified parameters.</para>
+            <para>Display lists Sales history by Ship-To, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -620,8 +608,8 @@
           <term id="Para518575">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x182d880">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -629,8 +617,8 @@
           <term id="Para541744">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x182d8c8">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -638,8 +626,7 @@
           <term id="Para554920">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x182d910">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -648,17 +635,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para540597">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x182d97c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para540598">View</term>
-
-          <listitem id="listitemN0x180ac00N0x182d9c4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -701,8 +684,8 @@
           <term id="Para518591">Item Number</term>
 
           <listitem id="listitemN0x180ac00N0x182db98">
-            <para>Enter the Item Number of the Item whose Sales
-            history you want to display.</para>
+            <para>Enter the Item Number of the Item whose Sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -718,8 +701,8 @@
           <term id="Para549456">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x182dc28">
-            <para>Select to display Sales history by Item for all
-            Customer Types.</para>
+            <para>Select to display Sales history by Item for all Customer
+            Types.</para>
           </listitem>
         </varlistentry>
 
@@ -727,8 +710,8 @@
           <term id="Para549457">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x182dc70">
-            <para>Specify Customer Type whose Sales history Item you
-            want to display.</para>
+            <para>Specify Customer Type whose Sales history Item you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -736,8 +719,8 @@
           <term id="Para549458">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x182dcb8">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555496">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -760,8 +743,8 @@
           <term id="Para518597">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x182dd00">
-            <para>Specify Warehouse whose Sales history by Item you
-            want to display.</para>
+            <para>Specify Warehouse whose Sales history by Item you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -769,8 +752,8 @@
           <term id="Para518602">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x182dd48">
-            <para>Sales history by Item generated on or after this
-            date will be displayed.</para>
+            <para>Sales history by Item generated on or after this date will
+            be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -778,8 +761,8 @@
           <term id="Para518607">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x182dd90">
-            <para>Sales history by Item generated on or before this
-            date will be displayed.</para>
+            <para>Sales history by Item generated on or before this date will
+            be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -803,8 +786,8 @@
           <term id="Para518609">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x182de68">
-            <para>Display lists Sales history by Item, using the
-            specified parameters.</para>
+            <para>Display lists Sales history by Item, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -817,8 +800,8 @@
           <term id="Para518612">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x182ded4">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -826,8 +809,8 @@
           <term id="Para541752">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x182df1c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -835,8 +818,7 @@
           <term id="Para554925">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x182df64">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -845,17 +827,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537579">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x182dfd0"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para537580">View</term>
-
-          <listitem id="listitemN0x180ac00N0x182e018"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -900,8 +878,8 @@
           <term id="Para518623">Sales Rep.</term>
 
           <listitem id="listitemN0x180ac00N0x182e1ec">
-            <para>Specify the Sales Representative whose sales
-            history you want to display.</para>
+            <para>Specify the Sales Representative whose sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -909,8 +887,8 @@
           <term id="Para518625">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1840200">
-            <para>Select to display Sales history by Sales
-            Representative for all Warehouses.</para>
+            <para>Select to display Sales history by Sales Representative for
+            all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -927,8 +905,8 @@
           <term id="Para534358">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x184026c">
-            <para>Select to display Sales history by Sales
-            Representative for all Product Categories.</para>
+            <para>Select to display Sales history by Sales Representative for
+            all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -936,8 +914,8 @@
           <term id="Para539768">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18402b4">
-            <para>Specify Product Category whose Sales history by
-            Sales Representative you want to display.</para>
+            <para>Specify Product Category whose Sales history by Sales
+            Representative you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -945,8 +923,8 @@
           <term id="Para534361">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18402fc">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555506">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -960,8 +938,8 @@
           <term id="Para518632">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1840344">
-            <para>Sales history by Sales Representative generated on
-            or after this date will be displayed.</para>
+            <para>Sales history by Sales Representative generated on or after
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -969,8 +947,8 @@
           <term id="Para518637">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x184038c">
-            <para>Sales history by Sales Representative generated on
-            or before this date will be displayed.</para>
+            <para>Sales history by Sales Representative generated on or before
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -994,8 +972,8 @@
           <term id="Para518644">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1840464">
-            <para>Display lists Sales history by Sales
-            Representative, using the specified parameters.</para>
+            <para>Display lists Sales history by Sales Representative, using
+            the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1008,8 +986,8 @@
           <term id="Para518647">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x18404d0">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1017,8 +995,8 @@
           <term id="Para541762">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1840518">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1026,8 +1004,7 @@
           <term id="Para554930">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1840560">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1036,17 +1013,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537612">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x18405cc"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para537613">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1840614"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -1100,8 +1073,8 @@
           <term id="Para539779">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1840830">
-            <para>Specify Product Category whose Sales history you
-            want to display.</para>
+            <para>Specify Product Category whose Sales history you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -1109,8 +1082,8 @@
           <term id="Para528821">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1840878">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555516">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1124,8 +1097,8 @@
           <term id="Para518658">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x184089c">
-            <para>Select to display Sales history by Product
-            Category for all Warehouses.</para>
+            <para>Select to display Sales history by Product Category for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -1133,8 +1106,8 @@
           <term id="Para518660">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18408c0">
-            <para>Specify Warehouse whose Sales history by Product
-            Category you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Product Category
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1142,8 +1115,8 @@
           <term id="Para523305">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1840908">
-            <para>Sales history by Product Category generated on or
-            after this date will be displayed.</para>
+            <para>Sales history by Product Category generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1151,8 +1124,8 @@
           <term id="Para518670">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1840950">
-            <para>Sales history by Product Category generated on or
-            before this date will be displayed.</para>
+            <para>Sales history by Product Category generated on or before
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1176,8 +1149,8 @@
           <term id="Para518677">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1840a28">
-            <para>Display lists Sales history by Product Category,
-            using the specified parameters.</para>
+            <para>Display lists Sales history by Product Category, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1190,8 +1163,8 @@
           <term id="Para518680">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1840a94">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1199,8 +1172,8 @@
           <term id="Para541769">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1840adc">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1208,8 +1181,7 @@
           <term id="Para554935">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1840b24">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1218,17 +1190,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537658">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1840b90"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para537659">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1840bd8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -1282,8 +1250,8 @@
           <term id="Para528744">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1840df4">
-            <para>Specify Customer Type whose Sales history you want
-            to display.</para>
+            <para>Specify Customer Type whose Sales history you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -1291,8 +1259,8 @@
           <term id="Para528746">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1840e3c">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555526">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1306,8 +1274,8 @@
           <term id="Para528748">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1840e60">
-            <para>Select to display Sales history by Customer Type
-            for all Warehouses.</para>
+            <para>Select to display Sales history by Customer Type for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -1315,8 +1283,8 @@
           <term id="Para528750">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1840e84">
-            <para>Specify Warehouse whose Sales history by Customer
-            Type you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Customer Type you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1324,8 +1292,8 @@
           <term id="Para528755">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1840ecc">
-            <para>Sales history by Customer Type generated on or
-            after this date will be displayed.</para>
+            <para>Sales history by Customer Type generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1333,8 +1301,8 @@
           <term id="Para528760">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1840f14">
-            <para>Sales history by Customer Type generated on or
-            before this date will be displayed.</para>
+            <para>Sales history by Customer Type generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1358,8 +1326,8 @@
           <term id="Para528762">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1840fec">
-            <para>Display lists Sales history by Customer Type,
-            using the specified parameters.</para>
+            <para>Display lists Sales history by Customer Type, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1372,8 +1340,8 @@
           <term id="Para528765">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1847448">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1381,8 +1349,8 @@
           <term id="Para541776">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1847490">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1390,8 +1358,7 @@
           <term id="Para554940">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18474d8">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1400,17 +1367,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para537676">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1847544"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para537677">View</term>
-
-          <listitem id="listitemN0x180ac00N0x184758c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -1464,8 +1427,8 @@
           <term id="Para542197">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18477a8">
-            <para>Specify Customer Group whose Sales history you
-            want to display.</para>
+            <para>Specify Customer Group whose Sales history you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -1473,8 +1436,8 @@
           <term id="Para542199">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18477f0">
-            <para>Enter a Customer Group pattern to select a range
-            of Customer Groups.</para>
+            <para>Enter a Customer Group pattern to select a range of Customer
+            Groups.</para>
 
             <para id="Para555536">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1488,8 +1451,8 @@
           <term id="Para542207">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1847814">
-            <para>Select to display Sales history by Customer Group
-            for all Warehouses.</para>
+            <para>Select to display Sales history by Customer Group for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -1497,8 +1460,8 @@
           <term id="Para542208">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1847838">
-            <para>Specify Warehouse whose Sales history by Customer
-            Group you want to display.</para>
+            <para>Specify Warehouse whose Sales history by Customer Group you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1506,8 +1469,8 @@
           <term id="Para542213">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1847880">
-            <para>Sales history by Customer Group generated on or
-            after this date will be displayed.</para>
+            <para>Sales history by Customer Group generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1515,8 +1478,8 @@
           <term id="Para542218">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x18478c8">
-            <para>Sales history by Customer Group generated on or
-            before this date will be displayed.</para>
+            <para>Sales history by Customer Group generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1540,8 +1503,8 @@
           <term id="Para542222">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x18479a0">
-            <para>Display lists Sales history by Customer Group,
-            using the specified parameters.</para>
+            <para>Display lists Sales history by Customer Group, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1554,8 +1517,8 @@
           <term id="Para542225">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1847a0c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1563,8 +1526,8 @@
           <term id="Para542226">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1847a54">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1572,8 +1535,7 @@
           <term id="Para554945">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1847a9c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1582,17 +1544,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para542230">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1847b08"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para542231">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1847b50"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -1637,8 +1595,8 @@
           <term id="Para531206">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x1847d24">
-            <para>Enter the Customer Number of the Customer whose
-            brief Sales history you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose brief Sales
+            history you want to display.</para>
 
             <para id="Para531207">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -1658,8 +1616,8 @@
           <term id="Para531214">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1847d48">
-            <para>Select to display brief Sales history by Customer
-            for all Warehouses.</para>
+            <para>Select to display brief Sales history by Customer for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -1667,8 +1625,8 @@
           <term id="Para531216">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1847d6c">
-            <para>Specify Warehouse whose brief Sales history by
-            Customer you want to display.</para>
+            <para>Specify Warehouse whose brief Sales history by Customer you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1676,8 +1634,8 @@
           <term id="Para534412">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1847db4">
-            <para>Select to display brief Sales history by Customer
-            for all Product Categories.</para>
+            <para>Select to display brief Sales history by Customer for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -1685,8 +1643,8 @@
           <term id="Para539796">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1847dfc">
-            <para>Specify Product Category whose Sales history by
-            Customer you want to display.</para>
+            <para>Specify Product Category whose Sales history by Customer you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1694,8 +1652,8 @@
           <term id="Para534415">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1847e44">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555546">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1709,8 +1667,8 @@
           <term id="Para531221">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1847e8c">
-            <para>Brief Sales history by Customer generated on or
-            after this date will be displayed.</para>
+            <para>Brief Sales history by Customer generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1718,8 +1676,8 @@
           <term id="Para531226">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1847ed4">
-            <para>Brief Sales history by Customer generated on or
-            before this date will be displayed.</para>
+            <para>Brief Sales history by Customer generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1727,8 +1685,8 @@
           <term id="Para531239">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1847f1c">
-            <para>Display lists brief Sales history by Customer,
-            using the specified parameters.</para>
+            <para>Display lists brief Sales history by Customer, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1741,8 +1699,8 @@
           <term id="Para531242">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1847f88">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1750,8 +1708,8 @@
           <term id="Para541784">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1847fd0">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1759,8 +1717,7 @@
           <term id="Para554951">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1848018">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1803,8 +1760,8 @@
           <term id="Para530983">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x18481a4">
-            <para>Select to display brief Sales history for all
-            Customer Types.</para>
+            <para>Select to display brief Sales history for all Customer
+            Types.</para>
           </listitem>
         </varlistentry>
 
@@ -1812,8 +1769,8 @@
           <term id="Para530984">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18481ec">
-            <para>Specify Customer Type whose brief Sales history
-            you want to display.</para>
+            <para>Specify Customer Type whose brief Sales history you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -1821,8 +1778,8 @@
           <term id="Para530986">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x184f424">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555560">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1836,8 +1793,8 @@
           <term id="Para542369">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x184f448">
-            <para>Select to display brief Sales history by Customer
-            Type for all Warehouses.</para>
+            <para>Select to display brief Sales history by Customer Type for
+            all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -1845,8 +1802,8 @@
           <term id="Para542370">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x184f46c">
-            <para>Specify Warehouse whose brief Sales history by
-            Customer Type you want to display.</para>
+            <para>Specify Warehouse whose brief Sales history by Customer Type
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1854,8 +1811,8 @@
           <term id="Para531001">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x184f4b4">
-            <para>Brief Sales history by Customer Type generated on
-            or after this date will be displayed.</para>
+            <para>Brief Sales history by Customer Type generated on or after
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1863,8 +1820,8 @@
           <term id="Para531006">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x184f4fc">
-            <para>Brief Sales history by Customer Type generated on
-            or before this date will be displayed.</para>
+            <para>Brief Sales history by Customer Type generated on or before
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -1872,8 +1829,8 @@
           <term id="Para531008">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x184f544">
-            <para>Display lists brief Sales history by Customer
-            Type, using the specified parameters.</para>
+            <para>Display lists brief Sales history by Customer Type, using
+            the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1886,8 +1843,8 @@
           <term id="Para531011">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x184f5b0">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -1895,8 +1852,8 @@
           <term id="Para541792">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x184f5f8">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -1904,8 +1861,7 @@
           <term id="Para554958">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x184f640">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -1948,8 +1904,8 @@
           <term id="Para547805">Sales Rep.</term>
 
           <listitem id="listitemN0x180ac00N0x184f7cc">
-            <para>Specify the Sales Representative whose brief sales
-            history you want to display.</para>
+            <para>Specify the Sales Representative whose brief sales history
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1966,8 +1922,8 @@
           <term id="Para547770">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x184f85c">
-            <para>Specify Product Category whose brief Sales history
-            by Sales Representative you want to display.</para>
+            <para>Specify Product Category whose brief Sales history by Sales
+            Representative you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -1975,8 +1931,8 @@
           <term id="Para547771">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x184f8a4">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555570">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -1999,8 +1955,8 @@
           <term id="Para547679">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x184f8ec">
-            <para>Specify Warehouse whose brief Sales history by
-            Sales Representative you want to display.</para>
+            <para>Specify Warehouse whose brief Sales history by Sales
+            Representative you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2008,8 +1964,8 @@
           <term id="Para547683">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x184f934">
-            <para>Brief Sales history by Sales Representative
-            generated on or after this date will be displayed.</para>
+            <para>Brief Sales history by Sales Representative generated on or
+            after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2017,8 +1973,8 @@
           <term id="Para547688">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x184f97c">
-            <para>Brief Sales history by Sales Representative
-            generated on or before this date will be displayed.</para>
+            <para>Brief Sales history by Sales Representative generated on or
+            before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2042,8 +1998,8 @@
           <term id="Para547690">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x184fa54">
-            <para>Display lists brief Sales history by Sales
-            Representative, using the specified parameters.</para>
+            <para>Display lists brief Sales history by Sales Representative,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2056,8 +2012,8 @@
           <term id="Para547693">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x184fac0">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2065,8 +2021,8 @@
           <term id="Para547694">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x184fb08">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2074,8 +2030,7 @@
           <term id="Para554969">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x184fb50">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2116,8 +2071,8 @@
           <term id="Para518691">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x184fcdc">
-            <para>Enter the Customer Number of the Customer whose
-            Bookings you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose Bookings you
+            want to display.</para>
 
             <para id="Para518692">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -2146,8 +2101,8 @@
           <term id="Para518695">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x184fd24">
-            <para>Specify Warehouse whose Bookings by Customer you
-            want to display.</para>
+            <para>Specify Warehouse whose Bookings by Customer you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2155,8 +2110,8 @@
           <term id="Para518707">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x184fd6c">
-            <para>Select to display Bookings by Customer for all
-            Product Categories.</para>
+            <para>Select to display Bookings by Customer for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -2164,8 +2119,8 @@
           <term id="Para539807">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x184fdb4">
-            <para>Specify Product Category whose Bookings by
-            Customer you want to display.</para>
+            <para>Specify Product Category whose Bookings by Customer you want
+            to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2173,8 +2128,8 @@
           <term id="Para528090">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x184fdfc">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555579">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -2188,8 +2143,8 @@
           <term id="Para549662">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x184fe44">
-            <para>Bookings by Customer generated on or after this
-            date will be displayed.</para>
+            <para>Bookings by Customer generated on or after this date will be
+            displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2197,8 +2152,8 @@
           <term id="Para549667">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x184fe8c">
-            <para>Bookings by Customer generated on or before this
-            date will be displayed.</para>
+            <para>Bookings by Customer generated on or before this date will
+            be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2206,8 +2161,8 @@
           <term id="Para549679">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x184fed4">
-            <para>Display lists Bookings by Customer, using the
-            specified parameters.</para>
+            <para>Display lists Bookings by Customer, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2220,8 +2175,8 @@
           <term id="Para518715">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x184ff40">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2229,8 +2184,8 @@
           <term id="Para541800">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x184ff88">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2238,8 +2193,7 @@
           <term id="Para554975">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x184ffd0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2281,8 +2235,7 @@
           <term id="Para542640">All Customer Groups</term>
 
           <listitem id="listitemN0x180ac00N0x185015c">
-            <para>Select to display Bookings for all Customer
-            Groups.</para>
+            <para>Select to display Bookings for all Customer Groups.</para>
           </listitem>
         </varlistentry>
 
@@ -2299,8 +2252,8 @@
           <term id="Para542643">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18501ec">
-            <para>Enter a Customer Group pattern to select a range
-            of Customer Groups.</para>
+            <para>Enter a Customer Group pattern to select a range of Customer
+            Groups.</para>
 
             <para id="Para555589">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -2314,8 +2267,8 @@
           <term id="Para542585">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1856800">
-            <para>Select to display Bookings by Customer Group for
-            all Warehouses.</para>
+            <para>Select to display Bookings by Customer Group for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -2323,8 +2276,8 @@
           <term id="Para542586">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1856824">
-            <para>Specify Warehouse whose Bookings by Customer Group
-            you want to display.</para>
+            <para>Specify Warehouse whose Bookings by Customer Group you want
+            to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2332,8 +2285,8 @@
           <term id="Para549699">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x185686c">
-            <para>Bookings by Customer Group generated on or after
-            this date will be displayed.</para>
+            <para>Bookings by Customer Group generated on or after this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2341,8 +2294,8 @@
           <term id="Para549712">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x18568b4">
-            <para>Bookings by Customer Group generated on or before
-            this date will be displayed.</para>
+            <para>Bookings by Customer Group generated on or before this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2350,8 +2303,8 @@
           <term id="Para549691">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18568fc">
-            <para>Display lists Bookings by Customer Group, using
-            the specified parameters.</para>
+            <para>Display lists Bookings by Customer Group, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2364,8 +2317,8 @@
           <term id="Para542611">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1856968">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2373,8 +2326,8 @@
           <term id="Para542612">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x18569b0">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2382,8 +2335,7 @@
           <term id="Para554980">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18569f8">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2392,17 +2344,13 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para545515">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1856a64"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para545536">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1856aac"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -2445,8 +2393,8 @@
           <term id="Para518726">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x1856c80">
-            <para>Enter the Customer Number of the Customer whose
-            Bookings by Ship-To you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose Bookings by
+            Ship-To you want to display.</para>
 
             <para id="Para518727">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -2466,8 +2414,8 @@
           <term id="Para518728">Ship-To #</term>
 
           <listitem id="listitemN0x180ac00N0x1856cc8">
-            <para>Enter the Ship-To Number of the Ship-To whose
-            Bookings you want to display.</para>
+            <para>Enter the Ship-To Number of the Ship-To whose Bookings you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2484,8 +2432,8 @@
           <term id="Para518732">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1856d10">
-            <para>Specify Warehouse whose Bookings by Ship-To you
-            want to display.</para>
+            <para>Specify Warehouse whose Bookings by Ship-To you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2493,8 +2441,8 @@
           <term id="Para549573">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1856d58">
-            <para>Bookings by Ship-To generated on or after this
-            date will be displayed.</para>
+            <para>Bookings by Ship-To generated on or after this date will be
+            displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2502,8 +2450,8 @@
           <term id="Para549578">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1856da0">
-            <para>Bookings by Ship-To generated on or before this
-            date will be displayed.</para>
+            <para>Bookings by Ship-To generated on or before this date will be
+            displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2511,8 +2459,8 @@
           <term id="Para549583">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1856de8">
-            <para>Select to display Bookings by Ship-To for all
-            Product Categories.</para>
+            <para>Select to display Bookings by Ship-To for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -2520,8 +2468,8 @@
           <term id="Para539817">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1856e30">
-            <para>Specify Product Category whose Bookings by Ship-To
-            you want to display.</para>
+            <para>Specify Product Category whose Bookings by Ship-To you want
+            to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2529,8 +2477,8 @@
           <term id="Para528096">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1856e78">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555599">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -2544,8 +2492,8 @@
           <term id="Para518749">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x1856ec0">
-            <para>Display lists Bookings by Ship-To, using the
-            specified parameters.</para>
+            <para>Display lists Bookings by Ship-To, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2558,8 +2506,8 @@
           <term id="Para518752">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1856f2c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2567,8 +2515,8 @@
           <term id="Para541808">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1856f74">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2576,8 +2524,7 @@
           <term id="Para554985">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1856fbc">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2618,8 +2565,8 @@
           <term id="Para518768">Item Number</term>
 
           <listitem id="listitemN0x180ac00N0x1857148">
-            <para>Enter the Item Number of the Item whose Bookings
-            you want to display.</para>
+            <para>Enter the Item Number of the Item whose Bookings you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2644,8 +2591,8 @@
           <term id="Para518774">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18571d8">
-            <para>Specify Warehouse whose Bookings by Item you want
-            to display.</para>
+            <para>Specify Warehouse whose Bookings by Item you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2653,8 +2600,8 @@
           <term id="Para549750">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1857220">
-            <para>Bookings by Item generated on or after this date
-            will be displayed.</para>
+            <para>Bookings by Item generated on or after this date will be
+            displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2662,8 +2609,8 @@
           <term id="Para549755">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1857268">
-            <para>Bookings by Item generated on or before this date
-            will be displayed.</para>
+            <para>Bookings by Item generated on or before this date will be
+            displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2671,8 +2618,8 @@
           <term id="Para518786">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18572b0">
-            <para>Display lists Bookings by Item, using the
-            specified parameters.</para>
+            <para>Display lists Bookings by Item, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2685,8 +2632,8 @@
           <term id="Para518789">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x185731c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2694,8 +2641,8 @@
           <term id="Para541838">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1857364">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2703,8 +2650,7 @@
           <term id="Para554992">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18573ac">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2755,8 +2701,8 @@
           <term id="Para539827">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1857580">
-            <para>Specify Product Category whose Bookings you want
-            to display.</para>
+            <para>Specify Product Category whose Bookings you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2764,8 +2710,8 @@
           <term id="Para528988">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18575c8">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555609">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -2779,8 +2725,8 @@
           <term id="Para518800">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x18575ec">
-            <para>Select to display Bookings by Product Category for
-            all Warehouses.</para>
+            <para>Select to display Bookings by Product Category for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -2788,8 +2734,8 @@
           <term id="Para518802">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1860400">
-            <para>Specify Warehouse whose Bookings by Product
-            Category you want to display.</para>
+            <para>Specify Warehouse whose Bookings by Product Category you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2797,8 +2743,8 @@
           <term id="Para549806">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860448">
-            <para>Bookings by Product Category generated on or after
-            this date will be displayed.</para>
+            <para>Bookings by Product Category generated on or after this date
+            will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2806,8 +2752,8 @@
           <term id="Para549842">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860490">
-            <para>Bookings by Product Category generated on or
-            before this date will be displayed.</para>
+            <para>Bookings by Product Category generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2815,8 +2761,8 @@
           <term id="Para518819">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18604d8">
-            <para>Display lists Bookings by Product Category, using
-            the specified parameters.</para>
+            <para>Display lists Bookings by Product Category, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2829,8 +2775,8 @@
           <term id="Para518822">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1860544">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2838,8 +2784,8 @@
           <term id="Para541847">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x186058c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -2847,8 +2793,7 @@
           <term id="Para554998">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18605d4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2896,8 +2841,8 @@
           <term id="Para518833">Sales Rep.</term>
 
           <listitem id="listitemN0x180ac00N0x18607a8">
-            <para>Specify the Sales Representative whose bookings
-            you want to display.</para>
+            <para>Specify the Sales Representative whose bookings you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -2905,8 +2850,8 @@
           <term id="Para518835">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x18607cc">
-            <para>Select to display Bookings by Sales Representative
-            for all Warehouses.</para>
+            <para>Select to display Bookings by Sales Representative for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -2914,8 +2859,8 @@
           <term id="Para518837">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18607f0">
-            <para>Specify Warehouse whose Bookings by Sales
-            Representative you want to display.</para>
+            <para>Specify Warehouse whose Bookings by Sales Representative you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -2923,8 +2868,8 @@
           <term id="Para518849">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1860838">
-            <para>Select to display Bookings by Sales Representative
-            for all Product Categories.</para>
+            <para>Select to display Bookings by Sales Representative for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -2941,8 +2886,8 @@
           <term id="Para528108">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18608c8">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555619">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -2956,8 +2901,8 @@
           <term id="Para549940">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860910">
-            <para>Bookings by Sales Representative generated on or
-            after this date will be displayed.</para>
+            <para>Bookings by Sales Representative generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2965,8 +2910,8 @@
           <term id="Para549902">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860958">
-            <para>Bookings by Sales Representative generated on or
-            before this date will be displayed.</para>
+            <para>Bookings by Sales Representative generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -2974,8 +2919,8 @@
           <term id="Para518854">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18609a0">
-            <para>Display lists Bookings by Sales Representative,
-            using the specified parameters.</para>
+            <para>Display lists Bookings by Sales Representative, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -2988,8 +2933,8 @@
           <term id="Para518857">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1860a0c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -2997,8 +2942,8 @@
           <term id="Para541855">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1860a54">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3006,8 +2951,7 @@
           <term id="Para555004">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1860a9c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3050,8 +2994,8 @@
           <term id="Para518868">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1860c28">
-            <para>Select to display summarized Sales history by
-            Customer for all Product Categories.</para>
+            <para>Select to display summarized Sales history by Customer for
+            all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -3059,8 +3003,8 @@
           <term id="Para539848">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1860c70">
-            <para>Specify Product Category whose summarized Sales
-            history by Customer you want to display.</para>
+            <para>Specify Product Category whose summarized Sales history by
+            Customer you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3068,8 +3012,8 @@
           <term id="Para528114">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1860cb8">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555630">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3083,8 +3027,8 @@
           <term id="Para518876">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860d00">
-            <para>Summarized Sales history by Customer generated on
-            or after this date will be displayed.</para>
+            <para>Summarized Sales history by Customer generated on or after
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3092,8 +3036,8 @@
           <term id="Para518881">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1860d48">
-            <para>Summarized Sales history by Customer generated on
-            or before this date will be displayed.</para>
+            <para>Summarized Sales history by Customer generated on or before
+            this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3101,8 +3045,8 @@
           <term id="Para518883">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1860d6c">
-            <para>Select to display summarized Sales history by
-            Customer for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Customer for
+            all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3110,8 +3054,8 @@
           <term id="Para518885">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1860d90">
-            <para>Specify Warehouse whose summarized Sales history
-            by Customer you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Customer
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3119,8 +3063,8 @@
           <term id="Para518887">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1860dd8">
-            <para>Display lists summarized Sales history by
-            Customer, using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Customer, using
+            the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3133,8 +3077,8 @@
           <term id="Para518890">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1860e44">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3142,8 +3086,8 @@
           <term id="Para541863">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1860e8c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3151,8 +3095,7 @@
           <term id="Para555012">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1860ed4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3161,11 +3104,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para518894">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x1860f40"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -3210,8 +3151,8 @@
           <term id="Para531877">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1861114">
-            <para>Select to display summarized Sales history for all
-            Customer Types.</para>
+            <para>Select to display summarized Sales history for all Customer
+            Types.</para>
           </listitem>
         </varlistentry>
 
@@ -3219,8 +3160,8 @@
           <term id="Para531878">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x186115c">
-            <para>Specify Customer Type whose summarized Sales
-            history you want to display.</para>
+            <para>Specify Customer Type whose summarized Sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3228,8 +3169,8 @@
           <term id="Para531880">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18611a4">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555640">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3243,8 +3184,8 @@
           <term id="Para531853">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x18611ec">
-            <para>Summarized Sales history by Customer Type
-            generated on or after this date will be displayed.</para>
+            <para>Summarized Sales history by Customer Type generated on or
+            after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3252,8 +3193,8 @@
           <term id="Para531649">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1866424">
-            <para>Summarized Sales history by Customer Type
-            generated on or before this date will be displayed.</para>
+            <para>Summarized Sales history by Customer Type generated on or
+            before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3261,8 +3202,8 @@
           <term id="Para531651">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1866448">
-            <para>Select to display summarized Sales history by
-            Customer Type for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Customer Type
+            for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3270,8 +3211,8 @@
           <term id="Para531653">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x186646c">
-            <para>Specify Warehouse whose summarized Sales history
-            by Customer Type you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Customer
+            Type you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3279,8 +3220,8 @@
           <term id="Para531655">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x18664b4">
-            <para>Display lists summarized Sales history by Customer
-            Type, using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Customer Type,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3293,8 +3234,8 @@
           <term id="Para531658">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1866520">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3302,8 +3243,8 @@
           <term id="Para541870">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1866568">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3311,8 +3252,7 @@
           <term id="Para555018">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18665b0">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3360,8 +3300,8 @@
           <term id="Para518904">Customer #</term>
 
           <listitem id="listitemN0x180ac00N0x1866760">
-            <para>Enter the Customer Number of the Customer whose
-            summarized Sales history by Item you want to display.</para>
+            <para>Enter the Customer Number of the Customer whose summarized
+            Sales history by Item you want to display.</para>
 
             <para id="Para518905">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
@@ -3381,8 +3321,8 @@
           <term id="Para518909">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x18667a8">
-            <para>Summarized Sales history by Customer by Item
-            generated on or after this date will be displayed.</para>
+            <para>Summarized Sales history by Customer by Item generated on or
+            after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3390,8 +3330,8 @@
           <term id="Para518914">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x18667f0">
-            <para>Summarized Sales history by Customer by Item
-            generated on or before this date will be displayed.</para>
+            <para>Summarized Sales history by Customer by Item generated on or
+            before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3399,8 +3339,8 @@
           <term id="Para518916">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1866814">
-            <para>Select to display summarized Sales history by
-            Customer by Item for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Customer by
+            Item for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3408,8 +3348,8 @@
           <term id="Para518918">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1866838">
-            <para>Specify Warehouse whose summarized Sales history
-            by Customer by Item you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Customer
+            by Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3417,8 +3357,7 @@
           <term id="Para535721">Order By</term>
 
           <listitem id="listitemN0x180ac00N0x1866880">
-            <para>Order the output by one of the following
-            methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
             <para id="Para533925">Item Number: Select to order Items in
             display by Item Number.</para>
@@ -3435,8 +3374,8 @@
           <term id="Para518920">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x18668c8">
-            <para>Display lists summarized Sales history by Customer
-            by Item, using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Customer by Item,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3449,8 +3388,8 @@
           <term id="Para518923">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1866934">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3458,8 +3397,8 @@
           <term id="Para541878">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x186697c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3467,8 +3406,7 @@
           <term id="Para555024">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18669c4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3516,8 +3454,8 @@
           <term id="Para531963">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1866b98">
-            <para>Select to display summarized Sales history by Item
-            for all Customer Types.</para>
+            <para>Select to display summarized Sales history by Item for all
+            Customer Types.</para>
           </listitem>
         </varlistentry>
 
@@ -3525,8 +3463,8 @@
           <term id="Para531964">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1866be0">
-            <para>Specify Customer Type whose summarized Sales
-            history by Item you want to display.</para>
+            <para>Specify Customer Type whose summarized Sales history by Item
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3534,8 +3472,8 @@
           <term id="Para531966">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1866c28">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555650">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3549,8 +3487,8 @@
           <term id="Para531738">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1866c70">
-            <para>Summarized Sales history by Customer Type by Item
-            generated on or after this date will be displayed.</para>
+            <para>Summarized Sales history by Customer Type by Item generated
+            on or after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3558,8 +3496,8 @@
           <term id="Para531743">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1866cb8">
-            <para>Summarized Sales history by Customer Type by Item
-            generated on or before this date will be displayed.</para>
+            <para>Summarized Sales history by Customer Type by Item generated
+            on or before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3567,8 +3505,8 @@
           <term id="Para531745">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1866cdc">
-            <para>Select to display summarized Sales history by
-            Customer Type by Item for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Customer Type
+            by Item for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3576,8 +3514,8 @@
           <term id="Para531747">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1866d00">
-            <para>Specify Warehouse whose summarized Sales history
-            by Customer Type by Item you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Customer
+            Type by Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3585,8 +3523,8 @@
           <term id="Para531749">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1866d48">
-            <para>Display lists summarized Sales history by Customer
-            Type by Item, using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Customer Type by
+            Item, using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3599,8 +3537,8 @@
           <term id="Para531752">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1866db4">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3608,8 +3546,8 @@
           <term id="Para541889">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1866dfc">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3617,8 +3555,7 @@
           <term id="Para555030">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1866e44">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3661,8 +3598,8 @@
           <term id="Para534724">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1866fd0">
-            <para>Select to display summarized Sales history by Item
-            for all Customer Types.</para>
+            <para>Select to display summarized Sales history by Item for all
+            Customer Types.</para>
           </listitem>
         </varlistentry>
 
@@ -3670,8 +3607,8 @@
           <term id="Para534725">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1867018">
-            <para>Specify Customer Type whose summarized Sales
-            history by Item you want to display.</para>
+            <para>Specify Customer Type whose summarized Sales history by Item
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3679,8 +3616,8 @@
           <term id="Para534727">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1867060">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555660">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3694,8 +3631,8 @@
           <term id="Para543561">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x18670a8">
-            <para>Select to display summarized Sales history by Item
-            for all Product Categories.</para>
+            <para>Select to display summarized Sales history by Item for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -3703,8 +3640,8 @@
           <term id="Para543562">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18670f0">
-            <para>Specify Product Category whose summarized Sales
-            history by Item you want to display.</para>
+            <para>Specify Product Category whose summarized Sales history by
+            Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3712,8 +3649,8 @@
           <term id="Para543563">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1867138">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555668">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3727,8 +3664,8 @@
           <term id="Para518942">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1867180">
-            <para>Summarized Sales history by Item generated on or
-            after this date will be displayed.</para>
+            <para>Summarized Sales history by Item generated on or after this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3736,8 +3673,8 @@
           <term id="Para518947">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x18671c8">
-            <para>Summarized Sales history by Item generated on or
-            before this date will be displayed.</para>
+            <para>Summarized Sales history by Item generated on or before this
+            date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3745,8 +3682,8 @@
           <term id="Para518949">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x18671ec">
-            <para>Select to display summarized Sales history by Item
-            for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Item for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3754,8 +3691,8 @@
           <term id="Para518951">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870200">
-            <para>Specify Warehouse whose summarized Sales history
-            by Item you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Item you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3763,8 +3700,7 @@
           <term id="Para535745">Order By</term>
 
           <listitem id="listitemN0x180ac00N0x1870248">
-            <para>Order the output by one of the following
-            methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
             <para id="Para535746">Item Number: Select to order Items in
             display by Item Number.</para>
@@ -3781,8 +3717,8 @@
           <term id="Para518953">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1870290">
-            <para>Display lists summarized Sales history by Item,
-            using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Item, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3795,8 +3731,8 @@
           <term id="Para518956">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x18702fc">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3804,8 +3740,8 @@
           <term id="Para541896">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1870344">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3813,8 +3749,7 @@
           <term id="Para555039">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x187038c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3823,11 +3758,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para518960">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x18703f8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -3872,8 +3805,8 @@
           <term id="Para518970">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x18705cc">
-            <para>Select to display summarized Sales history by
-            Sales Representative for all Product Categories.</para>
+            <para>Select to display summarized Sales history by Sales
+            Representative for all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -3881,8 +3814,8 @@
           <term id="Para539884">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870614">
-            <para>Specify Product Category whose summarized Sales
-            history by Sales Representative you want to display.</para>
+            <para>Specify Product Category whose summarized Sales history by
+            Sales Representative you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3890,8 +3823,8 @@
           <term id="Para528126">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x187065c">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555678">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -3905,8 +3838,8 @@
           <term id="Para518978">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x18706a4">
-            <para>Summarized Sales history by Sales Representative
-            generated on or after this date will be displayed.</para>
+            <para>Summarized Sales history by Sales Representative generated
+            on or after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3914,8 +3847,8 @@
           <term id="Para518983">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x18706ec">
-            <para>Summarized Sales history by Sales Representative
-            generated on or before this date will be displayed.</para>
+            <para>Summarized Sales history by Sales Representative generated
+            on or before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -3923,8 +3856,8 @@
           <term id="Para518985">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1870710">
-            <para>Select to display summarized Sales history by
-            Sales Representative for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Sales
+            Representative for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -3932,8 +3865,8 @@
           <term id="Para548459">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870734">
-            <para>Specify Warehouse whose summarized Sales history
-            by Sales Representative you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Sales
+            Representative you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -3955,8 +3888,8 @@
           <term id="Para518992">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x18707e8">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -3964,8 +3897,8 @@
           <term id="Para541903">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1870830">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -3973,8 +3906,7 @@
           <term id="Para555044">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1870878">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3984,11 +3916,9 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para518996">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x18708e4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4034,8 +3964,8 @@
           <term id="Para519006">All Shipping Zones</term>
 
           <listitem id="listitemN0x180ac00N0x1870ab8">
-            <para>Select to display summarized Sales history by Item
-            for all Shipping Zones.</para>
+            <para>Select to display summarized Sales history by Item for all
+            Shipping Zones.</para>
           </listitem>
         </varlistentry>
 
@@ -4043,8 +3973,8 @@
           <term id="Para519007">Selected Shipping Zone</term>
 
           <listitem id="listitemN0x180ac00N0x1870b00">
-            <para>Specify the Shipping Zone whose summarized Sales
-            history by Item you want to display.</para>
+            <para>Specify the Shipping Zone whose summarized Sales history by
+            Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4052,8 +3982,8 @@
           <term id="Para519009">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1870b48">
-            <para>Select to display summarized Sales history by
-            Shipping Zone by Item for all Product Categories.</para>
+            <para>Select to display summarized Sales history by Shipping Zone
+            by Item for all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -4061,8 +3991,8 @@
           <term id="Para539894">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870b90">
-            <para>Specify Product Category whose summarized Sales
-            history by Shipping Zone you want to display.</para>
+            <para>Specify Product Category whose summarized Sales history by
+            Shipping Zone you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4070,8 +4000,8 @@
           <term id="Para528132">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1870bd8">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555692">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4085,8 +4015,8 @@
           <term id="Para519014">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1870bfc">
-            <para>Select to display summarized Sales history by
-            Shipping Zone by Item for all Warehouses.</para>
+            <para>Select to display summarized Sales history by Shipping Zone
+            by Item for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -4094,8 +4024,8 @@
           <term id="Para519016">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870c20">
-            <para>Specify Warehouse whose summarized Sales history
-            by Shipping Zone by Item you want to display.</para>
+            <para>Specify Warehouse whose summarized Sales history by Shipping
+            Zone by Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4103,8 +4033,8 @@
           <term id="Para519021">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x1870c68">
-            <para>Summarized Sales history by Shipping Zone by Item
-            generated on or after this date will be displayed.</para>
+            <para>Summarized Sales history by Shipping Zone by Item generated
+            on or after this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -4112,8 +4042,8 @@
           <term id="Para519026">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x1870cb0">
-            <para>Summarized Sales history by Shipping Zone by Item
-            generated on or before this date will be displayed.</para>
+            <para>Summarized Sales history by Shipping Zone by Item generated
+            on or before this date will be displayed.</para>
           </listitem>
         </varlistentry>
 
@@ -4121,8 +4051,8 @@
           <term id="Para519028">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1870cf8">
-            <para>Display lists summarized Sales history by Shipping
-            Zone by Item, using the specified parameters.</para>
+            <para>Display lists summarized Sales history by Shipping Zone by
+            Item, using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4135,8 +4065,8 @@
           <term id="Para519031">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1870d64">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4144,8 +4074,8 @@
           <term id="Para541910">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1870dac">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4153,8 +4083,7 @@
           <term id="Para555050">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1870df4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4196,8 +4125,8 @@
           <term id="Para519042">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x1870f5c">
-            <para>Select to display time-phased Bookings by Item for
-            all Warehouses.</para>
+            <para>Select to display time-phased Bookings by Item for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -4205,8 +4134,8 @@
           <term id="Para519044">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1870f80">
-            <para>Specify Warehouse whose time-phased Bookings by
-            Item you want to display.</para>
+            <para>Specify Warehouse whose time-phased Bookings by Item you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4214,8 +4143,8 @@
           <term id="Para519046">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1870fc8">
-            <para>Select to display time-phased Bookings by Item for
-            all Product Categories.</para>
+            <para>Select to display time-phased Bookings by Item for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -4223,8 +4152,8 @@
           <term id="Para539905">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1877200">
-            <para>Specify Product Category whose time-phased
-            Bookings by Item you want to display.</para>
+            <para>Specify Product Category whose time-phased Bookings by Item
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4232,8 +4161,8 @@
           <term id="Para528138">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1877248">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555702">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4247,8 +4176,7 @@
           <term id="Para519051">Inventory Units</term>
 
           <listitem id="listitemN0x180ac00N0x1877290">
-            <para>Select to display Inventory Units of
-            Measure.</para>
+            <para>Select to display Inventory Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -4264,8 +4192,7 @@
           <term id="Para554459">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x1877320">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554460">Associated Calendar periods will be
             displayed.</para>
@@ -4276,9 +4203,9 @@
           <term id="Para526134">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x1877368">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530184">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -4299,8 +4226,8 @@
           <term id="Para519057">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18773b0">
-            <para>Display lists time-phased Bookings by Item, using
-            the specified parameters.</para>
+            <para>Display lists time-phased Bookings by Item, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4313,8 +4240,8 @@
           <term id="Para519060">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x187741c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4322,8 +4249,8 @@
           <term id="Para541923">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1877464">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4331,8 +4258,7 @@
           <term id="Para555056">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18774ac">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4340,11 +4266,11 @@
           <term id="Para553173">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x18774d0">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553175" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553175"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4353,11 +4279,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519064">View Bookings</term>
-
-          <listitem id="listitemN0x180ac00N0x187753c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4402,8 +4326,8 @@
           <term id="Para519074">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x18776ec">
-            <para>Select to display time-phased Bookings by Product
-            Category for all Warehouses.</para>
+            <para>Select to display time-phased Bookings by Product Category
+            for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -4411,8 +4335,8 @@
           <term id="Para519076">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1877710">
-            <para>Specify Warehouse whose time-phased Bookings by
-            Product Category you want to display.</para>
+            <para>Specify Warehouse whose time-phased Bookings by Product
+            Category you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4420,8 +4344,8 @@
           <term id="Para519078">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1877758">
-            <para>Select to display time-phased Bookings for all
-            Product Categories.</para>
+            <para>Select to display time-phased Bookings for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -4429,8 +4353,8 @@
           <term id="Para539915">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18777a0">
-            <para>Specify Product Category whose time-phased
-            Bookings you want to display.</para>
+            <para>Specify Product Category whose time-phased Bookings you want
+            to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4438,8 +4362,8 @@
           <term id="Para528144">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18777e8">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555712">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4453,8 +4377,7 @@
           <term id="Para519083">Inventory Units</term>
 
           <listitem id="listitemN0x180ac00N0x1877830">
-            <para>Select to display Inventory Units of
-            Measure.</para>
+            <para>Select to display Inventory Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -4462,8 +4385,7 @@
           <term id="Para519084">Capacity Units</term>
 
           <listitem id="listitemN0x180ac00N0x1877878">
-            <para>Select to display Capacity Units of
-            Measure.</para>
+            <para>Select to display Capacity Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -4471,8 +4393,8 @@
           <term id="Para519085">Alt. Capacity Units</term>
 
           <listitem id="listitemN0x180ac00N0x18778c0">
-            <para>Capacity Units: Select to display Alternate
-            Capacity Units of Measure.</para>
+            <para>Capacity Units: Select to display Alternate Capacity Units
+            of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -4488,8 +4410,7 @@
           <term id="Para554469">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x1877950">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554470">Associated Calendar periods will be
             displayed.</para>
@@ -4500,9 +4421,9 @@
           <term id="Para526140">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x1877998">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530189">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -4523,8 +4444,8 @@
           <term id="Para519091">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x18779e0">
-            <para>Display lists time-phased Bookings by Product
-            Category, using the specified parameters.</para>
+            <para>Display lists time-phased Bookings by Product Category,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4537,8 +4458,8 @@
           <term id="Para519094">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1877a4c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4546,8 +4467,8 @@
           <term id="Para541930">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1877a94">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4555,8 +4476,7 @@
           <term id="Para555062">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1877adc">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4564,11 +4484,11 @@
           <term id="Para553207">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x1877b00">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553209" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553209"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4577,11 +4497,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519098">View Bookings</term>
-
-          <listitem id="listitemN0x180ac00N0x1877b6c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4626,8 +4544,8 @@
           <term id="Para519108">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1877d40">
-            <para>Select to display time-phased Bookings by Customer
-            for all Customer Types.</para>
+            <para>Select to display time-phased Bookings by Customer for all
+            Customer Types.</para>
           </listitem>
         </varlistentry>
 
@@ -4635,8 +4553,8 @@
           <term id="Para539631">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1877d88">
-            <para>Specify Customer Type whose time-phased Bookings
-            you want to display.</para>
+            <para>Specify Customer Type whose time-phased Bookings you want to
+            display.</para>
           </listitem>
         </varlistentry>
 
@@ -4644,8 +4562,8 @@
           <term id="Para528394">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1877dd0">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555720">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4659,8 +4577,7 @@
           <term id="Para554475">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x1877e18">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554476">Associated Calendar periods will be
             displayed.</para>
@@ -4671,9 +4588,9 @@
           <term id="Para526161">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x1877e60">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530194">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -4694,8 +4611,8 @@
           <term id="Para526157">Bookings</term>
 
           <listitem id="listitemN0x180ac00N0x1877ea8">
-            <para>Display lists time-phased Bookings by Customer,
-            using the specified parameters.</para>
+            <para>Display lists time-phased Bookings by Customer, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4708,8 +4625,8 @@
           <term id="Para519120">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1877f14">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4717,8 +4634,8 @@
           <term id="Para541940">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1877f5c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4726,8 +4643,7 @@
           <term id="Para555072">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1877fa4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4735,11 +4651,11 @@
           <term id="Para553261">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x1877fc8">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553263" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553263"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4748,11 +4664,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519124">View Bookings</term>
-
-          <listitem id="listitemN0x180ac00N0x187b224"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -4797,8 +4711,8 @@
           <term id="Para519134">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x187b3d4">
-            <para>Select to display time-phased Sales history by
-            Item for all Warehouses.</para>
+            <para>Select to display time-phased Sales history by Item for all
+            Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -4806,8 +4720,8 @@
           <term id="Para519136">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x187b3f8">
-            <para>Specify Warehouse whose time-phased Sales history
-            by Item you want to display.</para>
+            <para>Specify Warehouse whose time-phased Sales history by Item
+            you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4815,8 +4729,8 @@
           <term id="Para519138">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x187b440">
-            <para>Select to display time-phased Sales history by
-            Item for all Product Categories.</para>
+            <para>Select to display time-phased Sales history by Item for all
+            Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -4824,8 +4738,8 @@
           <term id="Para539933">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x187b488">
-            <para>Specify Product Category whose time-phased Sales
-            history by Item you want to display.</para>
+            <para>Specify Product Category whose time-phased Sales history by
+            Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -4833,8 +4747,8 @@
           <term id="Para528150">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x187b4d0">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555730">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -4848,8 +4762,7 @@
           <term id="Para519143">Inventory Units</term>
 
           <listitem id="listitemN0x180ac00N0x187b518">
-            <para>Select to display Inventory Units of
-            Measure.</para>
+            <para>Select to display Inventory Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -4874,8 +4787,7 @@
           <term id="Para554485">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x187b5f0">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554486">Associated Calendar periods will be
             displayed.</para>
@@ -4886,9 +4798,9 @@
           <term id="Para526170">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x187b638">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530199">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -4909,8 +4821,8 @@
           <term id="Para519150">Shipments</term>
 
           <listitem id="listitemN0x180ac00N0x187b680">
-            <para>Display lists time-phased Sales history by Item,
-            using the specified parameters.</para>
+            <para>Display lists time-phased Sales history by Item, using the
+            specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4923,8 +4835,8 @@
           <term id="Para519153">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x187b6ec">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -4932,8 +4844,8 @@
           <term id="Para541949">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x187b734">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -4941,8 +4853,7 @@
           <term id="Para555078">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x187b77c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -4950,11 +4861,11 @@
           <term id="Para553398">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x187b7a0">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553400" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553400"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -4963,11 +4874,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519157">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x187b80c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5008,8 +4917,8 @@
           <term id="Para519167">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x187b974">
-            <para>Select to display time-phased Sales history by
-            Product Category for all Warehouses.</para>
+            <para>Select to display time-phased Sales history by Product
+            Category for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -5017,8 +4926,8 @@
           <term id="Para519169">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x187b998">
-            <para>Specify Warehouse whose time-phased Sales history
-            by Product Category you want to display.</para>
+            <para>Specify Warehouse whose time-phased Sales history by Product
+            Category you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5026,8 +4935,8 @@
           <term id="Para519171">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x187b9e0">
-            <para>Select to display time-phased Sales history for
-            all Product Categories.</para>
+            <para>Select to display time-phased Sales history for all Product
+            Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -5035,8 +4944,8 @@
           <term id="Para539943">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x187ba28">
-            <para>Specify Product Category whose time-phased Sales
-            history you want to display.</para>
+            <para>Specify Product Category whose time-phased Sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5044,8 +4953,8 @@
           <term id="Para528156">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x187ba70">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555740">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5059,8 +4968,7 @@
           <term id="Para519176">Inventory Units</term>
 
           <listitem id="listitemN0x180ac00N0x187bab8">
-            <para>Select to display Inventory Units of
-            Measure.</para>
+            <para>Select to display Inventory Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -5068,8 +4976,7 @@
           <term id="Para519177">Capacity Units</term>
 
           <listitem id="listitemN0x180ac00N0x187bb00">
-            <para>Select to display Capacity Units of
-            Measure.</para>
+            <para>Select to display Capacity Units of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -5077,8 +4984,8 @@
           <term id="Para519178">Alt. Capacity Units</term>
 
           <listitem id="listitemN0x180ac00N0x187bb48">
-            <para>Capacity Units: Select to display Alternate
-            Capacity Units of Measure.</para>
+            <para>Capacity Units: Select to display Alternate Capacity Units
+            of Measure.</para>
           </listitem>
         </varlistentry>
 
@@ -5103,8 +5010,7 @@
           <term id="Para554491">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x187bc20">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554492">Associated Calendar periods will be
             displayed.</para>
@@ -5115,9 +5021,9 @@
           <term id="Para526176">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x187bc68">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530204">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -5138,8 +5044,8 @@
           <term id="Para519185">Shipments</term>
 
           <listitem id="listitemN0x180ac00N0x187bcb0">
-            <para>Display lists time-phased Sales history by Product
-            Category, using the specified parameters.</para>
+            <para>Display lists time-phased Sales history by Product Category,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5152,8 +5058,8 @@
           <term id="Para519188">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x187bd1c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5161,8 +5067,8 @@
           <term id="Para541956">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x187bd64">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5170,8 +5076,7 @@
           <term id="Para555084">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x187bdac">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5179,11 +5084,11 @@
           <term id="Para553439">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x187bdd0">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553441" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553441"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5192,11 +5097,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519192">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x187be3c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5241,8 +5144,8 @@
           <term id="Para519202">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1883800">
-            <para>Select to display time-phased Sales history for
-            all Customer Types.</para>
+            <para>Select to display time-phased Sales history for all Customer
+            Types.</para>
           </listitem>
         </varlistentry>
 
@@ -5250,8 +5153,8 @@
           <term id="Para539648">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1883848">
-            <para>Specify Customer Type whose time-phased Sales
-            history you want to display.</para>
+            <para>Specify Customer Type whose time-phased Sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5259,8 +5162,8 @@
           <term id="Para528400">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1883890">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555748">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5274,8 +5177,8 @@
           <term id="Para543749">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x18838d8">
-            <para>Select to display time-phased Sales history by
-            Customer for all Product Categories.</para>
+            <para>Select to display time-phased Sales history by Customer for
+            all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -5283,8 +5186,8 @@
           <term id="Para543763">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1883920">
-            <para>Specify Product Category whose time-phased Sales
-            history by Customer you want to display.</para>
+            <para>Specify Product Category whose time-phased Sales history by
+            Customer you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5292,8 +5195,8 @@
           <term id="Para543717">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1883968">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555756">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5316,8 +5219,7 @@
           <term id="Para554497">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x18839f8">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554498">Associated Calendar periods will be
             displayed.</para>
@@ -5328,9 +5230,9 @@
           <term id="Para526182">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x1883a40">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para530209">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -5351,8 +5253,7 @@
           <term id="Para539175">Order By</term>
 
           <listitem id="listitemN0x180ac00N0x1883a88">
-            <para>Order the output by one of the following
-            methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
             <para id="Para539176">by Customer #: Select to order display by
             Customer Number.</para>
@@ -5366,8 +5267,8 @@
           <term id="Para519212">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x1883ad0">
-            <para>Display lists time-phased Sales history by
-            Customer, using the specified parameters.</para>
+            <para>Display lists time-phased Sales history by Customer, using
+            the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5380,8 +5281,8 @@
           <term id="Para519215">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1883b3c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5389,8 +5290,8 @@
           <term id="Para541963">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x1883b84">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5398,8 +5299,7 @@
           <term id="Para555089">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x1883bcc">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5407,11 +5307,11 @@
           <term id="Para553465">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x1883bf0">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553467" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553467"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5420,11 +5320,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para541566">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x1883c5c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5469,8 +5367,8 @@
           <term id="Para543929">All Customer Groups</term>
 
           <listitem id="listitemN0x180ac00N0x1883e30">
-            <para>Select to display time-phased Sales history for
-            all Customer Groups.</para>
+            <para>Select to display time-phased Sales history for all Customer
+            Groups.</para>
           </listitem>
         </varlistentry>
 
@@ -5478,8 +5376,8 @@
           <term id="Para543930">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1883e78">
-            <para>Specify Customer Group whose time-phased Sales
-            history you want to display.</para>
+            <para>Specify Customer Group whose time-phased Sales history you
+            want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5487,8 +5385,8 @@
           <term id="Para543931">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1883ec0">
-            <para>Enter a Customer Group pattern to select a range
-            of Customer Groups.</para>
+            <para>Enter a Customer Group pattern to select a range of Customer
+            Groups.</para>
 
             <para id="Para555764">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5502,8 +5400,8 @@
           <term id="Para543950">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1883f08">
-            <para>Select to display time-phased Sales history by
-            Customer Group for all Product Categories.</para>
+            <para>Select to display time-phased Sales history by Customer
+            Group for all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -5511,8 +5409,8 @@
           <term id="Para543951">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x1883f50">
-            <para>Specify Product Category whose time-phased Sales
-            history by Customer Group you want to display.</para>
+            <para>Specify Product Category whose time-phased Sales history by
+            Customer Group you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5520,8 +5418,8 @@
           <term id="Para543952">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x1883f98">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555772">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5535,8 +5433,7 @@
           <term id="Para554503">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x1883fe0">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554504">Associated Calendar periods will be
             displayed.</para>
@@ -5547,9 +5444,9 @@
           <term id="Para543973">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x1884028">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para543974">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -5570,8 +5467,7 @@
           <term id="Para543975">Order By</term>
 
           <listitem id="listitemN0x180ac00N0x1884070">
-            <para>Order the output by one of the following
-            methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
             <para id="Para543976">by Customer #: Select to order display by
             Customer Number.</para>
@@ -5585,8 +5481,8 @@
           <term id="Para543978">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x18840b8">
-            <para>Display lists time-phased Sales history by
-            Customer Group, using the specified parameters.</para>
+            <para>Display lists time-phased Sales history by Customer Group,
+            using the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5599,8 +5495,8 @@
           <term id="Para543981">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x1884124">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5608,8 +5504,8 @@
           <term id="Para543982">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x188416c">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5617,8 +5513,7 @@
           <term id="Para555096">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x18841b4">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5626,11 +5521,11 @@
           <term id="Para553605">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x18841d8">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553607" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553607"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5639,11 +5534,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para543986">View Sales Detail</term>
-
-          <listitem id="listitemN0x180ac00N0x1884244"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/22)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -5692,8 +5585,8 @@
           <term id="Para538707">All Customer Types</term>
 
           <listitem id="listitemN0x180ac00N0x1884460">
-            <para>Select to display time-phased Sales history by
-            Customer by Item for all Customer Types.</para>
+            <para>Select to display time-phased Sales history by Customer by
+            Item for all Customer Types.</para>
           </listitem>
         </varlistentry>
 
@@ -5701,8 +5594,8 @@
           <term id="Para539661">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18844a8">
-            <para>Specify Customer Type whose time-phased Sales
-            history by Item you want to display.</para>
+            <para>Specify Customer Type whose time-phased Sales history by
+            Item you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5710,8 +5603,8 @@
           <term id="Para538710">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x18844f0">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555780">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5734,8 +5627,8 @@
           <term id="Para538877">All Product Categories</term>
 
           <listitem id="listitemN0x180ac00N0x1884580">
-            <para>Select to display time-phased Sales history by
-            Customer for all Product Categories.</para>
+            <para>Select to display time-phased Sales history by Customer for
+            all Product Categories.</para>
           </listitem>
         </varlistentry>
 
@@ -5743,8 +5636,8 @@
           <term id="Para539955">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x18845c8">
-            <para>Specify Product Category whose time-phased Sales
-            history by Customer you want to display.</para>
+            <para>Specify Product Category whose time-phased Sales history by
+            Customer you want to display.</para>
           </listitem>
         </varlistentry>
 
@@ -5752,8 +5645,8 @@
           <term id="Para538880">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x188c400">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555788">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -5767,8 +5660,7 @@
           <term id="Para554509">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x188c448">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
             <para id="Para554510">Associated Calendar periods will be
             displayed.</para>
@@ -5779,9 +5671,9 @@
           <term id="Para538722">Name/Selected Periods</term>
 
           <listitem id="listitemN0x180ac00N0x188c490">
-            <para>Select as many periods as you want to display.
-            Selected periods correspond to Calendar specified in the
-            "Calendar" field.</para>
+            <para>Select as many periods as you want to display. Selected
+            periods correspond to Calendar specified in the "Calendar"
+            field.</para>
 
             <para id="Para538723">Select individual periods or groups of
             periods together. To select an individual period, highlight the
@@ -5802,8 +5694,7 @@
           <term id="Para539195">Order By</term>
 
           <listitem id="listitemN0x180ac00N0x188c4d8">
-            <para>Order the output by one of the following
-            methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
             <para id="Para539196">by Customer #: Select to order display by
             Customer Number.</para>
@@ -5817,8 +5708,8 @@
           <term id="Para538724">Sales History</term>
 
           <listitem id="listitemN0x180ac00N0x188c520">
-            <para>Display lists time-phased Sales history by
-            Customer, using the specified parameters.</para>
+            <para>Display lists time-phased Sales history by Customer, using
+            the specified parameters.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5831,8 +5722,8 @@
           <term id="Para538727">CLOSE</term>
 
           <listitem id="listitemN0x180ac00N0x188c58c">
-            <para>Closes the screen, returning you to the
-            application desktop.</para>
+            <para>Closes the screen, returning you to the application
+            desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5840,8 +5731,8 @@
           <term id="Para541970">QUERY</term>
 
           <listitem id="listitemN0x180ac00N0x188c5d4">
-            <para>Select to generate the display, using the
-            specified parameters.</para>
+            <para>Select to generate the display, using the specified
+            parameters.</para>
           </listitem>
         </varlistentry>
 
@@ -5849,8 +5740,7 @@
           <term id="Para555103">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x188c61c">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
 
@@ -5858,11 +5748,11 @@
           <term id="Para553518">SUBMIT</term>
 
           <listitem id="listitemN0x180ac00N0x188c640">
-            <para>Select to submit report to the Batch Manager. For
-            additional information, see the <link endterm="Anchor61009"
-            id="XRef553520" linkend="Anchor61009"> Submitting Reports and Jobs
-            to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-            the Batch Manager".</para>
+            <para>Select to submit report to the Batch Manager. For additional
+            information, see the <link endterm="Anchor61009" id="XRef553520"
+            linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+            Manager".</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5901,8 +5791,7 @@
           <term id="Para553655">Calendar</term>
 
           <listitem id="listitemN0x180ac00N0x188c784">
-            <para>Select the Calendar you want to use for the
-            report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
           </listitem>
         </varlistentry>
 
@@ -5910,8 +5799,7 @@
           <term id="Para553657">Report Name</term>
 
           <listitem id="listitemN0x180ac00N0x188c7cc">
-            <para>Specify the Calendar Form you want to
-            print.</para>
+            <para>Specify the Calendar Form you want to print.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5924,8 +5812,8 @@
           <term id="Para553663">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x188c838">
-            <para>Closes the screen without generating a report,
-            returning you to the application desktop.</para>
+            <para>Closes the screen without generating a report, returning you
+            to the application desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -5933,8 +5821,7 @@
           <term id="Para555108">PRINT</term>
 
           <listitem id="listitemN0x180ac00N0x188c880">
-            <para>Runs the report associated with this
-            screen.</para>
+            <para>Runs the report associated with this screen.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -5990,8 +5877,8 @@
           <term id="Para548047">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x188ca0c">
-            <para>Specify Customer Type whose Sales history you want
-            to archive.</para>
+            <para>Specify Customer Type whose Sales history you want to
+            archive.</para>
           </listitem>
         </varlistentry>
 
@@ -5999,8 +5886,8 @@
           <term id="Para548048">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x188ca54">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555798">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -6023,8 +5910,8 @@
           <term id="Para548057">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x188cae4">
-            <para>Specify Product Category whose Sales history you
-            want to archive.</para>
+            <para>Specify Product Category whose Sales history you want to
+            archive.</para>
           </listitem>
         </varlistentry>
 
@@ -6032,8 +5919,8 @@
           <term id="Para548058">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x188cb2c">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555806">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -6048,9 +5935,9 @@
           Items</term>
 
           <listitem id="listitemN0x180ac00N0x188cb74">
-            <para>Select to archive all the sales information which
-            is not directly related to the Item Sites for a Sales Order--that
-            is, Freight charges, Tax, etc.</para>
+            <para>Select to archive all the sales information which is not
+            directly related to the Item Sites for a Sales Order--that is,
+            Freight charges, Tax, etc.</para>
           </listitem>
         </varlistentry>
 
@@ -6058,8 +5945,7 @@
           <term id="Para551517">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x188cb98">
-            <para>Select to archive Sales history for all
-            Warehouses.</para>
+            <para>Select to archive Sales history for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -6076,8 +5962,8 @@
           <term id="Para548103">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x188cc04">
-            <para>Sales history generated on or after this date will
-            be archived.</para>
+            <para>Sales history generated on or after this date will be
+            archived.</para>
           </listitem>
         </varlistentry>
 
@@ -6085,8 +5971,8 @@
           <term id="Para548108">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x188cc4c">
-            <para>Sales history by Shipping Zone by Item generated
-            on or before this date will be archived.</para>
+            <para>Sales history by Shipping Zone by Item generated on or
+            before this date will be archived.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -6099,8 +5985,8 @@
           <term id="Para548034">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x188ccb8">
-            <para>Closes the screen without archiving Sales history,
-            returning you to the application desktop.</para>
+            <para>Closes the screen without archiving Sales history, returning
+            you to the application desktop.</para>
           </listitem>
         </varlistentry>
 
@@ -6159,8 +6045,8 @@
           <term id="Para548926">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x188ce68">
-            <para>Specify Customer Type whose Sales history you want
-            to restore.</para>
+            <para>Specify Customer Type whose Sales history you want to
+            restore.</para>
           </listitem>
         </varlistentry>
 
@@ -6168,8 +6054,8 @@
           <term id="Para548927">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x188ceb0">
-            <para>Enter a Customer Type pattern to select a range of
-            Customer Types.</para>
+            <para>Enter a Customer Type pattern to select a range of Customer
+            Types.</para>
 
             <para id="Para555816">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -6192,8 +6078,8 @@
           <term id="Para548936">Selected</term>
 
           <listitem id="listitemN0x180ac00N0x188cf40">
-            <para>Specify Product Category whose Sales history you
-            want to restore.</para>
+            <para>Specify Product Category whose Sales history you want to
+            restore.</para>
           </listitem>
         </varlistentry>
 
@@ -6201,8 +6087,8 @@
           <term id="Para548937">Pattern</term>
 
           <listitem id="listitemN0x180ac00N0x188cf88">
-            <para>Enter a Product Category pattern to select a range
-            of Product Categories.</para>
+            <para>Enter a Product Category pattern to select a range of
+            Product Categories.</para>
 
             <para id="Para555824">Refine your search using Regular
             Expressions, as described in <link endterm="Anchor77806"
@@ -6217,9 +6103,9 @@
           Items</term>
 
           <listitem id="listitemN0x180ac00N0x188cfd0">
-            <para>Select to restore all the sales information which
-            is not directly related to the Item Sites for a Sales Order--that
-            is, Freight charges, Tax, etc.</para>
+            <para>Select to restore all the sales information which is not
+            directly related to the Item Sites for a Sales Order--that is,
+            Freight charges, Tax, etc.</para>
           </listitem>
         </varlistentry>
 
@@ -6227,8 +6113,7 @@
           <term id="Para548945">All Warehouses</term>
 
           <listitem id="listitemN0x180ac00N0x188cff4">
-            <para>Select to restore Sales history for all
-            Warehouses.</para>
+            <para>Select to restore Sales history for all Warehouses.</para>
           </listitem>
         </varlistentry>
 
@@ -6245,8 +6130,8 @@
           <term id="Para548950">Start Date</term>
 
           <listitem id="listitemN0x180ac00N0x188d060">
-            <para>Sales history generated on or after this date will
-            be restored.</para>
+            <para>Sales history generated on or after this date will be
+            restored.</para>
           </listitem>
         </varlistentry>
 
@@ -6254,8 +6139,8 @@
           <term id="Para548955">End Date</term>
 
           <listitem id="listitemN0x180ac00N0x188d0a8">
-            <para>Sales history by Shipping Zone by Item generated
-            on or before this date will be restored.</para>
+            <para>Sales history by Shipping Zone by Item generated on or
+            before this date will be restored.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -6268,8 +6153,8 @@
           <term id="Para548958">CANCEL</term>
 
           <listitem id="listitemN0x180ac00N0x188d114">
-            <para>Closes the screen without restoring Sales history,
-            returning you to the application desktop.</para>
+            <para>Closes the screen without restoring Sales history, returning
+            you to the application desktop.</para>
           </listitem>
         </varlistentry>
 

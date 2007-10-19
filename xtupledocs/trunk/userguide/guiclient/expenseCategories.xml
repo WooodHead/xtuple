@@ -6,64 +6,83 @@
   xreflabel="expense categories:master list of" /> <indexterm
       significance="normal" zone="Anchor677900">
       <primary>expense categories</primary>
+
       <secondary>master list of</secondary>
-    </indexterm>Expense Categories</title>
+    </indexterm>List Expense Categories</title>
+
   <para id="Para677902">Expense Categories are used to identify the General
   Ledger (G/L) Accounts to be used when processing the following:</para>
+
   <itemizedlist>
     <listitem id="listitemN0x180ac00N0x184dd60">
       <para id="Para677903">Non-Inventory Purchase Order Items</para>
     </listitem>
+
     <listitem id="listitemN0x180ac00N0x184dd84">
       <para id="Para677904">Miscellaneous Vouchers</para>
     </listitem>
+
     <listitem id="listitemN0x180ac00N0x184dda8">
       <para id="Para677905">Miscellaneous A/P Checks</para>
     </listitem>
+
     <listitem id="listitemN0x180ac00N0x184ddcc">
       <para id="Para677906">Expense Transactions</para>
     </listitem>
   </itemizedlist>
+
   <para id="Para677907">For example, when entering a Purchase Order for a
   non-Inventory Item, you must select an Expense Category--thereby identifying
   the G/L Accounts the purchasing transaction will be distributed to. To
   access the master list of Expense Categories, select the "Expense
   Categories" option. The following screen will appear:</para>
+
   <para id="Para677911"><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_MI_expenseCat.png" id="Graphic677909" />
         </imageobject>
+
         <caption id="Caption677912">Expense Categories Master List</caption>
       </mediaobject>
     </screenshot></para>
+
   <para id="Para677913">The "Expense Categories" screen displays information
   on all existing Expense Categories, including Expense Category code and
   Expense Category description.</para>
+
   <para id="Para677914">To the far right of the screen, the following buttons
   are available:</para>
+
   <variablelist>
     <varlistentry>
       <term id="Para677915">CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x184dea4">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677916">PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x184deec">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677917">NEW</term>
+
       <listitem id="listitemN0x180ac00N0x184df34">
         <para>Opens screen for creating a new Expense Category.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677918">EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x184df7c">
         <para>Enables you to edit highlighted Expense Categories. The edit
         screen is the same as that for creating a new Expense Category--except
@@ -72,112 +91,31 @@
         you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677919">VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x184dfc4">
         <para>Highlight an Expense Category and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677920">COPY</term>
+
       <listitem id="listitemN0x180ac00N0x184e00c">
         <para>Highlight an Expense Category and then select this button to
         reach a screen for copying the Expense Category master.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term id="Para677921">DELETE</term>
+
       <listitem id="listitemN0x180ac00N0x184e054">
         <para>Highlight an Expense Category and then select this button to
         remove the category from the list.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para id="Para677923">To <anchor id="Anchor677922" role="Index"
-  xreflabel="expense categories:creating new" /> <indexterm
-      significance="normal" zone="Anchor677922">
-      <primary>expense categories</primary>
-      <secondary>creating new</secondary>
-    </indexterm>create a new Expense Category, select the NEW button. The
-  following screen will appear:</para>
-  <para id="Para677927"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/IM_MI_expCatNew.png" id="Graphic677925" />
-        </imageobject>
-        <caption id="Caption677928">Create New Expense Category</caption>
-      </mediaobject>
-    </screenshot></para>
-  <para id="Para677929">When creating a new Expense Category, you are
-  presented with the following options:</para>
-  <variablelist>
-    <varlistentry>
-      <term id="Para677930">Category</term>
-      <listitem id="listitemN0x180ac00N0x184e174">
-        <para>Enter the Expense Category name.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677931">Description</term>
-      <listitem id="listitemN0x180ac00N0x184e1bc">
-        <para>Enter a brief description of the Expense Category.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677932">Active</term>
-      <listitem id="listitemN0x180ac00N0x184e204">
-        <para>Select to show the Expense Category as active.</para>
-        <para id="Para677933">Not selecting means the Expense Category will be
-        considered inactive. To re-activate an Expense Category, simply select
-        this option.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677934">Expense</term>
-      <listitem id="listitemN0x180ac00N0x184e24c">
-        <para>Identify a General Ledger (G/L) Account to distribute Purchasing
-        Expenses to.</para>
-        <para id="Para677935">This is an Expense Account. It will be debited
-        when transactions using Expense Categories are posted.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677936">Purchase Price Variance</term>
-      <listitem id="listitemN0x180ac00N0x184e294">
-        <para>Identify a General Ledger (G/L) Account to distribute purchase
-        Price variances to.</para>
-        <para id="Para677937">This is an Asset Account. It will be credited or
-        debited with the value of any variance that may arise when a Voucher
-        is posted for non-Inventory Items.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677938">P/O Liability Clearing</term>
-      <listitem id="listitemN0x180ac00N0x184e2dc">
-        <para>Identify a General Ledger (G/L) Account to distribute Purchase
-        Order liability clearing to.</para>
-        <para id="Para677939">This is a Liability Account. It will be credited
-        when non-Inventory Items are received, and debited when a Voucher for
-        these Items is posted.</para>
-      </listitem>
-    </varlistentry>
-  </variablelist>
-  <para id="Para677940">To the far right of the screen, the following buttons
-  are available:</para>
-  <variablelist>
-    <varlistentry>
-      <term id="Para677941">CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x184e348">
-        <para>Closes the screen without creating an Expense Category,
-        returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para677942">SAVE</term>
-      <listitem id="listitemN0x180ac00N0x184e390">
-        <para>Creates the Expense Category and adds it to the master list of
-        Expense Categories.</para>
       </listitem>
     </varlistentry>
   </variablelist>

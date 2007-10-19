@@ -950,21 +950,21 @@
         <varlistentry>
           <term id="Para656705">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x182e244)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para656706">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x182e28c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para656707">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x182e2d4)" />
         </varlistentry>
 
@@ -2213,14 +2213,14 @@
         <varlistentry>
           <term id="Para639046">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18550ac)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para639047">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1855064)" />
         </varlistentry>
 
@@ -2318,21 +2318,21 @@
         <varlistentry>
           <term id="Para656938">View Customer Master</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18553c4)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para656939">Edit Customer Master</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x185537c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para656940">Delete Customer Master</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x185540c)" />
         </varlistentry>
 
@@ -2522,189 +2522,6 @@
           <listitem id="listitemN0x180ac00N0x1855b14">
             <para>Highlight a Customer and then select this button to remove
             the Customer from the Customer Group.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
-
-    <section id="Section657438">
-      <title><anchor id="Anchor657436" role="Index"
-      xreflabel="characteristics:master list of" /> <indexterm
-          significance="normal" zone="Anchor657436">
-          <primary>characteristics</primary>
-
-          <secondary>master list of</secondary>
-        </indexterm> <anchor id="Anchor97053" role="Cross-Ref"
-      xreflabel="97053: Heading2: Characteristics" />Characteristics</title>
-
-      <para id="Para657439">Characteristics may be used to create additional
-      layers of information about Items, Customers, CRM Accounts, Contacts,
-      and Addresses. For example, Characteristics defined on an Item master
-      may be associated with Sales Order Items. And, if the Sales Order leads
-      to the automatic generation of additional Orders (i.e., Work Orders or
-      Purchase Orders), then the subsequent Orders will inherit the parent
-      Sales Order Characteristics.</para>
-
-      <para id="Para657440">To access the master list of Characteristics,
-      select the "Characteristics" option. The following screen will
-      appear.</para>
-
-      <para id="Para657444"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/PD_MI_charactList.png"
-                         id="Graphic657442" />
-            </imageobject>
-
-            <caption id="Caption657445">Characteristics Master List</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para657446">The "Characteristics" screen displays information
-      on all existing Characteristics, including Characteristic name and
-      Characteristic description.</para>
-
-      <para id="Para657447">To the far right of the list, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para657448">CLOSE</term>
-
-          <listitem id="listitemN0x180ac00N0x185f048">
-            <para>Closes the screen, returning you to the application
-            desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657449">PRINT</term>
-
-          <listitem id="listitemN0x180ac00N0x185f090">
-            <para>Runs the report associated with this screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657450">NEW</term>
-
-          <listitem id="listitemN0x180ac00N0x185f0d8">
-            <para>Opens screen for creating a new Characteristic.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657451">EDIT</term>
-
-          <listitem id="listitemN0x180ac00N0x185f120">
-            <para>Enables you to edit highlighted Characteristics. The edit
-            screen is the same as that for creating a new
-            Characteristic--except that when editing, the fields will contain
-            Characteristic information. Double-clicking on a Characteristic
-            will also bring you to the editing screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657452">DELETE</term>
-
-          <listitem id="listitemN0x180ac00N0x185f168">
-            <para>Highlight a Characteristic and then select this button to
-            remove the Characteristics from the list.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para657454">To<anchor id="Anchor657453" role="Index"
-      xreflabel="characteristics:creating new" /> <indexterm
-          significance="normal" zone="Anchor657453">
-          <primary>characteristics</primary>
-
-          <secondary>creating new</secondary>
-        </indexterm> create a new Characteristic, select the NEW button. The
-      following screen will appear:</para>
-
-      <para id="Para657458"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/PD_MI_charactNew.png"
-                         id="Graphic657456" />
-            </imageobject>
-
-            <caption id="Caption657459">Create New Characteristic</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para657460">When creating a new Characteristic, you are
-      presented with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para657461">Name</term>
-
-          <listitem id="listitemN0x180ac00N0x185f288">
-            <para>Enter a unique name for the Characteristic.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657462">May be used for</term>
-
-          <listitem id="listitemN0x180ac00N0x185f2d0">
-            <para>Select one of the following Characteristic assignment
-            options:</para>
-
-            <para id="Para657463">Item Characteristics: Select to make
-            Characteristic available for Item Characteristics.</para>
-
-            <para id="Para657464">Customer Characteristics: Select to make
-            Characteristic available for Customer Characteristics.</para>
-
-            <para id="Para657465">Lot/Serial Characteristics: Select to make
-            Characteristic available for Lot/Serial Characteristics.</para>
-
-            <para id="Para657466">Address Characteristics: Select to make
-            Characteristic available for Address Characteristics.</para>
-
-            <para id="Para657467">CRM Account Characteristics: Select to make
-            Characteristic available for CRM Account Characteristics.</para>
-
-            <para id="Para657468">Contact Characteristics: Select to make
-            Characteristic available for Contact Characteristics.</para>
-
-            <para id="Para657469">Opportunity Characteristics: Select to make
-            Characteristic available for Opportunity Characteristics.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657470">Description</term>
-
-          <listitem id="listitemN0x180ac00N0x185f318">
-            <para>Enter a brief description of the Characteristic.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para657471">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para657472">CANCEL</term>
-
-          <listitem id="listitemN0x180ac00N0x185f384">
-            <para>Closes the screen without creating a Characteristic,
-            returning you to the previous screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657473">SAVE</term>
-
-          <listitem id="listitemN0x180ac00N0x185f3cc">
-            <para>Creates the Characteristic and adds it to the master list of
-            Characteristics.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -3114,14 +2931,14 @@
         <varlistentry>
           <term id="Para638595">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x185fd80)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para638596">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x185fd38)" />
         </varlistentry>
 
@@ -3225,21 +3042,21 @@
         <varlistentry>
           <term id="Para658107">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1868c64)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para639336">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1868c1c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para639337">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1868cac)" />
         </varlistentry>
 
@@ -3346,21 +3163,21 @@
         <varlistentry>
           <term id="Para518794">Edit Sales Rep</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186900c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para518795">View Sales Rep</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1869054)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para518796">Delete Sales Rep</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x186909c)" />
         </varlistentry>
 
@@ -4028,539 +3845,6 @@
           <listitem id="listitemN0x180ac00N0x187055c">
             <para>Creates the Shipping Charge Type and adds it to the master
             list of Shipping Charge Types.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
-
-    <section id="Section656945">
-      <title><anchor id="Anchor656944" role="Index"
-      xreflabel="tax codes:master list of" /> <indexterm significance="normal"
-          zone="Anchor656944">
-          <primary>tax codes</primary>
-
-          <secondary>master list of</secondary>
-        </indexterm>Tax Codes</title>
-
-      <para id="Para656946">Tax Codes define the amount and type(s) of Tax to
-      be added to an Order. To access the master list of Tax Codes, select the
-      "Tax Codes" option. The following screen will appear:</para>
-
-      <para id="Para656950"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/GL_MI_taxCodeList.png"
-                         id="Graphic656948" />
-            </imageobject>
-
-            <caption id="Caption656951">Tax Codes Master List</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para656952">The Tax Codes master list displays the code and
-      description for all existing Tax Codes.</para>
-
-      <para id="Para656953">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656954">CLOSE</term>
-
-          <listitem id="listitemN0x180ac00N0x1878090">
-            <para>Closes the screen, returning you to the application
-            desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656955">NEW</term>
-
-          <listitem id="listitemN0x180ac00N0x18780d8">
-            <para>Opens screen for creating a new Tax Code.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656956">EDIT</term>
-
-          <listitem id="listitemN0x180ac00N0x1878120">
-            <para>Enables you to edit highlighted Tax Code. The edit screen is
-            the same as that for creating a new Tax Code--except that when
-            editing, the fields will contain Tax Code information.
-            Double-clicking on a Tax Code will also bring you to the editing
-            screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656957">VIEW</term>
-
-          <listitem id="listitemN0x180ac00N0x1878168">
-            <para>Highlight a Tax Code and then select this button to reach a
-            read-only view of the "Edit" screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656958">DELETE</term>
-
-          <listitem id="listitemN0x180ac00N0x18781b0">
-            <para>Highlight a Tax Code and then select this button to remove
-            the Tax Code from the master list</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656960"><anchor id="Anchor656959" role="Index"
-      xreflabel="tax codes:creating new" /> <indexterm significance="normal"
-          zone="Anchor656959">
-          <primary>tax codes</primary>
-
-          <secondary>creating new</secondary>
-        </indexterm>To create a new Tax Code, select the NEW button. The
-      following screen will appear:</para>
-
-      <para id="Para656964"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/GL_MI_taxCodeNew.png"
-                         id="Graphic656962" />
-            </imageobject>
-
-            <caption id="Caption656965">Create New Tax Code</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para656966">When creating a new Tax Code, you are presented
-      with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656967">Code</term>
-
-          <listitem id="listitemN0x180ac00N0x18782d0">
-            <para>Enter an identifying code for the Tax Code.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656968">Description</term>
-
-          <listitem id="listitemN0x180ac00N0x1878318">
-            <para>Enter a description to identify the Tax Code.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656970"><anchor id="Anchor656969" role="Index"
-          xreflabel="freight:tax-related" /> <indexterm significance="normal"
-              zone="Anchor656969">
-              <primary>freight</primary>
-
-              <secondary>tax-related</secondary>
-            </indexterm>Charge Tax on Freight</term>
-
-          <listitem id="listitemN0x180ac00N0x18783a8">
-            <para>Select to charge Tax on top of any freight charges.</para>
-
-            <para id="Para656971">If not selected, freight charges will not be
-            taxed.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656973"><anchor id="Anchor656972" role="Index"
-          xreflabel="tax codes:cumulative" /> <indexterm significance="normal"
-              zone="Anchor656972">
-              <primary>tax codes</primary>
-
-              <secondary>cumulative</secondary>
-            </indexterm>Cumulative</term>
-
-          <listitem id="listitemN0x180ac00N0x1878438">
-            <para>Select if you want Tax Rates to be applied on top of
-            previously applied Taxes.</para>
-
-            <para id="Para656974">This option pertains only to Tax Rates B and
-            C. Tax Rate A is always applied directly to the Line Item
-            subtotal. The following equations illustrate how Tax Rates are
-            applied if the "Cumulative" option is selected:</para>
-
-            <para id="Para656975">Tax Rate A amount = A% x subtotal</para>
-
-            <para id="Para656976">Tax Rate B amount = B% x (subtotal + Tax
-            Rate A amount)</para>
-
-            <para id="Para656977">Tax Rate C amount =C% x (subtotal + Tax Rate
-            A amount + Tax Rate B amount)</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <tip>
-        <para id="Para656979">You must enter a Tax Rate greater than "0" to
-        ensure Account Number information is saved. If the Tax Rate = 0, then
-        no Account information will be saved.</para>
-      </tip>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656981"><anchor id="Anchor656980" role="Index"
-          xreflabel="tax codes:rate structure for" /> <indexterm
-              significance="normal" zone="Anchor656980">
-              <primary>tax codes</primary>
-
-              <secondary>rate structure for</secondary>
-            </indexterm>Tax Rate A</term>
-
-          <listitem id="listitemN0x180ac00N0x1878510">
-            <para>Enter a Tax Rate percentage to be applied to the Line Item
-            subtotal. Tax Rate A cannot be cumulative. By definition, it is
-            always applied to the Line Item subtotal.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656982">Account</term>
-
-          <listitem id="listitemN0x180ac00N0x1878558">
-            <para>Identify a valid General Ledger Account to be used for the
-            Tax Rate.</para>
-
-            <para id="Para656983">This is a Revenue Account. It will be
-            credited when Invoices using Tax Rate A are posted and debited
-            when Credit Memos using Tax Rate A are posted.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656984">Tax Rate B</term>
-
-          <listitem id="listitemN0x180ac00N0x18785a0">
-            <para>Enter a Tax Rate percentage to be applied to either the Line
-            Item subtotal or the cumulative total. For Tax Rate B calculations
-            to be cumulative, the "Cumulative" option must be selected.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656985">Account</term>
-
-          <listitem id="listitemN0x180ac00N0x18785e8">
-            <para>Identify a valid General Ledger Account to be used for the
-            Tax Rate.</para>
-
-            <para id="Para656986">This is a Revenue Account. It will be
-            credited when Invoices using Tax Rate B are posted and debited
-            when Credit Memos using Tax Rate B are posted.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656987">Tax Rate C</term>
-
-          <listitem id="listitemN0x180ac00N0x1878630">
-            <para>Enter a Tax Rate percentage to be applied to either the Line
-            Item subtotal or the cumulative total. For Tax Rate C calculations
-            to be cumulative, the "Cumulative" option must be selected.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656988">Account</term>
-
-          <listitem id="listitemN0x180ac00N0x1878678">
-            <para>Identify a valid General Ledger Account to be used for the
-            Tax Rate.</para>
-
-            <para id="Para656989">This is a Revenue Account. It will be
-            credited when Invoices using Tax Rate C are posted and debited
-            when Credit Memos using Tax Rate C are posted.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656990">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656991">CANCEL</term>
-
-          <listitem id="listitemN0x180ac00N0x18786e4">
-            <para>Closes the screen without creating a Tax Code, returning you
-            to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656992">SAVE</term>
-
-          <listitem id="listitemN0x180ac00N0x187872c">
-            <para>Creates the Tax Code and adds it to the master list of Tax
-            Codes.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
-
-    <section id="Section656493">
-      <title><anchor id="Anchor656492" role="Index"
-      xreflabel="terms:master list of" /> <indexterm significance="normal"
-          zone="Anchor656492">
-          <primary>terms</primary>
-
-          <secondary>master list of</secondary>
-        </indexterm>Terms</title>
-
-      <para id="Para656494">Terms are used to determine the billing Terms for
-      Accounts Payable and Accounts Receivable. To access the master list of
-      Terms, select the "Terms" option. The following screen will
-      appear:</para>
-
-      <para id="Para656498"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/PO_MI_termsList.png"
-                         id="Graphic656496" />
-            </imageobject>
-
-            <caption id="Caption656499">Terms Master List</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para656500">The "Terms" screen displays information on all
-      existing Terms, including Term Code, Term description, Terms type, and
-      Accounts Payable or Accounts Receivable status.</para>
-
-      <para id="Para656501">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656502">CLOSE</term>
-
-          <listitem id="listitemN0x180ac00N0x1878870">
-            <para>Closes the screen, returning you to the application
-            desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656503">PRINT</term>
-
-          <listitem id="listitemN0x180ac00N0x18788b8">
-            <para>Runs the report associated with this screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656504">NEW</term>
-
-          <listitem id="listitemN0x180ac00N0x1878900">
-            <para>Opens screen for creating new billing Terms.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656505">EDIT</term>
-
-          <listitem id="listitemN0x180ac00N0x1878948">
-            <para>Enables you to edit highlighted billing Terms. The edit
-            screen is the same as that for creating new billing Terms--except
-            that when editing, the fields will contain billing Terms
-            information. Double-clicking on a billing Terms line will also
-            bring you to the editing screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656506">VIEW</term>
-
-          <listitem id="listitemN0x180ac00N0x1878990">
-            <para>Highlight a billing Term and then select this button to
-            reach a read-only view of the "Edit" screen.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656507">DELETE</term>
-
-          <listitem id="listitemN0x180ac00N0x18789d8">
-            <para>Highlight a billing Terms line and then select this button
-            to remove the billing Terms from the master list</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656509"><anchor id="Anchor656508" role="Index"
-      xreflabel="terms:creating new" /> <indexterm significance="normal"
-          zone="Anchor656508">
-          <primary>terms</primary>
-
-          <secondary>creating new</secondary>
-        </indexterm>To create new billing Terms, select the NEW button. The
-      following screen will appear:</para>
-
-      <para id="Para656513"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/PO_MI_termsNew.png"
-                         id="Graphic656511" />
-            </imageobject>
-
-            <caption id="Caption656514">Create New Billing Terms</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para656515">When creating new billing Term, you are presented
-      with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656516">Code</term>
-
-          <listitem id="listitemN0x180ac00N0x1878af8">
-            <para>Enter a code number to identify the billing Terms.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656517">Description</term>
-
-          <listitem id="listitemN0x180ac00N0x1878b40">
-            <para>Enter a description to identify the billing Terms.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656518">Type</term>
-
-          <listitem id="listitemN0x180ac00N0x1878b88">
-            <para>Select one from the list below by clicking on the radio
-            button to the left of the option.</para>
-
-            <para id="Para656519">Days: Select if payment is expected within a
-            certain number of days from the date the Invoice was
-            issued.</para>
-
-            <para id="Para656521"><anchor id="Anchor656520" role="Index"
-            xreflabel="terms:proximo as;proximo:as billing term" /> <indexterm
-                significance="normal" zone="Anchor656520">
-                <primary>terms</primary>
-
-                <secondary>proximo as</secondary>
-              </indexterm> <indexterm significance="normal"
-                zone="Anchor656520">
-                <primary>proximo</primary>
-
-                <secondary>as billing term</secondary>
-              </indexterm>Proximo: Select if payment is expected on a certain
-            day of the month (e.g., the first day of the month, the fifteenth
-            day of the month, etc.).</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656522">Used in A/P</term>
-
-          <listitem id="listitemN0x180ac00N0x1878c60">
-            <para>Select if billing Terms are used for Accounts
-            Payable.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <note>
-        <para id="Para656524">A/P billing Terms may be applied and Discounts
-        taken when selecting a posted Voucher for payment.</para>
-      </note>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656525">Used in A/R</term>
-
-          <listitem id="listitemN0x180ac00N0x1878cf0">
-            <para>Select if billing Terms are used for Accounts
-            Receivable.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656526">Due Days</term>
-
-          <listitem id="listitemN0x180ac00N0x1878d38">
-            <para>Select a number using the arrow buttons, or manually enter a
-            value up to a maximum of 999.</para>
-
-            <para id="Para656527">If the Terms type is "Days," then this
-            refers to the number of days after which a payment is considered
-            overdue. If the Terms type is "Proximo," then the setting refers
-            to the day of the month on which payment is due.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656529"><anchor id="Anchor656528" role="Index"
-          xreflabel="terms:discounting options for;discounts:terms for" />
-          <indexterm significance="normal" zone="Anchor656528">
-              <primary>terms</primary>
-
-              <secondary>discounting options for</secondary>
-            </indexterm> <indexterm significance="normal" zone="Anchor656528">
-              <primary>discounts</primary>
-
-              <secondary>terms for</secondary>
-            </indexterm>Discnt. Days</term>
-
-          <listitem id="listitemN0x180ac00N0x187ce00">
-            <para>Days: Select a number using the arrow buttons, or manually
-            enter a value up to a maximum of 999.</para>
-
-            <para id="Para656530">Specifies the number of days within which a
-            payment must be made or received to take advantage of any Terms
-            discount.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656531">Discount %</term>
-
-          <listitem id="listitemN0x180ac00N0x187ce48">
-            <para>Specify the amount of any early payment discount.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656532">Cut-off Day</term>
-
-          <listitem id="listitemN0x180ac00N0x187ce90">
-            <para>Specify the day of the month on or after which the due date
-            will advance to the next month.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656533">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656534">CANCEL</term>
-
-          <listitem id="listitemN0x180ac00N0x187cefc">
-            <para>Closes the screen without creating new billing Terms,
-            returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656535">SAVE</term>
-
-          <listitem id="listitemN0x180ac00N0x187cf44">
-            <para>Creates the billing Terms and enters the information into
-            the master list of billing Terms.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -6761,7 +6045,7 @@
 
           <listitem id="listitemN0x180ac00N0x18a36c8">
             <para>Highlight a Sales Order Line Item and then select this
-            button to remove the Sales Order Line Item from the list. </para>
+            button to remove the Sales Order Line Item from the list.</para>
           </listitem>
         </varlistentry>
 
@@ -6809,41 +6093,39 @@
         <varlistentry>
           <term id="Para519104">Edit Line</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18a3638)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para519105">Close Line</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18a3680)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para539551">Delete Line</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18a36c8)" />
         </varlistentry>
 
-        <varlistentry>
-          <term id="Para623588">Return Stock</term>
-
-          <listitem id="listitemN0x180ac00N0x18a392c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/6/2/2)" />
 
         <varlistentry>
           <term id="Para623589">Issue Stock</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18a3758)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para623590">Issue Line Balance</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18a37e8)" />
         </varlistentry>
 
@@ -6858,11 +6140,9 @@
       additional option will be available:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para623609">Open Line</term>
-
-          <listitem id="listitemN0x180ac00N0x18a3a70"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
       </variablelist>
 
       <para id="Para539400"><anchor id="Anchor555882" role="Index"
@@ -8303,60 +7583,50 @@
         <varlistentry>
           <term id="Para519198">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18be438)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para519199">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18be3a8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para539985">Copy</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18be3f0)" />
         </varlistentry>
 
-        <varlistentry>
-          <term id="Para610013">Reschedule</term>
-
-          <listitem id="listitemN0x180ac00N0x18be5c4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/13)" />
 
         <varlistentry>
           <term id="Para610012">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18be480)" />
         </varlistentry>
 
-        <varlistentry>
-          <term id="Para539986">Print Packing List</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
-          <listitem id="listitemN0x180ac00N0x18be654"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/1)" />
 
-        <varlistentry>
-          <term id="Para553791">Add to Packing List Batch</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/14)" />
 
-          <listitem id="listitemN0x180ac00N0x18be69c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para646772">Schedule S/O for Email Delivery</term>
-
-          <listitem id="listitemN0x180ac00N0x18be6e4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para646774">Print Sales Order Form</term>
-
-          <listitem id="listitemN0x180ac00N0x18be72c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/11)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -8832,28 +8102,28 @@
         <varlistentry>
           <term id="Para631899">New Quote</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c6598)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631900">Edit Quote</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c65e0)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631901">View Quote</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c6628)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631902">Convert Quote</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c6670)" />
         </varlistentry>
 
@@ -8940,21 +8210,21 @@
         <varlistentry>
           <term id="Para631922">New Order</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c6940)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631923">Edit Order</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c6988)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631924">View Order</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18c69d0)" />
         </varlistentry>
 
@@ -9034,21 +8304,21 @@
         <varlistentry>
           <term id="Para631948">New Invoice</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cd848)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631949">Edit Invoice</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cd890)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631950">View Invoice</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cd8d8)" />
         </varlistentry>
 
@@ -9131,21 +8401,21 @@
         <varlistentry>
           <term id="Para631970">New Credit Memo</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cdb60)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631971">Edit Credit Memo</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cdba8)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para631972">View Credit Memo</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18cdbf0)" />
         </varlistentry>
 
@@ -9209,17 +8479,13 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para631988">Edit A/R Open Item</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/10/2/2)" />
 
-          <listitem id="listitemN0x180ac00N0x18cdf2c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para631989">View A/R Open Item</term>
-
-          <listitem id="listitemN0x180ac00N0x18cdf74"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/10/2/6)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -11689,35 +10955,35 @@
         <varlistentry>
           <term id="Para627742">Print</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18fba14)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para627761">Convert</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18fba5c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para627762">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18fbb34)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para627743">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18fbb7c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para627746">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x18fbbc4)" />
         </varlistentry>
 
@@ -11836,11 +11102,9 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519226">Select This Order for Billing</term>
-
-          <listitem id="listitemN0x180ac00N0x18fc11c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/15)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -12530,17 +11794,13 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519342">Edit Billing</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/4)" />
 
-          <listitem id="listitemN0x180ac00N0x190b360"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para519343">Cancel Billing</term>
-
-          <listitem id="listitemN0x180ac00N0x190b3a8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -12671,21 +11931,21 @@
         <varlistentry>
           <term id="Para599497">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190b6c0)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para599498">Cancel</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190b750)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para600740">Create Invoice</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190b630)" />
         </varlistentry>
 
@@ -12924,35 +12184,35 @@
         <varlistentry>
           <term id="Para657095">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190bd14)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para657096">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190bd5c)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para657097">Delete</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x190bda4)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para657098">Print</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1914424)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para657099">Post</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x19144b4)" />
         </varlistentry>
 
@@ -14880,14 +14140,14 @@
         <varlistentry>
           <term id="Para558849">Edit</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x1931914)" />
         </varlistentry>
 
         <varlistentry>
           <term id="Para558850">View</term>
 
-          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                       xpointer="element(listitemN0x180ac00N0x193195c)" />
         </varlistentry>
 
@@ -14961,11 +14221,9 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para606962">Edit Credit Memo</term>
-
-          <listitem id="listitemN0x180ac00N0x193a784"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/5)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17215,29 +16473,21 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para618997">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x19628d8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para618998">View</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/17)" />
 
-          <listitem id="listitemN0x180ac00N0x1962920"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para618999">Shipment Status</term>
-
-          <listitem id="listitemN0x180ac00N0x1962968"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para619000">Shipments</term>
-
-          <listitem id="listitemN0x180ac00N0x19629b0"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/16)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17364,29 +16614,21 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para626948">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1962dc4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para626949">View</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/17)" />
 
-          <listitem id="listitemN0x180ac00N0x1962e0c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para626950">Shipment Status</term>
-
-          <listitem id="listitemN0x180ac00N0x1962e54"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para626951">Shipments</term>
-
-          <listitem id="listitemN0x180ac00N0x1962e9c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/16)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17488,29 +16730,21 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para519952">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1963268"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para519953">View</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/17)" />
 
-          <listitem id="listitemN0x180ac00N0x19632b0"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para519954">Shipment Status</term>
-
-          <listitem id="listitemN0x180ac00N0x19632f8"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para618994">Shipments</term>
-
-          <listitem id="listitemN0x180ac00N0x1963340"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/16)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17620,29 +16854,21 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para621721">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x19698fc"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para621722">View</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/17)" />
 
-          <listitem id="listitemN0x180ac00N0x1969944"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para621723">Shipment Status</term>
-
-          <listitem id="listitemN0x180ac00N0x196998c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para621724">Shipments</term>
-
-          <listitem id="listitemN0x180ac00N0x19699d4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/16)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17766,23 +16992,17 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para618724">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1969de8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para618725">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1969e30"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para618726">Convert</term>
-
-          <listitem id="listitemN0x180ac00N0x1969e78"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/3)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17866,17 +17086,13 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para618746">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x196a1b4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para618747">View</term>
-
-          <listitem id="listitemN0x180ac00N0x196a1fc"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -17997,23 +17213,17 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para543391">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1970800"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-        <varlistentry>
-          <term id="Para630106">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1970848"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para630107">Reassign Customer Type</term>
-
-          <listitem id="listitemN0x180ac00N0x1970890"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/12)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -18126,268 +17336,17 @@
       enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para592537">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-          <listitem id="listitemN0x180ac00N0x1970ca4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para592550">View</term>
-
-          <listitem id="listitemN0x180ac00N0x1970cec"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
                     xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-    </section>
-
-    <section id="Section656445">
-      <title><anchor id="Anchor656444" role="Index"
-      xreflabel="inventory:availability by item;items:inventory availability for" />
-      <indexterm significance="normal" zone="Anchor656444">
-          <primary>inventory</primary>
-
-          <secondary>availability by item</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor656444">
-          <primary>items</primary>
-
-          <secondary>inventory availability for</secondary>
-        </indexterm>Inventory Availability by Item</title>
-
-      <para id="Para656446">To view Inventory Availability by Item, select the
-      "Inventory Availability by Item" option. The following screen will
-      appear:</para>
-
-      <para id="Para656450"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/IM_Disp_invAvailItem.png"
-                         id="Graphic656448" />
-            </imageobject>
-
-            <caption id="Caption656451">Inventory Availability by
-            Item</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para656452">When displaying Inventory Availability by Item,
-      you are presented with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656453">Item Number</term>
-
-          <listitem id="listitemN0x180ac00N0x1970ec0">
-            <para>Enter the Item Number of the Item whose Inventory
-            Availability you want to display.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656454">UOM</term>
-
-          <listitem id="listitemN0x180ac00N0x1970f08">
-            <para>Inventory Unit of Measure.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656455">Show Availability as of</term>
-
-          <listitem id="listitemN0x180ac00N0x1970f50">
-            <para>Show Availability using one of the following
-            criteria:</para>
-
-            <para id="Para656456">Item Site Lead Time: Select to show
-            projected Availability based on the Lead Time specified in the
-            Item Site master.</para>
-
-            <para id="Para656457">Look Ahead Days: Select a number using the
-            arrow buttons, or manually enter a value up to a maximum of 1000.
-            Future Availability for the specified Item will be displayed based
-            on the value entered here.</para>
-
-            <para id="Para656458">Cutoff Date: Display will show projected
-            Inventory Availability as of date entered up to a maximum of 1000
-            days.</para>
-
-            <para id="Para656459">Dates: Display will show projected Inventory
-            Availability for the date range entered.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656460">Show Reorder Exceptions</term>
-
-          <listitem id="listitemN0x180ac00N0x1970f98">
-            <para>Select to show Reorder Exceptions in display. Reorder
-            Exceptions are an indication that an Item Site's projected
-            Availability will drop below the Reorder Level for the Item
-            Site.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656461">Ignore Reorder at 0</term>
-
-          <listitem id="listitemN0x180ac00N0x1970fe0">
-            <para>Select to ignore Reorder Exceptions in cases where both the
-            Item Site Reorder Level and Planned Availability are equal to zero
-            ("0"). If selected, Item Sites matching these criteria will not be
-            displayed.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656462">Show Shortages</term>
-
-          <listitem id="listitemN0x180ac00N0x1971028">
-            <para>Select to only show Inventory shortages in display. A
-            shortage describes Inventory quantity whose Availability is
-            negative.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656463">All Warehouses</term>
-
-          <listitem id="listitemN0x180ac00N0x1971070">
-            <para>Select to display Inventory Availability for all
-            Warehouses.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656464">Selected</term>
-
-          <listitem id="listitemN0x180ac00N0x19710b8">
-            <para>Specify Warehouse whose Inventory Availability you want to
-            display.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656465">Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x1971100">
-            <para>Display lists Inventory Availability by Item, using the
-            specified parameters. If Planned Availability displays in the
-            color orange, this means the actual or projected Quantity on Hand
-            is at or below the Reorder Level. If the color is red, the current
-            or projected Quantity on Hand is below 0.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <note>
-        <para id="Para656468">When quantity appears in the "On Order" column,
-        this refers to quantity that is on order through either a Work Order
-        or Purchase Order. In the case of Purchase Orders, the quantity will
-        always be represented in the Inventory Unit of Measure
-        (UOM)--regardless of the Vendor UOM used on the Purchase Order.</para>
-      </note>
-
-      <para id="Para656469">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656470">CLOSE</term>
-
-          <listitem id="listitemN0x180ac00N0x1971190">
-            <para>Closes the screen, returning you to the application
-            desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656471">QUERY</term>
-
-          <listitem id="listitemN0x180ac00N0x19711d8">
-            <para>Select to generate the display, using the specified
-            parameters.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656472">PRINT: Runs the report associated with this
-      screen.</para>
-
-      <para id="Para656473">Right-clicking on an Item in the Availability list
-      enables you to select from the following context-sensitive menu
-      options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656474">View Inventory History</term>
-
-          <listitem id="listitemN0x180ac00N0x1971244"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656475">View Allocations</term>
-
-          <listitem id="listitemN0x180ac00N0x197128c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656476">View Orders</term>
-
-          <listitem id="listitemN0x180ac00N0x19712d4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656477">Running Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x197131c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656478">Issue Count Tag</term>
-
-          <listitem id="listitemN0x180ac00N0x1971364"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656479">View Substitute Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x19713ac"></listitem>
-        </varlistentry>
-
-        <xi:include href="widgets/xtreewidget.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-
-      <para id="Para656481">The following additional options are available for
-      purchased Items:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656482">Create P/R</term>
-
-          <listitem id="listitemN0x180ac00N0x1971460"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para656483">Create P/O</term>
-
-          <listitem id="listitemN0x180ac00N0x19714a8"></listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para656484">The following additional option is available for
-      manufactured Items:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para656485">Create W/O</term>
-
-          <listitem id="listitemN0x180ac00N0x1971514"></listitem>
-        </varlistentry>
       </variablelist>
     </section>
 
@@ -18526,35 +17485,25 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para598615">View Allocations</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/8/2/17)" />
 
-          <listitem id="listitemN0x180ac00N0x1976fa8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/8/2/23)" />
 
-        <varlistentry>
-          <term id="Para598616">View Orders</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/5/2/2)" />
 
-          <listitem id="listitemN0x180ac00N0x1976ff0"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/8/2/14)" />
 
-        <varlistentry>
-          <term id="Para598617">Running Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x1977038"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para598619">Substitute Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x1977080"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para598644">Issue Count Tag</term>
-
-          <listitem id="listitemN0x180ac00N0x19770c8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/8/2/8)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -18565,11 +17514,9 @@
       purchased Items:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para598622">Issue Purchase Order</term>
-
-          <listitem id="listitemN0x180ac00N0x197717c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/8/2/9)" />
       </variablelist>
     </section>
 
@@ -18820,35 +17767,25 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para657260">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x19779c8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para657261">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x197e000"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/18)" />
 
-        <varlistentry>
-          <term id="Para657262">Edit Item</term>
-
-          <listitem id="listitemN0x180ac00N0x197e048"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657263">View Item</term>
-
-          <listitem id="listitemN0x180ac00N0x197e090"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657264">Print Packing List</term>
-
-          <listitem id="listitemN0x180ac00N0x197e0d8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -18970,11 +17907,9 @@
           </listitem>
         </varlistentry>
 
-        <varlistentry>
-          <term id="Para548451">Running Availability</term>
-
-          <listitem id="listitemN0x180ac00N0x197e510"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/5/2/2)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -19128,35 +18063,25 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para657291">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x197e9fc"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para657292">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x197ea44"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/18)" />
 
-        <varlistentry>
-          <term id="Para657293">Edit Item</term>
-
-          <listitem id="listitemN0x180ac00N0x197ea8c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657294">View Item</term>
-
-          <listitem id="listitemN0x180ac00N0x197ead4"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657295">Print Packing List</term>
-
-          <listitem id="listitemN0x180ac00N0x197eb1c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -19321,29 +18246,21 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para570609">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x1985240"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para570610">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x1985288"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para570634">Edit Item</term>
-
-          <listitem id="listitemN0x180ac00N0x19852d0"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para570635">View Item</term>
-
-          <listitem id="listitemN0x180ac00N0x1985318"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -19513,29 +18430,21 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para598965">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x198584c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para598966">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x1985894"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para598967">Edit Item</term>
-
-          <listitem id="listitemN0x180ac00N0x19858dc"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para598968">View Item</term>
-
-          <listitem id="listitemN0x180ac00N0x1985924"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -19701,29 +18610,21 @@
       options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para657327">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x198c090"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para657328">View Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/6)" />
 
-          <listitem id="listitemN0x180ac00N0x198c0d8"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657329">Edit Item</term>
-
-          <listitem id="listitemN0x180ac00N0x198c120"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657330">View Item</term>
-
-          <listitem id="listitemN0x180ac00N0x198c168"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/18)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -19963,41 +18864,29 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para657376">Inventory Availability by Sales Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/8)" />
 
-          <listitem id="listitemN0x180ac00N0x198c84c"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/1)" />
 
-        <varlistentry>
-          <term id="Para657377">Edit</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/2)" />
 
-          <listitem id="listitemN0x180ac00N0x198c894"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/13)" />
 
-        <varlistentry>
-          <term id="Para657378">View</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/3/2/4)" />
 
-          <listitem id="listitemN0x180ac00N0x198c8dc"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657379">Reschedule</term>
-
-          <listitem id="listitemN0x180ac00N0x198c924"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657380">Delete</term>
-
-          <listitem id="listitemN0x180ac00N0x198c96c"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para657381">Print Packing List</term>
-
-          <listitem id="listitemN0x180ac00N0x198c9b4"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -20122,23 +19011,17 @@
       list enables you to select from the following menu options:</para>
 
       <variablelist>
-        <varlistentry>
-          <term id="Para547761">Edit Order</term>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/7)" />
 
-          <listitem id="listitemN0x180ac00N0x198cdc8"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/19)" />
 
-        <varlistentry>
-          <term id="Para547762">View Order</term>
-
-          <listitem id="listitemN0x180ac00N0x1992600"></listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para547763">Print Packing List</term>
-
-          <listitem id="listitemN0x180ac00N0x1992648"></listitem>
-        </varlistentry>
+        <xi:include href="supportfiles/rightclick.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(/1/7/2/10)" />
 
         <xi:include href="widgets/xtreewidget.xml"
                     xmlns:xi="http://www.w3.org/2001/XInclude"
