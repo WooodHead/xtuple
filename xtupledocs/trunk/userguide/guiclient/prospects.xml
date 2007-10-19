@@ -1,98 +1,121 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Prospects
-    </title>
-   <subtitle>prospects : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/prospects.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Prospects
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Prospects:</guilabel>
-               </entry>
-               <entry>_prospectsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_prospect</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section638624">
+    <title>List Prospects</title>
+
+    <para id="Para639304">Prospects are potential Customer Accounts. The
+    system allows you to maintain information on Prospects--and then, when the
+    time is right, it enables you to convert Prospect Accounts to Customer
+    Accounts.</para>
+
+    <tip>
+      <para id="Para639306">To convert a Prospect to a Customer, simply select
+      the "Customer" button on the Prospect's CRM Account. This will prompt
+      you to convert the Prospect information--and also give you the chance to
+      convert any existing Prospect Quotes to Customer Quotes.</para>
+    </tip>
+
+    <para id="Para637291">To access the master list of Prospects, select the
+    "Prospects" option. The following screen will appear:</para>
+
+    <para id="Para637295"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_MI_prospectList.png"
+                       id="Graphic637293" />
+          </imageobject>
+
+          <caption id="Caption637330">Prospects Master List</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para637331">The Prospects master list displays information on
+    all existing Prospects, including Prospect Number, Name, address, and
+    phone number.</para>
+
+    <para id="Para637332">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para639327">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1868b8c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639329">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1868bd4">
+          <para>Opens screen for creating a new Prospect.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639330">EDIT</term>
+
+        <listitem id="listitemN0x180ac00N0x1868c1c">
+          <para>Enables you to edit highlighted Prospect. The edit screen is
+          the same as that for creating a new Prospect--except that when
+          editing, the fields will contain Prospect information.
+          Double-clicking on a Prospect will also bring you to the editing
+          screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639331">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1868c64">
+          <para>Highlight a Prospect and then select this button to reach a
+          read-only view of the "Edit" screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639332">DELETE</term>
+
+        <listitem id="listitemN0x180ac00N0x1868cac">
+          <para>Highlight a Prospect and then select this button to remove the
+          Prospect from the master list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para658106">Right-clicking on a Prospect in the Prospects master
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para658107">View</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x1868c64)" />
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639336">Edit</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x1868c1c)" />
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para639337">Delete</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x1868cac)" />
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

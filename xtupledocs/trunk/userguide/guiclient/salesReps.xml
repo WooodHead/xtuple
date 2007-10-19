@@ -1,106 +1,218 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Sales Representatives
-    </title>
-   <subtitle>salesReps : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/salesReps.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Sales Representatives
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Sales Representatives:</guilabel>
-               </entry>
-               <entry>_salesrepsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_salesrep</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518778">
+    <title><anchor id="Anchor548932" role="Index"
+    xreflabel="sales representatives:master list of" /> <indexterm
+        significance="normal" zone="Anchor548932">
+        <primary>sales representatives</primary>
+
+        <secondary>master list of</secondary>
+      </indexterm>Sales Representatives</title>
+
+    <para id="Para518779">To access the master list of Sales Representatives,
+    select the "Sales Reps" option. The following screen will appear:</para>
+
+    <para id="Para518783"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_MI_salesRepList.png"
+                       id="Graphic522970" />
+          </imageobject>
+
+          <caption id="Caption518784">Sales Representatives Master
+          List</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518785">The Sales Representatives master list displays the
+    name, identification number, and active status of all existing Sales
+    Representatives.</para>
+
+    <para id="Para518786">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518787">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1868f34">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para653613">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1868f7c">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518789">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1868fc4">
+          <para>Opens screen for creating a new Sales Representative.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518790">EDIT</term>
+
+        <listitem id="listitemN0x180ac00N0x186900c">
+          <para>Enables you to edit highlighted Sales Representative. The edit
+          screen is the same as that for creating a new Sales
+          Representative--except that when editing, the fields will contain
+          Sales Representative information. Double-clicking on a Sales
+          Representative will also bring you to the editing screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518791">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1869054">
+          <para>Highlight a Sales Representative and then select this button
+          to reach a read-only view of the "Edit" screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518792">DELETE</term>
+
+        <listitem id="listitemN0x180ac00N0x186909c">
+          <para>Highlight a Sales Representative and then select this button
+          to remove the Sales Representative from the master list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para522152">Right-clicking on a Sales Representative in the
+    Sales Representatives master list enables you to select from the following
+    menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518794">Edit Sales Rep</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x186900c)" />
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518795">View Sales Rep</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x1869054)" />
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518796">Delete Sales Rep</term>
+
+        <xi:include href="../so.xml"
+                    xmlns:xi="http://www.w3.org/2001/XInclude"
+                    xpointer="element(listitemN0x180ac00N0x186909c)" />
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para518798"><anchor id="Anchor555570" role="Index"
+    xreflabel="sales representatives:creating new" /> <indexterm
+        significance="normal" zone="Anchor555570">
+        <primary>sales representatives</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>To create a new Sales Representative, select the NEW button.
+    The following screen will appear:</para>
+
+    <para id="Para518802"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_MI_salesRepNew.png"
+                       id="Graphic522992" />
+          </imageobject>
+
+          <caption id="Caption518803">Create New Sales
+          Representative</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518804">When creating a new Sales Representative, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518808">Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1869300">
+          <para>Enter an identification number for the Sales
+          Representative.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518810">Active</term>
+
+        <listitem id="listitemN0x180ac00N0x1869348">
+          <para>Select if the Sales Representative is currently active.</para>
+
+          <para id="Para518811">Not selecting means the Sales Representative
+          is inactive.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518815">Name</term>
+
+        <listitem id="listitemN0x180ac00N0x1869390">
+          <para>Enter the name of the Sales Representative.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518820"><anchor id="Anchor555572" role="Index"
+        xreflabel="sales representatives:commission percentages for" />
+        <indexterm significance="normal" zone="Anchor555572">
+            <primary>sales representatives</primary>
+
+            <secondary>commission percentages for</secondary>
+          </indexterm>Comm. Prcnt</term>
+
+        <listitem id="listitemN0x180ac00N0x1869420">
+          <para>Enter the commission percentage for the Sales Representative.
+          For example, if the commission is to be 5%, enter the value
+          ".05".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518822">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518823">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x186948c">
+          <para>Closes the screen without creating a Sales Representative,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518824">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18694d4">
+          <para>Creates the Sales Representative and enters their information
+          into the master list of Sales Representatives.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

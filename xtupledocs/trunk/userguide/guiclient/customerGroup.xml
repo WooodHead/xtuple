@@ -1,114 +1,108 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Customer Group
-  </title>
-   <subtitle>customerGroup : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/customerGroup.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Customer Group
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>GroupBox1</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Member Customers:</guilabel>
-               </entry>
-               <entry>_memberCustomersLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_custgrpitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section538180">
+  <title><anchor id="Anchor548926" role="Index"
+  xreflabel="customer groups:master list of;customers:groupings of" />
+  <indexterm significance="normal" zone="Anchor555465">
+      <primary>customer groups</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Customer Group</title>
+
+  <para id="Para538267"><anchor id="Anchor555465" role="Index"
+  xreflabel="customer groups:creating new" /> To create a new Customer Group,
+  select the NEW button. The following screen will appear:</para>
+
+  <para id="Para538271"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_custGroupNew.png"
+                     id="Graphic538269" />
+        </imageobject>
+
+        <caption id="Caption538272">Create New Customer Group</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para548002">Create your Customer Groups using a logical,
+    hierarchical structure. This will make it easier to retrieve Customer
+    Group information in the future. For more information on matching patterns
+    using Regular Expressions, see <link endterm="Anchor77806" id="XRef656168"
+    linkend="Anchor77806"> Pattern Matching with Regular
+    Expressions</link>"Topic: Pattern Matching with Regular
+    Expressions".</para>
+  </tip>
+
+  <para id="Para547996">When creating a new Customer Group, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para538362">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x1855940">
+        <para>Enter a name to identify the Customer Group.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538400">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x1855988">
+        <para>Enter a description to identify the Customer Group.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538279">Member Customers</term>
+
+      <listitem id="listitemN0x180ac00N0x18559d0">
+        <para>Display lists Customers who are members of the Customer
+        Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para538318">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para553324">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x1855a3c">
+        <para>Creates the Comment and adds it to the list of Customer
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538280">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x1855a84">
+        <para>Closes the screen without creating the Customer Comment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538342">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1855acc">
+        <para>Opens a searchable Customer list. Select a Customer from the
+        list to add the Customer to the Customer Group.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538343">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x1855b14">
+        <para>Highlight a Customer and then select this button to remove the
+        Customer from the Customer Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
