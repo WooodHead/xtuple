@@ -1,6 +1,27 @@
 CREATE OR REPLACE FUNCTION indentedBOM(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemid ALIAS FOR $1;
+  _revid INTEGER;
+
+BEGIN
+
+  --See if revcontrol turned on
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
+  ELSE
+    _revid:=-1;
+  END IF;
+
+  RETURN indentedBOM(pItemid, _revid);
+
+END;
+' LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION indentedBOM(INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pItemid ALIAS FOR $1;
+  pRevisionid ALIAS FOR $2;
   _bomworkid INTEGER;
   _indexid INTEGER;
   _r RECORD;
@@ -19,9 +40,8 @@ BEGIN
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
-  FROM bomitem, item
-  WHERE ( (bomitem_item_id=item_id)
-   AND (bomitem_parent_item_id=pItemid) ) LOOP
+  FROM bomitem(pItemId, pRevisionid), item
+  WHERE ( (bomitem_item_id=item_id) ) LOOP
 
 --  Insert the component and bomitem parameters
     SELECT NEXTVAL(''bomwork_bomwork_id_seq'') INTO _bomworkid;

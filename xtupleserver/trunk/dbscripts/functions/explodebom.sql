@@ -3,6 +3,28 @@ DECLARE
   pItemid ALIAS FOR $1;
   pParentid ALIAS FOR $2;
   pLevel ALIAS FOR $3;
+  _revid INTEGER;
+
+BEGIN
+
+  --See if revcontrol turned on
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
+  ELSE
+    _revid:=-1;
+  END IF;
+
+  RETURN explodeBOM(pItemid, _revid, pParentid, pLevel);
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION explodeBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pItemid ALIAS FOR $1;
+  pRevisionid ALIAS FOR $2;
+  pParentid ALIAS FOR $3;
+  pLevel ALIAS FOR $4;
   _bomworkid INTEGER;
   _level INTEGER;
   _p RECORD;
@@ -30,9 +52,8 @@ BEGIN
                         ELSE bomitem_expires
                    END AS expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
-  FROM bomitem, item
-  WHERE ( (bomitem_item_id=item_id)
-   AND (bomitem_parent_item_id=pItemid) ) LOOP
+  FROM bomitem(pItemid, pRevisionid), item
+  WHERE ( (bomitem_item_id=item_id) ) LOOP
 
 --  Insert the current component and some bomitem parameters into the bomwork set
     SELECT NEXTVAL(''bomwork_bomwork_id_seq'') INTO _bomworkid;

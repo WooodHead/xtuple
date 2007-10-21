@@ -30,9 +30,8 @@ BEGIN
                         ELSE bomitem_expires
                    END AS expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
-  FROM bomitem, item
-  WHERE ( (bomitem_item_id=item_id)
-   AND (bomitem_parent_item_id=pItemid) ) LOOP
+  FROM bomitem(pItemid), item
+  WHERE ( (bomitem_item_id=item_id) ) LOOP
 
     IF (_r.item_type IN (''M'', ''F'')) THEN
       PERFORM explodeSummarizedBOM( _r.item_id, pParentid, _level, pSetid, pSeqnumber,

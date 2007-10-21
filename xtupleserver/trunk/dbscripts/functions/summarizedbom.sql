@@ -1,6 +1,27 @@
 CREATE OR REPLACE FUNCTION summarizedBOM(INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemid ALIAS FOR $1;
+  _revid INTEGER;
+
+BEGIN
+
+  --See if revcontrol turned on
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
+  ELSE
+    _revid:=-1;
+  END IF;
+
+  RETURN summarizedBOM(pItemid, _revid);
+
+END;
+' LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION summarizedBOM(INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pItemid ALIAS FOR $1;
+  pRevisionid ALIAS FOR $2;
   _bomworkid INTEGER;
   _indexid INTEGER;
   _r RECORD;
@@ -19,9 +40,8 @@ BEGIN
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
-  FROM bomitem, item
-  WHERE ( (bomitem_item_id=item_id)
-   AND (bomitem_parent_item_id=pItemid) ) LOOP
+  FROM bomitem(pItemid, pRevisionid), item
+  WHERE (bomitem_item_id=item_id) LOOP
 
   IF (_r.item_type IN (''M'', ''F'')) THEN
 --  Explode the components of the current component
@@ -56,12 +76,32 @@ BEGIN
 END;
 ' LANGUAGE 'plpgsql';
 
-
 CREATE OR REPLACE FUNCTION summarizedBOM(INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pItemid ALIAS FOR $1;
   pExpired ALIAS FOR $2;
   pFuture ALIAS FOR $3;
+  _revid INTEGER;
+BEGIN
+
+  --See if revcontrol turned on
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
+  ELSE
+    _revid:=-1;
+  END IF;
+
+  RETURN summarizedBOM(pItemid, pExpired, pFuture, _revid);
+
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION summarizedBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pItemid ALIAS FOR $1;
+  pExpired ALIAS FOR $2;
+  pFuture ALIAS FOR $3;
+  pRevisionid ALIAS FOR $4;
   _bomworkid INTEGER;
   _indexid INTEGER;
   _r RECORD;
@@ -80,11 +120,10 @@ BEGIN
                    itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper) AS qtyper, bomitem_scrap, bomitem_issuemethod,
                    bomitem_effective, bomitem_expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
-  FROM bomitem, item
+  FROM bomitem(pItemid,pRevisionid), item
   WHERE ( (bomitem_item_id=item_id)
    AND (bomitem_expires > (CURRENT_DATE - pExpired) )
-   AND (bomitem_effective <= (CURRENT_DATE + pFuture) )
-   AND (bomitem_parent_item_id=pItemid) ) LOOP
+   AND (bomitem_effective <= (CURRENT_DATE + pFuture) ) ) LOOP
 
   IF (_r.item_type IN (''M'', ''F'')) THEN
 --  Explode the components of the current component
