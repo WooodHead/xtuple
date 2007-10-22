@@ -1,113 +1,146 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Fiscal Years
-  </title>
-   <subtitle>accountingYearPeriods : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/accountingYearPeriods.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Fiscal Years
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Fiscal Years:</guilabel>
-               </entry>
-               <entry>_periodLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_period</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Close Year</guilabel>
-               </entry>
-               <entry>_closePeriod</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559969">
+  <title><anchor id="Anchor574306" role="Index"
+  xreflabel="fiscal years:master list of" /> <indexterm significance="normal"
+      zone="Anchor574306">
+      <primary>fiscal years</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Fiscal Years</title>
+
+  <para id="Para559970">To access the master list of Fiscal Years, select the
+  "Fiscal Years" option. The following screen will appear:</para>
+
+  <para id="Para559974"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_fiscalYearList.png"
+                     id="Graphic559972" />
+        </imageobject>
+
+        <caption id="Caption559975">Fiscal Years Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para577720">The system will automatically reset the beginning
+    balances for Revenue and Expense Accounts to $0 at the start of a new
+    Fiscal Year.</para>
+  </tip>
+
+  <para id="Para559976">The "Fiscal Years" screen displays information on all
+  existing Fiscal Years, including Fiscal Year start date, Fiscal Year end
+  date, and closed status.</para>
+
+  <para id="Para559977">To the far right of the list, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para559978">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x188c214">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para610694">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x188c25c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para559980">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x188c2a4">
+        <para>Opens screen for creating a new Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para559981">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x188c2ec">
+        <para>Enables you to edit highlighted Fiscal Years. The edit screen is
+        the same as that for creating a new Fiscal Year--except that when
+        editing, the fields will contain Fiscal Year information.
+        Double-clicking on a Fiscal Year will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para559982">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x188c334">
+        <para>Highlight a Fiscal Year and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para559983">CLOSE YEAR</term>
+
+      <listitem id="listitemN0x180ac00N0x188c37c">
+        <para>Highlight a Fiscal Year and then select this button to close the
+        Fiscal Year. The act of closing a Fiscal Year causes prompts the
+        system to calculate retained earnings for the year--and then transfer
+        that balance to the Year End Equity Account defined at the system
+        level. You should be careful not to close a Fiscal Year until you are
+        certain you are ready to do so.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560209">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x188c3c4">
+        <para>Highlight a Fiscal Year and then select this button to remove
+        the Fiscal Year from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para574363">Right-clicking on a Fiscal Year enables you to select
+  from the following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para574364">Edit</term>
+
+      <xi:include href="../gl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188c2ec)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574373">View</term>
+
+      <xi:include href="../gl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188c334)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574374">Delete</term>
+
+      <xi:include href="../gl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188c3c4)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574365">Close</term>
+
+      <xi:include href="../gl.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188c37c)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
