@@ -1,89 +1,110 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Labor Variance by Item
-  </title>
-   <subtitle>dspLaborVarianceByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspLaborVarianceByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Labor Variance by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Labor Variance:</guilabel>
-               </entry>
-               <entry>_laborVarianceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_woopervar</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520075" role="openmfg">
+    <title>Labor Variance by Item</title>
+
+    <para id="Para520076">To view labor variances by Item, select the "Labor
+    Variance by Item" option. The following screen will appear:</para>
+
+    <para id="Para520080"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Disp_labVarByItem.png"
+                       id="Graphic524148" />
+          </imageobject>
+
+          <caption id="Caption520081">Labor Variance by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520087">When viewing labor variances by Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520088">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item whose labor variances by
+          Item you want to view.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568872">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520092">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display labor variances by Item for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545352">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose labor variances by Item you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545356">Start Date</term>
+
+        <listitem>
+          <para>Labor variances by Item generated on or after this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520104">End Date</term>
+
+        <listitem>
+          <para>Labor variances by Item generated on or before this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520106">Labor Variance</term>
+
+        <listitem>
+          <para>Display lists labor variances by Item, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520108">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520109">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520110">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

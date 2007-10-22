@@ -1,92 +1,103 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Material Usage Variance by Warehouse
-  </title>
-   <subtitle>dspMaterialUsageVarianceByWarehouse : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspMaterialUsageVarianceByWarehouse.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Material Usage Variance by Warehouse
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Material Usage Variance:</guilabel>
-               </entry>
-               <entry>_materialUsageVariance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_womatlvar</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section520010">
+    <title>Material Usage Variance by Warehouse</title>
+
+    <para id="Para520011">To view material usage variances by Item, select the
+    "Material Usage Variance by Item" option. The following screen will
+    appear:</para>
+
+    <para id="Para520015"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Disp_matVarWare.png"
+                       id="Graphic524120" />
+          </imageobject>
+
+          <caption id="Caption520016">Material Usage Variance by
+          Warehouse</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520017">When viewing material usage variances by Warehouse,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para520018">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display material usage variances for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520020">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose material usage variances you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520025">Start Date</term>
+
+        <listitem>
+          <para>Material usage variances generated on or after this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520030">End Date</term>
+
+        <listitem>
+          <para>Material usage variances generated on or before this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520032">Material Usage Variance</term>
+
+        <listitem>
+          <para>Display lists material usage variances by Warehouse, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520034">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520035">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548939">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520036">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

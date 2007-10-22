@@ -1,78 +1,92 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Print Production Entry Sheet
-    </title>
-   <subtitle>printProductionEntrySheet : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printProductionEntrySheet.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Print Production Entry Sheet
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Form Name:</guilabel>
-               </entry>
-               <entry>_formLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_form</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section568976">
+    <title>Print Production Entry Sheet</title>
+
+    <para id="Para563776">To print a Production entry sheet, select the "Print
+    Production Entry Sheet" option. The following screen will appear:</para>
+
+    <para id="Para563780"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Rep_printProdSheet.png"
+                       id="Graphic563778" />
+          </imageobject>
+
+          <caption id="Caption563781">Print Production Entry Sheet</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para563782">When printing a Production entry sheet, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para563786">All Warehouses</term>
+
+        <listitem>
+          <para>Select to print a Production entry sheet for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para563790">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse you want to print Production entry sheet
+          for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563791">Start Date</term>
+
+        <listitem>
+          <para>Production entered on or after this date will be included in
+          the report.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563792">End Date</term>
+
+        <listitem>
+          <para>Production entered on or before this date will be included in
+          the report.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563793">Form Name</term>
+
+        <listitem>
+          <para>Select Form definition you want to use for the report.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para563794">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563795">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without generating a report, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563796">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

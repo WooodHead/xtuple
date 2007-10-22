@@ -1,131 +1,159 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Work Order Operations by Work Center
-  </title>
-   <subtitle>dspWoOperationsByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspWoOperationsByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Work Order Operations by Work Center
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_description</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Work Center:</guilabel>
-               </entry>
-               <entry>_workCenterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_wrkcnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Only Show W/O Operations with Load</guilabel>
-               </entry>
-               <entry>_loadOnly</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>O</accel>perations:</guilabel>
-               </entry>
-               <entry>_operationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_wooper</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519818" role="openmfg">
+    <title>W/O Operations by Work Center</title>
+
+    <para id="Para519819">To view Work Order Operations by Work Center, select
+    the "W/O Operations by Work Center" option. The following screen will
+    appear:</para>
+
+    <para id="Para519823"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Disp_opsByWCenter.png"
+                       id="Graphic524045" />
+          </imageobject>
+
+          <caption id="Caption519824">Work Order Operations by Work
+          Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para555117">You can print Pick Lists for multiple Work Orders
+      simultaneously from this screen. Simply use the SHIFT and/or CTRL keys
+      to select multiple Orders. Then use the right-click menu to print Pick
+      Lists for the selected Orders.</para>
+    </tip>
+
+    <para id="Para555107">When displaying Work Order Operations by Work
+    Center, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519826">Work Center</term>
+
+        <listitem>
+          <para>Specify Work Center whose Work Order Operations you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519828">Warehouse</term>
+
+        <listitem>
+          <para>Displays Warehouse code for Warehouse where Work Center is
+          located.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519833">Start Date</term>
+
+        <listitem>
+          <para>Work Order Operations scheduled on and after this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519838">End Date</term>
+
+        <listitem>
+          <para>Work Order Operations scheduled on and before this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519840">Only Show W/O Operations with Load</term>
+
+        <listitem>
+          <para>Select to only show Work Order Operations with load in the
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519841">Operations</term>
+
+        <listitem>
+          <para>Display lists Work Order Operations by Work Center, using the
+          specified parameters.</para>
+
+          <para id="Para569347">If a Work Order is past its due date, the line
+          will display in red.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para554919">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519844">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548777">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519845">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para522939">Right-clicking on an Operation in the Operations
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/24)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/7)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/5)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/12)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/13)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/5/2/2)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/4/2/14)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>
