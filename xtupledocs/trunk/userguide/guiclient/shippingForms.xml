@@ -1,98 +1,86 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Shipping Forms
-    </title>
-   <subtitle>shippingForms : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/shippingForms.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Shipping Forms
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Shipping Forms:</guilabel>
-               </entry>
-               <entry>_shippingFormsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_bolformat</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section652878">
+  <title><anchor id="Anchor548942" role="Index"
+  xreflabel="shipping forms:master list of;forms:for shipping" /> <indexterm
+      significance="normal" zone="Anchor548942">
+      <primary>shipping forms</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor548942">
+      <primary>forms</primary>
+
+      <secondary>for shipping</secondary>
+    </indexterm>List Shipping Forms</title>
+
+  <para id="Para518991">A Bill of Lading is an example of a Shipping Form. To
+  access the master list of Shipping Forms, select the "Shipping Forms"
+  option. The following screen will appear:</para>
+
+  <para id="Para518995"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_shipFormList.png"
+                     id="Graphic523109" />
+        </imageobject>
+
+        <caption id="Caption518996">Shipping Forms Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para518997">The Shipping Forms master list displays Form name of
+  all existing Bill of Lading Formats.</para>
+
+  <para id="Para518998">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para518999">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x187d0d0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519000">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x187d118">
+        <para>Opens screen for creating a new Shipping Form.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519001">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x187d160">
+        <para>Enables you to edit highlighted Shipping Forms. The edit screen
+        is the same as that for creating a new Shipping Form--except that when
+        editing, the fields will contain Shipping Form information.
+        Double-clicking on a Shipping Form will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538761">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x187d1a8">
+        <para>Highlight a Shipping Form and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519002">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x187d1f0">
+        <para>Highlight a Shipping Form and then select this button to remove
+        the Shipping Form from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,113 +1,122 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Sales Categories
-    </title>
-   <subtitle>salesCategories : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/salesCategories.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Sales Categories
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Sales Categories:</guilabel>
-               </entry>
-               <entry>_salescatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_salescat</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Co<accel>p</accel>y</guilabel>
-               </entry>
-               <entry>_copy</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section656996">
+  <title><anchor id="Anchor656995" role="Index"
+  xreflabel="sales categories:master list of" /> <indexterm
+      significance="normal" zone="Anchor656995">
+      <primary>sales categories</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Sales Categories</title>
+
+  <para id="Para656997">Sales Categories are used to identify the General
+  Ledger (G/L) Accounts to be used when processing the following:</para>
+
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x187d4e4">
+      <para id="Para656998">Non-Inventory A/R Invoices</para>
+    </listitem>
+
+    <listitem id="listitemN0x180ac00N0x187d508">
+      <para id="Para656999">A/R Credit Memos (optional)</para>
+    </listitem>
+
+    <listitem id="listitemN0x180ac00N0x187d52c">
+      <para id="Para657000">A/R Debit Memos (optional)</para>
+    </listitem>
+
+    <listitem id="listitemN0x180ac00N0x187d550">
+      <para id="Para657001">Cash Receipts (optional)</para>
+    </listitem>
+  </itemizedlist>
+
+  <para id="Para657002">For example, when creating an Invoice for
+  miscellaneous goods or services unrelated to Inventory, you must select a
+  Sales Category--thereby identifying the G/L Accounts the sales transaction
+  will be distributed to. To access the Sales Categories master list, select
+  the "Sales Categories" option. The following screen will appear:</para>
+
+  <para id="Para657006"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_salesCats.png" id="Graphic657004" />
+        </imageobject>
+
+        <caption id="Caption657007">Sales Categories Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para657008">The "Sales Categories" screen displays information on
+  existing Sales Categories.</para>
+
+  <para id="Para657009">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para657010">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x187d628">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657011">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x187d670">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657012">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x187d6b8">
+        <para>Opens screen for creating a new Sales Category.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657013">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x187d700">
+        <para>Enables you to edit highlighted Sales Categories. The edit
+        screen is the same as that for creating a new Sales Category--except
+        that when editing, the fields will contain Sales Category information.
+        Double-clicking on a Sales Category will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657014">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x187d748">
+        <para>Highlight a Sales Category and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657015">COPY</term>
+
+      <listitem id="listitemN0x180ac00N0x187d790">
+        <para>Highlight a Sales Category and then select this button to create
+        a new Sales Category which duplicates the source Sales
+        Category.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657016">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x187d7d8">
+        <para>Highlight a Sales Category and then select this button to remove
+        the Sales Category from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

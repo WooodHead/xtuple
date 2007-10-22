@@ -1,116 +1,179 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Sales Account Assignment
-    </title>
-   <subtitle>salesAccount : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/salesAccount.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Sales Account Assignment
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>W</accel>arehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_customerTypes</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_productCategories</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Sa<accel>l</accel>es Account:</guilabel>
-               </entry>
-               <entry>_salesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Credit <accel>M</accel>emo Account:</guilabel>
-               </entry>
-               <entry>_creditLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>C<accel>o</accel>st of Sales Account:</guilabel>
-               </entry>
-               <entry>_cosLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_sales</entry>
-               <entry>GLCluster</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_credit</entry>
-               <entry>GLCluster</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_cos</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537936">
+  <title><anchor id="Anchor548944" role="Index"
+  xreflabel="sales account assignments:master list of" /> <indexterm
+      significance="normal" zone="Anchor555735">
+      <primary>sales account assignments</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Sales Account Assignment</title>
+
+  <para id="Para537951">To create a new Sales Account assignment, select the
+  NEW button. The following screen will appear:</para>
+
+  <para id="Para537955"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_saleAcctAssignNew.png"
+                     id="Graphic537953" />
+        </imageobject>
+
+        <caption id="Caption537956">Create New Sales Account
+        Assignment</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para537957">When creating a new Sales Account assignment, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para537958">Warehouse</term>
+
+      <listitem id="listitemN0x180ac00N0x1885160">
+        <para>Specify Warehouse to be associated with the Account
+        assignment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para571900">In the case of conflicts between Sales Account
+    assignments, the system by default selects specific assignments before
+    all-inclusive ones. For example, if there were a choice between an
+    assignment featuring "WHSE-1" as the supplying Warehouse and another
+    featuring "ANY" Warehouse, the more-specific "WHSE-1" would be
+    selected.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para537960">All Customer Types</term>
+
+      <listitem id="listitemN0x180ac00N0x18851f0">
+        <para>Select to associate all Customer Types with the Sales Account
+        assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538791">Selected</term>
+
+      <listitem id="listitemN0x180ac00N0x1885238">
+        <para>Specify the Customer Type you want to associate with the Sales
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538853">Pattern</term>
+
+      <listitem id="listitemN0x180ac00N0x1885280">
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types.</para>
+
+        <para id="Para656015">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef656014"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539010">All Product Categories</term>
+
+      <listitem id="listitemN0x180ac00N0x18852c8">
+        <para>Select to associate all Product Categories with the Sales
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538814">Selected</term>
+
+      <listitem id="listitemN0x180ac00N0x1885310">
+        <para>Specify the Product Category you want to associate with the
+        Sales Account assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538816">Pattern</term>
+
+      <listitem id="listitemN0x180ac00N0x1885358">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+
+        <para id="Para656027">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef656026"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para537964">Sales Account</term>
+
+      <listitem id="listitemN0x180ac00N0x18853a0">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Sales Account.</para>
+
+        <para id="Para537965">This is a Revenue Account. It will be credited
+        when Invoices are posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para537972">Credit Memo Account</term>
+
+      <listitem id="listitemN0x180ac00N0x18853e8">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        S/O Credit Memo Account.</para>
+
+        <para id="Para617557">This is a Revenue contra Account. It will be
+        debited when S/O Credit Memos are posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para537980">Cost of Sales Account</term>
+
+      <listitem id="listitemN0x180ac00N0x1885430">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Cost of Sales Account.</para>
+
+        <para id="Para617561">This is an Expense Account. It will be debited
+        when Sales Order Items are shipped. It will be credited when Sales
+        Order Items are returned to Stock--either through Shipping or the
+        processing of a Sales Order Credit Memo.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para537988">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para537989">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x188549c">
+        <para>Closes the screen without creating a Sales Account assignment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para537990">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18854e4">
+        <para>Creates the Sales Account assignment and adds it to the master
+        list of Sales Account assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

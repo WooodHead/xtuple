@@ -1,134 +1,138 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   A/R Account Assignment
-  </title>
-   <subtitle>arAccountAssignment : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/arAccountAssignment.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   A/R Account Assignment
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_customerTypeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Selected Customer Type:</guilabel>
-               </entry>
-               <entry>_selectedCustomerType</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_customerTypes</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Customer Type Pattern:</guilabel>
-               </entry>
-               <entry>_customerTypePattern</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_customerType</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>A/R Account:</guilabel>
-               </entry>
-               <entry>_arAccountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Prepaid Receivables Account:</guilabel>
-               </entry>
-               <entry>_prepaidLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Freight Account:</guilabel>
-               </entry>
-               <entry>_freightAccountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Deferred Revenue Account:</guilabel>
-               </entry>
-               <entry>_deferredLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_ar</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_prepaid</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_freight</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_deferred</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657386">
+  <title><anchor id="Anchor657385" role="Index"
+  xreflabel="accounts receivable:account assignments for" /> <indexterm
+      significance="normal" zone="Anchor657407">
+      <primary>accounts receivable</primary>
+
+      <secondary>creating new assignment for</secondary>
+    </indexterm>A/R Account Assignment</title>
+
+  <para id="Para657408">To create a new A/R Account assignment, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para657412"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_arAssignNew.png" id="Graphic657410" />
+        </imageobject>
+
+        <caption id="Caption657413">Create New A/R Account
+        Assignment</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para657414">When creating a new A/R Account assignment, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para657415">Selected Customer Type</term>
+
+      <listitem id="listitemN0x180ac00N0x1885988">
+        <para>Specify the Customer Type you want to associate with the A/R
+        Account assignment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657416">Pattern</term>
+
+      <listitem id="listitemN0x180ac00N0x18859d0">
+        <para>Enter a Customer Type pattern to select a range of Customer
+        Types.</para>
+
+        <para id="Para657419">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef657418"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657421">A/R Account</term>
+
+      <listitem id="listitemN0x180ac00N0x1885a18">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/R Account.</para>
+
+        <para id="Para657422">This is an Asset Account. For example, it will
+        be debited when Invoices are posted and credited when Cash Receipts
+        are posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657423">Prepaid Receivables Account</term>
+
+      <listitem id="listitemN0x180ac00N0x1885a60">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        A/R Prepaid Account.</para>
+
+        <para id="Para657424">This is a Revenue contra Account. It will be
+        debited when Miscellaneous A/R Credit Memos are posted and credited
+        when Miscellaneous A/R Debit Memos are posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657425">Freight Account</term>
+
+      <listitem id="listitemN0x180ac00N0x1885aa8">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Freight Account.</para>
+
+        <para id="Para657426">This is a Revenue Account. It will be credited
+        when Invoices are posted and debited when S/O Credit Memos are
+        posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657427">Deferred Revenue Account</term>
+
+      <listitem id="listitemN0x180ac00N0x1885af0">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
+        Deferred Revenue Account.</para>
+
+        <para id="Para657428">This is a Liability Account. It is an optional
+        Account, as systems may be configured to ignore it when handling
+        Customer Deposits. When this Account is used, it will be credited when
+        unapplied Cash Receipts are posted and debited when the A/R Credit
+        Memos resulting from unapplied Cash Receipts are applied to A/R open
+        items.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para657430">You can disable the use of a Deferred Revenue
+    Account for handling Customer Deposits at the system level.</para>
+  </note>
+
+  <para id="Para657431">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para657432">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x1885b80">
+        <para>Closes the screen without creating an A/R Account assignment,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para657433">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x1885bc8">
+        <para>Creates the A/R Account assignment and adds it to the master
+        list of A/R Account assignments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

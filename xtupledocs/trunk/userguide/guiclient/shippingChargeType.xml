@@ -1,88 +1,87 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Shipping Charge Type
-    </title>
-   <subtitle>shippingChargeType : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/shippingChargeType.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Shipping Charge Type
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                        <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Customer may pay Freight Charges</guilabel>
-               </entry>
-               <entry>_customerFreight</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section575769">
+  <title><anchor id="Anchor576088" role="Index"
+  xreflabel="shipping:master list of charge types;charge types:master list for shipping" />
+  <indexterm significance="normal" zone="Anchor575850">
+      <primary>shipping</primary>
+
+      <secondary>new charge types for</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor575850">
+      <primary>charge types</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Shipping Charge Type</title>
+
+  <para id="Para575851">To create a new Shipping Charge Type, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para575855"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_shipChgTypeNew.png"
+                     id="Graphic575853" />
+        </imageobject>
+
+        <caption id="Caption575856">Create New Shipping Charge Type</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para575857">When creating a new Shipping Charge Type, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para575861">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x1870418">
+        <para>Enter a name to identify the Shipping Charge Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para575866">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x1870460">
+        <para>Enter a description to identify the Shipping Charge Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para575871">Customer may pay Freight Charges</term>
+
+      <listitem id="listitemN0x180ac00N0x18704a8">
+        <para>Select to allow free-form Freight Charges to be added to a Sales
+        Order.</para>
+
+        <para id="Para587636">If not selected, you are indicating that
+        free-form Freight Charges may not be added to Sales Orders which
+        specify the Shipping Charge Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para575877">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para575878">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x1870514">
+        <para>Closes the screen without creating a Shipping Charge Type,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para575879">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x187055c">
+        <para>Creates the Shipping Charge Type and adds it to the master list
+        of Shipping Charge Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
