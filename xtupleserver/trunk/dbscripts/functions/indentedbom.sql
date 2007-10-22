@@ -73,13 +73,13 @@ END;
 
 --DROP FUNCTION indentedBOM(INTEGER, INTEGER, INTEGER, INTEGER) ;
 
-CREATE OR REPLACE FUNCTION indentedBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS SETOF indentedbom AS '
+CREATE OR REPLACE FUNCTION indentedBOM(INTEGER, INTEGER, INTEGER, INTEGER) RETURNS SETOF bomdata AS '
 DECLARE
   pItemid ALIAS FOR $1;
   pRevisionid ALIAS FOR $2;
   pExpiredDays ALIAS FOR $3;
   pFutureDays ALIAS FOR $4;
-  _row indentedbom%ROWTYPE;
+  _row bomdata%ROWTYPE;
   _bomworksetid INTEGER;
   _x RECORD;
   _check CHAR(1);
@@ -126,23 +126,23 @@ BEGIN
        AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
        ORDER BY seq_ord
     LOOP
-        _row.indentedbom_bomwork_id := _x.bomwork_id;
-        _row.indentedbom_bomwork_parent_id := _x.bomwork_parent_id;
-        _row.indentedbom_bomwork_level := _x.bomwork_level;
-        _row.indentedbom_bomwork_seqnumber := _x.bomwork_seqnumber;
-        _row.indentedbom_item_number := _x.item_number;
-        _row.indentedbom_uom_name := _x.uom_name;
-        _row.indentedbom_item_descrip1 := _x.item_descrip1;
-        _row.indentedbom_item_descrip2 := _x.item_descrip2;
-        _row.indentedbom_itemdescription := _x.itemdescription;
-        _row.indentedbom_qtyper := _x.f_qtyper;
-        _row.indentedbom_scrap := _x.f_scrap;
-        _row.indentedbom_createchild := _x.createchild;
-        _row.indentedbom_issuemethod := _x.issuemethod;
-        _row.indentedbom_effective := _x.f_effective;
-        _row.indentedbom_expires := _x.f_expires;
-        _row.indentedbom_expired := _x.expired;
-        _row.indentedbom_future := _x.future;
+        _row.bomdata_bomwork_id := _x.bomwork_id;
+        _row.bomdata_bomwork_parent_id := _x.bomwork_parent_id;
+        _row.bomdata_bomwork_level := _x.bomwork_level;
+        _row.bomdata_bomwork_seqnumber := _x.bomwork_seqnumber;
+        _row.bomdata_item_number := _x.item_number;
+        _row.bomdata_uom_name := _x.uom_name;
+        _row.bomdata_item_descrip1 := _x.item_descrip1;
+        _row.bomdata_item_descrip2 := _x.item_descrip2;
+        _row.bomdata_itemdescription := _x.itemdescription;
+        _row.bomdata_qtyper := _x.f_qtyper;
+        _row.bomdata_scrap := _x.f_scrap;
+        _row.bomdata_createchild := _x.createchild;
+        _row.bomdata_issuemethod := _x.issuemethod;
+        _row.bomdata_effective := _x.f_effective;
+        _row.bomdata_expires := _x.f_expires;
+        _row.bomdata_expired := _x.expired;
+        _row.bomdata_future := _x.future;
         RETURN NEXT _row;
     END LOOP;
     
@@ -152,6 +152,7 @@ BEGIN
 
   END IF;
 
+-- Use historical snapshot for inactive revisions
     FOR _x IN
         SELECT bomhist_id, bomhist_parent_id, bomhist_level,
                bomhistSequence(bomhist_id) AS seq_ord,
@@ -182,23 +183,23 @@ BEGIN
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
        ORDER BY seq_ord
     LOOP
-        _row.indentedbom_bomwork_id := _x.bomhist_id;
-        _row.indentedbom_bomwork_parent_id := _x.bomhist_parent_id;
-        _row.indentedbom_bomwork_level := _x.bomhist_level;
-        _row.indentedbom_bomwork_seqnumber := _x.bomhist_seqnumber;
-        _row.indentedbom_item_number := _x.item_number;
-        _row.indentedbom_uom_name := _x.uom_name;
-        _row.indentedbom_item_descrip1 := _x.item_descrip1;
-        _row.indentedbom_item_descrip2 := _x.item_descrip2;
-        _row.indentedbom_itemdescription := _x.itemdescription;
-        _row.indentedbom_qtyper := _x.f_qtyper;
-        _row.indentedbom_scrap := _x.f_scrap;
-        _row.indentedbom_createchild := _x.createchild;
-        _row.indentedbom_issuemethod := _x.issuemethod;
-        _row.indentedbom_effective := _x.f_effective;
-        _row.indentedbom_expires := _x.f_expires;
-        _row.indentedbom_expired := _x.expired;
-        _row.indentedbom_future := _x.future;
+        _row.bomdata_bomwork_id := _x.bomhist_id;
+        _row.bomdata_bomwork_parent_id := _x.bomhist_parent_id;
+        _row.bomdata_bomwork_level := _x.bomhist_level;
+        _row.bomdata_bomwork_seqnumber := _x.bomhist_seqnumber;
+        _row.bomdata_item_number := _x.item_number;
+        _row.bomdata_uom_name := _x.uom_name;
+        _row.bomdata_item_descrip1 := _x.item_descrip1;
+        _row.bomdata_item_descrip2 := _x.item_descrip2;
+        _row.bomdata_itemdescription := _x.itemdescription;
+        _row.bomdata_qtyper := _x.f_qtyper;
+        _row.bomdata_scrap := _x.f_scrap;
+        _row.bomdata_createchild := _x.createchild;
+        _row.bomdata_issuemethod := _x.issuemethod;
+        _row.bomdata_effective := _x.f_effective;
+        _row.bomdata_expires := _x.f_expires;
+        _row.bomdata_expired := _x.expired;
+        _row.bomdata_future := _x.future;
         RETURN NEXT _row;
     END LOOP;
     
