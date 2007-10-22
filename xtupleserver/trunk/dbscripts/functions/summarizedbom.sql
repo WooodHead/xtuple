@@ -212,7 +212,7 @@ BEGIN
        FROM bomhist, item, uom 
        WHERE ( (bomhist_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
-       AND (bomhist_set_id=pRevisionid) )
+       AND (bomhist_rev_id=pRevisionid) )
        AND (bomhist_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
        GROUP BY item_number, uom_name,
