@@ -1,106 +1,106 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Incident Severities
-  </title>
-   <subtitle>incidentSeverities : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/incidentSeverities.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Incident Severities
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Incident Severities:</guilabel>
-               </entry>
-               <entry>_incidentSeveritiesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_incidentSeverities</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560609">
+  <title><anchor id="Anchor561144" role="Index"
+  xreflabel="crm:incident severities and;incidents:severities for" />
+  <indexterm significance="normal" zone="Anchor561144">
+      <primary>crm</primary>
+
+      <secondary>incident severities and</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor561144">
+      <primary>incidents</primary>
+
+      <secondary>severities for</secondary>
+    </indexterm>List Incident Severities</title>
+
+  <para id="Para562070">Incident Severities are used by the Incident
+  Management system to categorize the severity of Incidents. When Incident
+  Severities are entered in the Master Information section, these Severities
+  are then available for use when entering or updating Incidents.</para>
+
+  <tip>
+    <para id="Para570909">You must manually create Incident Severities if you
+    want the ability to assign them to Incidents. If no Incident Severities
+    are defined, then none will be available when entering Incidents.</para>
+  </tip>
+
+  <para id="Para570906">To access the master list of Incident Severities,
+  select the "Incident Severities" option. The following screen will
+  appear.</para>
+
+  <para id="Para561962"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_MI_incidSevList.png"
+                     id="Graphic561960" />
+        </imageobject>
+
+        <caption id="Caption561963">Incident Severities Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para561964">The "Incident Severities" screen displays information
+  on all existing Incident Severities, including Incident Severity order,
+  name, and description.</para>
+
+  <para id="Para561965">To the far right of the list, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para561966">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x182bcb8">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para577393">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x182bd00">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561968">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x182bd48">
+        <para>Opens screen for creating a new Incident Severity.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561969">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x182bd90">
+        <para>Enables you to edit highlighted Incident Severities. The edit
+        screen is the same as that for creating a new Incident
+        Severity--except that when editing, the fields will contain Incident
+        Severity information. Double-clicking on an Incident Severity will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561970">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x182bdd8">
+        <para>Highlight an Incident Severity and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561971">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x182be20">
+        <para>Highlight an Incident Severity and then select this button to
+        remove the Incident Severity from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

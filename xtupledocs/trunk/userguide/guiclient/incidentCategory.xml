@@ -1,93 +1,111 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Incident Category
-  </title>
-   <subtitle>incidentCategory : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/incidentCategory.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Incident Category
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Incident Category:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Order:</guilabel>
-               </entry>
-               <entry>_orderLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_order</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560844">
+  <title><anchor id="Anchor560992" role="Index"
+  xreflabel="crm:incident categories and;incidents:categories for" />
+  <indexterm significance="normal" zone="Anchor560948">
+      <primary>incidents</primary>
+
+      <secondary>creating new categories for</secondary>
+    </indexterm>Incident Category</title>
+
+  <para id="Para560949">To create a new Incident Category, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para560953"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_MI_incidCatNew.png"
+                     id="Graphic560951" />
+        </imageobject>
+
+        <caption id="Caption560954">Create New Incident Category</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para560955">When creating a new Incident Category, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para560956">Incident Category</term>
+
+      <listitem id="listitemN0x180ac00N0x181a9d0">
+        <para>Enter a name to define the Category (e.g., Customer Issue,
+        Vendor Issue, etc.).</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561081">Order</term>
+
+      <listitem id="listitemN0x180ac00N0x181aa18">
+        <para>Specify the order in which the Category should appear when using
+        the drop-down list on the Incident screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para561228">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x181aa60">
+        <para>Enter a brief description of the Incident Category.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para560957">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para560958">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x181aacc">
+        <para>Closes the screen without creating an Incident Category,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560959">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x181ab14">
+        <para>Creates the Incident Category and adds it to the master list of
+        Incident Categories.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para560961">Right-clicking on an Incident Category in the Incident
+  Categories list enables you to select from the following menu
+  options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para560962">Edit</term>
+
+      <xi:include href="../crm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a820)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560963">View</term>
+
+      <xi:include href="../crm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a868)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560964">Delete</term>
+
+      <xi:include href="../crm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a8b0)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
