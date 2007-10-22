@@ -124,7 +124,8 @@ BEGIN
              bomitem_schedatwooper AS Sbomitem_schedatwooper,
              bomitem_booitem_seq_id AS Sbomitem_booitem_seq_id
             FROM bomitem(pSItemid)) as data
-      WHERE (bomitem_item_id=Sbomitem_item_id);
+      WHERE ((bomitem_item_id=Sbomitem_item_id)
+      AND (bomitem_parent_item_id=getItemId(pTItemnumber)));
   END IF;
 
   IF (pCopyCosts) THEN
