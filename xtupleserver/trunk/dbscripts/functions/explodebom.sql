@@ -7,12 +7,7 @@ DECLARE
 
 BEGIN
 
-  --See if revcontrol turned on
-  IF (fetchmetricbool(''RevControl'')) THEN
-    SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
-  ELSE
-    _revid:=-1;
-  END IF;
+  SELECT getActiveRevId(''BOM'',pItemid) INTO _revid;
 
   RETURN explodeBOM(pItemid, _revid, pParentid, pLevel);
 

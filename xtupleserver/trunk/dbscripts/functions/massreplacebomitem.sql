@@ -31,12 +31,14 @@ BEGIN
          bomitem_booitem_id, bomitem_schedatwooper, CURRENT_DATE
   FROM bomitem
   WHERE ( (_effectiveDate BETWEEN bomitem_effective AND (bomitem_expires - 1))
-   AND (bomitem_item_id=pOriginalItemid) );
+   AND (bomitem_item_id=pOriginalItemid)
+   AND (bomitem_rev_id=getActiveRevId(bomitem_parent_item_id)) );
 
   UPDATE bomitem
   SET bomitem_expires=_effectiveDate
   WHERE ( (_effectiveDate BETWEEN bomitem_effective AND (bomitem_expires - 1))
-   AND (bomitem_item_id=pOriginalItemid) );
+   AND (bomitem_item_id=pOriginalItemid)
+   AND (bomitem_rev_id=getActiveRevid(bomitem_parent_id)) );
 
   RETURN 1;
 END;

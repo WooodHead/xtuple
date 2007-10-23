@@ -81,15 +81,13 @@ DECLARE
 
 BEGIN
 
-  IF (fetchmetricbool(''RevControl'')) THEN
-    SELECT getActiveRevId(''BOM'',itemsite_item_id) INTO _bomrevid
-    FROM itemsite
-    WHERE (itemsite_id=pItemsiteid);
+  SELECT getActiveRevId(''BOM'',itemsite_item_id) INTO _bomrevid
+  FROM itemsite
+  WHERE (itemsite_id=pItemsiteid);
 
-    SELECT getActiveRevId(''BOO'',itemsite_item_id) INTO _boorevid
-    FROM itemsite
-    WHERE (itemsite_id=pItemsiteid);
-  END IF;
+  SELECT getActiveRevId(''BOO'',itemsite_item_id) INTO _boorevid
+  FROM itemsite
+  WHERE (itemsite_id=pItemsiteid);
   
   RETURN createWo(pWoNumber, pItemsiteid, pPriority, pQtyOrdered,
                   pStartDate, pDueDate, pProductionNotes,
