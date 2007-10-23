@@ -1,135 +1,203 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   To-Do List Items by User and Incident
-  </title>
-   <subtitle>dspTodoByUserAndIncident : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspTodoByUserAndIncident.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   To-Do List Items by User and Incident
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_usr</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_incidentBox</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All Incidents</guilabel>
-               </entry>
-               <entry>_allIncidents</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Selected</guilabel>
-               </entry>
-               <entry>_selectedIncident</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_incident</entry>
-               <entry>IncidentCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>groupBox</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_startDate</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>groupBox_2</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dueDate</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show Completed Items</guilabel>
-               </entry>
-               <entry>_showCompleted</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show Inactive Items</guilabel>
-               </entry>
-               <entry>_showInactive</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Query</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Print</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_todoitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section560417">
+    <title>To-Do List Items by User and Incident</title>
+
+    <para id="Para570374">To view To-Do List items by user and Incident,
+    select the "To-Do List Items by User and Incident" option. The following
+    screen will appear:</para>
+
+    <para id="Para570341"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CRM_Disp_tdItemsByUser.png"
+                       id="Graphic570339" />
+          </imageobject>
+
+          <caption id="Caption570342">To-Do List Items by User and
+          Incident</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para570391">When displaying To-Do List items by user and
+    Incident, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para570402">All Users</term>
+
+        <listitem id="listitemN0x180ac00N0x1897a3c">
+          <para>Select to display To-Do List items for all users.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570403">Selected User</term>
+
+        <listitem id="listitemN0x180ac00N0x1897a84">
+          <para>Select user whose To-Do List items you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570404">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x1897acc">
+          <para>Enter a user pattern to select a range of users.</para>
+
+          <para id="Para577696">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef577695"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para560420">All Incidents</term>
+
+        <listitem id="listitemN0x180ac00N0x1897b14">
+          <para>Select to include all Incidents for the specified user(s) in
+          the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570529">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1897b5c">
+          <para>Select the Incident you want to display information
+          about.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570530">Date Started</term>
+
+        <listitem id="listitemN0x180ac00N0x1897ba4">
+          <para>Enter a range of To-Do List item start dates:</para>
+
+          <para id="Para570531">Start Date: To-Do List items started on or
+          after this date will be included in the display.</para>
+
+          <para id="Para570438">End Date: To-Do List items started on or
+          before this date will be included in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570440">Date Due</term>
+
+        <listitem id="listitemN0x180ac00N0x1897bec">
+          <para>Enter a range of To-Do List item due dates:</para>
+
+          <para id="Para570551">Start Date: To-Do List items due on or after
+          this date will be included in the display.</para>
+
+          <para id="Para570552">End Date: o-Do List items due on or before
+          this date will be included in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para560399">Show Completed Items</term>
+
+        <listitem id="listitemN0x180ac00N0x189e824">
+          <para>Select to include completed To-Do List items in the
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570454">Show Inactive Items</term>
+
+        <listitem id="listitemN0x180ac00N0x189e86c">
+          <para>Select in include inactive To-Do List items in the
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570455">To-Do List Items</term>
+
+        <listitem id="listitemN0x180ac00N0x189e8b4">
+          <para>Display lists To-Do List items, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para570471">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para570472">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x189e920">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570473">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x189e968">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para577446">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x189e9b0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para570606">Right-clicking on a To-Do List item in the list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para570607">Edit</term>
+
+        <listitem id="listitemN0x180ac00N0x189ea1c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570608">View</term>
+
+        <listitem id="listitemN0x180ac00N0x189ea64">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570609">Edit Incident</term>
+
+        <listitem id="listitemN0x180ac00N0x189eaac">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570621">View Incident</term>
+
+        <listitem id="listitemN0x180ac00N0x189eaf4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>
