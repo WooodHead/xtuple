@@ -1,99 +1,106 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Warehouse Calendar Exception
-  </title>
-   <subtitle>whseCalendar : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/whseCalendar.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Warehouse Calendar Exception
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_activeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Open</guilabel>
-               </entry>
-               <entry>_active</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Closed</guilabel>
-               </entry>
-               <entry>_inactive</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>QLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section538730" role="openmfg">
+  <title>Warehouse Calendar Exception</title>
+
+  <para id="Para538777"><anchor id="Anchor539043" role="Index"
+  xreflabel="warehouses:creating new exceptions for;calendars:creating new exceptions for" />
+  <indexterm significance="normal" zone="Anchor539043">
+      <primary>warehouses</primary>
+
+      <secondary>creating new exceptions for</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor539043">
+      <primary>calendars</primary>
+
+      <secondary>creating new exceptions for</secondary>
+    </indexterm>To define an exception to the standard work week for a
+  Warehouse, select the "NEW" button. The following screen will appear:</para>
+
+  <para id="Para538781"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_MI_wareExceptNew.png"
+                     id="Graphic538779" />
+        </imageobject>
+
+        <caption id="Caption538827">Create New Calendar Exception</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para538828">When defining an exception to the standard work week
+  for a Warehouse, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para538807">All Warehouses</term>
+
+      <listitem>
+        <para>Select to create the calendar exception for all
+        Warehouses.</para>
+
+        <para id="Para538808">Settings made using this option will be
+        inherited by all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538811">Selected</term>
+
+      <listitem>
+        <para>Select the Warehouse whose work week you want to define.</para>
+
+        <para id="Para538812">Specify which days the Warehouse is open for
+        business. Settings made using this option are specific to the selected
+        Warehouse.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538838">Description</term>
+
+      <listitem>
+        <para>Enter text to describe the calendar exception.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para538857">Start Date</term>
+
+      <listitem>
+        <para>Specify the date when the calendar exception begins.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539071">End Date</term>
+
+      <listitem>
+        <para>Specify the date when the calendar exception ends.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para id="Para539073">If the calendar exception is one day long, use the
+    same date in the start date and end date fields.</para>
+  </tip>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para538742">Exception Type</term>
+
+      <listitem>
+        <para>Specify which type of calendar exception you are
+        defining:</para>
+
+        <para id="Para538864">Open: If selected, you are indicating the
+        specified Warehouse(s) is open during the defined time period.</para>
+
+        <para id="Para538868">Closed: If selected, you are indicating the
+        specified Warehouse(s) is closed during the defined time
+        period.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

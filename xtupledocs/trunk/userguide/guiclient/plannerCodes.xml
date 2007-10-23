@@ -1,106 +1,102 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Planner Codes
-    </title>
-   <subtitle>plannerCodes : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/plannerCodes.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Planner Codes
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Planner Codes:</guilabel>
-               </entry>
-               <entry>_plannerCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_plancode</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section555000">
+  <title><anchor id="Anchor554999" role="Index"
+  xreflabel="planner codes:in master scheduling;planner codes:master list of" />
+  <indexterm significance="normal" zone="Anchor554999">
+      <primary>planner codes</primary>
+
+      <secondary>in master scheduling</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor554999">
+      <primary>planner codes</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Planner Codes</title>
+
+  <para id="Para555002">Planner Codes are used to identify Items that fall
+  under the jurisdiction of <anchor id="Anchor555001" role="Index"
+  xreflabel="planners:codes for" /> <indexterm significance="normal"
+      zone="Anchor555001">
+      <primary>planners</primary>
+
+      <secondary>codes for</secondary>
+    </indexterm>planners--that is, employees responsible for planning,
+  scheduling, or procurement. To access the master list of Planner Codes,
+  select the "Planner Codes" option. The following screen will appear:</para>
+
+  <para id="Para555006"><screenshot id="Figure555004">
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_MI_planCodeList.png"
+                     id="Graphic555004" />
+        </imageobject>
+
+        <caption><para>Planner Codes Master List</para></caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para555008">The "Planner Codes" screen displays information on all
+  existing Planner Codes, including Planner Code and Planner Code
+  description.</para>
+
+  <para id="Para555009">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para555010">CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555011">PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555012">NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new Planner Code.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555013">EDIT</term>
+
+      <listitem>
+        <para>Enables you to edit highlighted Planner Codes. The edit screen
+        is the same as that for creating a new Planner Code--except that when
+        editing, the fields will contain Planner Code information.
+        Double-clicking on a Planner Code will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555014">VIEW</term>
+
+      <listitem>
+        <para>Highlight a Planner Code and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para555015">DELETE</term>
+
+      <listitem>
+        <para>Highlight a Planner Code and then select this button to remove
+        it from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,195 +1,414 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Project
-  </title>
-   <subtitle>project : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/project.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Project
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_ordersGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Sales Orders</guilabel>
-               </entry>
-               <entry>_so</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Work Orders</guilabel>
-               </entry>
-               <entry>_wo</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Purchase Orders</guilabel>
-               </entry>
-               <entry>_po</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Number:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_number</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Status:</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_status</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Tasks</entry>
-               <entry>_tasksTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_prjtask</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Print</guilabel>
-               </entry>
-               <entry>_printTasks</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_newTask</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_editTask</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_viewTask</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_deleteTask</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>_commentsTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section556014">
+    <title><anchor id="Anchor557389" role="Index"
+    xreflabel="projects:creating new" /> <indexterm significance="normal"
+        zone="Anchor557389">
+        <primary>projects</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>Project</title>
+
+    <para id="Para557886">Projects can be created manually or automatically,
+    depending on your needs. To have Projects created automatically whenever a
+    new Sales Order or Quote is entered, choose the appropriate setting in
+    your system-level configuration. Otherwise, Projects will be created
+    manually. Once created, Projects can be linked to Sales Orders, Work
+    Orders, and Purchase Orders.</para>
+
+    <para id="Para557887">To create a new Project, select the "New Project"
+    option. The following screen will appear:</para>
+
+    <para id="Para556108"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PM_Proj_newProject.png"
+                       id="Graphic556106" />
+          </imageobject>
+
+          <caption id="Caption556109">Create New Project</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para556037">When creating a new Project, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556124">Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1819ff8">
+          <para>Enter a code to identify the Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556366">Name</term>
+
+        <listitem id="listitemN0x180ac00N0x181a040">
+          <para>Enter a brief name to identify the Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556373">Description</term>
+
+        <listitem id="listitemN0x180ac00N0x181a088">
+          <para>Enter a description to identify the Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556374">Status</term>
+
+        <listitem id="listitemN0x180ac00N0x181a0d0">
+          <para>Specify one of the following statuses to characterize the
+          Project:</para>
+
+          <para id="Para556511">Concept: Use this status to indicate the
+          Project has not yet begun.</para>
+
+          <para id="Para556514">In-Process: Use this status to indicate the
+          Project is in-process.</para>
+
+          <para id="Para556515">Complete: Use this status to indicate the
+          Project is complete.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para556520">Projects generated automatically when a new Sales
+      Order or Quote is entered will be assigned the status "Undefined" at
+      first. To remove this initial status, simply edit a Project and assign
+      an appropriate status to it.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556375">Types of Orders that may be assigned to this
+        Project</term>
+
+        <listitem id="listitemN0x180ac00N0x181a160">
+          <para>Specify which of the following Order types can be linked to
+          the Project.</para>
+
+          <para id="Para556376">Sales Orders: Select to indicate Sales Orders
+          may be linked to the Project.</para>
+
+          <para id="Para556380">Work Orders: Select to indicate Work Orders
+          may be linked to the Project.</para>
+
+          <para id="Para556381">Purchase Orders: Select to indicate Purchase
+          Orders may be linked to the Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556389">Tasks</term>
+
+        <listitem id="listitemN0x180ac00N0x181a1a8">
+          <para>Displays any Tasks associated with the Project.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556665">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556666">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x181a214">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557823">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x181a25c">
+          <para>Creates the new Project and adds it to the master list of
+          Projects.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557824">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x181a2a4">
+          <para>Prints a copy of the Task list.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557825">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x181a2ec">
+          <para>Opens screen for creating a new Task.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557826">EDIT</term>
+
+        <listitem id="listitemN0x180ac00N0x181a334">
+          <para>Enables you to edit highlighted Task. The edit screen is the
+          same as that for creating a new Task--except that when editing, the
+          fields will contain Task information. Double-clicking on a Task will
+          also bring you to the editing screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556669">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x181a37c">
+          <para>Highlight a Task and then select this button to reach a
+          read-only view of the "Edit" screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556672">DELETE</term>
+
+        <listitem id="listitemN0x180ac00N0x181a3c4">
+          <para>Highlight a Task and then select this button to remove the
+          Task from the master list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556845"><anchor id="Anchor556844" role="Index"
+    xreflabel="tasks:creating new" /> <indexterm significance="normal"
+        zone="Anchor556844">
+        <primary>tasks</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>To create a new Task, select the NEW button. The following
+    screen will appear:</para>
+
+    <para id="Para556854"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PM_Proj_newTask.png" id="Graphic556852" />
+          </imageobject>
+
+          <caption id="Caption556855">Create New Task</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para556125">When creating a new Task, you are presented with the
+    following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556876">Number</term>
+
+        <listitem id="listitemN0x180ac00N0x181a4e4">
+          <para>Enter a code to identify the Task.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556881">Name</term>
+
+        <listitem id="listitemN0x180ac00N0x181a52c">
+          <para>Enter a brief name to identify the Task.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556888">Status</term>
+
+        <listitem id="listitemN0x180ac00N0x181a574">
+          <para>Specify one of the following statuses to characterize the
+          Task:</para>
+
+          <para id="Para556889">Concept: Use this status to indicate the Task
+          has not yet begun.</para>
+
+          <para id="Para556890">In-Process: Use this status to indicate the
+          Task is in-process.</para>
+
+          <para id="Para556891">Complete: Use this status to indicate the Task
+          is complete.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556900">Description</term>
+
+        <listitem id="listitemN0x180ac00N0x181a5bc">
+          <para>Enter a description to identify the Task.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556038">Hours</term>
+
+        <listitem id="listitemN0x180ac00N0x181a604">
+          <para>Specify the number of hours associated with the Task using the
+          following fields:</para>
+
+          <para id="Para556965">Budgeted: Enter the number of hours budgeted
+          for the Task. This information may be saved and updated
+          later.</para>
+
+          <para id="Para556976">Actual: Enter the actual number of hours
+          consumed performing the Task. This information may be saved and
+          updated later.</para>
+
+          <para id="Para556977">Balance: Displays the difference between the
+          budgeted and actual hours.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556991">Expenses</term>
+
+        <listitem id="listitemN0x180ac00N0x181a64c">
+          <para>Specify the Expenses associated with the Task using the
+          following fields:</para>
+
+          <para id="Para557067">Budgeted: Enter the total Expenses budgeted
+          for the Task. This information may be saved and updated
+          later.</para>
+
+          <para id="Para557068">Actual: Enter the actual Expenses incurred
+          while performing the Task. This information may be saved and updated
+          later.</para>
+
+          <para id="Para556994">Balance: Displays the difference between the
+          budgeted and actual Expenses.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para557022">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para557023">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x181a6b8">
+          <para>Closes the screen, returning you to the previous
+          screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557024">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x181a700">
+          <para>Creates the new Task and adds it to the Project's list of
+          Tasks.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556907">To add Comments related to a Project, select the
+    "Comments" tab. The following screen will appear:</para>
+
+    <para id="Para556718"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PM_Proj_newProjComm.png"
+                       id="Graphic556716" />
+          </imageobject>
+
+          <caption id="Caption556719">Comments Added to Project</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para556742">When adding Comments related to a Project, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556743">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x181a7d8">
+          <para>Display lists Comments for the specified Project.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556745">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556746">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x181a844">
+          <para>Opens screen for creating a new Comment.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556748">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x181a88c">
+          <para>Highlight a Comment and then select this button to reach a
+          read-only view of the Comment.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556749">To create a Project Comment, select the NEW button.
+    The following screen will appear:</para>
+
+    <para id="Para556753"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CommentNew.png" id="Graphic556751" />
+          </imageobject>
+
+          <caption id="Caption556754">Create New Comment</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556755">Comment Type</term>
+
+        <listitem id="listitemN0x180ac00N0x181a964">
+          <para>Specify one of the following Comment Types from the drop-down
+          list: ChangeLog or General.</para>
+
+          <para id="Para556756">Comment Types are used to categorize Comments.
+          Once you have specified a Comment Type, you may type your Comment in
+          the main text area. The text area features word-wrapping and
+          scroll-bar support for longer Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556757">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556758">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x181a9d0">
+          <para>Closes the screen without creating a new Comment, returning
+          you to the previous screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556759">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x181aa18">
+          <para>Creates the Comment and adds it to the list of Project
+          Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
