@@ -28,6 +28,7 @@ BEGIN
   FROM bomitem, item
   WHERE ((bomitem_item_id=pItemid)
     AND (bomitem_parent_item_id=item_id)
+    AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
     AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) ));
 
   WHILE ( ( SELECT count(*)
@@ -56,6 +57,7 @@ BEGIN
     FROM bomitem, item, bomwork
     WHERE ((bomitem_item_id=bomwork_item_id)
       AND (bomitem_parent_item_id=item_id)
+      AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
       AND (bomwork_item_type IN (''M'', ''F''))
       AND (bomwork_status=''U'')
       AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) ));
