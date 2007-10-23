@@ -93,7 +93,7 @@ BEGIN
     FOR _x IN
         SELECT bomwork_id, bomwork_parent_id, bomwork_level,
                bomworkSequence(bomwork_id) AS seq_ord,
-               bomwork_seqnumber, item_number, uom_name,
+               bomwork_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                formatQtyPer(bomwork_qtyper) AS f_qtyper,
@@ -128,6 +128,7 @@ BEGIN
         _row.bomdata_bomwork_parent_id := _x.bomwork_parent_id;
         _row.bomdata_bomwork_level := _x.bomwork_level;
         _row.bomdata_bomwork_seqnumber := _x.bomwork_seqnumber;
+        _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
         _row.bomdata_item_descrip1 := _x.item_descrip1;
@@ -158,7 +159,7 @@ BEGIN
     FOR _x IN
         SELECT bomhist_id, bomhist_parent_id, bomhist_level,
                bomhistSequence(bomhist_id) AS seq_ord,
-               bomhist_seqnumber, item_number, uom_name,
+               bomhist_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                formatQtyPer(bomhist_qtyper) AS f_qtyper,
@@ -193,6 +194,7 @@ BEGIN
         _row.bomdata_bomwork_parent_id := _x.bomhist_parent_id;
         _row.bomdata_bomwork_level := _x.bomhist_level;
         _row.bomdata_bomwork_seqnumber := _x.bomhist_seqnumber;
+        _row.bomdata_item_id := _x.item_id;
         _row.bomdata_item_number := _x.item_number;
         _row.bomdata_uom_name := _x.uom_name;
         _row.bomdata_item_descrip1 := _x.item_descrip1;

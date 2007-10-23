@@ -1,7 +1,5 @@
 BEGIN;
 
---DROP TYPE bomdata;
-
 CREATE TYPE bomdata AS
    (bomdata_bomwork_id INTEGER,
     bomdata_bomwork_parent_id INTEGER,
@@ -19,6 +17,10 @@ CREATE TYPE bomdata AS
     bomdata_effective TEXT,
     bomdata_expires TEXT,
     bomdata_expired BOOLEAN,
-    bomdata_future  BOOLEAN);
+    bomdata_future  BOOLEAN,
+    bomdata_actunitcost NUMERIC,
+    bomdata_stdunitcost NUMERIC,
+    bomdata_actextendedcost NUMERIC,
+    bomdata_stdextendedcost NUMERIC);
 
 COMMIT;
