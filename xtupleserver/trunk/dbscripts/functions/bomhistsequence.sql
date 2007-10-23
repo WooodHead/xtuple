@@ -11,7 +11,7 @@ BEGIN
   SELECT bomhist_parent_id AS parent,
          to_char(bomhist_seqnumber, ''00009'') AS seq INTO _bomhist
     FROM bomhist
-   WHERE bomhist_id=_wid;
+   WHERE bomhist_seq_id=_wid;
 
   IF (FOUND) THEN
     _seqnum := _bomhist.seq;
@@ -21,7 +21,7 @@ BEGIN
       SELECT bomhist_parent_id AS parent,
              to_char(bomhist_seqnumber, ''00009'') AS seq INTO _bomhist
       FROM bomhist
-      WHERE bomhist_id=_wid;
+      WHERE bomhist_seq_id=_wid;
 
       IF (FOUND) THEN
         _seqnum := _bomhist.seq || ''-'' || _seqnum;

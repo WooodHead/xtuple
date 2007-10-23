@@ -122,6 +122,18 @@ BEGIN
        AND (bomwork_set_id=_bomworksetid) )
        AND (bomwork_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
+       UNION
+       SELECT -1, -1, 1,''0'',
+              99999,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
+              '''', '''', '''', '''', '''', '''',false,false,
+              currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actunitcost,
+              itemcost_stdcost AS stdunitcost,
+              currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actextendedcost,
+              itemcost_stdcost AS stdextendedcost
+       FROM itemcost, costelem 
+       WHERE ( (itemcost_costelem_id=costelem_id)
+       AND (NOT itemcost_lowlevel)
+       AND (itemcost_item_id=pItemid) )
        ORDER BY seq_ord
     LOOP
         _row.bomdata_bomwork_id := _x.bomwork_id;
@@ -188,6 +200,17 @@ BEGIN
        AND (bomhist_rev_id=pRevisionid) )
        AND (bomhist_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
+       UNION
+       SELECT -1, -1, 1,''0'',
+              99999,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
+              '''', '''', '''', '''', '''', '''',false,false,
+              bomhist_actunitcost AS actunitcost,
+              bomhist_stdunitcost AS stdunitcost,
+              bomhist_actunitcost AS actextendedcost,
+              bomhist_stdunitcost AS stdextendedcost
+       FROM bomhist, costelem 
+       WHERE ((bomhist_rev_id=pRevisionid)
+       AND (costelem_id=bomhist_item_id))
        ORDER BY seq_ord
     LOOP
         _row.bomdata_bomwork_id := _x.bomhist_id;
