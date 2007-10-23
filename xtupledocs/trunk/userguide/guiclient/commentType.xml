@@ -1,83 +1,69 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Comment Type
-    </title>
-   <subtitle>commentType : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/commentType.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Comment Type
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ame</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section949448">
+  <title><anchor id="Anchor952510" role="Index"
+  xreflabel="comment types:master list of" /> <indexterm significance="normal"
+      zone="Anchor952471">
+      <primary>comment types</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Comment Type</title>
+
+  <para id="Para952472">To create a new Comment Type, select the NEW button.
+  The following screen will appear:</para>
+
+  <para id="Para952476"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_commTypeNew.png" id="Graphic952474" />
+        </imageobject>
+
+        <caption id="Caption952478">Create New Comment Type</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para952479">When creating a new Comment Type, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para952567">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x1879fa0">
+        <para>Enter a unique Comment Type name.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para952572">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x1879fe8">
+        <para>Enter a brief description of the Comment Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para952574">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para952575">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x187a054">
+        <para>Closes the screen without adding a new Comment Type to the
+        master list of Comment Types.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para952576">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x187a09c">
+        <para>Creates the Comment Type and adds it to the master list of
+        Comment Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

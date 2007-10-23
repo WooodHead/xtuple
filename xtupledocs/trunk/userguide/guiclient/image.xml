@@ -1,105 +1,82 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Image
-  </title>
-   <subtitle>image : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/image.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Image
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>File Name:</guilabel>
-               </entry>
-               <entry>_filenameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_fileName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_fileList</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_imageFrame</entry>
-               <entry>QFrame</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518556">
+  <title><anchor id="Anchor932264" role="Index"
+  xreflabel="images:master list of" /> <indexterm significance="normal"
+      zone="Anchor933908">
+      <primary>images</primary>
+
+      <secondary>adding new</secondary>
+    </indexterm>Image</title>
+
+  <para id="Para923209">To add a new Image to the master list of stored
+  Images, select the NEW button. The following screen will appear:</para>
+
+  <para id="Para923213"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_imageNew.png" id="Graphic923211" />
+        </imageobject>
+
+        <caption id="Caption923214">Create New Image</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para923215">When adding a new Image to the master list of stored
+  Images, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para923216">File Name</term>
+
+      <listitem id="listitemN0x180ac00N0x182fa48">
+        <para>Enter the physical directory location of the Image.</para>
+
+        <para id="Para923217">The browse button enables you to search your
+        system for the physical directory location of the Image file. Once you
+        locate the file, simply select it to have it entered into the "File
+        Name" field.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para923221">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x182fa90">
+        <para>Enter a unique Image name.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para923226">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x182fad8">
+        <para>Enter a brief description of the Image.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para923230">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para923231">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x182fb44">
+        <para>Closes the screen without adding a new Image to the master list
+        of stored Images.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para923232">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x182fb8c">
+        <para>Creates the Image and adds it to the master list of stored
+        Images.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

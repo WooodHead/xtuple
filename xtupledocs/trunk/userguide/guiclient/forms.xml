@@ -1,90 +1,73 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Forms
-    </title>
-   <subtitle>forms : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/forms.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Forms
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Forms:</guilabel>
-               </entry>
-               <entry>_forms</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_form</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section923257">
+  <title><anchor id="Anchor932268" role="Index"
+  xreflabel="forms:master list of" /> <indexterm significance="normal"
+      zone="Anchor932268">
+      <primary>forms</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Forms</title>
+
+  <para id="Para924759">To access the master list of available Form
+  definitions, select the "Forms" option. The following screen will
+  appear:</para>
+
+  <para id="Para924634"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_formsList.png" id="Graphic924644" />
+        </imageobject>
+
+        <caption id="Caption924655">Forms Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para924790">The Forms master list displays information on all
+  available Form definitions, including Form name and Form description.</para>
+
+  <para id="Para924791">To the far right of the list, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para924792">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x183009c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para924794">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18300e4">
+        <para>Opens screen for adding a new Form definition to the Forms
+        master list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para924985">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x183012c">
+        <para>Enables you to edit highlighted Form definitions. The edit
+        screen is the same as that for creating a new Form definition--except
+        that when editing, the fields will contain Form information.
+        Double-clicking on a Form will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para924943">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x1830174">
+        <para>Highlight a Form and then select this button to remove the Form
+        from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

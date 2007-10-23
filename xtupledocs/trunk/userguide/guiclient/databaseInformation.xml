@@ -1,194 +1,191 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Database Information
-  </title>
-   <subtitle>databaseInformation : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/databaseInformation.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Database Information
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Application:</guilabel>
-               </entry>
-               <entry>_applicationLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Server Address:</guilabel>
-               </entry>
-               <entry>_serverLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Database Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Database Version:</guilabel>
-               </entry>
-               <entry>_versionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Default Batch Email Address:</guilabel>
-               </entry>
-               <entry>_defaultFromAddressLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_application</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_server</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_version</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Database <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_defaultFromAddress</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Enable Batch Manager</guilabel>
-               </entry>
-               <entry>_enableBatchManager</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>C<accel>o</accel>mments:</guilabel>
-               </entry>
-               <entry>_commentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Number of Database Users:</guilabel>
-               </entry>
-               <entry>_numOfDatabaseUsersLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Number of Server Users:</guilabel>
-               </entry>
-               <entry>_numOfServerUsersLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_numOfDatabaseUsers</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_numOfServerUsers</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Number of Server Licenses:</guilabel>
-               </entry>
-               <entry>_numOfServerLicensesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Open</guilabel>
-               </entry>
-               <entry>_numOfServerLicencesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518504">
+    <title><anchor id="Anchor932260" role="Index"
+    xreflabel="databases:information about" /> <indexterm
+        significance="normal" zone="Anchor932260">
+        <primary>databases</primary>
+
+        <secondary>information about</secondary>
+      </indexterm>Database Information</title>
+
+    <para id="Para518505">To enter information about your database, select the
+    "Database Information" option. The following screen will appear:</para>
+
+    <para id="Para518509"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Sys_dbInfo.png" id="Graphic521828" />
+          </imageobject>
+
+          <caption id="Caption518510">Database Information</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518511">When entering Database information, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527539"><anchor id="Anchor933772" role="Index"
+        xreflabel="databases:description of" /> <indexterm
+            significance="normal" zone="Anchor933772">
+            <primary>databases</primary>
+
+            <secondary>description of</secondary>
+          </indexterm>Database Description</term>
+
+        <listitem id="listitemN0x180ac00N0x181a1cc">
+          <para>The description entered here will be displayed in the Title
+          Bar of the main window. This field is typically used to store
+          company names and/or the particular name of the server where the
+          server software is running (e.g., "ABC Manufacturing - Production
+          Server").</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para937584"><anchor id="Anchor937583" role="Index"
+        xreflabel="servers:addresses for" /> <indexterm significance="normal"
+            zone="Anchor937583">
+            <primary>servers</primary>
+
+            <secondary>addresses for</secondary>
+          </indexterm>Server Address</term>
+
+        <listitem id="listitemN0x180ac00N0x181a25c">
+          <para>Displays the unique network address assigned to the server.
+          This will typically show a TCP/IP Address or Network Host
+          Name.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para527576">The network address for the server is set using
+      the OPTIONS button found on the login screen you see when logging into
+      the application. The server address initially assigned to a user will
+      display in the "Server Address" field. If the server address is ever
+      changed, you will need to notify all users to update their login
+      options.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527568">Database Name</term>
+
+        <listitem id="listitemN0x180ac00N0x181a2ec">
+          <para>Displays the default name of the database running on your
+          server.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para520383">If you ever change or rename your database, you
+      will need to notify all users to update their login options.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para527621">Database Version</term>
+
+        <listitem id="listitemN0x180ac00N0x181a37c">
+          <para>Displays the version of the database running on your
+          server.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para955571">Default Batch Email Address</term>
+
+        <listitem id="listitemN0x180ac00N0x181a3a0">
+          <para>Enter an email address to be used as the default "From"
+          address in situations when no other "From" address is specified. For
+          example, this feature would apply if when scheduling an Invoice for
+          email delivery no email address is entered in the "From"
+          field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para955574">Enable Batch Manager</term>
+
+        <listitem id="listitemN0x180ac00N0x181a3c4">
+          <para>Select to enable the Batch Manager for the current
+          database.</para>
+
+          <para id="Para955545">If selected, any jobs submitted to the Batch
+          Manager will be processed. If not selected, jobs submitted to the
+          Batch Manager will not be processed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para936650">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x181a40c">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to your database.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para943738">Number of Database Users</term>
+
+        <listitem id="listitemN0x180ac00N0x181a454">
+          <para>Displays the number of concurrent Database users.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para943742">Number of Server Users</term>
+
+        <listitem id="listitemN0x180ac00N0x181a49c">
+          <para>Displays the number of concurrent server users.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para943743">Number of Server Licenses</term>
+
+        <listitem id="listitemN0x180ac00N0x181a4e4">
+          <para>Displays the number of licenses available for your
+          server.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para943733">Only users with the appropriate privileges will be
+      permitted to change Database information. For all other users, this
+      screen will be view-only.</para>
+    </note>
+
+    <para id="Para518528">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518529">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x181a574">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518530">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x181a5bc">
+          <para>Saves the specified Database information, returning you to the
+          application desktop.</para>
+
+          <para id="Para943721">This button will not appear if you have not
+          been assigned the appropriate privileges.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
