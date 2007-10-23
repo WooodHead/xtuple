@@ -1,89 +1,76 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Tax Registration Information
-  </title>
-   <subtitle>taxRegistration : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/taxRegistration.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Tax Registration Information
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_cust</entry>
-               <entry>CustInfo</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vend</entry>
-               <entry>VendorInfo</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Tax Authority:</guilabel>
-               </entry>
-               <entry>_taxauthLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_taxauth</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Registration Number:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_number</entry>
-               <entry>QLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Save</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section586878">
+  <title><anchor id="Anchor586896" role="Index"
+  xreflabel="tax registrations:master list of" /> <indexterm
+      significance="normal" zone="Anchor587115">
+      <primary>tax registrations</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Tax Registration</title>
+
+  <para id="Para587116">To create a new Tax Registration, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para587491"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_taxRegNew.png" id="Graphic587489" />
+        </imageobject>
+
+        <caption id="Caption587492">Create New Tax Registration</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para587493">When creating a new Tax Registration, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para587539">Tax Authority</term>
+
+      <listitem id="listitemN0x180ac00N0x18aea3c">
+        <para>Specify the Tax Authority associated with the Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para587547">Registration Number</term>
+
+      <listitem id="listitemN0x180ac00N0x18aea84">
+        <para>Enter the appropriate Tax Registration Number for the specified
+        Tax Authority.</para>
+
+        <para id="Para587548">The registration number is used by Tax
+        Authorities to identify businesses and/or individuals. An Employer
+        Identification Numbers (EIN) is an example of a Tax Registration
+        Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para587501">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para587502">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18aeaf0">
+        <para>Closes the screen without creating a Tax Registration, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para587503">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18aeb38">
+        <para>Creates the Tax Registration and adds it to the master list of
+        Tax Registrations.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

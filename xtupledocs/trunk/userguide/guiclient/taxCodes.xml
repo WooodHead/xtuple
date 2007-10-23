@@ -1,98 +1,80 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Tax Codes
-    </title>
-   <subtitle>taxCodes : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/taxCodes.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Tax Codes
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Tax Codes:</guilabel>
-               </entry>
-               <entry>_taxCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_tax</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section588066">
+  <title><anchor id="Anchor588065" role="Index"
+  xreflabel="tax codes:master list of" /> <indexterm significance="normal"
+      zone="Anchor588065">
+      <primary>tax codes</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Tax Codes</title>
+
+  <para id="Para588067">Tax Codes define the amount and type(s) of Tax to be
+  added to an Order. To access the master list of Tax Codes, select the "Tax
+  Codes" option. The following screen will appear:</para>
+
+  <para id="Para588071"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_taxCodeList.png" id="Graphic588069" />
+        </imageobject>
+
+        <caption id="Caption588072">Tax Codes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para588073">The Tax Codes master list displays the code and
+  description for all existing Tax Codes.</para>
+
+  <para id="Para588074">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para588075">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18a1b34">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para588076">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18a1b7c">
+        <para>Opens screen for creating a new Tax Code.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para588077">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18a1bc4">
+        <para>Enables you to edit highlighted Tax Code. The edit screen is the
+        same as that for creating a new Tax Code--except that when editing,
+        the fields will contain Tax Code information. Double-clicking on a Tax
+        Code will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para588078">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18a1c0c">
+        <para>Highlight a Tax Code and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para588079">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x18a1c54">
+        <para>Highlight a Tax Code and then select this button to remove the
+        Tax Code from the master list</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,114 +1,98 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Adjustment Type
-  </title>
-   <subtitle>bankAdjustmentType : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/bankAdjustmentType.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Adjustment Type
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ame:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_senseGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Debit</guilabel>
-               </entry>
-               <entry>_debit</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Credit</guilabel>
-               </entry>
-               <entry>_credit</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Adj. Account:</guilabel>
-               </entry>
-               <entry>_descriptionLit_2</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_accnt</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section554555">
+  <title><anchor id="Anchor82351" role="Cross-Ref"
+  xreflabel="82351: Heading2: Adjustment Types" />Adjustment Type</title>
+
+  <para id="Para554672"><anchor id="Anchor554671" role="Index"
+  xreflabel="adjustment types:creating new;bank accounts:adjustment types for" />
+  <indexterm significance="normal" zone="Anchor554671">
+      <primary>adjustment types</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor554671">
+      <primary>bank accounts</primary>
+
+      <secondary>adjustment types for</secondary>
+    </indexterm>To create a new Adjustment Type, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para554676"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_adjustNew.png" id="Graphic554674" />
+        </imageobject>
+
+        <caption id="Caption554677">Create New Adjustment Type</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para554678">When creating a new Adjustment Type, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para554846">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x18b713c">
+        <para>Enter a name to describe the Adjustment Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para554851">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x18b7184">
+        <para>Enter a description to further describe the Adjustment
+        Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para554865">Adj. Account</term>
+
+      <listitem id="listitemN0x180ac00N0x18b71cc">
+        <para>Specify the Account to be used for the Adjustment Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para564499">Type</term>
+
+      <listitem id="listitemN0x180ac00N0x18b7214">
+        <para>Define the sense of the Adjustment Type by selecting one of the
+        following:</para>
+
+        <para id="Para564839">Debit: Select if the Adjustment should increase
+        your Bank Account balance.</para>
+
+        <para id="Para564843">Credit: Select if the Adjustment should decrease
+        your Bank Account balance.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para554742">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para554701">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18b7280">
+        <para>Closes the screen without creating an Adjustment Type, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para554702">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18b72c8">
+        <para>Creates the Adjustment Type and adds it to the master list of
+        Adjustment Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
