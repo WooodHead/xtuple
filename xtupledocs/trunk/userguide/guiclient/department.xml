@@ -1,80 +1,69 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Department
-    </title>
-   <subtitle>department : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/department.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Department
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Department Number:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Department Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_number</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Save</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965130">
+  <title><anchor id="Anchor965209" role="Index"
+  xreflabel="departments:master list of" /> <indexterm significance="normal"
+      zone="Anchor965374">
+      <primary>departments</primary>
+
+      <secondary>adding new</secondary>
+    </indexterm>Department</title>
+
+  <para id="Para965375">To add a new Department to the master list of
+  Departments, select the NEW button. The following screen will appear:</para>
+
+  <para id="Para965379"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_deptNew.png" id="Graphic965377" />
+        </imageobject>
+
+        <caption id="Caption965380">Create New Department</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para965381">When adding a new Department to the master list of
+  Departments, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965382">Department Number</term>
+
+      <listitem id="listitemN0x180ac00N0x18890dc">
+        <para>Enter a unique code to identify the Department.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965384">Department Name</term>
+
+      <listitem id="listitemN0x180ac00N0x1889124">
+        <para>Enter a brief name to describe the Department.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para965386">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965387">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x1889190">
+        <para>Closes the screen without adding a new Department to the master
+        list of Departments.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965388">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18891d8">
+        <para>Creates the Department and adds it to the master list of
+        Departments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

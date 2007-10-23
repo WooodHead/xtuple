@@ -1,90 +1,92 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Custom Commands
-  </title>
-   <subtitle>customCommands : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/customCommands.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Custom Commands
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Commands</guilabel>
-               </entry>
-               <entry>_commandsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_commands</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section967998">
+  <title><anchor id="Anchor967997" role="Index"
+  xreflabel="custom commands:master list of;menus:customizing;commands:adding custom" />
+  <indexterm significance="normal" zone="Anchor967997">
+      <primary>custom commands</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor967997">
+      <primary>menus</primary>
+
+      <secondary>customizing</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor967997">
+      <primary>commands</primary>
+
+      <secondary>adding custom</secondary>
+    </indexterm>List Custom Commands</title>
+
+  <para id="Para968011">If you want to execute external programs from within
+  the menu structure, you can do so using the Custom Commands utility. This
+  utility enables you to create custom menu options, which users may then
+  select to launch specified programs. Custom Commands are well-suited for
+  running custom reports. However, they may be used to execute a wide range of
+  programs, for a variety of purposes. To access the master list of Custom
+  Commands, select the "Custom Commands" option. The following screen will
+  appear:</para>
+
+  <para id="Para967782"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_custCommList.png" id="Graphic967780" />
+        </imageobject>
+
+        <caption id="Caption967783">Custom Commands List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <note>
+    <para id="Para969525">There is no limit to the number of Custom Commands
+    which may be added to a module. Executable programs may be launched from
+    local or network drives.</para>
+  </note>
+
+  <para id="Para967958">The Custom Commands master list displays information
+  on all Custom Commands, including module name and menu label.</para>
+
+  <para id="Para967959">To the far right of the list, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para967786">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x1890b84">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para967788">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1890bcc">
+        <para>Opens screen for adding a new Custom Command to the master list
+        of Custom Commands.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para967789">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x1890c14">
+        <para>Enables you to edit highlighted Custom Command definitions. The
+        edit screen is the same as that for creating a new Custom Command
+        definition--except that when editing, the fields will contain Custom
+        Command information. Double-clicking on a Custom Command definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para967791">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x1890c5c">
+        <para>Highlight a Custom Command definition and then select this
+        button to remove the Custom Command from the master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

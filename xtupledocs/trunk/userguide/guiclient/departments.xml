@@ -1,105 +1,183 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Departments
-    </title>
-   <subtitle>departments : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/departments.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Departments
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Departments:</guilabel>
-               </entry>
-               <entry>_deptLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_deptList</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Print</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>line2</entry>
-               <entry>Line</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>New</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Edit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>View</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Delete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965130">
+  <title><anchor id="Anchor965209" role="Index"
+  xreflabel="departments:master list of" /> <indexterm significance="normal"
+      zone="Anchor965209">
+      <primary>departments</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm>List Departments</title>
+
+  <para id="Para965361">To access the master list of Departments, select the
+  "Departments" option. The following screen will appear:</para>
+
+  <para id="Para965365"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_deptList.png" id="Graphic965363" />
+        </imageobject>
+
+        <caption id="Caption965366">Departments Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para965367">The Departments master list displays information on
+  all Departments, including Department number and Department name.</para>
+
+  <para id="Para965368">To the far right of the list, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965369">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x1888d10">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para979408">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x1888d58">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965370">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1888da0">
+        <para>Opens screen for adding a new Department to the master list of
+        Departments.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965371">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x1888de8">
+        <para>Enables you to edit highlighted Department definitions. The edit
+        screen is the same as that for creating a new Department
+        definition--except that when editing, the fields will contain
+        Department information. Double-clicking on a Department definition
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965372">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1888e30">
+        <para>Highlight a Department definition and then select this button to
+        reach a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965373">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x1888e78">
+        <para>Highlight a Department definition and then select this button to
+        remove the Department from the master list. You may only delete
+        Departments if they are not being used.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para965587">Right-clicking on a Department in the Departments list
+  enables you to select from the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965577">Edit</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1888de8)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965578">View</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1888e30)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965579">Delete</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1888e78)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+
+  <para id="Para965375"><anchor id="Anchor965374" role="Index"
+  xreflabel="departments:adding new" /> <indexterm significance="normal"
+      zone="Anchor965374">
+      <primary>departments</primary>
+
+      <secondary>adding new</secondary>
+    </indexterm>To add a new Department to the master list of Departments,
+  select the NEW button. The following screen will appear:</para>
+
+  <para id="Para965379"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_deptNew.png" id="Graphic965377" />
+        </imageobject>
+
+        <caption id="Caption965380">Create New Department</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para965381">When adding a new Department to the master list of
+  Departments, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965382">Department Number</term>
+
+      <listitem id="listitemN0x180ac00N0x18890dc">
+        <para>Enter a unique code to identify the Department.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965384">Department Name</term>
+
+      <listitem id="listitemN0x180ac00N0x1889124">
+        <para>Enter a brief name to describe the Department.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para965386">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para965387">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x1889190">
+        <para>Closes the screen without adding a new Department to the master
+        list of Departments.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para965388">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18891d8">
+        <para>Creates the Department and adds it to the master list of
+        Departments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
