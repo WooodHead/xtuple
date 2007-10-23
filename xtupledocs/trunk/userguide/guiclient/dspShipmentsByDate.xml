@@ -1,87 +1,96 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Shipments by Date
-    </title>
-   <subtitle>dspShipmentsByDate : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspShipmentsByDate.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Shipments by Date
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Shipments:</guilabel>
-               </entry>
-               <entry>_shipmentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_ship</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section536461">
+    <title><anchor id="Anchor536523" role="Index"
+    xreflabel="shipping:shipments by date" /> <indexterm significance="normal"
+        zone="Anchor536523">
+        <primary>shipping</primary>
+
+        <secondary>shipments by date</secondary>
+      </indexterm>Shipments by Date</title>
+
+    <para id="Para536611">To view shipments by date, select the "Shipments by
+    Date" option. The following screen will appear:</para>
+
+    <para id="Para536614"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SR_Disp_shipByDate.png"
+                       id="Graphic536613" />
+          </imageobject>
+
+          <caption id="Caption536615">Shipments by Date</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para541958">Get the most up-to-date tracking information
+      directly from the shipper's website by using the "Query Shipment Status"
+      option in the "Shipments by Sales Order" report.</para>
+    </tip>
+
+    <para id="Para536616">When displaying shipments by date, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para536979">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18282ac">
+          <para>Shipments occurring on or after this date will be included in
+          the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para536984">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18282f4">
+          <para>Shipments occurring on or before this date will be included in
+          the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para536645">Shipments</term>
+
+        <listitem id="listitemN0x180ac00N0x182833c">
+          <para>Display lists shipments by date, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537009">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537010">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18283a8">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537017">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18283f0">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550927">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1828438">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
