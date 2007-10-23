@@ -14,7 +14,7 @@ BEGIN
     SELECT (roundQty(item_fractional,
 		    noNeg(coitem_qtyord - coitem_qtyshipped +
 			  coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id)
-			 )
+			 ) * coitem_qty_invuomratio
 		    ) <= itemsite_qtyonhand) INTO _isqtyavail
       FROM coitem, itemsite, item
      WHERE ((coitem_itemsite_id=itemsite_id) 
@@ -49,7 +49,7 @@ BEGIN
 			FROM itemloc 
 		       WHERE (itemloc_itemsite_id=itemsite_id)), 0.0) >= roundQty(item_fractional, 
 			      noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
-			      qtyAtShipping(pordertype, coitem_id) )
+			      qtyAtShipping(pordertype, coitem_id) ) * coitem_qty_invuomratio
 			     )) INTO _isqtyavail 
       FROM coitem, itemsite, item
      WHERE ((coitem_itemsite_id=itemsite_id) 

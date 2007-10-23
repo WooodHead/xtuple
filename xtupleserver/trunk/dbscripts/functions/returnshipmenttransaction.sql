@@ -33,7 +33,7 @@ BEGIN
   END IF;
 
   IF (_ordertype = ''SO'') THEN
-    SELECT postInvTrans( itemsite_id, ''RS'', _qty,
+    SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
 			 ''S/R'', _ordertype, formatSoNumber(coitem_id), '''',
 			 ''Return from Shipping'',
 			 costcat_asset_accnt_id, costcat_shipasset_accnt_id,

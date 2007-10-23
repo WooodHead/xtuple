@@ -74,11 +74,11 @@ CREATE OR REPLACE FUNCTION changeCobTaxAuth(INTEGER, INTEGER) RETURNS INTEGER AS
 	cobill_tax_pctb=tax_rateb,
 	cobill_tax_pctc=tax_ratec,
 	cobill_tax_ratea=calculateTax(tax_id,
-            cobill_qty * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''A''),
+            (cobill_qty * coitem_qty_invuomratio) * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''A''),
 	cobill_tax_rateb=calculateTax(tax_id,
-            cobill_qty * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''B''),
+            (cobill_qty * coitem_qty_invuomratio) * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''B''),
 	cobill_tax_ratec=calculateTax(tax_id,
-            cobill_qty * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''C'')
+            (cobill_qty * coitem_qty_invuomratio) * (coitem_price / COALESCE(coitem_price_invuomratio), 1), 0, ''C'')
       FROM coitem, itemsite, item, tax
       WHERE ((cobill_coitem_id=coitem_id)
         AND  (coitem_itemsite_id=itemsite_id)

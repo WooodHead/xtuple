@@ -91,7 +91,7 @@ BEGIN
     ( _shipheadid, pitemid, pQty,
       _timestamp, CURRENT_USER, FALSE );
 
-    SELECT postInvTrans( itemsite_id, ''SH'', pQty,
+    SELECT postInvTrans( itemsite_id, ''SH'', pQty * coitem_qty_invuomratio,
 			 ''S/R'', porderType,
 			 formatSoNumber(coitem_id), '''', ''Issue to Shipping'',
 			 costcat_shipasset_accnt_id, costcat_asset_accnt_id,

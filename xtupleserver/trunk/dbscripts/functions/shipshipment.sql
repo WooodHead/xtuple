@@ -63,6 +63,7 @@ BEGIN
 
     FOR _c IN SELECT coitem_id, cohead_number, cohead_cust_id,
 		     itemsite_id, itemsite_item_id,
+                     coitem_qty_invuomratio,
 		     SUM(shipitem_qty) AS _qty
 	      FROM coitem, cohead, shiphead, shipitem, itemsite
 	      WHERE ( (coitem_cohead_id=cohead_id)
@@ -72,11 +73,11 @@ BEGIN
 	       AND (shipitem_orderitem_id=coitem_id)
 	       AND (NOT shiphead_shipped)
 	       AND (shiphead_id=pshipheadid) )
-	      GROUP BY coitem_id, cohead_number, cohead_cust_id,
+	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id,
 		       itemsite_id, itemsite_item_id LOOP
 
   --  See if there is a cost to post
-      _stdcost := round((stdcost(_c.itemsite_item_id) * _c._qty),2);
+      _stdcost := round((stdcost(_c.itemsite_item_id) * (_c._qty * _c.coitem_qty_invuomratio)),2);
 
       IF _stdcost > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS

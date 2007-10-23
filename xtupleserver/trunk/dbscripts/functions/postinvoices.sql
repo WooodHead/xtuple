@@ -32,9 +32,9 @@ BEGIN
       AND  (NOT invchead_posted)
       AND  (pPostUnprinted OR invchead_printed))
     GROUP BY invchead_id 
-    HAVING SUM(round(invcitem_billed * invcitem_price /  
+    HAVING SUM(round((invcitem_billed * invcitem_qty_invuomratio) * (invcitem_price /  
 	      CASE WHEN (item_id IS NULL) THEN 1 
-	      ELSE iteminvpricerat(item_id) END, 2)) > 0;
+	      ELSE invcitem_price_invuomratio END), 2)) > 0;
   END IF;
 
   RETURN _journalNumber;

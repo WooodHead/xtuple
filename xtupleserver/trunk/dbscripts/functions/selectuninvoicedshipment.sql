@@ -13,7 +13,7 @@ BEGIN
 
 --  Grab all of the uninvoiced coship records
   FOR _r IN SELECT cohead_id, coitem_id, SUM(coship_qty) AS qty,
-                   coitem_price, coitem_price_invuomratio AS invpricerat, item_id,
+                   coitem_price, coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id,
                    ( ((coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned) <= 0)
                     OR (NOT cust_partialship) ) AS toclose, coitem_tax_id
             FROM cosmisc, coship, coitem, cohead, custinfo, itemsite, item
@@ -26,9 +26,9 @@ BEGIN
              AND (itemsite_item_id=item_id)
              AND (cohead_cust_id=cust_id)
              AND (cosmisc_id=pCosmiscid) )
-            GROUP BY cohead_id, coitem_id, cust_partialship,
+            GROUP BY cohead_id, coitem_id, cust_partialship, coitem_tax_id,
                      coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
-                     coitem_price, invpricerat, item_id LOOP
+                     coitem_price, invpricerat, coitem_qty_invuomratio, item_id LOOP
 
 --  Check to see if a cobmisc head exists for this cohead
     SELECT createBillingHeader(_r.cohead_id) INTO _cobmiscid;
@@ -48,9 +48,9 @@ BEGIN
              cobill_select_username = CURRENT_USER,
              cobill_qty = cobill_qty + _r.qty,
              cobill_toclose = _r.toclose,
-             cobill_tax_ratea = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
-             cobill_tax_rateb = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
-             cobill_tax_ratec = calculateTax(cobill_tax_id, round((cobill_qty + _r.qty) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'')
+             cobill_tax_ratea = calculateTax(cobill_tax_id, round(((cobill_qty + _r.qty) * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+             cobill_tax_rateb = calculateTax(cobill_tax_id, round(((cobill_qty + _r.qty) * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+             cobill_tax_ratec = calculateTax(cobill_tax_id, round(((cobill_qty + _r.qty) * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'')
        WHERE (cobill_id=_cobillid);
     ELSE
 --  Now insert the cobill line
