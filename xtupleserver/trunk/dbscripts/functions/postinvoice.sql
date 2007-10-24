@@ -226,7 +226,7 @@ BEGIN
       _p.invchead_shipdate, _p.invchead_shipvia,
       _p.invchead_ordernumber, _p.invchead_ponumber, _p.invchead_orderdate,
       ''I'', _p.invchead_invcnumber, _p.invchead_invcdate,
-      _r.invcitem_billed, (_r.invcitem_price / _r.invcitem_price_invuomratio), _r.cost,
+      (_r.invcitem_billed * _r.invcitem_qty_invuomratio), (_r.invcitem_price / _r.invcitem_price_invuomratio), _r.cost,
       _p.invchead_salesrep_id, (_p.invchead_commission * (_r.invcitem_billed * _r.invcitem_qty_invuomratio) * (_r.invcitem_price / _r.invcitem_price_invuomratio)), FALSE,
       _p.invchead_billto_name, _p.invchead_billto_address1,
       _p.invchead_billto_address2, _p.invchead_billto_address3,

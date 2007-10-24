@@ -55,8 +55,8 @@ BEGIN
   SELECT fetchGLSequence() INTO _sequence;
 
   FOR _r IN SELECT cmitem.*,
-                   (cmitem_unitprice / iteminvpricerat(item_id)) AS unitprice,
-                   (cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id)) AS amount,
+                   (cmitem_unitprice / cmitem_price_invuomratio) AS unitprice,
+                   ((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio)) AS amount,
                    itemsite_id AS itemsite_id,
                    cmhead_number, cmhead_commission,
                    cmhead_cust_id AS cust_id,
@@ -122,7 +122,7 @@ BEGIN
       _p.cmhead_docdate, '''',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
       ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
-      (_r.cmitem_qtycredit * -1), _r.unitprice, _r.cost,
+      (_r.cmitem_qtycredit * cmitem_qty_invuomratio -1), _r.unitprice, _r.cost,
       _p.cmhead_salesrep_id, (_r.cmhead_commission * _r.amount * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
       _p.cmhead_billtoaddress2, _p.cmhead_billtoaddress3,
@@ -380,7 +380,7 @@ BEGIN
 
 -- Handle the Inventory and G/L Transactions for any returned Inventory
   FOR _r IN SELECT cmitem_itemsite_id AS itemsite_id, cmitem_id,
-                   cmitem_qtyreturned AS qty,
+                   (cmitem_qtyreturned * cmitem_qty_invuomratio) AS qty,
                    cmhead_number, cmhead_cust_id AS cust_id
             FROM cmhead, cmitem
             WHERE ( (cmitem_cmhead_id=cmhead_id)

@@ -77,20 +77,20 @@ CREATE OR REPLACE FUNCTION changeCMHeadTaxAuth(INTEGER, INTEGER) RETURNS INTEGER
 	cmitem_tax_pctc=tax_ratec,
 	cmitem_tax_ratea=currToCurr(_cmcurr, _taxcurr,
 				      calculateTax(tax_id,
-					  cmitem_qtycredit * cmitem_unitprice /
-					  COALESCE(iteminvpricerat(item_id), 1),
+					  (cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice /
+					  COALESCE(cmitem_price_invuomratio, 1)),
 					  0, ''A''),
 				      _cmdate),
 	cmitem_tax_rateb=currToCurr(_cmcurr, _taxcurr,
 				      calculateTax(tax_id,
-					  cmitem_qtycredit * cmitem_unitprice /
-					  COALESCE(iteminvpricerat(item_id), 1),
+					  (cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice /
+					  COALESCE(cmitem_price_invuomratio, 1)),
 					  0, ''B''),
 				      _cmdate),
 	cmitem_tax_ratec=currToCurr(_cmcurr, _taxcurr,
 				      calculateTax(tax_id,
-					  cmitem_qtycredit * cmitem_unitprice /
-					  COALESCE(iteminvpricerat(item_id), 1),
+					  (cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice /
+					  COALESCE(cmitem_price_invuomratio, 1)),
 					  0, ''C''),
 				      _cmdate)
       FROM itemsite, item, tax

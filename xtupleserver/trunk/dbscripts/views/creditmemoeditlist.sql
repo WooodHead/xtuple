@@ -8,7 +8,7 @@ SELECT cmhead_id AS orderid, -2 AS itemid,
              '' AS item, '' AS itemdescrip, '' AS iteminvuom,
              '' AS qtytobill,
              '' AS price,
-             formatMoney( SUM(round(cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id),2)) +
+             formatMoney( SUM(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio),2)) +
                              cmhead_freight + cmhead_misc + cmhead_tax ) AS extprice,
              'Credit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
@@ -95,9 +95,9 @@ UNION SELECT cmhead_id AS orderid, cmitem_id AS itemid,
              cmhead_number::TEXT AS ordernumber,
              cmitem_linenumber AS linenumber,
              item_number AS item, item_descrip1 AS itemdescrip, uom_name AS iteminvuom,
-             formatQty(cmitem_qtycredit) AS qtytobill,
-             formatPrice(cmitem_unitprice) AS price,
-             formatMoney(round(cmitem_qtycredit * cmitem_unitprice / iteminvpricerat(item_id),2)) AS extprice,
+             formatQty(cmitem_qtycredit * cmitem_qty_invuomratio) AS qtytobill,
+             formatPrice(cmitem_unitprice / cmitem_price_invuomratio) AS price,
+             formatMoney(round((cmitem_qtycredit * cmitem_qty_invuomratio) * (cmitem_unitprice / cmitem_price_invuomratio),2)) AS extprice,
              'Debit' AS sence,
              COALESCE( ( SELECT formatGLAccountLong(accnt_id)
                          FROM accnt, salesaccnt
