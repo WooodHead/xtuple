@@ -1,104 +1,125 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   A/P Open Items by Vendor
-  </title>
-   <subtitle>dspAPOpenItemsByVendor : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspAPOpenItemsByVendor.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   A/P Open Items by Vendor
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_asOf</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>As of Date:</guilabel>
-               </entry>
-               <entry>_asOfLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vend</entry>
-               <entry>VendorCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>A/P Open Items:</guilabel>
-               </entry>
-               <entry>_apOpenItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_apopen</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+
+  <section id="Section531012">
+    <title><anchor id="Anchor532592" role="Index"
+    xreflabel="open items:by vendor;vendors:open items for;accounts payable:vendor open items" />
+    <indexterm significance="normal" zone="Anchor532592">
+        <primary>open items</primary>
+
+        <secondary>by vendor</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor532592">
+        <primary>vendors</primary>
+
+        <secondary>open items for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor532592">
+        <primary>accounts payable</primary>
+
+        <secondary>vendor open items</secondary>
+      </indexterm>Open Items by Vendor</title>
+
+    <para id="Para531092">To view open A/P open items by Vendor, select the
+    "Open Items by Vendor" option. The following screen will appear:</para>
+
+    <para id="Para531096"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AP_Disp_openItemsVendor.png"
+                       id="Graphic531094" />
+          </imageobject>
+
+          <caption id="Caption531097">A/P Open Items by Vendor</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para531098">When displaying A/P open items by Vendor, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para531252">Vendor #</term>
+
+        <listitem>
+          <para>Enter the Vendor number of the Vendor whose A/P open items you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531448">Start Date</term>
+
+        <listitem>
+          <para>A/P open items for the specified Vendor entered on and after
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531465">End Date</term>
+
+        <listitem>
+          <para>A/P open items for the specified Vendor entered on and before
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531467">A/P Open Items</term>
+
+        <listitem>
+          <para>Display lists A/P open items by Vendor, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para531183">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para531184">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para536030">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para565674">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para531579">Right-clicking on an Item in the A/P open items list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/1)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/2)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>
