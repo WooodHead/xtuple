@@ -26,9 +26,11 @@ BEGIN
 
 -- Post any bankadj items that were marked as cleared and convert the bankrecitem
   FOR _r IN SELECT bankrecitem_id, bankrecitem_source_id
-              FROM bankrecitem
+              FROM bankrecitem, bankadj
              WHERE ( (bankrecitem_source = ''AD'')
+               AND   (bankrecitem_source_id=bankadj_id)
                AND   (bankrecitem_cleared)
+               AND   (NOT bankadj_posted)
                AND   (bankrecitem_bankrec_id=pBankrecid) ) LOOP
 
     SELECT postBankAdjustment(_r.bankrecitem_source_id) INTO _sequence;
