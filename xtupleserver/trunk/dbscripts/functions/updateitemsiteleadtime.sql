@@ -21,6 +21,7 @@ BEGIN
       SELECT COALESCE(MAX(component.itemsite_leadtime), 0) INTO _materialLeadTime
       FROM bomitem, itemsite AS parent, itemsite AS component
       WHERE ( (bomitem_parent_item_id=parent.itemsite_item_id)
+       AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_id))
        AND (bomitem_item_id=component.itemsite_item_id)
        AND (parent.itemsite_warehous_id=component.itemsite_warehous_id)
        AND (parent.itemsite_id=pItemsiteid) );
@@ -28,6 +29,7 @@ BEGIN
       SELECT COALESCE(MAX(booitem_execday), 0) INTO _productionLeadTime
       FROM booitem, itemsite
       WHERE ( (booitem_item_id=itemsite_item_id)
+       AND (booitem_rev_id=getActiveRevId(''BOO'',booitem_item_id))
        AND (itemsite_id=pItemsiteid) );
 
       _leadTime := (_materialLeadTime + _productionLeadTime + pPad);

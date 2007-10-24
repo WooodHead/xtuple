@@ -27,6 +27,7 @@ BEGIN
                AND (cs.itemsite_warehous_id=ps.itemsite_warehous_id)
                AND (bomitem_parent_item_id=ps.itemsite_item_id)
                AND (bomitem_item_id=cs.itemsite_item_id)
+               AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
                AND (ps.itemsite_id=pItemsiteid) 
                AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires) )
               ORDER BY bomitem_seqnumber LOOP

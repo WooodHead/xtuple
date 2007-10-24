@@ -56,6 +56,7 @@ BEGIN
               WHERE ((cs.itemsite_item_id=item_id)
                AND (ps.itemsite_item_id=bomitem_parent_item_id)
                AND (bomitem_item_id=item_id)
+               AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
                AND (ps.itemsite_warehous_id=cs.itemsite_warehous_id)
                AND (ps.itemsite_id=pItemsiteid)
                AND (CURRENT_DATE BETWEEN bomitem_effective AND bomitem_expires))

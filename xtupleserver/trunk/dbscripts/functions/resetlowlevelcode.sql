@@ -22,8 +22,8 @@ BEGIN
 	WHILE _result != 0 LOOP
 	    INSERT INTO costUpdate ( costUpdate_item_id, costUpdate_item_type )
 		 SELECT DISTINCT item_id, item_type
-		 FROM item JOIN
-		      bomitem ON (bomitem_item_id = item_id) JOIN
+		 FROM item,
+		      bomitem(pItemId) JOIN
 		      costUpdate ON (bomitem_parent_item_id = costUpdate_item_id)
 		 WHERE item_id NOT IN (SELECT costUpdate_item_id
 				       FROM costUpdate)

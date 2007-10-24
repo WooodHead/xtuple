@@ -18,6 +18,7 @@ BEGIN
             FROM bomitem, planord, itemsite AS p, itemsite AS c, item
             WHERE ( (planord_itemsite_id=p.itemsite_id)
              AND (bomitem_parent_item_id=p.itemsite_item_id)
+             AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
              AND (bomitem_item_id=c.itemsite_item_id)
              AND (p.itemsite_warehous_id=c.itemsite_warehous_id)
              AND (c.itemsite_item_id=item_id)
@@ -53,6 +54,7 @@ BEGIN
   FROM booitem, planord, itemsite
   WHERE ( (planord_itemsite_id=itemsite_id)
    AND (itemsite_item_id=booitem_item_id)
+   AND (booitem_rev_id=getActiveRevId(''BOO'',booitem_item_id))
    AND (woEffectiveDate(planord_startdate) >= booitem_effective)
    AND (woEffectiveDate(planord_startdate) < booitem_expires)
    AND (planord_id=pPlanordid) );

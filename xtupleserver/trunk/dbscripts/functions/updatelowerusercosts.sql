@@ -23,9 +23,8 @@ BEGIN
   IF (_type IN (''M'', ''F'', ''B'', ''T'')) THEN
     FOR _bomitem IN SELECT DISTINCT costelem_type
                     FROM ( SELECT costelem_type
-                           FROM itemcost, costelem, bomitem
-                           WHERE ( (bomitem_parent_item_id=pItemid)
-                            AND ( CURRENT_DATE BETWEEN bomitem_effective
+                           FROM itemcost, costelem, bomitem(pItemid)
+                           WHERE ( ( CURRENT_DATE BETWEEN bomitem_effective
                                                AND (bomitem_expires - 1) )
                             AND (NOT costelem_sys)
                             AND (bomitem_item_id=itemcost_item_id)

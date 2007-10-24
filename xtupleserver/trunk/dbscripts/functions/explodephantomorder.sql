@@ -15,6 +15,7 @@ BEGIN
                    item_type
               FROM bomitem, planord, itemsite AS p, itemsite AS c, item
              WHERE ((bomitem_parent_item_id=p.itemsite_item_id)
+               AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
                AND (bomitem_item_id=c.itemsite_item_id)
                AND (p.itemsite_warehous_id=c.itemsite_warehous_id)
                AND (c.itemsite_item_id=item_id)

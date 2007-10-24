@@ -5,11 +5,7 @@ DECLARE
 
 BEGIN
 
-  IF fetchmetricbool(''RevControl'') THEN
-    SELECT getActiveRev(''BOM'',pItemid) INTO _bomrevid;
-  ELSE
-    _bomrevid:=-1;
-  END IF;
+  SELECT getActiveRev(''BOM'',pItemid) INTO _bomrevid;
 
   RETURN bomLevelByItem(pItemid,_bomRevid);
 
