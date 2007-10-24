@@ -165,7 +165,11 @@ BEGIN
        END AS expired,
        CASE WHEN (bomwork_effective > CURRENT_DATE) THEN TRUE
          ELSE FALSE
-       END AS future 
+       END AS future,
+       MAX(bomwork_actunitcost) AS actunitcost,
+       MAX(bomwork_stdunitcost) AS stdunitcost,
+       MAX(bomwork_actunitcost) * SUM(bomwork_qtyper * (1 + bomwork_scrap)) AS actextendedcost,
+       MAX(bomwork_stdunitcost) * SUM(bomwork_qtyper * (1 + bomwork_scrap)) AS stdextendedcost
        FROM bomwork, item, uom 
        WHERE ( (bomwork_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -185,6 +189,10 @@ BEGIN
         _row.bomdata_qtyper := _x.f_qtyper;
         _row.bomdata_expired := _x.expired;
         _row.bomdata_future := _x.future;
+        _row.bomdata_actunitcost := _x.actunitcost;
+        _row.bomdata_stdunitcost := _x.stdunitcost;
+        _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_stdextendedcost := _x.stdextendedcost;
         RETURN NEXT _row;
     END LOOP;
     
@@ -203,7 +211,11 @@ BEGIN
        END AS expired,
        CASE WHEN (bomhist_effective > CURRENT_DATE) THEN TRUE
          ELSE FALSE
-       END AS future 
+       END AS future,
+       MAX(bomhist_actunitcost) AS actunitcost,
+       MAX(bomhist_stdunitcost) AS stdunitcost,
+       MAX(bomhist_actunitcost) * SUM(bomhist_qtyper * (1 + bomhist_scrap)) AS actextendedcost,
+       MAX(bomhist_stdunitcost) * SUM(bomhist_qtyper * (1 + bomhist_scrap)) AS stdextendedcost
        FROM bomhist, item, uom 
        WHERE ( (bomhist_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -223,6 +235,10 @@ BEGIN
         _row.bomdata_qtyper := _x.f_qtyper;
         _row.bomdata_expired := _x.expired;
         _row.bomdata_future := _x.future;
+        _row.bomdata_actunitcost := _x.actunitcost;
+        _row.bomdata_stdunitcost := _x.stdunitcost;
+        _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_stdextendedcost := _x.stdextendedcost;
         RETURN NEXT _row;
     END LOOP;
 

@@ -1,10 +1,13 @@
 BEGIN;
-
+--drop function indentedbom(integer,integer,integer,integer);
+--drop type bomdata;
 CREATE TYPE bomdata AS
    (bomdata_bomwork_id INTEGER,
     bomdata_bomwork_parent_id INTEGER,
     bomdata_bomwork_level INTEGER,
     bomdata_bomwork_seqnumber INTEGER,
+    bomdata_bomitem_id INTEGER,
+    bomdata_item_id INTEGER,
     bomdata_item_number TEXT,
     bomdata_uom_name TEXT,
     bomdata_item_descrip1 TEXT,
@@ -21,6 +24,7 @@ CREATE TYPE bomdata AS
     bomdata_actunitcost NUMERIC,
     bomdata_stdunitcost NUMERIC,
     bomdata_actextendedcost NUMERIC,
-    bomdata_stdextendedcost NUMERIC);
+    bomdata_stdextendedcost NUMERIC,
+    bomdata_ecn TEXT);
 
 COMMIT;

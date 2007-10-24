@@ -124,7 +124,7 @@ BEGIN
        AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
        UNION
        SELECT -1, -1, 1,''0'',
-              99999,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
+              NULL,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
               '''', '''', '''', '''', '''', '''',false,false,
               currToBase(itemcost_curr_id, itemcost_actcost, CURRENT_DATE) AS actunitcost,
               itemcost_stdcost AS stdunitcost,
@@ -170,7 +170,7 @@ BEGIN
 -- Use historical snapshot for inactive revisions
     FOR _x IN
         SELECT bomhist_id, bomhist_parent_id, bomhist_level,
-               bomhistSequence(bomhist_id) AS seq_ord,
+               bomhistSequence(bomhist_seq_id) AS seq_ord,
                bomhist_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
@@ -202,7 +202,7 @@ BEGIN
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
        UNION
        SELECT -1, -1, 1,''0'',
-              99999,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
+              NULL,-1, costelem_type AS bomdata_item_number, '''','''', '''', '''',
               '''', '''', '''', '''', '''', '''',false,false,
               bomhist_actunitcost AS actunitcost,
               bomhist_stdunitcost AS stdunitcost,
