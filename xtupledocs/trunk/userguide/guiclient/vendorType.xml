@@ -1,82 +1,70 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Vendor Type
-    </title>
-   <subtitle>vendorType : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/vendorType.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Vendor Type
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>C<accel>o</accel>de:</guilabel>
-               </entry>
-               <entry>_codeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_code</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section525348">
+  <title><anchor id="Anchor920160" role="Index"
+  xreflabel="vendor types:master list of;vendors:types of" /> <indexterm
+      significance="normal" zone="Anchor924152">
+      <primary>vendor types</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Vendor Type</title>
+
+  <para id="Para921829">To create a new Vendor Type, select the NEW button.
+  The following screen will appear:</para>
+
+  <para id="Para921833"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_MI_vendorTypeNew.png"
+                     id="Graphic921831" />
+        </imageobject>
+
+        <caption id="Caption921834">Create New Vendor Type</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para921835">When creating a new Vendor Type, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para921825">Code</term>
+
+      <listitem id="listitemN0x180ac00N0x1849d20">
+        <para>Enter a code to uniquely identify the Vendor Type.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para922086">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x1849d68">
+        <para>Enter a description to identify the Vendor Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para922071">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para922072">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x1849dd4">
+        <para>Closes the screen without creating a new Vendor Type, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para922073">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x1849e1c">
+        <para>Creates the Vendor Type and adds it to the master list of Vendor
+        Types.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
