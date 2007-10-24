@@ -1,73 +1,76 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Print Sales Order Form
-    </title>
-   <subtitle>printSoForm : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printSoForm.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Print Sales Order Form
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry/>
-               <entry>_so</entry>
-               <entry>SoCluster</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Report Name:</guilabel>
-               </entry>
-               <entry>_reportLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_report</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section647972">
+    <title><anchor id="Anchor647971" role="Index"
+    xreflabel="sales orders:printing forms for;forms:for sales orders" />
+    <indexterm significance="normal" zone="Anchor647971">
+        <primary>sales orders</primary>
+
+        <secondary>printing forms for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor647971">
+        <primary>forms</primary>
+
+        <secondary>for sales orders</secondary>
+      </indexterm>Print Sales Order Form</title>
+
+    <para id="Para647973">To print a Sales Order Form, select the "Print Sales
+    Order Form" option. The following screen will appear:</para>
+
+    <para id="Para647977"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Rep_printSOForm.png"
+                       id="Graphic647975" />
+          </imageobject>
+
+          <caption id="Caption647978">Print Sales Order Form</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para647979">When printing a Sales Order Form, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para647980">Sales Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x1993218">
+          <para>Enter the Sales Order Number of the Sales Order whose Form you
+          want to print.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para647982">Report Name</term>
+
+        <listitem id="listitemN0x180ac00N0x1993260">
+          <para>Specify the Form you want to use for printing the Sales
+          Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para647987">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para647988">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x19932cc">
+          <para>Closes the screen without generating a report, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para653813">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1993314">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

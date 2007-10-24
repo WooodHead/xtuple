@@ -1,99 +1,137 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Partially Shipped Orders
-  </title>
-   <subtitle>dspPartiallyShippedOrders : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspPartiallyShippedOrders.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Partially Shipped Orders
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Prices</guilabel>
-               </entry>
-               <entry>_showPrices</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Sales Orders:</guilabel>
-               </entry>
-               <entry>_salesOrdersLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_so</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section655022">
+    <title><anchor id="Anchor549050" role="Index"
+    xreflabel="shipping:partially shipped orders;partial shipments:tracking of" />
+    <indexterm significance="normal" zone="Anchor549050">
+        <primary>shipping</primary>
+
+        <secondary>partially shipped orders</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor549050">
+        <primary>partial shipments</primary>
+
+        <secondary>tracking of</secondary>
+      </indexterm>Partially Shipped Orders</title>
+
+    <para id="Para594083">If a shipped Order does not contain all the Line
+    Items ordered by the Customer, the Order is considered to be partially
+    shipped. To view a list of partially-shipped Orders, select the "Partially
+    Shipped Orders" option. The following screen will appear:</para>
+
+    <para id="Para542706"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Disp_partialShipOrds.png"
+                       id="Graphic543764" />
+          </imageobject>
+
+          <caption id="Caption543761">Partially Shipped Orders</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para543756">When displaying partially shipped Orders, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para543809">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x198cb88">
+          <para>Partially shipped Orders entered on and after this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543814">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x198cbd0">
+          <para>Partially shipped Orders entered on and before this date will
+          be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555088">Show Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x198cc18">
+          <para>Select to include pricing information in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para543816">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x198cc3c">
+          <para>Select to display partially shipped Orders for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para543818">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x198cc60">
+          <para>Specify Warehouse whose partially shipped Orders you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543821">Sales Orders</term>
+
+        <listitem id="listitemN0x180ac00N0x198cca8">
+          <para>Display lists partially shipped Orders, using the specified
+          parameters.</para>
+
+          <para id="Para654224">If the "Show Prices" option is selected, an
+          additional column showing Order total will display.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para543823">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para543824">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x198cd14">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para653790">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x198cd5c">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para547760">Right-clicking on a Sales Order in the Backlog list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/7)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/19)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/10)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

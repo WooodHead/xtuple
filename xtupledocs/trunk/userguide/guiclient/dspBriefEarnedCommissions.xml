@@ -1,111 +1,109 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Brief Earned Commissions
-    </title>
-   <subtitle>dspBriefEarnedCommissions : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspBriefEarnedCommissions.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Brief Earned Commissions
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_salesrepGrouip</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>All Sales Reps.</guilabel>
-               </entry>
-               <entry>_allSalesreps</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Selected Sales Rep.</guilabel>
-               </entry>
-               <entry>_selectedSalesrep</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_salesrep</entry>
-               <entry>XComboBox</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Earned Commissions:</guilabel>
-               </entry>
-               <entry>_commissionsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_commission</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section545193">
+    <title><anchor id="Anchor549054" role="Index"
+    xreflabel="commissions:brief earned " /> <indexterm significance="normal"
+        zone="Anchor549054">
+        <primary>commissions</primary>
+
+        <secondary>brief earned</secondary>
+      </indexterm>Brief Earned Commissions</title>
+
+    <para id="Para545370">To view brief Earned Commissions, select the "Brief
+    Earned Commissions" option from the "Displays" menu. The following screen
+    will appear:</para>
+
+    <para id="Para545199"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Disp_briefEarnComm.png"
+                       id="Graphic545214" />
+          </imageobject>
+
+          <caption id="Caption545368">Brief Earned Commissions</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para545481">When displaying brief Earned Commissions, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para545407">All Sales Reps</term>
+
+        <listitem id="listitemN0x180ac00N0x1992b58">
+          <para>Select to display brief Earned Commissions for all Sales
+          Representatives.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545408">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1992ba0">
+          <para>Specify Sales Representative whose brief Earned Commissions
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545413">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1992be8">
+          <para>Brief Earned Commissions occurring on or after this date will
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545418">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1992c30">
+          <para>Brief Earned Commissions occurring on or before this date will
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para545420">Earned Commissions</term>
+
+        <listitem id="listitemN0x180ac00N0x1992c78">
+          <para>Display lists brief Earned Commissions for the specified Sales
+          Representative(s) using the specified parameters</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para545422">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para545423">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1992ce4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573891">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1992d2c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para653802">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1992d74">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

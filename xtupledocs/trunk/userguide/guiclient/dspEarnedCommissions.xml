@@ -1,111 +1,134 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Earned Commissions
-    </title>
-   <subtitle>dspEarnedCommissions : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspEarnedCommissions.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Earned Commissions
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_salesrepGrouip</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>All Sales Reps.</guilabel>
-               </entry>
-               <entry>_allSalesreps</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Selected Sales Rep.</guilabel>
-               </entry>
-               <entry>_selectedSalesrep</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_salesrep</entry>
-               <entry>XComboBox</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Earned Commissions:</guilabel>
-               </entry>
-               <entry>_commissionsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_commission</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section534241">
+    <title><anchor id="Anchor549052" role="Index"
+    xreflabel="commissions:earned " /> <indexterm significance="normal"
+        zone="Anchor549052">
+        <primary>commissions</primary>
+
+        <secondary>earned</secondary>
+      </indexterm>Earned Commissions</title>
+
+    <para id="Para520183">To view Earned Commissions, select the "Earned
+    Commissions" option from the "Displays" menu. The following screen will
+    appear:</para>
+
+    <para id="Para520187"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Disp_earnedCommissions.png"
+                       id="Graphic524170" />
+          </imageobject>
+
+          <caption id="Caption520188">Earned Commissions</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para633129">To mark a commission as having been paid, use the
+      "Edit" option on any of the following screens:</para>
+
+      <para id="Para633139">Sales History By Customer</para>
+
+      <para id="Para633171">Sales History By Bill-To Name</para>
+
+      <para id="Para633177">Sales History By Ship-To</para>
+
+      <para id="Para633140">Sales History By Item</para>
+
+      <para id="Para633183">Sales History By Sales Rep.</para>
+
+      <para id="Para633189">Sales History By Product Category</para>
+
+      <para id="Para633141">Sales History By Customer Group</para>
+
+      <para id="Para633142">Sales History By Customer Type</para>
+
+      <para id="Para633164">Bookings By Customer Group</para>
+
+      <para id="Para633165">Brief Sales History By Sales Rep.</para>
+    </tip>
+
+    <para id="Para633122">When displaying Earned Commissions, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520190">All Sales Reps</term>
+
+        <listitem id="listitemN0x180ac00N0x19927f8">
+          <para>Select to display Earned Commissions for all Sales
+          Representatives.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520191">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1992840">
+          <para>Specify Sales Representative whose Earned Commissions you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520196">Start Ship Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1992888">
+          <para>Earned Commissions occurring on or after this date will
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520201">End Ship Date</term>
+
+        <listitem id="listitemN0x180ac00N0x19928d0">
+          <para>Earned Commissions occurring on or before this date will
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520203">Earned Commissions</term>
+
+        <listitem id="listitemN0x180ac00N0x1992918">
+          <para>Display lists Earned Commissions for the specified Sales
+          Representative(s) using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520205">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520206">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1992984">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573882">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x19929cc">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para653795">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1992a14">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
