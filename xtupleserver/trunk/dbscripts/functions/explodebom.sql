@@ -48,7 +48,8 @@ BEGIN
                    END AS expires,
                    stdcost(item_id) AS standardcost, actcost(item_id) AS actualcost
   FROM bomitem(pItemid, pRevisionid), item
-  WHERE ( (bomitem_item_id=item_id) ) LOOP
+  WHERE ( (bomitem_item_id=item_id)
+  AND (bomitem_expires > _p.bomwork_effective) ) LOOP
 
 --  Insert the current component and some bomitem parameters into the bomwork set
     SELECT NEXTVAL(''bomwork_bomwork_id_seq'') INTO _bomworkid;

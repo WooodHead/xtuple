@@ -160,16 +160,10 @@ BEGIN
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                formatQtyPer(SUM(bomwork_qtyper * (1 + bomwork_scrap))) AS f_qtyper,
-       CASE WHEN (bomwork_expires <= CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS expired,
-       CASE WHEN (bomwork_effective > CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS future,
        MAX(bomwork_actunitcost) AS actunitcost,
        MAX(bomwork_stdunitcost) AS stdunitcost,
-       MAX(bomwork_actunitcost) * SUM(bomwork_qtyper * (1 + bomwork_scrap)) AS actextendedcost,
-       MAX(bomwork_stdunitcost) * SUM(bomwork_qtyper * (1 + bomwork_scrap)) AS stdextendedcost
+       SUM(bomwork_actunitcost * bomwork_qtyper * (1 + bomwork_scrap)) AS actextendedcost,
+       SUM(bomwork_stdunitcost * bomwork_qtyper * (1 + bomwork_scrap)) AS stdextendedcost
        FROM bomwork, item, uom 
        WHERE ( (bomwork_item_id=item_id)
        AND (item_inv_uom_id=uom_id)
@@ -177,8 +171,7 @@ BEGIN
        AND (bomwork_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomwork_effective <= (CURRENT_DATE + pFutureDays))
        GROUP BY item_number, uom_name,
-                item_descrip1, item_descrip2,
-	        bomwork_expires, bomwork_effective
+                item_descrip1, item_descrip2
        ORDER BY item_number
     LOOP
         _row.bomdata_item_number := _x.item_number;
@@ -187,11 +180,9 @@ BEGIN
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
         _row.bomdata_qtyper := _x.f_qtyper;
-        _row.bomdata_expired := _x.expired;
-        _row.bomdata_future := _x.future;
         _row.bomdata_actunitcost := _x.actunitcost;
         _row.bomdata_stdunitcost := _x.stdunitcost;
-        _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         RETURN NEXT _row;
     END LOOP;
@@ -206,12 +197,6 @@ BEGIN
                item_descrip1, item_descrip2,
                (item_descrip1 || '' '' || item_descrip2) AS itemdescription,
                formatQtyPer(SUM(bomhist_qtyper * (1 + bomhist_scrap))) AS f_qtyper,
-       CASE WHEN (bomhist_expires <= CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS expired,
-       CASE WHEN (bomhist_effective > CURRENT_DATE) THEN TRUE
-         ELSE FALSE
-       END AS future,
        MAX(bomhist_actunitcost) AS actunitcost,
        MAX(bomhist_stdunitcost) AS stdunitcost,
        MAX(bomhist_actunitcost) * SUM(bomhist_qtyper * (1 + bomhist_scrap)) AS actextendedcost,
@@ -223,8 +208,7 @@ BEGIN
        AND (bomhist_expires > (CURRENT_DATE - pExpiredDays))
        AND (bomhist_effective <= (CURRENT_DATE + pFutureDays))
        GROUP BY item_number, uom_name,
-                item_descrip1, item_descrip2,
-	        bomhist_expires, bomhist_effective
+                item_descrip1, item_descrip2
        ORDER BY item_number
     LOOP
         _row.bomdata_item_number := _x.item_number;
@@ -233,11 +217,9 @@ BEGIN
         _row.bomdata_item_descrip2 := _x.item_descrip2;
         _row.bomdata_itemdescription := _x.itemdescription;
         _row.bomdata_qtyper := _x.f_qtyper;
-        _row.bomdata_expired := _x.expired;
-        _row.bomdata_future := _x.future;
         _row.bomdata_actunitcost := _x.actunitcost;
         _row.bomdata_stdunitcost := _x.stdunitcost;
-        _row.bomdata_stdextendedcost := _x.stdextendedcost;
+        _row.bomdata_actextendedcost := _x.actextendedcost;
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         RETURN NEXT _row;
     END LOOP;

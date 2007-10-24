@@ -28,8 +28,7 @@ BEGIN
   FROM bomitem, item
   WHERE ((bomitem_item_id=pItemid)
     AND (bomitem_parent_item_id=item_id)
-    AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id))
-    AND (CURRENT_DATE BETWEEN bomitem_effective AND (bomitem_expires - 1) ));
+    AND (bomitem_rev_id=getActiveRevId(''BOM'',bomitem_parent_item_id)));
 
   WHILE ( ( SELECT count(*)
             FROM bomwork
@@ -52,7 +51,13 @@ BEGIN
            item_id, item_type, bomitem_createwo,
            (bomwork_qtyper * itemuomtouom(bomitem_item_id, bomitem_uom_id, NULL, bomitem_qtyper)),
            bomitem_scrap, bomitem_issuemethod,
-           bomitem_effective, bomitem_expires, ''N'',
+           CASE WHEN bomitem_effective < bomwork_effective THEN
+             bomwork_effective
+           ELSE bomitem_effective END, 
+           CASE WHEN bomitem_expires > bomwork_expires THEN
+             bomwork_expires
+           ELSE bomitem_expires END,
+           ''N'',
            stdcost(item_id), actcost(item_id)
     FROM bomitem, item, bomwork
     WHERE ((bomitem_item_id=bomwork_item_id)
