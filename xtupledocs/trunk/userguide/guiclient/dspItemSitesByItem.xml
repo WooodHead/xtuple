@@ -1,95 +1,155 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Item Sites by Item
-  </title>
-   <subtitle>dspItemSitesByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspItemSitesByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Item Sites by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show Inactive</guilabel>
-               </entry>
-               <entry>_showInactive</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>tem Sites:</guilabel>
-               </entry>
-               <entry>_itemsitesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemsite</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519909">
+    <title><anchor id="Anchor552212" role="Index"
+    xreflabel="item sites:by item;items:item site details for" /> <indexterm
+        significance="normal" zone="Anchor552212">
+        <primary>item sites</primary>
+
+        <secondary>by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552212">
+        <primary>items</primary>
+
+        <secondary>item site details for</secondary>
+      </indexterm>Item Sites by Item</title>
+
+    <para id="Para519910">To view Item Sites by Item, select the "Item Sites
+    by Item" option. The following screen will appear:</para>
+
+    <para id="Para519914"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_itemSitesByItem.png"
+                       id="Graphic526572" />
+          </imageobject>
+
+          <caption id="Caption519915">Item Sites by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519921">When displaying Item Sites by Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519922">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1932984">
+          <para>Enter the Item Number of the Item whose Item Site(s) you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para672040">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x19329cc">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para620637">Show Inactive</term>
+
+        <listitem id="listitemN0x180ac00N0x1932a14">
+          <para>Select to display active as well as inactive Item
+          Sites.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519926">Item Sites</term>
+
+        <listitem id="listitemN0x180ac00N0x1932a5c">
+          <para>Display lists Item Sites for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519928">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519929">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1932ac8">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para620627">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1932b10">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para675640">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1932b58">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para524450">Right-clicking on an Item Site in the Item Sites
+    list enables you to select the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519932">View Item Site</term>
+
+        <listitem id="listitemN0x180ac00N0x1932bc4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519933">Edit Item Site</term>
+
+        <listitem id="listitemN0x180ac00N0x1932c0c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519934">View Inventory Availability</term>
+
+        <listitem id="listitemN0x180ac00N0x1932c54">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556418">Issue Count Tag</term>
+
+        <listitem id="listitemN0x180ac00N0x1932c9c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para578540">If the Item Site is an MLC Item Site or if its
+    control method is Lot/Serial #, then the following additional option will
+    be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para578563">View Location/Lot/Serial # Detail</term>
+
+        <listitem id="listitemN0x180ac00N0x1932d50">
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

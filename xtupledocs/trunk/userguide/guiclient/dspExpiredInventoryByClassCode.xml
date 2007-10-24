@@ -1,156 +1,199 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Expired Inventory
-  </title>
-   <subtitle>dspExpiredInventoryByClassCode : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspExpiredInventoryByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Expired Inventory
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Threshold Days:</guilabel>
-               </entry>
-               <entry>_thresholdDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_thresholdDays</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Inventory <accel>V</accel>alue</guilabel>
-               </entry>
-               <entry>_showValue</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_costsGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Use Standard Costs</guilabel>
-               </entry>
-               <entry>_useStandardCosts</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Use Actual Costs</guilabel>
-               </entry>
-               <entry>_useActualCosts</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_orderByGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Item Number</guilabel>
-               </entry>
-               <entry>_itemNumber</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Expiration Date</guilabel>
-               </entry>
-               <entry>_expirationDate</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Inventory Value</guilabel>
-               </entry>
-               <entry>_inventoryValue</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Expired Inventory:</guilabel>
-               </entry>
-               <entry>_qohLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_expired</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section570821">
+    <title><anchor id="Anchor570820" role="Index"
+    xreflabel="expiration:of inventory;inventory:expiration of" /> <indexterm
+        significance="normal" zone="Anchor570820">
+        <primary>expiration</primary>
+
+        <secondary>of inventory</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor570820">
+        <primary>inventory</primary>
+
+        <secondary>expiration of</secondary>
+      </indexterm>Expired Inventory</title>
+
+    <para id="Para570822">Item Sites marked as perishable may have Quantity on
+    Hand that expires on a specified date. Typically, these are Lot/Serial
+    Number controlled Item Sites. If such Inventory has expired, you may view
+    Inventory details using this display. To view expired Inventory, select
+    the "Expired Inventory" option. The following screen will appear:</para>
+
+    <para id="Para570826"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_expiredInv.png"
+                       id="Graphic570824" />
+          </imageobject>
+
+          <caption id="Caption570827">Expired Inventory</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para599315">Expired Inventory will be displayed in red type,
+      to alert users to the expired status of the Item. This typographical
+      feature appears in other Inventory displays, as well.</para>
+    </note>
+
+    <para id="Para570828">When displaying expired Inventory, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para572174">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x194e774">
+          <para>Select to display expired Inventory for all Class
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572175">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x194e7bc">
+          <para>Specify Class Code whose expired Inventory you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572177">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x194e804">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para677125">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677124"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572338">Threshold Days</term>
+
+        <listitem id="listitemN0x180ac00N0x194e84c">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value between 999 and -999.</para>
+
+          <para id="Para572339">Specify which expired Items to include in the
+          display using the threshold parameter. Threshold days are measured
+          from the current day. To view all currently expired Inventory, set
+          the parameter to "0". To display Inventory due to expire in the
+          future, enter a positive value. Enter a negative value to display
+          Inventory that expired prior to the current day.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para572190">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x194e870">
+          <para>Select to display expired Inventory for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para572191">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x194e894">
+          <para>Specify Warehouse whose expired Inventory you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572193">Show Inventory Value</term>
+
+        <listitem id="listitemN0x180ac00N0x194e8dc">
+          <para>Select to include the Inventory value of expired Inventory in
+          the display.</para>
+
+          <para id="Para572194">Specify whether to display Inventory value
+          using Standard Costs or Actual Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572195">Use Standard Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x194e924">
+          <para>Select to show Inventory value based on Standard Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572196">Use Actual Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x194e96c">
+          <para>Select to show Inventory value based on Actual Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572197">Order By</term>
+
+        <listitem id="listitemN0x180ac00N0x194e9b4">
+          <para>Order the output by one of the following methods:</para>
+
+          <para id="Para572198">Item Number: Select to order the display by
+          Item Number.</para>
+
+          <para id="Para572199">Expiration Date: Select to order the display
+          by the date the Inventory expired.</para>
+
+          <para id="Para572200">Inventory Value: Select to order the display
+          by Inventory value. This selection will only be available if used in
+          conjunction with the "Show Inventory Value" option.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572201">Expired Inventory</term>
+
+        <listitem id="listitemN0x180ac00N0x194e9fc">
+          <para>Display lists expired Inventory, using the specified
+          parameters.</para>
+
+          <para id="Para676008">If the "Show Inventory Value" box is selected,
+          the display will also show unit Cost and value.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para572203">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para572204">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x194ea68">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para578632">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x194eab0">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572207">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x194eaf8">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,135 +1,176 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Substitute Availability by Root Item
-  </title>
-   <subtitle>dspSubstituteAvailabilityByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspSubstituteAvailabilityByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Substitute Availability by Root Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_showByGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Item Site Lead Time</guilabel>
-               </entry>
-               <entry>_leadTime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Look Ahead Days:</guilabel>
-               </entry>
-               <entry>_byDays</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_days</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Date:</guilabel>
-               </entry>
-               <entry>_byDate</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_date</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Normalize to Parent UOM</guilabel>
-               </entry>
-               <entry>_normalize</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Substitute Availability:</guilabel>
-               </entry>
-               <entry>_substituteAvailability</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_availability</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section520293">
+    <title><anchor id="Anchor552240" role="Index"
+    xreflabel="substitute availability:by root item;root items:substitute availability for" />
+    <indexterm significance="normal" zone="Anchor552240">
+        <primary>substitute availability</primary>
+
+        <secondary>by root item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552240">
+        <primary>root items</primary>
+
+        <secondary>substitute availability for</secondary>
+      </indexterm>Substitute Availability by Root Item</title>
+
+    <para id="Para520294">To view substitute Availability by Root Item, select
+    the "Substitute Availability by Root Item" option. The following screen
+    will appear:</para>
+
+    <para id="Para520298"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_subAvail.png"
+                       id="Graphic526744" />
+          </imageobject>
+
+          <caption id="Caption520299">Substitute Availability by Root
+          Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520305">When displaying substitute Availability by Root
+    Item, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520306">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1965b64">
+          <para>Enter the Item Number of the Item whose substitute
+          Availability you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para672067">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1965bac">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para558991">Show Availability as of</term>
+
+        <listitem id="listitemN0x180ac00N0x1965bf4">
+          <para>Show Availability using one of the following criteria:</para>
+
+          <variablelist>
+            <varlistentry>
+              <term>Item Site Lead Time</term>
+
+              <listitem>
+                <para>Select to show projected Availability based on the Lead
+                Time specified in the Item Site master.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>Look Ahead Days</term>
+
+              <listitem>
+                <para>Select a number using the arrow buttons, or manually
+                enter a value up to a maximum of 1000. Future Availability for
+                the specified Item will be displayed based on the value
+                entered here.</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>Date</term>
+
+              <listitem>
+                <para>Display will show projected Inventory Availability as of
+                date entered up to a maximum of 1000 days.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520319">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x1965c18">
+          <para>Select to display substitute Availability for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520321">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1965c3c">
+          <para>Specify Warehouse whose substitute Availability you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556928">Normalize to Parent UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1965c84">
+          <para>Select to adjust the Quantity on Hand of substitute Items so
+          these quantities meet requirements for substitution.</para>
+
+          <para id="Para559717">The adjusted Quantity on Hand is determined by
+          the Item substitution ratio.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520323">Substitute Availability</term>
+
+        <listitem id="listitemN0x180ac00N0x1965ccc">
+          <para>Display lists substitute Availability by Item, using the
+          specified parameters. If "Normalize to Parent UOM" option is
+          selected, the substitute Item's Quantity on Hand is adjusted to
+          reflect the substitution ratio. If Planned Availability displays in
+          the color orange, this means the actual or projected Quantity on
+          Hand is at or below the Reorder Level. If the color is red, the
+          current or projected Quantity on Hand is below 0.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para628039">When quantity appears in the "On Order" column,
+      this refers to quantity that is on order through either a Work Order or
+      Purchase Order. In the case of Purchase Orders, the quantity will always
+      be represented in the Inventory Unit of Measure (UOM)--regardless of the
+      Vendor UOM used on the Purchase Order.</para>
+    </note>
+
+    <para id="Para520325">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520326">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1965d5c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para578663">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1965da4">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520328">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1965dec">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

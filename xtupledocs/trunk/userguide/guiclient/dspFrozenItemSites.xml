@@ -1,79 +1,101 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Frozen Item Sites
-    </title>
-   <subtitle>dspFrozenItemSites : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspFrozenItemSites.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Frozen Item Sites
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Count Tags:</guilabel>
-               </entry>
-               <entry>_countTagsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_itemsite</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519499">
+    <title><anchor id="Anchor552180" role="Index"
+    xreflabel="item sites:freezing of;freezing:of item sites" /> <indexterm
+        significance="normal" zone="Anchor552180">
+        <primary>item sites</primary>
+
+        <secondary>freezing of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552180">
+        <primary>freezing</primary>
+
+        <secondary>of item sites</secondary>
+      </indexterm>Frozen Item Sites</title>
+
+    <para id="Para519500">To display a list of Item Sites that have been
+    frozen, select the "Frozen Item Sites" option. The following screen will
+    appear:</para>
+
+    <para id="Para519504"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_PI_dispFrozenItemSites.png"
+                       id="Graphic526175" />
+          </imageobject>
+
+          <caption id="Caption519505">Frozen Item Sites</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519506">When displaying frozen Item Sites, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para519507">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x191a990">
+          <para>Select to display frozen Item Sites for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para519509">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x191a9b4">
+          <para>Specify Warehouse whose frozen Item Sites you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519511">Count Tags</term>
+
+        <listitem id="listitemN0x180ac00N0x191a9fc">
+          <para>Display lists frozen Item Sites, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519513">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519514">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x191aa68">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519515">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x191aab0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para524353">Right-clicking on an Item Site in the frozen Item
+    Sites list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519517">Thaw</term>
+
+        <listitem id="listitemN0x180ac00N0x191ab1c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

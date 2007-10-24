@@ -1,104 +1,151 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Count Tags by Item
-  </title>
-   <subtitle>dspCountTagsByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspCountTagsByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Count Tags by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Unposted Count Tags</guilabel>
-               </entry>
-               <entry>_showUnposted</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Count Tags:</guilabel>
-               </entry>
-               <entry>_countTagsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cnttag</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519617">
+    <title><anchor id="Anchor552188" role="Index"
+    xreflabel="count tags:by item;items:count tags for" /> <indexterm
+        significance="normal" zone="Anchor552188">
+        <primary>count tags</primary>
+
+        <secondary>by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552188">
+        <primary>items</primary>
+
+        <secondary>count tags for</secondary>
+      </indexterm>Count Tags by Item</title>
+
+    <para id="Para519618">To view a display of Count Tags by Item, select the
+    "Count Tags by Item" option. The following screen will appear:</para>
+
+    <para id="Para519622"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_PI_dispCountTagsByItem.png"
+                       id="Graphic526356" />
+          </imageobject>
+
+          <caption id="Caption519623">Count Tags by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519629">When displaying Count Tags by Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519630">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x192a6f4">
+          <para>Enter the Item Number of the Item Count Tags you want to
+          view.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para672031">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x192a73c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para519634">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x192a760">
+          <para>Select to display Count Tags for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para519636">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x192a784">
+          <para>Specify Warehouse whose Count Tags you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519641">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x192a7cc">
+          <para>Count Tags entered on and after this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519646">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x192a814">
+          <para>Count Tags entered on and before this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519648">Show Unposted Count Tags</term>
+
+        <listitem id="listitemN0x180ac00N0x192a85c">
+          <para>Select to display unposted Count Tags.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519649">Count Tags</term>
+
+        <listitem id="listitemN0x180ac00N0x192a8a4">
+          <para>Display lists Count Tags by Item, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519651">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519652">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x192a910">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para594651">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x192a958">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para675613">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x192a9a0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para524400">Right-clicking on a Count Tag in the Count Tags list
+    enables you to select the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519655">View Count Tag</term>
+
+        <listitem id="listitemN0x180ac00N0x192aa0c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

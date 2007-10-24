@@ -1,92 +1,102 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Location/Lot/Serial # Detail
-  </title>
-   <subtitle>dspInventoryLocator : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspInventoryLocator.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Location/Lot/Serial # Detail
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Locations:</guilabel>
-               </entry>
-               <entry>_locationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemloc</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section677805" role="openmfg">
+    <title>Location/Lot/Serial # Detail</title>
+
+    <para id="Para677806">To locate detailed Location and Lot/Serial Number
+    information, select the "Location/Lot/Serial # Detail" option. The
+    following screen will appear:</para>
+
+    <para id="Para677810"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_locationLotDetail.png"
+                       id="Graphic677808" />
+          </imageobject>
+
+          <caption id="Caption677811">Location/Lot/Serial Number
+          Detail</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para677812">When displaying detailed Location and Lot/Serial
+    Number information, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para677813">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1947ad4">
+          <para>Enter the Item Number of the Item whose detailed
+          Location/Lot/Serial Number information you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677814">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1947b1c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677815">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x1947b64">
+          <para>Select to display detailed Location/Lot/Serial Number
+          information for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677816">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1947bac">
+          <para>Specify Warehouse whose detailed Location/Lot/Serial Number
+          information you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677817">Locations</term>
+
+        <listitem id="listitemN0x180ac00N0x1947bf4">
+          <para>Display lists Location/Lot/Serial Number detail, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para677818">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para677819">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1947c60">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677820">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1947ca8">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para677821">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1947cf0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

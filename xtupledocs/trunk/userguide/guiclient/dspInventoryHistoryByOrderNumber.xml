@@ -1,116 +1,190 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Inventory History by Order Number
-  </title>
-   <subtitle>dspInventoryHistoryByOrderNumber : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspInventoryHistoryByOrderNumber.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Inventory History by Order Number
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Order #:</guilabel>
-               </entry>
-               <entry>_orderNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_orderNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Trans. Types:</guilabel>
-               </entry>
-               <entry>_transTypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_transType</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Inventory History:</guilabel>
-               </entry>
-               <entry>lblInventoryHistoryLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_invhist</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section549746">
+    <title><anchor id="Anchor552246" role="Index"
+    xreflabel="inventory history:by order number" /> <indexterm
+        significance="normal" zone="Anchor552246">
+        <primary>inventory history</primary>
+
+        <secondary>by order number</secondary>
+      </indexterm>Inventory History by Order Number</title>
+
+    <para id="Para520377">The Inventory History by Order Number display
+    provides transaction details in support of all Order types: Sales Orders,
+    Purchase Orders, and Work Orders. To view Inventory history by Order
+    Number, select the "Inventory History by Order Number" option. The
+    following screen will appear:</para>
+
+    <para id="Para520381"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_invHistOrder.png"
+                       id="Graphic526787" />
+          </imageobject>
+
+          <caption id="Caption520382">Inventory History by Order
+          Number</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para675744">If a line displays in orange, this means the Item
+      Site in question is frozen. Accurate Quantity on Hand information will
+      not be shown until the Item Site is thawed.</para>
+    </tip>
+
+    <para id="Para613672">When displaying Inventory history by Order Number,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520384">Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x197e4b8">
+          <para>Enter an Order Number or Regular Expression.</para>
+
+          <para id="Para520385">The display will show Inventory history for
+          the specified Order Number(s). Purchase Order Numbers, Sales Order
+          Numbers, and Work Order Numbers are supported.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para626651">The "Order #" field supports pattern matching with
+      Regular Expressions. For more information on matching patterns using
+      Regular Expressions, see <link endterm="Anchor77806" id="XRef626653"
+      linkend="Anchor77806"> Pattern Matching with Regular
+      Expressions</link>"Topic: Pattern Matching with Regular
+      Expressions".</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para621243">Trans. Types</term>
+
+        <listitem id="listitemN0x180ac00N0x197e548">
+          <para>Select one of the available transaction types:</para>
+
+          <para id="Para621247">All Transactions: Displays all Inventory
+          transactions.</para>
+
+          <para id="Para621248">Receipts: Displays receipts into Inventory
+          from Manufacturing, purchases, or miscellaneous receipts.</para>
+
+          <para id="Para621249">Issues: Displays issues from Inventory to
+          Manufacturing.</para>
+
+          <para id="Para621250">Shipments: Displays shipments to
+          customers.</para>
+
+          <para id="Para621251">Adjustments and Counts: Displays Inventory
+          adjustments and counts.</para>
+
+          <para id="Para621252">Transfers: Displays Inter-Warehouse Transfers
+          and Location and Lot/Serial Number reassignments.</para>
+
+          <para id="Para621253">Scraps: Displays Scrap removed from
+          Inventory.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para621254">Inventory History</term>
+
+        <listitem id="listitemN0x180ac00N0x197e590">
+          <para>Display lists Inventory history by Order Number, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520386">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x197e5b4">
+          <para>Select to display Inventory history by Order Number for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520388">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x197e5d8">
+          <para>Specify Warehouse whose Inventory history by Order Number you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520393">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x197e620">
+          <para>This is a required field.</para>
+
+          <para id="Para520394">Inventory transactions conducted on and after
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520398">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x197e668">
+          <para>This is a required field.</para>
+
+          <para id="Para520399">Inventory transactions conducted on and before
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520411">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520412">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x197e6d4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para578682">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x197e71c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520414">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x197e764">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para565594">Right-clicking on a transaction in the Inventory
+    History list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para565595">View Transaction Information</term>
+
+        <listitem id="listitemN0x180ac00N0x197e7d0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

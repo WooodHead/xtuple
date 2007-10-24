@@ -1,123 +1,206 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Quantities on Hand by Item
-  </title>
-   <subtitle>dspQOHByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspQOHByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Quantities on Hand by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Show Inventory <accel>V</accel>alue</guilabel>
-               </entry>
-               <entry>_showValue</entry>
-               <entry>XCheckBox</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_costsGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Use Standard Costs</guilabel>
-               </entry>
-               <entry>_useStandardCosts</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Use Actual Costs</guilabel>
-               </entry>
-               <entry>_useActualCosts</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Quantities on Hand</guilabel>
-               </entry>
-               <entry>_qohLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qoh</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section520011">
+    <title><anchor id="Anchor552222" role="Index"
+    xreflabel="quantity on hand:by item group;item groups:quantity on hand for" />
+    <indexterm significance="normal" zone="Anchor552222">
+        <primary>quantity on hand</primary>
+
+        <secondary>by item group</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552222">
+        <primary>item groups</primary>
+
+        <secondary>quantity on hand for</secondary>
+      </indexterm>Quantities on Hand by Item</title>
+
+    <para id="Para520012">To view Quantities on Hand by Item, select the
+    "Quantities on Hand by Item" option. The following screen will
+    appear:</para>
+
+    <para id="Para520016"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_QOHByItem.png"
+                       id="Graphic526626" />
+          </imageobject>
+
+          <caption id="Caption520017">Quantities on Hand by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520023">When displaying Quantities on Hand by Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520024">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x193a75c">
+          <para>Enter the Item Number of the Item whose Quantity on Hand you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para672057">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x193a7a4">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520028">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x193a7c8">
+          <para>Select to display Quantities on Hand by Item for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520030">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x193a7ec">
+          <para>Specify Warehouse whose Quantities on Hand by Item you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572296">Show Inventory Value</term>
+
+        <listitem id="listitemN0x180ac00N0x1940a24">
+          <para>Select to include the Inventory value of Quantities on Hand by
+          Item in the display.</para>
+
+          <para id="Para572297">Specify whether to display Inventory value
+          using Standard Costs or Actual Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520034">Use Standard Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x1940a6c">
+          <para>Select to show Inventory value based on Standard Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520035">Use Actual Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x1940ab4">
+          <para>Select to show Inventory value based on Actual Costs.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520036">Quantities on Hand</term>
+
+        <listitem id="listitemN0x180ac00N0x1940afc">
+          <para>Display lists Quantities on Hand by Item, using the specified
+          parameters.</para>
+
+          <para id="Para675957">If the "Show Inventory Value" box is selected,
+          the display will also show unit Cost, value, and non- netable value.
+          Totals for each column will be calculated at the bottom of the
+          display. If a Quantity on Hand value displays in the color orange,
+          this means the actual or projected Quantity on Hand is at or below
+          the Reorder Level. If the color is red, the current or projected
+          Quantity on Hand is below 0.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520038">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520039">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1940b68">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para610581">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1940bb0">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para675657">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1940bf8">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para656119">Right-clicking on an Item in the Quantities on Hand
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para656120">Transfer to another Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x1940c64">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para656121">Adjust this QOH</term>
+
+        <listitem id="listitemN0x180ac00N0x1940cac">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520044">Reset this QOH to 0</term>
+
+        <listitem id="listitemN0x180ac00N0x1940cf4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520045">Enter Misc. Count</term>
+
+        <listitem id="listitemN0x180ac00N0x1940d3c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520046">Issue Count Tag</term>
+
+        <listitem id="listitemN0x180ac00N0x1940d84">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para520048">If an Item has a Default Location defined, the
+    following menu option will also be available--in addition to those
+    mentioned above--when you right-click on the Item:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/11)" />
+    </variablelist>
+  </section>
