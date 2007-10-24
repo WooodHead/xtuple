@@ -95,4 +95,34 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
+  <para>Right-clicking on a Title in the Titles list enables you to select
+  from the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>Edit</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a1f0)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term>View</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a238)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term>Delete</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x181a280)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
