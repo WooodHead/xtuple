@@ -1,109 +1,161 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Bookings by Sales Rep.
-  </title>
-   <subtitle>dspBookingsBySalesRep : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspBookingsBySalesRep.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Bookings by Sales Rep.
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Sales Rep.:</guilabel>
-               </entry>
-               <entry>_salesrepLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_salesrep</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_productCategory</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bookings:</guilabel>
-               </entry>
-               <entry>_bookingsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_soitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518825">
+    <title><anchor id="Anchor533207" role="Index"
+    xreflabel="bookings:by sales representative;sales representatives:booking details for" />
+    <indexterm significance="normal" zone="Anchor533207">
+        <primary>bookings</primary>
+
+        <secondary>by sales representative</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533207">
+        <primary>sales representatives</primary>
+
+        <secondary>booking details for</secondary>
+      </indexterm>Bookings by Sales Rep</title>
+
+    <para id="Para518826"><anchor id="Anchor547132" role="Index"
+    xreflabel="sales rep. See sales representatives" /> <indexterm
+        significance="normal" zone="Anchor547132">
+        <primary>sales rep</primary>
+
+        <see>sales representatives</see>
+      </indexterm>To view Bookings by Sales Representative, select the
+    "Bookings by Sales Rep" option. The following screen will appear:</para>
+
+    <para id="Para518830"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Disp_bookBySalesRep.png"
+                       id="Graphic521689" />
+          </imageobject>
+
+          <caption id="Caption518831">Bookings by Sales
+          Representative</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518832">When displaying Bookings by Sales Representative,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518833">Sales Rep.</term>
+
+        <listitem id="listitemN0x180ac00N0x18607a8">
+          <para>Specify the Sales Representative whose bookings you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518835">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x18607cc">
+          <para>Select to display Bookings by Sales Representative for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518837">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18607f0">
+          <para>Specify Warehouse whose Bookings by Sales Representative you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518849">All Product Categories</term>
+
+        <listitem id="listitemN0x180ac00N0x1860838">
+          <para>Select to display Bookings by Sales Representative for all
+          Product Categories.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539837">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1860880">
+          <para>Specify Product Category whose Bookings by Sales
+          Representative you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528108">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x18608c8">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para555619">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555618"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para549940">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1860910">
+          <para>Bookings by Sales Representative generated on or after this
+          date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para549902">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1860958">
+          <para>Bookings by Sales Representative generated on or before this
+          date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518854">Bookings</term>
+
+        <listitem id="listitemN0x180ac00N0x18609a0">
+          <para>Display lists Bookings by Sales Representative, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518856">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518857">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1860a0c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541855">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1860a54">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555004">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1860a9c">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,97 +1,147 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Brief Sales History by Customer Type
-    </title>
-   <subtitle>dspBriefSalesHistoryByCustomerType : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspBriefSalesHistoryByCustomerType.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Brief Sales History by Customer Type
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_customerType</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Sales History:</guilabel>
-               </entry>
-               <entry>_cohistLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_sohist</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section530292">
+    <title><anchor id="Anchor533197" role="Index"
+    xreflabel="sales history:brief by customer type;customer types:brief sales history for" />
+    <indexterm significance="normal" zone="Anchor533197">
+        <primary>sales history</primary>
+
+        <secondary>brief by customer type</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533197">
+        <primary>customer types</primary>
+
+        <secondary>brief sales history for</secondary>
+      </indexterm>Brief Sales History by Customer Type</title>
+
+    <para id="Para530666">To view brief Sales history by Customer Type, select
+    the "Brief Sales History by Customer Type" option. The following screen
+    will appear:</para>
+
+    <para id="Para530670"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Disp_briefHistByCusType.png"
+                       id="Graphic531275" />
+          </imageobject>
+
+          <caption id="Caption530671">Brief Sales History by Customer
+          Type</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para530672">When displaying brief Sales history by Customer
+    Type, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530983">All Customer Types</term>
+
+        <listitem id="listitemN0x180ac00N0x18481a4">
+          <para>Select to display brief Sales history for all Customer
+          Types.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530984">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18481ec">
+          <para>Specify Customer Type whose brief Sales history you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530986">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x184f424">
+          <para>Enter a Customer Type pattern to select a range of Customer
+          Types.</para>
+
+          <para id="Para555560">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555559"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para542369">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x184f448">
+          <para>Select to display brief Sales history by Customer Type for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para542370">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x184f46c">
+          <para>Specify Warehouse whose brief Sales history by Customer Type
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531001">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x184f4b4">
+          <para>Brief Sales history by Customer Type generated on or after
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531006">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x184f4fc">
+          <para>Brief Sales history by Customer Type generated on or before
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531008">Sales History</term>
+
+        <listitem id="listitemN0x180ac00N0x184f544">
+          <para>Display lists brief Sales history by Customer Type, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para531010">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para531011">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x184f5b0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541792">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x184f5f8">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554958">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x184f640">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

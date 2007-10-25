@@ -1,123 +1,189 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Sales History by Sales Rep.
-  </title>
-   <subtitle>dspSalesHistoryBySalesrep : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspSalesHistoryBySalesrep.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Sales History by Sales Rep.
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Sales Rep.:</guilabel>
-               </entry>
-               <entry>_salesrepLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_salesrep</entry>
-               <entry>XComboBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_productCategory</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Show Costs</guilabel>
-               </entry>
-               <entry>_showCosts</entry>
-               <entry>XCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Show Prices</guilabel>
-               </entry>
-               <entry>_showPrices</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Sales History:</guilabel>
-               </entry>
-               <entry>_cohistLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_sohist</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518615">
+    <title><anchor id="Anchor533189" role="Index"
+    xreflabel="sales history:by sales representative;sales representatives:sales history details for" />
+    <indexterm significance="normal" zone="Anchor533189">
+        <primary>sales history</primary>
+
+        <secondary>by sales representative</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533189">
+        <primary>sales representatives</primary>
+
+        <secondary>sales history details for</secondary>
+      </indexterm>Sales History by Sales Rep</title>
+
+    <para id="Para518616">To view Sales history by Sales Representative,
+    select the "Sales History by Sales Rep." option. The following screen will
+    appear:</para>
+
+    <para id="Para518620"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Disp_salesHistBySaleRep.png"
+                       id="Graphic521608" />
+          </imageobject>
+
+          <caption id="Caption518621">Sales History by Sales
+          Representative</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518622">When displaying Sales history by Sales
+    Representative, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518623">Sales Rep.</term>
+
+        <listitem id="listitemN0x180ac00N0x182e1ec">
+          <para>Specify the Sales Representative whose sales history you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518625">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x1840200">
+          <para>Select to display Sales history by Sales Representative for
+          all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518627">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1840224">
+          <para>Specify Warehouse whose Sales history by Sales Representative
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para534358">All Product Categories</term>
+
+        <listitem id="listitemN0x180ac00N0x184026c">
+          <para>Select to display Sales history by Sales Representative for
+          all Product Categories.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539768">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18402b4">
+          <para>Specify Product Category whose Sales history by Sales
+          Representative you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para534361">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x18402fc">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para555506">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555505"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518632">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1840344">
+          <para>Sales history by Sales Representative generated on or after
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518637">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x184038c">
+          <para>Sales history by Sales Representative generated on or before
+          this date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540669">Show Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x18403d4">
+          <para>Select to include Costs in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540670">Show Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x184041c">
+          <para>Select to include Prices in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518644">Sales History</term>
+
+        <listitem id="listitemN0x180ac00N0x1840464">
+          <para>Display lists Sales history by Sales Representative, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518646">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518647">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18404d0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541762">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1840518">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554930">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1840560">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537611">Right-clicking on an Order in the Sales history list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/1)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/2)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

@@ -1,80 +1,72 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Print S/A Special Calendar Form
-    </title>
-   <subtitle>printSASpecialCalendarForm : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printSASpecialCalendarForm.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Print S/A Special Calendar Form
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Calendar:</guilabel>
-               </entry>
-               <entry>_calendarLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Report Name:</guilabel>
-               </entry>
-               <entry>_reportLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_calendar</entry>
-               <entry>CalendarComboBox</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_report</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section553647">
+    <title><anchor id="Anchor553646" role="Index"
+    xreflabel="calendars:printing for sales analysis" /> <indexterm
+        significance="normal" zone="Anchor553646">
+        <primary>calendars</primary>
+
+        <secondary>printing for sales analysis</secondary>
+      </indexterm>Print S/A Special Calendar Form</title>
+
+    <para id="Para553648">To print a Sales Analysis special Calendar Form,
+    select the "Print S/A Special Calendar Form" option. The following screen
+    will appear:</para>
+
+    <para id="Para553652"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Rep_printSpecCalend.png"
+                       id="Graphic553650" />
+          </imageobject>
+
+          <caption id="Caption553653">Print S/A Special Calendar
+          Form</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para553654">When printing a Sales Analysis special Calendar
+    Form, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para553655">Calendar</term>
+
+        <listitem id="listitemN0x180ac00N0x188c784">
+          <para>Select the Calendar you want to use for the report.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553657">Report Name</term>
+
+        <listitem id="listitemN0x180ac00N0x188c7cc">
+          <para>Specify the Calendar Form you want to print.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para553662">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para553663">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x188c838">
+          <para>Closes the screen without generating a report, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555108">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x188c880">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
