@@ -1,147 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-  <title>Sales Order Lookup by Customer</title>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519908">
+  <title><anchor id="Anchor549026" role="Index"
+  xreflabel="sales orders:finding by customer;customers:finding sales orders for" />
+  <indexterm significance="normal" zone="Anchor549026">
+      <primary>sales orders</primary>
 
-  <subtitle></subtitle>
+      <secondary>finding by customer</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor549026">
+      <primary>customers</primary>
 
-  <section id="Section622465">
-    <title><anchor id="Anchor622464" role="Index"
-    xreflabel="sales orders:finding by customer;customer types:finding sales orders for" />
-    <indexterm significance="normal" zone="Anchor622464">
-        <primary>sales orders</primary>
+      <secondary>finding sales orders for</secondary>
+    </indexterm>Sales Order Lookup by Customer</title>
 
-        <secondary>finding by customer</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor622464">
-        <primary>customer types</primary>
+  <para id="Para519909">To view Sales Orders by Customer, select the "Sales
+  Order Lookup by Customer" option from the "Displays" menu. The following
+  screen will appear:</para>
 
-        <secondary>finding sales orders for</secondary>
-      </indexterm>Sales Order Lookup by Customer Type</title>
+  <para id="Para519913"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Disp_soLookByCust.png"
+                     id="Graphic524010" />
+        </imageobject>
 
-    <para id="Para622466">To view Sales Orders by Customer Type, select the
-    "Sales Order Lookup by Customer Type" option from the "Displays" menu. The
-    following screen will appear:</para>
+        <caption id="Caption519914">Sales Order Lookup by Customer</caption>
+      </mediaobject>
+    </screenshot></para>
 
-    <para id="Para622470"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_LookByCusType.png"
-                       id="Graphic622468" />
-          </imageobject>
+  <para id="Para519915">When displaying Sales Orders by Customer, you are
+  presented with the following options:</para>
 
-          <caption id="Caption622471">Sales Order Lookup by Customer
-          Type</caption>
-        </mediaobject>
-      </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519916">Customer #</term>
 
-    <para id="Para622472">When displaying Sales Orders by Customer Type, you
-    are presented with the following options:</para>
+      <listitem id="listitemN0x180ac00N0x195aca8">
+        <para>Enter the Customer Number of the Customer whose Sales Orders you
+        want to view.</para>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para626959">All Customer Types</term>
+        <para id="Para519917">The browse button located to the right of the
+        field leads to a searchable Customers list. You may also access this
+        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display. Select
+        the "?" or "$" symbol next to the browse button to view Customer
+        information for the specified Customer. If a Customer's credit is "In
+        Good Standing," the button will feature a black question mark ("?")
+        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
+        credit Status is "On Credit Warning." A red dollar sign ("$")
+        indicates the Customer's credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem id="listitemN0x180ac00N0x1962b84">
-          <para>Select to display Sales Orders for all Customer Types.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519918">All P/O #s</term>
 
-      <varlistentry>
-        <term id="Para626960">Selected</term>
+      <listitem id="listitemN0x180ac00N0x195acf0">
+        <para>Select to display all Purchase Order Numbers for the specified
+        Customer.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem id="listitemN0x180ac00N0x1962bcc">
-          <para>Specify Customer Type whose Sales Orders you want to
-          display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para618895">Selected</term>
 
-      <varlistentry>
-        <term id="Para626961">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x195ad38">
+        <para>Specify the Customer Purchase Order Number you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem id="listitemN0x180ac00N0x1962c14">
-          <para>Enter a Customer Type pattern to select a range of Customer
-          Types.</para>
+    <varlistentry>
+      <term id="Para618899">Starting Order Date</term>
 
-          <para id="Para656107">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef656106"
-          linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-        </listitem>
-      </varlistentry>
+      <listitem id="listitemN0x180ac00N0x195ad80">
+        <para>Sales Orders entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
 
-      <varlistentry>
-        <term id="Para626935">Starting Order Date</term>
+    <varlistentry>
+      <term id="Para554893">Ending Order Date</term>
 
-        <listitem id="listitemN0x180ac00N0x1962c5c">
-          <para>Sales Orders entered on and after this date will be
-          displayed.</para>
-        </listitem>
-      </varlistentry>
+      <listitem id="listitemN0x180ac00N0x195adc8">
+        <para>Sales Orders entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
 
-      <varlistentry>
-        <term id="Para626940">Ending Order Date</term>
+    <varlistentry>
+      <term id="Para519921">Sales Orders</term>
 
-        <listitem id="listitemN0x180ac00N0x1962ca4">
-          <para>Sales Orders entered on and before this date will be
-          displayed.</para>
-        </listitem>
-      </varlistentry>
+      <listitem id="listitemN0x180ac00N0x1962800">
+        <para>Display lists Sales Orders for the specified Customer.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-      <varlistentry>
-        <term id="Para626942">Sales Orders</term>
+  <para id="Para519923">To the far right of the screen, the following buttons
+  are available:</para>
 
-        <listitem id="listitemN0x180ac00N0x1962cec">
-          <para>Display lists Sales Orders for the specified Customer
-          Type(s).</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519924">CLOSE</term>
 
-          <para id="Para654133">This display is a nested list, with a plus
-          ("+") sign located to the far left of the display next to each line
-          that may be expanded to lower levels. By clicking your mouse on a
-          plus sign, you reveal lower levels of information related to the
-          Documents.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+      <listitem id="listitemN0x180ac00N0x196286c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-    <para id="Para626944">To the far right of the screen, the following
-    buttons are available:</para>
+  <para id="Para522254">Right-clicking on a Sales Order in the Sales Orders
+  list enables you to select from the following menu options:</para>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para626945">CLOSE</term>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/1)" />
 
-        <listitem id="listitemN0x180ac00N0x1962d58">
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
 
-    <para id="Para626947">Right-clicking on a Sales Order in the Sales Orders
-    list enables you to select from the following menu options:</para>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/18)" />
 
-    <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/17)" />
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
-
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/17)" />
-
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/16)" />
-
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
-    </variablelist>
-  </section>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
