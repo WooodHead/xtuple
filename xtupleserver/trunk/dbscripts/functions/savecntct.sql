@@ -52,16 +52,24 @@ BEGIN
     FROM cntct
     WHERE (cntct_id=pCntctId);
 
-    IF (_firstName <> pFirstName) OR (_lastName <> pLastName) THEN
-      _isNew := true;
+    IF (FOUND) THEN
+      IF (_firstName <> pFirstName) OR (_lastName <> pLastName) THEN
+        _isNew := true;
+      ELSE
+        _isNew := false;
+      END IF;
     ELSE
-      _isNew := false;
+      _isNew := true;
     END IF;
 
   END IF;
 
   IF (_isNew) THEN
-    SELECT NEXTVAL(''cntct_cntct_id_seq'') INTO _cntctId;
+    IF (pCntctId IS NULL) THEN
+      SELECT NEXTVAL(''cntct_cntct_id_seq'') INTO _cntctId;
+    ELSE
+      _cntctId := pCntctId;
+    END IF;
  
     INSERT INTO cntct (
       cntct_id,
@@ -79,12 +87,20 @@ BEGIN
 
   ELSE
     UPDATE cntct SET
-      cntct_crmacct_id=COALESCE(pCrmAcctId,cntct_crmacct_id),cntct_addr_id=COALESCE(pAddrId,cntct_addr_id),
-      cntct_first_name=pFirstName,cntct_last_name=pLastName,
-      cntct_honorific=pHonorific,cntct_initials=COALESCE(pInitials,cntct_initials),
-      cntct_active=COALESCE(pActive,cntct_active),cntct_phone=pPhone,cntct_phone2=COALESCE(pPhone2,cntct_phone2),
-      cntct_fax=pFax,cntct_email=pEmail,cntct_webaddr=COALESCE(pWebAddr,cntct_webaddr),
-      cntct_notes=COALESCE(pNotes,cntct_notes),cntct_title=pTitle
+      cntct_crmacct_id=COALESCE(pCrmAcctId,cntct_crmacct_id),
+      cntct_addr_id=COALESCE(pAddrId,cntct_addr_id),
+      cntct_first_name=COALESCE(pFirstName,cntct_first_name),
+      cntct_last_name=COALESCE(pLastName,cntct_last_name),
+      cntct_honorific=COALESCE(pHonorific,cntct_honorific),
+      cntct_initials=COALESCE(pInitials,cntct_initials),
+      cntct_active=COALESCE(pActive,cntct_active),
+      cntct_phone=COALESCE(pPhone,cntct_phone),
+      cntct_phone2=COALESCE(pPhone2,cntct_phone2),
+      cntct_fax=COALESCE(pFax,cntct_fax),
+      cntct_email=COALESCE(pEmail,cntct_email),
+      cntct_webaddr=COALESCE(pWebAddr,cntct_webaddr),
+      cntct_notes=COALESCE(pNotes,cntct_notes),
+      cntct_title=COALESCE(pTitle,cntct_title)
     WHERE (cntct_id=pCntctId);
     
     RETURN pCntctId;

@@ -6,7 +6,7 @@ DROP VIEW api.contactchar;
 CREATE VIEW api.contactchar
 AS 
    SELECT 
-     cntct_id::varchar(100) AS contact_number,
+     cntct_id AS contact_number,
      char_name::varchar(100) AS characteristic,
      charass_value AS value
    FROM cntct, char, charass
@@ -34,7 +34,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     )
   VALUES (
     'CNTCT',
-    getCustId(NEW.contact_number),
+    NEW.contact_number,
     getCharId(NEW.characteristic,'CNTCT'),
     NEW.value,
     false);
@@ -45,7 +45,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE charass SET
     charass_value=NEW.value
   WHERE ((charass_target_type='CNTCT')
-  AND (charass_target_id=getCustId(OLD.contact_number))
+  AND (charass_target_id=OLD.contact_number)
   AND (charass_char_id=getCharId(OLD.characteristic,'CNTCT')));
            
 CREATE OR REPLACE RULE "_DELETE" AS 

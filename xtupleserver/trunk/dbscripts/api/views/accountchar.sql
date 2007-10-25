@@ -34,7 +34,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     )
   VALUES (
     'CRMACCT',
-    getCustId(NEW.account_number),
+    getCrmAcctId(NEW.account_number),
     getCharId(NEW.characteristic,'CRMACCT'),
     NEW.value,
     false);
@@ -45,7 +45,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
   UPDATE charass SET
     charass_value=NEW.value
   WHERE ((charass_target_type='CRMACCT')
-  AND (charass_target_id=getCustId(OLD.account_number))
+  AND (charass_target_id=getCrmAcctId(OLD.account_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'CRMACCT')));
            
 CREATE OR REPLACE RULE "_DELETE" AS 
@@ -53,7 +53,7 @@ CREATE OR REPLACE RULE "_DELETE" AS
 
   DELETE FROM charass
   WHERE ((charass_target_type='CRMACCT')
-  AND (charass_target_id=getCustId(OLD.account_number))
+  AND (charass_target_id=getCrmAcctId(OLD.account_number))
   AND (charass_char_id=getCharId(OLD.characteristic,'CRMACCT')));
 
 COMMIT;
