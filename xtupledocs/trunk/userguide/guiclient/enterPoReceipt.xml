@@ -1,121 +1,187 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Enter Order Receipts
-  </title>
-   <subtitle>enterPoReceipt : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/enterPoReceipt.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Enter Order Receipts
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_po</entry>
-               <entry>PoCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_to</entry>
-               <entry>ToCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Assign all Lot-controlled Items to single Lot #</guilabel>
-               </entry>
-               <entry>_singleLot</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint Paperwork</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Save</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Order Line Items:</guilabel>
-               </entry>
-               <entry>_orderitemLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_orderitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>nter Receipt</guilabel>
-               </entry>
-               <entry>_enter</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Receive All</guilabel>
-               </entry>
-               <entry>_all</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section531874">
+  <title><anchor id="Anchor531873" role="Index"
+  xreflabel="receiving:entering of receipts" /> <indexterm
+      significance="normal" zone="Anchor531873">
+      <primary>receiving</primary>
+
+      <secondary>entering of receipts</secondary>
+    </indexterm> <anchor id="Anchor28097" role="Cross-Ref"
+  xreflabel="28097: Heading2: Enter Receipt" />Enter Receipt</title>
+
+  <para id="Para531875">To receive Orders into Inventory, select the "Enter
+  Receipt" option. The following screen will appear:</para>
+
+  <para id="Para521445"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Rcvg_enterRecpt.png"
+                     id="Graphic521443" />
+        </imageobject>
+
+        <caption id="Caption520503">Enter Purchase Order Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para520504">When receiving an Order, you are presented with the
+  following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para520505">P/O #</term>
+
+      <listitem id="listitemN0x180ac00N0x184e548">
+        <para>Enter the Order Number of the Purchase Order whose Line Item(s)
+        you want to receive into Inventory.</para>
+
+        <para id="Para522415">The browse button located to the right of the
+        field leads to a searchable list of Purchase Orders available for
+        receiving. This option will be disabled if a Transfer Order is
+        specified.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para549061">Transfer Order #</term>
+
+      <listitem id="listitemN0x180ac00N0x184e56c">
+        <para>Enter the Order Number of the Transfer Order whose Line Item(s)
+        you want to receive into Inventory.</para>
+
+        <para id="Para549062">The browse button located to the right of the
+        field leads to a searchable list of Transfer Orders available for
+        receiving. This option will be disabled if a Purchase Order is
+        specified.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para549066">From</term>
+
+      <listitem id="listitemN0x180ac00N0x184e590">
+        <para>Displays the Source Warehouse if a Transfer Order is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para549070">To</term>
+
+      <listitem id="listitemN0x180ac00N0x184e5b4">
+        <para>Displays the Destination Warehouse if a Transfer Order is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para541633">Assign all Lot Controlled Items to single Lot
+      #</term>
+
+      <listitem id="listitemN0x180ac00N0x184e5d8">
+        <para>Select if you want all the Lot-controlled Items in a Receiving
+        session to be assigned the same Lot Number.</para>
+
+        <para id="Para541642">Lot Numbers are assigned when Receipt(s) are
+        posted. This option applies to Lot-controlled Items only. There is no
+        impact on received Items which are not Lot-controlled. For perishable
+        Items, you will also be given the opportunity to enter an expiration
+        date. Expiration dates apply only to Item Sites marked as
+        perishable.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para522416">Purchase Order Items</term>
+
+      <listitem id="listitemN0x180ac00N0x184e620">
+        <para>Display lists Order Line Items available for receipt
+        confirmation.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para id="Para534055">Before a Purchase Order can be received
+    successfully, A/P Account Assignments for the specified Vendor must be in
+    place.</para>
+  </tip>
+
+  <para id="Para534050">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para522403">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x184e6b0">
+        <para>Closes the screen without entering a Receipt, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para523044">PRINT PAPERWORK</term>
+
+      <listitem id="listitemN0x180ac00N0x184e6f8">
+        <para>Select to print the paperwork associated with the specified
+        Order.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para535874">POST</term>
+
+      <listitem id="listitemN0x180ac00N0x184e740">
+        <para>Select this button to post the Receipt quantity to
+        Inventory.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para546100">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x184e788">
+        <para>Select this button to save the Receipt quantity for posting at a
+        later time. Saved Receipts may be posted later from the List Unposted
+        Receipts screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para523045">ENTER RECEIPT</term>
+
+      <listitem id="listitemN0x180ac00N0x184e7d0">
+        <para>Highlight a Line Item, then select this button to reach the
+        Receipt detail screen. Double-clicking on a Line Item will also bring
+        you to the Receipt entry screen. This option will be disabled if a
+        Transfer Order is specified.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para544749">RECEIVE ALL</term>
+
+      <listitem id="listitemN0x180ac00N0x184e818">
+        <para>Select to receive all Line Items simultaneously.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para529004">If the Item you are receiving is a <anchor
+    id="Anchor530792" role="Index"
+    xreflabel="multiple location control:impact on receiving;receiving:MLC impact on" />
+    <indexterm significance="normal" zone="Anchor530792">
+        <primary>multiple location control</primary>
+
+        <secondary>impact on receiving</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor530792">
+        <primary>receiving</primary>
+
+        <secondary>MLC impact on</secondary>
+      </indexterm>Multiple Location Control (MLC) Item, you will be prompted
+    to specify the Location you want to distribute the stock to.</para>
+  </note>
 </section>

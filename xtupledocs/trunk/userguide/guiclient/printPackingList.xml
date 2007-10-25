@@ -1,141 +1,98 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Print Packing List
-  </title>
-   <subtitle>printPackingList : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printPackingList.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Print Packing List
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Order Date:</guilabel>
-               </entry>
-               <entry>_orderDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Shipment #:</guilabel>
-               </entry>
-               <entry>_shipmentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_orderDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Sales Order #:</guilabel>
-               </entry>
-               <entry>_salesOrderLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipment</entry>
-               <entry>ShipmentCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_so</entry>
-               <entry>SoLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_salesOrderList</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_to</entry>
-               <entry>ToCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cust. Name:</guilabel>
-               </entry>
-               <entry>_custNameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cust. Phone:</guilabel>
-               </entry>
-               <entry>_custPhoneLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>P/O Number:</guilabel>
-               </entry>
-               <entry>_poNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_custName</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_custPhone</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518624">
+    <title><anchor id="Anchor529431" role="Index"
+    xreflabel="packing lists:printing of" /> <indexterm significance="normal"
+        zone="Anchor529431">
+        <primary>packing lists</primary>
+
+        <secondary>printing of</secondary>
+      </indexterm>Print Packing List</title>
+
+    <para id="Para518625">To print a Packing List, select the "Print Packing
+    List" option. The following screen will appear:</para>
+
+    <para id="Para518629"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SR_Forms_printPackList.png"
+                       id="Graphic520040" />
+          </imageobject>
+
+          <caption id="Caption518630">Print Packing List</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518631">When printing a Packing List, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518632">Sales Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x1861a0c">
+          <para>: Enter the Sales Order Number of the Sales Order whose
+          Packing List you want to print.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518634">Order Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1861a54">
+          <para>: Displays the Order Date for the specified Sales
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518635">Cust. Name</term>
+
+        <listitem id="listitemN0x180ac00N0x1861a9c">
+          <para>. Name: Displays the Customer Name associated with the
+          specified Sales Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518636">Cust. Phone</term>
+
+        <listitem id="listitemN0x180ac00N0x1861ae4">
+          <para>. Phone: Displays the Customer's phone number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518637">P/O Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1861b2c">
+          <para>: Displays the Purchase Order Number associated with the
+          specified Sales Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518638">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518639">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1861b98">
+          <para>Closes the screen without printing a Packing List, returning
+          you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518640">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1861be0">
+          <para>Prints a copy of the Packing List for the specified Sales
+          Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

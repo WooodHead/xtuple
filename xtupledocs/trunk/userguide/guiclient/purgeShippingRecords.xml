@@ -1,69 +1,63 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Purge Shipping Records
-    </title>
-   <subtitle>purgeShippingRecords : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/purgeShippingRecords.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Purge Shipping Records
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry>
-                  <guilabel>Cu<accel>t</accel>off Date:</guilabel>
-               </entry>
-               <entry>_cutoffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_cutOffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>urge</guilabel>
-               </entry>
-               <entry>_purge</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518601">
+    <title><anchor id="Anchor529421" role="Index"
+    xreflabel="shipping records:purging of" /> <indexterm
+        significance="normal" zone="Anchor529421">
+        <primary>shipping records</primary>
+
+        <secondary>purging of</secondary>
+      </indexterm>Purge Shipping Records</title>
+
+    <para id="Para518602">To purge Shipping Records, select the "Purge
+    Shipping Records" option. The following screen will appear:</para>
+
+    <para id="Para518606"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SR_Ship_purgeShipRecords.png"
+                       id="Graphic520008" />
+          </imageobject>
+
+          <caption id="Caption518607">Purge Shipping Records</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518608">When purging Shipping Records, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518612">Cutoff Date</term>
+
+        <listitem id="listitemN0x180ac00N0x184e29c">
+          <para>Shipping Records created on or before this date will be
+          purged.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518614">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518615">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x184e308">
+          <para>Closes the screen without purging the Shipping Records,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518616">PURGE</term>
+
+        <listitem id="listitemN0x180ac00N0x184e350">
+          <para>Purges Shipping Records on and before the specified cutoff
+          date.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

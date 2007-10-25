@@ -1,112 +1,146 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Unposted Receipts
-  </title>
-   <subtitle>unpostedPoReceipts : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/unpostedPoReceipts.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Unposted Receipts
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Unposted Receipts:</guilabel>
-               </entry>
-               <entry>_unpostedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_recv</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Post</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>View Order Item</guilabel>
-               </entry>
-               <entry>_viewOrderItem</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section545734">
+  <title><anchor id="Anchor545803" role="Index"
+  xreflabel="receiving:list unposted receipts" /> <indexterm
+      significance="normal" zone="Anchor545803">
+      <primary>receiving</primary>
+
+      <secondary>list unposted receipts</secondary>
+    </indexterm>List Unposted Receipts</title>
+
+  <para id="Para546011">When you are receiving an Order, you have the option
+  to either post it or save it for posting later. If a Receipt is saved for
+  posting later, it will appear on the List Unposted Receipts screen. To
+  access your unposted Receipts, select the "List Unposted Receipts" option.
+  The following screen will appear:</para>
+
+  <para id="Para545825"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Rcvg_listUnpostRcpts.png"
+                     id="Graphic545823" />
+        </imageobject>
+
+        <caption id="Caption545826">List Unposted Receipts</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para545843">The "Unposted Receipts" screen displays information on
+  all existing unposted Order Receipts, including Order Number, Order Type,
+  Vendor name, Line Item Number, Order due date, Inventory Item Number,
+  Inventory UOM, Vendor Item Number, Vendor UOM, quantity ordered, quantity
+  received, quantity to receive, receipt date, and G/L posted date.</para>
+
+  <tip>
+    <para id="Para545845">You may select multiple Receipts for printing or
+    posting by highlighting them using your mouse--or a combination of your
+    mouse and either the SHIFT or CTRL keys.</para>
+  </tip>
+
+  <para id="Para545846">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para545847">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18573c4">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545885">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x185740c">
+        <para>Highlight an Order and then select this button to print a copy
+        of the selected Order.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para546030">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1857454">
+        <para>Opens screen for entering a new Receipt.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para546031">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x185749c">
+        <para>Enables you to edit Receipts by correcting the received quantity
+        or freight amount. Double-clicking on a Receipt will also bring you to
+        the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545893">POST</term>
+
+      <listitem id="listitemN0x180ac00N0x18574e4">
+        <para>Highlight a Receipt and then select this button to post the
+        selected Receipt.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545853">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x185752c">
+        <para>Highlight a Receipt and then select this button to remove the
+        Receipt from the list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545900">VIEW ORDER ITEM</term>
+
+      <listitem id="listitemN0x180ac00N0x1857574">
+        <para>Highlight a Receipt and then select this button to reach a
+        read-only view of the original Order Line Item screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para546072">Right-clicking on a Receipt in the unposted Receipts
+  list enables you to select from the following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para545858">Edit Receipt</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x185749c)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545860">Delete Receipt</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x185752c)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545861">Post Receipt</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18574e4)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para545906">View Order Item</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1857574)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
