@@ -1,149 +1,193 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   A/R Applications
-  </title>
-   <subtitle>dspARApplications : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspARApplications.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   A/R Applications
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_customerTypeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All Customers</guilabel>
-               </entry>
-               <entry>_allCustomers</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Selected Customer:</guilabel>
-               </entry>
-               <entry>_selectedCustomer</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_cust</entry>
-               <entry>CustInfo</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Selected Customer Type:</guilabel>
-               </entry>
-               <entry>_selectedCustomerType</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_customerTypes</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Customer Type Pattern:</guilabel>
-               </entry>
-               <entry>_customerTypePattern</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_customerType</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Show Cash Receipts</guilabel>
-               </entry>
-               <entry>_cashReceipts</entry>
-               <entry>XCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Show Credit Memos</guilabel>
-               </entry>
-               <entry>_creditMemos</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>A/R Applications:</guilabel>
-               </entry>
-               <entry>_arapplyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_arapply</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section553578">
+    <title><anchor id="Anchor553577" role="Index"
+    xreflabel="cash receipts:application of;credit memos:application of" />
+    <indexterm significance="normal" zone="Anchor553577">
+        <primary>cash receipts</primary>
+
+        <secondary>application of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor553577">
+        <primary>credit memos</primary>
+
+        <secondary>application of</secondary>
+      </indexterm>A/R Applications</title>
+
+    <para id="Para548349">To view details concerning the application of Cash
+    Receipts and Credit Memos to A/R open items, select the "A/R Applications"
+    option. The following screen will appear:</para>
+
+    <para id="Para548353"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AR_Disp_arApplications.png"
+                       id="Graphic548351" />
+          </imageobject>
+
+          <caption id="Caption548354">A/R Applications</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para548056">When viewing A/R application details, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para548377">All Customers</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6dd4">
+          <para>Select to display A/R application details for all
+          Customers.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548378">Selected Customer</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6e1c">
+          <para>Select to display A/R application details for a selected
+          Customer.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548380">Selected Customer Type</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6e64">
+          <para>Specify Customer Type whose A/R application details you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548382">Customer Type Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6eac">
+          <para>Enter a Customer Type pattern to select a range of Customer
+          Types.</para>
+
+          <para id="Para573189">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef573188"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548415">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6ef4">
+          <para>A/R applications made on and after this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548420">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6f3c">
+          <para>A/R applications made on and before this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548426">Show Cash Receipts</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6f84">
+          <para>Select to display only Cash Receipt application
+          details.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548440">Show Credit Memos</term>
+
+        <listitem id="listitemN0x180ac00N0x18b6fcc">
+          <para>Select to display only Credit Memo application details.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548422">A/R Applications</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7014">
+          <para>Display lists A/R application details, using the specified
+          parameters.</para>
+
+          <para id="Para572423">The total amount of all applications during
+          the period will display at the bottom of the screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para559909">When you see the term "Other" in the "Apply-To"
+      column, this typically refers to a Misc. Application made while entering
+      a Cash Receipt.</para>
+    </tip>
+
+    <para id="Para548485">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para548486">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18b70a4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548487">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18b70ec">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572308">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7134">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para564302">Right-clicking on a Document in the A/R Applications
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para564304">View Apply to Invoice</term>
+
+        <listitem id="listitemN0x180ac00N0x18b71a0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para564340">If you are right-clicking on a Credit Memo, the
+    following additional option will be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para564344">View Source Credit Memo</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7254">
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

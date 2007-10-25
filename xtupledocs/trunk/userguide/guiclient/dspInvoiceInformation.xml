@@ -1,269 +1,146 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Invoice Information
-  </title>
-   <subtitle>dspInvoiceInformation : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspInvoiceInformation.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Invoice Information
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>nvoice #:</guilabel>
-               </entry>
-               <entry>_invoiceNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invoiceNumber</entry>
-               <entry>InvoiceLineEdit</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_invoiceList</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Customer P/O #:</guilabel>
-               </entry>
-               <entry>_custPoNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_custPoNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_cust</entry>
-               <entry>CustCluster</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Invoice Date:</guilabel>
-               </entry>
-               <entry>_invoiceDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Ship Date:</guilabel>
-               </entry>
-               <entry>_shipDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_invoiceDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_shipDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Invoice Amount:</guilabel>
-               </entry>
-               <entry>_invoiceAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_invoiceAmount</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew Details</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bill-to:</guilabel>
-               </entry>
-               <entry>_billtoLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_billToName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_billToAddress1</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_billToAddress2</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_billToAddress3</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_billToCity</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_billToState</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_billToZip</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_billToPhone</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Ship-to:</guilabel>
-               </entry>
-               <entry>_shiptoLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToAddress1</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_shipToAddress2</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToAddress3</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_shipToCity</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_shipToState</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_shipToZip</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipToPhone</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Notes:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Applications:</guilabel>
-               </entry>
-               <entry>_applicationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_arapply</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section524327">
+    <title><anchor id="Anchor533949" role="Index"
+    xreflabel="invoices:information about" /> <indexterm significance="normal"
+        zone="Anchor533949">
+        <primary>invoices</primary>
+
+        <secondary>information about</secondary>
+      </indexterm>Invoice Information</title>
+
+    <para id="Para530887">To view Invoice information, select the "Invoice
+    Information" option. The following screen will appear:</para>
+
+    <para id="Para530890"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AR_Disp_invInfo.png" id="Graphic530889" />
+          </imageobject>
+
+          <caption id="Caption530891">Invoice Information</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para530491">When displaying Invoice information, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para560937">Invoice #</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7398">
+          <para>Enter the Invoice Number of the Invoice whose information you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para560938">Customer #</term>
+
+        <listitem id="listitemN0x180ac00N0x18b73e0">
+          <para>Displays the Customer Number of the Customer associated with
+          the specified Invoice. The Customer name and billing address will
+          also display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para549560">Customer P/O #</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7428">
+          <para>Displays related Customer Purchase Order Number, if
+          any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531433">Invoice Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7470">
+          <para>Displays the date the Invoice was created.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531447">Ship Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18b74b8">
+          <para>Displays the date the Invoice Items were shipped.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531448">Invoice Amount</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7500">
+          <para>Displays the amount due on the Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531449">Bill-To</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7548">
+          <para>Displays the Customer's Bill-To Address.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531367">Ship-To</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7590">
+          <para>Displays the Ship-To Address used for the specified
+          Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531368">Notes</term>
+
+        <listitem id="listitemN0x180ac00N0x18b75d8">
+          <para>Displays any Notes associated with the Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539310">Applications</term>
+
+        <listitem id="listitemN0x180ac00N0x18b7620">
+          <para>Display lists associated applications.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para531415">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para531416">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18b768c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550870">VIEW DETAILS</term>
+
+        <listitem id="listitemN0x180ac00N0x18b76d4">
+          <para>Select to view the original Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para572314">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18b771c">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
