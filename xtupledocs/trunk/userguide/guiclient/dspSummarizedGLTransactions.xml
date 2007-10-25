@@ -1,149 +1,173 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Summarized G/L Transactions
-  </title>
-   <subtitle>dspSummarizedGLTransactions : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspSummarizedGLTransactions.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Summarized G/L Transactions
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_sourceGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>All Sources</guilabel>
-               </entry>
-               <entry>_allSources</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Selected Source:</guilabel>
-               </entry>
-               <entry>_selectedSource</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_source</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show Username</guilabel>
-               </entry>
-               <entry>_showUsername</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_showGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All Transactions</guilabel>
-               </entry>
-               <entry>_allTransactions</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Unposted Transactions</guilabel>
-               </entry>
-               <entry>_unpostedTransactions</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Posted Transactions</guilabel>
-               </entry>
-               <entry>_postedTransactions</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Summarized G/L Transactions:</guilabel>
-               </entry>
-               <entry>_gltransLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_gltrans</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+
+  <section id="Section569994">
+    <title><anchor id="Anchor569993" role="Index"
+    xreflabel="general ledger:summarized transactions in;transactions:summarized in general ledger" />
+    <indexterm significance="normal" zone="Anchor569993">
+        <primary>general ledger</primary>
+
+        <secondary>summarized transactions in</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor569993">
+        <primary>transactions</primary>
+
+        <secondary>summarized in general ledger</secondary>
+      </indexterm>Summarized G/L Transactions</title>
+
+    <para id="Para569995">To view summarized General Ledger transactions,
+    select the "Summarized G/L Transactions" option. The following screen will
+    appear:</para>
+
+    <para id="Para525488"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GL_Disp_summGLTrans.png"
+                       id="Graphic525486" />
+          </imageobject>
+
+          <caption id="Caption525489">Summarized G/L Transactions</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para529640">When displaying summarized General Ledger
+    transactions, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529641">All Sources</term>
+
+        <listitem id="listitemN0x180ac00N0x191536c">
+          <para>Select to display summarized G/L transactions from all source
+          modules.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529642">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19153b4">
+          <para>Specify source module whose summarized G/L transactions you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529646">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x19153fc">
+          <para>G/L transactions posted on and after this date will be
+          summarized in the display. This is a required field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529651">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1915444">
+          <para>G/L transactions posted on and before this date will be
+          summarized in the display. This is a required field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531143">Show</term>
+
+        <listitem id="listitemN0x180ac00N0x191548c">
+          <para>Select one of the following display options:</para>
+
+          <para id="Para531150">All Transactions: Select to summarize all
+          transactions in the display.</para>
+
+          <para id="Para531154">Unposted Transactions: Select to summarize
+          only unposted transactions in the display.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para585751">An "unposted transaction" is a transaction
+      involving Accounts whose Trial Balances have not yet been updated with
+      the transaction information. Unposted transactions exist in a kind of
+      limbo state. They are posted to the General Ledger (G/L), but not yet to
+      the Trial Balance. This type of transaction occurs when users attempt to
+      post transactions into frozen, closed, or non-existent Accounting
+      Periods. Thawing and/or opening closed Periods is one method for
+      correcting this situation; offsetting G/L journal entries may also be
+      used.</para>
+    </note>
+
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x19154f8">
+        <para id="Para531155">Posted Transactions: Select to summarize only
+        posted transactions in the display.</para>
+
+        <para id="Para566227">Show Username: Select to display the username of
+        users associated with transactions.</para>
+
+        <para id="Para529653">Summarized G/L Transactions: Display lists
+        summarized G/L transactions based on the specified parameters.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x191551c">
+        <para id="Para610880">This display is a nested list, with a plus ("+")
+        sign located to the far left of the display next to each transaction
+        that may be expanded to lower levels. By clicking your mouse on a plus
+        sign, you reveal lower levels of information related to the
+        transaction.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para id="Para529655">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529656">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1915588">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para533811">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x19155d0">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+
+          <para id="Para529687">Start date and end date must be entered for
+          request to proceed. Results will be displayed in the "Summarized G/L
+          Transactions" list.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529659">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1915618">
+          <para>Prints a copy of the contents displayed on the screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para569941">Right-clicking on a line item in the transactions
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/2)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para569953">If the transaction refers to an Invoice, Purchase
+    Order, or Voucher, you may also drill down to view the original
+    Document.</para>
+  </section>
