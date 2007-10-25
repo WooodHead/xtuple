@@ -1,74 +1,112 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Print W/O Pick List
-    </title>
-   <subtitle>printWoPickList : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printWoPickList.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Print W/O Pick List
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Co<accel>p</accel>ies:</guilabel>
-               </entry>
-               <entry>_copiesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_copies</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518661">
+    <title><anchor id="Anchor533171" role="Index"
+    xreflabel="pick lists:printing of" /> <indexterm significance="normal"
+        zone="Anchor533171">
+        <primary>pick lists</primary>
+
+        <secondary>printing of</secondary>
+      </indexterm>Print Pick List</title>
+
+    <para id="Para518662">A Pick List is a printed list showing the Work Order
+    Material Requirements for a specified Work Order. To print a Pick List,
+    select the "Print Pick List" option. The following screen will
+    appear:</para>
+
+    <para id="Para518666"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_printPick.png"
+                       id="Graphic523502" />
+          </imageobject>
+
+          <caption id="Caption518667">Figure 7: Print Pick List</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518668">When printing a Pick List, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518669">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order you want to
+          print a Pick List for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518671">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518673">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568613">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518677">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518679">Copies</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 99.</para>
+
+          <para id="Para518680">Specify the number of copies of the Pick List
+          you want to print.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518681">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para568918">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without printing a Pick List for the
+          selected Work Order, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568919">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

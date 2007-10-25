@@ -1,155 +1,159 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Change W/O Quantity Ordered
-  </title>
-   <subtitle>changeWoQty : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/changeWoQty.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Change W/O Quantity Ordered
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Change <accel>Q</accel>ty.</guilabel>
-               </entry>
-               <entry>_change</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyOrderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>New</guilabel>
-               </entry>
-               <entry>_newLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_newQtyOrdered</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_newQtyBalance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_newQtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_currentQtyOrdered</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Current</guilabel>
-               </entry>
-               <entry>_currentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Balance:</guilabel>
-               </entry>
-               <entry>_qtyBalanceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_currentQtyBalance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_currentQtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Post Comment</guilabel>
-               </entry>
-               <entry>_postComment</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_commentGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Comment Type:</guilabel>
-               </entry>
-               <entry>_cmnttypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_cmnttype</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comment</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518739">
+    <title><anchor id="Anchor533177" role="Index"
+    xreflabel="work orders:changing quantities for" /> <indexterm
+        significance="normal" zone="Anchor533177">
+        <primary>work orders</primary>
+
+        <secondary>changing quantities for</secondary>
+      </indexterm>Change Work Order Quantity</title>
+
+    <para id="Para518740">You have the ability to change the quantity of Work
+    Orders having either "O" or "E" status. To change the quantity specified
+    by a Work Order, select the "Change Work Order Quantity" option. The
+    following screen will appear:</para>
+
+    <para id="Para518744"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_changeQty.png"
+                       id="Graphic523533" />
+          </imageobject>
+
+          <caption id="Caption518745">Change Work Order Quantity</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para560410">To edit a Work Order after it has been created,
+      use the right-click menu in any of the "Work Order Schedule by..."
+      displays. There you will find an "Edit W/O" option.</para>
+    </tip>
+
+    <para id="Para518746">When changing a Work Order's quantity, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518747">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose quantity
+          you want to change.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518749">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518751">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568641">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518755">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518760">Qty. Ordered</term>
+
+        <listitem>
+          <para>Enter the revised Work Order quantity in the "New" field. The
+          current quantity ordered will display under the "Current"
+          column.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518762">Qty. Received</term>
+
+        <listitem>
+          <para>The current quantity received will display under the two
+          columns.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539106">Qty. Balance</term>
+
+        <listitem>
+          <para>The current quantity balance will display under the two
+          columns.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550724">Post Comment</term>
+
+        <listitem>
+          <para>Select to attach a Comment to the Work Order.</para>
+
+          <para id="Para550725">This option must be selected if you want to
+          add a Comment to the Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550452">Comment Type</term>
+
+        <listitem>
+          <para>Specify one of the following Comment Types from the drop-down
+          list: ChangeLog or General.</para>
+
+          <para id="Para550453">Comment Types are used to categorize Comments.
+          Once you have specified a Comment Type, you may type your Comment in
+          the main text area. The text area features word-wrapping and
+          scroll-bar support for longer Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para550444">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518767">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without changing the selected Work Order's
+          quantity ordered, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518768">CHANGE QTY.</term>
+
+        <listitem>
+          <para>Changes the selected Work Order quantity to the new Work Order
+          quantity specified in the "New" field.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

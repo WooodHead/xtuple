@@ -1,308 +1,254 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Work Order
-  </title>
-   <subtitle>workOrder : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/workOrder.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Work Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>  Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_booGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Revision:</guilabel>
-               </entry>
-               <entry>_boorevLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_boorevlist</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_boorev</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bomGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Revision:</guilabel>
-               </entry>
-               <entry>_bomrevLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_bomrevlist</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_bomrev</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_wipValue</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_qtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>WIP Value:</guilabel>
-               </entry>
-               <entry>_wipValueLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_infoGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_project</entry>
-               <entry>ProjectCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Priority:</guilabel>
-               </entry>
-               <entry>_priorityLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_priority</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>C<accel>r</accel>eate</guilabel>
-               </entry>
-               <entry>_create</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Work Order #:</guilabel>
-               </entry>
-               <entry>_woNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_woNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint Traveler</guilabel>
-               </entry>
-               <entry>_printTraveler</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_bottomSpacer</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tabs</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Production Notes</entry>
-               <entry>tab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_productionNotes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>Characteristics</entry>
-               <entry>itemchar</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemcharView</entry>
-               <entry>QTreeView</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>TabPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_schedGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_daysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dueDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Start Date:</guilabel>
-               </entry>
-               <entry>_startDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Lead Time:</guilabel>
-               </entry>
-               <entry>_leadTimeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Due Date:</guilabel>
-               </entry>
-               <entry>_eueDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_startDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_leadTime</entry>
-               <entry>QSpinBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518517">
+    <title><anchor id="Anchor533161" role="Index"
+    xreflabel="work orders:creating new " /> <indexterm significance="normal"
+        zone="Anchor533161">
+        <primary>work orders</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>Create New Work Order</title>
+
+    <para id="Para570023">To create a new Work Order, select the "Create New
+    Work Order" option. The following screen will appear:</para>
+
+    <para id="Para518522"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_createWO.png" id="Graphic523416" />
+          </imageobject>
+
+          <caption id="Caption518523">Create New Work Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para560251">To edit a Work Order after it has been created,
+      use the right-click menu in any of the "Work Order Schedule by..."
+      displays. There you will find an "Edit W/O" option.</para>
+    </tip>
+
+    <para id="Para560240">When creating a new Work Order, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para547948">Work Order #</term>
+
+        <listitem>
+          <para>Next available Work Order Number will automatically display,
+          unless your system requires you to enter Work Order Numbers
+          manually.</para>
+
+          <para id="Para518530">Default values and input parameters for Work
+          Order Numbers are configurable at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518532">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the manufactured Item you want to
+          create a Work Order for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568584">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518536">Warehouse</term>
+
+        <listitem>
+          <para>Specify supplying Warehouse for selected Item.</para>
+
+          <para id="Para547717">Only Warehouses that contain supplying Item
+          Sites for the selected Item may be chosen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para547681">Order Parameters may have an impact on Work Order
+      quantity if the "on Manual Orders" option is selected in the Item Site
+      master for a manufactured Item. If Order Parameters are in effect, the
+      Work Order must conform to those restrictions. Both Minimum Order size
+      and Order Multiple may be governed by Order Parameter settings.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para551005">Priority</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 99.</para>
+
+          <para id="Para551006">Value entered assigns a priority to the
+          selected Work Order. By assigning a priority to a Work Order, you
+          can indicate the relative importance of a Work Order in comparison
+          to other Work Orders.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550995">Qty. Ordered</term>
+
+        <listitem>
+          <para>Value entered specifies the number of Item units to be
+          processed by the Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518546">Due Date</term>
+
+        <listitem>
+          <para>Enter the date the Work Order must be completed by.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518551">Start Date</term>
+
+        <listitem>
+          <para>Enter the date the Work Order must be started by. By default,
+          this date will be the due date less the Lead Time. The start date
+          may be changed by altering the Lead Time field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518553"><anchor id="Anchor535717" role="Index"
+        xreflabel="work orders:adjusting lead times for" /> <indexterm
+            significance="normal" zone="Anchor535717">
+            <primary>work orders</primary>
+
+            <secondary>adjusting lead times for</secondary>
+          </indexterm>Lead Time (Days)</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para518554">Value entered specifies the manufacturing Lead
+          Time required between the date the Work Order starts and the date it
+          is due. Lead Times for Items are specified in the Item Site master,
+          but may be modified on this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para555522">The option to associate a Project with a Work
+      Order will only be visible if your site is configured to use
+      Projects.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para555523">Project #</term>
+
+        <listitem>
+          <para>Select a Project Number to associate with the Work
+          Order.</para>
+
+          <para id="Para555524">If the Work Order was created from Sales Order
+          demand--and the parent Sales Order had a Project Number associated
+          with it--then the Project Number from the parent Sales Order will
+          automatically be entered here. In this way, Sales Orders and Work
+          Orders may be linked to the same Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518558">Production Notes</term>
+
+        <listitem>
+          <para>This is a scrolling text field with word-wrapping for entering
+          production Notes related to the Work Order. Production Notes are
+          printed on Pick Lists and Packing Lists for reference by production
+          personnel.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para553045">If a Work Order was created from a Sales Order,
+      the Production Notes field will contain the Sales Order Number, the
+      Customer Name, and any additional Sales Order Line Item Notes.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para534624">Print Traveler</term>
+
+        <listitem>
+          <para>Select to print a Work Order Traveler when Work Order is
+          created.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518560">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518561">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without creating the Work Order, returning
+          you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548213">CREATE</term>
+
+        <listitem>
+          <para>Creates the Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para548250">To view Comments related to a Work Order, select the
+    "Comments" tab. The following screen will appear:</para>
+
+    <para id="Para548189"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_createWOComm.png"
+                       id="Graphic548187" />
+          </imageobject>
+
+          <caption id="Caption548190">Add Work Order Comments</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para549184">Work Order Comments may not be added at the time
+      of Work Order creation. Instead, use the Production Notes tab for
+      entering Notes related to a Work Order.</para>
+    </note>
+
+    <para id="Para549169">When viewing Comments related to a Work Order, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para548263">Comments</term>
+
+        <listitem>
+          <para>Display lists Comments for the specified Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

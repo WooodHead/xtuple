@@ -1,74 +1,81 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Purge Closed Work Orders
-    </title>
-   <subtitle>purgeClosedWorkOrders : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/purgeClosedWorkOrders.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Purge Closed Work Orders
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Cutoff Date:</guilabel>
-               </entry>
-               <entry>_cutoffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_cutOffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>urge</guilabel>
-               </entry>
-               <entry>_purge</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518769">
+    <title><anchor id="Anchor533179" role="Index"
+    xreflabel="work orders:purging closed " /> <indexterm
+        significance="normal" zone="Anchor533179">
+        <primary>work orders</primary>
+
+        <secondary>purging closed</secondary>
+      </indexterm>Purge Closed Work Orders</title>
+
+    <para id="Para518770">When you purge closed Work Orders, you are removing
+    from the database both detailed and header level Work Order information.
+    To purge closed Work Orders, select the "Purge Closed Work Orders" option.
+    The following screen will appear:</para>
+
+    <para id="Para518774"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_purgeWO.png" id="Graphic523543" />
+          </imageobject>
+
+          <caption id="Caption518775">Purge Closed Work Orders</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518776">When purging closed Work Orders, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518780">Cutoff Date</term>
+
+        <listitem>
+          <para>All closed Work Orders prior to the date entered will be
+          purged from the system.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518782">All Warehouses</term>
+
+        <listitem>
+          <para>Select to purge closed Work Orders from all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para518784">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose closed Work Orders you want to
+          purge.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518786">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518787">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without purging closed Work Orders,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518788">PURGE</term>
+
+        <listitem>
+          <para>Purges closed Work Orders using the criteria specified in the
+          screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

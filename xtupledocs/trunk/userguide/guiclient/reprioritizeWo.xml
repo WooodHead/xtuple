@@ -1,95 +1,129 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Reprioritize Work Order
-  </title>
-   <subtitle>reprioritizeWo : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/reprioritizeWo.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Reprioritize Work Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>eprioritize</guilabel>
-               </entry>
-               <entry>_reprioritize</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Current Priority:</guilabel>
-               </entry>
-               <entry>_currentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_current</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>New Priority:</guilabel>
-               </entry>
-               <entry>_newLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_new</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Reprioritize Child Work Orders (if any)</guilabel>
-               </entry>
-               <entry>_changeChildren</entry>
-               <entry>XCheckBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section550001">
+    <title>Reprioritize Work Order</title>
+
+    <para id="Para550005">You have the ability to reprioritize Work Orders
+    having either "O" or "E" status. To change the priority assigned to a Work
+    Order, select the "Reprioritize Work Order" option. The following screen
+    will appear:</para>
+
+    <para id="Para550754"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Con_reprioritizeWO.png"
+                       id="Graphic550752" />
+          </imageobject>
+
+          <caption id="Caption550755">Reprioritize Work Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para560386">To edit a Work Order after it has been created,
+      use the right-click menu in any of the "Work Order Schedule by..."
+      displays. There you will find an "Edit W/O" option.</para>
+    </tip>
+
+    <para id="Para558240">When rescheduling a Work Order, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para550821">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order you want to
+          reschedule.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550823">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550824">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568627">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550826">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550830">Current Priority</term>
+
+        <listitem>
+          <para>Displays the current priority assigned to the Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550962">New Priority</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 99.</para>
+
+          <para id="Para550963">Value entered assigns a new priority to the
+          selected Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550837">Reschedule Child Work Orders (if any)</term>
+
+        <listitem>
+          <para>Select to reprioritize child Work Orders to meet the demands
+          of the reprioritized parent Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para550842">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para550843">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without reprioritizing the selected Work
+          Order, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para550844">RESCHEDULE</term>
+
+        <listitem>
+          <para>Assigns a new priority to the selected Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

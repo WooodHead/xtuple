@@ -1,115 +1,169 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Work Order Material Requirement
-    </title>
-   <subtitle>woMaterialItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/woMaterialItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Work Order Material Requirement
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                        <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                                <row>
-               <entry>
-                  <guilabel>Qty. Per:</guilabel>
-               </entry>
-               <entry>_qtyPerLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                <row>
-               <entry>
-                  <guilabel>Scrap %:</guilabel>
-               </entry>
-               <entry>_scrapLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                <row>
-               <entry>
-                  <guilabel>Qty. Required:</guilabel>
-               </entry>
-               <entry>_qtyRequiredLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                <row>
-               <entry/>
-               <entry>_qtyPer</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                                <row>
-               <entry/>
-               <entry>_scrap</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                                <row>
-               <entry/>
-               <entry>_qtyRequired</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Issue Method:</guilabel>
-               </entry>
-               <entry>_issueMethodLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_issueMethod</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518797">
+    <title><anchor id="Anchor533183" role="Index"
+    xreflabel="work orders:creating material requirements for" /> <indexterm
+        significance="normal" zone="Anchor533183">
+        <primary>work orders</primary>
+
+        <secondary>creating material requirements for</secondary>
+      </indexterm>Create W/O Material Requirement</title>
+
+    <para id="Para518798">To create a Work Order Material Requirement for an
+    open ("O") Work Order, select the "Create W/O Material Requirement"
+    option. The following screen will appear:</para>
+
+    <para id="Para518802"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_createWOMatReq.png"
+                       id="Graphic523573" />
+          </imageobject>
+
+          <caption id="Caption518803">Create Work Order Material
+          Requirement</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518804">When creating a Work Order Material Requirement, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518805">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order you want to
+          create a Material Requirement for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518807">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518809">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568646">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518813">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518820">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item you want to add to the
+          parent Item's Bill of Materials.</para>
+
+          <para id="Para518821">This feature allows you to add Items to the
+          selected Work Order's list of Material Requirements on an ad hoc
+          basis.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568651">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518827">Qty. Per</term>
+
+        <listitem>
+          <para>Enter the quantity of component Items required to produce one
+          of the Items manufactured by the selected Work Order. The component
+          Item is measured in its Inventory UOM. The Item manufactured by the
+          Work Order is measured in that Item's Inventory UOM.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518832">Scrap %</term>
+
+        <listitem>
+          <para>Enter the estimated Scrap percentage for the ad hoc
+          addition.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para549671">Qty. Required</term>
+
+        <listitem>
+          <para>Required: Displays the total quantity required, including
+          quantity per and Scrap allowance.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para549672">Issue Method</term>
+
+        <listitem>
+          <para>Select one of the available issue methods:</para>
+
+          <para id="Para549673">Push: Select if you want material for the Item
+          to be issued to the Work Order by a specific material issue
+          transaction.</para>
+
+          <para id="Para518838">Pull: Select if you want material for the Item
+          to be issued to the Work Order by either a material backflush or an
+          Operation backflush.</para>
+
+          <para id="Para518839">Mixed: Select if you want the Item to take
+          upon itself the issue method applied to it initially--that is,
+          either a pull or a push.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518840">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518841">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without creating a new Work Order Material
+          Requirement, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518842">SAVE</term>
+
+        <listitem>
+          <para>Creates the Work Order Material Requirement.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
