@@ -18,5 +18,9 @@ ALTER TABLE coitem ADD COLUMN coitem_price_invuomratio NUMERIC(20,10);
 UPDATE coitem SET coitem_price_invuomratio=item_invpricerat FROM item, itemsite WHERE coitem_itemsite_id=itemsite_id AND itemsite_item_id=item_id;
 ALTER TABLE coitem ALTER COLUMN coitem_price_invuomratio SET NOT NULL;
 
+ALTER TABLE coitem ADD COLUMN coitem_warranty boolean NOT NULL DEFAULT FALSE;
+ALTER TABLE coitem ADD COLUMN coitem_salescat_id integer REFERENCES salescat (salescat_id);
+ALTER TABLE coitem ADD COLUMN coitem_cos_accnt_id integer REFERENCES accnt (accnt_id);
+
 COMMIT;
 
