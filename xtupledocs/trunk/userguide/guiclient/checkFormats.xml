@@ -1,156 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
 "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section565579">
+  <title><anchor id="Anchor532554" role="Index"
+  xreflabel="check formats:master list of;accounts payable:check formats for;checks:formats for" />
+  <indexterm significance="normal" zone="Anchor532554">
+      <primary>check formats</primary>
 
-  <section id="Section565579">
-    <title><anchor id="Anchor532554" role="Index"
-    xreflabel="check formats:master list of;accounts payable:check formats for;checks:formats for" />
-    <indexterm significance="normal" zone="Anchor532554">
-        <primary>check formats</primary>
+      <secondary>master list of</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor532554">
+      <primary>accounts payable</primary>
 
-        <secondary>master list of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532554">
-        <primary>accounts payable</primary>
+      <secondary>check formats for</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor532554">
+      <primary>checks</primary>
 
-        <secondary>check formats for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532554">
-        <primary>checks</primary>
+      <secondary>formats for</secondary>
+    </indexterm>List Check Formats</title>
 
-        <secondary>formats for</secondary>
-      </indexterm>Check Formats</title>
+  <para id="Para527611">To access the master list of Check formats, select the
+  "Check Formats" option. The following screen will appear:</para>
 
-    <para id="Para527611">To access the master list of Check formats, select
-    the "Check Formats" option. The following screen will appear:</para>
+  <para id="Para527615"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_MI_chkFormatList.png"
+                     id="Graphic527613" />
+        </imageobject>
 
-    <para id="Para527615"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_MI_chkFormatList.png"
-                       id="Graphic527613" />
-          </imageobject>
+        <caption id="Caption527616">Check Formats Master List</caption>
+      </mediaobject>
+    </screenshot></para>
 
-          <caption id="Caption527616">Check Formats Master List</caption>
-        </mediaobject>
-      </screenshot></para>
+  <para id="Para527617">The "Check Formats" screen displays information on all
+  existing Check formats, including Check format name and description.</para>
 
-    <para id="Para527617">The "Check Formats" screen displays information on
-    all existing Check formats, including Check format name and
-    description.</para>
+  <para id="Para527618">To the far right of the list, the following buttons
+  are available:</para>
 
-    <para id="Para527618">To the far right of the list, the following buttons
-    are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para527619">CLOSE</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para527619">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para527621">NEW</term>
 
-      <varlistentry>
-        <term id="Para527621">NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Check format.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Opens screen for creating a new Check format.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para527623">EDIT</term>
 
-      <varlistentry>
-        <term id="Para527623">EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Check format. The edit screen is
+        the same as that for creating a new Check format--except that when
+        editing, the fields will contain Check format information.
+        Double-clicking on a Check format will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Enables you to edit highlighted Check format. The edit screen
-          is the same as that for creating a new Check format--except that
-          when editing, the fields will contain Check format information.
-          Double-clicking on a Check format will also bring you to the editing
-          screen.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para527624">DELETE</term>
 
-      <varlistentry>
-        <term id="Para527624">DELETE</term>
-
-        <listitem>
-          <para>Highlight a Check format and then select this button to remove
-          the Check format from the list.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para id="Para527625"><anchor id="Anchor533926" role="Index"
-    xreflabel="check formats:creating new" /> <indexterm significance="normal"
-        zone="Anchor533926">
-        <primary>check formats</primary>
-
-        <secondary>creating new</secondary>
-      </indexterm>To add a new Check format, select the NEW button. The
-    following screen will appear:</para>
-
-    <para id="Para527629"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_MI_chkFormatNew.png"
-                       id="Graphic527627" />
-          </imageobject>
-
-          <caption id="Caption527630">Create New Check Format</caption>
-        </mediaobject>
-      </screenshot></para>
-
-    <para id="Para527631">When creating a new Check format, you are presented
-    with the following options:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term id="Para527737">Name</term>
-
-        <listitem>
-          <para>Enter a name to describe the Check format.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para527742">Description</term>
-
-        <listitem>
-          <para>Enter a description to further describe the Check
-          format.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para527757">Report</term>
-
-        <listitem>
-          <para>Specify the report definition you want to associate with the
-          Check format.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para id="Para527746">To the far right of the screen, the following
-    buttons are available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term id="Para527645">CANCEL</term>
-
-        <listitem>
-          <para>Closes the screen without creating a Check format, returning
-          you to the previous screen.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para527646">SAVE</term>
-
-        <listitem>
-          <para>Creates the Check format and adds it to the master list of
-          Check formats.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+      <listitem>
+        <para>Highlight a Check format and then select this button to remove
+        the Check format from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

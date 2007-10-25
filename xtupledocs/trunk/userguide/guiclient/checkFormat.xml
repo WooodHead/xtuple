@@ -1,96 +1,79 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Check Format
-  </title>
-   <subtitle>checkFormat : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/checkFormat.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Check Format
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ame:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>eport:</guilabel>
-               </entry>
-               <entry>_reportLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_report</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section565579">
+  <title><anchor id="Anchor532554" role="Index"
+  xreflabel="check formats:master list of;accounts payable:check formats for;checks:formats for" />
+  <indexterm significance="normal" zone="Anchor533926">
+      <primary>check formats</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Check Format</title>
+
+  <para id="Para527625">To add a new Check format, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para527629"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_MI_chkFormatNew.png"
+                     id="Graphic527627" />
+        </imageobject>
+
+        <caption id="Caption527630">Create New Check Format</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para527631">When creating a new Check format, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para527737">Name</term>
+
+      <listitem>
+        <para>Enter a name to describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527742">Description</term>
+
+      <listitem>
+        <para>Enter a description to further describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527757">Report</term>
+
+      <listitem>
+        <para>Specify the report definition you want to associate with the
+        Check format.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para527746">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para527645">CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without creating a Check format, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527646">SAVE</term>
+
+      <listitem>
+        <para>Creates the Check format and adds it to the master list of Check
+        formats.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

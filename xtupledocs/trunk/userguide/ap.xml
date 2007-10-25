@@ -43,9 +43,17 @@
 
     <xi:include href="guiclient/bankAccounts.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section567308)" />
+                xpointer="element(/1)" />
+
+    <xi:include href="guiclient/bankAccount.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
 
     <xi:include href="guiclient/checkFormats.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+
+    <xi:include href="guiclient/checkFormat.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
@@ -2545,154 +2553,12 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section549958)" />
 
-    <section id="Section561372">
-      <title><anchor id="Anchor561371" role="Index"
-      xreflabel="accounts payable:payables journal;payables journal:printing of;payables journal:reprinting of" />
-      <indexterm significance="normal" zone="Anchor561371">
-          <primary>accounts payable</primary>
+    <xi:include href="guiclient/printPayablesJournal.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
 
-          <secondary>payables journal</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor561371">
-          <primary>payables journal</primary>
-
-          <secondary>printing of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor561371">
-          <primary>payables journal</primary>
-
-          <secondary>reprinting of</secondary>
-        </indexterm>Payables Journal</title>
-
-      <para id="Para561373">When posting Vouchers in batch mode, you are given
-      the option to print a Payables Journal. To print a Payables Journal,
-      select the "Payables Journal" option. The following screen will
-      appear:</para>
-
-      <para id="Para561377"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/AP_Rep_payJournal.png"
-                         id="Graphic561375" />
-            </imageobject>
-
-            <caption id="Caption561378">Print Payables Journal</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para564011">When printing a Payables Journal, you are
-      presented with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para564012">Journal Number</term>
-
-          <listitem>
-            <para>Specify the number of the Payables Journal you want to
-            print.</para>
-
-            <para id="Para564013">Payables Journals are created when Vouchers
-            are posted. The Journal Number you select will include both the
-            Payable Journal Number and also the date when the Vouchers were
-            posted.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para561382">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para561383">CANCEL</term>
-
-          <listitem>
-            <para>Closes the screen without printing a Payables Journal,
-            returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para565686">PRINT</term>
-
-          <listitem>
-            <para>Runs the report associated with this screen.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
-
-    <section id="Section561386">
-      <title><anchor id="Anchor561385" role="Index"
-      xreflabel="accounts payable:check journal;check journal:printing of;check journal:reprinting of" />
-      <indexterm significance="normal" zone="Anchor561385">
-          <primary>accounts payable</primary>
-
-          <secondary>check journal</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor561385">
-          <primary>check journal</primary>
-
-          <secondary>printing of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor561385">
-          <primary>check journal</primary>
-
-          <secondary>reprinting of</secondary>
-        </indexterm>Check Journal</title>
-
-      <para id="Para561387">When posting A/P Checks in batch mode, you are
-      given the option to print a Check Journal. To print a Check Journal,
-      select the "Check Journal" option. The following screen will
-      appear:</para>
-
-      <para id="Para561391"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/AP_Rep_chkJournal.png"
-                         id="Graphic561389" />
-            </imageobject>
-
-            <caption id="Caption561392">Print Check Journal</caption>
-          </mediaobject>
-        </screenshot></para>
-
-      <para id="Para561393">When printing or reprinting a Check Journal, you
-      are presented with the following options:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para561394">Journal Number</term>
-
-          <listitem>
-            <para>Specify the number of the Check Journal you want to
-            print.</para>
-
-            <para id="Para561395">Check Journals are created when A/P Checks
-            are posted. The Journal Number you select will include both the
-            Check Journal Number and also the date when the Checks were
-            posted.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-
-      <para id="Para561396">To the far right of the screen, the following
-      buttons are available:</para>
-
-      <variablelist>
-        <varlistentry>
-          <term id="Para561397">CANCEL</term>
-
-          <listitem>
-            <para>Closes the screen without printing a Check Journal,
-            returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-
-        <varlistentry>
-          <term id="Para565696">PRINT</term>
-
-          <listitem>
-            <para>Runs the report associated with this screen.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+    <xi:include href="guiclient/printCheckJournal.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
   </section>
 </chapter>

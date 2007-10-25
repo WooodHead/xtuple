@@ -1,191 +1,173 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Bank Account
-  </title>
-   <subtitle>bankAccount : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/bankAccount.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Bank Account
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Bank Name:</guilabel>
-               </entry>
-               <entry>_bankNameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Account Number:</guilabel>
-               </entry>
-               <entry>_accountNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bankName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_accountNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Type:</guilabel>
-               </entry>
-               <entry>_typeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_currencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_type</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_currency</entry>
-               <entry>XComboBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Used in A/P</guilabel>
-               </entry>
-               <entry>_ap</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Next Check #:</guilabel>
-               </entry>
-               <entry>_nextCheckNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Check Format:</guilabel>
-               </entry>
-               <entry>_checkFormatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_nextCheckNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_form</entry>
-               <entry>XComboBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Used in A/R</guilabel>
-               </entry>
-               <entry>_ar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Asset Account:</guilabel>
-               </entry>
-               <entry>_assetAccountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_assetAccount</entry>
-               <entry>GLCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Notes:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>textEdit1</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section567308">
+  <title><anchor id="Anchor567307" role="Index"
+  xreflabel="bank accounts:master list of" /> <indexterm significance="normal"
+      zone="Anchor567328">
+      <primary>bank accounts</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Bank Account</title>
+
+  <para id="Para567327">A Bank Account can be set up for use by either
+  Accounts Receivable (A/R), Accounts Payable (A/P), or both. To create a new
+  Bank Account, select the NEW button. The following screen will
+  appear:</para>
+
+  <para id="Para567332"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_MI_bankAcctNew.png" id="Graphic567330" />
+        </imageobject>
+
+        <caption id="Caption567333">Create New Bank Account</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para567334">When creating a new Bank Account, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para567335">Name</term>
+
+      <listitem>
+        <para>Enter a name to describe the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567336">Description</term>
+
+      <listitem>
+        <para>Enter a description to further describe the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567337">Bank Name</term>
+
+      <listitem>
+        <para>Enter the name of the Bank where the Bank Account is
+        held.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567338">Account Number</term>
+
+      <listitem>
+        <para>Enter the Account Number for the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567339">Type</term>
+
+      <listitem>
+        <para>Specify whether the Bank Account is a checking or cash
+        account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567341"><anchor id="Anchor567340" role="Index"
+      xreflabel="bank accounts:used for payables" /> <indexterm
+          significance="normal" zone="Anchor567340">
+          <primary>bank accounts</primary>
+
+          <secondary>used for payables</secondary>
+        </indexterm>Used in A/P</term>
+
+      <listitem>
+        <para>Select if the Bank Account is used for Accounts Payable.</para>
+
+        <para id="Para567342">If selected, the Bank Account will be available
+        for use when making Payments. Not selecting means the Bank Account is
+        not used for Accounts Payable. Check specifications will be disabled
+        if this option is not selected.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567343">Next Check #</term>
+
+      <listitem>
+        <para>Indicate the next Check Number to be issued from the Bank
+        Account. Check Numbers will increment in intervals of one (1)
+        beginning with the Check Number entered here. By default, the next
+        available number will display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567344">Check Format</term>
+
+      <listitem>
+        <para>Specify the Check Format to be used when Checks drawn against
+        the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567346"><anchor id="Anchor567345" role="Index"
+      xreflabel="bank accounts:used for receivables" /> <indexterm
+          significance="normal" zone="Anchor567345">
+          <primary>bank accounts</primary>
+
+          <secondary>used for receivables</secondary>
+        </indexterm>Used in A/R</term>
+
+      <listitem>
+        <para>Select if the Bank Account is used for Accounts
+        Receivable.</para>
+
+        <para id="Para567347">If selected, the Bank Account will be available
+        for use when receiving money. Not selecting means the Bank Account is
+        not used for Accounts Receivable.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567348">Asset Account</term>
+
+      <listitem>
+        <para>Specify the Asset Account to be credited when payments are made
+        from the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567349">Notes</term>
+
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Bank Account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para567350">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para567351">CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without creating a Bank Account, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para567352">SAVE</term>
+
+      <listitem>
+        <para>Creates the Bank Account and adds it to the master list of Bank
+        Accounts.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
