@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section528735">
+    <title><anchor id="Anchor533193" role="Index"
+    xreflabel="sales history:by customer type;customer types:sales history for" />
+    <indexterm significance="normal" zone="Anchor533193">
+        <primary>sales history</primary>
+
+        <secondary>by customer type</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533193">
+        <primary>customer types</primary>
+
+        <secondary>sales history for</secondary>
+      </indexterm>Sales History by Customer Type</title>
+
+    <para id="Para528736">To view Sales history by Customer Type, select the
+    "Sales History by Customer Type" option. The following screen will
+    appear:</para>
+
+    <para id="Para528740"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Disp_salesHistByCusType.png"
+                       id="Graphic528738" />
+          </imageobject>
+
+          <caption id="Caption528741">Sales History by Customer Type</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para528742">When displaying Sales history by Customer Type, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para528743">All Customer Types</term>
+
+        <listitem id="listitemN0x180ac00N0x1840dac">
+          <para>Select to display Sales history for all Customer Types.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528744">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1840df4">
+          <para>Specify Customer Type whose Sales history you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528746">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x1840e3c">
+          <para>Enter a Customer Type pattern to select a range of Customer
+          Types.</para>
+
+          <para id="Para555526">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555525"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para528748">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x1840e60">
+          <para>Select to display Sales history by Customer Type for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para528750">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1840e84">
+          <para>Specify Warehouse whose Sales history by Customer Type you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528755">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1840ecc">
+          <para>Sales history by Customer Type generated on or after this date
+          will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528760">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1840f14">
+          <para>Sales history by Customer Type generated on or before this
+          date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540702">Show Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x1840f5c">
+          <para>Select to include Costs in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540703">Show Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x1840fa4">
+          <para>Select to include Prices in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528762">Sales History</term>
+
+        <listitem id="listitemN0x180ac00N0x1840fec">
+          <para>Display lists Sales history by Customer Type, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para528764">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para528765">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1847448">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541776">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1847490">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554940">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18474d8">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537675">Right-clicking on an Order in the Sales history list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/1)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/3/2/2)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

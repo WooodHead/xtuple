@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section657300">
+    <title><anchor id="Anchor657299" role="Index"
+    xreflabel="backlog:by product category;product categories:backlog details for" />
+    <indexterm significance="normal" zone="Anchor657299">
+        <primary>backlog</primary>
+
+        <secondary>by product category</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor657299">
+        <primary>product categories</primary>
+
+        <secondary>backlog details for</secondary>
+      </indexterm>Backlog by Product Category</title>
+
+    <para id="Para657301">To view Backlog by Product Category, select the
+    "Backlog by Product Category" option. The following screen will
+    appear:</para>
+
+    <para id="Para657305"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Disp_backlogByProdCat.png"
+                       id="Graphic657303" />
+          </imageobject>
+
+          <caption id="Caption657306">Backlog by Product Category</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para657307">When displaying Backlog by Product Category, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657308">All Product Categories</term>
+
+        <listitem id="listitemN0x180ac00N0x1985af8">
+          <para>Select to display Backlog for all Product Categories.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657309">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1985b40">
+          <para>Specify Product Category whose Backlog you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657310">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x1985b88">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para657313">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef657312"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657315">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1985bd0">
+          <para>Backlog by Product Category entered on and after this date
+          will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657316">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1985c18">
+          <para>Backlog by Product Category entered on and before this date
+          will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657317">Show Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x1985c60">
+          <para>Select to include pricing information in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657318">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x1985ca8">
+          <para>Select to display Backlog by Product Category for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657319">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x1985cf0">
+          <para>Specify Warehouse whose Backlog by Product Category you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657320">Backlog</term>
+
+        <listitem id="listitemN0x180ac00N0x1985d38">
+          <para>Display lists Backlog by Product Category, using the specified
+          parameters.</para>
+
+          <para id="Para657321">If the "Show Prices" option is selected, an
+          additional column showing the amount of the backlog will display.
+          The total backlog will also be shown.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para657322">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657323">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1985da4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657324">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1985dec">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657325">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x198c024">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para657326">Right-clicking on a Sales Order Line Item in the
+    Backlog list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/7)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/19)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/6)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/18)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

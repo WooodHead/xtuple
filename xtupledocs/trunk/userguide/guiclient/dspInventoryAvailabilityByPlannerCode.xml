@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section520255">
+    <title><anchor id="Anchor552236" role="Index"
+    xreflabel="inventory availability:by planner code;planner codes:inventory availability details for" />
+    <indexterm significance="normal" zone="Anchor552236">
+        <primary>inventory availability</primary>
+
+        <secondary>by planner code</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552236">
+        <primary>planner codes</primary>
+
+        <secondary>inventory availability details for</secondary>
+      </indexterm>Inventory Availability by Planner Code</title>
+
+    <para id="Para520256">To view Inventory Availability by Planner Code,
+    select the "Inventory Availability by Planner Code" option. The following
+    screen will appear:</para>
+
+    <para id="Para520260"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Disp_invAvailPlan.png"
+                       id="Graphic526727" />
+          </imageobject>
+
+          <caption id="Caption520261">Inventory Availability by Planner
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520262">When displaying Inventory Availability by Planner
+    Code, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para581895">All Planner Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x195dd24">
+          <para>Select to display Inventory Availability for all Planner
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520263">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x195dd6c">
+          <para>Specify Planner Code whose Inventory Availability you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para547948">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x195ddb4">
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para677151">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677150"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para558959">Show Availability as of</term>
+
+        <listitem id="listitemN0x180ac00N0x195ddfc">
+          <para>Show Availability using one of the following criteria:</para>
+
+          <para id="Para558960">Item Site Lead Time: Select to show projected
+          Availability based on the Lead Time specified in the Item Site
+          master.</para>
+
+          <para id="Para558961">Look Ahead Days: Select a number using the
+          arrow buttons, or manually enter a value up to a maximum of 1000.
+          Future Availability for the specified Item will be displayed based
+          on the value entered here.</para>
+
+          <para id="Para621788">Cutoff Date: Display will show projected
+          Inventory Availability as of date entered up to a maximum of 1000
+          days.</para>
+
+          <para id="Para621792">Dates: Display will show projected Inventory
+          Availability for the date range entered.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para546211">Show Reorder Exceptions</term>
+
+        <listitem id="listitemN0x180ac00N0x195de44">
+          <para>Select to show Reorder Exceptions in display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para546212">Ignore Reorder at 0</term>
+
+        <listitem id="listitemN0x180ac00N0x195de8c">
+          <para>Select to ignore reorder at 0 in display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para546213">Show Shortages</term>
+
+        <listitem id="listitemN0x180ac00N0x195ded4">
+          <para>Select to only show Inventory shortages in display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520277">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x195def8">
+          <para>Select to display Inventory Availability for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para520279">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x195df1c">
+          <para>Specify Warehouse whose Inventory Availability you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520281">Availability</term>
+
+        <listitem id="listitemN0x180ac00N0x195df64">
+          <para>Display lists Inventory Availability by Planner Code, using
+          the specified parameters.</para>
+
+          <para id="Para676042">If Planned Availability displays in the color
+          orange, this means the actual or projected Quantity on Hand is at or
+          below the Reorder Level. If the color is red, the current or
+          projected Quantity on Hand is below 0.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para628003">When quantity appears in the "On Order" column,
+      this refers to quantity that is on order through either a Work Order or
+      Purchase Order. In the case of Purchase Orders, the quantity will always
+      be represented in the Inventory Unit of Measure (UOM)--regardless of the
+      Vendor UOM used on the Purchase Order.</para>
+    </note>
+
+    <para id="Para520283">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520284">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x195dff4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para578652">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x195e03c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520286">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x195e084">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para569998">Right-clicking on an Item in the Availability list
+    enables you to select from the following context-sensitive menu
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para569999">View Inventory History</term>
+
+        <listitem id="listitemN0x180ac00N0x195e0f0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570000">View Allocations</term>
+
+        <listitem id="listitemN0x180ac00N0x195e138">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570001">View Orders</term>
+
+        <listitem id="listitemN0x180ac00N0x195e180">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570002">Running Availability</term>
+
+        <listitem id="listitemN0x180ac00N0x195e1c8">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/9)" />
+
+      <varlistentry>
+        <term id="Para570004">Issue Count Tag</term>
+
+        <listitem id="listitemN0x180ac00N0x1965048">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para570006">The following additional options are available for
+    purchased Items:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para570007">Create P/R</term>
+
+        <listitem id="listitemN0x180ac00N0x19650fc">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570008">Create P/O</term>
+
+        <listitem id="listitemN0x180ac00N0x1965144">
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para570009">The following additional options are available for
+    manufactured Items:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para570010">Create W/O</term>
+
+        <listitem id="listitemN0x180ac00N0x19651b0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para570011">Post Misc. Production</term>
+
+        <listitem id="listitemN0x180ac00N0x19651f8">
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section590389">
+  <title><anchor id="Anchor69529" role="Cross-Ref"
+  xreflabel="69529: Heading3: Ad Hoc Report" />Additional Options</title>
+
+  <para id="Para594010">To specify additional configuration options for the
+  layout of your Ad Hoc report, select the "Options" tab. The following screen
+  will appear:</para>
+
+  <para id="Para593363"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_adHocReportOpt.png"
+                     id="Graphic593361" />
+        </imageobject>
+
+        <caption id="Caption593364">Ad Hoc Report Options</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para593365">When specifying additional configuration options for
+  the layout of your Ad Hoc report, you are presented with the following
+  options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para593366">Show Grand Total</term>
+
+      <listitem id="listitemN0x180ac00N0x18ffcb0">
+        <para>Select if you want to include grand totals in the Financial
+        Report. If selected, specify which of the following display options
+        you want to include grand totals for:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Show Beginning</term>
+
+            <listitem>
+              <para>Will show the grand total for all included beginning
+              balances when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Show Ending</term>
+
+            <listitem>
+              <para>Will show the grand total for all included ending balances
+              when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Show Debits/Credits</term>
+
+            <listitem>
+              <para>Will show the grand total for all included Debit/Credit
+              balances when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Show Budget</term>
+
+            <listitem>
+              <para>Will show the grand total for all included Budget balances
+              when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Show Difference</term>
+
+            <listitem>
+              <para>Will show the grand total for all included difference
+              balances when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Show Custom</term>
+
+            <listitem>
+              <para>Will show the grand total for all included Custom balances
+              when the Financial Report is generated.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para593373">Alternate Labels</term>
+
+      <listitem id="listitemN0x180ac00N0x18ffcf8">
+        <para>You have the option to substitute alternate text for the
+        following column headers or row labels when viewing or printing your
+        Financial Report:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Alternate Beginning Balance</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the beginning balance column. If not specified, the default text
+              will be used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Ending Balance</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the ending balance column. If not specified, the default text
+              will be used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Debits</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Debits column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Credits</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Credits column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Budget</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the Budget column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Difference</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the difference column. If not specified, the default text will
+              be used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Grand Total</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the text for the
+              Grand Total row. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Alternate Custom Label</term>
+
+            <listitem>
+              <para>Specify an alternate label to use as the header text for
+              the custom column. If not specified, the default text will be
+              used.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

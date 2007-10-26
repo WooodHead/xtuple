@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section547334">
+    <title>Restore Sales History</title>
+
+    <para id="Para548918">If you have Sales history stored in an archive on
+    the database, you may restore that history at any point. Restoring Sales
+    history makes it available again for Sales Analysis purposes. To restore
+    Sales history that has been archived, select the "Archive Sales History"
+    option. The following screen will appear:</para>
+
+    <para id="Para548922"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SA_Utils_restoreSalesHist.png"
+                       id="Graphic548920" />
+          </imageobject>
+
+          <caption id="Caption548923">Restore Sales History</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para549248">Archiving Sales history does not delete Sales
+      history. Rather, the historical data is simply relocated to a storage
+      archive on the database. You may restore Sales history from the archive
+      at any time.</para>
+    </note>
+
+    <para id="Para548924">When restoring Sales history, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para548925">All Customer Types</term>
+
+        <listitem id="listitemN0x180ac00N0x188ce20">
+          <para>Select to restore Sales history for all Customer Types.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548926">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x188ce68">
+          <para>Specify Customer Type whose Sales history you want to
+          restore.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548927">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x188ceb0">
+          <para>Enter a Customer Type pattern to select a range of Customer
+          Types.</para>
+
+          <para id="Para555816">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555815"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548935">All Product Categories</term>
+
+        <listitem id="listitemN0x180ac00N0x188cef8">
+          <para>Select to restore Sales history for all Product
+          Categories.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548936">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x188cf40">
+          <para>Specify Product Category whose Sales history you want to
+          restore.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548937">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x188cf88">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para555824">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555823"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para551444">Archive Freight, Sales Tax and Misc.
+        Items</term>
+
+        <listitem id="listitemN0x180ac00N0x188cfd0">
+          <para>Select to restore all the sales information which is not
+          directly related to the Item Sites for a Sales Order--that is,
+          Freight charges, Tax, etc.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para548945">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x188cff4">
+          <para>Select to restore Sales history for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para548946">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x188d018">
+          <para>Specify Warehouse whose Sales history you want to
+          restore.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548950">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x188d060">
+          <para>Sales history generated on or after this date will be
+          restored.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548955">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x188d0a8">
+          <para>Sales history by Shipping Zone by Item generated on or before
+          this date will be restored.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para548957">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para548958">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x188d114">
+          <para>Closes the screen without restoring Sales history, returning
+          you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para548959">SELECT</term>
+
+        <listitem id="listitemN0x180ac00N0x188d15c">
+          <para>Restores Sales History using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
