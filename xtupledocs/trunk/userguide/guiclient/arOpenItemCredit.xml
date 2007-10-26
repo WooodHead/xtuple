@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section524413">
+    <title><anchor id="Anchor533933" role="Index"
+    xreflabel="credit memos:entering for receivables;debit memos:entering new;accounts receivable:entering credit memos for;accounts receivable:entering debit memos for" />
+    <indexterm significance="normal" zone="Anchor533933">
+        <primary>credit memos</primary>
+
+        <secondary>entering for receivables</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533933">
+        <primary>debit memos</primary>
+
+        <secondary>entering new</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533933">
+        <primary>accounts receivable</primary>
+
+        <secondary>entering credit memos for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533933">
+        <primary>accounts receivable</primary>
+
+        <secondary>entering debit memos for</secondary>
+      </indexterm>Enter Miscellaneous Credit Memo</title>
+
+    <para id="Para524421">To enter a miscellaneous Credit Memo, select the
+    "Enter Misc. Credit Memo" option. The following screen will appear:</para>
+
+    <para id="Para528402"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AR_DCMems_enterCM.png"
+                       id="Graphic528400" />
+          </imageobject>
+
+          <caption id="Caption528403">Enter Miscellaneous Credit
+          Memo</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para545708">Miscellaneous A/R Credit Memos can be applied to
+      Invoices or miscellaneous A/R Debit Memos.</para>
+    </note>
+
+    <para id="Para545703">When entering a miscellaneous Credit Memo, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para528452">Customer #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0870">
+          <para>Enter the Customer Number of the Customer you want to enter a
+          miscellaneous Credit Memo for.</para>
+
+          <para id="Para528453">The browse button located to the right of the
+          field leads to a searchable Customers list. You may also access this
+          list using the keyboard shortcut "CTRL + L". Once a Customer Number
+          is entered, the Customer name and billing address will display.
+          Select the "?" or "$" symbol next to the browse button to view
+          Customer information for the specified Customer. If a Customer's
+          credit is "In Good Standing," the button will feature a black
+          question mark ("?") icon. If the icon turns to an orange dollar sign
+          ("$"), the Customer's credit Status is "On Credit Warning." A red
+          dollar sign ("$") indicates the Customer's credit Status is "On
+          Credit Hold."</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543673">Document Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18a08b8">
+          <para>Specify a date to associate with the miscellaneous Credit
+          Memo.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543801">Due Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0900">
+          <para>Displays the due date for the miscellaneous Credit
+          Memo.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543818">Document Type</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0948">
+          <para>Displays the Document Type, namely "Credit Memo."</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543802">Doc. Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0990">
+          <para>Displays the next available miscellaneous Credit Memo
+          Number.</para>
+
+          <para id="Para528590">The value for the next available Credit Memo
+          Number is configured at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543696">Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a09d8">
+          <para>Enter the Order Number you want to associate with the Credit
+          Memo. You may leave this field blank if you do not want to enter an
+          associated Order Number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543847">Journal #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0a20">
+          <para>Displays the Journal number if any amount has been
+          applied.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543743">Terms</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0a68">
+          <para>Displays Invoice Terms if any amount has been applied to an
+          Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543744">Sales Rep.</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0ab0">
+          <para>Displays the Sales Representative associated with the Invoice
+          if any amount has been applied to an Invoice.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543745">Commission Due</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0af8">
+          <para>Displays the amount of the commission due to the associated
+          Sales Representative.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543713">Commission Paid</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0b40">
+          <para>Displays the amount of the commission paid to the associated
+          Sales Representative.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543700">Amount</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0b88">
+          <para>Specify the amount of the miscellaneous Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543717">Paid</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0bd0">
+          <para>Displays the amount applied to date for the miscellaneous
+          Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543721">Balance</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0c18">
+          <para>Displays the remaining amount still available to apply for the
+          miscellaneous Credit Memo.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para551551">Reason Code</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0c60">
+          <para>Specify the reason for the Credit Memo.</para>
+
+          <para id="Para551562">Reason codes are used to explain why an
+          adjustment is being made to a Customer's account.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para552031">Use Alternate Prepaid Account</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0ca8">
+          <para>Select one of the following optional Prepaid Accounts:</para>
+
+          <para id="Para552035">From Sales Category: Specify a Sales Category
+          whose Prepaid Account option you want to use instead of the default
+          Prepaid Account.</para>
+
+          <para id="Para552042">Account Number: Specify an alternate Account
+          Number to use for the transaction.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para552109">If an alternate Prepaid Account is not specified,
+      the system will use the default Prepaid Account specified for the
+      Customer Type under A/R Account Assignments.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para551559">Notes</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0d38">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Notes related to the miscellaneous Credit Memo. Notes entered on
+          this screen will follow the Credit Memo through the billing process.
+          For example, you may view notes associated with a posted Credit Memo
+          within the Customer History report.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543724">Applications</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0d80">
+          <para>Display lists the history of applications related to the
+          miscellaneous Credit Memo, if any.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para528756">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para528757">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0dec">
+          <para>Closes the screen without entering a miscellaneous Credit
+          Memo, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528758">POST</term>
+
+        <listitem id="listitemN0x180ac00N0x18a7824">
+          <para>Posts the miscellaneous Credit Memo, using the amount
+          specified.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
