@@ -1,98 +1,101 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Unapplied A/P Credit Memos
-    </title>
-   <subtitle>unappliedAPCreditMemos : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/unappliedAPCreditMemos.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Unapplied A/P Credit Memos
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Unapplied A/P Credit Memos:</guilabel>
-               </entry>
-               <entry>_apopenLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_apopen</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>A</accel>pply</guilabel>
-               </entry>
-               <entry>_apply</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section539706">
+  <title><anchor id="Anchor539705" role="Index"
+  xreflabel="credit memos:list of unapplied" /> <indexterm
+      significance="normal" zone="Anchor539705">
+      <primary>credit memos</primary>
+
+      <secondary>list of unapplied</secondary>
+    </indexterm>List Unapplied Credit Memos</title>
+
+  <para id="Para539707">Whenever a Credit Memo amount has not been applied to
+  a specific Voucher or Debit Memo--either in whole or in part--that Credit
+  Memo will appear on the list of unapplied Credit Memos.</para>
+
+  <note>
+    <para id="Para539709">A newly-entered miscellaneous Credit Memo is an
+    unapplied Credit Memo by default.</para>
+  </note>
+
+  <para id="Para539710">To access the master list of unapplied Credit Memos,
+  select the "List Unapplied Credit Memos" option. The following screen will
+  appear:</para>
+
+  <para id="Para539714"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_DCMems_unappliedList.png"
+                     id="Graphic539712" />
+        </imageobject>
+
+        <caption id="Caption539715">Unapplied Credit Memos Master
+        List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para539716">The master list of unapplied Credit Memos displays
+  basic information on all existing unapplied Credit Memos, including Document
+  Number, Vendor name, Document amount, applied amount, and amount available
+  to apply.</para>
+
+  <note>
+    <para id="Para539718">Once the full amount of a Credit Memo has been
+    applied, the Credit Memo will be removed from the unapplied Credit Memos
+    list.</para>
+  </note>
+
+  <para id="Para539719">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para539720">CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539721">PRINT</term>
+
+      <listitem>
+        <para>Prints a copy of the unapplied Credit Memos master list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539722">NEW</term>
+
+      <listitem>
+        <para>Opens screen for creating a new miscellaneous Credit
+        Memo.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539723">VIEW</term>
+
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to reach a read-only view of the A/P open item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539724">APPLY</term>
+
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to apply an amount.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="applyAPCreditMemo.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

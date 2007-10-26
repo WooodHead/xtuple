@@ -1,104 +1,104 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Void Checks
-    </title>
-   <subtitle>voidChecks : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/voidChecks.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Void Checks
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Bank Account:</guilabel>
-               </entry>
-               <entry>_bankaccntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_bankaccnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>First Check #:</guilabel>
-               </entry>
-               <entry>_nextCheckNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel># of Checks to Void:</guilabel>
-               </entry>
-               <entry>_numberOfChecksLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_checkNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_numberOfChecks</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Issue Replacement Checks</guilabel>
-               </entry>
-               <entry>_issueReplacements</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>oid</guilabel>
-               </entry>
-               <entry>_void</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section524366">
+    <title><anchor id="Anchor532582" role="Index"
+    xreflabel="check runs:voiding of;accounts payable:voiding check runs for" />
+    <indexterm significance="normal" zone="Anchor532582">
+        <primary>check runs</primary>
+
+        <secondary>voiding of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor532582">
+        <primary>accounts payable</primary>
+
+        <secondary>voiding check runs for</secondary>
+      </indexterm>Void Check Run</title>
+
+    <para id="Para524398">You may occasionally have a need to void an entire
+    Check Run--if, for example, you print the Check Run on the wrong kind of
+    paper, etc. To void a Check Run, select the "Void Check Run" option. The
+    following screen will appear:</para>
+
+    <para id="Para529585"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AP_Pay_voidChkRun.png"
+                       id="Graphic529583" />
+          </imageobject>
+
+          <caption id="Caption529586">Void Check Run</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para529587">When voiding a Check Run, you are presented with the
+    following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529609">Bank Account</term>
+
+        <listitem>
+          <para>Specify the Bank Account whose associated Check Run you want
+          to void.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529611">First Check #</term>
+
+        <listitem>
+          <para>Displays the first Check Number in the Check Run for the
+          specified Bank Account.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529613"># of Checks to Void</term>
+
+        <listitem>
+          <para>Indicates the number of Checks in the Check Run to be
+          voided.</para>
+
+          <para id="Para531265">Check Numbers increment in intervals of one
+          (1) beginning with the first Check Number displayed above.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529618"><anchor id="Anchor534583" role="Index"
+        xreflabel="checks:replacing voided" /> <indexterm
+            significance="normal" zone="Anchor534583">
+            <primary>checks</primary>
+
+            <secondary>replacing voided</secondary>
+          </indexterm>Issue Replacement Checks</term>
+
+        <listitem>
+          <para>Select to issue replacement Checks for the Checks being
+          voided.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para529620">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529621">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without voiding the Check Run, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529622">VOID</term>
+
+        <listitem>
+          <para>Voids the Check Run, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

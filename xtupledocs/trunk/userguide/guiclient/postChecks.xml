@@ -1,90 +1,92 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Post Checks
-  </title>
-   <subtitle>postChecks : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/postChecks.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Post Checks
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Bank Account:</guilabel>
-               </entry>
-               <entry>_bankaccntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Number of Unposted Checks:</guilabel>
-               </entry>
-               <entry>_numberOfChecksLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bankaccnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_numberOfChecks</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Print Check Journal</guilabel>
-               </entry>
-               <entry>_printJournal</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section524368">
+    <title><anchor id="Anchor532586" role="Index"
+    xreflabel="checks:posting multiple;accounts payable:posting checks for" />
+    <indexterm significance="normal" zone="Anchor532586">
+        <primary>checks</primary>
+
+        <secondary>posting multiple</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor532586">
+        <primary>accounts payable</primary>
+
+        <secondary>posting checks for</secondary>
+      </indexterm>Post A/P Checks</title>
+
+    <para id="Para529768">To post multiple Checks, select the "Post A/P
+    Checks" option. The following screen will appear:</para>
+
+    <para id="Para529772"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AP_Pay_postChkRun.png"
+                       id="Graphic529770" />
+          </imageobject>
+
+          <caption id="Caption529773">Post Multiple A/P Checks</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para529774">When posting multiple Checks, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529775">Bank Account</term>
+
+        <listitem>
+          <para>Specify the Bank Account for the multiple Checks you want to
+          post.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529777">Number of Unposted Checks</term>
+
+        <listitem>
+          <para>Displays the total number of unposted Checks.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529833"><anchor id="Anchor534591" role="Index"
+        xreflabel="checks:printing journal;check journal:printing of" />
+        <indexterm significance="normal" zone="Anchor534591">
+            <primary>checks</primary>
+
+            <secondary>printing journal</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor534591">
+            <primary>check journal</primary>
+
+            <secondary>printing of</secondary>
+          </indexterm>Print Check Journal</term>
+
+        <listitem>
+          <para>Select to print the Check Journal.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para529779">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529780">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without posting a Check, returning you to
+          the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529781">POST</term>
+
+        <listitem>
+          <para>Posts the Check, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

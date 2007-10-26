@@ -1,81 +1,76 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Print Check
-    </title>
-   <subtitle>printCheck : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printCheck.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Print Check
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Bank Account:</guilabel>
-               </entry>
-               <entry>_bankaccntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Check #:</guilabel>
-               </entry>
-               <entry>_checkNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_bankaccnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_check</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section529152">
+    <title><anchor id="Anchor532578" role="Index"
+    xreflabel="checks:printing individual;accounts payable:printing checks for" />
+    <indexterm significance="normal" zone="Anchor532578">
+        <primary>checks</primary>
+
+        <secondary>printing individual</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor532578">
+        <primary>accounts payable</primary>
+
+        <secondary>printing checks for</secondary>
+      </indexterm>Print A/P Check</title>
+
+    <para id="Para524392">To print an individual Check, select the "Print A/P
+    Check" option. The following screen will appear:</para>
+
+    <para id="Para529288"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/AP_Pay_printChk.png" id="Graphic529286" />
+          </imageobject>
+
+          <caption id="Caption529289">Print A/P Check</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para524393">When printing an individual Check, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529311">Bank Account</term>
+
+        <listitem>
+          <para>Specify the Bank Account for the Check you want to
+          print.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529326">Check #</term>
+
+        <listitem>
+          <para>Specify the Check Number you want to print.</para>
+
+          <para id="Para529327">Menu will list Checks from prepared Check Runs
+          associated with the specified Bank Account.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para529365">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529366">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without printing a Check, returning you to
+          the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529361">PRINT</term>
+
+        <listitem>
+          <para>Prints the specified Check.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

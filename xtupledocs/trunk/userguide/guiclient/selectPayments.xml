@@ -1,217 +1,213 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Select Payments
-  </title>
-   <subtitle>selectPayments : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/selectPayments.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Select Payments
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendorGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All Vendors</guilabel>
-               </entry>
-               <entry>_allVendors</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Selected Vendor:</guilabel>
-               </entry>
-               <entry>_selectedVendor</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_vend</entry>
-               <entry>VendorInfo</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Selected Vendor Type:</guilabel>
-               </entry>
-               <entry>_selectedVendorType</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendorTypes</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Vendor Type Pattern:</guilabel>
-               </entry>
-               <entry>_vendorTypePattern</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendorType</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>buttonGroup2</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All</guilabel>
-               </entry>
-               <entry>_dueAll</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Older than</guilabel>
-               </entry>
-               <entry>_dueOlder</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_dueOlderDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Due between</guilabel>
-               </entry>
-               <entry>_dueBetween</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dueBetweenDates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>A/P Open Items:</guilabel>
-               </entry>
-               <entry>_openAPItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_apopen</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Select...</guilabel>
-               </entry>
-               <entry>_select</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Select Line</guilabel>
-               </entry>
-               <entry>_selectLine</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Clear Selection</guilabel>
-               </entry>
-               <entry>_clear</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Select all Due</guilabel>
-               </entry>
-               <entry>_selectDue</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Select all Discounts</guilabel>
-               </entry>
-               <entry>_selectDiscount</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Clear Selections</guilabel>
-               </entry>
-               <entry>_clearAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Use default Bank Account:</guilabel>
-               </entry>
-               <entry>_bankaccntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bankaccnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524360">
+  <title><anchor id="Anchor532570" role="Index"
+  xreflabel="payments:selection of" /> <indexterm significance="normal"
+      zone="Anchor532570">
+      <primary>payments</primary>
+
+      <secondary>selection of</secondary>
+    </indexterm>Select Payments</title>
+
+  <para id="Para524380">Before you can pay a Vendor an amount due, you must
+  first select the relevant A/P open item(s) for payment. A/P open items are
+  generated by the posting of Vouchers and miscellaneous A/P Debit Memos. To
+  select an A/P open item for payment, choose the "Select Payments" option.
+  The following screen will appear:</para>
+
+  <para id="Para528305"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_Pay_selectPay.png" id="Graphic528303" />
+        </imageobject>
+
+        <caption id="Caption528306">Select Payments</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <tip>
+    <para id="Para553789">You may select multiple Vouchers for payment by
+    using the SHIFT or CTRL keys and your mouse.</para>
+  </tip>
+
+  <para id="Para528300">When selecting A/P open item for payment, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para524381">Show Open Items for</term>
+
+      <listitem>
+        <para>Select one of the following display options:</para>
+
+        <para id="Para528334">All Vendors: Select to show A/P open items for
+        all Vendors.</para>
+
+        <para id="Para528338">Selected Vendor: Specify Vendor whose A/P open
+        items you want to display.</para>
+
+        <para id="Para528339">Selected Vendor Type: Specify Vendor Type whose
+        A/P open items you want to display.</para>
+
+        <para id="Para566424">Vendor Type Pattern: Enter a Vendor Type pattern
+        to select a range of Vendor Types. Refine your search using Regular
+        Expressions, as described in <link endterm="Anchor77806"
+        id="XRef566423" linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para546647">Due Date</term>
+
+      <listitem>
+        <para>Select one of the following display options:</para>
+
+        <para id="Para546648">All: Select to show all A/P open items for all
+        due dates.</para>
+
+        <para id="Para553503">Older than: Select to show A/P open items whose
+        due date is older than the date entered.</para>
+
+        <para id="Para553507">Due between: Select to show A/P open items whose
+        due date falls within a specified range.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para541627">When a Check is created to satisfy an A/P open item,
+    the value displayed in the amount due column will be adjusted
+    automatically to reflect the Check amount. For example, if a Check is
+    issued for the full amount due, the value in the amount due column will
+    adjust to "0". Once a Check for the full amount is posted, the A/P open
+    item will be removed from the Select Payments list altogether.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para541628">A/P Open Items</term>
+
+      <listitem>
+        <para>Display lists A/P open items.</para>
+
+        <para id="Para565705">If a Document is past due, the line for that
+        Document will display in red type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para id="Para541583">Be alert to negative balances in the amount due
+    column. A negative balance indicates that Checks have been issued for more
+    than the amount due. To correct this situation, view your Check Run and
+    void any superfluous Checks.</para>
+  </tip>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para549779">Use default Bank Account</term>
+
+      <listitem>
+        <para>Specify the default Bank Account to be used whenever an A/P open
+        item is selected for payment during the current session.</para>
+
+        <para id="Para563930">If you do not use this default option, you must
+        specify a Bank Account each time you select an A/P open item for
+        payment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para528365">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para528366">CLOSE</term>
+
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para565630">PRINT</term>
+
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560672">SELECT</term>
+
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        manually review and select the Item for payment. This option brings
+        you to the individual Select Payment screen, where you will find the
+        full range of payment options.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560619">SELECT LINE</term>
+
+      <listitem>
+        <para>Highlight an A/P open item and then click this button to
+        automatically select the open item for payment. Any available Terms
+        Discount will also be applied automatically.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560635">CLEAR SELECTION</term>
+
+      <listitem>
+        <para>Highlight an A/P open item and then select this button to clear
+        the selected payment. This option effectively reverses the action of
+        the SELECT option.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para528473">SELECT ALL DUE</term>
+
+      <listitem>
+        <para>Select this button to select for payment all A/P open items
+        whose payment date is due or past due.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560631">SELECT ALL DISCOUNTS</term>
+
+      <listitem>
+        <para>Select this option to automatically select all A/P open items
+        which are eligible for a Terms Discount. The Terms Discount will be
+        applied automatically to all selected open items.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para528474">CLEAR SELECTIONS</term>
+
+      <listitem>
+        <para>Select this button to clear all selected payments due. This
+        option effectively reverses the action of the SELECT ALL DUE
+        option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="selectBankAccount.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+
+  <xi:include href="selectPayment.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

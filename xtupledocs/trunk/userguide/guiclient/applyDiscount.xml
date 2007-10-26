@@ -1,191 +1,146 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Apply A/P Discount
-    </title>
-   <subtitle>applyDiscount : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/applyDiscount.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Apply A/P Discount
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_doctype</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_docnum</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_docdate</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Terms:</guilabel>
-               </entry>
-               <entry>_termsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Discount Date:</guilabel>
-               </entry>
-               <entry>_discdateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Discount %:</guilabel>
-               </entry>
-               <entry>_discprcntLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_terms</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_discdate</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_discprcnt</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Doc. Type:</guilabel>
-               </entry>
-               <entry>_doctypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Doc. #:</guilabel>
-               </entry>
-               <entry>_docnumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Doc. Date:</guilabel>
-               </entry>
-               <entry>_docdateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Total Owed:</guilabel>
-               </entry>
-               <entry>_owedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Discounts Applied:</guilabel>
-               </entry>
-               <entry>_applieddiscountsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Discount Amount:</guilabel>
-               </entry>
-               <entry>_targetAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_amount</entry>
-               <entry>CurrCluster</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_vend</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Vendor:</guilabel>
-               </entry>
-               <entry>_vendLit_2</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_owed</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_applieddiscounts</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_cancel</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>A</accel>pply</guilabel>
-               </entry>
-               <entry>_apply</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524360">
+  <title> <anchor id="Anchor548274" role="Index"
+  xreflabel="discounts:applying to open a/p items" /><indexterm
+      significance="normal" zone="Anchor548274">
+      <primary>discounts</primary>
+
+      <secondary>applying to open a/p items</secondary>
+    </indexterm>Apply Discount</title>
+
+  <para id="Para548056">To apply a billing Terms Discount and have the
+  Discount amount deducted from the total owed, select the APPLY DISCOUNT
+  button. The following screen will appear:</para>
+
+  <para id="Para547935"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_Pay_selectPayDisc.png"
+                     id="Graphic547933" />
+        </imageobject>
+
+        <caption id="Caption547936">Apply Billing Terms Discount</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <note>
+    <para id="Para557469">Discounts are posted to the General Ledger (G/L)
+    when the Check they are associated with is posted. Any time prior to the
+    posting of the Check, the Discount can be edited or reversed.</para>
+  </note>
+
+  <para id="Para548211">When applying a billing Terms Discount, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para548097">Vendor #</term>
+
+      <listitem>
+        <para>Displays the name of the Vendor who is owed payment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548122">Doc. Type</term>
+
+      <listitem>
+        <para>Displays the Document Type.</para>
+
+        <para id="Para548131">Valid Document Types include posted Vouchers and
+        miscellaneous A/P Debit Memos.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548098">Doc #</term>
+
+      <listitem>
+        <para>Displays the Document Number of the Document being selected for
+        payment.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548101">Doc. Date</term>
+
+      <listitem>
+        <para>Displays the Document's origination date.</para>
+
+        <para id="Para548102">In the case of a Voucher, the Document date is
+        the same as the Invoice date.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548139">Terms</term>
+
+      <listitem>
+        <para>Displays the billing Terms selected at the time the Document was
+        posted.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548103">Discount Date</term>
+
+      <listitem>
+        <para>Displays the expiration date for the billing Terms Discount
+        period.</para>
+
+        <para id="Para548104">The Discount date will display in red type once
+        the Discount period has expired. Once the Discount period has expired,
+        the system will no longer automatically update the Discount amount
+        field.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548121">Discount %</term>
+
+      <listitem>
+        <para>Displays the Discount percentage, as specified in the billing
+        Terms.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548106">Total Owed</term>
+
+      <listitem>
+        <para>Displays the total amount due to the Vendor.</para>
+
+        <para id="Para548107">The total owed is equal to the vouchered
+        amount--or to the amount of the miscellaneous A/P Credit Memo at the
+        time of posting.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548108">Discounts Applied</term>
+
+      <listitem>
+        <para>Displays the amount of any Discounts previously applied to the
+        selected Document.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para548113">Discount Amount</term>
+
+      <listitem>
+        <para>Enter the amount of the Discount to be applied to the total
+        owed.</para>
+
+        <para id="Para557486">As long as the Discount period has not expired,
+        the system will automatically calculate the Discount amount for you.
+        The Discount amount will be equal to the total owed multiplied by the
+        Discount percentage. The Account used for posting Discounts to the
+        General Ledger (G/L) is defined on the A/P Account Assignments
+        screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

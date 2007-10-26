@@ -1,179 +1,143 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      A/P Credit Memo Application
-    </title>
-   <subtitle>apCreditMemoApplication : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/apCreditMemoApplication.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      A/P Credit Memo Application
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry/>
-               <entry>_vend</entry>
-               <entry>VendorCluster</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_applyToGroupBox</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_docDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_dueDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_docNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>Doc. Type:</guilabel>
-               </entry>
-               <entry>_docTypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_docType</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Doc. Date:</guilabel>
-               </entry>
-               <entry>_docDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Due Date:</guilabel>
-               </entry>
-               <entry>_dueDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Doc. Number:</guilabel>
-               </entry>
-               <entry>_docNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Amount:</guilabel>
-               </entry>
-               <entry>_targetAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_targetAmount</entry>
-               <entry>CurrCluster</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_targetPaid</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_targetBalance</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Paid:</guilabel>
-               </entry>
-               <entry>_targetPaidLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Balance:</guilabel>
-               </entry>
-               <entry>_targetBalanceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Available to Apply:</guilabel>
-               </entry>
-               <entry>_availableToApplyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_availableToApply</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Amount to Apply:</guilabel>
-               </entry>
-               <entry>_targetAmountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_amountToApply</entry>
-               <entry>CurrCluster</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section539706">
+  <title><anchor id="Anchor539705" role="Index"
+  xreflabel="credit memos:list of unapplied" /><indexterm
+      significance="normal" zone="Anchor539749">
+      <primary>credit memos</primary>
+
+      <secondary>applying unapplied</secondary>
+    </indexterm><indexterm significance="normal" zone="Anchor539749">
+      <primary>debit memos</primary>
+
+      <secondary>applying unapplied</secondary>
+    </indexterm> Apply Credit Memo</title>
+
+  <para id="Para539750">To apply a Credit Memo amount to an A/P open item,
+  select the APPLY button. The following screen will appear:</para>
+
+  <para id="Para539754"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_DCMems_applyCrItem.png"
+                     id="Graphic539752" />
+        </imageobject>
+
+        <caption id="Caption539755">Apply Credit Memo Amount to A/P Open
+        Item</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para539756">When applying a Credit Memo amount to an A/P open
+  item, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para539757">Vendor #</term>
+
+      <listitem>
+        <para>Displays the Vendor number of the Vendor whose A/P open item the
+        amount is being applied to. The Vendor name will also display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539758">Doc. Number</term>
+
+      <listitem>
+        <para>Displays the Document Number associated with the A/P open
+        item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539759">Doc. Type</term>
+
+      <listitem>
+        <para>Displays the Document Type of the Document.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539760">Doc. Date</term>
+
+      <listitem>
+        <para>Displays the Document's origination date.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539761">Due Date</term>
+
+      <listitem>
+        <para>Displays the date the Document is due.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539762">Amount</term>
+
+      <listitem>
+        <para>Displays the original amount due for the selected
+        Document.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para540376">Paid</term>
+
+      <listitem>
+        <para>Displays the amount paid to date toward the original Document
+        amount.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para540377">Balance</term>
+
+      <listitem>
+        <para>Displays the remaining balance due.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539766">Amount Available to Apply</term>
+
+      <listitem>
+        <para>Displays the amount of the referring Credit Memo available to be
+        applied.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para540388">Amount to Apply</term>
+
+      <listitem>
+        <para>Specify the amount to apply to the A/P open item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para539768">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para539769">CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without applying an amount to the Item,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para539770">SAVE</term>
+
+      <listitem>
+        <para>Applies the amount to the Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
