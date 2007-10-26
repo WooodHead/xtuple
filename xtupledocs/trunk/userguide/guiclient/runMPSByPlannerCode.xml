@@ -1,85 +1,177 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Run MPS by Planner Code
-  </title>
-   <subtitle>runMPSByPlannerCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/runMPSByPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Run MPS by Planner Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cutoff Date:</guilabel>
-               </entry>
-               <entry>_cutOffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cutOffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>C<accel>r</accel>eate</guilabel>
-               </entry>
-               <entry>_create</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Submit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537794" role="openmfg">
+    <title>Run MPS by Planner Code</title>
+
+    <para id="Para540542">When you run MPS by Planner Code, you are running
+    the Master Production Scheduling (MPS) system. This utility creates firm
+    Planned Orders to meet forecasted demand (i.e., from Production Plans) and
+    also actual demand (i.e., from Sales Orders) for MPS Items. An Item is
+    defined as an MPS Item on its Item master.</para>
+
+    <para id="Para540655">By default, Planned Orders created by the MPS
+    planning system will be firm when they are generated. This establishes
+    them as a legitimate source of demand within the wider planning system.
+    The firm-by-default nature of MPS Orders distinguishes them from MRP
+    Orders, which must be manually firmed.</para>
+
+    <para id="Para540596">The quantities for MPS Planned Orders will vary
+    depending on the source of demand. The following considerations are used
+    to identify the appropriate demand:</para>
+
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem>
+        <para id="Para540648">Actual demand quantity (i.e., from Sales Orders)
+        will be used if the planned date for a Production Plan Item falls
+        within the Demand Time Fence for that Item; forecasted demand is
+        ignored within the Time Fence</para>
+      </listitem>
+
+      <listitem>
+        <para id="Para540736">Outside the Demand Time Fence, the system will
+        create Planned Orders for whichever demand source is greater--that is,
+        actual demand or forecasted demand</para>
+      </listitem>
+    </orderedlist>
+
+    <tip>
+      <para id="Para540522">You might consider running the MRP system after
+      you run MPS. Running MRP after MPS will ensure you plan for the
+      materials required to satisfy your MPS-driven demand.</para>
+    </tip>
+
+    <para id="Para540463">To run MPS by Planner Code, select the "Run MPS by
+    Planner Code" option. The following screen will appear:</para>
+
+    <para id="Para540378"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_runMPSPCode.png"
+                       id="Graphic540376" />
+          </imageobject>
+
+          <caption id="Caption540379">Run MPS by Planner Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para541916">Only Items designated as MPS Items will have
+      Planned Orders created for them when MPS is run. By default, MPS
+      generates firm Planned Orders.</para>
+    </note>
+
+    <para id="Para541907">When running MPS by Planner Code, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para540750">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to create firm Planned Orders for all Planner
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540751">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code you want to create firm Planned Orders
+          for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554561">Pattern</term>
+
+        <listitem>
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para554695">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554694"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554566">All Warehouses</term>
+
+        <listitem>
+          <para>Select to create firm Planned Orders by Planner Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540394">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse firm Planned Order by Planner Code should be
+          created for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540395">Cutoff Date</term>
+
+        <listitem>
+          <para>Specify how far into the future the MPS run should look for
+          demand.</para>
+
+          <para id="Para540862">The forecast will be ignored if the planned
+          date for a Production Plan Item falls within the Demand Time Fence
+          for that Item. Outside the Demand Time Fence, the greater of actual
+          or forecasted demand will be used.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para546234">If you schedule an MRP or MPS job submitted to the
+      Batch Manager to run on a periodic basis--daily, weekly, monthly--the
+      cutoff date used for the run will automatically be updated by the number
+      of days in the specified reschedule interval (Day = +1, Week = +7, and
+      Month = +30).</para>
+    </tip>
+
+    <para id="Para540399">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para540400">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without creating firm Planned Orders by
+          Planner Code, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540401">CREATE</term>
+
+        <listitem>
+          <para>Creates firm Planned Orders by Planner Code, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para540402">SUBMIT</term>
+
+        <listitem>
+          <para>Select to submit the MPS run to the Batch Manager. For
+          additional information, see the <link endterm="Anchor61009"
+          id="XRef540404" linkend="Anchor61009"> Submitting Reports and Jobs
+          to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
+          the Batch Manager".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

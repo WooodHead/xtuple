@@ -1,79 +1,120 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Firm Planned Orders by Planner Code
-  </title>
-   <subtitle>firmPlannedOrdersByPlannerCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/firmPlannedOrdersByPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Firm Planned Orders by Planner Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cutoff Date:</guilabel>
-               </entry>
-               <entry>_cutoffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cutoffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>F</accel>irm</guilabel>
-               </entry>
-               <entry>_firm</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537876" role="openmfg">
+    <title>Firm Planned Orders by Planner Code</title>
+
+    <para id="Para537878">A <anchor id="Anchor537877" role="Index"
+    xreflabel="firmed orders:by planner code" /> <indexterm
+        significance="normal" zone="Anchor537877">
+        <primary>firmed orders</primary>
+
+        <secondary>by planner code</secondary>
+      </indexterm>firm Planned Order is a Planned Order that has been
+    solidified in the schedule. When you specify that a Planned Order is
+    "firm," you are indicating that Material Requirements Planning (MRP)
+    should 1) recognize it as a valid source of supply and 2) not delete it
+    when creating or deleting Planned Replenishment Orders--unless
+    specifically told to do so. To firm Planned Orders by Planner Code, select
+    the "Firm Planned Orders by Planner Code" option. The following screen
+    will appear:</para>
+
+    <para id="Para537882"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_firmPlanOrdByPCode.png"
+                       id="Graphic537880" />
+          </imageobject>
+
+          <caption id="Caption537883">Firm Planned Orders by Planner
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para537884">When firming Planned Orders by Planner Code, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537885">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to firm Planned Orders for all Planner Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537886">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code whose Planned Orders you want to
+          firm.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537887">Pattern</term>
+
+        <listitem>
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para554585">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554584"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537895">Cutoff Date</term>
+
+        <listitem>
+          <para>Indicates the last date when Planned Orders by Planner Code
+          may be firmed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537896">All Warehouses</term>
+
+        <listitem>
+          <para>Select to firm Planned Orders by Planner Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537897">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Planned Orders by Planner Code you
+          want to firm.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537898">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537899">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without firming the Planned Orders by
+          Planner Code, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537900">FIRM</term>
+
+        <listitem>
+          <para>Firms the Planned Orders by Planner Code.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,68 +1,106 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Delete Planned Order
-  </title>
-   <subtitle>deletePlannedOrder : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/deletePlannedOrder.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Delete Planned Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_planord</entry>
-               <entry>PlanOrdCluster</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Delete <accel>C</accel>hild Orders</guilabel>
-               </entry>
-               <entry>_deleteChildren</entry>
-               <entry>QCheckBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537947" role="openmfg">
+    <title>Delete Planned Order</title>
+
+    <para id="Para537948">To delete a Planned Order, select the "Delete
+    Planned Order" option. The following screen will appear:</para>
+
+    <para id="Para537952"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_deletePlanOrd.png"
+                       id="Graphic537950" />
+          </imageobject>
+
+          <caption id="Caption537953">Delete Planned Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para537955">Planned Orders that have been firmed in the system
+      will not be deleted when this utility is run.</para>
+    </note>
+
+    <para id="Para537956">When deleting a Planned Order, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537957">Planned Order #</term>
+
+        <listitem>
+          <para>Enter the Planned Order Number of the Planned Order you want
+          to delete.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537959">Item Number</term>
+
+        <listitem>
+          <para>Indicates Item whose Planned Order will be deleted.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553582">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537961">Status</term>
+
+        <listitem>
+          <para>Indicates Planned Order status.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537962">Delete Child Orders</term>
+
+        <listitem>
+          <para>Select to simultaneously delete child Orders for the parent
+          Planned Order.</para>
+
+          <para id="Para537963">Child Planned Orders having a clearly defined
+          relationship to their parent Planned Order will be deleted.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para537965">In some cases, the "Delete Child Orders" option
+      will not remove all the records you may assume it should. To ensure all
+      child Orders are deleted after a parent Planned Order is deleted, re-run
+      MRP by Planner Code. Doing so will delete any remaining orphan
+      Orders.</para>
+    </tip>
+
+    <para id="Para537966">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para539266">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without deleting the Planned Order,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539267">DELETE</term>
+
+        <listitem>
+          <para>Deletes the specified Planned Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

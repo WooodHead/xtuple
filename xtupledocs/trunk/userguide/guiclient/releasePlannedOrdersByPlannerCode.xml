@@ -1,87 +1,121 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Release Planned Orders by Planner Code
-  </title>
-   <subtitle>releasePlannedOrdersByPlannerCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/releasePlannedOrdersByPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Release Planned Orders by Planner Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cutoff Date:</guilabel>
-               </entry>
-               <entry>_cutoffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cutoffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>elease</guilabel>
-               </entry>
-               <entry>_release</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ubmit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537902" role="openmfg">
+    <title>Release Planned Orders by Planner Code</title>
+
+    <para id="Para537903">To release Planned Orders by Planner Code, select
+    the "Release Planned Orders by Planner Code" option. The following screen
+    will appear:</para>
+
+    <para id="Para537907"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_releasePlanOrdByPCo.png"
+                       id="Graphic537905" />
+          </imageobject>
+
+          <caption id="Caption537908">Release Planned Orders by Planner
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para537909">When releasing Planned Orders by Planner Code, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537910">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to release Planned Orders for all Planner Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537911">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code whose Planned Orders you want to
+          release.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537912">Pattern</term>
+
+        <listitem>
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para554599">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554598"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537920">Cutoff Date</term>
+
+        <listitem>
+          <para>Indicates the last date when Planned Orders by Planner Code
+          may be released.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537921">All Warehouses</term>
+
+        <listitem>
+          <para>Select to release Planned Orders by Planner Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537922">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Planned Orders by Planner Code you
+          want to release.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537923">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537924">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without releasing the Planned Orders by
+          Planner Code, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537925">RELEASE</term>
+
+        <listitem>
+          <para>Releases the Planned Orders by Planner Code.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para546456">SUBMIT</term>
+
+        <listitem>
+          <para>Select to submit the release Planned Orders job to the Batch
+          Manager. For additional information, see the <link
+          endterm="Anchor61009" id="XRef547866" linkend="Anchor61009">
+          Submitting Reports and Jobs to the Batch Manager</link>"Topic:
+          Submitting Reports and Jobs to the Batch Manager".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
