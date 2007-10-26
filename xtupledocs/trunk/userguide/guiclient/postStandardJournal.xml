@@ -1,95 +1,92 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Post Standard Journal
-  </title>
-   <subtitle>postStandardJournal : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/postStandardJournal.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Post Standard Journal
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_stdjrnl</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Standard Journal:</guilabel>
-               </entry>
-               <entry>_standardJournalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Distribution Date:</guilabel>
-               </entry>
-               <entry>_distributionDate</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Reverse Journal Entries</guilabel>
-               </entry>
-               <entry>_reverse</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_distDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Submit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section524406">
+    <title><anchor id="Anchor532804" role="Index"
+    xreflabel="standard journals:posting of" /> <indexterm
+        significance="normal" zone="Anchor532804">
+        <primary>standard journals</primary>
+
+        <secondary>posting of</secondary>
+      </indexterm>Post Standard Journal</title>
+
+    <para id="Para524413">To post a Standard Journal, select the "Post
+    Standard Journal" option. The following screen will appear:</para>
+
+    <para id="Para525320"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GL_SJ_postStandJourn.png"
+                       id="Graphic525318" />
+          </imageobject>
+
+          <caption id="Caption525321">Post Standard Journal</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para524585">When posting a Standard Journal, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529138">Standard Journal</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc630">
+          <para>Specify the Standard Journal you want to post.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529146">Distribution Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc678">
+          <para>Indicates date when the Standard Journal should be posted to
+          the General Ledger.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para605484">Reverse Journal Entries</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc6c0">
+          <para>Select if you want to reverse the selected Standard Journal
+          when it is posted.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para529216">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para529217">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc72c">
+          <para>Closes the screen without posting the Standard Journal,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para529218">POST</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc774">
+          <para>Posts Standard Journal to the General Ledger effective on the
+          specified distribution date.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para605515">SUBMIT</term>
+
+        <listitem id="listitemN0x180ac00N0x18cc798">
+          <para>Select to submit the Standard Journal to the Batch Manager.
+          For additional information, see the <link endterm="Anchor61009"
+          id="XRef605517" linkend="Anchor61009"> Submitting Reports and Jobs
+          to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
+          the Batch Manager".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

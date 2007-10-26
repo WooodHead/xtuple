@@ -1,258 +1,306 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Reconcile Bank Account
-  </title>
-   <subtitle>reconcileBankaccount : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/reconcileBankaccount.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Reconcile Bank Account
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_currency</entry>
-               <entry>XComboBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_currencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Bank Account:</guilabel>
-               </entry>
-               <entry>_bankAccountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_bankaccnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Opening Balance:</guilabel>
-               </entry>
-               <entry>_openBalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_openBal</entry>
-               <entry>CurrCluster</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Ending Balance:</guilabel>
-               </entry>
-               <entry>_endBalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_endBal</entry>
-               <entry>CurrCluster</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_endDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_startDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Start Date:</guilabel>
-               </entry>
-               <entry>_startDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>End Date:</guilabel>
-               </entry>
-               <entry>_endDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_cancel</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Reconcile</guilabel>
-               </entry>
-               <entry>_reconcile</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Save</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_line1</entry>
-               <entry>Line</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Update</guilabel>
-               </entry>
-               <entry>_update</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Add Adjustment</guilabel>
-               </entry>
-               <entry>_addAdjustment</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>0.00</guilabel>
-               </entry>
-               <entry>_clearedReceipts</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Cleared Receipts and Deposits:</guilabel>
-               </entry>
-               <entry>_clearedReceiptsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>0.00</guilabel>
-               </entry>
-               <entry>_clearedChecks</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Cleared Checks and Payments:</guilabel>
-               </entry>
-               <entry>_clearedChecksLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Difference:</guilabel>
-               </entry>
-               <entry>_diffBalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>0.00</guilabel>
-               </entry>
-               <entry>_diffBal</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>0.00</guilabel>
-               </entry>
-               <entry>_clearBal</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>0.00</guilabel>
-               </entry>
-               <entry>_endBal2</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cleared Balance:</guilabel>
-               </entry>
-               <entry>_clearBalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Ending Balance:</guilabel>
-               </entry>
-               <entry>_endBal2Lit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Receipts and Other Deposits:</guilabel>
-               </entry>
-               <entry>_receiptsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_receipts</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Checks and Other Payments:</guilabel>
-               </entry>
-               <entry>_checksLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_checks</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section563102">
+    <title><anchor id="Anchor563101" role="Index"
+    xreflabel="bank accounts:reconciliation of;bank reconciliations:process for" />
+    <indexterm significance="normal" zone="Anchor563101">
+        <primary>bank accounts</primary>
+
+        <secondary>reconciliation of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor563101">
+        <primary>bank reconciliations</primary>
+
+        <secondary>process for</secondary>
+      </indexterm>Reconcile Bank Account</title>
+
+    <para id="Para563103">To reconcile a Bank Account, select the "Reconcile
+    Bank Account" option. The following screen will appear:</para>
+
+    <para id="Para563107"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GL_BR_bankRec.png" id="Graphic605407" />
+          </imageobject>
+
+          <caption id="Caption563108">Reconcile Bank Account</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para563110">To work on a Bank Reconciliation over several
+      sessions, simply select the SAVE button. You work will be saved and
+      ready when you return.</para>
+    </tip>
+
+    <para id="Para563111">When reconciling a Bank Account, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563112">Bank Account</term>
+
+        <listitem id="listitemN0x180ac00N0x18ccc18">
+          <para>Specify the Bank Account you want to reconcile.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563117">Opening Balance</term>
+
+        <listitem id="listitemN0x180ac00N0x18ccc60">
+          <para>Enter the previous ending balance, as shown on your Bank
+          statement.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563122">Ending Balance</term>
+
+        <listitem id="listitemN0x180ac00N0x18ccca8">
+          <para>Enter the current ending balance, as shown on your Bank
+          statement.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563127">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18cccf0">
+          <para>Specify the beginning date of the current Bank Reconciliation
+          period. Bank Reconciliations are identified by their date ranges,
+          for reporting purposes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563132">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18ccd38">
+          <para>Specify the ending date of the current Bank Reconciliation
+          period. Bank Reconciliations are identified by their date ranges,
+          for reporting purposes.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para566543">Double-click on a Deposit or Payment line to mark
+      the Document as "Cleared."</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563135"><anchor id="Anchor563134" role="Index"
+        xreflabel="checks:marking as cleared;bank reconciliations:marking checks as cleared;bank reconciliations:marking deposits as cleared" />
+        <indexterm significance="normal" zone="Anchor563134">
+            <primary>checks</primary>
+
+            <secondary>marking as cleared</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor563134">
+            <primary>bank reconciliations</primary>
+
+            <secondary>marking checks as cleared</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor563134">
+            <primary>bank reconciliations</primary>
+
+            <secondary>marking deposits as cleared</secondary>
+          </indexterm>Receipts and Other Deposits</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4090">
+          <para>Display lists posted Receipts and other Deposits which have
+          not been previously reconciled.</para>
+
+          <para id="Para610815">This display is a nested list, with a plus
+          ("+") sign located to the far left of the display next to each
+          Receipt or Deposit that may be expanded to lower levels. By clicking
+          your mouse on a plus sign, you reveal lower levels of information
+          related to the group.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para566550">Cash Receipts posted in batch mode will appear
+      grouped together in the nested list appearing under the appropriate
+      Document Number.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563139">Checks and Other Payments</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4120">
+          <para>Display lists posted Checks and other Payments which have not
+          been previously reconciled.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para566535">Double-click on a Deposit or Payment line to mark
+      the Document as "Cleared."</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563142"><anchor id="Anchor563141" role="Index"
+        xreflabel="adjustments:entering for bank accounts;bank adjustments:entering new;bank accounts:adjusting balances for" />
+        <indexterm significance="normal" zone="Anchor563141">
+            <primary>adjustments</primary>
+
+            <secondary>entering for bank accounts</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor563141">
+            <primary>bank adjustments</primary>
+
+            <secondary>entering new</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor563141">
+            <primary>bank accounts</primary>
+
+            <secondary>adjusting balances for</secondary>
+          </indexterm>ADD ADJUSTMENT</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4288">
+          <para>Select to add a Bank Adjustment directly to either the
+          Deposits or Payments list.</para>
+
+          <para id="Para563143">Bank Adjustments marked as "Cleared" will
+          automatically be posted to the General Ledger (G/L) when a Bank
+          Account is reconciled. For more information on entering Bank
+          Adjustments, see the <link endterm="Anchor70925" id="XRef563145"
+          linkend="Anchor70925"> Enter Adjustment</link>"Enter Adjustment"
+          section.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563147">Cleared Receipts and Deposits</term>
+
+        <listitem id="listitemN0x180ac00N0x18d42d0">
+          <para>Displays a running total amount of Receipts and Deposits which
+          have been marked as cleared.</para>
+
+          <para id="Para563148">Double-click on a Document using your mouse to
+          mark the Document as cleared. To unmark the Document, double-click
+          on it again. The "Cleared" column value will alternate between "Yes"
+          and "No" as you double-click on a Document line.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563149">Cleared Checks and Payments</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4318">
+          <para>Displays a running total amount of Checks and Payments which
+          have been marked as cleared.</para>
+
+          <para id="Para563150">Double-click on a Document using your mouse to
+          mark the Document as cleared. To unmark the Document, double-click
+          on it again. The "Cleared" column value will alternate between "Yes"
+          and "No" as you double-click on a Document line.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563151">Ending Balance</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4360">
+          <para>Displays the ending balance entered in the "Ending Balance"
+          field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563152">Cleared Balance</term>
+
+        <listitem id="listitemN0x180ac00N0x18d43a8">
+          <para>Displays the cleared balance.</para>
+
+          <para id="Para563153">The cleared balance is calculated based on the
+          following formula:</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para563154">(Opening Balance) + (Cleared Deposits) - (Cleared
+    Payments)</para>
+
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x18d43f0">
+        <para id="Para563155">A successful Bank Reconciliation will result in
+        the cleared balance being equal to the ending balance.</para>
+
+        <para id="Para563156">Difference: Displays the difference between the
+        ending balance and the cleared balance.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x18d4414">
+        <para id="Para563157">A successful Bank Reconciliation will result in
+        having "0.00" displayed as the amount of difference between the two
+        balances.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para id="Para563158">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para563159">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4480">
+          <para>Closes the screen without reconciling a Bank Account,
+          returning you to the application desktop.</para>
+
+          <para id="Para605461">If you want to save any work you have done in
+          the current or a prior session, you should select the SAVE button.
+          Selecting CANCEL can cause your saved information to be
+          cleared.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563160">RECONCILE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d44c8">
+          <para>Select to reconcile the specified Bank Account and create a
+          record of the Bank Reconciliation.</para>
+
+          <para id="Para563161">Selecting this option posts the Bank
+          Reconciliation. The posting may be viewed using the Bank
+          Reconciliation History display. The start and end dates for the
+          posting are used to identify it.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para605460">Once a Bank Account is reconciled, any Deposits or
+      Payments which were marked as "Cleared" will no longer be available for
+      future Bank Reconciliations.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para605437">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d4558">
+          <para>Select this option to save your work during the current Bank
+          Reconciliation.</para>
+
+          <para id="Para605469">The next time you open the Bank Reconciliation
+          screen, the work you saved previously will be ready for you to start
+          working on it again.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para563162">UPDATE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d45a0">
+          <para>Select to update the Bank Reconciliation screen with any new
+          transaction information not already listed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

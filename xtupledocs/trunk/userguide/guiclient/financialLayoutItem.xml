@@ -1,345 +1,317 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Financial Report Item
-  </title>
-   <subtitle>financialLayoutItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/financialLayoutItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Financial Report Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Selections</entry>
-               <entry>_selection</entry>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_selectAccount</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Account:</guilabel>
-               </entry>
-               <entry>_accountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_account</entry>
-               <entry>GLCluster</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_selectSegment</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Number:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                           <row>
-               <entry/>
-               <entry>_company</entry>
-               <entry>XComboBox</entry>
-            </row>
-                           <row>
-               <entry>
-                  <guilabel>-</guilabel>
-               </entry>
-               <entry>_sep1Lit</entry>
-               <entry>QLabel</entry>
-            </row>
-                           <row>
-               <entry/>
-               <entry>_profit</entry>
-               <entry>XComboBox</entry>
-            </row>
-                           <row>
-               <entry>
-                  <guilabel>-</guilabel>
-               </entry>
-               <entry>_sep2Lit</entry>
-               <entry>QLabel</entry>
-            </row>
-                           <row>
-               <entry/>
-               <entry>_number</entry>
-               <entry>XComboBox</entry>
-            </row>
-                           <row>
-               <entry>
-                  <guilabel>-</guilabel>
-               </entry>
-               <entry>_sep3Lit</entry>
-               <entry>QLabel</entry>
-            </row>
-                           <row>
-               <entry/>
-               <entry>_sub</entry>
-               <entry>XComboBox</entry>
-            </row>
-                       <row>
-               <entry>
-                  <guilabel>Type:</guilabel>
-               </entry>
-               <entry>_typeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                       <row>
-               <entry/>
-               <entry>_type</entry>
-               <entry>XComboBox</entry>
-            </row>
-                       <row>
-               <entry>
-                  <guilabel>Sub Type:</guilabel>
-               </entry>
-               <entry>_subTypeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                       <row>
-               <entry/>
-               <entry>_subType</entry>
-               <entry>XComboBox</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_operationGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Add to Group Total</guilabel>
-               </entry>
-               <entry>_add</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Subtract from Group Total</guilabel>
-               </entry>
-               <entry>_subtract</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>Options</entry>
-               <entry>_options</entry>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_showColumns</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Show Beginning Balance</guilabel>
-               </entry>
-               <entry>_showBeginning</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showBeginningPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Show Ending Balance</guilabel>
-               </entry>
-               <entry>_showEnding</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showEndingPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Show Debits/Credits</guilabel>
-               </entry>
-               <entry>_showDB</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showDBPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Show Budget</guilabel>
-               </entry>
-               <entry>_showBudget</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showBudgetPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Show Difference</guilabel>
-               </entry>
-               <entry>_showDiff</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                     <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showDiffPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Use Group</guilabel>
-               </entry>
-               <entry>_groupLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_group</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>for % Total calculation</guilabel>
-               </entry>
-               <entry>_groupLit2</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_showCustom</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Show % of Group Total</guilabel>
-               </entry>
-               <entry>_showCustomPrcnt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Beginning Balance</guilabel>
-               </entry>
-               <entry>_customUseBeginning</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Ending Balance</guilabel>
-               </entry>
-               <entry>_customUseEnding</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Debits</guilabel>
-               </entry>
-               <entry>_customUseDebits</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Credits</guilabel>
-               </entry>
-               <entry>_customUseCredits</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Budget</guilabel>
-               </entry>
-               <entry>_customUseBudget</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Use Difference</guilabel>
-               </entry>
-               <entry>_customUseDiff</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section590389">
+  <title><anchor id="Anchor590406" role="Index"
+  xreflabel="financial reports:ad hoc type;ad hoc reports" /> <indexterm
+      significance="normal" zone="Anchor571808">
+      <primary>financial reports</primary>
+
+      <secondary>adding accounts to</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor571808">
+      <primary>accounts</primary>
+
+      <secondary>adding to financial reports</secondary>
+    </indexterm><anchor id="Anchor69529" role="Cross-Ref"
+  xreflabel="69529: Heading3: Ad Hoc Report" />Financial Report Item</title>
+
+  <para id="Para571774">To add a G/L Account to a Financial Report Group,
+  select the ADD ACCOUNT button. The following screen will appear:</para>
+
+  <para id="Para571813"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_finLayItem.png" id="Graphic571811" />
+        </imageobject>
+
+        <caption id="Caption571814">Add Account to Financial Report
+        Group</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para571815">When adding an Account(s) to a Financial Report Group,
+  you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para571816">Select One Account</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff344">
+        <para>Select when you want to add a single Account to a Financial
+        Report Group.</para>
+
+        <para id="Para593834">Account: Select the G/L Account you want to add
+        to the Financial Report Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <tip>
+    <para id="Para593941">Adding Accounts by segment or type or sub type
+    reduces the need for maintenance on your Financial Reports. Whenever new
+    Accounts are added or removed, your Financial Reports will automatically
+    use Accounts matching your selection criteria.</para>
+  </tip>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para593729">Select Multiple Accounts by Segment</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff3d4">
+        <para>Select when you want to add groups of Accounts to a Financial
+        Report Group.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Number</term>
+
+            <listitem>
+              <para>Specify the Account Number segment(s) you want to add to
+              the Financial Report Group. All Accounts matching the selected
+              segment(s) will be added to the group.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Type</term>
+
+            <listitem>
+              <para>Specify the Account Type you want to add to the Financial
+              Report Group. All Accounts matching the selected Account Type
+              will be added to the group.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Sub Type</term>
+
+            <listitem>
+              <para>Specify the Subaccount Type you want to add to the
+              Financial Report Group. All Accounts matching the selected
+              Subaccount Type will be added to the group.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para593724">Operation</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff41c">
+        <para>Specify how the Account should operate in relation to the group
+        specified under the "Use Group" option:</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Add to Group Total</term>
+
+            <listitem>
+              <para>Select if you want the Account to be added to the
+              specified group's total. If selected, a "+" will appear next to
+              the group as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Subtract from Group Total</term>
+
+            <listitem>
+              <para>Select if you want the Account to be subtracted from the
+              specified group's total. If selected, a "-" will appear next to
+              the group as it appears in the Financial Report.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para593960">To specify additional options for your Financial
+  Report Item, select the "Options" tab. The following screen will
+  appear:</para>
+
+  <para id="Para593934"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_finLayItemOpt.png"
+                     id="Graphic593932" />
+        </imageobject>
+
+        <caption id="Caption593687">Select Account Options</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para593677">When specifying additional options for your Financial
+  Report Item, you are presented with the following:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para571818">Show Beginning Balance</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff4f4">
+        <para>Select to include the Account's beginning balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show the beginning balance as a percentage of the group total. Not
+        selecting means the Account's beginning balance will not be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para571820">Show Ending Balance</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff53c">
+        <para>Select to include the Account's ending balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show the ending balance as a percentage of the group total. Not
+        selecting means the Account's ending balance will not be shown.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para571822">Show Debits/Credits</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff584">
+        <para>Select to include the Account's Debit/Credit balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show Debits and Credits as a percentage of the group total. Not
+        selecting means the Account's Debit/Credit balance will not be
+        shown.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para571824">Show Budget</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff5cc">
+        <para>Select to include the Account's Budget balance when the
+        Financial Report is generated. If selected, you also have the option
+        to show Budgets as a percentage of the group total. Not selecting
+        means the Account's Budget balance will not be shown.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para576874">Show Difference</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff614">
+        <para>Select to include the difference between Debits and Credits for
+        the Account when the Financial Report is generated. If selected, you
+        also have the option to show the difference as a percentage of the
+        group total. Not selecting means the Account's difference balance will
+        not be shown.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para576812">Use Group for % Total calculation</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff65c">
+        <para>Indicate which group to use if percentage of group total
+        calculations are specified. By default, the system will use the parent
+        group for these calculations. The parent group is understood to be the
+        group within which the Account is immediately located. If you prefer
+        to determine percentage of total calculations using a different group
+        than the parent group. All groups defined for the Financial Report
+        will be available for selection.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para576358">Show Custom Column</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff6a4">
+        <para>Select to enable Account information to be included in a Custom
+        column when the Financial Report is generated.</para>
+
+        <variablelist>
+          <varlistentry>
+            <term>Show % of Group Total</term>
+
+            <listitem>
+              <para>Select to show the Custom column information as a
+              percentage of the group total.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Beginning Balance</term>
+
+            <listitem>
+              <para>Select to include the beginning balance for the Account in
+              the Custom column.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Ending Balance</term>
+
+            <listitem>
+              <para>Select to include the ending balance for the Account in
+              the Custom column.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Debits</term>
+
+            <listitem>
+              <para>Select to include the Debit balance for the Account in the
+              Custom column.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Credits</term>
+
+            <listitem>
+              <para>Select to include the Credit balance for the Account in
+              the Custom column.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Budget</term>
+
+            <listitem>
+              <para>Select to include the Budget balance for the Account in
+              the Custom column.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Use Difference</term>
+
+            <listitem>
+              <para>Select to include the difference between Debits and
+              Credits for the Account in the Custom column.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para571826">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para571827">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff710">
+        <para>Closes the screen without adding an Account to the Financial
+        Report Group, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para572647">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18ff758">
+        <para>Adds the Account to the Financial Report Group.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

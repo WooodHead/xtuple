@@ -1,91 +1,101 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Forward Update Accounts
-  </title>
-   <subtitle>forwardUpdateAccounts : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/forwardUpdateAccounts.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Forward Update Accounts
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_accntGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>All Accounts</guilabel>
-               </entry>
-               <entry>_allSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Selected Account:</guilabel>
-               </entry>
-               <entry>_accntSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_accnt</entry>
-               <entry>GLCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Account Type:</guilabel>
-               </entry>
-               <entry>_typeSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_type</entry>
-               <entry>QComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Update</guilabel>
-               </entry>
-               <entry>_update</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section575574">
+    <title><anchor id="Anchor575610" role="Index"
+    xreflabel="trial balances:forward-updating of;accounts:forward-updating of" />
+    <indexterm significance="normal" zone="Anchor575610">
+        <primary>trial balances</primary>
+
+        <secondary>forward-updating of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor575610">
+        <primary>accounts</primary>
+
+        <secondary>forward-updating of</secondary>
+      </indexterm>Forward Update Accounts</title>
+
+    <para id="Para575575">The Forward Update utility forward-updates Account
+    balances from the first Accounting Period when an Account is used all the
+    way forward to the current Period. Balances cannot be forward-updated into
+    future Accounting Periods. This utility offers a convenient method for
+    performing forward updates in batch mode, if required. Account balances
+    may also be forward-updated using the right-click menu found on the Trial
+    Balances display. To forward-update multiple Accounts at one time, select
+    the "Forward Update Accounts" option. The following screen will
+    appear:</para>
+
+    <para id="Para575594"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GL_Utils_forwardUpdate.png"
+                       id="Graphic575592" />
+          </imageobject>
+
+          <caption id="Caption575595">Forward Update Utility</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para575865">When forward-updating Revenue and Expense
+      Accounts, keep in mind that the system will automatically reset the
+      beginning balances for these Account Types to $0 at the start of a new
+      Fiscal Year.</para>
+    </note>
+
+    <para id="Para575572">When forward-updating multiple Accounts, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para575631">All Accounts</term>
+
+        <listitem id="listitemN0x180ac00N0x1924690">
+          <para>Select to forward-update all G/L Accounts.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para575632">Selected Account</term>
+
+        <listitem id="listitemN0x180ac00N0x19246d8">
+          <para>Specify the G/L Account whose Trial Balance you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para575719">Account Type</term>
+
+        <listitem id="listitemN0x180ac00N0x1924720">
+          <para>Specify the Account Type whose Accounts you want to
+          forward-update.</para>
+
+          <para id="Para610431">The following selections are available: Asset,
+          Liability, Expense, Revenue, and Equity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para575887">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para575648">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x192478c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para575649">UPDATE</term>
+
+        <listitem id="listitemN0x180ac00N0x19247d4">
+          <para>Select to forward-update Accounts, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

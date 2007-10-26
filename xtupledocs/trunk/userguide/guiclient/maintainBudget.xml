@@ -1,183 +1,149 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Maintain Budget
-  </title>
-   <subtitle>maintainBudget : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/maintainBudget.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Maintain Budget
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>QLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>QLineEdit</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>groupBox1</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Accounts:</guilabel>
-               </entry>
-               <entry>_accountsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_accounts</entry>
-               <entry>Q3ListBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Add</guilabel>
-               </entry>
-               <entry>_accountsAdd</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Move Up</guilabel>
-               </entry>
-               <entry>_accountsUp</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Move Down</guilabel>
-               </entry>
-               <entry>_accountsDown</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Remove</guilabel>
-               </entry>
-               <entry>_accountsRemove</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Accounting Periods:</guilabel>
-               </entry>
-               <entry>_periodsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_periods</entry>
-               <entry>Q3ListBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Select All</guilabel>
-               </entry>
-               <entry>_periodsAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Invert</guilabel>
-               </entry>
-               <entry>_periodsInvert</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Unselect All</guilabel>
-               </entry>
-               <entry>_periodsNone</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Generate Table</guilabel>
-               </entry>
-               <entry>_generate</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_table</entry>
-               <entry>Q3Table</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section572294">
+    <title><anchor id="Anchor607946" role="Index"
+    xreflabel="budgets:creating new" /> <indexterm significance="normal"
+        zone="Anchor607946">
+        <primary>budgets</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>New Budget</title>
+
+    <para id="Para573349">The Budget utility is designed to store budgetary
+    information, by Account Number, in a table format. Once stored, this
+    information may then be accessed and viewed using the Financial Report
+    engine. As we saw in the <link endterm="Anchor14666" id="XRef573379"
+    linkend="Anchor14666"> Create Financial Report</link>"Create Financial
+    Report" section, the Financial Reporting Engine specifically includes
+    options for generating reports showing Budget information. To access the
+    Budget utility, select the "New Budget" option. The following screen will
+    appear:</para>
+
+    <para id="Para573210"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/GL_Budg_maintBudget.png"
+                       id="Graphic573208" />
+          </imageobject>
+
+          <caption id="Caption573211">Maintain Budget</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para573713">While all Budget amounts entered in the generated
+      table are stored in the database, the particular groupings of Accounts
+      and Accounting Periods are used only during the current session. If you
+      want to re-generate a particular Budget table, the Accounts and
+      Accounting Periods must be manually entered again.</para>
+    </note>
+
+    <para id="Para573703">When creating or maintaining Budget information, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para573373">Table Parameters</term>
+
+        <listitem id="listitemN0x180ac00N0x1908bd0">
+          <para>Select from the following options to determine which Accounts
+          and Accounting Periods you want to enter budgetary information
+          for:</para>
+
+          <para id="Para573523">Accounts: Select one or multiple Accounts to
+          include when generating a Budget table.</para>
+
+          <para id="Para573405">ADD: Select to add Accounts from your Chart of
+          Account.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para585665">You may select multiple Accounts to add to your
+      Budget by highlighting the Accounts using your mouse--or a combination
+      of your mouse and either the SHIFT or CTRL keys.</para>
+    </tip>
+
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x1908c3c">
+        <para id="Para573412">MOVE UP: Highlight an Account and then select
+        this button to move the Account up in the list.</para>
+
+        <para id="Para573416">MOVE DOWN: Highlight an Account and then select
+        this button to move the Account down in the list.</para>
+
+        <para id="Para573417">REMOVE: Highlight an Account and then select
+        this button to remove the Account from the list.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x1908c60">
+        <para id="Para573418">Accounting Periods: Using your mouse in
+        conjunction with the SHIFT and/or CRTL keys, select one or multiple
+        Accounting Periods to include when generating the Budget table.</para>
+
+        <para id="Para573424">SELECT ALL: Select to include all Accounting
+        Periods in the table.</para>
+
+        <para id="Para573428">INVERT: Selecting this option will cause the
+        inverse of any selected Accounting Periods to be selected.</para>
+
+        <para id="Para573429">UNSELECT ALL: Select to de-select all Accounting
+        Periods.</para>
+
+        <para id="Para573430">GENERATE TABLE: Select to generate the Budget
+        table using the specified parameters.</para>
+
+        <para id="Para573461">Table: Enter Budget amounts in the fields
+        provided.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x1908c84">
+        <para id="Para573183">The table will consist of a grid, showing the
+        specified Account Numbers listed down the left side--and the indicated
+        Accounting Periods across the top. Simply click in a field to begin
+        entering or editing Budget information. The TAB key may be used to
+        move from field to field. Any Budget information you save in the table
+        will be stored in the database for future reference. You may view
+        Budget information by Account and Accounting Period using the
+        Financial Reporting Engine. You may also edit Budget information by
+        regenerating a Budget table.</para>
+      </listitem>
+    </itemizedlist>
+
+    <para id="Para573500">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para573501">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1908cf0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573502">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x1908d38">
+          <para>Saves the budgetary information entered in the Budget
+          table.</para>
+
+          <para id="Para573513">Any information saved in the table will be
+          available for future revision using the Budget utility. You may view
+          Budget information using the Financial Reporting Engine.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para607962">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1908d80">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
