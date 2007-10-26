@@ -1,124 +1,235 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Scrap Work Order Material from W/O
-  </title>
-   <subtitle>scrapWoMaterialFromWIP : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/scrapWoMaterialFromWIP.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Scrap Work Order Material from W/O
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>crap</guilabel>
-               </entry>
-               <entry>_scrap</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_scrapButtonGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Top-Level Finished Item</guilabel>
-               </entry>
-               <entry>_scrapTopLevel</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Qty. to Scrap:</guilabel>
-               </entry>
-               <entry>_topLevelQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_topLevelQty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Scrap Component</guilabel>
-               </entry>
-               <entry>_scrapComponent</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_womatl</entry>
-               <entry>WomatlCluster</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Qty. Scrapped from WIP:</guilabel>
-               </entry>
-               <entry>_qtyScrappedFromWIPLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Qty. to Scrap:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_qtyScrappedFromWIP</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519031">
+    <title><anchor id="Anchor533197" role="Index"
+    xreflabel="scrap:from w/o materials" /> <indexterm significance="normal"
+        zone="Anchor533197">
+        <primary>scrap</primary>
+
+        <secondary>from w/o materials</secondary>
+      </indexterm>Scrap W/O Material from W/O</title>
+
+    <para id="Para519032">To scrap Work Order Materials which have been
+    specifically issued to a Work Order using a Material Issue transaction,
+    select the "Scrap W/O Material from Work Order" option. The following
+    screen will appear:</para>
+
+    <para id="Para519036"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_scrapWOMat.png"
+                       id="Graphic523671" />
+          </imageobject>
+
+          <caption id="Caption519037">Scrap Work Order Material from Work
+          Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para551661">You may only scrap W/O Materials which have been
+      specifically issued to a Work Order. In other words, Material
+      Requirements having the Push issue method may be scrapped.</para>
+    </tip>
+
+    <para id="Para551656">When scrapping Work Order Materials from a Work
+    Order, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519039">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose materials
+          you want to scrap.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519041">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519043">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568709">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519047">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557722">Top-Level Finished Item</term>
+
+        <listitem>
+          <para>Select if you want to scrap parent-level Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. to Scrap</term>
+
+        <listitem>
+          <para>Enter the quantity of top-level finished Items you want to
+          scrap. You may scrap top-level Items after they have been received
+          into Inventory--or before. Keep in mind that if you scrap top-level
+          Items prior to receiving them, material requirements for those Items
+          may or may not have been issued to the Work Order yet. You should
+          make any necessary adjustments to account for those requirements.
+          For example, you may need to issue the components--either manually
+          or through a material backflush--and then scrap them
+          retroactively.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para557826">Shop Floor Workbench users should only scrap
+      top-level Items after they have posted production sufficient to cover
+      the scrap quantity. For example, if a user assembles 10 top-level Items
+      successfully but significantly damages the 11th, the user should post a
+      quantity of 11 produced and then scrap one (i.e., 11 - 1 = 10).</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para557747">Scrap Component</term>
+
+        <listitem>
+          <para>Select if you want to scrap component Items issued to the Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Component Item Number</term>
+
+        <listitem>
+          <para>Select one of the component Items from the parent Item's Work
+          Order Material Requirements will be listed.</para>
+
+          <note>
+            <para>You may scrap component Items regardless of their issue
+            method. However, components must first be issued to a Work Order
+            before they can be scrapped from it. Components are issued to Work
+            Orders either manually or through a material backflush.</para>
+          </note>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. Per</term>
+
+        <listitem>
+          <para>Displays the component quantity per each specified on the
+          parent Item's Work Order Material Requirements.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Scrap %</term>
+
+        <listitem>
+          <para>Displays the component scrap percentage specified on the
+          Item's Bill of Materials.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. Required</term>
+
+        <listitem>
+          <para>Displays the component quantity required to fulfill the Work
+          Order Material Requirements.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. Issued</term>
+
+        <listitem>
+          <para>Displays the component quantity currently issued to the Work
+          Order. You may only scrap components which have already been issued
+          to a Work Order--either manually or through a material
+          backflush.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. Scrapped from WIP</term>
+
+        <listitem>
+          <para>Displays a running total of the component quantity already
+          scrapped--if any.</para>
+
+          <tip>
+            <para>You may not scrap the full quantity of a Work Order Material
+            Requirement from a Work Order.</para>
+          </tip>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Qty. to Scrap</term>
+
+        <listitem>
+          <para>Enter the quantity of the component Item you want to scrap
+          from the Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519066">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519067">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen without scrapping the material from the Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519068">SCRAP</term>
+
+        <listitem>
+          <para>Scraps the specified quantity of the component Item from the
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,140 +1,163 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Post Miscellaneous Production
-  </title>
-   <subtitle>postMiscProduction : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/postMiscProduction.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Post Miscellaneous Production
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>W</accel>arehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. to Post:</guilabel>
-               </entry>
-               <entry>_qtyToPostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyToPost</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>B</accel>ackflush</guilabel>
-               </entry>
-               <entry>_backflush</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>ssue Items not on Pick List</guilabel>
-               </entry>
-               <entry>_nonPickItems</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Document #:</guilabel>
-               </entry>
-               <entry>_documentNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_documentNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Co<accel>m</accel>ments:</guilabel>
-               </entry>
-               <entry>_commentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Immediate <accel>T</accel>ransfer to Warehouse:</guilabel>
-               </entry>
-               <entry>_immediateTransfer</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_transferWarehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519141">
+    <title><anchor id="Anchor533203" role="Index"
+    xreflabel="production:posting miscellaneous;miscellaneous production:posting of" />
+    <indexterm significance="normal" zone="Anchor533203">
+        <primary>production</primary>
+
+        <secondary>posting miscellaneous</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533203">
+        <primary>miscellaneous production</primary>
+
+        <secondary>posting of</secondary>
+      </indexterm>Post Miscellaneous Production</title>
+
+    <para id="Para519142">In repetitive manufacturing environments where
+    production is continuous, the option to post miscellaneous production can
+    be a useful feature. It can also be a useful feature for shops where
+    disassembling manufactured Items is required. To post miscellaneous
+    production, select the "Post Miscellaneous Production" option. The
+    following screen will appear:</para>
+
+    <para id="Para519146"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_postMiscProd.png"
+                       id="Graphic523709" />
+          </imageobject>
+
+          <caption id="Caption519147">Post Miscellaneous Work Order
+          Production</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para551262">If you want to disassemble a manufactured Item and
+      return the component Items to Inventory, simply enter a negative
+      quantity for the manufactured Item. Posting negative miscellaneous
+      Production effectively reverses the Production process.</para>
+    </tip>
+
+    <para id="Para551257">When posting miscellaneous production, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519154">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item you want to post
+          miscellaneous production for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568742">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519158">Warehouse</term>
+
+        <listitem>
+          <para>Specify Warehouse Location for selected Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519163">Qty. to Post</term>
+
+        <listitem>
+          <para>to Post: Enter the quantity of production you want to post.
+          This field will accept negative numbers for disassembly
+          purposes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530423">Document #</term>
+
+        <listitem>
+          <para>Creates a user-defined reference for the miscellaneous
+          production. The document number will be posted with the General
+          Ledger (G/L) transaction record when the miscellaneous production is
+          generated. This field may be used for internal tracking and auditing
+          purposes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530409">Backflush</term>
+
+        <listitem>
+          <para>Select to indicate that the material requirements indicated by
+          the associated Work Order Material Requirement record should be
+          issued to the selected Work Order regardless of the issue method
+          associated with these requirements.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519166">Issue Items not on Pick List</term>
+
+        <listitem>
+          <para>Select to indicate that non-Pick List Items should be
+          backflushed as well.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519167">Comments</term>
+
+        <listitem>
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to the miscellaneous production posting.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543809">Immediate Transfer to Warehouse</term>
+
+        <listitem>
+          <para>Select to transfer miscellaneous production to specified
+          Warehouse.</para>
+
+          <para id="Para543810">Specify the Warehouse you want to transfer
+          production to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para551424">Miscellaneous Production may not be posted for
+      Breeder Items.</para>
+    </note>
+
+    <para id="Para519169">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519170">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without posting the miscellaneous
+          production, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519171">POST</term>
+
+        <listitem>
+          <para>Posts the production for the selected Item in the specified
+          quantity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

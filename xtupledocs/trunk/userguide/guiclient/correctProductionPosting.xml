@@ -1,133 +1,174 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Correct Production Posting
-  </title>
-   <subtitle>correctProductionPosting : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/correctProductionPosting.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Correct Production Posting
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost Correction</guilabel>
-               </entry>
-               <entry>_correct</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyOrderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Balance Due:</guilabel>
-               </entry>
-               <entry>_qtyBalanceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyOrdered</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyBalance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. to Correct:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Backflush <accel>M</accel>aterials</guilabel>
-               </entry>
-               <entry>_backFlush</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>eturn Items not on Pick List</guilabel>
-               </entry>
-               <entry>_nonPickItems</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Backflush <accel>O</accel>perations</guilabel>
-               </entry>
-               <entry>_backflushOperations</entry>
-               <entry>XCheckBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519106">
+    <title><anchor id="Anchor533201" role="Index"
+    xreflabel="production:correcting posting of" /> <indexterm
+        significance="normal" zone="Anchor533201">
+        <primary>production</primary>
+
+        <secondary>correcting posting of</secondary>
+      </indexterm>Correct Production Posting</title>
+
+    <para id="Para519107">To correct production posting for a Work Order--in
+    the event, for example, that production has been previously
+    overstated--select the "Correct Production Posting" option. The following
+    screen will appear:</para>
+
+    <para id="Para519111"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_correctProdPost.png"
+                       id="Graphic523699" />
+          </imageobject>
+
+          <caption id="Caption519112">Correct Work Order Production
+          Posting</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para549111">You may not post a correction to a Work Order that
+      manufactures a Breeder Item. Instead, you must manually adjust the
+      Quantity on Hand values for the Breeder materials, the Co-Products, and
+      the By-Products.</para>
+    </note>
+
+    <para id="Para519113">When correcting production posting for a Work Order,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519114">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose production
+          posting you want to correct.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519116">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519118">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568737">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519122">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519124">Qty. Ordered</term>
+
+        <listitem>
+          <para>Displays the quantity of the component Item required per
+          parent Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519126">Qty. Received</term>
+
+        <listitem>
+          <para>Received: Displays the quantity required to fulfill the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519128">Balance Due</term>
+
+        <listitem>
+          <para>Displays the quantity issued in fulfillment of the specified
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519133">Qty. to Correct</term>
+
+        <listitem>
+          <para>to Correct: Enter the corrected amount of the production to be
+          posted.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519135">Backflush Materials</term>
+
+        <listitem>
+          <para>Select to indicate that the amount of materials indicated by
+          the associated Work Order Material Requirement record will be issued
+          to the selected Work Order for all "Pull" or "Mixed" component
+          Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519136">Return Items not on Pick List</term>
+
+        <listitem>
+          <para>Select to indicate that the non-Pick List Items should be
+          backflushed as well.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519137">Backflush Operations</term>
+
+        <listitem>
+          <para>Select to indicate that the amount of time and labor indicated
+          by the associated Work Order Operation record will be issued to the
+          selected Work Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519138">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519139">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without correcting production posting,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519140">POST CORRECTION</term>
+
+        <listitem>
+          <para>Posts the corrected production for the Work Order in the
+          amount specified.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

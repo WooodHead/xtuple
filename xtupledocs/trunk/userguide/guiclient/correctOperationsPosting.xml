@@ -1,254 +1,276 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Correct Operation Posting
-  </title>
-   <subtitle>correctOperationsPosting : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/correctOperationsPosting.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Correct Operation Posting
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost Correction</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>W/O Operation:</guilabel>
-               </entry>
-               <entry>_woOperationLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_wooper</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. to Correct:</guilabel>
-               </entry>
-               <entry>_qtyToCorrectLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_uomGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Correct in Production UOMs</guilabel>
-               </entry>
-               <entry>_productionUOM</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Correct in Inventory UOMs</guilabel>
-               </entry>
-               <entry>_inventoryUOM</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>W/O Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyOrderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Operation Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Operation Balance Due:</guilabel>
-               </entry>
-               <entry>_qtyBalanceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyOrdered</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qtyBalance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>eturn Components</guilabel>
-               </entry>
-               <entry>_returnComponents</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_womatl</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>orrect Inventory</guilabel>
-               </entry>
-               <entry>_correctInventory</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Clear Setup Complete Flag</guilabel>
-               </entry>
-               <entry>_clearSuComplete</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Correct Setup Time</guilabel>
-               </entry>
-               <entry>_correctSutime</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_sutimeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Correct Standard Setup Time:</guilabel>
-               </entry>
-               <entry>_correctStandardSutime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_standardSutime</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Correct Specified Setup Time:</guilabel>
-               </entry>
-               <entry>_correctSpecifiedSutime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_specifiedSutime</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Clear Operation Complete Flag</guilabel>
-               </entry>
-               <entry>_clearRnComplete</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Correct Run Time</guilabel>
-               </entry>
-               <entry>_correctRntime</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_rntimeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Correct Standard Run Time:</guilabel>
-               </entry>
-               <entry>_correctStandardRntime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_standardRntime</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Correct Specified Run Time:</guilabel>
-               </entry>
-               <entry>_correctSpecifiedRntime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_specifiedRntime</entry>
-               <entry>XLineEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519346" role="openmfg">
+    <title>Correct Operations Posting</title>
+
+    <para id="Para519347">To correct a Work Order Operations posting, select
+    the "Correct Operations Posting" option. The following screen will
+    appear:</para>
+
+    <para id="Para519351"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Ops_correctOpPost.png"
+                       id="Graphic523804" />
+          </imageobject>
+
+          <caption id="Caption519352">Correct Operations Posting</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519353">When correcting a Work Order Operations posting, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519354">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose Operations
+          posting you want to correct.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519356">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519358">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568765">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519362">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para565071">W/O Operation</term>
+
+        <listitem>
+          <para>Select the individual Operation you want to post from the list
+          of Work Order Operations for the specified Item.</para>
+
+          <para id="Para565072">After selecting an Operation, specify details
+          for that Operation. To correct Operations posting for another
+          Operation, simply select that Operation from the sequential
+          list.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519369">Qty. to Correct</term>
+
+        <listitem>
+          <para>Enter the quantity you want to correct.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519371">Post in Production UOMs</term>
+
+        <listitem>
+          <para>Select to post the corrected quantity in Production Units of
+          Measure. Operations may be posted using either the Inventory or
+          Production UOM. In addition, different Operations in a single Bill
+          of Operations may use different Production UOMs. For example, if you
+          are producing soup, you might mix the soup in one Operation using
+          UOM = BATCH. But when canning the soup, the canning Operation might
+          use UOM = CAN. If you post Operations using the Production UOM, the
+          Inventory/Production UOM ratio defined at the Operation level
+          normalizes the posting so that the Inventory impact is recorded
+          using the Inventory UOM.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519372">Post in Inventory UOMs</term>
+
+        <listitem>
+          <para>Select to post the corrected quantity in Inventory Units of
+          Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519373">W/O Qty. Ordered</term>
+
+        <listitem>
+          <para>Ordered: Indicates the quantity of material, measures in the
+          Item's Inventory UOM, that the selected Work Order is due to
+          produce.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519375">Operation Qty. Received</term>
+
+        <listitem>
+          <para>Indicates the quantity, measured in the Item's Inventory UOM,
+          that has been completed by this Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519377">Operation Balance Due</term>
+
+        <listitem>
+          <para>Indicates the quantity remaining to be produced by the
+          specified Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519379"><anchor id="Anchor536174" role="Index"
+        xreflabel="components:at w/o posting" /> <indexterm
+            significance="normal" zone="Anchor536174">
+            <primary>components</primary>
+
+            <secondary>at w/o posting</secondary>
+          </indexterm>Return Components</term>
+
+        <listitem>
+          <para>Components: Select to return components to the Work Order
+          Material Requirements.</para>
+
+          <para id="Para519380">Option will only be enabled when Work Order
+          Material Requirements are linked to a selected Operation. Only Items
+          whose issue method is "Pull" or "Mixed" will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519381"><anchor id="Anchor536175" role="Index"
+        xreflabel="inventory:correcting operations posting" /> <indexterm
+            significance="normal" zone="Anchor536175">
+            <primary>inventory</primary>
+
+            <secondary>correcting operations posting</secondary>
+          </indexterm>Correct Inventory</term>
+
+        <listitem>
+          <para>Select of you wish to remove any Inventory issued to stock by
+          the selected Operation.</para>
+
+          <para id="Para519382">Enabled if the selected Operation is tagged to
+          receive Inventory.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519383">Clear Setup Complete Flag</term>
+
+        <listitem>
+          <para>Select to clear the setup complete flag.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519384">Correct Setup Time</term>
+
+        <listitem>
+          <para>Select to correct setup time.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519385">Correct Standard Setup Time</term>
+
+        <listitem>
+          <para>Select to correct standard setup time.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519388">Correct Specified Setup Time</term>
+
+        <listitem>
+          <para>Specify the non-standard amount of setup time used. The amount
+          of time entered will be corrected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519390">Clear Operation Complete Flag</term>
+
+        <listitem>
+          <para>Select to clear the Operation as complete flag.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519391">Correct Run Time</term>
+
+        <listitem>
+          <para>Select to correct run time.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519392">Correct Standard Run Time</term>
+
+        <listitem>
+          <para>Select to correct the standard run time for specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519395">Correct Specified Run Time</term>
+
+        <listitem>
+          <para>Specify the non-standard amount of run time used. The amount
+          of time entered will be corrected.</para>
+
+          <para id="Para519397">The amount of time entered will be
+          posted.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519398">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519399">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without posting Operations, returning you to
+          the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519400">POST CORRECTION</term>
+
+        <listitem>
+          <para>Posts the specified Operation using the values entered in the
+          screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

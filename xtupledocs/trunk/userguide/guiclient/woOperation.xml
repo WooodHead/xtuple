@@ -1,361 +1,417 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Work Order Operation
-  </title>
-   <subtitle>woOperation : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/woOperation.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Work Order Operation
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Oper. Seq. #:</guilabel>
-               </entry>
-               <entry>_operSeqNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Execution Day:</guilabel>
-               </entry>
-               <entry>_executionDayLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyOrderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_operSeqNum</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_executionDay</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_qtyOrdered</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Standard <accel>O</accel>per.:</guilabel>
-               </entry>
-               <entry>_standardOperLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_stdopn</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description1</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description2</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>W</accel>ork Center:</guilabel>
-               </entry>
-               <entry>_workCenterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_wrkcnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Production <accel>U</accel>OM:</guilabel>
-               </entry>
-               <entry>_prodUOMLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_prodUOM</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>T</accel>ooling Reference:</guilabel>
-               </entry>
-               <entry>_toolingReferenceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_toolingReference</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Inventory/Production UOM <accel>R</accel>atio:</guilabel>
-               </entry>
-               <entry>_invProdUOMRatioLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_invProdUOMRatio</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Total Setup Time:</guilabel>
-               </entry>
-               <entry>_totalSetupTimeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Total Run Time:</guilabel>
-               </entry>
-               <entry>_totalRunTimeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_setupTime</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_runTime</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Report Setup T<accel>i</accel>me</guilabel>
-               </entry>
-               <entry>_reportSetup</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Report Run Ti<accel>m</accel>e</guilabel>
-               </entry>
-               <entry>_reportRun</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Setup Time Consumed:</guilabel>
-               </entry>
-               <entry>_setupTimeConsumedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Run Time Consumed:</guilabel>
-               </entry>
-               <entry>_runTimeConsumedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_setupTimeConsumed</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_runTimeConsumed</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Recei<accel>v</accel>e to Stock at this Operation</guilabel>
-               </entry>
-               <entry>_receiveStock</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>A</accel>uto. Issue Components at this Operation</guilabel>
-               </entry>
-               <entry>_issueComp</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Setup Time Remaining:</guilabel>
-               </entry>
-               <entry>_setupTimeRemainingLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Run Time Remaining:</guilabel>
-               </entry>
-               <entry>_runTimeRemainingLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_setupTimeRemaining</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_runTimeRemaining</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Setup Complete</guilabel>
-               </entry>
-               <entry>_setupComplete</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Run Complete</guilabel>
-               </entry>
-               <entry>_runComplete</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_throughputGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invPerMinute</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invUOM2</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>per Minute</guilabel>
-               </entry>
-               <entry>_invPerMinuteLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invRunTime</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>(min.) per</guilabel>
-               </entry>
-               <entry>_invRunTimePerLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invUOM1</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Instructions:</guilabel>
-               </entry>
-               <entry>_instructionsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Use Fixed-Width Font</guilabel>
-               </entry>
-               <entry>_fixedFont</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_instructions</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519180" role="openmfg">
+    <title>Create W/O Operation</title>
+
+    <para id="Para519181">To create a Work Order Operation, select the "Create
+    W/O Operation" option. The following screen will appear:</para>
+
+    <para id="Para519185"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Ops_createNewOp.png"
+                       id="Graphic523734" />
+          </imageobject>
+
+          <caption id="Caption519186">Create New Work Order
+          Operation</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519187">When creating a Work Order Operation, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519188">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order you want to
+          create an Operation for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530703">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530538">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568748">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530552">Oper. Seq. #</term>
+
+        <listitem>
+          <para>Indicates the next available Work Order Operations sequence
+          number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530553"><anchor id="Anchor536099" role="Index"
+        xreflabel="execution days:in work orders;work orders:execution days in" />
+        <indexterm significance="normal" zone="Anchor536099">
+            <primary>execution days</primary>
+
+            <secondary>in work orders</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor536099">
+            <primary>work orders</primary>
+
+            <secondary>execution days in</secondary>
+          </indexterm>Execution Day</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 99. (Default is "1".)</para>
+
+          <para id="Para519198">Value entered defines when the specified
+          Operation is to begin. For example, if the default value "1" is
+          entered, the Operation will begin on the first day of the
+          manufacturing process. If "2" is entered, the Operation will begin
+          on the second day.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519199">Qty. Ordered</term>
+
+        <listitem>
+          <para>Displays the quantity ordered for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530556">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519201">Standard Oper.</term>
+
+        <listitem>
+          <para>: Select a Standard Operation to be used, if any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519206">Description</term>
+
+        <listitem>
+          <para>You will notice that two separate description fields are
+          available here. This makes it possible to isolate different
+          categories of information onto separate lines. For example, the
+          first line might contain an Item name, while the second line
+          contains packaging information. Having these two types of
+          information one above the other can serve as a kind of useful
+          shorthand when viewing data in certain windows. However, these two
+          lines will be concatenated (i.e., "joined together") when they are
+          printed or presented in an on-line display format.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519208">Work Center</term>
+
+        <listitem>
+          <para>Specify a Work Center to be used for specified
+          Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553241"><anchor id="Anchor553240" role="Index"
+        xreflabel="units of measure:in operations" /> <indexterm
+            significance="normal" zone="Anchor553240">
+            <primary>units of measure</primary>
+
+            <secondary>in operations</secondary>
+          </indexterm>Production UOM</term>
+
+        <listitem>
+          <para>Select a Unit of Measure--or enter a free-form UOM.</para>
+
+          <para id="Para553242">Specify a UOM to be used optionally when Work
+          Order Operations are posted for the specified Operation. Operations
+          may be posted using either the Inventory or Production UOM. In
+          addition, different Operations in a single Bill of Operations may
+          use different Production UOMs. For example, if you are producing
+          soup, you might mix the soup in one Operation using UOM = BATCH. But
+          when canning the soup, the canning Operation might use UOM = CAN. If
+          you post Operations using the Production UOM, the
+          Inventory/Production UOM ratio normalizes the posting so that the
+          Inventory impact is recorded using the Inventory UOM.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para553244">When posting Work Order Operations, you are given
+      the option to post Operations using Production UOMs or Inventory
+      UOMs.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para553248">Inventory/Production UOM Ratio</term>
+
+        <listitem>
+          <para>When Work Order Operations are posted using the Production
+          UOM, the Inventory/Production UOM ratio normalizes the posting so
+          that the Inventory impact is recorded in the Inventory UOM.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519218">Tooling Reference</term>
+
+        <listitem>
+          <para>Enter a tooling reference--if applicable.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para553195">Labor and <anchor id="Anchor553194" role="Index"
+      xreflabel="overhead:in w/o costing" /> <indexterm significance="normal"
+          zone="Anchor553194">
+          <primary>overhead</primary>
+
+          <secondary>in w/o costing</secondary>
+        </indexterm>overhead Costs associated with setup and run times must be
+      reported if they are to be tracked in the G/L and elsewhere. To report
+      setup and run times, select the appropriate boxes in the Operation
+      screen.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para553199"><anchor id="Anchor553196" role="Index"
+        xreflabel="setup time:in work orders;work orders:setup time for operations" />
+        <indexterm significance="normal" zone="Anchor553196">
+            <primary>setup time</primary>
+
+            <secondary>in work orders</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor553196">
+            <primary>work orders</primary>
+
+            <secondary>setup time for operations</secondary>
+          </indexterm>Total Setup Time</term>
+
+        <listitem>
+          <para>Setup Time: Amount entered represents the number of minutes
+          required to set up the Work Center for the Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519230">Report Setup Time</term>
+
+        <listitem>
+          <para>Select to report setup time.</para>
+
+          <para id="Para539445">Must be selected for labor Costs associated
+          with setup to be tracked in the G/L and elsewhere. If not selected,
+          these Costs will not be reported.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519233"><anchor id="Anchor536116" role="Index"
+        xreflabel="run time:in work orders;work orders:run time for operations" />
+        <indexterm significance="normal" zone="Anchor536116">
+            <primary>run time</primary>
+
+            <secondary>in work orders</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor536116">
+            <primary>work orders</primary>
+
+            <secondary>run time for operations</secondary>
+          </indexterm>Total Run Time</term>
+
+        <listitem>
+          <para>Run Time: Amount entered represents the total run time for the
+          Operation measured in minutes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519236">Report Run Time</term>
+
+        <listitem>
+          <para>Select to report run time.</para>
+
+          <para id="Para539452">Must be selected for labor Costs associated
+          with run time to be tracked in the G/L and elsewhere. If not
+          selected, these Costs will not be reported.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519237">Throughput</term>
+
+        <listitem>
+          <para>Indicates the number of units, in the given Item's Inventory
+          UOM, that can be produced in a minute--and also the number of
+          minutes that are required to produce 1 unit, expressed in the given
+          Item's Inventory UOM.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530569">Receive to Stock at this Operation</term>
+
+        <listitem>
+          <para>Select if you want finished goods to be received into
+          Inventory when this Operation is posted.</para>
+
+          <para id="Para539463">Only one Work Order Operation may have this
+          flag set. If this option is selected, the General Ledger will show
+          the finished goods being received into Inventory when the Operation
+          is posted.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519238">Auto. Issue Components at this Operation</term>
+
+        <listitem>
+          <para>Select if you want linked component material to be issued
+          automatically (i.e., backflushed) when this Operation is
+          posted.</para>
+
+          <para id="Para555166">If this option is selected, the General Ledger
+          will show the component materials being removed from Inventory when
+          this Operation is posted.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para556177">The "Auto. Issue" setting applies only to
+      component Items whose issue method is either "Pull" or "Mixed".
+      Component Items using the "Push" issue method must be issued to Work
+      Orders using a specific material issue transaction.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519239">Setup Time Consumed</term>
+
+        <listitem>
+          <para>Displays setup time consumed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519240">Run Time Consumed</term>
+
+        <listitem>
+          <para>Displays run time consumed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519241">Setup Time Remaining</term>
+
+        <listitem>
+          <para>Displays setup time remaining.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530583">Run Time Remaining</term>
+
+        <listitem>
+          <para>Displays run time remaining.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530588">Setup Complete</term>
+
+        <listitem>
+          <para>Selected if setup complete.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519244">Run Complete</term>
+
+        <listitem>
+          <para>Selected if run complete.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519248">Instructions</term>
+
+        <listitem>
+          <para>This is a scrolling text field with word-wrapping for entering
+          instructions related to the Operation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519250">Use Fixed-Width Font</term>
+
+        <listitem>
+          <para>Select to display text in the "Instructions" field in
+          fixed-width font.</para>
+
+          <para id="Para519251">This is a useful feature for displaying
+          tables, matrixes, and other format-driven texts.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para522769">If copying formatted text from another
+      application, formats may translate imperfectly.</para>
+    </note>
+
+    <para id="Para519253">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519254">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without creating the Work Order Operation,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519255">SAVE</term>
+
+        <listitem>
+          <para>Creates the Work Order Operation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

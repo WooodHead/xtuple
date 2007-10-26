@@ -1,182 +1,231 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Post Production
-  </title>
-   <subtitle>postProduction : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/postProduction.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Post Production
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost Production</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>crap</guilabel>
-               </entry>
-               <entry>_scrap</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyOrdered</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyReceived</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyBalance</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyOrderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Received:</guilabel>
-               </entry>
-               <entry>_qtyReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Balance Due:</guilabel>
-               </entry>
-               <entry>_qtyBalanceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. to Post:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Backflush <accel>M</accel>aterials</guilabel>
-               </entry>
-               <entry>_backflush</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>ssue Items not on Pick List</guilabel>
-               </entry>
-               <entry>_nonPickItems</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Backflush <accel>O</accel>perations</guilabel>
-               </entry>
-               <entry>_backflushOperations</entry>
-               <entry>XCheckBox</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_setupUser</entry>
-               <entry>UsernameCluster</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_runUser</entry>
-               <entry>UsernameCluster</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Close <accel>W</accel>/O after Posting</guilabel>
-               </entry>
-               <entry>_closeWo</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Production Notes:</guilabel>
-               </entry>
-               <entry>_productionNotesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_productionNotes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Immediate <accel>T</accel>ransfer to Warehouse:</guilabel>
-               </entry>
-               <entry>_immediateTransfer</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_transferWarehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519069">
+    <title><anchor id="Anchor533199" role="Index"
+    xreflabel="production:posting of" /> <indexterm significance="normal"
+        zone="Anchor533199">
+        <primary>production</primary>
+
+        <secondary>posting of</secondary>
+      </indexterm>Post Production</title>
+
+    <para id="Para519070">Work Order progress can be posted in terms of
+    materials used or Operations completed. When you post production, you are
+    using the materials-driven process for reporting progress. To post
+    production for a Work Order, select the "Post Production" option. The
+    following screen will appear:</para>
+
+    <para id="Para519074"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_postProd.png" id="Graphic523685" />
+          </imageobject>
+
+          <caption id="Caption519075">Post Production for a Work
+          Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519076">When posting production for a Work Order, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519077">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose production
+          you want to post.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519079">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519081">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568728">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519085">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540587">Qty. Ordered</term>
+
+        <listitem>
+          <para>Display the quantity of the component Item required per parent
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540588">Qty. Received</term>
+
+        <listitem>
+          <para>Received: Displays the quantity required to fulfill the
+          specified Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519091">Balance Due</term>
+
+        <listitem>
+          <para>Displays the quantity issued in fulfillment of the specified
+          Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519096">Qty. to Post</term>
+
+        <listitem>
+          <para>to Post: Enter the quantity of the component Items you want to
+          post.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519098">Backflush Materials</term>
+
+        <listitem>
+          <para>Select to indicate that the amount of materials indicated by
+          the associated Work Order Material Requirement record will be issued
+          to the selected Work Order for all "Pull" or "Mixed" component
+          Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519099">Issue Items not on Pick List</term>
+
+        <listitem>
+          <para>Select to indicate that non-Pick List Items should be
+          backflushed as well.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519100">Backflush Operations</term>
+
+        <listitem>
+          <para>Select to indicate that the amount of time and labor indicated
+          by the associated Work Order Operation record will be issued to the
+          selected Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Setup By</term>
+
+        <listitem>
+          <para>Enter the name of the user who performed the set up.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Run By</term>
+
+        <listitem>
+          <para>Enter the name of the user who performed the production
+          run.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para554972">If the "Backflush Operations" option is not
+      selected, the setup and run time options will be disabled.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519101">Close W/O after Posting</term>
+
+        <listitem>
+          <para>Select to close the Work Order after posting.</para>
+
+          <para id="Para519102">If you are posting partial production and want
+          to keep the Work Order open, you should not select this
+          option.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530375">Production Notes</term>
+
+        <listitem>
+          <para>This is a scrolling text field with word-wrapping for entering
+          production posting Notes related to the Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para543753">Immediate Transfer to Warehouse</term>
+
+        <listitem>
+          <para>Select to transfer Work Order production to specified
+          Warehouse. Specify the Warehouse you want to transfer production
+          to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para530337">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519104">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without posting production for the Work
+          Order, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519105">POST PRODUCTION</term>
+
+        <listitem>
+          <para>Posts production for the Work Order in the amount
+          specified.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para557989">SCRAP</term>
+
+        <listitem>
+          <para>Select to open the "Scrap Work Order Material from W/O"
+          screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

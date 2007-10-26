@@ -1,156 +1,181 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Issue W/O Material Item
-    </title>
-   <subtitle>issueWoMaterialItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/issueWoMaterialItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Issue W/O Material Item
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>ssue Material</guilabel>
-               </entry>
-               <entry>_issue</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Component Item Number:</guilabel>
-               </entry>
-               <entry>_compItemNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_compItemNumber</entry>
-               <entry>XComboBox</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>UOM:</guilabel>
-               </entry>
-               <entry>_compUOMLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry/>
-               <entry>_compUOM</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_compDescription1</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_compDescription2</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Total Qty. Required:</guilabel>
-               </entry>
-               <entry>_qtyRequiredLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Qty. Issued to Date:</guilabel>
-               </entry>
-               <entry>_qtyIssuedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Qty. to Issue:</guilabel>
-               </entry>
-               <entry>_qtyToIssueLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                <row>
-               <entry/>
-               <entry>_qtyRequired</entry>
-               <entry>QLabel</entry>
-            </row>
-                                <row>
-               <entry/>
-               <entry>_qtyIssued</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_qtyToIssue</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                                    <row>
-               <entry>
-                  <guilabel>QOH Before</guilabel>
-               </entry>
-               <entry>_beforeQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                    <row>
-               <entry/>
-               <entry>_beforeQty</entry>
-               <entry>QLabel</entry>
-            </row>
-                                    <row>
-               <entry>
-                  <guilabel>QOH After</guilabel>
-               </entry>
-               <entry>_afterQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                                    <row>
-               <entry/>
-               <entry>_afterQty</entry>
-               <entry>QLabel</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section518929">
+    <title><anchor id="Anchor533191" role="Index"
+    xreflabel="work orders:issuing materials individually;work order material requirements:issuing individually" />
+    <indexterm significance="normal" zone="Anchor533191">
+        <primary>work orders</primary>
+
+        <secondary>issuing materials individually</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor533191">
+        <primary>work order material requirements</primary>
+
+        <secondary>issuing individually</secondary>
+      </indexterm>Issue W/O Material Item</title>
+
+    <para id="Para518930">To issue Work Order Material Items individually,
+    select the "Issue W/O Material Item" option. The following screen will
+    appear:</para>
+
+    <para id="Para518934"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/WO_Mat_issueMatItem.png"
+                       id="Graphic523636" />
+          </imageobject>
+
+          <caption id="Caption518935">Issue Work Order Material Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518936">When issuing Work Order Material Items individually,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518937">Work Order #</term>
+
+        <listitem>
+          <para>Enter the Work Order Number of the Work Order whose individual
+          component Item you want to issue.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518939">Whs.</term>
+
+        <listitem>
+          <para>Displays Warehouse code automatically when Work Order Number
+          is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518941">Item Number</term>
+
+        <listitem>
+          <para>Displays Item Number automatically when Work Order Number is
+          entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para568676">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518945">Status</term>
+
+        <listitem>
+          <para>Displays Work Order Status automatically when Work Order
+          Number is entered into "Work Order #" field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518947">Comp. Item Number</term>
+
+        <listitem>
+          <para>Select one of the specified Item's component Items whose issue
+          method is "Push" or "Mixed."</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para522750">If the "Comp. Item Number" list contains no
+      component Items, this means that the issue method for all the component
+      Items is "Pull." Only Items with the issue method of "Push" or "Mixed"
+      will appear in the menu.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para568682">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518952">Total Qty. Required</term>
+
+        <listitem>
+          <para>The total quantity of the component Item required by the Work
+          Order will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518954">Qty. Issued to Date</term>
+
+        <listitem>
+          <para>The total quantity of the component Item issued to the Work
+          Order to date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518959">Qty. to Issue</term>
+
+        <listitem>
+          <para>to Issue: Enter the quantity of the component Item you want to
+          issue to the Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518961">QOH Before</term>
+
+        <listitem>
+          <para>Total Quantity on Hand prior to the issue will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518963">QOH After</term>
+
+        <listitem>
+          <para>Total Quantity on Hand after the proposed issue will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para547801">If you are issuing Lot/Serial Items to a Work
+      Order, these cannot be issued automatically from a default Location. You
+      must individually select and then distribute the desired Lot/Serial
+      quantity.</para>
+    </note>
+
+    <para id="Para518965">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518966">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without issuing any of the selected
+          component material to the selected Work Order, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518967">ISSUE MATERIAL</term>
+
+        <listitem>
+          <para>Issues the component Item in the quantity specified.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
