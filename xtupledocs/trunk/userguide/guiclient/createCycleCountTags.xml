@@ -1,151 +1,250 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Create Cycle Count Tags
-  </title>
-   <subtitle>createCycleCountTags : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/createCycleCountTags.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Create Cycle Count Tags
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>W</accel>arehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Mark Created Count Tag as <accel>P</accel>riority</guilabel>
-               </entry>
-               <entry>_priority</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>F</accel>reeze Inventory</guilabel>
-               </entry>
-               <entry>_freeze</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Ignore Zero Balance Item Sites</guilabel>
-               </entry>
-               <entry>_ignoreZeroBalance</entry>
-               <entry>XCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Ma<accel>x</accel>imum Number of Tags to Create:</guilabel>
-               </entry>
-               <entry>_maxCountTags</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_maxTags</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Create <accel>T</accel>ags</guilabel>
-               </entry>
-               <entry>_create</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_type</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Class Code</guilabel>
-               </entry>
-               <entry>_classcode</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Planner Code</guilabel>
-               </entry>
-               <entry>_plancode</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_parameter</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Only for Specified Location:</guilabel>
-               </entry>
-               <entry>_byLocation</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_location</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Co<accel>m</accel>ments:</guilabel>
-               </entry>
-               <entry>_commentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519249">
+    <title><anchor id="Anchor552158" role="Index"
+    xreflabel="cycle count tags:creating by warehouse;cycle counts:creating tags for;physical inventory:creating cycle count tags" />
+    <indexterm significance="normal" zone="Anchor552158">
+        <primary>cycle count tags</primary>
+
+        <secondary>creating by warehouse</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552158">
+        <primary>cycle counts</primary>
+
+        <secondary>creating tags for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552158">
+        <primary>physical inventory</primary>
+
+        <secondary>creating cycle count tags</secondary>
+      </indexterm>Create Cycle Count Tags by Warehouse</title>
+
+    <para id="Para602275">Cycle Count Tags are used to count Inventory on a
+    frequent basis, with the rate of frequency defined in the Item Site
+    master. The following criteria are used to determine the order in which
+    Cycle Count Tags will be created for a specified Warehouse(s):</para>
+
+    <orderedlist continuation="restarts" inheritnum="ignore">
+      <listitem id="listitemN0x180ac00N0x18fa57c">
+        <para id="Para602383">The system scans the Item Site masters in the
+        specified Warehouse(s), specifically targeting Cycle Count frequency
+        settings.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x18fa5a0">
+        <para id="Para602387">The frequency settings are then compared to the
+        last counted dates for each Item Site to determine which Item Sites
+        have last counted dates most out of sync with their count frequency
+        rate; Item Sites whose last counted dates are most out of sync with
+        their stated frequency rate will have Cycle Count Tags created for
+        them first.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x18fa5c4">
+        <para id="Para634890">After frequency and last counted date parameters
+        have been considered, the Item Site's ABC Class is used--with A Class
+        Item Sites having Cycle Count Tags created first.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x18fa5e8">
+        <para id="Para634911">Then, finally, Cycle Count Tags are created
+        based on the Item Numbers for the Item Sites in ascending order (i.e.,
+        1, 2, 3 ... A, B, C).</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x18fa60c">
+        <para id="Para602415">The total number of Cycle Count Tags to be
+        created is determined beforehand.</para>
+      </listitem>
+    </orderedlist>
+
+    <para id="Para602368">The difference between Cycle Count Tags and Count
+    Tags is that Cycle Count Tags are generated dynamically, using the
+    criteria listed above. Count Tags are generated manually, on
+    demand.</para>
+
+    <tip>
+      <para id="Para595926">To monitor the frequency of Item Site Cycle
+      Counts, view the "Last Counted" column in any of the Item Site Reports:
+      by Item, by Class Code, etc. The Last Counted date represents the date a
+      Count Tag was last posted (not simply issued) for the Item Site.</para>
+    </tip>
+
+    <para id="Para595923">To create Cycle Count Tags by Warehouse, select the
+    "Create Cycle Count Tags by Warehouse" option. The following screen will
+    appear:</para>
+
+    <para id="Para519254"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_PI_createCycleCTByWareho.png"
+                       id="Graphic526024" />
+          </imageobject>
+
+          <caption id="Caption519255">Create Cycle Count Tags by
+          Warehouse</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519256">When creating Cycle Count Tags by Warehouse, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519257">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa708">
+          <para>Specify Warehouse where Cycle Count will be conducted.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519259">Mark Created Count Tag as Priority</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa750">
+          <para>Select to give priority status to Count Tag.</para>
+
+          <para id="Para596785">Count Tags marked as having priority status
+          are listed first in any prioritized lists. For example, priority
+          Count Tags will appear at the top of the Count Tag Edit List;
+          whereas, non-priority Count Tags will appear at the bottom of the
+          list.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519260"><anchor id="Anchor558298" role="Index"
+        xreflabel="freezing:of inventory;inventory:freezing during cycle counts;cycle counts:freezing inventory during" />
+        <indexterm significance="normal" zone="Anchor558298">
+            <primary>freezing</primary>
+
+            <secondary>of inventory</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor558298">
+            <primary>inventory</primary>
+
+            <secondary>freezing during cycle counts</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor558298">
+            <primary>cycle counts</primary>
+
+            <secondary>freezing inventory during</secondary>
+          </indexterm>Freeze Inventory</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa870">
+          <para>Select to freeze Inventory.</para>
+
+          <para id="Para519261">The Quantity on Hand value is not updated when
+          a transaction is posted against a frozen Item Site. Instead,
+          Inventory transactions are pooled and then posted later when the
+          Item Site is unfrozen--or thawed. The Quantity on Hand is updated
+          when the Item Site is thawed. For a detailed explanation of these
+          concepts, see the <link endterm="Anchor80983" id="XRef530055"
+          linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
+          and Thawing" section.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para629742">When an Item Site is frozen, any Warehouse
+      activity entered against that Item Site--including Work Orders--will use
+      the Quantity on Hand shown at the time of freezing.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para629749">Ignore Zero Balance Item Sites</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa900">
+          <para>Select to ignore Item Sites which have a Quantity on Hand
+          balance of zero.</para>
+
+          <para id="Para629750">If selected, Count Tags will not be created
+          for any Item Site having a Quantity on Hand balance of zero.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519262">Maximum Number of Tags to Create</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa948">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 1,000.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para629755">Item Sites in</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa990">
+          <para>Specify which of the following codes you want to have Cycle
+          Count Tags created for:</para>
+
+          <para id="Para629783">Class Code: If selected, you will be presented
+          with Class Code options.</para>
+
+          <para id="Para629787">Planner Code: If selected, you will be
+          presented with Planner Code options.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para629772">Only for Specified Location</term>
+
+        <listitem id="listitemN0x180ac00N0x18fa9d8">
+          <para>Select if you want to create Count Tags for an individual
+          Warehouse Location.</para>
+
+          <para id="Para629773">If selected, you will have the option to
+          specify which Warehouse Location you want to have Count Tags created
+          for. This option enables you to count individual Warehouse Locations
+          separately, without having to post counts for an entire Warehouse
+          all at once.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para596841"><anchor id="Anchor596837" role="Index"
+        xreflabel="cycle counters:creating instructions for;cycle counts:creating instructions for" />
+        <indexterm significance="normal" zone="Anchor596837">
+            <primary>cycle counters</primary>
+
+            <secondary>creating instructions for</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor596837">
+            <primary>cycle counts</primary>
+
+            <secondary>creating instructions for</secondary>
+          </indexterm>Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x18faab0">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to the Cycle Count. Use the Comments field to enter
+          any instructions or other Comments that need to reach and be read by
+          the cycle counters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519268">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519269">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18fab1c">
+          <para>Closes the screen without creating a Count Tag, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519270">CREATE TAGS</term>
+
+        <listitem id="listitemN0x180ac00N0x18fab64">
+          <para>Creates Cycle Count Tags.</para>
+
+          <para id="Para604805">Cycle Count Tag Numbers are generated
+          automatically in an ordered sequence.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
