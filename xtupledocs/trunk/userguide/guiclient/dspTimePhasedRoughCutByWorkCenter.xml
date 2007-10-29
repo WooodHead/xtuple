@@ -1,148 +1,143 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Time-Phased Planned Rough Cut by Work Center
-  </title>
-   <subtitle>dspTimePhasedRoughCutByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspTimePhasedRoughCutByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Time-Phased Planned Rough Cut by Work Center
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_workCenterGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>All Work Centers</guilabel>
-               </entry>
-               <entry>_allWorkCenters</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Selected Work Center:</guilabel>
-               </entry>
-               <entry>_selectedWorkCenter</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_workCenters</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Calendar:</guilabel>
-               </entry>
-               <entry>_calendarLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_calendar</entry>
-               <entry>CalendarComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_periods</entry>
-               <entry>PeriodsListView</entry>
-            </row>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <column>
-        </column>
-            <row>
-               <entry>
-                  <guilabel>Rough Cut:</guilabel>
-               </entry>
-               <entry>_roughCutLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_roughCut</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518859" role="openmfg">
+    <title>Time-Phased Rough Cut Capacity Plan by Work Center</title>
+
+    <para id="Para518860">To view a rough cut Capacity Plan by Work Center
+    showing detail over Calendar periods you define, select the "Time-Phased
+    Rough Cut Capacity Plan by Work Center" option. The following screen will
+    appear:</para>
+
+    <para id="Para518864"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Disp_tpPlanRoughByWCente.png"
+                       id="Graphic520795" />
+          </imageobject>
+
+          <caption id="Caption518865">Time-Phased Rough Cut Capacity Plan by
+          Work Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518866">When displaying a time-phased rough cut Capacity
+    Plan by Work Center, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518867">All Work Centers</term>
+
+        <listitem>
+          <para>Select to display time-phased rough cut Capacity Plan by Work
+          Center for all Work Centers.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518868">Selected</term>
+
+        <listitem>
+          <para>Specify Work Center whose time-phased rough cut Capacity Plan
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518870">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display time-phased rough cut Capacity Plan by Work
+          Center for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518872">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose time-phased rough cut Capacity Plan by
+          Work Center you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para552733">Calendar</term>
+
+        <listitem>
+          <para>Select the Calendar you want to use for the report.</para>
+
+          <para id="Para552734">Associated Calendar periods will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para523266">Name/Selected Periods</term>
+
+        <listitem>
+          <para>Select as many periods as you want to display. Selected
+          periods correspond to Calendar specified in the "Calendar"
+          field.</para>
+
+          <para id="Para526675">Select individual periods or groups of periods
+          together. To select an individual period, highlight the period using
+          your mouse button. The period is now selected. To select a sequence
+          of periods, highlight the first in the sequence using your mouse
+          button. Then, holding down the SHIFT key on your keyboard, highlight
+          the last period in the sequence. The entire sequence is now
+          selected. To select periods that are out of sequence (e.g., January,
+          April, July, October), highlight the first period in the group.
+          Then, holding down the CTRL key on your keyboard, highlight the next
+          period you want to select. Continue highlighting periods with the
+          CTRL key depressed until all desired periods are selected. The
+          entire group is now selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518878">Rough Cut</term>
+
+        <listitem>
+          <para>Display lists time-phased rough cut Capacity Plan by Work
+          Center, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518880">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518881">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531402">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+
+          <para id="Para518883">Start date and end date must be entered for
+          calculation to proceed. Results will be displayed in the "Rough Cut"
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553785">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

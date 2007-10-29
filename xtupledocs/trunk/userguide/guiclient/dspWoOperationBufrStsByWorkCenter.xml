@@ -1,141 +1,163 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Work Order Operation Buffer Status by Work Center
-  </title>
-   <subtitle>dspWoOperationBufrStsByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspWoOperationBufrStsByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Work Order Operation Buffer Status by Work Center
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Work Center:</guilabel>
-               </entry>
-               <entry>_workCenterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_wrkcnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_description</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Only Show W/O Operations with Qty Avail</guilabel>
-               </entry>
-               <entry>_QtyAvailOnly</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ubmit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>O</accel>perations:</guilabel>
-               </entry>
-               <entry>_operationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_wooper</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Automatically Update</guilabel>
-               </entry>
-               <entry>_autoUpdate</entry>
-               <entry>XCheckBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section555361" role="openmfg">
+    <title>W/O Operation Buffer Status by Work Center</title>
+
+    <para id="Para555617">The Work Order buffer status displays provide
+    information on your current stock and time buffer levels for those Items
+    having current Work Orders. Stock buffers apply to make-to-stock Items;
+    whereas time buffers apply to Items which are make-to-order. Keep in mind
+    that buffer status information will only be displayed on days when the
+    Buffer Management system is run. If you find your displays show no
+    information, this probably means Buffer Management has not been
+    run.</para>
+
+    <para id="Para555618">To view Work Order Operation buffer statuses by Work
+    Center, select the "W/O Buffer Status by Work Center" option. The
+    following screen will appear:</para>
+
+    <para id="Para555622"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Buff_woOpsByWCenter.png"
+                       id="Graphic555620" />
+          </imageobject>
+
+          <caption id="Caption555623">Work Order Operation Buffer Status by
+          Work Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para555625">When the buffer status for an Item hits 66 or
+      higher, the status number will become red. By highlighting Items which
+      are "red hot," the system is informing you which Items should be acted
+      on immediately. The best remedy for red hot Item Sites is to expedite
+      any associated Work Orders or Purchase Orders.</para>
+    </note>
+
+    <para id="Para555626">When displaying Work Order Operation buffer statuses
+    by Work Center, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para555627">Work Center</term>
+
+        <listitem>
+          <para>Specify Work Center whose Work Order Operation buffer statuses
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555628">Warehouse</term>
+
+        <listitem>
+          <para>Displays Warehouse code for Warehouse where Work Center is
+          located.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para555630">By default, the display will sort Work Orders by
+      buffer status in descending order. In other words, Work Orders with the
+      highest buffer status will appear at the top of the list; Work Orders
+      with the lowest buffer status will appear at the bottom.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para555631">Only Show W/O Operations with Load</term>
+
+        <listitem>
+          <para>Select to only show Work Order Operations with load in the
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555632">Operations</term>
+
+        <listitem>
+          <para>Display lists Work Order Operation buffer statuses by Work
+          Center, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555633">Automatically Update</term>
+
+        <listitem>
+          <para>Select to automatically update the display every five
+          minutes.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para555634">To the far right and at the bottom of the screen,
+    the following buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para555635">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555636">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555637">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para555638">Right-clicking on an Operation in the Operations
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para555639">View Operation</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555640">Edit Operation</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para555641">Delete Operation</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

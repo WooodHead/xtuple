@@ -1,113 +1,251 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      MRP Detail
-    </title>
-   <subtitle>dspMRPDetail : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspMRPDetail.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      MRP Detail
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>Calendar:</guilabel>
-               </entry>
-               <entry>_calendarLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry/>
-               <entry>_calendar</entry>
-               <entry>CalendarComboBox</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_periods</entry>
-               <entry>PeriodsListView</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Item Sites:</guilabel>
-               </entry>
-               <entry>_itemSitesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_itemsite</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>MRP Detail:</guilabel>
-               </entry>
-               <entry>_mrpLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_mrp</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537055" role="openmfg">
+    <title>MRP Detail</title>
+
+    <para id="Para519023">To display a time-phased view of Material
+    Requirements Planning (MRP) detail, select the "MRP Detail" option. The
+    following screen will appear:</para>
+
+    <para id="Para519027"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Disp_mrpDetail.png"
+                       id="Graphic520861" />
+          </imageobject>
+
+          <caption id="Caption519028">MRP Detail</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para535338">Only firm Planned Orders will be included in the
+      MRP Detail display. If a Planned Order is not firmed, it will not be
+      recognized. This limitation pertains also to MRP Items which may be
+      associated with MPS or Planning Items. While firm MPS Orders may exist,
+      Planned Orders for the underlying MRP Items must be firmed (or released)
+      before the MRP Detail display will recognize them.</para>
+    </note>
+
+    <para id="Para519029">When displaying MRP detail, you are presented with
+    the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519030">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display MRP detail for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519032">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose MRP detail you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519034">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to display MRP detail for all Planner Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519035">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code whose MRP detail you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para526376">Pattern</term>
+
+        <listitem>
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para554671">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554670"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para552768">Calendar</term>
+
+        <listitem>
+          <para>Select the Calendar you want to use for the report.</para>
+
+          <para id="Para552769">Associated Calendar periods will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para522434">When setting up a planning Calendar, be sure to
+      include dates that are past due in the first period of the
+      Calendar.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para523284">Name/Selected Periods</term>
+
+        <listitem>
+          <para>Select as many periods as you want to display. Selected
+          periods correspond to Calendar specified in the "Calendar"
+          field.</para>
+
+          <para id="Para526690">Select individual periods or groups of periods
+          together. To select an individual period, highlight the period using
+          your mouse button. The period is now selected. To select a sequence
+          of periods, highlight the first in the sequence using your mouse
+          button. Then, holding down the SHIFT key on your keyboard, highlight
+          the last period in the sequence. The entire sequence is now
+          selected. To select periods that are out of sequence (e.g., January,
+          April, July, October), highlight the first period in the group.
+          Then, holding down the CTRL key on your keyboard, highlight the next
+          period you want to select. Continue highlighting periods with the
+          CTRL key depressed until all desired periods are selected. The
+          entire group is now selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519043">Item Sites</term>
+
+        <listitem>
+          <para>Display lists Items matching the specified parameters.</para>
+
+          <para id="Para553938">When you have selected a Calendar type and
+          corresponding Calendar period(s), highlight an Item to display MRP
+          detail for the Item in the "MRP Detail" display below.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para534095">To refresh the MRP Detail display, double-click on
+      the Item Site whose detail you want to refresh.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519045">MRP Detail</term>
+
+        <listitem>
+          <para>Display lists MRP detail for the Item you selected in the
+          "Warehouse Items" display above.</para>
+
+          <para id="Para553945">MRP detail will include the following rows:
+          projected Quantity on Hand (based on Allocations and Orders for
+          specified future periods); Allocations (demand from Sales Orders);
+          Orders (based on Work Orders or Purchase Orders); Availability
+          (based on current Allocations and Orders); Firmed Allocations
+          (firmed planned requirements); Firmed Orders (firm Planned Orders);
+          and firmed Availability (based on Availability and firm Planned
+          Orders).</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519047">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519048">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553818">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para522155">Right-clicking on a Line Item in the MRP Detail
+    display enables you to select from the following context-sensitive
+    options.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530342">View Allocations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519052">View Orders</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para530323">You will only be able to view Allocations if
+    Allocations are showing a positive value in the period where you
+    right-click your mouse. Similarly, you will only be able to view Orders if
+    Orders are showing a positive value in the period where you right-click
+    your mouse.</para>
+
+    <para id="Para530334">If the Line Item is a purchased Item, the following
+    additional options will be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530335">Issue P/R</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530336">Issue P/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para530321">If the Line Item is a manufactured Item, the
+    following additional option will be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para522119">Issue W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

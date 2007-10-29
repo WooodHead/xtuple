@@ -1,146 +1,191 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Running Availability
-  </title>
-   <subtitle>dspRunningAvailability : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspRunningAvailability.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Running Availability
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Planned Orders</guilabel>
-               </entry>
-               <entry>_showPlanned</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>QOH:</guilabel>
-               </entry>
-               <entry>_qohLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Order Multiple:</guilabel>
-               </entry>
-               <entry>_orderMultipleLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_qoh</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_orderMultiple</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Reorder Level:</guilabel>
-               </entry>
-               <entry>_reorderLevelLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Order Up To Qty:</guilabel>
-               </entry>
-               <entry>_orderToQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_reorderLevel</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_orderToQty</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Running Availability:</guilabel>
-               </entry>
-               <entry>_runningAvailabilityLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_availability</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518986" role="openmfg">
+    <title>Running Availability</title>
+
+    <para id="Para518987">To view Running Availability, select the "Running
+    Availability" option. The following screen will appear:</para>
+
+    <para id="Para518991"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Disp_runningAvail.png"
+                       id="Graphic520850" />
+          </imageobject>
+
+          <caption id="Caption518992">Running Availability</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518998">When displaying Running Availability, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518999">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item whose Running Availability
+          you want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553599">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para537275">When quantity appears in the "Ordered" column,
+      this refers to quantity that is on order through either a Work Order or
+      Purchase Order. In the case of Purchase Orders, the quantity will always
+      be represented in the Inventory Unit of Measure (UOM)--regardless of the
+      Vendor UOM used on the Purchase Order.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519003">Warehouse</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Running Availability you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para528257">Show Planned Orders</term>
+
+        <listitem>
+          <para>Select to show Planned Orders in the display.</para>
+
+          <para id="Para528258">Planned Orders will display in blue
+          type.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519005">QOH</term>
+
+        <listitem>
+          <para>Displays Quantity on Hand for specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519007">Order Multiple</term>
+
+        <listitem>
+          <para>Displays Order Multiple specifying the increments the Item
+          must be ordered in. Order Multiple is maintained in the Item Site
+          master.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519009">Reorder Level</term>
+
+        <listitem>
+          <para>Displays the Reorder Level specifying the minimum Quantity on
+          Hand allowed before an Item must be reordered. Reorder Level is
+          maintained in the Item Site master.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519011">Order Up To Qty</term>
+
+        <listitem>
+          <para>Indicates the quantity level that MRP Planned Replenishment
+          Orders will order up to.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519014">Running Availability</term>
+
+        <listitem>
+          <para>Display lists Running Availability for the selected Item,
+          using the specified parameters.</para>
+
+          <para id="Para553929">Red lettering indicates the due date has
+          passed or Running Availability has dropped below 0.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519016">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519017">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553813">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para537017">Right-clicking on a Work Order in the Running
+    Availability display enables you to select from the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537018">View Work Order Details</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para537020">If you right-click on a Planned Order, the following
+    additional option will also be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para537021">Firm Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537045">Release Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537052">Delete Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

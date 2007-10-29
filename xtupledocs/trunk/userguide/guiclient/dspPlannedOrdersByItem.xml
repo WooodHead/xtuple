@@ -1,97 +1,178 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Planned Orders by Item
-  </title>
-   <subtitle>dspPlannedOrdersByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspPlannedOrdersByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Planned Orders by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Planned Orders:</guilabel>
-               </entry>
-               <entry>_planordLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_planord</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518747" role="openmfg">
+    <title>Planned Orders by Item</title>
+
+    <para id="Para518748">To view Planned Orders by Item, select the "Planned
+    Orders by Item" option. The following screen will appear:</para>
+
+    <para id="Para518752"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Disp_planOrdByItem.png"
+                       id="Graphic520549" />
+          </imageobject>
+
+          <caption id="Caption518753">Planned Orders by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para533953">When a Planned Work Order is released, the Create
+      Work Order screen will appear with Work Order details automatically
+      filled in. Releasing a Planned Purchase Order results in a Purchase
+      Request, which may in turn be released from the Purchase Request
+      reports.</para>
+    </note>
+
+    <para id="Para518759">When displaying Planned Orders by Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518760">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item whose Planned Orders you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553593">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para537206">In the case of Planned Purchase Orders, the
+      quantity will always be represented in the Inventory Unit of Measure
+      (UOM)--regardless of the Vendor UOM used on any existing Purchase
+      Orders.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518764">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display Planned Orders by Item for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518766">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Planned Orders by Item you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518768">Planned Orders</term>
+
+        <listitem>
+          <para>Display will show Planned Orders by Item, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para534270">Planned Orders must be firm before they will be
+      considered as a valid source of supply by Material Requirements Planning
+      (MRP) when MRP is run.</para>
+    </tip>
+
+    <para id="Para534257">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518771">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para532588">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553760">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para530963">Right-clicking on an Order in the Planned Orders
+    display enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530964">Running Availability</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530965">Firm Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530966">Release Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530967">Delete Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para530987">If the selected Order is firmed, the following
+    option will be available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530988">Soften Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
