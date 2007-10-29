@@ -1,171 +1,346 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Production Plan
-  </title>
-   <subtitle>plannedSchedule : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/plannedSchedule.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Production Plan
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Status:</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Unreleased</guilabel>
-               </entry>
-               <entry>_status</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Schedule #:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>QLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_number</entry>
-               <entry>QLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Schedule Type:</guilabel>
-               </entry>
-               <entry>_schedtypLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_schedtype</entry>
-               <entry>QComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_cancel</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Planned Items:</guilabel>
-               </entry>
-               <entry>_listLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_list</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Copy</guilabel>
-               </entry>
-               <entry>_copy</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section537763" role="openmfg">
+    <title>New Production Plan</title>
+
+    <para id="Para539762">Production Plans are used for loading sales
+    Forecasts into the system. These Forecasts are then accounted for when the
+    Master Production Scheduling (MPS) system is run. Firm Planned Orders may
+    be created for Items listed on Production Plans as the result of an MPS
+    run. To create a new Production Plan, select the NEW button. The following
+    screen will appear:</para>
+
+    <para id="Para539316"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Plan_prodPlanNew.png"
+                       id="Graphic539314" />
+          </imageobject>
+
+          <caption id="Caption539317">Create New Production Plan</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para539318">When creating a new Production Plan you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para539319">Schedule #</term>
+
+        <listitem>
+          <para>Enter a name to identify the Production Plan.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539320">Description</term>
+
+        <listitem>
+          <para>Enter a brief description of the Production Plan.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539321">Warehouse</term>
+
+        <listitem>
+          <para>Specify the Warehouse where the forecasted quantity would be
+          located.</para>
+
+          <para id="Para540241">By specifying a Warehouse you indicate the
+          specific Item Site which the MPS planning system should create
+          Planned Orders for, if required.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para546060">Schedule Type</term>
+
+        <listitem>
+          <para>Select one of the available Production Plan schedule
+          types:</para>
+
+          <para id="Para546061"><anchor id="Anchor546148" role="Index"
+          xreflabel="mps:forecast reporting and;forecast:reporting for mps" />
+          <indexterm significance="normal" zone="Anchor546148">
+              <primary>mps</primary>
+
+              <secondary>forecast reporting and</secondary>
+            </indexterm> <indexterm significance="normal" zone="Anchor546148">
+              <primary>forecast</primary>
+
+              <secondary>reporting for mps</secondary>
+            </indexterm>Forecast Reporting: Planning Items having this
+          schedule type are not taken into account by MPS. Instead, use this
+          schedule type for reporting purposes only, such as the reporting
+          found on the MPS Detail screen. Forecast reporting can be useful as
+          a reference of progress against Cumulative MPS Schedules, usually in
+          scenarios where demand is discontinuous or "lumpy," but production
+          schedules are continuous.</para>
+
+          <para id="Para546125">Forecast Netted to MPS: Used for forecast
+          reporting and netted as demand to existing supply by the MPS
+          processor for Items scheduled inside the Demand Time Fence. Use
+          where you desire supply to automatically be created to fulfill, but
+          not exceed, the greater of forecasted and actual demand. Inside the
+          Demand Time Fence, MPS ignores the forecast and plans an amount
+          based on actual demand net of projected Availability. Outside of the
+          Demand Time Fence, MPS uses the larger of actual demand or the
+          forecast and nets this against projected Availability.</para>
+
+          <para id="Para546110"><anchor id="Anchor546147" role="Index"
+          xreflabel="mps:cumulative schedules and; cumulative schedules:explained" />
+          <indexterm significance="normal" zone="Anchor546147">
+              <primary>mps</primary>
+
+              <secondary>cumulative schedules and</secondary>
+            </indexterm> <indexterm significance="normal" zone="Anchor546147">
+              <primary>cumulative schedules</primary>
+
+              <secondary>explained</secondary>
+            </indexterm>Cumulative MPS: Cumulative Schedules allow the forced
+          accumulation of inventory in a discontinuous or "lumpy" demand
+          situation where load leveling or continuous production is desired.
+          With this setting, MPS may release more, but never less, than the
+          quantity dictated in a Cumulative MPS Schedule. Inside the Demand
+          Time Fence, Cumulative Schedules are ignored--and only actual demand
+          is considered. Outside the Demand Time Fence, Planned Orders for
+          Cumulative Schedules are created per the greater of schedule
+          quantity or net actual demand. The system interprets "net actual
+          demand" to mean that it will use, for a given period, the larger of
+          A) Cumulative Schedule quantity or B) quantity required to
+          accommodate time-phased Availability (i.e., QOH + Qty. On Order -
+          Allocations).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para546111">Status</term>
+
+        <listitem>
+          <para>Displays the current status of the Production Plan.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para539898">Production Plans may exist in either of the
+      following two statuses:</para>
+
+      <para id="Para539913">U = Un-released</para>
+
+      <para id="Para539918">R = Released</para>
+
+      <para id="Para539919">The Master Production Scheduling (MPS) system will
+      only consider Production Plans which have been released. Any un-released
+      Production Plans will be ignored by MPS when it is run.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para539323">Start Date</term>
+
+        <listitem>
+          <para>Enter the first date when MPS Items may be added to the
+          Production Plan.</para>
+
+          <para id="Para540052">Items having a planned date earlier than the
+          date entered here may not be added to the Production Plan.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539324">End Date</term>
+
+        <listitem>
+          <para>Enter the last date when MPS Items may be added to the
+          Production Plan.</para>
+
+          <para id="Para540062">Items having a planned date later than the
+          date entered here may not be added to the Production Plan.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539325">Planned Items</term>
+
+        <listitem>
+          <para>Displays the current list of Planned Items associated with the
+          Production Plan.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para539326">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para539327">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539328">SAVE</term>
+
+        <listitem>
+          <para>Creates the Production Plan and adds it to the list of
+          Production Plans.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539329">NEW</term>
+
+        <listitem>
+          <para>Opens screen for creating a new Production Plan Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539330">EDIT</term>
+
+        <listitem>
+          <para>Enables you to edit highlighted Production Plan Items. The
+          edit screen is the same as that for creating a new Production Plan
+          Item--except that when editing, the fields will contain Production
+          Plan Item information. Double-clicking on a Production Plan Item
+          will also bring you to the editing screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539331">COPY</term>
+
+        <listitem>
+          <para>Highlight a Production Plan Item and then select this button
+          to reach a screen for copying the Production Plan Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539332">DELETE</term>
+
+        <listitem>
+          <para>Highlight a Production Plan Item and then select this button
+          to remove it from the list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para539334"><anchor id="Anchor539333" role="Index"
+    xreflabel="production plans:creating new" /> <indexterm
+        significance="normal" zone="Anchor539333">
+        <primary>production plans</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>To create a new Production Plan Item, select the NEW button.
+    The following screen will appear:</para>
+
+    <para id="Para539338"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Plan_prodPlanItem.png"
+                       id="Graphic539336" />
+          </imageobject>
+
+          <caption id="Caption540082">New Production Plan Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para540176">You can reduce clutter (and simplify) your
+      Production Plans by taking advantage of the Planning Item Type. A
+      Planning Item is an Item whose Bill of Materials (BOM) groups together
+      other Items so that a Production Plan may be defined for the Planning
+      Item--and then exploded down to the lower level Items during a Master
+      Production Scheduling (MPS) run. Planning Items are frequently used to
+      group together product families or product lines of MPS Items.</para>
+    </tip>
+
+    <para id="Para539340">When creating a new Production Plan Item, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para540086">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item you want to add to the
+          Production Plan.</para>
+
+          <para id="Para540087">You may only add Items which are specifically
+          associated with the MPS Planning system. Items may be associated
+          with a planning system (i.e., MRP, MPS, or None) on the Item master.
+          Use the browse button located to the right of the field to reach a
+          searchable MPS Items list.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553562">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539351">Planned Date</term>
+
+        <listitem>
+          <para>Enter the date when the specified Item quantity will be
+          required.</para>
+
+          <para id="Para540189">When MPS is run, the system will look at the
+          planned date for Production Plan Items. If a planned date falls
+          within the cutoff date for the MPS run, the system will plan for the
+          demand accordingly. If the planned date falls beyond the cutoff
+          date, the demand will be ignored.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para540191">Qty.</term>
+
+        <listitem>
+          <para>Specify the demand quantity for the Production Plan
+          Item.</para>
+
+          <para id="Para540214">In the case of a Planning Item, the quantity
+          entered here will have a ripple effect on any component Items listed
+          on the Planning Item's Bill of Materials.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para539354">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para539355">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para539356">SAVE</term>
+
+        <listitem>
+          <para>Creates the Production Plan Item and adds it to the list of
+          Production Plan Items.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

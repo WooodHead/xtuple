@@ -1,142 +1,130 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Planned Order
-  </title>
-   <subtitle>plannedOrder : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/plannedOrder.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Planned Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Planned Order #:</guilabel>
-               </entry>
-               <entry>_numberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_number</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>C<accel>r</accel>eate</guilabel>
-               </entry>
-               <entry>_create</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Due Date:</guilabel>
-               </entry>
-               <entry>_eueDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Start Date:</guilabel>
-               </entry>
-               <entry>_startDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_dueDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Lead Time:</guilabel>
-               </entry>
-               <entry>_leadTimeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_leadTime</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_daysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_startDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518552" role="openmfg">
+    <title>Create Planned Order</title>
+
+    <para id="Para518553">To create a Planned Order, select the "Create
+    Planned Order" option. The following screen will appear:</para>
+
+    <para id="Para518557"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_createPlanOrd.png"
+                       id="Graphic520435" />
+          </imageobject>
+
+          <caption id="Caption518558">Create Planned Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518564">When creating a Planned Order, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518565">Planned Order #</term>
+
+        <listitem>
+          <para>Displays system-defined Planned Order Number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518567">Item Number</term>
+
+        <listitem>
+          <para>Enter the Item Number of the Item you want to create a Planned
+          Order for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para553572">UOM</term>
+
+        <listitem>
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para532107">Warehouse</term>
+
+        <listitem>
+          <para>Specify Warehouse for Planned Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para532111">Qty. Ordered</term>
+
+        <listitem>
+          <para>Enter the quantity of the specified Item required for the
+          Planned Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518581">Due Date</term>
+
+        <listitem>
+          <para>Enter the date the Planned Order must be completed by.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518583">Start Date</term>
+
+        <listitem>
+          <para>This date will be equal to the due date less the Lead Time.
+          The start date may be changed by altering the Lead Time
+          field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518585"><anchor id="Anchor528671" role="Index"
+        xreflabel="lead times:in planned orders;planned orders:lead times for" />
+        <indexterm significance="normal" zone="Anchor528671">
+            <primary>lead times</primary>
+
+            <secondary>in planned orders</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor528671">
+            <primary>planned orders</primary>
+
+            <secondary>lead times for</secondary>
+          </indexterm>Lead Time (Days)</term>
+
+        <listitem>
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para518586">Value entered specifies the Lead Time required
+          between the Due Date and the Start Date.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518587">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518588">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen without creating the Planned Order,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518589">CREATE</term>
+
+        <listitem>
+          <para>Creates the Planned Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,93 +1,186 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Run MRP by Planner Code
-  </title>
-   <subtitle>createPlannedOrdersByPlannerCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/createPlannedOrdersByPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Run MRP by Planner Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cutoff Date:</guilabel>
-               </entry>
-               <entry>_cutOffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_cutOffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete Existing Firmed MRP Orders</guilabel>
-               </entry>
-               <entry>_deleteFirmed</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>C<accel>r</accel>eate</guilabel>
-               </entry>
-               <entry>_create</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Submit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section551404" role="openmfg">
+    <title>Run MRP by Planner Code</title>
+
+    <para id="Para534797">When you run MRP by Planner Code, you are running
+    the Material Requirements Planning (MRP) system. This utility creates
+    Planned Replenishment Orders to meet existing Sales Order and Work Order
+    demand. Replenishment Orders will be created whenever a Planned
+    Availability for an Item Site falls below its Reorder Level. The quantity
+    of the Replenishment Order will be enough to restore Planned Availability
+    back to the Reorder Level--or to the Order Up To (OUT) Level, if the OUT
+    Level is greater.</para>
+
+    <note>
+      <para id="Para536592">Running MRP by Planner Code may be used to
+      generate Planned Orders for both parent-level manufactured Items and
+      also lower level purchased Items. Only Items designated as MRP Items
+      will be affected by an MRP run.</para>
+    </note>
+
+    <para id="Para536576">To run MRP by Planner Code, select the "Run MRP by
+    Planner Code" option. The following screen will appear:</para>
+
+    <para id="Para518624"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Sched_createPlanByPCode.png"
+                       id="Graphic520460" />
+          </imageobject>
+
+          <caption id="Caption518625">Run MRP by Planner Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para535638">The system deletes any non-firmed Planned Orders
+      when MRP is run. If demand for the deleted Planned Orders still exists,
+      the Orders will be replaced by new Replenishment Orders having new
+      Planned Order Numbers. Order quantities will also be updated if demand
+      levels have changed since MRP was last run.</para>
+    </note>
+
+    <para id="Para518626">When running MRP by Planner Code, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para531702">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to create Planned Replenishment Orders for all Planner
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518627">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code you want to create Planned Replenishment
+          Orders for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para526322">Pattern</term>
+
+        <listitem>
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para554575">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554574"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518631">All Warehouses</term>
+
+        <listitem>
+          <para>Select to create Planned Replenishment Orders by Planner Code
+          for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518633">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse Planned Replenishment Orders should be
+          created for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para531497">Cutoff Date</term>
+
+        <listitem>
+          <para>Specify how far into the future the MRP run should look for
+          demand.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para546248">If you schedule an MRP or MPS job submitted to the
+      Batch Manager to run on a periodic basis--daily, weekly, monthly--the
+      cutoff date used for the run will automatically be updated by the number
+      of days in the specified reschedule interval (Day = +1, Week = +7, and
+      Month = +30).</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518640"><anchor id="Anchor528692" role="Index"
+        xreflabel="firmed orders:deletion of" /> <indexterm
+            significance="normal" zone="Anchor528692">
+            <primary>firmed orders</primary>
+
+            <secondary>deletion of</secondary>
+          </indexterm>Delete Existing Firmed MRP Orders</term>
+
+        <listitem>
+          <para>Firmed MRP Orders: Select to delete existing Firmed
+          Orders.</para>
+
+          <para id="Para534842">A firm Planned Order is a Planned Order that
+          has been solidified in the schedule. By default, firm Planned Orders
+          are not deleted when MRP is run. Selecting this option overrides
+          that default behavior. If firm Planned Orders are deleted when MRP
+          is run, they will automatically be replaced by soft (i.e.,
+          non-firmed) Planned Orders, assuming the demand for the requirements
+          still exists.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para545155">Unposted Purchase Orders and Purchase Requests are
+      considered as valid sources of supply when MRP is run.</para>
+    </tip>
+
+    <para id="Para545151">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518643">CANCEL</term>
+
+        <listitem>
+          <para>Closes the screen without creating Planned Replenishment
+          Orders by Planner Code, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para535752">CREATE</term>
+
+        <listitem>
+          <para>Creates Planned Replenishment Orders by Planner Code, using
+          the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para537096">SUBMIT</term>
+
+        <listitem>
+          <para>Select to submit the MRP run to the Batch Manager. For
+          additional information, see the <link endterm="Anchor61009"
+          id="XRef547857" linkend="Anchor61009"> Submitting Reports and Jobs
+          to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
+          the Batch Manager" section in the <link endterm="Anchor30917"
+          id="XRef537101" linkend="Anchor30917"> System Module</link>System
+          Module.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

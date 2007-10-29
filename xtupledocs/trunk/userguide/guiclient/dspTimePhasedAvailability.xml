@@ -1,239 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
 "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section518959" role="openmfg">
+  <title>Time-Phased Availability</title>
 
-  <section id="Section518959" role="openmfg">
-    <title>Time-Phased Availability</title>
+  <para id="Para518960">To view time-phased Availability, select the
+  "Time-Phased Availability" option. The following screen will appear:</para>
 
-    <para id="Para518960">To view time-phased Availability, select the
-    "Time-Phased Availability" option. The following screen will
-    appear:</para>
+  <para id="Para518964"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_tpAvailability.png"
+                     id="Graphic520834" />
+        </imageobject>
 
-    <para id="Para518964"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_tpAvailability.png"
-                       id="Graphic520834" />
-          </imageobject>
+        <caption id="Caption518965">Time-Phased Availability</caption>
+      </mediaobject>
+    </screenshot></para>
 
-          <caption id="Caption518965">Time-Phased Availability</caption>
-        </mediaobject>
-      </screenshot></para>
+  <para id="Para518966">When displaying time-phased Availability, you are
+  presented with the following options:</para>
 
-    <para id="Para518966">When displaying time-phased Availability, you are
-    presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518967">All Warehouses</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para518967">All Warehouses</term>
+      <listitem>
+        <para>Select to display time-phased Availability for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display time-phased Availability for all
-          Warehouses.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518969">Selected</term>
 
-      <varlistentry>
-        <term id="Para518969">Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose time-phased Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Warehouse whose time-phased Availability you want to
-          display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para531860">All Planner Codes</term>
 
-      <varlistentry>
-        <term id="Para531860">All Planner Codes</term>
+      <listitem>
+        <para>Select to display time-phased Availability for all Planner
+        Codes.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display time-phased Availability for all Planner
-          Codes.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518971">Selected</term>
 
-      <varlistentry>
-        <term id="Para518971">Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose time-phased Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Planner Code whose time-phased Availability you want
-          to display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para526370">Pattern</term>
 
-      <varlistentry>
-        <term id="Para526370">Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner
+        Codes.</para>
 
-        <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
-          Codes.</para>
+        <para id="Para554663">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef554662"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para554663">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554662"
-          linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para552762">Calendar</term>
 
-      <varlistentry>
-        <term id="Para552762">Calendar</term>
+      <listitem>
+        <para>Select the Calendar you want to use for the report.</para>
 
-        <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+        <para id="Para552763">Associated Calendar periods will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para552763">Associated Calendar periods will be
-          displayed.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para523278">Name/Selected Periods</term>
 
-      <varlistentry>
-        <term id="Para523278">Name/Selected Periods</term>
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field.</para>
 
-        <listitem>
-          <para>Select as many periods as you want to display. Selected
-          periods correspond to Calendar specified in the "Calendar"
-          field.</para>
+        <para id="Para526685">Select individual periods or groups of periods
+        together. To select an individual period, highlight the period using
+        your mouse button. The period is now selected. To select a sequence of
+        periods, highlight the first in the sequence using your mouse button.
+        Then, holding down the SHIFT key on your keyboard, highlight the last
+        period in the sequence. The entire sequence is now selected. To select
+        periods that are out of sequence (e.g., January, April, July,
+        October), highlight the first period in the group. Then, holding down
+        the CTRL key on your keyboard, highlight the next period you want to
+        select. Continue highlighting periods with the CTRL key depressed
+        until all desired periods are selected. The entire group is now
+        selected.</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para526685">Select individual periods or groups of periods
-          together. To select an individual period, highlight the period using
-          your mouse button. The period is now selected. To select a sequence
-          of periods, highlight the first in the sequence using your mouse
-          button. Then, holding down the SHIFT key on your keyboard, highlight
-          the last period in the sequence. The entire sequence is now
-          selected. To select periods that are out of sequence (e.g., January,
-          April, July, October), highlight the first period in the group.
-          Then, holding down the CTRL key on your keyboard, highlight the next
-          period you want to select. Continue highlighting periods with the
-          CTRL key depressed until all desired periods are selected. The
-          entire group is now selected.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518979">Time-Phased Availability</term>
 
-      <varlistentry>
-        <term id="Para518979">Time-Phased Availability</term>
+      <listitem>
+        <para>Display lists time-phased Availability, using the specified
+        parameters.</para>
 
-        <listitem>
-          <para>Display lists time-phased Availability, using the specified
-          parameters.</para>
+        <para id="Para553918">Negative values will display in red type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-          <para id="Para553918">Negative values will display in red
-          type.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para518981">To the far right of the screen, the following buttons
+  are available:</para>
 
-    <para id="Para518981">To the far right of the screen, the following
-    buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518982">CLOSE</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para518982">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para531429">QUERY</term>
 
-      <varlistentry>
-        <term id="Para531429">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
 
-        <listitem>
-          <para>Select to generate the display, using the specified
-          parameters.</para>
+        <para id="Para518984">Start date and end date must be entered for
+        calculation to proceed. Results will be displayed in the "Time-Phased
+        Availability" display.</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para518984">Start date and end date must be entered for
-          calculation to proceed. Results will be displayed in the
-          "Time-Phased Availability" display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para553808">PRINT</term>
 
-      <varlistentry>
-        <term id="Para553808">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para551036">SUBMIT</term>
 
-      <varlistentry>
-        <term id="Para551036">SUBMIT</term>
+      <listitem>
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see the <link endterm="Anchor61009" id="XRef551038"
+        linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+        Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+        Manager".</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef551038"
-          linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
-          Manager</link>"Topic: Submitting Reports and Jobs to the Batch
-          Manager".</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para530513">Right-clicking on a Line Item in the Time-Phased
+  Availability display enables you to select from the following
+  context-sensitive options.</para>
 
-    <para id="Para530513">Right-clicking on a Line Item in the Time-Phased
-    Availability display enables you to select from the following
-    context-sensitive options.</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para530514">View Availability Detail</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para530514">View Availability Detail</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/4/2/21)" />
 
-      <varlistentry>
-        <term id="Para530537">View Allocations</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/23)" />
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 
-      <varlistentry>
-        <term id="Para530515">View Orders</term>
+  <para id="Para530518">If the Line Item is a purchased Item, the following
+  additional options will be available:</para>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+  <variablelist>
+    <varlistentry>
+      <term id="Para530519">Create P/R</term>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
-    </variablelist>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
 
-    <para id="Para530518">If the Line Item is a purchased Item, the following
-    additional options will be available:</para>
+    <varlistentry>
+      <term id="Para530520">Create P/O</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para530519">Create P/R</term>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+  <para id="Para530521">If the Line Item is a manufactured Item, the following
+  additional option will be available:</para>
 
-      <varlistentry>
-        <term id="Para530520">Create P/O</term>
+  <variablelist>
+    <varlistentry>
+      <term id="Para530522">Create W/O</term>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para id="Para530521">If the Line Item is a manufactured Item, the
-    following additional option will be available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term id="Para530522">Create W/O</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

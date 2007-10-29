@@ -1,171 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
 "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section519080" role="openmfg">
+  <title>Reorder Exceptions by Planner Code</title>
 
-  <section id="Section519080" role="openmfg">
-    <title>Reorder Exceptions by Planner Code</title>
+  <para id="Para533575">A Reorder Exception is an indication that an Item
+  Site's projected Availability will drop below the Reorder Level for that
+  Item Site. To view a list of Items requiring Orders to correct projected
+  deficits, select the "Reorder Exceptions by Planner Code" option. The
+  following screen will appear:</para>
 
-    <para id="Para533575">A Reorder Exception is an indication that an Item
-    Site's projected Availability will drop below the Reorder Level for that
-    Item Site. To view a list of Items requiring Orders to correct projected
-    deficits, select the "Reorder Exceptions by Planner Code" option. The
-    following screen will appear:</para>
+  <para id="Para519085"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_reordExceptsByPCode.png"
+                     id="Graphic520907" />
+        </imageobject>
 
-    <para id="Para519085"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_reordExceptsByPCode.png"
-                       id="Graphic520907" />
-          </imageobject>
+        <caption id="Caption519086">Reorder Exceptions by Planner
+        Code</caption>
+      </mediaobject>
+    </screenshot></para>
 
-          <caption id="Caption519086">Reorder Exceptions by Planner
-          Code</caption>
-        </mediaobject>
-      </screenshot></para>
+  <para id="Para519087">When displaying Reorder Exceptions by Planner Code,
+  you are presented with the following options:</para>
 
-    <para id="Para519087">When displaying Reorder Exceptions by Planner Code,
-    you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519088">All Planner Codes</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para519088">All Planner Codes</term>
+      <listitem>
+        <para>Select to display Reorder Expedite Exceptions for all Planner
+        Codes.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display Reorder Expedite Exceptions for all Planner
-          Codes.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519089">Selected</term>
 
-      <varlistentry>
-        <term id="Para519089">Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose Reorder Expedite Exceptions you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Planner Code whose Reorder Expedite Exceptions you
-          want to display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para526388">Pattern</term>
 
-      <varlistentry>
-        <term id="Para526388">Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner
+        Codes.</para>
 
-        <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
-          Codes.</para>
+        <para id="Para554687">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef554686"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para554687">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554686"
-          linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para528314">Look Ahead Days</term>
 
-      <varlistentry>
-        <term id="Para528314">Look Ahead Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 1000.</para>
 
-        <listitem>
-          <para>Select a number using the arrow buttons, or manually enter a
-          value up to a maximum of 1000.</para>
+        <para id="Para528315">Reorder Expedite Exceptions by Planner Code will
+        be displayed based on the value entered here.</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para528315">Reorder Expedite Exceptions by Planner Code
-          will be displayed based on the value entered here.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para528316">Include Planned Orders</term>
 
-      <varlistentry>
-        <term id="Para528316">Include Planned Orders</term>
+      <listitem>
+        <para>Select to include Planned Orders in the display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to include Planned Orders in the display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519093">All Warehouses</term>
 
-      <varlistentry>
-        <term id="Para519093">All Warehouses</term>
+      <listitem>
+        <para>Select to display Reorder Expedite Exceptions by Planner Code
+        for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display Reorder Expedite Exceptions by Planner Code
-          for all Warehouses.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519095">Selected</term>
 
-      <varlistentry>
-        <term id="Para519095">Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Reorder Expedite Exceptions by Planner
+        Code you want to display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Warehouse whose Reorder Expedite Exceptions by Planner
-          Code you want to display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519100">Expedite Exceptions</term>
 
-      <varlistentry>
-        <term id="Para519100">Expedite Exceptions</term>
+      <listitem>
+        <para>Display lists Reorder Expedite Exceptions by Planner Code, using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Display lists Reorder Expedite Exceptions by Planner Code,
-          using the specified parameters.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para519102">To the far right of the screen, the following buttons
+  are available:</para>
 
-    <para id="Para519102">To the far right of the screen, the following
-    buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519103">CLOSE</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para519103">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para531443">QUERY</term>
 
-      <varlistentry>
-        <term id="Para531443">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to generate the display, using the specified
-          parameters.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para553832">PRINT</term>
 
-      <varlistentry>
-        <term id="Para553832">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para526061">Right-clicking on an Item in the Expedite Exceptions
+  display enables you to select from the following options:</para>
 
-    <para id="Para526061">Right-clicking on an Item in the Expedite Exceptions
-    display enables you to select from the following options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/2)" />
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para526062">View Running Availability</term>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+  <para id="Para526076">If the selected Item is a manufactured Item, the
+  following additional option will also be available:</para>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
-    </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term id="Para526069">Create Work Order</term>
 
-    <para id="Para526076">If the selected Item is a manufactured Item, the
-    following additional option will also be available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term id="Para526069">Create Work Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+      <listitem>
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
