@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section556281" role="openmfg">
+    <title>Work Order Buffer Status by Item Group</title>
+
+    <para id="Para556282">The Work Order buffer status displays provide
+    information on your current stock and time buffer levels for those Items
+    having current Work Orders. Stock buffers apply to make-to-stock Items;
+    whereas time buffers apply to Items which are make-to-order. Keep in mind
+    that buffer status information will only be displayed on days when the
+    Buffer Management system is run. If you find your displays show no
+    information, this probably means Buffer Management has not been
+    run.</para>
+
+    <para id="Para556283">To view Work Order buffer status by Item Group,
+    select the "Work Order Buffer Status by Item Group" option. The following
+    screen will appear:</para>
+
+    <para id="Para556287"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Buff_woStatusByItemGroup.png"
+                       id="Graphic556285" />
+          </imageobject>
+
+          <caption id="Caption556288">Work Order Buffer Status by Item
+          Group</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para556290">When the buffer status for an Item hits 66 or
+      higher, the status number will become red. By highlighting Items which
+      are "red hot," the system is informing you which Items should be acted
+      on immediately. The best remedy for red hot Item Sites is to expedite
+      any associated Work Orders or Purchase Orders.</para>
+    </note>
+
+    <para id="Para556291">When displaying Work Order buffer status by Item
+    Group, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556292">All Item Groups</term>
+
+        <listitem>
+          <para>Select to display Work Order buffer statuses for all Item
+          Groups.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556293">Selected</term>
+
+        <listitem>
+          <para>Specify Item Group whose Work Order buffer statuses you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556294">Item Group Pattern</term>
+
+        <listitem>
+          <para>Enter an Item Group pattern to select a range of Item
+          Groups.</para>
+
+          <para id="Para556297">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef556296"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556299">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display Work Order buffer statuses for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556300">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Work Order buffer statuses you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para556302">By default, the display will sort Work Orders by
+      buffer status in descending order. In other words, Work Orders with the
+      highest buffer status will appear at the top of the list; Work Orders
+      with the lowest buffer status will appear at the bottom.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556303">Only Show Released and In-Process W/O"s</term>
+
+        <listitem>
+          <para>Select to display only released and in-process Work Order
+          schedules.</para>
+
+          <para id="Para556304">Selecting this option means only Work Orders
+          whose Status is released ("R") or in-process ("I") will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556305">Only Show Top Level Work Orders</term>
+
+        <listitem>
+          <para>Select to display only top level Work Orders.</para>
+
+          <para id="Para556306">Top level Work Orders are Work Orders that
+          have not been created to meet the component demands of a parent Work
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556307">Work Orders</term>
+
+        <listitem>
+          <para>Display lists Work Order buffer statuses by Item Group, using
+          the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556308">Automatically Update</term>
+
+        <listitem>
+          <para>Select to automatically update the display every five
+          minutes.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556309">To the far right and at the bottom of the screen,
+    the following buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556310">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556311">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556312">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556313">Right-clicking on a Work Order in the Work Orders
+    list enables you to select a number of context-sensitive menu options. If
+    the Work Order's Status is open "O," the following options will appear
+    when you right-click on the Work Order:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556314">View W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556315">Explode W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556316">Delete W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556317">Reprioritize W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556318">Reschedule W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556319">Change W/O Quantity</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para556321">If the Work Order's Status is exploded "E," the
+    following options will appear when you right-click on the Work
+    Order:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556322">View W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556323">Release W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556324">Post Production</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556325">Post Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556326">Implode W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556327">Delete W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556328">View W/O Material Requirements</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556329">View W/O Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556330">Inventory Availability by Work Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556331">Print Traveler</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556332">Reprioritize W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556333">Reschedule W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556334">Change W/O Quantity</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para556336">If the Work Order's Status is released "R", the
+    following options will appear when you right-click on the Work
+    Order:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556337">View W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556338">Recall W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556339">Post Production</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556340">Correct Production Posting</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556341">Post Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556342">Correct Operations Posting</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556343">Close W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556344">View W/O Material Requirements</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556345">View W/O Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556346">Inventory Availability by Work Order</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556347">Print Traveler</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para556349">If the Work Order's Status is in-process "I," the
+    following options will appear when you right-click on the Work
+    Order:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556350">View W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556351">Post Production</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556352">Correct Production Posting</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556353">Post Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556354">Correct Operations Posting</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556355">Close W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556356">View W/O Material Requirements</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556357">View W/O Operations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556358">View W/O Material Availability</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556359">Print Traveler</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para556361">If the Work Order is a child Work Order, the
+    following additional option will appear:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556362">View Parent Work Order Information</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section556230" role="openmfg">
+    <title>Inventory Buffer Status by Planner Code</title>
+
+    <para id="Para556231">The Inventory buffer status displays provide
+    information on your current stock buffer levels. Stock buffers apply to
+    make-to-stock Items. Keep in mind that buffer status information will only
+    be displayed on days when the Buffer Management system is run. If you find
+    your displays show no information, this probably means Buffer Management
+    has not been run.</para>
+
+    <para id="Para556232">To view Inventory buffer status by Planner Code,
+    select the "Inventory Buffer Status by Planner Code" option. The following
+    screen will appear:</para>
+
+    <para id="Para556236"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/MS_Buff_statusByPlanCode.png"
+                       id="Graphic556234" />
+          </imageobject>
+
+          <caption id="Caption556237">Inventory Buffer Status by Planner
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para556239">When the buffer status for an Item hits 66 or
+      higher, the status number will become red. By highlighting Items which
+      are "red hot," the system is informing you which Items should be acted
+      on immediately. The best remedy for red hot Item Sites is to expedite
+      any associated Work Orders or Purchase Orders.</para>
+    </note>
+
+    <para id="Para556240">When displaying Inventory buffer statuses by Planner
+    Code, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556241">All Planner Codes</term>
+
+        <listitem>
+          <para>Select to display Inventory buffer statuses for all Planner
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556242">Selected</term>
+
+        <listitem>
+          <para>Specify Planner Code whose Inventory buffer statuses you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556243">Pattern</term>
+
+        <listitem>
+          <para>Enter a Class Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para556246">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef556245"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556248">Show Buffer Status</term>
+
+        <listitem>
+          <para>Show buffer statuses using one of the following
+          criteria:</para>
+
+          <para id="Para556249">Greater than zero: Select to display only
+          those Item Sites having a buffer status greater than zero.</para>
+
+          <para id="Para556250">In Emergency Zone: Select to display only
+          those Item Sites whose buffer status is in the "emergency zone." The
+          emergency zone is defined as a buffer status of 66 or
+          greater.</para>
+
+          <para id="Para556251">All: Select to display buffer statuses for all
+          Item Sites.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556252">All Warehouses</term>
+
+        <listitem>
+          <para>Select to display Inventory buffer statuses for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556253">Selected</term>
+
+        <listitem>
+          <para>Specify Warehouse whose Inventory buffer statuses you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para556255">By default, the display will sort Item Sites by
+      buffer status in descending order. In other words, Item Sites with the
+      highest buffer status will appear at the top of the list; Item Sites
+      with the lowest buffer status will appear at the bottom.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556256">Availability</term>
+
+        <listitem>
+          <para>Display lists Inventory buffer status by Planner Code, using
+          the specified parameters.</para>
+
+          <para id="Para556257">If Planned Availability displays in the color
+          orange, this means the actual or projected Quantity on Hand is at or
+          below the Reorder Level. If the color is red, the current or
+          projected Quantity on Hand is below 0.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para556259">When quantity appears in the "On Order" column,
+      this refers to quantity that is on order through either a Work Order or
+      Purchase Order. In the case of Purchase Orders, the quantity will always
+      be represented in the Inventory Unit of Measure (UOM)--regardless of the
+      Vendor UOM used on the Purchase Order.</para>
+    </note>
+
+    <para id="Para556260">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556261">CLOSE</term>
+
+        <listitem>
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556262">QUERY</term>
+
+        <listitem>
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556263">PRINT</term>
+
+        <listitem>
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556264">Right-clicking on an Item in the Availability list
+    enables you to select from the following context-sensitive menu
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556265">View Inventory History</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556266">View Allocations</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556267">View Orders</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556268">Running Availability</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556269">View Substitute Availability</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556270">Issue Count Tag</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+
+    <para id="Para556272">The following additional options are available for
+    purchased Items:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556273">Create P/R</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556274">Create P/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556275">The following additional options are available for
+    manufactured Items:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para556276">Create W/O</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para556277">Post Misc. Production</term>
+
+        <listitem>
+          <para></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
