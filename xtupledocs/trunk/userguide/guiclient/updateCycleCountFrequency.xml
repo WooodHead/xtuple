@@ -1,124 +1,145 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Update Cycle Count Frequency
-  </title>
-   <subtitle>updateCycleCountFrequency : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/updateCycleCountFrequency.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Update Cycle Count Frequency
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Class <accel>A</accel> Frequency:</guilabel>
-               </entry>
-               <entry>_classAFrequencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Class <accel>B</accel> Frequency:</guilabel>
-               </entry>
-               <entry>_classBFrequencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Class <accel>C</accel> Frequency:</guilabel>
-               </entry>
-               <entry>_classCFrequencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_classAFrequency</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_aDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_classBFrequency</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_bDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_classCFrequency</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_cDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>U</accel>pdate</guilabel>
-               </entry>
-               <entry>_update</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section521475">
+    <title><anchor id="Anchor552332" role="Index"
+    xreflabel="cycle counts:updating frequency of" /> <indexterm
+        significance="normal" zone="Anchor552332">
+        <primary>cycle counts</primary>
+
+        <secondary>updating frequency of</secondary>
+      </indexterm>Update Cycle Count Frequency</title>
+
+    <para id="Para521476">To update the frequency of scheduled Cycle Counts,
+    select the "Cycle Count Frequency" option. The following screen will
+    appear:</para>
+
+    <para id="Para521480"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Utilities_updateCycleCou.png"
+                       id="Graphic527305" />
+          </imageobject>
+
+          <caption id="Caption521481">Update Cycle Count Frequency</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para521482">When updating Cycle Count frequency, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para521483">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8688">
+          <para>Select to update Cycle Count frequency for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para521485">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a86ac">
+          <para>Specify Warehouse where Cycle Count frequency is to be
+          updated.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521487">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x19a86f4">
+          <para>Select to update Cycle Count frequency for all Class
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521488">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a873c">
+          <para>Specify Class Code whose Cycle Count frequency you want to
+          update.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para547886">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8784">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para677318">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677317"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521492">Class A Frequency (Days)</term>
+
+        <listitem id="listitemN0x180ac00N0x19a87cc">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para521493">Value entered specifies how frequently you
+          want to perform Cycle Counts for the specified Class
+          designation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521494">Class B Frequency (Days)</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8814">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para521495">Value entered specifies how frequently you
+          want to perform Cycle Counts for the specified Class
+          designation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521496">Class C Frequency (Days)</term>
+
+        <listitem id="listitemN0x180ac00N0x19a885c">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para521497">Value entered specifies how frequently you
+          want to perform Cycle Counts for the specified Class
+          designation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para521498">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para521499">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x19a88c8">
+          <para>Closes the screen without updating the Cycle Count frequency,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521500">UPDATE</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8910">
+          <para>Updates the Cycle Count frequency, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

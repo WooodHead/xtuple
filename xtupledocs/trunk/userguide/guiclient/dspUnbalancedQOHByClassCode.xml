@@ -1,85 +1,154 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Unbalanced QOH by Class Code
-    </title>
-   <subtitle>dspUnbalancedQOHByClassCode : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspUnbalancedQOHByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Unbalanced QOH by Class Code
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>tem Sites:</guilabel>
-               </entry>
-               <entry>_itemsitesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_itemsite</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section571193">
+    <title><anchor id="Anchor571622" role="Index"
+    xreflabel="quantity on hand:unbalanced;class codes:unbalanced qoh details for" />
+    <indexterm significance="normal" zone="Anchor571622">
+        <primary>quantity on hand</primary>
+
+        <secondary>unbalanced</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor571622">
+        <primary>class codes</primary>
+
+        <secondary>unbalanced qoh details for</secondary>
+      </indexterm>Unbalanced QOH by Class Code</title>
+
+    <para id="Para590975">Unbalanced Quantity on Hand (QOH) can occur in Item
+    Sites that are either Multiple Location Control (MLC) or Lot/Serial Number
+    controlled. If the summarized QOH value does not equal the detailed QOH
+    value, then an Item Site of these types will be considered unbalanced. By
+    design, QOH should not become unbalanced. However, if Inventory is not
+    distributed properly--as in the case, for example, when a computer is
+    turned off before a transaction is completed--then QOH can become
+    unbalanced. This display enables you to view these discrepancies and take
+    corrective action. To correct discrepancies, use the Balance Item Site
+    utility available from the right-click menu. To display unbalanced
+    Quantity on Hand by Class Code, select the "Unbalanced QOH by Class Code"
+    option. The following screen will appear:</para>
+
+    <para id="Para571286"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Utilities_unbalQOHbyClas.png"
+                       id="Graphic571284" />
+          </imageobject>
+
+          <caption id="Caption571287">Unbalanced QOH by Class Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para599801">Balancing unbalanced Item Sites updates and
+      corrects Inventory records by bringing summarized QOH into alignment
+      with detailed QOH.</para>
+    </note>
+
+    <para id="Para599795">When displaying unbalanced Quantity on Hand by Class
+    Code, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para582403">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0de8">
+          <para>Select to display unbalanced Quantity on Hand for all Class
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para571353">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0e30">
+          <para>Specify Class Code whose unbalanced Quantity on Hand you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para571355">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0e78">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para677339">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677338"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para580648">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0e9c">
+          <para>Select to display unbalanced Quantity on Hand in all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para580649">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0ec0">
+          <para>Specify Warehouse whose unbalanced Quantity on Hand you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para571556">Item Sites</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0f08">
+          <para>Display lists unbalanced Quantity on Hand the specified Class
+          Code(s).</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para571611">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para571612">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x19a0f74">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para571691">Right-clicking on an Item in the Item Sites list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/8/2/2)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/8/2/21)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/8/2/6)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/8/2/19)" />
+
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/8/2/8)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

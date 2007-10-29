@@ -1,110 +1,204 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Update ABC Class
-  </title>
-   <subtitle>updateABCClass : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/updateABCClass.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Update ABC Class
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Class <accel>A</accel> Cutoff:</guilabel>
-               </entry>
-               <entry>_classACutoffLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Class <accel>B</accel> Cutoff:</guilabel>
-               </entry>
-               <entry>_classBCutoffLIt</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_classACutoff</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>%</guilabel>
-               </entry>
-               <entry>_aPercentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_classBCutoff</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>%</guilabel>
-               </entry>
-               <entry>_bPercentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>U</accel>pdate</guilabel>
-               </entry>
-               <entry>_update</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section539293">
+    <title><anchor id="Anchor552330" role="Index"
+    xreflabel="abc class:updating of" /> <indexterm significance="normal"
+        zone="Anchor552330">
+        <primary>abc class</primary>
+
+        <secondary>updating of</secondary>
+      </indexterm>Update ABC Class</title>
+
+    <para id="Para623602">The basic formula the system uses to determine the
+    ABC classification of Items is to multiply the volume of transactions for
+    an Item during a specified period by the Item Costs for the Item. Those
+    Items having the greatest transaction value are considered Class "A"
+    Items. Those Items having the least transaction value are considered Class
+    "C" Items. Items may be grouped into ABC classes on a
+    Warehouse-by-Warehouse basis, using any percentages you want.</para>
+
+    <para id="Para623712">For example, let\qs say you want to do a 70-20-10
+    split--where A = 70% of the value for a period, B = 20%, and C = 10%. In
+    this scenario, you would open the "Update ABC Class" screen shown below
+    and enter the following values:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para623713">Class A Cutoff</term>
+
+        <listitem id="listitemN0x180ac00N0x19a12d4">
+          <para>70</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para623709">Class B Cutoff</term>
+
+        <listitem id="listitemN0x180ac00N0x19a131c">
+          <para>90</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para623661">The remaining Items having the lowest percentage of
+    the value (10%) would be assigned to the Class "C." By contrast, if you
+    wanted to do a 50-30-20 split, you would enter the following
+    values:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para623729">Class A Cutoff</term>
+
+        <listitem id="listitemN0x180ac00N0x19a1388">
+          <para>50</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para623730">Class B Cutoff</term>
+
+        <listitem id="listitemN0x180ac00N0x19a13d0">
+          <para>80</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para623727">The remaining Items having the lowest percentage of
+    the value (20%) would be assigned to the Class "C."</para>
+
+    <para id="Para623598">To update the ABC classification for Item Sites
+    within a given Warehouse and Class Code, select the "ABC Class" option.
+    The following screen will appear:</para>
+
+    <para id="Para521439"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Utilities_updateABCClass.png"
+                       id="Graphic527289" />
+          </imageobject>
+
+          <caption id="Caption521440">Update ABC Class</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para524738">Updating ABC Class values across multiple
+      Warehouses simultaneously can lead to inaccuracies in your
+      data--especially if ABC values are calculated differently in different
+      Warehouses. For this reason, it may make more sense to update ABC
+      Classes on a Warehouse-by-Warehouse basis.</para>
+    </note>
+
+    <para id="Para521442">When calculating the ABC class of Item Sites within
+    a given Warehouse and Class Code, you are presented with the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para521443">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x19a14a8">
+          <para>Select to update ABC Classes in all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para521445">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a14cc">
+          <para>Specify Warehouse where ABC Classes are to be updated.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521447">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x19a1514">
+          <para>Select to update ABC Classes for all Class Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521448">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19a155c">
+          <para>Specify Class Code whose ABC Class you want to update.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para547880">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x19a15a4">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para677328">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677327"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521455">Class A Cutoff %</term>
+
+        <listitem id="listitemN0x180ac00N0x19a15ec">
+          <para>Allows you to set the cutoff percentage for Class A
+          Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521460">Class B Cutoff %</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8424">
+          <para>Allows you to set the cutoff percentage for Class B
+          Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521465">Evaluation Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x19a846c">
+          <para>Date entered determines the day from which the value will be
+          calculated.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521470">Evaluation End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x19a84b4">
+          <para>Date entered determines the day at which the value will stop
+          being calculated.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para521472">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para521473">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8520">
+          <para>Closes the screen without updating Order Number, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para521474">UPDATE</term>
+
+        <listitem id="listitemN0x180ac00N0x19a8568">
+          <para>Updates the Order Number, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
