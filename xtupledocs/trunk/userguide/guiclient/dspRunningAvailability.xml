@@ -1,191 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
 "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section518986" role="openmfg">
+  <title>Running Availability</title>
 
-  <section id="Section518986" role="openmfg">
-    <title>Running Availability</title>
+  <para id="Para518987">To view Running Availability, select the "Running
+  Availability" option. The following screen will appear:</para>
 
-    <para id="Para518987">To view Running Availability, select the "Running
-    Availability" option. The following screen will appear:</para>
+  <para id="Para518991"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_runningAvail.png"
+                     id="Graphic520850" />
+        </imageobject>
 
-    <para id="Para518991"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_runningAvail.png"
-                       id="Graphic520850" />
-          </imageobject>
+        <caption id="Caption518992">Running Availability</caption>
+      </mediaobject>
+    </screenshot></para>
 
-          <caption id="Caption518992">Running Availability</caption>
-        </mediaobject>
-      </screenshot></para>
+  <para id="Para518998">When displaying Running Availability, you are
+  presented with the following options:</para>
 
-    <para id="Para518998">When displaying Running Availability, you are
-    presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518999">Item Number</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para518999">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Running Availability you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Enter the Item Number of the Item whose Running Availability
-          you want to display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para553599">UOM</term>
 
-      <varlistentry>
-        <term id="Para553599">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Inventory Unit of Measure.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <note>
+    <para id="Para537275">When quantity appears in the "Ordered" column, this
+    refers to quantity that is on order through either a Work Order or
+    Purchase Order. In the case of Purchase Orders, the quantity will always
+    be represented in the Inventory Unit of Measure (UOM)--regardless of the
+    Vendor UOM used on the Purchase Order.</para>
+  </note>
 
-    <note>
-      <para id="Para537275">When quantity appears in the "Ordered" column,
-      this refers to quantity that is on order through either a Work Order or
-      Purchase Order. In the case of Purchase Orders, the quantity will always
-      be represented in the Inventory Unit of Measure (UOM)--regardless of the
-      Vendor UOM used on the Purchase Order.</para>
-    </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519003">Warehouse</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para519003">Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse whose Running Availability you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Warehouse whose Running Availability you want to
-          display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para528257">Show Planned Orders</term>
 
-      <varlistentry>
-        <term id="Para528257">Show Planned Orders</term>
+      <listitem>
+        <para>Select to show Planned Orders in the display.</para>
 
-        <listitem>
-          <para>Select to show Planned Orders in the display.</para>
+        <para id="Para528258">Planned Orders will display in blue type.</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para528258">Planned Orders will display in blue
-          type.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519005">QOH</term>
 
-      <varlistentry>
-        <term id="Para519005">QOH</term>
+      <listitem>
+        <para>Displays Quantity on Hand for specified Item.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Displays Quantity on Hand for specified Item.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519007">Order Multiple</term>
 
-      <varlistentry>
-        <term id="Para519007">Order Multiple</term>
+      <listitem>
+        <para>Displays Order Multiple specifying the increments the Item must
+        be ordered in. Order Multiple is maintained in the Item Site
+        master.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Displays Order Multiple specifying the increments the Item
-          must be ordered in. Order Multiple is maintained in the Item Site
-          master.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519009">Reorder Level</term>
 
-      <varlistentry>
-        <term id="Para519009">Reorder Level</term>
+      <listitem>
+        <para>Displays the Reorder Level specifying the minimum Quantity on
+        Hand allowed before an Item must be reordered. Reorder Level is
+        maintained in the Item Site master.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Displays the Reorder Level specifying the minimum Quantity on
-          Hand allowed before an Item must be reordered. Reorder Level is
-          maintained in the Item Site master.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519011">Order Up To Qty</term>
 
-      <varlistentry>
-        <term id="Para519011">Order Up To Qty</term>
+      <listitem>
+        <para>Indicates the quantity level that MRP Planned Replenishment
+        Orders will order up to.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Indicates the quantity level that MRP Planned Replenishment
-          Orders will order up to.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para519014">Running Availability</term>
 
-      <varlistentry>
-        <term id="Para519014">Running Availability</term>
+      <listitem>
+        <para>Display lists Running Availability for the selected Item, using
+        the specified parameters.</para>
 
-        <listitem>
-          <para>Display lists Running Availability for the selected Item,
-          using the specified parameters.</para>
+        <para id="Para553929">Red lettering indicates the due date has passed
+        or Running Availability has dropped below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-          <para id="Para553929">Red lettering indicates the due date has
-          passed or Running Availability has dropped below 0.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para519016">To the far right of the screen, the following buttons
+  are available:</para>
 
-    <para id="Para519016">To the far right of the screen, the following
-    buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519017">CLOSE</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para519017">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para553813">PRINT</term>
 
-      <varlistentry>
-        <term id="Para553813">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para537017">Right-clicking on a Work Order in the Running
+  Availability display enables you to select from the following
+  options:</para>
 
-    <para id="Para537017">Right-clicking on a Work Order in the Running
-    Availability display enables you to select from the following
-    options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/31)" />
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para537018">View Work Order Details</term>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+  <para id="Para537020">If you right-click on a Planned Order, the following
+  additional option will also be available:</para>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
-    </variablelist>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/2)" />
 
-    <para id="Para537020">If you right-click on a Planned Order, the following
-    additional option will also be available:</para>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/4)" />
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para537021">Firm Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para537045">Release Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para537052">Delete Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/1)" />
+  </variablelist>
+</section>

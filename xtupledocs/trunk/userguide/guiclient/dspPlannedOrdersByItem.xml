@@ -128,29 +128,17 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1/5/2/2)" />
 
-    <varlistentry>
-      <term id="Para530965">Firm Order</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/2)" />
 
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/4)" />
 
-    <varlistentry>
-      <term id="Para530966">Release Order</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term id="Para530967">Delete Order</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/1)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -161,12 +149,8 @@
   will be available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530988">Soften Order</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/6)" />
   </variablelist>
 </section>

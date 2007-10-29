@@ -170,21 +170,17 @@
   context-sensitive options.</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530514">View Availability Detail</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/4/2/21)" />
-
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1/8/2/23)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/21)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/28)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -195,33 +191,21 @@
   additional options will be available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530519">Create P/R</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/5)" />
 
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term id="Para530520">Create P/O</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/4)" />
   </variablelist>
 
   <para id="Para530521">If the Line Item is a manufactured Item, the following
   additional option will be available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530522">Create W/O</term>
-
-      <listitem>
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/6)" />
   </variablelist>
 </section>

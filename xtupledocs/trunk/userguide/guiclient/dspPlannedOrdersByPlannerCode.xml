@@ -1,194 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
 "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<section id="Section518773" role="openmfg">
+  <title>Planned Orders by Planner Code</title>
 
-  <section id="Section518773" role="openmfg">
-    <title>Planned Orders by Planner Code</title>
+  <para id="Para518774">To view Planned Orders by Planner Code, select the
+  "Planned Orders by Planner Code" option. The following screen will
+  appear:</para>
 
-    <para id="Para518774">To view Planned Orders by Planner Code, select the
-    "Planned Orders by Planner Code" option. The following screen will
-    appear:</para>
+  <para id="Para518778"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_planOrdsByPlanCode.png"
+                     id="Graphic520561" />
+        </imageobject>
 
-    <para id="Para518778"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_planOrdsByPlanCode.png"
-                       id="Graphic520561" />
-          </imageobject>
+        <caption id="Caption518779">Planned Orders by Planner Code</caption>
+      </mediaobject>
+    </screenshot></para>
 
-          <caption id="Caption518779">Planned Orders by Planner Code</caption>
-        </mediaobject>
-      </screenshot></para>
+  <note>
+    <para id="Para533967">When a Planned Work Order is released, the Create
+    Work Order screen will appear with Work Order details automatically filled
+    in. Releasing a Planned Purchase Order results in a Purchase Request,
+    which may in turn be released from the Purchase Request reports.</para>
+  </note>
 
-    <note>
-      <para id="Para533967">When a Planned Work Order is released, the Create
-      Work Order screen will appear with Work Order details automatically
-      filled in. Releasing a Planned Purchase Order results in a Purchase
-      Request, which may in turn be released from the Purchase Request
-      reports.</para>
-    </note>
+  <para id="Para518780">When displaying Planned Orders by Planner Code, you
+  are presented with the following options:</para>
 
-    <para id="Para518780">When displaying Planned Orders by Planner Code, you
-    are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para531795">All Planner Codes</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para531795">All Planner Codes</term>
+      <listitem>
+        <para>Select to display Planned Orders for all Planner Codes.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display Planned Orders for all Planner Codes.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518781">Selected</term>
 
-      <varlistentry>
-        <term id="Para518781">Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose Planned Orders you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Specify Planner Code whose Planned Orders you want to
-          display.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para526346">Pattern</term>
 
-      <varlistentry>
-        <term id="Para526346">Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner
+        Codes.</para>
 
-        <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
-          Codes.</para>
+        <para id="Para554626">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef554625"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
 
-          <para id="Para554626">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554625"
-          linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518785">All Warehouses</term>
 
-      <varlistentry>
-        <term id="Para518785">All Warehouses</term>
+      <listitem>
+        <para>Select to display Planned Orders by Planner Code for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to display Planned Orders by Planner Code for all
-          Warehouses.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para518787">Selected</term>
 
-      <varlistentry>
-        <term id="Para518787">Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Planned Orders by Planner Code you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Specify Warehouse whose Planned Orders by Planner Code you
-          want to display.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <note>
+    <para id="Para537233">In the case of Planned Purchase Orders, the quantity
+    will always be represented in the Inventory Unit of Measure
+    (UOM)--regardless of the Vendor UOM used on any existing Purchase
+    Orders.</para>
+  </note>
 
-    <note>
-      <para id="Para537233">In the case of Planned Purchase Orders, the
-      quantity will always be represented in the Inventory Unit of Measure
-      (UOM)--regardless of the Vendor UOM used on any existing Purchase
-      Orders.</para>
-    </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518789">Planned Orders</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para518789">Planned Orders</term>
+      <listitem>
+        <para>Display will show Planned Orders by Planner Code, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Display will show Planned Orders by Planner Code, using the
-          specified parameters.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <tip>
+    <para id="Para537513">Planned Orders must be firm before they will be
+    considered as a valid source of supply by Material Requirements Planning
+    (MRP) when MRP is run.</para>
+  </tip>
 
-    <tip>
-      <para id="Para537513">Planned Orders must be firm before they will be
-      considered as a valid source of supply by Material Requirements Planning
-      (MRP) when MRP is run.</para>
-    </tip>
+  <para id="Para518791">To the far right of the screen, the following buttons
+  are available:</para>
 
-    <para id="Para518791">To the far right of the screen, the following
-    buttons are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518792">CLOSE</term>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para518792">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para532374">QUERY</term>
 
-      <varlistentry>
-        <term id="Para532374">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
 
-        <listitem>
-          <para>Select to generate the display, using the specified
-          parameters.</para>
-        </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para553766">PRINT</term>
 
-      <varlistentry>
-        <term id="Para553766">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 
-        <listitem>
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+  <para id="Para525521">Right-clicking on an Order in the Planned Orders
+  display enables you to select from the following menu options:</para>
 
-    <para id="Para525521">Right-clicking on an Order in the Planned Orders
-    display enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/5)" />
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para525522">Running Availability</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/2)" />
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/4)" />
 
-      <varlistentry>
-        <term id="Para525523">Firm Order</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/1)" />
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 
-      <varlistentry>
-        <term id="Para525524">Release Order</term>
+  <para id="Para525527">If the selected Order is firmed, the following option
+  will be available:</para>
 
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term id="Para525525">Delete Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
-    </variablelist>
-
-    <para id="Para525527">If the selected Order is firmed, the following
-    option will be available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term id="Para525528">Soften Order</term>
-
-        <listitem>
-          <para></para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/6)" />
+  </variablelist>
+</section>
