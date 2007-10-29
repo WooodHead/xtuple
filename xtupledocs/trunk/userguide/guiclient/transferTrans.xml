@@ -1,185 +1,156 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Inter-Warehouse Transaction
-    </title>
-   <subtitle>transferTrans : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/transferTrans.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Inter-Warehouse Transaction
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Transaction Date:</guilabel>
-               </entry>
-               <entry>_transDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_transDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Username:</guilabel>
-               </entry>
-               <entry>_usernameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_username</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>Before</guilabel>
-               </entry>
-               <entry>_beforeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>After</guilabel>
-               </entry>
-               <entry>_afterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>From Whse.:</guilabel>
-               </entry>
-               <entry>_fromWarehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>To Whse.:</guilabel>
-               </entry>
-               <entry>_toWarehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_fromWarehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_toWarehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_fromBeforeQty</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_toBeforeQty</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_fromAfterQty</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_toAfterQty</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Transferred Qty.:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Document #:</guilabel>
-               </entry>
-               <entry>_documentNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_documentNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Notes:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section600879" role="openmfg">
+    <title>Inter-Warehouse Transfer</title>
+
+    <para id="Para600880">To transfer quantity of an Item from one Warehouse
+    to another, select the "Inter-Warehouse Transfer" option. The following
+    screen will appear:</para>
+
+    <para id="Para518932"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_IT_interWarehouseTrans.png"
+                       id="Graphic525831" />
+          </imageobject>
+
+          <caption id="Caption518933">Enter Inter-Warehouse Transfer</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para524296">An Inter-Warehouse Transfer can only be executed
+      if the specified Item is located in more than one Warehouse. To add an
+      additional Warehouse for an Item, go to the Enter Item Sites section of
+      the Item Sites menu. Locate the desired Item Number using the Item
+      Number lookup feature. Then select a new Warehouse in the "Warehouse"
+      field. Enter all other required fields and save your results. The Item
+      will now also be located in the additional Warehouse. Repeat as often as
+      necessary.</para>
+    </tip>
+
+    <para id="Para518940">When creating an Inter-Warehouse Transfer, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518941">Transaction Date</term>
+
+        <listitem id="listitemN0x180ac00N0x1897afc">
+          <para>Displays the current day's date.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518943">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1897b44">
+          <para>Enter the Item Number of the Item you want to transfer from
+          one Warehouse to another.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671952">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1897b8c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518947">From Whse</term>
+
+        <listitem id="listitemN0x180ac00N0x1897bd4">
+          <para>Specify the source Warehouse for the transaction.</para>
+
+          <para id="Para518948">If an Item is located in more than one
+          Warehouse, be sure to specify the correct Warehouse you want to
+          transfer the Item from. The "Before" column displays current
+          Quantity on Hand for the Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518949">To Whse.</term>
+
+        <listitem id="listitemN0x180ac00N0x1897c1c">
+          <para>: Specify the destination Warehouse for the
+          transaction.</para>
+
+          <para id="Para518950">If an Item is located in more than one
+          Warehouse, be sure to specify the correct Warehouse you want to
+          transfer the Item to. The "Before" column displays current Quantity
+          on Hand for the Item</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518954">Transferred Qty.</term>
+
+        <listitem id="listitemN0x180ac00N0x1897c64">
+          <para>The number entered will adjust the Item's Quantity on Hand in
+          both the "From" and "To" Warehouses.</para>
+
+          <para id="Para670460">The values displayed in the "After" column
+          represent the new Quantity on Hand in each Location. Non-netable
+          Quantity on Hand is not included in these values.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518959">Document #</term>
+
+        <listitem id="listitemN0x180ac00N0x1897cac">
+          <para>Creates a user-defined reference for the Inter-Warehouse
+          Transfer.</para>
+
+          <para id="Para670467">The Document reference will be posted with the
+          General Ledger (G/L) transaction record when the Inter-Warehouse
+          Transfer is generated. This field may be used for internal tracking
+          and auditing purposes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518964">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x1897cf4">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to the transfer.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518966">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518967">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1897d60">
+          <para>Closes the screen without posting an Inter-Warehouse Transfer,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518968">POST</term>
+
+        <listitem id="listitemN0x180ac00N0x1897da8">
+          <para>Posts the Inter-Warehouse Transfer.</para>
+
+          <para id="Para518969">Creates two transactions, one at each affected
+          Warehouse. The Warehouse receiving Inventory is credited with the
+          new Inventory amount, while the Warehouse being relieved of
+          Inventory is debited. Additional steps will be necessary if the
+          specified Item is stored in multiple Locations. For more
+          information, see the <link endterm="Anchor81167" id="XRef538112"
+          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          Items</link>"Inter-Warehouse Transfer" section.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

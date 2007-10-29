@@ -1,175 +1,217 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Material Receipt Transaction
-  </title>
-   <subtitle>materialReceiptTrans : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/materialReceiptTrans.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Material Receipt Transaction
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Transaction Date:</guilabel>
-               </entry>
-               <entry>lblTransactionDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_transDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Username:</guilabel>
-               </entry>
-               <entry>_usernameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_username</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Receipt Qty.:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Before</guilabel>
-               </entry>
-               <entry>_beforeQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_beforeQty</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>After</guilabel>
-               </entry>
-               <entry>_afterQtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_afterQty</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Immediate Issue to Work Order</guilabel>
-               </entry>
-               <entry>_issueToWo</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_wo</entry>
-               <entry>WoCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Document #:</guilabel>
-               </entry>
-               <entry>_documentNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_documentNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Comments:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519010">
+    <title><anchor id="Anchor552142" role="Index"
+    xreflabel="material receipts:as inventory transaction;inventory transactions:receiving materials;receiving:as inventory transaction" />
+    <indexterm significance="normal" zone="Anchor552142">
+        <primary>material receipts</primary>
+
+        <secondary>as inventory transaction</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552142">
+        <primary>inventory transactions</primary>
+
+        <secondary>receiving materials</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor552142">
+        <primary>receiving</primary>
+
+        <secondary>as inventory transaction</secondary>
+      </indexterm> <anchor id="Anchor66681" role="Cross-Ref"
+    xreflabel="66681: Heading2: Material Receipt" />Material Receipt</title>
+
+    <para id="Para519011">To record the receipt of materials into Inventory,
+    select the "Material Receipt" option. The following screen will
+    appear:</para>
+
+    <para id="Para519015"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_IT_materialReceipt.png"
+                       id="Graphic525872" />
+          </imageobject>
+
+          <caption id="Caption519016">Enter Material Receipt</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para638248">If an Item is Lot/Serial Number controlled, you
+      will be given the opportunity to assign a Lot/Serial Number to incoming
+      material during the receiving process. For more information on receiving
+      Lot-controlled Items, see the <link endterm="Anchor81167"
+      id="XRef638250" linkend="Anchor81167"> Distributing Multiple Location
+      Control (MLC) Items</link>"Inter-Warehouse Transfer" section.</para>
+    </note>
+
+    <para id="Para638252">When entering a Material Receipt, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519023">Transaction Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18987c8">
+          <para>Displays the current day's date.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519025">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0600">
+          <para>Enter the Item Number of the material you are receiving into
+          Inventory.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671968">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0648">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519029">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0690">
+          <para>Specify Warehouse where material is being received.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519034">Receipt Qty.</term>
+
+        <listitem id="listitemN0x180ac00N0x18a06d8">
+          <para>: Record the quantity of the Item being received. The Item's
+          Quantity on Hand before and after the material receipt will also be
+          displayed. Non-netable Quantity on Hand is not included in these
+          values. If the material is issued directly to a Work Order, the
+          before and after display will be bypassed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519036">Immediate Issue to Work Order</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0720">
+          <para>Check to issue material immediately to a Work Order.</para>
+
+          <para id="Para596550">Any Work Order Material Requirements having an
+          issue method of either "Mixed" or "Push" may be issued to a Work
+          Order using this option. Because "Pull" Items are issued to Work
+          Orders using a material backflush, they may not be issued from this
+          screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para596604">The full quantity being received will be issued to
+      the Work Order if the "Immediate Issue" option is selected. This means
+      the quantity issued may exceed or fall short of the Work Order Material
+      Requirement quantity. In such cases, adjustments at the Work Order level
+      may have to be made to bring the issued quantity into alignment with the
+      required quantity. To avoid having to manage discrepancies, do not
+      select this option. Instead, consider issuing materials manually.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519041">Work Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a07b0">
+          <para>Enter the Work Order Number of the Work Order you want to
+          issue the received materials to.</para>
+
+          <para id="Para596496">The browse button located to the right of the
+          field leads to a searchable Work Orders list. The list will include
+          Work Orders whose supplying Warehouse matches the Warehouse the
+          materials are being received into.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para596497">Whs.</term>
+
+        <listitem id="listitemN0x180ac00N0x18a07f8">
+          <para>Specifies supplying Warehouse for the Work Order's parent
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para596498">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0840">
+          <para>Displays Item Number for the Work Order's parent Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671973">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0888">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para596501">Status</term>
+
+        <listitem id="listitemN0x180ac00N0x18a08d0">
+          <para>Displays the Status of the selected Work Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519054">Document #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0918">
+          <para>Creates a user-defined reference for the Material Receipt. The
+          Document reference will be posted with the General Ledger (G/L)
+          transaction record when the Material Receipt is generated. This
+          field may be used for internal tracking and auditing
+          purposes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519059">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0960">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to the Material Receipt.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519061">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519062">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18a09cc">
+          <para>Closes the screen without posting and crediting the Material
+          Receipt, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519063">POST</term>
+
+        <listitem id="listitemN0x180ac00N0x18a0a14">
+          <para>Posts and credits the Material Receipt.</para>
+
+          <para id="Para519064">Additional steps will be necessary if the
+          specified Item is stored in multiple Locations. For more
+          information, see the <link endterm="Anchor81167" id="XRef638258"
+          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          Items</link>"Inter-Warehouse Transfer" section.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

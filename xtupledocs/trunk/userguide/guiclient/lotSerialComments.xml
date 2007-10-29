@@ -1,133 +1,153 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Maintain Lot/Serial
-  </title>
-   <subtitle>lotSerialComments : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/lotSerialComments.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Maintain Lot/Serial
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Characterstics</entry>
-               <entry>_char</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_newCharacteristic</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_editCharacteristic</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_deleteCharacteristic</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_charass</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>Registration</entry>
-               <entry>_reg</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>contactCluster</entry>
-               <entry>ContactCluster</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>_commentsTab</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Lot/Serial #:</guilabel>
-               </entry>
-               <entry>_lotSerialNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_lotSerial</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section652132" role="openmfg">
+    <title>Lot/Serial Comments</title>
+
+    <para id="Para652133">To associate Comments with Lot/Serial Items, select
+    the "Lot/Serial Comments" option. The following screen will appear:</para>
+
+    <para id="Para652134"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Lot_lotComments.png"
+                       id="Graphic652427" />
+          </imageobject>
+
+          <caption id="Caption652135">Lot/Serial Comments</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para652136">When associating Comments with Lot/Serial Items, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para652137">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18d10ac">
+          <para>Enter the Item Number of the Item you want to create a
+          Lot/Serial Comment for.</para>
+
+          <para id="Para652138">The browse button located to the right of the
+          field leads to a searchable Item list. The list includes all
+          Items--as opposed to Lot/Serial Items only--because an Item may not
+          currently be Lot/Serial Number controlled, but it may have been in
+          the past.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671990">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18d10f4">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652140">Lot/Serial #</term>
+
+        <listitem id="listitemN0x180ac00N0x18d113c">
+          <para>Specify the Lot/Serial Number you want to create a Comment
+          for.</para>
+
+          <para id="Para670533">Lot/Serial Numbers are created either when
+          Lot/Serial Items are received into Inventory or when existing
+          quantities are reassigned.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652142">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x18d1184">
+          <para>Display lists Comments associated with the specified
+          Lot/Serial Number.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para652144">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para652145">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d11f0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652146">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x18d1238">
+          <para>Opens screen for creating a new Comment.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652147">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x18d1280">
+          <para>Highlight a Comment and then select this button to view the
+          Comment.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para652148">To create a new Lot/Serial Comment, select the NEW
+    button. The following screen will appear:</para>
+
+    <para id="Para652149"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CommentNew.png" id="Graphic652474" />
+          </imageobject>
+
+          <caption id="Caption652150">Create New Comment</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para652151">Comment Type</term>
+
+        <listitem id="listitemN0x180ac00N0x18d1358">
+          <para>Specify one of the following Comment Types from the drop-down
+          list: ChangeLog or General.</para>
+
+          <para id="Para652152">Comment Types are used to categorize Comments.
+          Once you have specified a Comment Type, you may type your Comment in
+          the main text area. The text area features word-wrapping and
+          scroll-bar support for longer Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para652153">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para652154">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18d13c4">
+          <para>Closes the screen without creating a new Comment, returning
+          you to the previous screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652155">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d140c">
+          <para>Creates the Comment and adds it to the list of Lot/Serial
+          Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

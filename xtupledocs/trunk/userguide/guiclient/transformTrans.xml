@@ -1,129 +1,120 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Transform Transaction
-    </title>
-   <subtitle>transformTrans : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/transformTrans.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Transform Transaction
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                      <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Source:</guilabel>
-               </entry>
-               <entry>_sourceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_source</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>Target Item Number:</guilabel>
-               </entry>
-               <entry>_targetLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry/>
-               <entry>_target</entry>
-               <entry>XComboBox</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_descrip1</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_descrip2</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>Qty. to Transform:</guilabel>
-               </entry>
-               <entry>_qtyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section666113" role="openmfg">
+    <title>Transform</title>
+
+    <para id="Para635325">Transformation is the process of converting quantity
+    of one Item into quantity of another Item. The Transform utility can be
+    applied in multiple scenarios. For example, let's say you manufacture an
+    Item--but when supplies run low, you purchase replenishment quantity from
+    a Vendor. You would receive the replenishment quantity using an Item
+    Number having the "purchased" Item Type. This purchased quantity would
+    then be transformed into quantity of your manufactured Item.</para>
+
+    <note>
+      <para id="Para623563">You may only transform an Item if the source Item
+      is located in the same Warehouse as the target Item.</para>
+    </note>
+
+    <para id="Para623537">To transform Inventory quantity, select the
+    "Transform" option. The following screen will appear:</para>
+
+    <para id="Para615702"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_IT_transform.png" id="Graphic615700" />
+          </imageobject>
+
+          <caption id="Caption615703">Transform Utility</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para615735">When transforming Inventory quantity, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para615791">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18ab8a4">
+          <para>Enter the Item Number of the source Item whose quantity you
+          want to transform.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671979">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18ab8ec">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para615761">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x18ab934">
+          <para>Specify Warehouse where desired source Item quantity is
+          located.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para615537">Source</term>
+
+        <listitem id="listitemN0x180ac00N0x18ab97c">
+          <para>Displays available Warehouse Locations.</para>
+
+          <para id="Para615823">Highlight the Location containing quantity you
+          want to transform. If the Item is multiply-located in the specified
+          Warehouse, all Locations having valid quantity will display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para616593">Target Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18ab9c4">
+          <para>Specify which Item you want to transform the source Item
+          quantity to.</para>
+
+          <para id="Para616594">Target Item Numbers are defined using the
+          "Transformations" tab on the Item master for the source Item. If no
+          target Item is defined on the Item master, no transformations may
+          occur.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para616523">Qty. to Transform</term>
+
+        <listitem id="listitemN0x180ac00N0x18aba0c">
+          <para>Specify the source Item quantity you want to transform into
+          target Item quantity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para616586">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para616587">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18aba78">
+          <para>Closes the screen without transforming Inventory quantity,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para616588">POST</term>
+
+        <listitem id="listitemN0x180ac00N0x18abac0">
+          <para>Posts the Inventory transformation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

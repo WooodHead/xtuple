@@ -1,122 +1,118 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Relocate Inventory
-    </title>
-   <subtitle>relocateInventory : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/relocateInventory.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Relocate Inventory
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>
-                     <accel>M</accel>ove</guilabel>
-               </entry>
-               <entry>_move</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Source:</guilabel>
-               </entry>
-               <entry>_sourceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_source</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Target:</guilabel>
-               </entry>
-               <entry>_targetLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_target</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Qty. to Move:</guilabel>
-               </entry>
-               <entry>_qtyToMoveLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_qty</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Notes:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519086" role="openmfg">
+    <title>Relocate Inventory</title>
+
+    <para id="Para519087">To relocate Inventory from one Location to another,
+    select the "Relocate Inventory" option. The following screen will
+    appear:</para>
+
+    <para id="Para519091"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_IT_relocateInventory.png"
+                       id="Graphic525912" />
+          </imageobject>
+
+          <caption id="Caption519092">Relocate Inventory</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519098">When relocating Inventory from one Location to
+    another, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519099">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18ca114">
+          <para>Enter the Item Number of the Inventory you are
+          relocating.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para671985">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18ca15c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519103">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x18ca1a4">
+          <para>Specify Warehouse where Inventory is located.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519105">Source</term>
+
+        <listitem id="listitemN0x180ac00N0x18ca1ec">
+          <para>Display lists source Locations for the specified Item. Select
+          the source Location Inventory is to be transferred from.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519107">Target</term>
+
+        <listitem id="listitemN0x180ac00N0x18d0e24">
+          <para>Display lists target Locations for the specified Item.</para>
+
+          <para id="Para675833">Select the target Location Inventory is to be
+          transferred to.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519112">Qty. to Move</term>
+
+        <listitem id="listitemN0x180ac00N0x18d0e6c">
+          <para>to Move: Enter the quantity of the specified Item you want to
+          move from the source Location to the target Location.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para544108">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x18d0eb4">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Comments related to the Inventory relocation.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para544071">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para580340">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18d0f20">
+          <para>Closes the screen without relocating Inventory, returning you
+          to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para580341">MOVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18d0f68">
+          <para>Moves specified quantity of Inventory from source Location to
+          target Location.</para>
+
+          <para id="Para652102">Additional steps will be necessary if the
+          specified Item is stored in multiple Locations. For more
+          information, see the <link endterm="Anchor81167" id="XRef652104"
+          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          Items</link>"Inter-Warehouse Transfer" section.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
