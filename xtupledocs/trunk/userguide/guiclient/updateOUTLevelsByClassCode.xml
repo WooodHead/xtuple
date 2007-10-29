@@ -1,137 +1,170 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Update Order Up To Levels by Class Code
-  </title>
-   <subtitle>updateOUTLevelsByClassCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/updateOUTLevelsByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Update Order Up To Levels by Class Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_daysGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Item Site Lead Time + </guilabel>
-               </entry>
-               <entry>_leadTime</entry>
-               <entry>QRadioButton</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_leadTimePad</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_daysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Fixed Days:</guilabel>
-               </entry>
-               <entry>_fixedDays</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_days</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>U</accel>pdate</guilabel>
-               </entry>
-               <entry>_update</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ubmit</guilabel>
-               </entry>
-               <entry>_submit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_periodsToInclude</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Calendar:</guilabel>
-               </entry>
-               <entry>_calendarLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_calendar</entry>
-               <entry>CalendarComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_periods</entry>
-               <entry>PeriodsListView</entry>
-            </row>
-            <column>
-        </column>
-            <column>
-        </column>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section572767">
+    <title><anchor id="Anchor572766" role="Index"
+    xreflabel="order up to levels:updating by class code;class codes:updating out levels using" />
+    <indexterm significance="normal" zone="Anchor572766">
+        <primary>order up to levels</primary>
+
+        <secondary>updating by class code</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor572766">
+        <primary>class codes</primary>
+
+        <secondary>updating out levels using</secondary>
+      </indexterm>Update Order Up To Levels by Class Code</title>
+
+    <para id="Para572768">To update Order Up To Levels by Class Code, select
+    the "Order Up To Levels by Class Code" option. The following screen will
+    appear:</para>
+
+    <para id="Para572772"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/IM_Utilities_upOUTbyClass.png"
+                       id="Graphic572770" />
+          </imageobject>
+
+          <caption id="Caption572773">Update Order Up To Levels by Class
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para572774">When updating Order Up To Levels by Class Code, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para573002">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x19bda6c">
+          <para>Select to update Order Up To Levels by Class Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para573003">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19bda90">
+          <para>Specify Warehouse where Order Up To Levels by Class Code are
+          to be updated.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573005">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdad8">
+          <para>Select to update Order Up To Levels for all Class
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573006">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdb20">
+          <para>Specify Class Code whose Order Up To Levels you want to
+          update.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573008">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdb68">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para677263">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677262"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573016">Days of Stock at Reorder Level</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdbb0">
+          <para>Specify number of days using one of the following
+          options:</para>
+
+          <para id="Para573017">Item Site Lead Time +: Select a number using
+          the arrow buttons, or manually enter a value up to a maximum of 99.
+          Average daily usage calculated using selected Calendar periods will
+          be multiplied by this value to determine Reorder Level.</para>
+
+          <para id="Para573018">Fixed Days: Select a number using the arrow
+          buttons, or manually enter a value up to a maximum of 999. Average
+          daily usage calculated using selected Calendar periods will be
+          multiplied by this value to determine Reorder Level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573019">Periods to Include in Analysis</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdbf8">
+          <para>Specify the periods to include in the analysis using the
+          following Calendar options:</para>
+
+          <para id="Para670750">Calendar: Select the Calendar you want to use
+          for the analysis.</para>
+
+          <para id="Para573021">Name/Selected Periods: Select as many periods
+          as you want to include in the analysis. Selected periods correspond
+          to Calendar specified in the "Calendar" field. Select individual
+          periods or groups of periods together. To select an individual
+          period, highlight the period using your mouse button. The period is
+          now selected. To select a sequence of periods, highlight the first
+          in the sequence using your mouse button. Then, holding down the
+          SHIFT key on your keyboard, highlight the last period in the
+          sequence. The entire sequence is now selected. To select periods
+          that are out of sequence (e.g., January, April, July, October),
+          highlight the first period in the group. Then, holding down the CTRL
+          key on your keyboard, highlight the next period you want to select.
+          Continue highlighting periods with the CTRL key depressed until all
+          desired periods are selected. The entire group is now
+          selected.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para573022">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para573023">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdc64">
+          <para>Closes the screen without updating Reorder Levels by Class
+          Code, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para573024">UPDATE</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdcac">
+          <para>Updates Reorder Levels by Class Code, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para573025">SUBMIT</term>
+
+        <listitem id="listitemN0x180ac00N0x19bdcd0">
+          <para>Select to submit requested action to the Batch Manager for
+          processing. For additional information, see the <link
+          endterm="Anchor61009" id="XRef665425" linkend="Anchor61009">
+          Submitting Reports and Jobs to the Batch Manager</link>"Topic:
+          Submitting Reports and Jobs to the Batch Manager".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
