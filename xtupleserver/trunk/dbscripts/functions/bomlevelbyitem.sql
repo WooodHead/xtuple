@@ -5,7 +5,7 @@ DECLARE
 
 BEGIN
 
-  SELECT getActiveRev(''BOM'',pItemid) INTO _bomrevid;
+  SELECT getActiveRevid(''BOM'',pItemid) INTO _bomrevid;
 
   RETURN bomLevelByItem(pItemid,_bomRevid);
 
