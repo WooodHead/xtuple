@@ -41,6 +41,12 @@ BEGIN
   FROM itemimage
   WHERE (itemimage_item_id=pSItemid);
 
+  INSERT INTO itemtax
+        (itemtax_item_id, itemtax_taxauth_id, itemtax_taxtype_id)
+  SELECT _itemid, itemtax_taxauth_id, itemtax_taxtype_id
+    FROM itemtax
+   WHERE(itemtax_item_id=pSItemid);
+
   INSERT INTO charass
   ( charass_target_type, charass_target_id,
     charass_char_id, charass_value )
