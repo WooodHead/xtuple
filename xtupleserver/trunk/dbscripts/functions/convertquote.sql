@@ -138,7 +138,8 @@ BEGIN
       coitem_status, coitem_scheddate,
       coitem_price, coitem_custprice, 
       coitem_qtyord, coitem_qtyshipped, coitem_qtyreturned,
-      coitem_qty_invuomratio, coitem_price_invuomratio,
+      coitem_qty_uom_id, coitem_qty_invuomratio,
+      coitem_price_uom_id, coitem_price_invuomratio,
       coitem_order_type, coitem_order_id,
       coitem_custpn, coitem_memo, coitem_prcost, coitem_tax_id )
     VALUES
@@ -146,7 +147,8 @@ BEGIN
       ''O'', _r.quitem_scheddate,
       _r.quitem_price, _r.quitem_custprice,
       _r.quitem_qtyord, 0, 0,
-      _r.quitem_qty_invuomratio, _r.quitem_price_invuomratio,
+      _r.quitem_qty_uom_id, _r.quitem_qty_invuomratio,
+      _r.quitem_price_uom_id, _r.quitem_price_invuomratio,
       _ordertype, _orderid,
       _r.quitem_custpn, _r.quitem_memo, _r.quitem_prcost, _r.quitem_tax_id );
 
