@@ -1,139 +1,133 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Pricing Schedule
-  </title>
-   <subtitle>itemPricingSchedule : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/itemPricingSchedule.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Pricing Schedule
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>GroupBox1</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Description:</guilabel>
-               </entry>
-               <entry>_descripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_descrip</entry>
-               <entry>XLineEdit</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_currencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_currency</entry>
-               <entry>XComboBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Schedule:</guilabel>
-               </entry>
-               <entry>_scheduleLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_ipsitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559236">
+  <title><anchor id="Anchor559235" role="Index"
+  xreflabel="pricing schedules:master list of" /> <indexterm
+      significance="normal" zone="Anchor556780">
+      <primary>pricing schedules</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Pricing Schedule</title>
+
+  <para id="Para519588">To create a new Pricing Schedule, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para519592"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_pricingSchedNew.png"
+                     id="Graphic523640" />
+        </imageobject>
+
+        <caption id="Caption519593">Create New Pricing Schedule</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <note>
+    <para id="Para629654">Pricing Schedules may contain multiple Items or
+    Product Categories--and multiple Quantity Breaks.</para>
+  </note>
+
+  <para id="Para519594">When creating a new Pricing Schedule, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519598">Name</term>
+
+      <listitem id="listitemN0x180ac00N0x194a224">
+        <para>Enter the name of the Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519603">Description</term>
+
+      <listitem id="listitemN0x180ac00N0x194a26c">
+        <para>Enter a description to identify the Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519608">Effective</term>
+
+      <listitem id="listitemN0x180ac00N0x194a2b4">
+        <para>Enter the date when the Pricing Schedule becomes
+        effective.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519613">Expires</term>
+
+      <listitem id="listitemN0x180ac00N0x194a2fc">
+        <para>Enter the date when the Pricing Schedule expires.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519615">Schedule</term>
+
+      <listitem id="listitemN0x180ac00N0x194a344">
+        <para>Display lists all sold Items or Product Categories assigned to
+        this Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para519617">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519618">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x194a3b0">
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519619">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x194a3f8">
+        <para>Creates the Pricing Schedule, adding it to the master list of
+        Pricing Schedules.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519620">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x194a440">
+        <para>Opens screen for creating a new Pricing Schedule Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519621">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x194a488">
+        <para>Enables you to edit highlighted Pricing Schedule Item. The edit
+        screen is the same as that for creating a new Pricing Schedule
+        Item--except that when editing, the fields will contain Pricing
+        Schedule Item information. Double-clicking on a Pricing Schedule Item
+        will also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519622">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x194a4d0">
+        <para>Highlight a Pricing Schedule Item and then select this button to
+        remove the Pricing Schedule Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="itemPricingScheduleItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

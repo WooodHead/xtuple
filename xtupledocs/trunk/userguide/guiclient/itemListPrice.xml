@@ -1,193 +1,150 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Item List Price
-    </title>
-   <subtitle>itemListPrice : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/itemListPrice.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Item List Price
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>List Price:</guilabel>
-               </entry>
-               <entry>_listPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry/>
-               <entry>_listPrice</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Price UOM:</guilabel>
-               </entry>
-               <entry>_priceUOMLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Inv./Price Ratio:</guilabel>
-               </entry>
-               <entry>_priceRatioLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Inventory UOM Price:</guilabel>
-               </entry>
-               <entry>_extPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_priceUOM</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_pricingRatio</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_extPrice</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Cost:</guilabel>
-               </entry>
-               <entry>_costLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Extended Cost:</guilabel>
-               </entry>
-               <entry>_extendedCostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>Margin:</guilabel>
-               </entry>
-               <entry>_marginLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Standard</guilabel>
-               </entry>
-               <entry>_stdLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel>Actual</guilabel>
-               </entry>
-               <entry>_actLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_stdCost</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_actCost</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_extStdCost</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_extActCost</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_stdMargin</entry>
-               <entry>QLabel</entry>
-            </row>
-                            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_actMargin</entry>
-               <entry>QLabel</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section541765">
+    <title><anchor id="Anchor548994" role="Index"
+    xreflabel="item list price;list prices:by item;items:list prices for" />
+    <indexterm significance="normal" zone="Anchor548994">
+        <primary>item list price</primary>
+      </indexterm> <indexterm significance="normal" zone="Anchor548994">
+        <primary>list prices</primary>
+
+        <secondary>by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor548994">
+        <primary>items</primary>
+
+        <secondary>list prices for</secondary>
+      </indexterm>Item List Price</title>
+
+    <para id="Para541769">To create or modify the List Price for an Item,
+    select the "Item List Price" option. The following screen will
+    appear:</para>
+
+    <para id="Para541770"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_IP_itemListPrice.png"
+                       id="Graphic541777" />
+          </imageobject>
+
+          <caption id="Caption541776">Item List Price</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para558997">List Prices may also be created or modified in the
+      Item master for an Item. Changes made to an Item's List Price in either
+      location will be reflected application-wide.</para>
+    </note>
+
+    <para id="Para558992">When creating an Item List Price, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para541963">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1942d3c">
+          <para>Enter the Item Number of the Item you want to create or modify
+          a List Price for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652607">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1942d84">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541954">List Price</term>
+
+        <listitem id="listitemN0x180ac00N0x1942dcc">
+          <para>Enter the List Price for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para541981">Price UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1942e14">
+          <para>Displays the Price UOM for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para542037">Inv./Price Ratio</term>
+
+        <listitem id="listitemN0x180ac00N0x1942e5c">
+          <para>Displays the ratio between the Price and Inventory Units of
+          Measure for the specified Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para559489">Inventory UOM Price</term>
+
+        <listitem id="listitemN0x180ac00N0x1942ea4">
+          <para>Displays the Inventory Unit of Measure Price for the
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para559491">Cost</term>
+
+        <listitem id="listitemN0x180ac00N0x1942eec">
+          <para>Displays Standard Cost and Actual Cost for the specified
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para565111">Extended Cost</term>
+
+        <listitem id="listitemN0x180ac00N0x1942f34">
+          <para>Displays the extended Standard Cost and extended Actual Cost
+          for the Item.</para>
+
+          <para id="Para593831">The extended Cost is equal to the List Price
+          multiplied by the Price/Inventory UOM ratio. If the Price/Inv. Ratio
+          = 1, then the Cost and Extended Cost will be the same.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para565171">Margin</term>
+
+        <listitem id="listitemN0x180ac00N0x1942f7c">
+          <para>Displays the profit margin.</para>
+
+          <para id="Para607791">The margin is determined by the following
+          formula: Price - Cost / Price.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para565177">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para554679">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1942fe8">
+          <para>Closes the screen, returning you to the previous
+          screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para554680">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x1943030">
+          <para>Creates the Item List Price.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

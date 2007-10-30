@@ -1,86 +1,100 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Uninvoiced Shipments
-  </title>
-   <subtitle>uninvoicedShipments : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/uninvoicedShipments.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Uninvoiced Shipments
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Only Show Unselected Shipments</guilabel>
-               </entry>
-               <entry>_showUnselected</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Uninvoiced Shipments:</guilabel>
-               </entry>
-               <entry>_uninvoicedShipmentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_coship</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519208">
+  <title><anchor id="Anchor548966" role="Index"
+  xreflabel="shipping:uninvoiced shipments;uninvoiced shipments:identifying" />
+  <indexterm significance="normal" zone="Anchor548966">
+      <primary>shipping</primary>
+
+      <secondary>uninvoiced shipments</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor548966">
+      <primary>uninvoiced shipments</primary>
+
+      <secondary>identifying</secondary>
+    </indexterm>Uninvoiced Shipments</title>
+
+  <para id="Para519209">An uninvoiced shipment is a shipment having one or
+  more uninvoiced Sales Order Line Items. To invoice a Sales Order Line Item,
+  select the Order for billing and specify an Invoice amount for the Item.
+  Once the Invoice is printed and then posted, the selected Line Item will be
+  considered invoiced. To view a list of Uninvoiced Shipments, select the
+  "Uninvoiced Shipments" option. The following screen will appear:</para>
+
+  <para id="Para519213"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_uninvoicedShip.png"
+                     id="Graphic523384" />
+        </imageobject>
+
+        <caption id="Caption519214">Uninvoiced Shipments</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para519215">When displaying Uninvoiced Shipments, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para519216">All Warehouses</term>
+
+      <listitem id="listitemN0x180ac00N0x18fbf90">
+        <para>Select to display Uninvoiced Shipments for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry role="openmfg">
+      <term id="Para519218">Selected</term>
+
+      <listitem id="listitemN0x180ac00N0x18fbfb4">
+        <para>Specify Warehouse whose Uninvoiced Shipments you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519220">Uninvoiced Shipments</term>
+
+      <listitem id="listitemN0x180ac00N0x18fbffc">
+        <para>Display lists Uninvoiced Shipments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para519222">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519223">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18fc068">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para653651">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x18fc0b0">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para522214">Right-clicking on an Order in the Uninvoiced Shipments
+  list enables you to select from the following menu options:</para>
+
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/16)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

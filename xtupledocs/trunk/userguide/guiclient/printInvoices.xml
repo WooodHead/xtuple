@@ -1,98 +1,164 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Print Invoices
-  </title>
-   <subtitle>printInvoices : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printInvoices.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Print Invoices
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>First Invoice #:</guilabel>
-               </entry>
-               <entry>_firstInvoiceNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_firstInvoiceNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Post Invoices after Printing</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_invoiceCopiesGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel># of Copies:</guilabel>
-               </entry>
-               <entry>_invoiceNumOfCopiesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_invoiceNumOfCopies</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_invoiceWatermarks</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section657104">
+    <title><anchor id="Anchor657103" role="Index"
+    xreflabel="invoices:printing of" /> <indexterm significance="normal"
+        zone="Anchor657103">
+        <primary>invoices</primary>
+
+        <secondary>printing of</secondary>
+      </indexterm>Print Invoices</title>
+
+    <para id="Para657105">Although the system does not require you to print
+    Invoices before posting them individually (i.e., one-at-a-time), you are
+    required to print Invoices before posting them in batch mode. To print
+    unposted Invoices, select the "Print Invoices" option. The following
+    screen will appear:</para>
+
+    <para id="Para657109"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Bill_printInvoices.png"
+                       id="Graphic657107" />
+          </imageobject>
+
+          <caption id="Caption657110">Print Invoices</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para657111">When printing Invoices, you are presented with the
+    following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657112">First Invoice #</term>
+
+        <listitem id="listitemN0x180ac00N0x19147cc">
+          <para>The next Invoice Number in the automatic sequence of Invoice
+          Numbers will display here.</para>
+
+          <para id="Para657113">Once this Invoice Number has been printed, the
+          next Invoice Number will appear. Default values for Invoice Numbers
+          are configurable at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657114">Post Invoices after Printing</term>
+
+        <listitem id="listitemN0x180ac00N0x1914814">
+          <para>Select to automatically post Invoices after they have been
+          printed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para657116">Invoices are posted effective on the date they are
+      distributed, not on the date they are posted--as might be
+      assumed.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657117">Invoice Copies</term>
+
+        <listitem id="listitemN0x180ac00N0x19148a4">
+          <para>Specify details for the Invoice copies you want to
+          print:</para>
+
+          <para id="Para657118"># of Copies: Indicate the number of copies you
+          want to print. Information about the specified copies will display
+          below. To add a Watermark, double-click on a copy line.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para657119">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657120">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1914910">
+          <para>Closes the screen without printing Invoices, returning you to
+          the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657121">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1914958">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para657123">If the Customer specified on the Invoice has an
+      EDI Profile defined, you may encounter an EDI processing interface when
+      printing individual Invoices.</para>
+    </tip>
+
+    <para id="Para657124">To add a Watermark to an Invoice, double-click on a
+    copy line. The following screen will appear:</para>
+
+    <para id="Para657128"><anchor id="Anchor58193" role="Cross-Ref"
+    xreflabel="58193: Figure: Figure 2.57:  Add Watermark" /> <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Bill_addWatermark.png"
+                       id="Graphic657126" />
+          </imageobject>
+
+          <caption id="Caption657130">Add Watermark</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para657131">When adding a Watermark to an Invoice copy, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657132">Watermark</term>
+
+        <listitem id="listitemN0x180ac00N0x1914a54">
+          <para>Specify the name of the Watermark to be used for the selected
+          copy.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657133">Show Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x1914a9c">
+          <para>Select to show Prices in the selected copy.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para657134">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para657135">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1914b08">
+          <para>Closes the screen without adding a Watermark, returning you to
+          the previous screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para657136">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x1914b50">
+          <para>Saves the Watermark definition to the selected copy.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

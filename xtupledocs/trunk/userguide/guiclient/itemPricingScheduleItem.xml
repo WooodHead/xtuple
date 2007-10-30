@@ -1,251 +1,260 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Pricing Schedule Item
-  </title>
-   <subtitle>itemPricingScheduleItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/itemPricingScheduleItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Pricing Schedule Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_typeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Item</guilabel>
-               </entry>
-               <entry>_itemSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Product Category</guilabel>
-               </entry>
-               <entry>_prodcatSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_widgetStack</entry>
-               <entry>QStackedWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>item</entry>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. Break (Inv. UOM):</guilabel>
-               </entry>
-               <entry>_qtyBreakLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_qtyBreak</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>List Price:</guilabel>
-               </entry>
-               <entry>_listPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_listPrice</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rice (Pricing UOM):</guilabel>
-               </entry>
-               <entry>_priceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_price</entry>
-               <entry>CurrCluster</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Price UOM:</guilabel>
-               </entry>
-               <entry>_priceUOMLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_priceUOM</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Price/Inv. Ratio:</guilabel>
-               </entry>
-               <entry>_priceRatioLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_pricingRatio</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Cost (Pricing UOM):</guilabel>
-               </entry>
-               <entry>_costLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Margin:</guilabel>
-               </entry>
-               <entry>_marginLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Standard</guilabel>
-               </entry>
-               <entry>_stdLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Actual</guilabel>
-               </entry>
-               <entry>_actLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_stdCost</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_actCost</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_stdMargin</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_actMargin</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>prodcat</entry>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Product Category:</guilabel>
-               </entry>
-               <entry>_prodcatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_prodcat</entry>
-               <entry>XComboBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. Break (Inventory UOM):</guilabel>
-               </entry>
-               <entry>_qtyBreakCatLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Discount Percent (List Price):</guilabel>
-               </entry>
-               <entry>_discountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_qtyBreakCat</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_discount</entry>
-               <entry>XLineEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559236">
+  <title><anchor id="Anchor559235" role="Index"
+  xreflabel="pricing schedules:master list of" /> <indexterm
+      significance="normal" zone="Anchor556824">
+      <primary>pricing schedules</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Pricing Schedule Item</title>
+
+  <para id="Para519623">To create a new Pricing Schedule Item, select the NEW
+  button. The following screen will appear:</para>
+
+  <para id="Para519627"><anchor id="Anchor76796" role="Cross-Ref"
+  xreflabel="76796: Figure: Figure 10.108:  Pricing Schedule for Item" />
+  <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_pricingSchedItem.png"
+                     id="Graphic523652" />
+        </imageobject>
+
+        <caption id="Caption519628">Pricing Schedule for Item</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para559330">When creating a new Pricing Schedule Item, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para629657">Type</term>
+
+      <listitem id="listitemN0x180ac00N0x194a5f0">
+        <para>Specify which type of Pricing Schedule Item you want to
+        create:</para>
+
+        <para id="Para629671">Item: Select if the Pricing Schedule is for an
+        individual Item. If selected, the options shown in <link
+        endterm="Anchor76796" id="XRef629682" linkend="Anchor76796"> Pricing
+        Schedule for Item</link>Figure 10.119 will appear.</para>
+
+        <para id="Para629675">Product Category: Select if the Pricing Schedule
+        is for a Product Category. If selected, the options shown in <link
+        endterm="Anchor46818" id="XRef629688" linkend="Anchor46818"> Pricing
+        Schedule for Product Category</link>Figure 10.120 will appear.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519635">Item Number</term>
+
+      <listitem id="listitemN0x180ac00N0x194a638">
+        <para>Enter the Item Number of the Item you want to add to the Pricing
+        Schedule.</para>
+
+        <para id="Para519636">The browse button located to the right of the
+        field leads to a searchable sold Items list. Multiple sold Items may
+        be assigned to a single Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para652617">UOM</term>
+
+      <listitem id="listitemN0x180ac00N0x194a680">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519642"><anchor id="Anchor559323" role="Index"
+      xreflabel="quantity breaks:in pricing schedules;pricing schedules:quantity breaks in" />
+      <indexterm significance="normal" zone="Anchor559323">
+          <primary>quantity breaks</primary>
+
+          <secondary>in pricing schedules</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor559323">
+          <primary>pricing schedules</primary>
+
+          <secondary>quantity breaks in</secondary>
+        </indexterm>Qty. Break (Inventory UOM)</term>
+
+      <listitem id="listitemN0x180ac00N0x194a758">
+        <para>Enter the lowest quantity of the specified Item that must be
+        purchased to receive the specified Price. The Quantity Break is
+        measured in the Inventory Unit of Measure. Multiple Quantity Breaks
+        may be assigned to a single Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519647"><anchor id="Anchor556838" role="Index"
+      xreflabel="pricing schedules:pricing detail for" /> <indexterm
+          significance="normal" zone="Anchor556838">
+          <primary>pricing schedules</primary>
+
+          <secondary>pricing detail for</secondary>
+        </indexterm>Price (Pricing UOM)</term>
+
+      <listitem id="listitemN0x180ac00N0x194a7e8">
+        <para>Enter the Price the specified Item may be purchased for if the
+        specified Quantity Break is met. The Price is measured in the Price
+        Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para542125">List Price</term>
+
+      <listitem id="listitemN0x180ac00N0x194a830">
+        <para>Displays the List Price for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para542127">Price UOM</term>
+
+      <listitem id="listitemN0x180ac00N0x194a878">
+        <para>Displays the Price Unit of Measure for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para542129">Price/Inv. Ratio</term>
+
+      <listitem id="listitemN0x180ac00N0x194a8c0">
+        <para>Displays the ratio between the Price and Inventory Units of
+        Measure for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para559196">Cost (Pricing UOM)</term>
+
+      <listitem id="listitemN0x180ac00N0x194a908">
+        <para>Displays Standard Cost and Actual Cost for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para565455">Margin</term>
+
+      <listitem id="listitemN0x180ac00N0x194a950">
+        <para>The margin is determined by the following formula: Price - Cost
+        / Price.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para519653">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519654">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x194a9bc">
+        <para>Closes the screen without creating the Pricing Schedule Item,
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519655">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x194aa04">
+        <para>Creates the Pricing Schedule Item and adds it to the Pricing
+        Schedule.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para629608"><anchor id="Anchor629784" role="Index"
+  xreflabel="pricing schedules:by product category;product categories:pricing schedules for" />
+  <indexterm significance="normal" zone="Anchor629784">
+      <primary>pricing schedules</primary>
+
+      <secondary>by product category</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor629784">
+      <primary>product categories</primary>
+
+      <secondary>pricing schedules for</secondary>
+    </indexterm>If you are creating a new Pricing Schedule for a Product
+  Category, the following screen will appear:</para>
+
+  <para id="Para629629"><anchor id="Anchor46818" role="Cross-Ref"
+  xreflabel="46818: Figure: Figure 10.109:  Pricing Schedule for Product Category" />
+  <screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_pricingSchedPCat.png"
+                     id="Graphic629627" />
+        </imageobject>
+
+        <caption id="Caption629630">Pricing Schedule for Product
+        Category</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para629709">When creating a new Pricing Schedule for a Product
+  Category, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para629719">Product Category</term>
+
+      <listitem id="listitemN0x180ac00N0x194ab6c">
+        <para>Specify the Product Category you want to add to the Pricing
+        Schedule.</para>
+
+        <para id="Para629720">All Items in the Product Category will be
+        subject to the specified Quantity Break and Discount. Multiple Product
+        Categories may be assigned to a single Pricing Schedule.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para629726"><anchor id="Anchor629722" role="Index"
+      xreflabel="quantity breaks:in pricing schedules;pricing schedules:quantity breaks in" />
+      <indexterm significance="normal" zone="Anchor629722">
+          <primary>quantity breaks</primary>
+
+          <secondary>in pricing schedules</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor629722">
+          <primary>pricing schedules</primary>
+
+          <secondary>quantity breaks in</secondary>
+        </indexterm>Qty. Break (Inventory UOM)</term>
+
+      <listitem id="listitemN0x180ac00N0x194ac44">
+        <para>Enter the lowest quantity that must be purchased to receive the
+        specified Discount. The Quantity Break applies to all Items in the
+        specified Product Category. Multiple Quantity Breaks may be assigned
+        to a single Product Category.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para629732"><anchor id="Anchor629728" role="Index"
+      xreflabel="pricing schedules:discount percentage for" /> <indexterm
+          significance="normal" zone="Anchor629728">
+          <primary>pricing schedules</primary>
+
+          <secondary>discount percentage for</secondary>
+        </indexterm>Discount Percent (List Price)</term>
+
+      <listitem id="listitemN0x180ac00N0x194acd4">
+        <para>Enter the Discount percentage off List Price to be used when the
+        specified Quantity Break is reached. The List Prices for all Items in
+        the Product Category will be reduced by the specified
+        percentage.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
