@@ -1,161 +1,151 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Copy Purchase Order
-  </title>
-   <subtitle>copyPurchaseOrder : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/copyPurchaseOrder.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Copy Purchase Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Purchase Order #:</guilabel>
-               </entry>
-               <entry>_salesOrderLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Order Date:</guilabel>
-               </entry>
-               <entry>_orderDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_currencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_po</entry>
-               <entry>PoLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_poList</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_orderDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_currency</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vend</entry>
-               <entry>VendorCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Vendor Phone:</guilabel>
-               </entry>
-               <entry>_vendPhoneLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_vendPhone</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Co<accel>p</accel>y</guilabel>
-               </entry>
-               <entry>_copy</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Original Line Items:</guilabel>
-               </entry>
-               <entry>_polineLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_scheduleGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Use Today's Date</guilabel>
-               </entry>
-               <entry>_useCurrentDate</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Schedule Purchase Order for:</guilabel>
-               </entry>
-               <entry>_reschedule</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_scheduleDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Use latest Item Sources and Prices</guilabel>
-               </entry>
-               <entry>_recheck</entry>
-               <entry>QCheckBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section955035">
+    <title><anchor id="Anchor955034" role="Index"
+    xreflabel="purchase orders:copying of" /> <indexterm significance="normal"
+        zone="Anchor955034">
+        <primary>purchase orders</primary>
+
+        <secondary>copying of</secondary>
+      </indexterm>Copy Purchase Order</title>
+
+    <para id="Para955036">To copy a Purchase Order, select the COPY button on
+    the "Purchase Order History" display screen. The following screen will
+    appear:</para>
+
+    <para id="Para954998"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Disp_copyPO.png" id="Graphic954996" />
+          </imageobject>
+
+          <caption id="Caption954999">Copy Purchase Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para955021">The copy functionality can be used as a <anchor
+      id="Anchor955020" role="Index"
+      xreflabel="purchase orders:templates for;purchase orders:handling repetitive" />
+      <indexterm significance="normal" zone="Anchor955020">
+          <primary>purchase orders</primary>
+
+          <secondary>templates for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor955020">
+          <primary>purchase orders</primary>
+
+          <secondary>handling repetitive</secondary>
+        </indexterm>templating mechanism for repetitive Purchase Orders.
+      Consider creating a template P/O and then simply copy it whenever you
+      need to send out a new one.</para>
+    </tip>
+
+    <para id="Para955044">When copying Purchase Order history, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para955045">Purchase Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x18c085c">
+          <para>Displays the Purchase Order Number for the Purchase Order you
+          are copying.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955113">Order Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18c08a4">
+          <para>Displays the original Order date for the Purchase Order you
+          are copying.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955114">Vendor #</term>
+
+        <listitem id="listitemN0x180ac00N0x18c08ec">
+          <para>Displays the Vendor Number for the Purchase Order you are
+          copying.</para>
+
+          <para id="Para955151">The Vendor name and phone number will also
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955283">Original Line Items</term>
+
+        <listitem id="listitemN0x180ac00N0x18c0934">
+          <para>Display lists the Line Items which originally appeared on the
+          Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955285">Use Today's Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18c097c">
+          <para>Select to use today's date as the Order date for the Purchase
+          Order copy.</para>
+
+          <para id="Para955306">Due dates for Purchase Order Line Items will
+          be adjusted automatically from today's date using Item Source Lead
+          Times, if any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955330">Schedule Purchase Order for</term>
+
+        <listitem id="listitemN0x180ac00N0x18c09c4">
+          <para>Specify a date to use as the Order date for the Purchase Order
+          copy.</para>
+
+          <para id="Para955286">Due dates for Purchase Order Line Items will
+          be adjusted automatically from the specified date using Item Source
+          Lead Times, if any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955059">Use latest Item Sources and Prices</term>
+
+        <listitem id="listitemN0x180ac00N0x18c0a0c">
+          <para>Select to use the most current Item Source information,
+          including up-to-date Item Source Prices.</para>
+
+          <para id="Para955343">If not selected, the Purchase Order copy will
+          use the Item Source information, including Item Source Prices, in
+          effect at the time of the original Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para955061">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para955076">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18c0a78">
+          <para>Closes the screen without copying the Purchase Order,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para955064">COPY</term>
+
+        <listitem id="listitemN0x180ac00N0x18c0ac0">
+          <para>Creates a copy of the Purchase Order and places the copy--with
+          a new Purchase Order Number--on the List Unposted Purchase Orders
+          screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

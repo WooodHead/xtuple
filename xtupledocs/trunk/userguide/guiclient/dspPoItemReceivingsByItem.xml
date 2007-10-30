@@ -1,135 +1,171 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Receipts and Returns by Item
-  </title>
-   <subtitle>dspPoItemReceivingsByItem : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspPoItemReceivingsByItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Receipts and Returns by Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_agentGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>All Purchasing Agents</guilabel>
-               </entry>
-               <entry>_allPurchasingAgents</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Selected Purchasing Agent</guilabel>
-               </entry>
-               <entry>_selectedPurchasingAgent</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Purchasing Agent:</guilabel>
-               </entry>
-               <entry>_agentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_agent</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Purchase Price Variances</guilabel>
-               </entry>
-               <entry>_showVariances</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>P/O <accel>R</accel>eceipts and Returns:</guilabel>
-               </entry>
-               <entry>_porecvLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_porecv</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518924">
+    <title><anchor id="Anchor919425" role="Index"
+    xreflabel="receipts:by item;returns:details by item;items:receipts for;items:returns of" />
+    <indexterm significance="normal" zone="Anchor919425">
+        <primary>receipts</primary>
+
+        <secondary>by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+        <primary>returns</primary>
+
+        <secondary>details by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+        <primary>items</primary>
+
+        <secondary>receipts for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+        <primary>items</primary>
+
+        <secondary>returns of</secondary>
+      </indexterm>Receipts and Returns by Item</title>
+
+    <para id="Para522281">To view Receipts and Returns by Item, select the
+    "Receipts and Returns by Item" option. The following screen will
+    appear:</para>
+
+    <para id="Para522284"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Disp_rcptsRtnsByItem.png"
+                       id="Graphic522283" />
+          </imageobject>
+
+          <caption id="Caption522285">Receipts and Returns by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para522286">When displaying Receipts and Returns by Item, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para523449">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7b88">
+          <para>Enter the Item Number of the Item whose Receipts and Returns
+          you want to view.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para921090">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7bd0">
+          <para>Receipts and Returns by Item entered on and after this date
+          will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para921095">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7c18">
+          <para>Receipts and Returns by Item entered on and before this date
+          will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para523400">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7c3c">
+          <para>Select to display Receipts and Returns by Item for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para523402">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7c60">
+          <para>Specify Warehouse whose Receipts and Returns by Item you want
+          to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para523404">All Purchasing Agents</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7ca8">
+          <para>Select to display Receipts and Returns by Item for all
+          Purchasing Agents.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para523405">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7cf0">
+          <para>Specify Purchasing Agent whose Receipts and Returns by Item
+          you want to display.</para>
+
+          <para id="Para935609">Users may be designated as Purchasing Agents
+          at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para921104">Show Purchase Price Variances</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7d38">
+          <para>Select to include purchase Price variances in the
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para535213">P/O Receipts/Returns</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7d80">
+          <para>Display lists Receipts and Returns by Item, using the
+          specified parameters.</para>
+
+          <para id="Para970232">Purchased Cost and Receiving Cost variances
+          will also display if the "Show Purchase Price Variances" option is
+          selected.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para953945">If you select the "Show Purchase Price Variances"
+      option and the value "N/A" is displayed in the "Recv. Cost" column, this
+      simply means the Purchase Order qty. has been received but not yet
+      vouchered.</para>
+    </tip>
+
+    <para id="Para523410">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para523411">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18cee00">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para934544">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18cee48">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para970032">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18cee90">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

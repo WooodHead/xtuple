@@ -1,135 +1,144 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   P/Os by Date
-  </title>
-   <subtitle>dspPOsByDate : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspPOsByDate.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   P/Os by Date
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_buyerCodeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>All Purchasing Agents</guilabel>
-               </entry>
-               <entry>_allPurchasingAgents</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Selected Purchasing Agent</guilabel>
-               </entry>
-               <entry>_selectedPurchasingAgent</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Purchasing Agent:</guilabel>
-               </entry>
-               <entry>_purchasingAgentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_agent</entry>
-               <entry>XComboBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show Closed P/O's</guilabel>
-               </entry>
-               <entry>_showClosed</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>P/Os:</guilabel>
-               </entry>
-               <entry>_poitemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section955950">
+    <title><anchor id="Anchor955949" role="Index"
+    xreflabel="purchase orders:summarized by date" /> <indexterm
+        significance="normal" zone="Anchor955949">
+        <primary>purchase orders</primary>
+
+        <secondary>summarized by date</secondary>
+      </indexterm>P/Os by Date</title>
+
+    <para id="Para955951">To see a summarized view of Purchase Orders by date,
+    select the "P/Os by Date" option. The following screen will appear:</para>
+
+    <para id="Para955955"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Disp_posByDate.png"
+                       id="Graphic955953" />
+          </imageobject>
+
+          <caption id="Caption955956">Purchase Orders by Date</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para955958">A Purchase Order will remain open if at least one
+      of its Line Items is open. Once all Line Items are closed, the Purchase
+      Order will also be closed. To reopen a closed Purchase Order, simply
+      open one of its closed Line Items.</para>
+    </tip>
+
+    <para id="Para955959">When displaying a summarized view of Purchase Orders
+    by date, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para956079">Starting Due Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa550">
+          <para>Purchase Orders due on and after this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para956080">Ending Due Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa598">
+          <para>Purchase Orders due on and before this date will be
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para956002">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa5bc">
+          <para>Select to display Purchase Orders for all Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para956003">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa5e0">
+          <para>Specify Warehouse whose Purchase Orders you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para956004">All Purchasing Agents</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa628">
+          <para>Select to display Purchase Orders by date for all Purchasing
+          Agents.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para956005">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa670">
+          <para>Specify Purchasing Agent whose Purchase Orders by date you
+          want to display.</para>
+
+          <para id="Para956006">Users may be designated as Purchasing Agents
+          at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para956025">P/Os</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa6b8">
+          <para>Display lists Purchase Orders by date, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para956027">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para956028">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa724">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para956029">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa76c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para969968">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18aa7b4">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para956032">Right-clicking on a Purchase Order in the list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

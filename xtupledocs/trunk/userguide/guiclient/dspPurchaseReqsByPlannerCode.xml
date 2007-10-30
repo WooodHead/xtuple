@@ -1,97 +1,194 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Purchase Requests by Planner Code
-  </title>
-   <subtitle>dspPurchaseReqsByPlannerCode : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspPurchaseReqsByPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Purchase Requests by Planner Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_plannerCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Purchase Requests:</guilabel>
-               </entry>
-               <entry>_prLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_pr</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+
+  <section id="Section955370">
+    <title><anchor id="Anchor955369" role="Index"
+    xreflabel="purchase requests:by planner code;planner codes:purchase requests for" />
+    <indexterm significance="normal" zone="Anchor955369">
+        <primary>purchase requests</primary>
+
+        <secondary>by planner code</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor955369">
+        <primary>planner codes</primary>
+
+        <secondary>purchase requests for</secondary>
+      </indexterm>Purchase Requests by Planner Code</title>
+
+    <para id="Para955371">To view Purchase Requests by Planner Code, select
+    the "Purchase Requests by Planner Code" option. The following screen will
+    appear:</para>
+
+    <note>
+      <para id="Para954157">Purchase Requests are considered to be a valid
+      source of supply by the planning systems.</para>
+    </note>
+
+    <para id="Para929020"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Disp_purchReqsByPCode.png"
+                       id="Graphic929018" />
+          </imageobject>
+
+          <caption id="Caption929021">Purchase Requests by Planner
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para971158">Purchase Requests may be created using the
+      right-click menus available in several displays. For example, you can
+      generate Purchase Requests from Inventory Availability and also Planned
+      Order reports.</para>
+    </tip>
+
+    <para id="Para929025">When displaying Purchase Requests by Planner Code,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry role="openmfg">
+        <term id="Para929029">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2db4">
+          <para>Select to display Purchase Requests by Planner Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para929030">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2dd8">
+          <para>Specify Warehouse whose Purchase Requests by Planner Code you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para929273">Start Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2e20">
+          <para>Purchase Requests by Planner Code entered on and after this
+          date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para929278">End Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2e68">
+          <para>Purchase Requests by Planner Code entered on and before this
+          date will be displayed.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para929305">All Planner Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2eb0">
+          <para>Select to display Purchase Requests for all Planner
+          Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para929306">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2ef8">
+          <para>Specify Planner Code whose Purchase Requests you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para929167">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2f40">
+          <para>Enter a Planner Code pattern to select a range of Planner
+          Codes.</para>
+
+          <para id="Para971250">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef971249"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para951523">Purchase Request quantities are based on the
+      Inventory Unit of Measure (UOM). However, some Vendor Item Sources may
+      specify an alternate UOM. If this is the case, the system will
+      automatically convert the requirement to the Vendor's UOM when the
+      Purchase Request is released.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para929153">Purchase Requests</term>
+
+        <listitem id="listitemN0x180ac00N0x18a2fd0">
+          <para>Display lists Purchase Requests for the specified Planner
+          Code, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para953500">When a Purchase Request is released, the requested
+      Item will automatically populate a Purchase Order Item screen. If Item
+      Sources have been defined for the Item, then Item Source Prices will be
+      used--that is, unless the Vendor price has been specifically overridden
+      for Purchase Requests generated from Sales Orders. Project Numbers may
+      also be transferred from Sales Orders. In this way, Sales Orders and
+      Purchase Order Line Items may be linked to the same Project.</para>
+    </note>
+
+    <para id="Para929034">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para929035">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18a3060">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para934503">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18a30a8">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para969963">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18a30f0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para935986">Right-clicking on a Purchase Request in the Purchase
+    Requests list enables you to select from the following menu
+    options:</para>
+
+    <variablelist>
+      <xi:include href="../supportfiles/rightclick.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/2/5)" />
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

@@ -1,124 +1,121 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Buy Card
-  </title>
-   <subtitle>buyCard : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/buyCard.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Buy Card
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendor</entry>
-               <entry>VendorCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Vendor Part Number:</guilabel>
-               </entry>
-               <entry>_itemSourceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemSource</entry>
-               <entry>XComboBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Vendor Description:</guilabel>
-               </entry>
-               <entry>_vendorDescriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendorDescription</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame_2</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Purchase History:</guilabel>
-               </entry>
-               <entry>_purchaseHistoryLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Notes:</guilabel>
-               </entry>
-               <entry>_notesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section921353">
+    <title><anchor id="Anchor919421" role="Index"
+    xreflabel="buy cards:relation to vendors;buy cards:part numbers and" />
+    <indexterm significance="normal" zone="Anchor919421">
+        <primary>buy cards</primary>
+
+        <secondary>relation to vendors</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor919421">
+        <primary>buy cards</primary>
+
+        <secondary>part numbers and</secondary>
+      </indexterm>Buy Card</title>
+
+    <para id="Para522247">A Buy Card is a list, formerly recorded on a card,
+    showing an historical record of Items bought from specified Vendors. To
+    view purchasing history by Vendor Part Number, select the "Buy Card"
+    option. The following screen will appear:</para>
+
+    <para id="Para522250"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Disp_buyCard.png" id="Graphic522249" />
+          </imageobject>
+
+          <caption id="Caption522251">Buy Card</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para522252">When viewing purchasing history by Vendor Part
+    Number, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para917957">Vendor #</term>
+
+        <listitem id="listitemN0x180ac00N0x18c71d4">
+          <para>Enter the Vendor Number of the Vendor whose purchasing history
+          by Part Number you want to view.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para918032">Vendor Part Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18c721c">
+          <para>Specify the Vendor Part Number whose purchasing history you
+          want to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para923379">Vendor Description</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7264">
+          <para>Enter the description used by the Vendor to identify the
+          Vendor Part Number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para917890">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18c72ac">
+          <para>Displays internal Item Number associated with Vendor Part
+          Number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para968958">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18c72f4">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para535324">Purchase History</term>
+
+        <listitem id="listitemN0x180ac00N0x18c733c">
+          <para>Display lists purchasing history for specified Vendor Part
+          Number.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para917897">Notes</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7384">
+          <para>Displays any Notes which may be associated with the Item
+          Source on the Item Source master.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para917899">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para917900">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18c73f0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para970016">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x18c7438">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
