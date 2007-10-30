@@ -155,7 +155,7 @@ BEGIN
          WHERE (metric_name=''Routings'') ) ) THEN
 
     INSERT INTO wooper
-    ( wooper_wo_id, wooper_booitem_seq_id, wooper_seqnumber,
+    ( wooper_wo_id, wooper_booitem_id, wooper_seqnumber,
       wooper_wrkcnt_id, wooper_stdopn_id,
       wooper_descrip1, wooper_descrip2, wooper_toolref,
       wooper_sutime, wooper_sucosttype, wooper_surpt,
@@ -167,7 +167,7 @@ BEGIN
       wooper_rnconsumed, wooper_rncomplete,
       wooper_qtyrcv, wooper_instruc, wooper_scheduled,
       wooper_wip_location_id )
-    SELECT wo_id, booitem_seq_id, booitem_seqnumber,
+    SELECT wo_id, booitem_id, booitem_seqnumber,
            booitem_wrkcnt_id, booitem_stdopn_id,
            booitem_descrip1, booitem_descrip2, booitem_toolref,
            CASE WHEN (booitem_surpt) THEN booitem_sutime
@@ -201,10 +201,13 @@ BEGIN
 --  bomitem record indicates a booitem issue link.
     UPDATE womatl
     SET womatl_wooper_id=wooper_id
-    FROM wooper
-    WHERE ((womatl_wooper_id=wooper_booitem_seq_id)
-     AND (womatl_wo_id=pWoid)
-     AND (wooper_wo_id=pWoid));
+    FROM wo,wooper,booitem
+    WHERE ((womatl_wooper_id=booitem_seq_id)
+     AND (wooper_booitem_id=booitem_id)
+     AND (womatl_wo_id=wo_id)
+     AND (wooper_wo_id=wo_id)
+     AND (wo_boo_rev_id=booitem_rev_id)
+     AND (wo_id=pWoid));
     END IF;
 
 -- Handle all of the Phantom material requirements
