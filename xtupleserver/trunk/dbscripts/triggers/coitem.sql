@@ -6,7 +6,7 @@ DECLARE
 
 BEGIN
   -- Check
-  SELECT checkPrivilege(''MaintainSalesOrders'') INTO _check;
+  SELECT checkPrivilege(''MaintainSalesOrders'') OR checkPrivilege(''ShipOrders'') INTO _check;
   IF NOT (_check) THEN
     RAISE EXCEPTION ''You do not have privileges to alter a Sales Order.'';
   END IF;
