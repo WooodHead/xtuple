@@ -1,155 +1,286 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   To-Do List
-  </title>
-   <subtitle>todoList : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/todoList.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   To-Do List
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>centralwidget</entry>
-               <entry>QWidget</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_usr</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Active Only</guilabel>
-               </entry>
-               <entry>_active</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Completed</guilabel>
-               </entry>
-               <entry>_completed</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show Incidents</guilabel>
-               </entry>
-               <entry>_incidents</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_dueDates</entry>
-               <entry>DateCluster</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_incdtDates</entry>
-               <entry>DateCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_todoList</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Close</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Move Up</guilabel>
-               </entry>
-               <entry>_moveUp</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Move Down</guilabel>
-               </entry>
-               <entry>_moveDown</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>New</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Edit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>View</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Delete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Print</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Automatically Update</guilabel>
-               </entry>
-               <entry>_autoUpdate</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>statusbar</entry>
-               <entry>QStatusBar</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560390">
+  <title><anchor id="Anchor569402" role="Index"
+  xreflabel="to-do lists:maintenance of;customer relationship management:maintaining to-do lists for" />
+  <indexterm significance="normal" zone="Anchor569402">
+      <primary>to-do lists</primary>
+
+      <secondary>maintenance of</secondary>
+    </indexterm> <indexterm significance="normal" zone="Anchor569402">
+      <primary>customer relationship management</primary>
+
+      <secondary>maintaining to-do lists for</secondary>
+    </indexterm>To-Do List</title>
+
+  <para id="Para560394">To access the To-Do List, select the "To-Do List"
+  option. The following screen will appear:</para>
+
+  <para id="Para567372"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CRM_TD_toDoList.png" id="Graphic567370" />
+        </imageobject>
+
+        <caption id="Caption567373">To-Do List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <note>
+    <para id="Para567479">Black type indicates the To-Do has been
+    completed--or it is due on the current day. Red To-Dos are late. Green
+    To-Dos are not yet due.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para569484">All Users</term>
+
+      <listitem id="listitemN0x180ac00N0x1889c14">
+        <para>Select to display To-Do List items for all users.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569485">Selected User</term>
+
+      <listitem id="listitemN0x180ac00N0x1889c5c">
+        <para>Select user whose To-Do List items you want to display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569486">Pattern</term>
+
+      <listitem id="listitemN0x180ac00N0x1889ca4">
+        <para>Enter a user pattern to select a range of users.</para>
+
+        <para id="Para577688">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef577687"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para560395">Active Only</term>
+
+      <listitem id="listitemN0x180ac00N0x1889cec">
+        <para>Select to include only active To-Do List items in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569673">Completed</term>
+
+      <listitem id="listitemN0x180ac00N0x1889d34">
+        <para>Select to include completed To-Do List items in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569674">Show Incidents</term>
+
+      <listitem id="listitemN0x180ac00N0x1889d7c">
+        <para>Select to include Incidents in the display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574188">First Due Date</term>
+
+      <listitem id="listitemN0x180ac00N0x1889dc4">
+        <para>To-Dos due on or after this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574228">Last Due Date</term>
+
+      <listitem id="listitemN0x180ac00N0x1889e0c">
+        <para>To-Dos due on or before this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574229">First Incident Date</term>
+
+      <listitem id="listitemN0x180ac00N0x1889e54">
+        <para>Incidents created on or after this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574230">Last Incident Date</term>
+
+      <listitem id="listitemN0x180ac00N0x1889e9c">
+        <para>Incidents created on or after this date will be included in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569675">To-Do List</term>
+
+      <listitem id="listitemN0x180ac00N0x1889ee4">
+        <para>Display lists To-Do List items, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para574265">Automatically Update</term>
+
+      <listitem id="listitemN0x180ac00N0x1889f2c">
+        <para>Select to automatically update the display every five
+        minutes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para569707">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para569710">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x1889f98">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569757">MOVE UP</term>
+
+      <listitem id="listitemN0x180ac00N0x1889fe0">
+        <para>Highlight a To-Do List item and then select this button to move
+        the To-Do List item up the list. Sequence numbers are user-defined and
+        must be manually assigned.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569759">MOVE DOWN</term>
+
+      <listitem id="listitemN0x180ac00N0x188a028">
+        <para>Highlight a To-Do List item and then select this button to move
+        the To-Do List item down the list. Sequence numbers are user-defined
+        and must be manually assigned.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569766">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x188a070">
+        <para>Opens screen for creating a new To-Do List item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569772">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x188a0b8">
+        <para>Enables you to edit highlighted To-Do List items. The edit
+        screen is the same as that for creating a new To-Do List item--except
+        that when editing, the fields will contain To-Do List item
+        information. Double-clicking on a To-Do List item will also bring you
+        to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569773">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x188a100">
+        <para>Highlight a To-Do List item and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569715">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x188a148">
+        <para>Highlight a To-Do List item and then select this button to
+        remove the To-Do List item from the list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para577430">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x188a190">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para569721">Right-clicking on a To-Do List item list enables you
+  to select from the following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para569736">Move Up</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1889fe0)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569737">Move Down</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188a028)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569740">New</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188a070)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569723">Edit</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188a0b8)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569744">View</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188a100)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para569724">Delete</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x188a148)" />
+    </varlistentry>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/11/2/1)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/11/2/2)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
