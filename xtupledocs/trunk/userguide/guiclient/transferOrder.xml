@@ -498,10 +498,8 @@
         edit screen is the same as that for creating a new Transfer Order Line
         Item--except that when editing, the fields will contain Transfer Order
         Line Item information. Double-clicking on a Transfer Order Line Item
-        will also bring you to the editing screen.</para>
-
-        <para id="Para660546">Mac users may use COMMAND + E to edit an
-        existing Line Item.</para>
+        will also bring you to the editing screen. Mac users may use COMMAND +
+        E to edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
 
@@ -510,11 +508,9 @@
 
       <listitem id="listitemN0x180ac00N0x18b531c">
         <para>Highlight a Transfer Order Line Item and then select this to
-        close the Transfer Order Line Item.</para>
-
-        <para id="Para660548">If the highlighted Line Item is already closed,
-        the label will revert to an OPEN, which may be used to open the closed
-        Line Item.</para>
+        close the Transfer Order Line Item. If the highlighted Line Item is
+        already closed, the label will revert to an OPEN, which may be used to
+        open the closed Line Item.</para>
       </listitem>
     </varlistentry>
 
@@ -567,21 +563,21 @@
     <varlistentry>
       <term id="Para660559">Edit Line</term>
 
-      <xi:include href="../im.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x18b52d4)" />
     </varlistentry>
 
     <varlistentry>
       <term id="Para660560">Close Line</term>
 
-      <xi:include href="../im.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x18b531c)" />
     </varlistentry>
 
     <varlistentry>
       <term id="Para660561">Delete Line</term>
 
-      <xi:include href="../im.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(listitemN0x180ac00N0x18b5364)" />
     </varlistentry>
 
@@ -589,19 +585,13 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1/6/2/4)" />
 
-    <varlistentry>
-      <term id="Para660563">Issue Stock</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/2)" />
 
-      <xi:include href="../im.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18b53f4)" />
-    </varlistentry>
-
-    <varlistentry>
-      <term id="Para660564">Issue Line Balance</term>
-
-      <xi:include href="../im.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18b5484)" />
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/1)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
