@@ -1,79 +1,120 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Assign Items to Planner Code by Class Code
-  </title>
-   <subtitle>assignClassCodeToPlannerCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/assignClassCodeToPlannerCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Assign Items to Planner Code by Class Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>A</accel>ssign</guilabel>
-               </entry>
-               <entry>_assign</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WarehouseGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Planner Code:</guilabel>
-               </entry>
-               <entry>_planCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_planCode</entry>
-               <entry>XComboBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518990">
+    <title><anchor id="Anchor919485" role="Index"
+    xreflabel="planner codes:assigning class codes to;class codes:assigning to planner codes" />
+    <indexterm significance="normal" zone="Anchor919485">
+        <primary>planner codes</primary>
+
+        <secondary>assigning class codes to</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor919485">
+        <primary>class codes</primary>
+
+        <secondary>assigning to planner codes</secondary>
+      </indexterm>Assign Items to Planner Code by Class Code</title>
+
+    <para id="Para524545">To assign Items to a Planner Code by Class Code,
+    select the "Assign Items to Planner Code by Class Code" option. The
+    following screen will appear:</para>
+
+    <para id="Para524548"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_Utils_assignCCodePCode.png"
+                       id="Graphic524547" />
+          </imageobject>
+
+          <caption id="Caption524549">Assign Items to Planner Code by Class
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para524550">When assigning Items to a Planner Code by Class
+    Code, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para935419">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc844">
+          <para>Select to assign all Class Codes to a Planner Code.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530220">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc88c">
+          <para>Specify Class Code you want to assign to a Planner
+          Code.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para533184">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc8d4">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para971266">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef971265"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para945428">All Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc8f8">
+          <para>Select to assign Items to a Planner Code by Class Code for all
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para945429">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc91c">
+          <para>Specify Warehouse whose Items by Class Code you want to assign
+          to a Planner Code.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530156">Planner Code</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc964">
+          <para>Specify the Planner Code you want to assign the Class Code(s)
+          to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para530158">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para530159">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18dc9d0">
+          <para>Closes the screen without assigning a Items to a Planner Code
+          by Class Code, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para530160">ASSIGN</term>
+
+        <listitem id="listitemN0x180ac00N0x18dca18">
+          <para>Assigns the specified Items to a Planner Code by Class
+          Code.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
