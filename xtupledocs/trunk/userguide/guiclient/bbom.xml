@@ -1,139 +1,198 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Breeder Bill of Materials
-    </title>
-   <subtitle>bbom : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/bbom.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Breeder Bill of Materials
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>Show <accel>E</accel>xpired Components</guilabel>
-               </entry>
-               <entry>_showExpired</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>Show <accel>F</accel>uture Components</guilabel>
-               </entry>
-               <entry>_showFuture</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>Costs Absorbed:</guilabel>
-               </entry>
-               <entry>_costAbsorbedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_costsAbsorbed</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Co-Product/By-Product Definitions:</guilabel>
-               </entry>
-               <entry>_definitionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_bbomitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-                              <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519678" role="openmfg">
+  <title>Enter New Breeder Bill of Materials</title>
+
+  <para id="Para519679">To enter a new Breeder Bill of Materials, select
+  "Enter New Breeder Bill of Materials" option. The following screen will
+  appear:</para>
+
+  <para id="Para519683"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_BreederBOM_BreederNew.png"
+                     id="Graphic563197" />
+        </imageobject>
+
+        <caption id="Caption519684">Create New Breeder Bill of
+        Materials</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para519690">When creating a new Breeder Bill of Materials, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519691">Item Number</term>
+
+      <listitem id="listitemN0x180ac00N0x18c99f8">
+        <para>Enter the Item Number of the Breeder Item you want to create a
+        Breeder Bill of Materials for.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663241">UOM</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9a40">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para620708"><anchor id="Anchor601066" role="Index"
+      xreflabel="components:expired from breeder bill;breeder items:expiration in breeder bills" />
+      <indexterm significance="normal" zone="Anchor601066">
+          <primary>components</primary>
+
+          <secondary>expired from breeder bill</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601066">
+          <primary>breeder items</primary>
+
+          <secondary>expiration in breeder bills</secondary>
+        </indexterm>Show Expired Components</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9b18">
+        <para>Expired Components: Select to display expired components in the
+        "Co-Product/By-Product Definitions" display.</para>
+
+        <para id="Para519695">Expired components are components that have been
+        expired from the Breeder Bill of Materials.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para601362"><anchor id="Anchor601361" role="Index"
+      xreflabel="breeder items:adding to bills in future" /> <indexterm
+          significance="normal" zone="Anchor601361">
+          <primary>breeder items</primary>
+
+          <secondary>adding to bills in future</secondary>
+        </indexterm>Show Future Components</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9ba8">
+        <para>Future Components: Select to display future components in the
+        "Co-Product/By-Product Definitions" display.</para>
+
+        <para id="Para620753">Future components are components that will be
+        added to the Breeder Bill of Materials at a future point in
+        time.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para601364"><anchor id="Anchor601363" role="Index"
+      xreflabel="costing:for co-products;breeder items:cost absorption by;co-products:costs absorbed by" />
+      <indexterm significance="normal" zone="Anchor601363">
+          <primary>costing</primary>
+
+          <secondary>for co-products</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601363">
+          <primary>breeder items</primary>
+
+          <secondary>cost absorption by</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601363">
+          <primary>co-products</primary>
+
+          <secondary>costs absorbed by</secondary>
+        </indexterm>Costs Absorbed</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9cc8">
+        <para>Displays the percentage amount of Cost absorption each
+        Co-Product will assume.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519697"><anchor id="Anchor601074" role="Index"
+      xreflabel="breeder items:as co-products;breeder items:as by-products;co-products:in breeder bills;by-products:in breeder bills" />
+      <indexterm significance="normal" zone="Anchor601074">
+          <primary>breeder items</primary>
+
+          <secondary>as co-products</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601074">
+          <primary>breeder items</primary>
+
+          <secondary>as by-products</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601074">
+          <primary>co-products</primary>
+
+          <secondary>in breeder bills</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601074">
+          <primary>by-products</primary>
+
+          <secondary>in breeder bills</secondary>
+        </indexterm>Co-Product/By-Product Definitions</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9e30">
+        <para>Display lists all the component Items in the Breeder Bill of
+        Materials.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para519699">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519700">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9e9c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663937">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9ee4">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519702">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9f2c">
+        <para>Opens screen for creating a new component Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519703">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9f74">
+        <para>Enables you to edit highlighted component Items. The edit screen
+        is the same as that for creating a new component Item--except that
+        when editing, the fields will contain component Item information.
+        Double-clicking on a component Item will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519704">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18c9fbc">
+        <para>Highlight a component Item and then select this button to reach
+        a read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519705">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca004">
+        <para>Highlight a component Item and then select this button to remove
+        the Item from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="bbomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

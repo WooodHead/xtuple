@@ -1,118 +1,159 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Breeder Bill of Material Item
-  </title>
-   <subtitle>bbomItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/bbomItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Breeder Bill of Material Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>ty. Per:</guilabel>
-               </entry>
-               <entry>_qtyPerLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_qtyPer</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dates</entry>
-               <entry>DateCluster</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Cost <accel>A</accel>bsorption:</guilabel>
-               </entry>
-               <entry>_costAbsorptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_costAbsorption</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>%</guilabel>
-               </entry>
-               <entry>_percentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Unique Manufacturing Path</guilabel>
-               </entry>
-               <entry>_unique</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Comments:</guilabel>
-               </entry>
-               <entry>_commentsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>QTextEdit</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519678" role="openmfg">
+  <title><anchor id="Anchor601088" role="Index"
+  xreflabel="breeder items:adding to breeder bill;components:adding new to breeder bill" />
+  <indexterm significance="normal" zone="Anchor601088">
+      <primary>breeder items</primary>
+
+      <secondary>adding to breeder bill</secondary>
+    </indexterm><indexterm significance="normal" zone="Anchor601088">
+      <primary>components</primary>
+
+      <secondary>adding new to breeder bill</secondary>
+    </indexterm> Breeder Bill of Materials Item</title>
+
+  <para id="Para519708">To create a new component Item for the Breeder Bill of
+  Materials, select the NEW button. The following screen will appear:</para>
+
+  <para id="Para519712"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_BreederBOM_BrComponentNe.png"
+                     id="Graphic563208" />
+        </imageobject>
+
+        <caption id="Caption519713">Add New Breeder Bill of Materials
+        Component Item</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para519719">When creating a new component Item for a Breeder Bill
+  of Materials, you are presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519720">Item Number</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca16c">
+        <para>Enter the Item Number of the component Item you want to add to
+        the Breeder Bill of Materials.</para>
+
+        <para id="Para519721">The browse button located to the right of the
+        field leads to a "Co-Products and By-Products" master list. The list
+        includes all Items whose Item Type is defined as either Co-Product or
+        By-Product.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663251">UOM</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca1b4">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519727">Qty. Per</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca1fc">
+        <para>Per: Specify the quantity of the component Item required per
+        Breeder Bill of Materials. This is a required field.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519732"><anchor id="Anchor601367" role="Index"
+      xreflabel="costing:for co-products;co-products:costs absorbed by" />
+      <indexterm significance="normal" zone="Anchor601367">
+          <primary>costing</primary>
+
+          <secondary>for co-products</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601367">
+          <primary>co-products</primary>
+
+          <secondary>costs absorbed by</secondary>
+        </indexterm>Effective</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca2d4">
+        <para>Specify when the component Item is effective.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para601350">Expires</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca31c">
+        <para>Specify when the component Item expires, if ever.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para601354"><anchor id="Anchor601358" role="Index"
+      xreflabel="costing:for co-products;breeder bills of materials:cost absorption in;co-products:costs absorbed by" />
+      <indexterm significance="normal" zone="Anchor601358">
+          <primary>costing</primary>
+
+          <secondary>for co-products</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601358">
+          <primary>breeder bills of materials</primary>
+
+          <secondary>cost absorption in</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor601358">
+          <primary>co-products</primary>
+
+          <secondary>costs absorbed by</secondary>
+        </indexterm>Cost Absorption</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca43c">
+        <para>Specify the percentage amount of Cost absorption each Co-Product
+        will assume.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para615100">Unique Manufacturing Path</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca484">
+        <para>Select this option to alert Material Requirements Planning (MRP)
+        that the parent Breeder Item should be called for when a need arises
+        for the specified Co-Product. This option will only be available for
+        Breeder Items which are Co-Products.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para598224">Comments</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca4cc">
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the component Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para596589">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519743">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca538">
+        <para>Closes the screen without creating the component Item, returning
+        you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519744">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18ca580">
+        <para>Creates the component Item and adds it to the Breeder Bill of
+        Materials.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,368 +1,377 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Bill of Materials
-  </title>
-   <subtitle>BOM : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/bom.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Bill of Materials
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame_2</entry>
-               <entry>QFrame</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>E<accel>x</accel>pire</guilabel>
-               </entry>
-               <entry>_expire</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Move <accel>U</accel>p</guilabel>
-               </entry>
-               <entry>_moveUp</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Move Do<accel>w</accel>n</guilabel>
-               </entry>
-               <entry>_moveDown</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bomitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bill of Materials:</guilabel>
-               </entry>
-               <entry>_billOfMaterialsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_costsGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Current Act. Material Cost:</guilabel>
-               </entry>
-               <entry>_currentActCostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_requiredQtyPer</entry>
-               <entry>QLineEdit</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Total Qty. Per should equal</guilabel>
-               </entry>
-               <entry>_doRequireQtyPer</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_maxCost</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_currentActCost</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_currentStdCost</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Maximum Desired Cost:</guilabel>
-               </entry>
-               <entry>_maxCostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Current Std. Material Cost:</guilabel>
-               </entry>
-               <entry>_currentStdCostLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_totalsGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_pickQtyPer</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Total Qty. Per</guilabel>
-               </entry>
-               <entry>_totalQtyPerLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_totalNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Pick List Items:</guilabel>
-               </entry>
-               <entry>_PickListItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_totalQtyPer</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Number Of Items</guilabel>
-               </entry>
-               <entry>_numberOfItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_nonPickQtyPer</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_pickNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_nonPickNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Non-Pick List Items:</guilabel>
-               </entry>
-               <entry>_nonPickListItems</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Totals:</guilabel>
-               </entry>
-               <entry>_totalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Cancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_revGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Batch Size:</guilabel>
-               </entry>
-               <entry>_batchSizeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_revisionDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Revision Da<accel>t</accel>e:</guilabel>
-               </entry>
-               <entry>_revisionDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_revList</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_batchSize</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Docu<accel>m</accel>ent #:</guilabel>
-               </entry>
-               <entry>_documentNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_documentNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Revisi<accel>o</accel>n:</guilabel>
-               </entry>
-               <entry>_revisionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_revision</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_status</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Status:</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show Expi<accel>r</accel>ed Components</guilabel>
-               </entry>
-               <entry>_showExpired</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show <accel>F</accel>uture Components</guilabel>
-               </entry>
-               <entry>_showFuture</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519286">
+  <title><anchor id="Anchor37267" role="Cross-Ref"
+  xreflabel="37267: Heading2: Enter New Bill of Materials" /> <anchor
+  id="Anchor595442" role="Index"
+  xreflabel="bills of materials:creating new " /> <indexterm
+      significance="normal" zone="Anchor595442">
+      <primary>bills of materials</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Enter New Bill of Materials</title>
+
+  <para id="Para519287">To create a new Bill of Materials, select the "Enter
+  New Bill of Materials" option. The following screen will appear:</para>
+
+  <para id="Para519291"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_BOM_BOMnew.png" id="Graphic562970" />
+        </imageobject>
+
+        <caption id="Caption519292">Create New Bill of Materials</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para519298">When creating a new Bill of Materials, you are
+  presented with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519299">Item Number</term>
+
+      <listitem id="listitemN0x180ac00N0x1890420">
+        <para>Enter the Item Number of the manufactured Item you want to
+        create a Bill of Materials for.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663183">UOM</term>
+
+      <listitem id="listitemN0x180ac00N0x1890468">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para620699"><anchor id="Anchor620698" role="Index"
+      xreflabel="components:expired from BOMs;bills of materials:expired components in;expiration:of components in BOMs" />
+      <indexterm significance="normal" zone="Anchor620698">
+          <primary>components</primary>
+
+          <secondary>expired from BOMs</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor620698">
+          <primary>bills of materials</primary>
+
+          <secondary>expired components in</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor620698">
+          <primary>expiration</primary>
+
+          <secondary>of components in BOMs</secondary>
+        </indexterm>Show Expired Components</term>
+
+      <listitem id="listitemN0x180ac00N0x1890588">
+        <para>Expired Components: Select to display expired components in the
+        "Bill of Materials" display.</para>
+
+        <para id="Para620700">Expired components are components that have been
+        expired from the Bill of Materials.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para620702"><anchor id="Anchor620701" role="Index"
+      xreflabel="components:adding to BOMs in future;bills of materials:adding components in future;future:of components in BOMs" />
+      <indexterm significance="normal" zone="Anchor620701">
+          <primary>components</primary>
+
+          <secondary>adding to BOMs in future</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor620701">
+          <primary>bills of materials</primary>
+
+          <secondary>adding components in future</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor620701">
+          <primary>future</primary>
+
+          <secondary>of components in BOMs</secondary>
+        </indexterm>Show Future Components</term>
+
+      <listitem id="listitemN0x180ac00N0x18906a8">
+        <para>Future Components: Select to display future components in the
+        "Bill of Materials" display.</para>
+
+        <para id="Para620448">Future components are components that will be
+        added to the Bill of Materials at a future point in time.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para620452">Document #</term>
+
+      <listitem id="listitemN0x180ac00N0x18906f0">
+        <para>If desired, enter a document number to further identify the Bill
+        of Materials.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519310">Revision</term>
+
+      <listitem id="listitemN0x180ac00N0x1890738">
+        <para>Enter text to describe the revision--if any.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519314">Revision Date</term>
+
+      <listitem id="listitemN0x180ac00N0x1890780">
+        <para>Indicates the date of the revision--if any.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para632512">Batch Size</term>
+
+      <listitem id="listitemN0x180ac00N0x18907c8">
+        <para>Specify the Batch size.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para617309">Once a revision date has been entered, the date
+    field cannot be erased. The specific date may be updated to reflect
+    subsequent revisions, but the field will never be null as long as the Bill
+    of Materials exists.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519318">Bill of Materials</term>
+
+      <listitem id="listitemN0x180ac00N0x1897448">
+        <para>Display lists component Items for the Bill of Materials.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637582">Pick List Items</term>
+
+      <listitem id="listitemN0x180ac00N0x1897490">
+        <para>Displays the total number of component Items which are also Pick
+        List Items.</para>
+
+        <para id="Para637782">Items may be marked as Pick List Items on the
+        Item master.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637586">Non-Pick List Items</term>
+
+      <listitem id="listitemN0x180ac00N0x18974d8">
+        <para>Displays the total number of component Items which are not Pick
+        List Items.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637587">Totals</term>
+
+      <listitem id="listitemN0x180ac00N0x1897520">
+        <para>Displays the total number of component Items.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637588">Current Std. Material Cost</term>
+
+      <listitem id="listitemN0x180ac00N0x1897568">
+        <para>Displays the current Standard Cost for the component
+        Items.</para>
+
+        <para id="Para637746">The displayed Cost includes all Standard Costs
+        associated with the component Items. Any non-material Costs associated
+        with manufactured subcomponents (e.g., Labor and Overhead) would also
+        be included in this total.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637753">Current Act. Material Cost</term>
+
+      <listitem id="listitemN0x180ac00N0x18975b0">
+        <para>Displays the current Actual Cost for the component Items.</para>
+
+        <para id="Para637589">The displayed Cost includes all Actual Costs
+        associated with the component Items. Any non-material Costs associated
+        with manufactured subcomponents (e.g., Labor and Overhead) would also
+        be included in this total.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para637770">Maximum Desired Cost</term>
+
+      <listitem id="listitemN0x180ac00N0x18975f8">
+        <para>Displays the maximum desired Cost for the component
+        Items.</para>
+
+        <para id="Para637771">The maximum desired Cost is defined on the Item
+        master. It provides a visual guide to help determine whether component
+        Item Costs--either Standard or Actual--have exceeded the maximum
+        desired Cost.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para649862">Total Qty. Per should equal</term>
+
+      <listitem id="listitemN0x180ac00N0x1897640">
+        <para>Select if you want to require the total Qty. Per units to equal
+        a certain number.</para>
+
+        <para id="Para649898">Enter the number you want the total Qty. Per
+        units to equal. If selected, you will not be able to save the Bill of
+        Materials until the total Qty. Per requirement is met. To remove the
+        requirement, simply de-select this option.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para637579">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519321">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18976ac">
+        <para>Saves the new Bill of Materials to the master list of Bills of
+        Materials.</para>
+
+        <para id="Para645789">Mac users may use COMMAND + S to save.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519322">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18976f4">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para663910">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x189773c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519324">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1897784">
+        <para>Opens screen for creating a new component Item.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519325">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18977cc">
+        <para>Enables you to edit highlighted components. The edit screen is
+        the same as that for creating a new component--except that when
+        editing, the fields will contain component information.
+        Double-clicking on a component will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519326">VIEW</term>
+
+      <listitem id="listitemN0x180ac00N0x1897814">
+        <para>Highlight a component and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519327">EXPIRE</term>
+
+      <listitem id="listitemN0x180ac00N0x189785c">
+        <para>Highlight a component and then select this button to expire the
+        Item from the Bill of Materials.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519328">MOVE UP</term>
+
+      <listitem id="listitemN0x180ac00N0x18978a4">
+        <para>Highlight a component Item and then select this button to move
+        the component up the Bill of Materials list. Sequence numbers are
+        automatically adjusted to reflect the change in position.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519330">MOVE DOWN</term>
+
+      <listitem id="listitemN0x180ac00N0x18978ec">
+        <para>Highlight a component Item and then select this button to move
+        the component down the Bill of Materials list. Sequence numbers are
+        automatically adjusted to reflect the change in position.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para551962">Right-clicking on an Item in the Bill of Materials
+  Item list enables you to select from the following menu options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para519333">View</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1897814)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519334">Edit</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18977cc)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519335">Expire</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x189785c)" />
+    </varlistentry>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/9/2/3)" />
+
+    <varlistentry>
+      <term id="Para519337">Move Up</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18978a4)" />
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519338">Move Down</term>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18978ec)" />
+    </varlistentry>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+
+  <xi:include href="bomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -1,157 +1,129 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Items
-  </title>
-   <subtitle>items : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/items.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Items
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>S<accel>e</accel>arch for:</guilabel>
-               </entry>
-               <entry>_searchForLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_searchFor</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_statusGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Show All Item Types</guilabel>
-               </entry>
-               <entry>_showAll</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Show Purchased Items</guilabel>
-               </entry>
-               <entry>_showPurchased</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Show Manufactured Items</guilabel>
-               </entry>
-               <entry>_showManufactured</entry>
-               <entry>QRadioButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Show Sold Items</guilabel>
-               </entry>
-               <entry>_showSold</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show <accel>I</accel>nactive Items</guilabel>
-               </entry>
-               <entry>_showInactive</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Items:</guilabel>
-               </entry>
-               <entry>_itemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>iew</guilabel>
-               </entry>
-               <entry>_view</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Cop<accel>y</accel>
-                  </guilabel>
-               </entry>
-               <entry>_copy</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Delete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section609374">
+    <title><anchor id="Anchor609373" role="Index"
+    xreflabel="items:master list of" /> <indexterm significance="normal"
+        zone="Anchor609373">
+        <primary>items</primary>
+
+        <secondary>master list of</secondary>
+      </indexterm>List Items</title>
+
+    <para id="Para609375">The Items master list provides a complete list of
+    Items in Inventory. To access the master list of Items, select the "List
+    Items" option. The following screen will appear:</para>
+
+    <para id="Para609379"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Items_listItems.png"
+                       id="Graphic609377" />
+          </imageobject>
+
+          <caption id="Caption609380">Items Master List</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para609381">At the top of the screen is a "Search for" field. To
+    search for an Item, begin typing in the search field. As you type, the
+    Item list will automatically scroll toward the Item Number you are typing.
+    You can also search for Items manually by scrolling through the list.
+    Apply any combination of the following filters when searching for
+    Items:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para609382">Show Item Types</term>
+
+        <listitem id="listitemN0x180ac00N0x1876a18">
+          <para>Select to display a list of all Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609383">Show Purchased Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1876a60">
+          <para>Select to display a list of all purchased Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609384">Show Manufactured Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1876aa8">
+          <para>Select to display a list of all manufactured Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609385">Show Sold Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1876af0">
+          <para>Select to display a list of all sold Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609386">Show Inactive Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1876b38">
+          <para>Select to show inactive Items as well as active Items, using
+          the parameters specified above. By default, inactive Items are not
+          displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para609387">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para609388">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1876ba4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609389">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1876bec">
+          <para>Opens screen for creating a new Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609390">EDIT</term>
+
+        <listitem id="listitemN0x180ac00N0x1879824">
+          <para>Enables you to edit highlighted Items. The edit screen is the
+          same as that for creating a new Item--except that when editing, the
+          fields will contain Item information. Double-clicking on an Item
+          will also bring you to the editing screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609391">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x187986c">
+          <para>Highlight an Item and then select this button to reach a
+          read-only view of the "Edit" screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para609392">COPY</term>
+
+        <listitem id="listitemN0x180ac00N0x18798b4">
+          <para>Highlight an Item and then select this button to reach the
+          "Copy Item" screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
