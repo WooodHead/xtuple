@@ -1,87 +1,126 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Capacity UOMs by Class Code
-    </title>
-   <subtitle>dspCapacityUOMsByClassCode : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspCapacityUOMsByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Capacity UOMs by Class Code
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Capacity UOMs</guilabel>
-               </entry>
-               <entry>_capacityUOMsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520511">
+    <title><anchor id="Anchor595526" role="Index"
+    xreflabel="units of measure:capacity by class code;class codes:capacity uom details for" />
+    <indexterm significance="normal" zone="Anchor595526">
+        <primary>units of measure</primary>
+
+        <secondary>capacity by class code</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595526">
+        <primary>class codes</primary>
+
+        <secondary>capacity uom details for</secondary>
+      </indexterm>Capacity UOMs by Class Code</title>
+
+    <para id="Para520512">To view a list of Capacity Units of Measure by Class
+    Code, select the "Capacity UOMs by Class Code" option. The following
+    screen will appear:</para>
+
+    <para id="Para520516"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_capUOMClass.png"
+                       id="Graphic563757" />
+          </imageobject>
+
+          <caption id="Caption520517">Capacity UOMs by Class Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520518">When displaying Capacity UOMs by Class Code, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para617093">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x193f9a8">
+          <para>Select to display Capacity UOMs for all Class Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520519">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x193f9f0">
+          <para>Specify Class Code whose Capacity UOMs you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593278">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x193fa38">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para664844">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664843"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520523">Capacity UOMs</term>
+
+        <listitem id="listitemN0x180ac00N0x193fa80">
+          <para>Display lists Capacity UOMs by Class Code, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520525">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520526">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x193faec">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para618304">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x193fb34">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para664058">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x193fb7c">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para557059">Right-clicking on an Item in the Capacity UOMs list
+    enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520529">Edit Item</term>
+
+        <listitem id="listitemN0x180ac00N0x193fbe8">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

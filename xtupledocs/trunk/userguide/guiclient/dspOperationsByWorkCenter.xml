@@ -1,103 +1,115 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Operations by Work Center
-  </title>
-   <subtitle>dspOperationsByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspOperationsByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Operations by Work Center
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Work Center:</guilabel>
-               </entry>
-               <entry>_workCenterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_wrkcnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Operations:</guilabel>
-               </entry>
-               <entry>_operationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_booitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  <section id="Section520467" role="openmfg">
+    <title>Operations by Work Center</title>
+
+    <para id="Para520468">To view a list of Operations performed at a Work
+    Center, select the "Operations by Work Center" option. The following
+    screen will appear:</para>
+
+    <para id="Para520472"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_opsByWC.png" id="Graphic563735" />
+          </imageobject>
+
+          <caption id="Caption520473">Operations by Work Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520474">When displaying Operations by Work Center, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520475">Work Center</term>
+
+        <listitem id="listitemN0x180ac00N0x193a220">
+          <para>Specify Work Center whose Operations you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520477">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x193a268">
+          <para>The Warehouse code for the Warehouse where the Work Center is
+          located will display once a Work Center has been selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520479">Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x193a2b0">
+          <para>Display lists all Operations by Work Center, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520481">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520482">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x193a31c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para664047">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x193a364">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para557037">Right-clicking on an Operation in the Operations
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520485">View Operation</term>
+
+        <listitem id="listitemN0x180ac00N0x193a3d0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520486">View Bill of Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x193a418">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520487">Edit Operation</term>
+
+        <listitem id="listitemN0x180ac00N0x193a460">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520488">Edit Bill of Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x193a4a8">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

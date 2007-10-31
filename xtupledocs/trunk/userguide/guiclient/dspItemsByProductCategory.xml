@@ -1,94 +1,133 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Items by Product Category
-  </title>
-   <subtitle>dspItemsByProductCategory : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspItemsByProductCategory.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Items by Product Category
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_productCategory</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Show <accel>I</accel>nactive Items</guilabel>
-               </entry>
-               <entry>_showInactive</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Items</guilabel>
-               </entry>
-               <entry>_itemLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520287">
+    <title><anchor id="Anchor595508" role="Index"
+    xreflabel="items:by product category;product categories:item details for" />
+    <indexterm significance="normal" zone="Anchor595508">
+        <primary>items</primary>
+
+        <secondary>by product category</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595508">
+        <primary>product categories</primary>
+
+        <secondary>item details for</secondary>
+      </indexterm>Items by Product Category</title>
+
+    <para id="Para520288">To view Items by Product Category, select the "Items
+    by Product Category" option. The following screen will appear:</para>
+
+    <para id="Para520292"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_itemsByProdCat.png"
+                       id="Graphic563637" />
+          </imageobject>
+
+          <caption id="Caption520293">Items by Product Category</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520294">When displaying Items by Product Category, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para617064">All Product Categories</term>
+
+        <listitem id="listitemN0x180ac00N0x192bd84">
+          <para>Select to display Items for all Product Categories.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para616001">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x192bdcc">
+          <para>Specify Product Category whose Items you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593187">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x192be14">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para664836">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664835"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520299">Show Inactive Items</term>
+
+        <listitem id="listitemN0x180ac00N0x192be5c">
+          <para>Select to show Inactive Items in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520300">Items</term>
+
+        <listitem id="listitemN0x180ac00N0x192bea4">
+          <para>Display lists Items by Product Category, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520302">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520303">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x192bf10">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para618225">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x192bf58">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663989">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x192bfa0">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556987">Right-clicking on an Item in the Items list enables
+    you to select from the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520306">Edit Item Master</term>
+
+        <listitem id="listitemN0x180ac00N0x192c00c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

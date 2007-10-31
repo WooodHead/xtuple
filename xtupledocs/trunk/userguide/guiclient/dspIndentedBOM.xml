@@ -1,125 +1,140 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Indented Bill of Materials
-  </title>
-   <subtitle>dspIndentedBOM : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspIndentedBOM.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Indented Bill of Materials
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show <accel>E</accel>xpired Components</guilabel>
-               </entry>
-               <entry>_showExpired</entry>
-               <entry>XCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Threshold Days:</guilabel>
-               </entry>
-               <entry>_expiredDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_expiredDays</entry>
-               <entry>QSpinBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show <accel>F</accel>uture Components</guilabel>
-               </entry>
-               <entry>_showFuture</entry>
-               <entry>XCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Threshold Days:</guilabel>
-               </entry>
-               <entry>_effectiveDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_effectiveDays</entry>
-               <entry>QSpinBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bill Of Materials:</guilabel>
-               </entry>
-               <entry>_bomLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bomitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520332">
+    <title><anchor id="Anchor595512" role="Index"
+    xreflabel="bills of materials:indented view of" /> <indexterm
+        significance="normal" zone="Anchor595512">
+        <primary>bills of materials</primary>
+
+        <secondary>indented view of</secondary>
+      </indexterm>Indented Bill of Materials</title>
+
+    <para id="Para520333">To view an indented Bill of Materials, select the
+    "Indented Bill of Materials" option. The following screen will
+    appear:</para>
+
+    <para id="Para520337"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_indentedBOM.png"
+                       id="Graphic563674" />
+          </imageobject>
+
+          <caption id="Caption520338">Indented Bill of Materials</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520344">When displaying an indented Bill of Materials, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520345">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x193218c">
+          <para>Enter the Item Number of the manufactured Item you would like
+          to view an indented Bill of Materials for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663344">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x19321d4">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para597394">Show Expired Components</term>
+
+        <listitem id="listitemN0x180ac00N0x193221c">
+          <para>Select to cause expired components to be listed in the "Bill
+          of Materials" display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para597402">Threshold Days</term>
+
+        <listitem id="listitemN0x180ac00N0x1932264">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para597403">Components that have been expired from the
+          Bill of Materials within the specified number of days will be
+          included in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para597395">Show Future Components</term>
+
+        <listitem id="listitemN0x180ac00N0x19322ac">
+          <para>Select to cause future components to be listed in the "Bill of
+          Materials" display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para597409">Threshold Days</term>
+
+        <listitem id="listitemN0x180ac00N0x19322f4">
+          <para>Select a number using the arrow buttons, or manually enter a
+          value up to a maximum of 999.</para>
+
+          <para id="Para597410">Components that will be added in future to the
+          Bill of Materials within the specified number of days will be
+          included in the display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para597396">Bill of Materials</term>
+
+        <listitem id="listitemN0x180ac00N0x193233c">
+          <para>Display lists indented Bill of Materials components, using the
+          specified parameters.</para>
+
+          <para id="Para664310">The difference between the indented view and
+          the single level view is that the indented view displays all
+          subcomponents if there is a manufactured component listed on the
+          Bill of Materials. To view a component Item's subassembly, select
+          the plus "+" sign in the "Seq #" column to view that detail.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520353">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520354">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x19323a8">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para616843">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x19323f0">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para664006">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1932438">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

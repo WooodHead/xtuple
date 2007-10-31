@@ -1,91 +1,134 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Single Level Where Used
-  </title>
-   <subtitle>dspSingleLevelWhereUsed : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspSingleLevelWhereUsed.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Single Level Where Used
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Effective:</guilabel>
-               </entry>
-               <entry>_effectiveLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_effective</entry>
-               <entry>DLineEdit</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bill of Materials Items:</guilabel>
-               </entry>
-               <entry>_bomItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bomitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  <section id="Section520380">
+    <title><anchor id="Anchor595516" role="Index"
+    xreflabel="bills of materials:single level where used view of" />
+    <indexterm significance="normal" zone="Anchor595516">
+        <primary>bills of materials</primary>
+
+        <secondary>single level where used view of</secondary>
+      </indexterm>Single Level Where Used</title>
+
+    <para id="Para520381">The Single Where Used display will indicate every
+    manufactured Item that directly uses a specified Item as a component Item.
+    To view a display showing parent Items which use a specified component
+    Item, select the "Single Level Where Used" option. The following screen
+    will appear:</para>
+
+    <para id="Para520385"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_singleWhereUsed.png"
+                       id="Graphic563696" />
+          </imageobject>
+
+          <caption id="Caption610837">Single Level Where Used</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para610838">When displaying a view showing parent Items which
+    use a specified component Item, you are presented with the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520393">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1932c3c">
+          <para>Enter the Item Number of the Item you would like to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663367">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1932c84">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520400">Effective</term>
+
+        <listitem id="listitemN0x180ac00N0x1932ccc">
+          <para>Indicate the effective date to use when searching through Bill
+          of Material components to determine the selected Item's
+          usage.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520402">Bill of Materials Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1932d14">
+          <para>Display lists parent Items whose Bill of Materials includes
+          the specified component Item, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520404">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520405">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1932d80">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para667003">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1932dc8">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para667004">Right-clicking on an Item in the Bill of Materials
+    Items list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para667005">Edit Bill of Materials</term>
+
+        <listitem id="listitemN0x180ac00N0x1939824">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520409">Edit Bill of Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x193986c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520410">Edit Item Master</term>
+
+        <listitem id="listitemN0x180ac00N0x19398b4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520411">View Item Inventory History</term>
+
+        <listitem id="listitemN0x180ac00N0x19398fc">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

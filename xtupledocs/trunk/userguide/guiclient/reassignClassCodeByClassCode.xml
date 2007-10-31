@@ -1,98 +1,93 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Reassign Class Code by Class Code
-  </title>
-   <subtitle>reassignClassCodeByClassCode : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/reassignClassCodeByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Reassign Class Code by Class Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_classcodeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Selected Class Code:</guilabel>
-               </entry>
-               <entry>_selectedClassCode</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_classCodes</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Class Code Pattern:</guilabel>
-               </entry>
-               <entry>_classCodePattern</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>New Class Code:</guilabel>
-               </entry>
-               <entry>_newClassCodeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_newClassCode</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>eassign</guilabel>
-               </entry>
-               <entry>_reassign</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section518527">
+    <title><anchor id="Anchor595564" role="Index"
+    xreflabel="class codes:reassignment of;reassignment:of class codes" />
+    <indexterm significance="normal" zone="Anchor595564">
+        <primary>class codes</primary>
+
+        <secondary>reassignment of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595564">
+        <primary>reassignment</primary>
+
+        <secondary>of class codes</secondary>
+      </indexterm>Reassign Class Code by Class Code</title>
+
+    <para id="Para592966">To reassign Class Codes by Class Code, select the
+    "Reassign Class Code by Class Code" option. The following screen will
+    appear:</para>
+
+    <para id="Para593102"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Utils_reassignClassByCla.png"
+                       id="Graphic592988" />
+          </imageobject>
+
+          <caption id="Caption593105">Reassign Class Code by Class
+          Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para592967">When reassigning Class Codes by Class Code, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para593005">Selected Class Code</term>
+
+        <listitem id="listitemN0x180ac00N0x1947020">
+          <para>Specify the Class Code you want to change.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593307">Class Code Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x1947068">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para664870">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664869"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593024">New Class Code</term>
+
+        <listitem id="listitemN0x180ac00N0x19470b0">
+          <para>Specify the new Class Code you want to assign the old Class
+          Code(s) to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para593033">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para593034">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x194711c">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593035">REASSIGN</term>
+
+        <listitem id="listitemN0x180ac00N0x1947164">
+          <para>Select to reassign the specified Class Code(s), using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

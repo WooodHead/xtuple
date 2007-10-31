@@ -1,92 +1,114 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Mass Expire Component Item
-    </title>
-   <subtitle>massExpireComponent : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/massExpireComponent.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Mass Expire Component Item
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_original</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>xpire as of:</guilabel>
-               </entry>
-               <entry>_expireAsOfLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>EC<accel>N</accel> #:</guilabel>
-               </entry>
-               <entry>_ecnNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                              <row>
-               <entry/>
-               <entry>_expireAsOf</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                              <row>
-               <entry/>
-               <entry>_ecn</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                      <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>xpire</guilabel>
-               </entry>
-               <entry>_expire</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  <section id="Section594739">
+    <title><anchor id="Anchor595450" role="Index"
+    xreflabel="components:mass expiration of;mass expiration:of component items;expiration:of component items" />
+    <indexterm significance="normal" zone="Anchor595450">
+        <primary>components</primary>
+
+        <secondary>mass expiration of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595450">
+        <primary>mass expiration</primary>
+
+        <secondary>of component items</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595450">
+        <primary>expiration</primary>
+
+        <secondary>of component items</secondary>
+      </indexterm>Mass Expire Component Item</title>
+
+    <para id="Para594748">The Mass Expire Component Item feature will save you
+    time whenever you need to expire components that are used in multiple
+    Bills of Materials. To perform a mass expiration of a component Item,
+    select the "Mass Expire Component Item" option. The following screen will
+    appear:</para>
+
+    <para id="Para594752"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_BOM_massExpire.png"
+                       id="Graphic594750" />
+          </imageobject>
+
+          <caption id="Caption594753">Mass Expire Component Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para594754">When performing a mass expiration of a component
+    Item, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para594755">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x18a9bf4">
+          <para>Enter the Item Number of the component Item you want to mass
+          expire.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663214">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x18a9c3c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para594778">Expire as of</term>
+
+        <listitem id="listitemN0x180ac00N0x18a9c84">
+          <para>The specified component Item will be expired from existing
+          Bills of Materials as of the specified expiration date.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para594782"><anchor id="Anchor600524" role="Index"
+        xreflabel="engineering change notices:for mass expiration;mass expiration:of component items;expiration:of component items" />
+        <indexterm significance="normal" zone="Anchor600524">
+            <primary>engineering change notices</primary>
+
+            <secondary>for mass expiration</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor600524">
+            <primary>mass expiration</primary>
+
+            <secondary>of component items</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor600524">
+            <primary>expiration</primary>
+
+            <secondary>of component items</secondary>
+          </indexterm>ECN #</term>
+
+        <listitem id="listitemN0x180ac00N0x18a9da4">
+          <para>Enter the Engineering Change Notice Number--if applicable--for
+          the specified component Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para594784">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para594785">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18b1c00">
+          <para>Closes the screen without executing the expire command,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para594786">EXPIRE</term>
+
+        <listitem id="listitemN0x180ac00N0x18b1c48">
+          <para>Select to expire the specified component Item from all
+          existing Bills of Materials.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

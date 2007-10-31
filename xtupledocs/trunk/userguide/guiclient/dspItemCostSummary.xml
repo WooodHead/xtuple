@@ -1,79 +1,103 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Item Costs Summary
-    </title>
-   <subtitle>dspItemCostSummary : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspItemCostSummary.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Item Costs Summary
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry/>
-               <entry>QWidget</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                          <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Costing <accel>E</accel>lements:</guilabel>
-               </entry>
-               <entry>_costingElementsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_itemcost</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520069">
+    <title><anchor id="Anchor595486" role="Index"
+    xreflabel="costing:summary by item;item costs:summary of" /> <indexterm
+        significance="normal" zone="Anchor595486">
+        <primary>costing</primary>
+
+        <secondary>summary by item</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595486">
+        <primary>item costs</primary>
+
+        <secondary>summary of</secondary>
+      </indexterm>Item Costs Summary</title>
+
+    <para id="Para520070">To view a summary of Item Costs, select the "Item
+    Costs Summary" option. The following screen will appear:</para>
+
+    <para id="Para520074"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Cost_dispItemCostSum.png"
+                       id="Graphic563460" />
+          </imageobject>
+
+          <caption id="Caption520075">Item Costs Summary</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520081">When displaying a summary of Item Costs, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520082">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1923144">
+          <para>Enter the Item Number of the Item you would like to view
+          summarized Costs for.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663312">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x192318c">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520086">Costing Elements</term>
+
+        <listitem id="listitemN0x180ac00N0x19231d4">
+          <para>Display lists an Item Costs Summary, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520088">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520089">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1923240">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663971">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1923288">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556959">Right-clicking on a Costing Element in the Costing
+    Elements list enables you to select from the following menu options. If
+    the Costing Element does not contain lower level Costs, you will not be
+    given the option to view Costing detail.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520092">View Costing Detail</term>
+
+        <listitem id="listitemN0x180ac00N0x19232f4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

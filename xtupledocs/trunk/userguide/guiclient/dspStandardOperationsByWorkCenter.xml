@@ -1,105 +1,102 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Standard Operations by Work Center
-  </title>
-   <subtitle>dspStandardOperationsByWorkCenter : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspStandardOperationsByWorkCenter.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Standard Operations by Work Center
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Work Center:</guilabel>
-               </entry>
-               <entry>_workCenterLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_wrkcnt</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_description</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_warehouseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Standard Operations:</guilabel>
-               </entry>
-               <entry>_standardOperationsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_stdopn</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520490" role="openmfg">
+    <title>Standard Operations by Work Center</title>
+
+    <para id="Para520491">To view a list of Standard Operations performed at a
+    Work Center, select the "Standard Operations by Work Center" option. The
+    following screen will appear:</para>
+
+    <para id="Para589795"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_standOpsWC.png"
+                       id="Graphic589793" />
+          </imageobject>
+
+          <caption id="Caption589796">Standard Operations by Work
+          Center</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para589797">When displaying Standard Operations by Work Center,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520498">Work Center</term>
+
+        <listitem id="listitemN0x180ac00N0x193a5ec">
+          <para>Specify Work Center whose Standard Operations you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520500">Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x193f624">
+          <para>The Warehouse code for the Warehouse where the Work Center is
+          located will display once a Work Center has been selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520502">Standard Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x193f66c">
+          <para>Display lists Standard Operations by Work Center, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520504">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520505">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x193f6d8">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para664053">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x193f720">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para557048">Right-clicking on an Operation in the Operations
+    list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520508">View Standard Operation</term>
+
+        <listitem id="listitemN0x180ac00N0x193f78c">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520509">Edit Standard Operation</term>
+
+        <listitem id="listitemN0x180ac00N0x193f7d4">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

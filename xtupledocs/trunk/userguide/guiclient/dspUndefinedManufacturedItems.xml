@@ -1,95 +1,142 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Undefined Manufactured Items
-  </title>
-   <subtitle>dspUndefinedManufacturedItems : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspUndefinedManufacturedItems.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Undefined Manufactured Items
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show Manufactured Items without valid Bills of <accel>O</accel>perations</guilabel>
-               </entry>
-               <entry>_boo</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show Manufactured Items without valid Bills of Materials</guilabel>
-               </entry>
-               <entry>_bom</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show <accel>I</accel>nactive Items</guilabel>
-               </entry>
-               <entry>_showInactive</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Undefined Manufactured Items:</guilabel>
-               </entry>
-               <entry>_itemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520815">
+    <title><anchor id="Anchor595560" role="Index"
+    xreflabel="items:locating undefined manufactured " /> <indexterm
+        significance="normal" zone="Anchor595560">
+        <primary>items</primary>
+
+        <secondary>locating undefined manufactured</secondary>
+      </indexterm>Undefined Manufactured Items</title>
+
+    <para id="Para520816">The "Undefined Manufactured Items" utility enables
+    you to generate a list of purchased Items that do not have valid Bills of
+    Materials and/or Bills of Operations defined. The display also provides
+    other valuable information about each Item. Using the right-click option,
+    you can use this utility to quickly resolve problems related to invalid
+    Bills of Materials and/or Bills of Operations, using the right-click
+    option. Selecting the "Undefined Manufactured Items" option. The following
+    screen will appear:</para>
+
+    <para id="Para520820"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Utils_unManItem.png"
+                       id="Graphic564048" />
+          </imageobject>
+
+          <caption id="Caption520821">Undefined Manufactured Items</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <note>
+      <para id="Para557089">This utility may run for a long period of time. We
+      recommend running it during off-peak hours whenever possible.</para>
+    </note>
+
+    <para id="Para520823">When using this utility, you are presented with the
+    following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520824">Show Manufactured Items with valid Bills of
+        Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x194678c">
+          <para>Select to display all manufactured Items with valid Bills of
+          Operations.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520825">Show Manufactured Items without valid Bills of
+        Materials</term>
+
+        <listitem id="listitemN0x180ac00N0x19467d4">
+          <para>Select to display all manufactured Items without valid Bills
+          of Materials.</para>
+
+          <para id="Para520826">Display will show undefined manufactured
+          Items" for the selected Class Code.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520827">Show Inactive Items</term>
+
+        <listitem id="listitemN0x180ac00N0x194681c">
+          <para>Select to display inactive Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520828">Undefined Manufactured Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1946864">
+          <para>Display lists undefined Manufactured Items, using the
+          parameters specified on the screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520830">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520831">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x19468d0">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520832">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1946918">
+          <para>Select to identify undefined Manufactured Items, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para557097">Right-clicking on an Item in the list of undefined
+    manufactured Items enables you to select the following menu options. The
+    "Create BOM" option will appear only if the Item does not have a Bill of
+    Materials. The "Create BOO" option will appear only if the Item does not
+    have a Bill of Operations.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520834">Create BOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1946984">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520835">Create BOO</term>
+
+        <listitem id="listitemN0x180ac00N0x19469cc">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520836">Edit Item</term>
+
+        <listitem id="listitemN0x180ac00N0x1946a14">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

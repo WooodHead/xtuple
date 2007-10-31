@@ -1,94 +1,163 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Item Costs by Class Code
-  </title>
-   <subtitle>dspItemCostsByClassCode : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspItemCostsByClassCode.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Item Costs by Class Code
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_classCode</entry>
-               <entry>ParameterGroup</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Only Show <accel>Z</accel>ero Cost Items</guilabel>
-               </entry>
-               <entry>_onlyShowZero</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Items:</guilabel>
-               </entry>
-               <entry>_itemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_itemcost</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520047">
+    <title><anchor id="Anchor595484" role="Index"
+    xreflabel="costing:for items by class code;class codes:item costs details for;item costs:by class code" />
+    <indexterm significance="normal" zone="Anchor595484">
+        <primary>costing</primary>
+
+        <secondary>for items by class code</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595484">
+        <primary>class codes</primary>
+
+        <secondary>item costs details for</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595484">
+        <primary>item costs</primary>
+
+        <secondary>by class code</secondary>
+      </indexterm>Item Costs by Class Code</title>
+
+    <para id="Para520048">To view Item Costs by Class Code, select the "Item
+    Costs by Class Code" option. The following screen will appear:</para>
+
+    <para id="Para520052"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Cost_dispItemCostClass.png"
+                       id="Graphic563447" />
+          </imageobject>
+
+          <caption id="Caption520053">Item Costs by Class Code</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520054">When displaying Item Costs by Class Code, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para616992">All Class Codes</term>
+
+        <listitem id="listitemN0x180ac00N0x191ba68">
+          <para>Select to display Item Costs for all Class Codes.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520055">Selected</term>
+
+        <listitem id="listitemN0x180ac00N0x191bab0">
+          <para>Specify Class Code whose Item Costs you want to
+          display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593259">Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x191baf8">
+          <para>Enter a Class Code pattern to select a range of Class
+          Codes.</para>
+
+          <para id="Para664813">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664812"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para596786">Only Show Zero Cost Items</term>
+
+        <listitem id="listitemN0x180ac00N0x191bb40">
+          <para>Select to include only Items with zero Cost in the
+          display.</para>
+
+          <para id="Para638818">Use this option to identify Items having no
+          Costs associated with them. The zero Costs view can be helpful when
+          trying to determine why no General Ledger (G/L) transactions are
+          being generated when certain Items are involved. Items must have
+          Standard Costs associated with them if transactions involving them
+          are to be recorded in the G/L. If an Item has no Standard Cost, no
+          G/L records for that Item will be created.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520059">Items</term>
+
+        <listitem id="listitemN0x180ac00N0x191bb88">
+          <para>Display lists Item Costs by Class Code, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520061">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520062">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x191bbf4">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para618156">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x191bc3c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663964">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x191bc84">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para556948">Right-clicking on an Item in the list of Items
+    displayed by Class Code enables you to select from the following menu
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520065">View Item Costing Summary</term>
+
+        <listitem id="listitemN0x180ac00N0x191bcf0">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520066">Update Actual Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x191bd38">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520067">Post Actual Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x191bd80">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

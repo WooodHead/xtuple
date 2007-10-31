@@ -1,98 +1,93 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Reassign Product Category by Product Category
-  </title>
-   <subtitle>reassignProductCategoryByProductCategory : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/reassignProductCategoryByProductCategory.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Reassign Product Category by Product Category
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_classcodeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Selected Product Category:</guilabel>
-               </entry>
-               <entry>_selectedProductCategory</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_productCategories</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Product Category Pattern:</guilabel>
-               </entry>
-               <entry>_productCategoryPattern</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_productCategory</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>New Product Category:</guilabel>
-               </entry>
-               <entry>_newProductCategoryLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_newProductCategory</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>R</accel>essign</guilabel>
-               </entry>
-               <entry>_reassign</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section592969">
+    <title><anchor id="Anchor595566" role="Index"
+    xreflabel="product categories:reassignment of;reassignment:of product categories" />
+    <indexterm significance="normal" zone="Anchor595566">
+        <primary>product categories</primary>
+
+        <secondary>reassignment of</secondary>
+      </indexterm> <indexterm significance="normal" zone="Anchor595566">
+        <primary>reassignment</primary>
+
+        <secondary>of product categories</secondary>
+      </indexterm>Reassign Product Category by Product Category</title>
+
+    <para id="Para593070">To reassign Product Categories by Product Category,
+    select the "Reassign Product Category by Product Category" option. The
+    following screen will appear:</para>
+
+    <para id="Para593074"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Utils_reassignProdByProd.png"
+                       id="Graphic593072" />
+          </imageobject>
+
+          <caption id="Caption593118">Reassign Product Category by Product
+          Category</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para593075">When reassigning Product Categories by Product
+    Category, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para593076">Selected Product Category</term>
+
+        <listitem id="listitemN0x180ac00N0x19472f0">
+          <para>Specify Product Category you want to change.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593216">Product Category Pattern</term>
+
+        <listitem id="listitemN0x180ac00N0x1947338">
+          <para>Enter a Product Category pattern to select a range of Product
+          Categories.</para>
+
+          <para id="Para664879">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664878"
+          linkend="Anchor77806"> Pattern Matching with Regular
+          Expressions</link>"Topic: Pattern Matching with Regular
+          Expressions".</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593078">New Product Category</term>
+
+        <listitem id="listitemN0x180ac00N0x1947380">
+          <para>Specify the new Product Category you want to assign the old
+          Product Category to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para593085">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para593086">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x19473ec">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para593087">REASSIGN</term>
+
+        <listitem id="listitemN0x180ac00N0x194f024">
+          <para>Select to reassign the specified Product Category, using the
+          specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

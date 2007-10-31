@@ -1,101 +1,129 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Indented Where Used
-  </title>
-   <subtitle>dspIndentedWhereUsed : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/dspIndentedWhereUsed.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Indented Where Used
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show <accel>E</accel>xpired Components</guilabel>
-               </entry>
-               <entry>_showExpired</entry>
-               <entry>XCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Show <accel>F</accel>uture Components</guilabel>
-               </entry>
-               <entry>_showFuture</entry>
-               <entry>XCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>Q</accel>uery</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Bill of Materials Items:</guilabel>
-               </entry>
-               <entry>_bomItemsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_bomitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section520413">
+    <title><anchor id="Anchor595518" role="Index"
+    xreflabel="bills of materials:indented where used view of" /> <indexterm
+        significance="normal" zone="Anchor595518">
+        <primary>bills of materials</primary>
+
+        <secondary>indented where used view of</secondary>
+      </indexterm>Indented Where Used</title>
+
+    <para id="Para610785">The Indented Where Used display will list every
+    top-level manufactured Item that directly uses a specified Item as a
+    component Item--and also any subassemblies which also use the Item as a
+    component. For subassemblies, the associated top-level Items will be
+    displayed in indented fashion. To view an indented display showing parent
+    Items which use a specified component Item, select the "Indented Where
+    Used" option. The following screen will appear:</para>
+
+    <para id="Para520418"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Disp_indentedWhere.png"
+                       id="Graphic563711" />
+          </imageobject>
+
+          <caption id="Caption520419">Indented Where Used</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para520425">When displaying an indented view of parent Items
+    which use a specified component Item, you are presented with the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520426">Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1939a88">
+          <para>Enter the Item Number of the component Item whose parent Items
+          you would like to display.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663372">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1939ad0">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520430">Show Expired Components</term>
+
+        <listitem id="listitemN0x180ac00N0x1939b18">
+          <para>Select to show expired components.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520431">Show Future Components</term>
+
+        <listitem id="listitemN0x180ac00N0x1939b60">
+          <para>Select to show future components.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para520432">Bill of Materials Items</term>
+
+        <listitem id="listitemN0x180ac00N0x1939ba8">
+          <para>Display lists an indented view of parent Items whose Bill of
+          Materials includes the specified component Item, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para520434">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para520435">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x1939c14">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para626409">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x1939c5c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para664034">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x1939ca4">
+          <para>Runs the report associated with this screen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para592596">Right-clicking on an Item in the Bill of Materials
+    Items list enables you to select from the following menu options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para592600">View Item Inventory History</term>
+
+        <listitem id="listitemN0x180ac00N0x1939d10">
+          <para></para>
+        </listitem>
+      </varlistentry>
+
+      <xi:include href="../widgets/xtreewidget.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(xtreewidget.menu.exportcontents)" />
+    </variablelist>
+  </section>

@@ -1,109 +1,119 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Copy Item
-  </title>
-   <subtitle>copyItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/copyItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Copy Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Source Item:</guilabel>
-               </entry>
-               <entry>lblSourceItemLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_source</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>T</accel>arget Item Number:</guilabel>
-               </entry>
-               <entry>_targetItemNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_targetItemNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Copy <accel>I</accel>tem Costs</guilabel>
-               </entry>
-               <entry>_copyCosts</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Copy <accel>B</accel>ill of Materials</guilabel>
-               </entry>
-               <entry>_copyBOM</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Copy Bill of <accel>O</accel>perations</guilabel>
-               </entry>
-               <entry>_copyBOO</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Copy <accel>U</accel>sed At Operation</guilabel>
-               </entry>
-               <entry>_copyUsedAt</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Co<accel>p</accel>y</guilabel>
-               </entry>
-               <entry>_copy</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section519044">
+    <title><anchor id="Anchor595428" role="Index"
+    xreflabel="items:copying of" /> <indexterm significance="normal"
+        zone="Anchor595428">
+        <primary>items</primary>
+
+        <secondary>copying of</secondary>
+      </indexterm>Copy Item</title>
+
+    <para id="Para519045">To make a copy of an Item, select the "Copy Item"
+    option. The following screen will appear:</para>
+
+    <para id="Para519049"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PD_Items_copyItem.png"
+                       id="Graphic562823" />
+          </imageobject>
+
+          <caption id="Caption519050">Copy Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para519051">When copying an Item, you are presented with the
+    following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519052">Item Number (Source Item)</term>
+
+        <listitem id="listitemN0x180ac00N0x1879f50">
+          <para>Enter the Item Number of the Item you want to copy.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para663172">UOM</term>
+
+        <listitem id="listitemN0x180ac00N0x1879f98">
+          <para>Inventory Unit of Measure.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519059">Target Item Number</term>
+
+        <listitem id="listitemN0x180ac00N0x1879fe0">
+          <para>The target Item Number must be a unique Item Number new to the
+          system.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519061">Copy Item Costs</term>
+
+        <listitem id="listitemN0x180ac00N0x187a028">
+          <para>Select if you want to copy the Item Costs for the source
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519062">Copy Bill of Materials</term>
+
+        <listitem id="listitemN0x180ac00N0x187a070">
+          <para>Select if you want to copy the source Item's Bill of
+          Materials.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519063">Copy Bill of Operations</term>
+
+        <listitem id="listitemN0x180ac00N0x187a0b8">
+          <para>Select if you want to copy the source Item's Bill of
+          Operations.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para652489">Copy Used At Operation</term>
+
+        <listitem id="listitemN0x180ac00N0x187a100">
+          <para>Select if you want to include the "Used At" Operation
+          information when copying a Source Item's Bill of Materials.</para>
+
+          <para id="Para652493">If selected, the "Schedule w/ W/O Operation"
+          information will also be copied.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519064">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519065">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x187a16c">
+          <para>Closes the screen without executing the copy command,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para649571">COPY</term>
+
+        <listitem id="listitemN0x180ac00N0x187a1b4">
+          <para>Copies all selected information from the target Item to a
+          newly-created source Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
