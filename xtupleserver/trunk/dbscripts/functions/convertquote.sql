@@ -127,7 +127,7 @@ BEGIN
       ELSIF (_r.item_type IN (''P'', ''O'')) THEN
         SELECT createPr( _r.quhead_number, _r.quitem_itemsite_id, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.quitem_scheddate, '''', ''S'', _soitemid ) INTO _orderId;
-        _orderType := ''P'';
+        _orderType := ''R'';
         UPDATE pr SET pr_prj_id=_r.quhead_prj_id WHERE pr_id=_orderId;
       END IF;
 
