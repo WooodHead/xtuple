@@ -1,102 +1,85 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Print Purchase Orders by Purchasing Agent
-  </title>
-   <subtitle>printPurchaseOrdersByAgent : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/printPurchaseOrdersByAgent.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Print Purchase Orders by Purchasing Agent
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Purchasing Agent:</guilabel>
-               </entry>
-               <entry>_purchasingAgentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_agent</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_copiesGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>
-                     <accel>V</accel>endor</guilabel>
-               </entry>
-               <entry>_vendorCopy</entry>
-               <entry>QCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>
-                     <accel>I</accel>nternal</guilabel>
-               </entry>
-               <entry>_internalCopy</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel># of C<accel>o</accel>pies:</guilabel>
-               </entry>
-               <entry>_numOfCopiesLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_numOfCopies</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>P</accel>rint</guilabel>
-               </entry>
-               <entry>_print</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section969550">
+    <title><anchor id="Anchor919381" role="Index"
+    xreflabel="purchase orders:printing by agent" /> <indexterm
+        significance="normal" zone="Anchor919381">
+        <primary>purchase orders</primary>
+
+        <secondary>printing by agent</secondary>
+      </indexterm>Print Purchase Orders by Agent</title>
+
+    <para id="Para518721">To print Purchase Orders by Agent, select the "Print
+    Purchase Orders by Agent" option. The following screen will appear:</para>
+
+    <para id="Para518725"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_printPObyAgent.png"
+                       id="Graphic521757" />
+          </imageobject>
+
+          <caption id="Caption518726">Print Purchase Orders by Agent</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para518727">When printing Purchase Orders by Agent, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518728">Purchasing Agent</term>
+
+        <listitem id="listitemN0x180ac00N0x1870270">
+          <para>Specify the Purchasing Agent whose Purchase Orders you want to
+          print.</para>
+
+          <para id="Para518729">Users may be designated as Purchasing Agents
+          at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para923908">Copies</term>
+
+        <listitem id="listitemN0x180ac00N0x18702b8">
+          <para>Indicate the copies you want to print.</para>
+
+          <para id="Para518730">Vendor: Select to print one Vendor copy of the
+          specified Purchase Orders by Agent.</para>
+
+          <para id="Para518731">Internal: Select to print internal copies of
+          the specified Purchase Orders by Agent. When you select this option,
+          the "# of Copies" field will be enabled.</para>
+
+          <para id="Para518732"># of Copies: Specify the number of internal
+          copies you want to print using the arrow buttons.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para518734">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para518735">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1870324">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para518736">PRINT</term>
+
+        <listitem id="listitemN0x180ac00N0x187036c">
+          <para>Prints the specified number of copies of Purchase Orders by
+          Purchasing Agent.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

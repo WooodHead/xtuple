@@ -1,458 +1,1015 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Purchase Order
-  </title>
-   <subtitle>purchaseOrder : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/purchaseOrder.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Purchase Order
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_purchaseOrderInformation</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Header Information</entry>
-               <entry>_headerPage</entry>
-               <entry>QWidget</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Order #:</guilabel>
-               </entry>
-               <entry>_orderNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Receiving Whse.:</guilabel>
-               </entry>
-               <entry>_receivingWhseLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_orderNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                     <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Print P/O on Save</guilabel>
-               </entry>
-               <entry>_printPO</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>Order Date:</guilabel>
-               </entry>
-               <entry>_orderDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_orderDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Terms:</guilabel>
-               </entry>
-               <entry>_termsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_terms</entry>
-               <entry>XComboBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_status</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Status:</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Purchasing Agent:</guilabel>
-               </entry>
-               <entry>_agentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_agent</entry>
-               <entry>XComboBox</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendor</entry>
-               <entry>VendorInfo</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendAddr1</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendAddr2</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendAddr3</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                     <row>
-               <entry/>
-               <entry>_vendCity</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                     <row>
-               <entry/>
-               <entry>_vendState</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                     <row>
-               <entry/>
-               <entry>_vendZipCode</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_vendCountry</entry>
-               <entry>XLineEdit</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_vendorAddressGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Alt. Address:</guilabel>
-               </entry>
-               <entry>_locationLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_vendaddrCode</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_vendaddrList</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_vendaddrName</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_vendaddrAddr1</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_vendaddrAddr2</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_vendaddrAddr3</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_vendaddrCity</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_vendaddrState</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_vendaddrZipCode</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_vendaddrCountry</entry>
-               <entry>XLineEdit</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Ship Via:</guilabel>
-               </entry>
-               <entry>_shipViaLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>FOB:</guilabel>
-               </entry>
-               <entry>_fobLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_shipVia</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_fob</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>Line Items</entry>
-               <entry>_lineItemsPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poitem</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>frame_2</entry>
-               <entry>QFrame</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_poCurrencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                  <row>
-               <entry/>
-               <entry>_poCurrency</entry>
-               <entry>XComboBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_tax</entry>
-               <entry>CurrCluster</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_subtotal</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Misc. Freight:</guilabel>
-               </entry>
-               <entry>_freightLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_totalFreight</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Tax:</guilabel>
-               </entry>
-               <entry>_taxLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Subtotal:</guilabel>
-               </entry>
-               <entry>_subtotalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_total</entry>
-               <entry>CurrCluster</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_freight</entry>
-               <entry>CurrCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Total:</guilabel>
-               </entry>
-               <entry>_totalLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Freight Total:</guilabel>
-               </entry>
-               <entry>_totalFreightLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>Notes</entry>
-               <entry>_notesPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_notes</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry>Comments</entry>
-               <entry>TabPage</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_comments</entry>
-               <entry>Comments</entry>
-            </row>
-            <row>
-               <entry>Quick Entry</entry>
-               <entry>_quickEntryTab</entry>
-               <entry>QWidget</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_qeitemView</entry>
-               <entry>PoitemTableView</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Save Quick Entries</guilabel>
-               </entry>
-               <entry>_qesave</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Delete Quick Entry</guilabel>
-               </entry>
-               <entry>_qedelete</entry>
-               <entry>QPushButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Currency:</guilabel>
-               </entry>
-               <entry>_qecurrencyLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_qecurrency</entry>
-               <entry>XComboBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+
+  <section id="Section972320">
+    <title><anchor id="Anchor972319" role="Index"
+    xreflabel="purchase orders:creating new " /> <indexterm
+        significance="normal" zone="Anchor972319">
+        <primary>purchase orders</primary>
+
+        <secondary>creating new</secondary>
+      </indexterm>Enter New Purchase Order</title>
+
+    <para id="Para972321">To create a new Purchase Order, select the "Enter
+    New Purchase Order" option. The following screen will appear:</para>
+
+    <para id="Para972325"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_newPO.png" id="Graphic972323" />
+          </imageobject>
+
+          <caption id="Caption972326">Enter New Purchase Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972327">When entering a new Purchase Order, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972328">Order #</term>
+
+        <listitem id="listitemN0x180ac00N0x185ca1c">
+          <para>Next available Purchase Order Number will automatically
+          display, unless your system requires you to enter Purchase Order
+          Numbers manually.</para>
+
+          <para id="Para972329">Default values and input parameters for
+          Purchase Order Numbers are configurable at the system level.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972330">Order Date</term>
+
+        <listitem id="listitemN0x180ac00N0x185ca64">
+          <para>Displays current day's date.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972331">Receiving Whse.</term>
+
+        <listitem id="listitemN0x180ac00N0x185caac">
+          <para>Specify the Warehouse where materials from the Purchase Order
+          will be received.</para>
+
+          <para id="Para972332">By default, all active Warehouses are
+          available for selection as Receiving Warehouses. No special
+          designation needs to be made in the Warehouse master or elsewhere to
+          indicate that a Warehouse may be used for receiving purposes.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para972334">The receiving Warehouse may differ from the
+      supplying Warehouse(s) for some Purchase Order Line Items. To update
+      your Inventory records to indicate that Items have been moved from the
+      receiving to the supplied from Warehouse, perform an Inter-Warehouse
+      Transfer.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972335">Vendor #</term>
+
+        <listitem id="listitemN0x180ac00N0x185cb3c">
+          <para>Enter the Vendor number of the Vendor you are issuing the
+          Purchase Order to.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para972337">A valid Vendor number must be entered in the
+      "Vendor #" field before Line Items can be added to the Purchase Order.
+      If no valid Vendor number is entered, you will not be able to add Line
+      Items to the Purchase Order.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972338">Main Address</term>
+
+        <listitem id="listitemN0x180ac00N0x185cbcc">
+          <para>Displays the main address for the specified Vendor. The main
+          address information is the primary Vendor address stored on the
+          Vendor master.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972339">Purchasing Agent</term>
+
+        <listitem id="listitemN0x180ac00N0x185cc14">
+          <para>Specify the name of the agent assigned to the Order.</para>
+
+          <para id="Para972340">By default, the name of the logged-in user
+          will be entered as Purchasing Agent--assuming that user is
+          designated as a Purchasing Agent. If the user is not a Purchasing
+          Agent, the first alphabetical name in the list of Purchasing Agents
+          will be entered.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972341">Status</term>
+
+        <listitem id="listitemN0x180ac00N0x185cc5c">
+          <para>The Purchase Order status will display here.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972342">Terms</term>
+
+        <listitem id="listitemN0x180ac00N0x185cca4">
+          <para>Specify the billing Terms for the Order.</para>
+
+          <para id="Para972343">Default billing Terms for a Vendor are defined
+          on the Vendor master. You may select alternate Terms on the Purchase
+          Order header.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972344">Alt. Address</term>
+
+        <listitem id="listitemN0x180ac00N0x185ccec">
+          <para>Enter the number of an Alternate Address, if you prefer not to
+          use the Main Address.</para>
+
+          <para id="Para972345">Vendors may maintain multiple Alternate
+          Addresses.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972346">Ship Via</term>
+
+        <listitem id="listitemN0x180ac00N0x185cd34">
+          <para>Enter the preferred Ship Via method for this Vendor. By
+          default, the Ship Via entered on the Vendor master will populate
+          this field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972347">F.O.B.</term>
+
+        <listitem id="listitemN0x180ac00N0x185cd7c">
+          <para>Enter the Free On Board (F.O.B.) location for the shipping
+          Warehouse.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972348">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972349">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x185cde8">
+          <para>Creates the new Purchase Order and saves the Purchase Order
+          information.</para>
+
+          <para id="Para972350">If your system is configured to prompt for
+          printing on SAVE, then you will be presented with additional
+          processing options after this button is selected.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972351">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x185ce30">
+          <para>Closes the screen without creating a new Purchase Order,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972353"><anchor id="Anchor972352" role="Index"
+    xreflabel="purchase orders:adding line items to" /> <indexterm
+        significance="normal" zone="Anchor972352">
+        <primary>purchase orders</primary>
+
+        <secondary>adding line items to</secondary>
+      </indexterm>To create or modify Purchase Order Line Items, select the
+    "Line Items" tab at the top of the "Purchase Order" screen. The following
+    screen will appear:</para>
+
+    <para id="Para972357"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POLineItems.png"
+                       id="Graphic972355" />
+          </imageobject>
+
+          <caption id="Caption972358">Purchase Order Line Items</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972359">When creating or modifying Purchase Order Line
+    Items, you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972360">Line Items</term>
+
+        <listitem id="listitemN0x180ac00N0x185cf50">
+          <para>Display lists Line Items for this Purchase Order.</para>
+
+          <para id="Para972361">A valid Vendor number must be entered in the
+          "Vendor #" field before Line Items can be added to the Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972362">Subtotal</term>
+
+        <listitem id="listitemN0x180ac00N0x185cf98">
+          <para>Displays the subtotal for the Purchase Order Line
+          Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972363">Tax</term>
+
+        <listitem id="listitemN0x180ac00N0x185cfe0">
+          <para>Enter any Tax amount, if applicable.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972364">Misc. Freight</term>
+
+        <listitem id="listitemN0x180ac00N0x185d028">
+          <para>Enter the amount of any miscellaneous freight charges to be
+          added to the Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972366"><anchor id="Anchor972365" role="Index"
+        xreflabel="freight:on purchase orders;purchase orders:freight charges on" />
+        <indexterm significance="normal" zone="Anchor972365">
+            <primary>freight</primary>
+
+            <secondary>on purchase orders</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor972365">
+            <primary>purchase orders</primary>
+
+            <secondary>freight charges on</secondary>
+          </indexterm>Freight</term>
+
+        <listitem id="listitemN0x180ac00N0x185d100">
+          <para>Displays the total amount of freight charges.</para>
+
+          <para id="Para972367">The amount displayed includes the sum of all
+          Line Item freight and miscellaneous freight charges.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972368">Total</term>
+
+        <listitem id="listitemN0x180ac00N0x185d148">
+          <para>Displays the total value of the Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972369">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972370">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x185d1b4">
+          <para>Saves the Purchase Order Line Item information.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972371">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x185d1fc">
+          <para>Closes the screen without creating a new Purchase Order,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972372">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x185d244">
+          <para>Opens screen for creating a new Purchase Order Line
+          Item.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972373">EDIT</term>
+
+        <listitem id="listitemN0x180ac00N0x185d28c">
+          <para>Enables you to edit highlighted Purchase Order Line Items. The
+          edit screen is the same as that for creating a new Purchase Order
+          Line Item--except that when editing, the fields will contain
+          Purchase Order Line Item information. Double-clicking on a Purchase
+          Order Line Item will also bring you to the editing screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972374">DELETE</term>
+
+        <listitem id="listitemN0x180ac00N0x185d2d4">
+          <para>Highlight a Purchase Order Line Item and then select this
+          button to remove the Purchase Order Line Item from the list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972375">To create a new Purchase Order Line Item, select the
+    NEW button. The following screen will appear:</para>
+
+    <para id="Para972379"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POLineItemNew.png"
+                       id="Graphic972377" />
+          </imageobject>
+
+          <caption id="Caption972380">Create New Purchase Order Line
+          Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972381">When creating a new Purchase Order Line Item, you
+    are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972382">P/O Number</term>
+
+        <listitem id="listitemN0x180ac00N0x185d3ac">
+          <para>Displays the Purchase Order Number specified in the "New
+          Purchase Order" screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972383">Line #</term>
+
+        <listitem id="listitemN0x180ac00N0x185d3f4">
+          <para>The application automatically assigns line numbers to Purchase
+          Order Line Items. Numbering begins at one ("1") and increases
+          automatically in increments of one.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972384">Inventory Item</term>
+
+        <listitem id="listitemN0x180ac00N0x185d43c">
+          <para>If the Item being purchased is an Inventory Item, select this
+          option and specify the following:</para>
+
+          <para id="Para972385">Item Number: Enter the Item Number of the Item
+          you want to add to the Purchase Order.</para>
+
+          <para id="Para972386">Supplying Whse.: Specify the Warehouse the
+          Item will be supplied from. The supplying Warehouse is the Warehouse
+          that supplies the Item in question to the shipping Warehouse for
+          shipment to Customers. Warehouses may be designated as supplying
+          Warehouses in the Item Site definition.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <tip>
+      <para id="Para972388">The supplying Warehouse may differ from the
+      receiving Warehouse(s) for some Purchase Order Line Items. To update
+      your Inventory records to indicate that Items have been moved from the
+      receiving to the supplied from Warehouse, perform an Inter-Warehouse
+      Transfer.</para>
+    </tip>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972389">Non-Inventory Item</term>
+
+        <listitem id="listitemN0x180ac00N0x185d4cc">
+          <para>If the Item being purchased is a non-Inventory Item, select
+          this option and specify the following:</para>
+
+          <para id="Para972390">Expense Category: Select an Expense Category
+          to assign the non-Inventory Item to.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972391">Item Source Information</term>
+
+        <listitem id="listitemN0x180ac00N0x185d514">
+          <para>If Item Source information exists for an Inventory Item, that
+          information will display automatically here. For non-Inventory
+          Items, you should specify an Item Number and Item
+          description.</para>
+
+          <para id="Para972392">Vend. Item Number: Enter the Item number the
+          Vendor assigns to the specified Item.</para>
+
+          <para id="Para972393">Vendor Item Description: Enter the description
+          the Vendor uses to describe to the specified Item.</para>
+
+          <para id="Para972394">Min. Order Qty.: For Inventory Items only,
+          displays the minimum order quantity for the specified Item and the
+          specified Vendor. Minimum order quantities are established in the
+          Item Source master.</para>
+
+          <para id="Para972395">Order Qty. Mult.: For Inventory Items only,
+          displays the order multiple for the specified Item and the specified
+          Vendor. Order multiples are established in the Item Source
+          master.</para>
+
+          <para id="Para972396">Vendor UOM: For Inventory Items only, displays
+          the Unit of Measure used by the Vendor for the specified
+          Item.</para>
+
+          <para id="Para972397">Inv./Vendor UOM Ratio: For Inventory Items
+          only, displays the ratio between Inventory and Vendor Units of
+          Measure.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para972399">The Inv./Vendor UOM Ratio specifies the ratio
+      between Inventory and Vendor Units of Measure (UOM). For example, if you
+      store an Item in single units, but a Vendor sells you the Item in cases
+      of 12, then the ratio would be 12--or 12:1. When an Inv./Vend. ratio is
+      specified, the system allows you to purchase Items using the Vendor's
+      UOM; however, when the Items are received, the system will automatically
+      convert the Inventory to your Inventory UOM.</para>
+    </note>
+
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x185d580">
+        <para id="Para972400">Earliest Due Date: For Inventory Items only,
+        displays the earliest due date for the specified Item.</para>
+
+        <para id="Para972401">Qty. Ordered: Enter the quantity of the
+        specified Item to be ordered.</para>
+
+        <para id="Para972402">Unit Price: Enter the Unit Price for the
+        specified Item.</para>
+
+        <para id="Para972403">Due Date: Specify date when Order is expected to
+        be received.</para>
+      </listitem>
+
+      <listitem id="listitemN0x180ac00N0x185d5a4">
+        <para id="Para972404">If your system is configured to use Item Source
+        Earliest Available dates as the default due date for manual Purchase
+        Orders, then this field will be automatically calculated. Earliest
+        Available dates are determined by adding Item Source Lead Times to the
+        current date.</para>
+
+        <para id="Para972405">Line Item Freight: Enter the amount of freight
+        charges for the entire Line Item quantity. The system automatically
+        calculates the per unit freight charge by dividing the Line Item
+        freight amount by the Line Item quantity. This per unit freight charge
+        is needed when receiving or vouchering quantities less than the
+        original quantity ordered. Line Item freight is distinguished from
+        miscellaneous freight, which applies to the Purchase Order as a
+        whole.</para>
+
+        <para id="Para972406">Qty. Received: Displays quantity received from
+        quantity ordered.</para>
+
+        <para id="Para972407">Extended Price: Displays the Extended Price. The
+        Extended Price for a Line Item is based on the quantity ordered
+        multiplied by the Unit Price.</para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para id="Para972409">The option to associate a Project with a Purchase
+      Order Line Item will only be visible if your site is configured to use
+      Projects.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972410">Project #</term>
+
+        <listitem id="listitemN0x180ac00N0x1865c24">
+          <para>Select a Project Number to associate with the Purchase Order
+          Line Item.</para>
+
+          <para id="Para972411">If the Purchase Order Line Item is being
+          created from a Purchase Request driven by Sales Order demand--and
+          the parent Sales Order had a Project Number associated with it--then
+          the Project Number from the parent Sales Order will automatically be
+          entered here. In this way, Sales Orders and Purchase Order Line
+          Items may be linked to the same Project.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972412">Notes</term>
+
+        <listitem id="listitemN0x180ac00N0x1865c6c">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Notes related to the Purchase Order Line Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972413">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972414">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1865cd8">
+          <para>Closes the screen without creating a new Purchase Order Line
+          Item, returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972415">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x1865d20">
+          <para>Creates the new Purchase Order Line Item and adds it to the
+          list of Purchase Order Line Items.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972416">If an Item has Characteristics associated with it,
+    you have the option of linking those Characteristics to a Purchase Order
+    Item. In the case where Sales Order demand generates a Purchase Request,
+    Item Characteristics and Values inherited from the Sales Order will
+    already be linked to the Purchase Order. Ultimately, Characteristics
+    associated with a Purchase Order Item may be printed on the Purchase Order
+    report.</para>
+
+    <tip>
+      <para id="Para972418">You can link Characteristics and Values to an Item
+      by using the Item master. Once entered, these Characteristics and Values
+      will be available to users entering Purchase Order Items.</para>
+    </tip>
+
+    <para id="Para972419">To specify or edit Characteristics for a Purchase
+    Order Item, select the "Characteristics" tab at the bottom of the screen.
+    The following screen will appear:</para>
+
+    <para id="Para972423"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POItemChar.png"
+                       id="Graphic972421" />
+          </imageobject>
+
+          <caption id="Caption972424">Purchase Order Line Item
+          Characteristics</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972425">When selecting or editing Characteristics for a
+    Purchase Order Line Item, you are presented with the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972426">Name</term>
+
+        <listitem id="listitemN0x180ac00N0x1865e1c">
+          <para>Displays the name of any Item Characteristics associated with
+          the Item.</para>
+
+          <para id="Para972427">Characteristics defined as Item
+          Characteristics may be associated with Items on the Item
+          master.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972428">Value</term>
+
+        <listitem id="listitemN0x180ac00N0x1865e64">
+          <para>Displays the default Value associated with an Item
+          Characteristic, but permits you to specify an alternate
+          Value.</para>
+
+          <para id="Para972429">When associating Characteristic Values with a
+          Purchase Order Item, you have four options: 1) Select the default
+          Value; 2) select an alternate pre-defined Value; 3) manually enter a
+          new Value in place of the pre-defined Value; or 4) make no
+          selection. Making no selection means the Characteristics will not be
+          associated with the Purchase Order Item--except in the case of
+          Characteristics inherited from Sales Orders, by way of Purchase
+          Requests.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972430">To add Comments to a Purchase Order Line Item--or to
+    view system-generated Comments--select the "Comments" tab at the bottom of
+    the screen. The following screen will appear:</para>
+
+    <para id="Para972434"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POItemComm.png"
+                       id="Graphic972432" />
+          </imageobject>
+
+          <caption id="Caption972435">Add Comments to Purchase Order Line
+          Item</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972436">When adding Comments to a Purchase Order Line Item,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972437">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x1865f3c">
+          <para>Display lists Comments for the specified Line Item.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972438">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972439">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1865fa8">
+          <para>Opens screen for creating a new Comment.</para>
+
+          <para id="Para972440">Purchase Order Line Item Comments may only be
+          added after the Line Item has been saved to the Purchase
+          Order.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972441">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1865ff0">
+          <para>Highlight a Comment and then select this button to reach a
+          read-only view of the Comment.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972442">To create a Purchase Order Line Item Comment, select
+    the NEW button. The following screen will appear:</para>
+
+    <para id="Para972446"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CommentNew.png" id="Graphic972444" />
+          </imageobject>
+
+          <caption id="Caption972447">Create New Comment</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972448">Comment Type</term>
+
+        <listitem id="listitemN0x180ac00N0x18660c8">
+          <para>Specify one of the following Comment Types from the drop-down
+          list: ChangeLog or General.</para>
+
+          <para id="Para972449">Comment Types are used to categorize Comments.
+          Once you have specified a Comment Type, you may type your Comment in
+          the main text area. The text area features word-wrapping and
+          scroll-bar support for longer Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972450">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972451">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1866134">
+          <para>Closes the screen without creating a new Comment, returning
+          you to the previous screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972452">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x186617c">
+          <para>Creates the Comment and adds it to the list of Line Item
+          Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972453">To add Notes to a Purchase Order, select the "Notes"
+    tab at the top of the "Purchase Order" screen. The following screen will
+    appear:</para>
+
+    <para id="Para972457"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_PONotes.png" id="Graphic972455" />
+          </imageobject>
+
+          <caption id="Caption972458">Add Notes to Purchase Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972459">When adding Notes to a Purchase Order, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972460">Notes</term>
+
+        <listitem id="listitemN0x180ac00N0x1866254">
+          <para>This is a scrolling text field with word-wrapping for entering
+          Notes related to the Purchase Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972461">To add Comments to a Purchase Order--or to view
+    system-generated Comments--select the "Comments" tab at the top of the
+    "Purchase Order" screen. The following screen will appear:</para>
+
+    <para id="Para972465"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POComments.png"
+                       id="Graphic972463" />
+          </imageobject>
+
+          <caption id="Caption972466">Add Comments to Purchase Order</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para972467">When adding Comments to a Purchase Order, you are
+    presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972468">Comments</term>
+
+        <listitem id="listitemN0x180ac00N0x186632c">
+          <para>Display lists Comments for the specified Order.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972469">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972470">NEW</term>
+
+        <listitem id="listitemN0x180ac00N0x1866398">
+          <para>Opens screen for creating a new Comment.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972471">VIEW</term>
+
+        <listitem id="listitemN0x180ac00N0x18663e0">
+          <para>Highlight a Comment and then select this button to reach a
+          read-only view of the Comment.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972472">To create a Purchase Order Comment, select the NEW
+    button. The following screen will appear:</para>
+
+    <para id="Para972476"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/CommentNew.png" id="Graphic972474" />
+          </imageobject>
+
+          <caption id="Caption972477">Create New Comment</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972478">Comment Type</term>
+
+        <listitem id="listitemN0x180ac00N0x18664b8">
+          <para>Specify one of the following Comment Types from the drop-down
+          list: ChangeLog or General.</para>
+
+          <para id="Para972479">Comment Types are used to categorize Comments.
+          Once you have specified a Comment Type, you may type your Comment in
+          the main text area. The text area features word-wrapping and
+          scroll-bar support for longer Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972480">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972481">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x1866524">
+          <para>Closes the screen without creating a new Comment, returning
+          you to the previous screen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972482">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x186656c">
+          <para>Creates the Comment and adds it to the list of Order
+          Comments.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972483">If you want to speed up your data entry of Purchase
+    Order Line Items, you can use the Quick Entry interface. This screen
+    allows you to enter multiple Line Items in one session. It also simplifies
+    the process by presenting only the minimum required fields. To enter Line
+    Items using the Quick Entry interface, select the "Quick Entry" tab at the
+    top of the "Purchase Order" screen. The following screen will
+    appear:</para>
+
+    <para id="Para972487"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/PO_PO_POQuick.png" id="Graphic972485" />
+          </imageobject>
+
+          <caption id="Caption972488">Purchase Order Quick Entry</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <tip>
+      <para id="Para972490">To get started entering Line Items, place your
+      cursor in the "Item" field. You can then move from field-to-field using
+      the TAB button on your keyboard.</para>
+    </tip>
+
+    <para id="Para972491">When entering Purchase Order Line Items using the
+    Quick Entry interface, you are presented with the following
+    options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972492">Item</term>
+
+        <listitem id="listitemN0x180ac00N0x1866668">
+          <para>Enter an Inventory Item Number.</para>
+
+          <para id="Para972493">This field is used for entering Items stored
+          in Inventory. Use the "Vend. Item #" field for entering
+          non-Inventory Items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972494">Supplying Whs.</term>
+
+        <listitem id="listitemN0x180ac00N0x18666b0">
+          <para>Select a Supplying Warehouse from the list of available
+          options.</para>
+
+          <para id="Para972495">By default, the user's preferred Warehouse
+          will be presented first.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972496">Vend. Item #</term>
+
+        <listitem id="listitemN0x180ac00N0x18666f8">
+          <para>Use this field for entering non-Inventory Item Numbers.</para>
+
+          <para id="Para972497">If not used to handle non-Inventory Items,
+          this field will display Vendor Item Numbers for Inventory Items
+          which have Item Sources defined.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972498">Expense Cat.</term>
+
+        <listitem id="listitemN0x180ac00N0x1866740">
+          <para>Enter the Expense Category you want your non-Inventory
+          quantity to be assigned to.</para>
+
+          <para id="Para972499">Use this option for non-Inventory Line Items
+          only.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972500">Qty.</term>
+
+        <listitem id="listitemN0x180ac00N0x1866788">
+          <para>Enter the quantity you want to purchase.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972501">Unit Price</term>
+
+        <listitem id="listitemN0x180ac00N0x18667d0">
+          <para>Enter the Unit Price for the Line Item.</para>
+
+          <para id="Para972502">If an Item Source is defined, this information
+          may fill in automatically.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972503">Ext. Price</term>
+
+        <listitem id="listitemN0x180ac00N0x1866818">
+          <para>Displays the Extended Price.</para>
+
+          <para id="Para972504">This is a calculated field and is shaded to
+          indicate that it may not be edited.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972505">Freight</term>
+
+        <listitem id="listitemN0x180ac00N0x1866860">
+          <para>Enter the Freight amount, if any.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972506">Due Date</term>
+
+        <listitem id="listitemN0x180ac00N0x18668a8">
+          <para>Enter the due date.</para>
+
+          <para id="Para972507">If an Item Source is defined, this information
+          may fill in automatically.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para972508">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para972509">SAVE QUICK ENTRIES</term>
+
+        <listitem id="listitemN0x180ac00N0x1866914">
+          <para>Select to save all the Line Items entered using the Quick
+          Entry interface.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para972510">DELETE QUICK ENTRY</term>
+
+        <listitem id="listitemN0x180ac00N0x186695c">
+          <para>Highlight a Line Item and then select this button to remove
+          the Item from the list.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
