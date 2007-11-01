@@ -1,81 +1,74 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Hot Key
-    </title>
-   <subtitle>hotkey : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/hotkey.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Hot Key
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Keystroke:</guilabel>
-               </entry>
-               <entry>_keystrokeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_hotkey</entry>
-               <entry>XComboBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Actions:</guilabel>
-               </entry>
-               <entry>_actionsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_action</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section941111">
+  <title><anchor id="Anchor957508" role="Index"
+  xreflabel="hot keys:creating new" /> <indexterm significance="normal"
+      zone="Anchor957508">
+      <primary>hot keys</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Hot Key</title>
+
+  <para id="Para957509">To create a new Hot Key, select the NEW button. The
+  following screen will appear:</para>
+
+  <para id="Para957496"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_hotKeysNew.png" id="Graphic957494" />
+        </imageobject>
+
+        <caption id="Caption957497">Create New Hot Key</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para957491">When creating a new Hot Key, you are presented with
+  the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para957595">Keystroke</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8e3c">
+        <para>Select a keyboard keystroke from the list of available
+        keystrokes.</para>
+
+        <para id="Para957610">The list will include all keystrokes which may
+        linked to a specific action. Only one action at a time may be assigned
+        to a single keystroke. For multiple actions, multiple keystrokes must
+        be used.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para957614">Actions</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8e84">
+        <para>Display lists actions you may associate with keystrokes.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para957656">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para957630">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8ef0">
+        <para>Closes the screen without creating a Hot Key, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para957631">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8f38">
+        <para>Creates the Hot Key and adds it to the list of Hot Keys.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

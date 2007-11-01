@@ -1,69 +1,80 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   User List
-  </title>
-   <subtitle>userList : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/userList.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   User List
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Users:</guilabel>
-               </entry>
-               <entry>_userLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_usr</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>elect</guilabel>
-               </entry>
-               <entry>_select</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section917430">
+  <title>Maintain Users</title>
+
+  <para id="Para941064">The Maintain Users section enables <anchor
+  id="Anchor971279" role="Index"
+  xreflabel="openmfg administrators:privileges maintained by" /> <indexterm
+      significance="normal" zone="Anchor971279">
+      <primary>openmfg administrators</primary>
+
+      <secondary>privileges maintained by</secondary>
+    </indexterm>system administrators to set up and maintain user accounts,
+  passwords, and associated application privileges. This section can only be
+  accessed by users who have been granted the "MaintainUsers" system
+  privilege--a privilege typically reserved for system administrators. We
+  recommend that you restrict access to this section to a limited number of
+  people. The following screen will appear when you select the "Maintain
+  Users" option:</para>
+
+  <para id="Para519249"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_maintUser.png" id="Graphic522169" />
+        </imageobject>
+
+        <caption id="Caption519250">Maintain Users</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para917641">The "Maintain Users" screen displays information on
+  all existing users, including username, proper name, and status. To include
+  inactive users in the display, select the "Show Inactive Users"
+  option.</para>
+
+  <para id="Para519252">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para917693">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18c3d34">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para979425">PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x18c3d7c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para917695">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18c3dc4">
+        <para>Opens screen for creating a new user.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para530965">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18c3e0c">
+        <para>Enables you to edit highlighted users. The edit screen is the
+        same as that for creating a new user--except that when editing, the
+        fields will contain user information. Double-clicking on a user will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="user.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

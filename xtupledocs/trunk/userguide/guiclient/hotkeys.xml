@@ -1,99 +1,75 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-      Hot Keys
-    </title>
-   <subtitle>hotkeys : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/hotkeys.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Hot Keys
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel>Username:</guilabel>
-               </entry>
-               <entry>_usernameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel/>
-               </entry>
-               <entry>_username</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Hot Keys:</guilabel>
-               </entry>
-               <entry>_hotkeys</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_hotkey</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-                        <row>
-               <entry>
-                  <guilabel>
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section941111">
+  <title><anchor id="Anchor976880" role="Index"
+  xreflabel="events:user notification of;users:event notification for" /><indexterm
+      significance="normal" zone="Anchor957352">
+      <primary>hot keys</primary>
+
+      <secondary>master list of</secondary>
+    </indexterm> Hot Keys</title>
+
+  <para id="Para957353">To view the list of custom keyboard shortcuts,
+  otherwise known as Hot Keys, select the HOTKEYS button. The following screen
+  will appear:</para>
+
+  <para id="Para957460"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_hotKeysList.png" id="Graphic957458" />
+        </imageobject>
+
+        <caption id="Caption957461">Hot Keys Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para957538">The "Hot Keys" screen displays information on all
+  existing Hot Keys, including keyboard keystroke and related action.</para>
+
+  <para id="Para957539">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para957540">CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8c44">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para957542">NEW</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8c8c">
+        <para>Opens screen for creating a new Hot Key.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para957546">EDIT</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8cd4">
+        <para>Enables you to edit highlighted Hot Key definitions. The edit
+        screen is the same as that for creating a new Hot Key
+        definition--except that when editing, the fields will contain Hot Key
+        information. Double-clicking on a Hot Key definition will also bring
+        you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para957547">DELETE</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8d1c">
+        <para>Highlight a Hot Key definition and then select this button to
+        remove the Hot Key from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="hotkey.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

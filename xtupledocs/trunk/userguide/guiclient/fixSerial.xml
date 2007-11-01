@@ -1,94 +1,96 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   Fix Serial Columns
-  </title>
-   <subtitle>fixSerial : QMainWindow</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/fixSerial.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Fix Serial Columns
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>widget</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Only Show Problems</guilabel>
-               </entry>
-               <entry>_showProblems</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_serial</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Query not run yet</guilabel>
-               </entry>
-               <entry>_statusLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>lose</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Query</guilabel>
-               </entry>
-               <entry>_query</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Fix</guilabel>
-               </entry>
-               <entry>_fix</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Fix All</guilabel>
-               </entry>
-               <entry>_fixAll</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section975148">
+    <title>Serial Columns</title>
+
+    <para id="Para975163">When data is imported into database tables, it is
+    possible to overlook or disrupt the auto-numbering sequence for a
+    particular table. The Serial Columns utility was designed to identify and
+    correct problems caused by this scenario. To identify and correct sequence
+    problems, select the "Serial Columns" option. The following screen will
+    appear:</para>
+
+    <para id="Para975167"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Sys_serialCols.png" id="Graphic975165" />
+          </imageobject>
+
+          <caption id="Caption975168">Fix Serial Columns</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para975152">When identifying and correcting sequence problems,
+    you are presented with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para975214">Only Show Problems</term>
+
+        <listitem id="listitemN0x180ac00N0x18f6680">
+          <para>Select to include only tables which have sequencing problems
+          in the display.</para>
+
+          <para id="Para975276">No problems will exist as long as the "Next
+          Key" value is equal to or greater than the "Largest Key Used" value.
+          A problem exists if the "Largest Key Used" value is greater than the
+          "Next Key" value.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para975218">Tables</term>
+
+        <listitem id="listitemN0x180ac00N0x18f66c8">
+          <para>Display lists the complete set of database tables and
+          corresponding sequences.</para>
+
+          <para id="Para979501">If the "Only Show Problems" option is
+          selected, then only those tables which have sequence problems will
+          be included in the display.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para975287">To the far right of the list, the following buttons
+    are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para975234">CLOSE</term>
+
+        <listitem id="listitemN0x180ac00N0x18f6734">
+          <para>Closes the screen, returning you to the application
+          desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para975235">QUERY</term>
+
+        <listitem id="listitemN0x180ac00N0x18f677c">
+          <para>Select to generate the display, using the specified
+          parameters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para975237">FIX ALL</term>
+
+        <listitem id="listitemN0x180ac00N0x18f67c4">
+          <para>Select to fix all the sequence problems in all the
+          tables.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para975244">FIX</term>
+
+        <listitem id="listitemN0x180ac00N0x18f680c">
+          <para>Highlight a table and then select this option to fix only the
+          highlighted sequence problem.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

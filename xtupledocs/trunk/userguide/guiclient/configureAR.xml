@@ -1,117 +1,114 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   A/R Module Configuration
-  </title>
-   <subtitle>configureAR : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/configureAR.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   A/R Module Configuration
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Next A/R Memo #:</guilabel>
-               </entry>
-               <entry>_nextARMemoNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_nextARMemoNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Hide 'Apply to Balance' button</guilabel>
-               </entry>
-               <entry>_hideApplyto</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Enable Customer Deposits</guilabel>
-               </entry>
-               <entry>_customerDeposits</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_remitToGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Name:</guilabel>
-               </entry>
-               <entry>_nameLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_name</entry>
-               <entry>XLineEdit</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_address</entry>
-               <entry>AddressCluster</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Phone:</guilabel>
-               </entry>
-               <entry>_phoneLit</entry>
-               <entry>QLabel</entry>
-            </row>
-               <row>
-               <entry/>
-               <entry>_phone</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section953736">
+    <title><anchor id="Anchor953735" role="Index"
+    xreflabel="configuration:of a/r module" /> <indexterm
+        significance="normal" zone="Anchor953735">
+        <primary>configuration</primary>
+
+        <secondary>of a/r module</secondary>
+      </indexterm>Configure A/R</title>
+
+    <para id="Para942539">To configure the Accounts Receivable (A/R) module,
+    select the "Configure A/R" option. The following screen will
+    appear:</para>
+
+    <para id="Para942543"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Sys_configAR.png" id="Graphic942541" />
+          </imageobject>
+
+          <caption id="Caption942544">Configure A/R Module</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para942545">When configuring the A/R module, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para945160">Next A/R Memo #</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba92c">
+          <para>The next sequentially available Accounts Receivable Memo
+          Number will display here. You may change the number--creating a new
+          basis for the next A/R Memo Number--by typing the new number into
+          this field.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para962402">Hide \xd4 Apply to Balance" button</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba974">
+          <para>Select if you want to hide the APPLY TO BALANCE button on the
+          "Enter Cash Receipt" screen.</para>
+
+          <para id="Para962406">If this option is selected, users will be
+          required to apply Cash Receipts manually to individual open A/R
+          items.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para977516">Enable Customer Deposits</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba9bc">
+          <para>Select if you want unapplied Cash Receipts from Customers to
+          be handled by a Deferred Revenue Account.</para>
+
+          <para id="Para977523">If selected, the A/R Account Assignments
+          screen will include a Deferred Revenue Account option. Not selecting
+          this option will hide the Deferred Revenue Account option on the A/R
+          Account assignments screen. Also hidden will be Customer Deposit
+          options on the Cash Receipts screen. If the Deferred Revenue
+          approach is not being used, then unapplied Cash Receipts will be
+          handled by the Asset Account for the specified Bank Account.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para945149">Remit-To Address</term>
+
+        <listitem id="listitemN0x180ac00N0x18baa04">
+          <para>The Remit-To Address is used in multiple report definitions.
+          Specify details to be used for your site's default Remit-To
+          Address:</para>
+
+          <para id="Para942644">Name: Specify the name to be used on the
+          default Remit-To Address.</para>
+
+          <para id="Para942642">Address: Specify the address to be used on the
+          default Remit-To Address.</para>
+
+          <para id="Para942643">Phone: Specify the phone number to be used on
+          the default Remit-To Address.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para942634">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para942635">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18baa70">
+          <para>Cancels any configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para942636">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18baab8">
+          <para>Saves the configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

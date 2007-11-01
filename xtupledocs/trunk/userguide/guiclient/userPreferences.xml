@@ -1,609 +1,573 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   User Preferences
-  </title>
-   <subtitle>userPreferences : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/userPreferences.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   User Preferences
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_userGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Current <accel>U</accel>ser</guilabel>
-               </entry>
-               <entry>_currentUser</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>elected User:</guilabel>
-               </entry>
-               <entry>_selectedUser</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_user</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_backgroundImageGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>None</guilabel>
-               </entry>
-               <entry>_noBackgroundImage</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Image:</guilabel>
-               </entry>
-               <entry>_backgroundImage</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                   <row>
-               <entry/>
-               <entry>_background</entry>
-               <entry>XLineEdit</entry>
-            </row>
-                   <row>
-               <entry>
-                  <guilabel>...</guilabel>
-               </entry>
-               <entry>_backgroundList</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_menuStyle</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Note: The Neo menu style will become the standard style in future versions of this product</guilabel>
-               </entry>
-               <entry>label</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Standard</guilabel>
-               </entry>
-               <entry>_standard</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Neo</guilabel>
-               </entry>
-               <entry>_neo</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_widgetStack</entry>
-               <entry>QStackedWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_old</entry>
-               <entry>QWidget</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show I/M Menu</guilabel>
-               </entry>
-               <entry>_imMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show I/M Toolbar</guilabel>
-               </entry>
-               <entry>_imToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show P/D Menu</guilabel>
-               </entry>
-               <entry>_pdMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show P/D Toolbar</guilabel>
-               </entry>
-               <entry>_pdToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show M/S Menu</guilabel>
-               </entry>
-               <entry>_msMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show M/S Toolbar</guilabel>
-               </entry>
-               <entry>_msToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show C/P Menu</guilabel>
-               </entry>
-               <entry>_cpMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show C/P Toolbar</guilabel>
-               </entry>
-               <entry>_cpToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show W/O Menu</guilabel>
-               </entry>
-               <entry>_woMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show W/O Toolbar</guilabel>
-               </entry>
-               <entry>_woToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show P/O Menu</guilabel>
-               </entry>
-               <entry>_poMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show P/O Toolbar</guilabel>
-               </entry>
-               <entry>_poToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show S/O Menu</guilabel>
-               </entry>
-               <entry>_soMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show S/O Toolbar</guilabel>
-               </entry>
-               <entry>_soToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show S/R Menu</guilabel>
-               </entry>
-               <entry>_srMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show S/R Toolbar</guilabel>
-               </entry>
-               <entry>_srToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show S/A Menu</guilabel>
-               </entry>
-               <entry>_saMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show S/A Toolbar</guilabel>
-               </entry>
-               <entry>_saToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show A/R Menu</guilabel>
-               </entry>
-               <entry>_arMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show A/R Toolbar</guilabel>
-               </entry>
-               <entry>_arToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show A/P Menu</guilabel>
-               </entry>
-               <entry>_apMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show A/P Toolbar</guilabel>
-               </entry>
-               <entry>_apToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show G/L Menu</guilabel>
-               </entry>
-               <entry>_glMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show G/L Toolbar</guilabel>
-               </entry>
-               <entry>_glToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show P/M Menu</guilabel>
-               </entry>
-               <entry>_pmMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show P/M Toolbar</guilabel>
-               </entry>
-               <entry>_pmToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show CRM Menu</guilabel>
-               </entry>
-               <entry>_crmMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                    <row>
-               <entry>
-                  <guilabel>Show CRM Toolbar</guilabel>
-               </entry>
-               <entry>_crmToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_neo</entry>
-               <entry>QWidget</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Manufacture Menu</guilabel>
-               </entry>
-               <entry>_manufactureMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Manufacture Toolbar</guilabel>
-               </entry>
-               <entry>_manufactureToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show CRM Menu</guilabel>
-               </entry>
-               <entry>_crmMenu2</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show CRM Toolbar</guilabel>
-               </entry>
-               <entry>_crmToolbar2</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Sales Menu</guilabel>
-               </entry>
-               <entry>_salesMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Sales Toolbar</guilabel>
-               </entry>
-               <entry>_salesToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Accounting Menu</guilabel>
-               </entry>
-               <entry>_accountingMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Accountng Toolbar</guilabel>
-               </entry>
-               <entry>_accountingToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Inventory Menu</guilabel>
-               </entry>
-               <entry>_inventoryMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Inventory Toolbar</guilabel>
-               </entry>
-               <entry>_inventoryToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Products Menu</guilabel>
-               </entry>
-               <entry>_productsMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Products Toolbar</guilabel>
-               </entry>
-               <entry>_productsToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Schedule Menu</guilabel>
-               </entry>
-               <entry>_scheduleMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Schedule Toolbar</guilabel>
-               </entry>
-               <entry>_scheduleToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel>Show Purchase Menu</guilabel>
-               </entry>
-               <entry>_purchaseMenu</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                  <row>
-               <entry>
-                  <guilabel>Show Purchase Toolbar</guilabel>
-               </entry>
-               <entry>_purchaseToolbar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>E</accel>vents</guilabel>
-               </entry>
-               <entry>_events</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>H</accel>otkeys</guilabel>
-               </entry>
-               <entry>_hotkeys</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_warehouseGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_warehouse</entry>
-               <entry>WComboBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Warehouse:</guilabel>
-               </entry>
-               <entry>_selectedWarehouse</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>None</guilabel>
-               </entry>
-               <entry>_noWarehouse</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dataCacheGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Use Item Cache</guilabel>
-               </entry>
-               <entry>_itemCache</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Use Customer Cache</guilabel>
-               </entry>
-               <entry>_customerCache</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_interfaceGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show windows inside workspace</guilabel>
-               </entry>
-               <entry>_interfaceWorkspace</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Remember Check Box Settings</guilabel>
-               </entry>
-               <entry>_rememberCheckBoxes</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show windows as free-floating</guilabel>
-               </entry>
-               <entry>_interfaceTopLevel</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>line</entry>
-               <entry>Line</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_defaultsGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Use Fixed Width Fonts where Applicable</guilabel>
-               </entry>
-               <entry>_fixedWidthFonts</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show Only Released and In-Process Work Orders</guilabel>
-               </entry>
-               <entry>_showRIWorkOrders</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>List Numeric Item Numbers First</guilabel>
-               </entry>
-               <entry>_listNumericItemsFirst</entry>
-               <entry>QCheckBox</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel>Show S/O Item Availability when Entering</guilabel>
-               </entry>
-               <entry>_showSoitemAvailability</entry>
-               <entry>QCheckBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Default Ellipses Action:</guilabel>
-               </entry>
-               <entry>_ellipsesActionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_ellipsesAction</entry>
-               <entry>XComboBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Idle Timeout:</guilabel>
-               </entry>
-               <entry>_idleTimeoutLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_idleTimeout</entry>
-               <entry>QSpinBox</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section941111">
+  <title><anchor id="Anchor96331" role="Cross-Ref"
+  xreflabel="96331: Heading2: User Preferences" />Preferences</title>
+
+  <para id="Para519324">The Preferences section enables users to customize the
+  look and feel of their main application window. Users can also specify
+  various application defaults. While users have the ability to modify their
+  own preferences, only those users granted the "MaintainUsers" privilege can
+  change another user's preferences. To access the Preferences area, select
+  the "Preferences" option. The following screen will appear:</para>
+
+  <para id="Para519329"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_userPrefs.png" id="Graphic522222" />
+        </imageobject>
+
+        <caption id="Caption519330">User Preferences for Standard
+        Menu</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para918782">When establishing user preferences, you are presented
+  with the following options:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para918783">Current User</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc4e4">
+        <para>Select to edit user preferences for the current user.</para>
+
+        <para id="Para919009">This is the only option available to users who
+        do not have the "MaintainUsers" privilege.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para918817">Selected User</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc52c">
+        <para>Select an individual user to view and/or edit preferences for
+        that user.</para>
+
+        <para id="Para919056">This option is only available to system
+        administrators and others who have been granted the "MaintainUsers"
+        privilege. Only users who have been granted this privilege can edit
+        the preferences of other users. The usernames of all users who are
+        registered on the current Database will appear in the list.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para934591"><anchor id="Anchor934604" role="Index"
+      xreflabel="images:background" /> <indexterm significance="normal"
+          zone="Anchor934604">
+          <primary>images</primary>
+
+          <secondary>background</secondary>
+        </indexterm>Background Image</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc5bc">
+        <para>Select one of the following background image options:</para>
+
+        <para id="Para933603">None: Select if you do not want to add digital
+        wall paper on the main application work space.</para>
+
+        <para id="Para519333">Image: Specify an Image definition to create
+        digital wall paper on the main application work space.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para938036">For a complete list of available toolbar buttons,
+    see the <link endterm="Anchor51567" id="XRef938035" linkend="Anchor51567">
+    Toolbar Buttons</link>"Toolbar Buttons" section in the <link
+    endterm="Anchor23250" id="XRef938050" linkend="Anchor23250">
+    Introduction</link>Introduction.</para>
+  </note>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para976854"><anchor id="Anchor976890" role="Index"
+      xreflabel="users:module options for;users:toolbar options for;toolbars:user options for;modules:user options involving;menus:styles for" />
+      <indexterm significance="normal" zone="Anchor976890">
+          <primary>users</primary>
+
+          <secondary>module options for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor976890">
+          <primary>users</primary>
+
+          <secondary>toolbar options for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor976890">
+          <primary>toolbars</primary>
+
+          <secondary>user options for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor976890">
+          <primary>modules</primary>
+
+          <secondary>user options involving</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor976890">
+          <primary>menus</primary>
+
+          <secondary>styles for</secondary>
+        </indexterm>Menu Style</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc7b4">
+        <para>Select one of the following menu styles:</para>
+
+        <para id="Para976863">Standard: This is the original OpenMFG menu
+        style. In future versions of the product, this menu style will be
+        phased out.</para>
+
+        <para id="Para976867">Neo: This is the new OpenMFG menu style, which
+        organizes the desktop by functional areas.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <note>
+    <para id="Para976905">The screen will show different module options
+    depending on which menu style you choose.</para>
+  </note>
+
+  <para id="Para976906">The following options will appear if the Standard menu
+  style is selected:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para938039">Show I/M Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc844">
+        <para>Select to display the Inventory Management (I/M) module menu on
+        the user's main application window.</para>
+
+        <para id="Para919013">Show I/M Toolbar - Select to display I/M module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519335">Show P/D Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc88c">
+        <para>Select to display the Product Definition (P/D) module menu on
+        the user's main application window.</para>
+
+        <para id="Para519337">Show P/D Toolbar - Select to display P/D module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519338">Show M/S Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc8d4">
+        <para>Select to display the Manufacturing Scheduling (M/S) module menu
+        on the user's main application window.</para>
+
+        <para id="Para519340">Show M/S Toolbar - Select to display M/S module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519341">Show C/P Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc91c">
+        <para>Select to display the Capacity Planning (C/P) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519343">Show C/P Toolbar - Select to display C/P module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519344">Show W/O Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc964">
+        <para>Select to display the Work Order (W/O) module menu on the user's
+        main application window.</para>
+
+        <para id="Para519346">Show W/O Toolbar - Select to display W/O module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519347">Show P/O Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc9ac">
+        <para>Select to display the Purchase Order (P/O) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519350">Show P/O Toolbar - Select to display P/O module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519351">Show S/O Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cc9f4">
+        <para>Select to display the Sales Order (S/O) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519353">Show S/O Toolbar - Select to display S/O module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519354">Show S/R Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cca3c">
+        <para>Select to display the Shipping &amp; Receiving (S/R) module menu
+        on the user's main application window.</para>
+
+        <para id="Para519356">Show S/R Toolbar - Select to display S/R module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519357">Show S/A Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18cca84">
+        <para>Select to display the Sales Analysis (S/A) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519359">Show S/A Toolbar - Select to display S/A module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519360">Show A/P Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18ccacc">
+        <para>Select to display the Accounts Payable (A/P) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519362">Show A/P Toolbar - Select to display A/P module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519363">Show A/R Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18ccb14">
+        <para>Select to display the Accounts Receivable (A/R) module menu on
+        the user's main application window.</para>
+
+        <para id="Para519365">Show A/R Toolbar - Select to display A/R module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519366">Show G/L Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18ccb5c">
+        <para>Select to display the General Ledger (G/L) module menu on the
+        user's main application window.</para>
+
+        <para id="Para519368">Show G/L Toolbar - Select to display G/L module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para964367">Show P/M Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18ccba4">
+        <para>Select to display the Project Management (P/M) module menu on
+        the user's main application window.</para>
+
+        <para id="Para964368">Show P/M Toolbar - Select to display P/M module
+        toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para934511"><anchor id="Anchor934606" role="Index"
+      xreflabel="users:preferred warehouses for" /> <indexterm
+          significance="normal" zone="Anchor934606">
+          <primary>users</primary>
+
+          <secondary>preferred warehouses for</secondary>
+        </indexterm>Preferred Warehouse</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8224">
+        <para>Select one of the following default Warehouse
+        preferences:</para>
+
+        <para id="Para519369">None: Select if the user does not have a
+        preferred Warehouse.</para>
+
+        <para id="Para919403">Warehouse: Specify the preferred Warehouse.
+        Warehouses designated as preferred will appear at the top of Warehouse
+        list by default--eliminating the need to search the menu for the
+        desired Warehouse code. The user may access other Warehouses in these
+        lists in the normal way. Assigning a preferred Warehouse is simply a
+        time-saving feature and does not affect user access to Warehouse
+        data.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para970262">Interface Options</term>
+
+      <listitem id="listitemN0x180ac00N0x18d826c">
+        <para>Select one of the following default window behaviors:</para>
+
+        <para id="Para970263">Show windows inside workspace: Select to make
+        non-modal screens open within the main desktop.</para>
+
+        <para id="Para970280">Show windows as free-floating: Select to allow
+        all screens to be free-floating and not constrained by the main
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para970282"><anchor id="Anchor970281" role="Index"
+      xreflabel="data caches:user preferences for" /> <indexterm
+          significance="normal" zone="Anchor970281">
+          <primary>data caches</primary>
+
+          <secondary>user preferences for</secondary>
+        </indexterm>Data Caches</term>
+
+      <listitem id="listitemN0x180ac00N0x18d82fc">
+        <para>Select one of the following default data caching methods:</para>
+
+        <para id="Para519375">Use Item Cache: Select to automatically cache
+        Item information on your xTuple Client machine. Selecting this option
+        is only recommended if network bandwidth between your xTuple Client
+        and the server is extremely limited. Check with your system
+        administrator to determine whether you should select this
+        option.</para>
+
+        <para id="Para964384">Use Customer Cache: Select to automatically
+        cache Customer information on your xTuple Client machine. Selecting
+        this option is only recommended if network bandwidth between your
+        xTuple Client and the server is extremely limited. Check with your
+        system administrator to determine whether you should select this
+        option.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para964385">Defaults</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8344">
+        <para>Specify preferences for the following defaults:</para>
+
+        <para id="Para964386">Use Fixed Width Fonts where Applicable: Select
+        to view information in fixed width fonts wherever applicable.</para>
+
+        <para id="Para519378">Show Only Released and In-Process Work Orders:
+        Select to show only released and in-process Work Orders by default. If
+        selected, Work Order displays and reports will not include Work Orders
+        whose status is other than released or in-process. For example,
+        affected displays and reports will not include open or exploded Work
+        Orders if this option is selected.</para>
+
+        <para id="Para931195">List Numeric Item Numbers First: Select to list
+        numeric Item Numbers before alphabetic Item Numbers in displays
+        featuring Item Numbers.</para>
+
+        <para id="Para931197">Show S/O Item Availability when Entering: Select
+        to show Availability by Item by default when viewing the Sales Order
+        Line Item screen.</para>
+
+        <para id="Para958965">Default Ellipses Action: Specify whether you
+        want to launch a List view or a Search view after selecting a browse
+        button to look up information. The List view corresponds to the
+        standard CTRL+L keyboard shortcut functionality; whereas the Search
+        view corresponds to CTRL+S functionality.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para931198"><anchor id="Anchor934608" role="Index"
+      xreflabel="users:setting idle timeout for;idle timeout" /> <indexterm
+          significance="normal" zone="Anchor934608">
+          <primary>users</primary>
+
+          <secondary>setting idle timeout for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor934608">
+          <primary>idle timeout</primary>
+        </indexterm>Idle Timeout</term>
+
+      <listitem id="listitemN0x180ac00N0x18d83f8">
+        <para>Select a value between 1 and 99 using the arrow buttons located
+        to the right of the field.</para>
+
+        <para id="Para926641">Value entered dictates the number of minutes
+        before the client automatically shuts down.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para531191">To the far right of the screen, the following buttons
+  are available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para531192">CANCEL</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8464">
+        <para>Closes the screen without making any changes to the user's
+        preferences, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519381">SAVE</term>
+
+      <listitem id="listitemN0x180ac00N0x18d84ac">
+        <para>Saves the user Preference settings, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para519382">EVENTS</term>
+
+      <listitem id="listitemN0x180ac00N0x18d84f4">
+        <para>Opens the user Event Notification screen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para956770">HOTKEYS</term>
+
+      <listitem id="listitemN0x180ac00N0x18d853c">
+        <para>Select to define Hot Keys.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para976807"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_userPrefsNeo.png" id="Graphic976805" />
+        </imageobject>
+
+        <caption id="Caption976876">User Preferences for Neo Menu</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para977134">The following options will appear if the Neo menu
+  style is selected:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para976933">Show Inventory Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8614">
+        <para>Select to display the Inventory module menu on the user's main
+        application window.</para>
+
+        <para id="Para976934">Show Inventory Toolbar - Select to display the
+        Inventory module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976935">Show Products Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d865c">
+        <para>Select to display the Products module menu on the user's main
+        application window.</para>
+
+        <para id="Para976936">Show Products Toolbar - Select to display the
+        Products module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976937">Show Schedule Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d86a4">
+        <para>Select to display the Schedule module menu on the user's main
+        application window.</para>
+
+        <para id="Para976938">Show Schedule Toolbar - Select to display the
+        Schedule module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976939">Show Purchase Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d86ec">
+        <para>Select to display the Purchase module menu on the user's main
+        application window.</para>
+
+        <para id="Para976940">Show Purchase Toolbar - Select to display the
+        Purchase module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976941">Show Manufacture Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d8734">
+        <para>Select to display the Manufacture module menu on the user's main
+        application window.</para>
+
+        <para id="Para976942">Show Manufacture Toolbar - Select to display the
+        Manufacture module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976943">Show CRM Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d877c">
+        <para>Select to display the CRM module menu on the user's main
+        application window.</para>
+
+        <para id="Para976944">Show CRM Toolbar - Select to display the CRM
+        module toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976945">Show Sales Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d87c4">
+        <para>Select to display the Sales module menu on the user's main
+        application window.</para>
+
+        <para id="Para976946">Show Sales Toolbar - Select to display the Sales
+        module toolbar buttons on the user's main application window.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para976947">Show Accounting Menu</term>
+
+      <listitem id="listitemN0x180ac00N0x18d880c">
+        <para>Select to display the Accounting module menu on the user's main
+        application window.</para>
+
+        <para id="Para976948">Show Accounting Toolbar - Select to display the
+        Accounting module toolbar buttons on the user's main application
+        window.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <xi:include href="userEventNotification.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+
+  <xi:include href="hotkeys.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

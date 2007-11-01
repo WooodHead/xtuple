@@ -1,310 +1,243 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   I/M Module Configuration
-  </title>
-   <subtitle>configureIM : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/configureIM.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   I/M Module Configuration
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>_tab</entry>
-               <entry>QTabWidget</entry>
-            </row>
-            <row>
-               <entry>Inventory</entry>
-               <entry>_inventory</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_defaultGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Event Fence:</guilabel>
-               </entry>
-               <entry>_eventFenceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_eventFence</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel>Days</guilabel>
-               </entry>
-               <entry>_daysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Post Item Site Changes to the Change Log</guilabel>
-               </entry>
-               <entry>_itemSiteChangeLog</entry>
-               <entry>QCheckBox</entry>
-            </row>
-              <row>
-               <entry>
-                  <guilabel>Post Warehouse Changes to the Change Log</guilabel>
-               </entry>
-               <entry>_warehouseChangeLog</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_multiWhs</entry>
-               <entry>QGroupBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Enable Shipping Interface from Transfer Order screen</guilabel>
-               </entry>
-               <entry>_enableToShipping</entry>
-               <entry>QCheckBox</entry>
-            </row>
-               <row>
-               <entry>
-                  <guilabel>Post Transfer Order Changes to the Change Log</guilabel>
-               </entry>
-               <entry>_transferOrderChangeLog</entry>
-               <entry>QCheckBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_toNextNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_defaultTransWhs</entry>
-               <entry>WComboBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_toNumGeneration</entry>
-               <entry>QComboBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Transfer Order # Generation:</guilabel>
-               </entry>
-               <entry>_toNumGenerationLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Next #:</guilabel>
-               </entry>
-               <entry>_toNextNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Default Transit Warehouse:</guilabel>
-               </entry>
-               <entry>_defaultTransWhsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Enable Lot/Serial Control</guilabel>
-               </entry>
-               <entry>_lotSerial</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_countTagGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Post Difference to Default Location, if any</guilabel>
-               </entry>
-               <entry>_postToDefault</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Do Not Post Count Tag</guilabel>
-               </entry>
-               <entry>_doNotPost</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_countSlipGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>No Slip # Checks, allow Duplications</guilabel>
-               </entry>
-               <entry>_noSlipChecks</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Disallow Unposted Slip # Duplications within a Warehouse</guilabel>
-               </entry>
-               <entry>_checkOnUnpostedWarehouse</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Disallow All Unposted Slip # Duplications</guilabel>
-               </entry>
-               <entry>_checkOnUnposted</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Disallow All Slip # Duplications within a Warehouse</guilabel>
-               </entry>
-               <entry>_checkOnAllWarehouse</entry>
-               <entry>QRadioButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel>Disallow All Slip # Duplications</guilabel>
-               </entry>
-               <entry>_checkOnAll</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>Shipping and Receiving</entry>
-               <entry>tab_2</entry>
-               <entry>QWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Shipment # Generation:</guilabel>
-               </entry>
-               <entry>_shipmentNumGenerationLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Next #:</guilabel>
-               </entry>
-               <entry>_nextShipmentNumLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipmentNumGeneration</entry>
-               <entry>QComboBox</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_nextShipmentNum</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Disallow P/O Receipt of Qty greater than ordered</guilabel>
-               </entry>
-               <entry>_disallowReceiptExcess</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>Warn if P/O Receipt Qty differs from receivable Qty</guilabel>
-               </entry>
-               <entry>_warnIfReceiptDiffers</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>By the following amount:</guilabel>
-               </entry>
-               <entry>_toleranceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_tolerance</entry>
-               <entry>QLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>%</guilabel>
-               </entry>
-               <entry>_percentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_shipformGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel># of Copies:</guilabel>
-               </entry>
-               <entry>_shipformNumOfCopiesLit_2</entry>
-               <entry>QLabel</entry>
-            </row>
-                 <row>
-               <entry/>
-               <entry>_shipformNumOfCopies</entry>
-               <entry>QSpinBox</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_shipformWatermarks</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section519086">
+    <title><anchor id="Anchor19758" role="Cross-Ref"
+    xreflabel="19758: Heading2: Configure I/M" /> <anchor id="Anchor932282"
+    role="Index" xreflabel="configuration:of i/m module" /> <indexterm
+        significance="normal" zone="Anchor932282">
+        <primary>configuration</primary>
+
+        <secondary>of i/m module</secondary>
+      </indexterm>Configure I/M</title>
+
+    <para id="Para519087">To configure the Inventory Management (I/M) module,
+    select the "Configure I/M" option. The following screen will appear</para>
+
+    <para id="Para519091"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Sys_configIM.png" id="Graphic522092" />
+          </imageobject>
+
+          <caption id="Caption519092">Configure I/M Module</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para933434">When configuring the I/M module, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para943933"><anchor id="Anchor943932" role="Index"
+        xreflabel="event fences:default for item sites" /> <indexterm
+            significance="normal" zone="Anchor943932">
+            <primary>event fences</primary>
+
+            <secondary>default for item sites</secondary>
+          </indexterm>Defaults</term>
+
+        <listitem id="listitemN0x180ac00N0x189a2d0">
+          <para>Specify a default Event Fence:</para>
+
+          <para id="Para934093">Event Fence: Select a value between 0 and 999
+          using the arrow buttons located to the right of the field. Indicates
+          the Event Fence value that will appear by default whenever a new
+          Item Site is created. The value is measured in days.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para948599">Post Item Site Changes to the Change Log</term>
+
+        <listitem id="listitemN0x180ac00N0x189a318">
+          <para>Select to post to the Change Log any changes made to Item Site
+          masters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para976261">Post Warehouse Changes to the Change Log</term>
+
+        <listitem id="listitemN0x180ac00N0x189a360">
+          <para>Select to post to the Change Log any changes made to Warehouse
+          masters.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para976465">Enable Multiple Warehouses</term>
+
+        <listitem id="listitemN0x180ac00N0x189a384">
+          <para>Select to allow more than one Warehouse to be entered in the
+          system.</para>
+
+          <para id="Para976471">If multiple Warehouses are not enabled, your
+          system will be single Warehouse only. Users will be prevented from
+          creating more than one Warehouse. If your system has multiple
+          Warehouses defined, this option will be hidden.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para976467">Transfer Order # Generation</term>
+
+        <listitem id="listitemN0x180ac00N0x189a3a8">
+          <para>If multiple Warehouses are enabled, select one of the
+          available Transfer Order Number generation methods:</para>
+
+          <para id="Para976378">Automatic - Transfer Order Numbers will be
+          automatically incremented by 1 each time a new Transfer Order is
+          created. These automatically-generated numbers may not be edited.
+          They are read-only.</para>
+
+          <para id="Para976359">Manual - Transfer Order Numbers must be
+          entered manually whenever you create a new Transfer Order.</para>
+
+          <para id="Para976360">Automatic, Allow Override - Transfer Order
+          Numbers will be automatically generated and incremented, as under
+          the "Automatic" option described above. However, this option also
+          allows you to manually override the Transfer Order Number at the
+          time of Transfer Order creation.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para976361">Next #</term>
+
+        <listitem id="listitemN0x180ac00N0x189a3cc">
+          <para>The next sequentially available Transfer Order Number will
+          display here. You may change the number--creating a new basis for
+          the next Transfer Order Number--by typing the new number into this
+          field. Any changes you make here will be reflected the next time a
+          new Transfer Order is created.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para976331">Default Transit Warehouse</term>
+
+        <listitem id="listitemN0x180ac00N0x189a3f0">
+          <para>If multiple Warehouses are enabled, specify the default
+          Transit Warehouse.</para>
+
+          <para id="Para976446">The specified Warehouse will be pre-selected
+          by default whenever Transfer Orders are entered.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry role="openmfg">
+        <term id="Para976271">Enable Lot/Serial Control</term>
+
+        <listitem id="listitemN0x180ac00N0x189a414">
+          <para>Select to enable Lot/Serial tracking capability in the
+          system.</para>
+
+          <para id="Para976277">If not selected, users will be prevented from
+          creating Item Sites having either the Lot or Serial control method.
+          Without the ability to create Lot/Serial Item Sites, the Lot/Serial
+          tracking capability is disabled. If your system has Lot/Serial Item
+          Sites defined, this option will be hidden.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para934062"><anchor id="Anchor934076" role="Index"
+        xreflabel="count tags:count slip discrepancies and;count slips:count tag discrepancies and" />
+        <indexterm significance="normal" zone="Anchor934076">
+            <primary>count tags</primary>
+
+            <secondary>count slip discrepancies and</secondary>
+          </indexterm> <indexterm significance="normal" zone="Anchor934076">
+            <primary>count slips</primary>
+
+            <secondary>count tag discrepancies and</secondary>
+          </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
+
+        <listitem id="listitemN0x180ac00N0x189a4ec">
+          <para>Select one of the following options for handling discrepancies
+          in count quantities:</para>
+
+          <para id="Para913626">Post Difference to Default Location, if any -
+          Select to post excess Count Tag quantity to an Item's default
+          location if the Item's Count Tag quantity exceeds its Count Slip
+          quantity. Applies only if a default location has been defined for
+          the Item. Default locations are defined for an Item in the Item Site
+          record.</para>
+
+          <para id="Para519100">Do Not Post Count Tag - Select to prevent
+          Count Tag quantity from being posted if it exceeds the Item's Count
+          Slip quantity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <note>
+      <para id="Para946902">By default, the system allows only one unposted
+      Count Tag per Item Site. If an unposted Count Tag already exists for an
+      Item Site, then an additional duplicate Count Tag may not be
+      added.</para>
+    </note>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para934050"><anchor id="Anchor934131" role="Index"
+        xreflabel="count slips:auditing of" /> <indexterm
+            significance="normal" zone="Anchor934131">
+            <primary>count slips</primary>
+
+            <secondary>auditing of</secondary>
+          </indexterm>Count Slip # Auditing</term>
+
+        <listitem id="listitemN0x180ac00N0x189a5c4">
+          <para>Select one of the following Count Slip number auditing
+          methods:</para>
+
+          <para id="Para519102">No Slip # Checks, allow Duplications - Allows
+          any Count Slip numbers to be used. Duplicate Count Slip numbers will
+          also be allowed.</para>
+
+          <para id="Para519103">Disallow Unposted Slip # Duplications within a
+          Warehouse - Prevents duplicate "Unposted" Count Slip numbers from
+          existing within a given Warehouse. However, duplicate "Unposted"
+          Count Slip numbers may exist within multiple Warehouses.</para>
+
+          <para id="Para519104">Disallow All Unposted Slip # Duplications -
+          Prevents duplicate "Unposted" Count Slip numbers from existing
+          within multiple Warehouses.</para>
+
+          <para id="Para519105">Disallow All Slip # Duplications within a
+          Warehouse - Prevents duplicate Count Slip numbers from existing
+          within a given Warehouse. However, duplicate Count Slip numbers may
+          exist within multiple Warehouses.</para>
+
+          <para id="Para519106">Disallow All Slip # Duplications - Prevents
+          duplicate Count Slip Numbers from existing within multiple
+          Warehouses.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para519107">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para519108">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x189a630">
+          <para>Cancels any configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para519109">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x189a678">
+          <para>Saves the configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

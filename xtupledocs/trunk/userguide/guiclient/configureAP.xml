@@ -1,69 +1,65 @@
-<?xml version="1.0" encoding="ascii"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-<section>
-   <title>
-   A/P Module Configuration
-  </title>
-   <subtitle>configureAP : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/configureAP.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   A/P Module Configuration
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel>Next A/P Memo #:</guilabel>
-               </entry>
-               <entry>_nextAPMemoNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_nextAPMemoNumber</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel>
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section953714">
+    <title><anchor id="Anchor953713" role="Index"
+    xreflabel="configuration:of a/p module" /> <indexterm
+        significance="normal" zone="Anchor953713">
+        <primary>configuration</primary>
+
+        <secondary>of a/p module</secondary>
+      </indexterm>Configure A/P</title>
+
+    <para id="Para953734">To configure the Accounts Payable (A/P) module,
+    select the "Configure A/P" option. The following screen will
+    appear:</para>
+
+    <para id="Para953746"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Sys_configAP.png" id="Graphic953744" />
+          </imageobject>
+
+          <caption id="Caption953747">Configure A/P Module</caption>
+        </mediaobject>
+      </screenshot></para>
+
+    <para id="Para953748">When configuring the A/P module, you are presented
+    with the following options:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para953739">Next A/P Memo #</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba734">
+          <para>The next sequentially available Accounts Payable Memo Number
+          will display here. You may change the number--creating a new basis
+          for the next A/P Memo Number--by typing the new number into this
+          field.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para id="Para953797">To the far right of the screen, the following
+    buttons are available:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term id="Para953798">CANCEL</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba7a0">
+          <para>Cancels any configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term id="Para953799">SAVE</term>
+
+        <listitem id="listitemN0x180ac00N0x18ba7e8">
+          <para>Saves the configuration settings, returning you to the
+          application desktop.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
