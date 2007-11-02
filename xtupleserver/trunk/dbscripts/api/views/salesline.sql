@@ -14,6 +14,10 @@ AS
      warehous_code AS sold_from_whs,
      coitem_status AS status,
      coitem_qtyord AS qty_ordered,
+     COALESCE((
+       SELECT uom_name
+       FROM uom
+       WHERE uom_id=coitem_qty_uom_id), 'None') AS qty_uom,
      coitem_price AS net_unit_price,
      coitem_scheddate AS scheduled_date,
      COALESCE((
@@ -67,9 +71,12 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_scheddate,
     coitem_promdate,
     coitem_qtyord,
+    coitem_qty_uom_id,
+    coitem_qty_invuomratio,
     coitem_qtyshipped,
     coitem_unitcost,
     coitem_price,
+    coitem_price_uom_id,
     coitem_custprice,
     coitem_order_id,
     coitem_memo,
@@ -94,10 +101,18 @@ CREATE OR REPLACE RULE "_INSERT" AS
       WHERE (coitem_cohead_id=getSalesOrderId(NEW.order_number)))),
     endoftime(),
     NEW.qty_ordered,
+    COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+	     item_price_uom_id),
+    itemuomtouomratio(item_id, 
+		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+			       item_price_uom_id),
+		      item_inv_uom_id),
     0,
     stdCost(item_id),
     COALESCE(NEW.net_unit_price,itemPrice(getItemId(NEW.item_number),cohead_cust_id,
              cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate)),
+    COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+	     item_price_uom_id),
     itemPrice(getItemId(NEW.item_number),cohead_cust_id,
              cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate),
     -1,
@@ -145,7 +160,17 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     coitem_status=NEW.status,
     coitem_scheddate=NEW.scheduled_date,
     coitem_qtyord=NEW.qty_ordered,
+    coitem_qty_uom_id=COALESCE(
+	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+	     item_price_uom_id),
+    coitem_qty_invuomratio=itemuomtouomratio(item_id, 
+		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+			       item_price_uom_id),
+		      item_inv_uom_id),
     coitem_price=NEW.net_unit_price,
+    coitem_price_uom_id=COALESCE(
+	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+	     item_price_uom_id),
     coitem_memo=NEW.notes,
     coitem_order_type=
     CASE
