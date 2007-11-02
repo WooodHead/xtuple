@@ -27,9 +27,18 @@ Return Authorizations (Preview)
 
 XML Data Import (Preview)
 - Initial preview of XML import utility
-- Uses XMLT mapping to transform XML for import into xTuple databases
+- Uses XSLT mapping to transform XML for import into xTuple databases
 - See issue #5886 for more information
 
+Added UI configuration memory to
+- Grid layouts
+- Window Size/Position
+- Checkboxes when enabled and where applicable
+
+(NOTE: Checkboxes that remember their state are being temporarily 
+indicated by a small '?' symbol when checkbox memory is enabled in 
+user preferences. We would like additional feedback on windows where 
+this behavior should/shouldn't be included.)
 	
 ==================================
 
@@ -38,7 +47,7 @@ since the release of version 2.2.1:
 
 New Features:
 
-* [System] Memory for checkboxes 
+* [System] Memory for checkboxes
 * [System] Hide menus that are disabled
 * [A/P] GUI Memory
 * [A/P] Can A/P (or A/R) 'As-Of' Reports be created?
@@ -53,25 +62,23 @@ New Features:
 
 Bug Fixes:
 
-* [All] CPU usage higher than expected 
-* [All] Minimize/Maximize window lost of displayed info 
-* [Inventory] cannot ship with only ship order privilege 
-* [Inventory] Qty at Shipping is not correct after recalling orders 
+* [All] CPU usage higher than expected
+* [All] Minimize/Maximize window lost of displayed info
+* [Inventory] cannot ship with only ship order privilege
+* [Inventory] Qty at Shipping is not correct after recalling orders
 * [Inventory] Can't Apply Maximum Desired Cost Over $999.00
-* [Inventory] Qty field strangely oversized on Inv. Adjustment window on 
-Mac. 
-* [Inventory] Message popped up on issue stock to shipping screen 
+* [Inventory] Qty field strangely oversized on Inv. Adjustment window 
+on Mac.
+* [Inventory] Message popped up on issue stock to shipping screen
 * [I/M] TO - Unable to Edit TO Head Comment
-* [Manufacture] Cut off date field scrunched up on Mac on Release W/O by 
-Planner Code window 
-* [P/O] Contact w/no name gives error 
-* [Sales] tax override at sales order item entry does not carry through to 
-invoicing 
+* [Manufacture] Cut off date field scrunched up on Mac on Release W/O 
+by Planner Code window
+* [P/O] Contact w/no name gives error
+* [Sales] tax override at sales order item entry does not carry through 
+to invoicing
 * [Sales] Can not remove work order from sales order
-* [Sales] Changed Customer Layout 
-* [Sales] Provide a way to enable the promise date capability in SO 
-* [System] setting the neo menus, and show menus/toolbars 
-* [System] Change SoCommentsChanged Event to SoOrderNotesChanged Event 
-* [System] Saving in Product Configuration turns on Routings in PostBooks 
-
-
+* [Sales] Changed Customer Layout
+* [Sales] Provide a way to enable the promise date capability in SO
+* [System] setting the neo menus, and show menus/toolbars
+* [System] Change SoCommentsChanged Event to SoOrderNotesChanged Event
+* [System] Saving in Product Configuration turns on Routings in PostBooks
