@@ -77,6 +77,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
     coitem_unitcost,
     coitem_price,
     coitem_price_uom_id,
+    coitem_price_invuomratio,
     coitem_custprice,
     coitem_order_id,
     coitem_memo,
@@ -113,6 +114,10 @@ CREATE OR REPLACE RULE "_INSERT" AS
              cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate)),
     COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
 	     item_price_uom_id),
+    itemuomtouomratio(item_id,
+		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+			       item_price_uom_id),
+		      item_price_uom_id),
     itemPrice(getItemId(NEW.item_number),cohead_cust_id,
              cohead_shipto_id,NEW.qty_ordered,cohead_curr_id,cohead_orderdate),
     -1,
@@ -171,6 +176,10 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     coitem_price_uom_id=COALESCE(
 	    (SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
 	     item_price_uom_id),
+    coitem_price_invuomratio=itemuomtouomratio(item_id,
+		      COALESCE((SELECT uom_id FROM uom WHERE (uom_name=NEW.qty_uom)),
+			       item_price_uom_id),
+		      item_price_uom_id),
     coitem_memo=NEW.notes,
     coitem_order_type=
     CASE
