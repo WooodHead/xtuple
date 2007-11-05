@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520195" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520195" role="openmfg">
     <title>Breeder Distribution Variance by Warehouse</title>
 
     <para id="Para520196">A Breeder Item is an Item from which other Items--or
@@ -9,17 +9,18 @@
     Warehouse, select the "Breeder Distribution Variance by Warehouse" option.
     The following screen will appear:</para>
 
-    <para id="Para520200"><screenshot>
+    <para id="Para520200">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_breedVarByWare.png"
-                       id="Graphic524200" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_breedVarByWare.png" id="Graphic524200"/>
+            </imageobject>
 
-          <caption id="Caption520201">Breeder Distribution Variance by
+            <caption id="Caption520201">Breeder Distribution Variance by
           Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520202">When viewing breeder distribution variances by
     Warehouse, you are presented with the following options:</para>
@@ -29,7 +30,7 @@
         <term id="Para520203">All Warehouses</term>
 
         <listitem>
-          <para>Select to display breeder distribution variances for all
+            <para>Select to display breeder distribution variances for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +39,7 @@
         <term id="Para520205">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose breeder distribution variances you
+            <para>Specify Warehouse whose breeder distribution variances you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +48,7 @@
         <term id="Para520210">Start Date</term>
 
         <listitem>
-          <para>Breeder distribution variances by Warehouse generated on or
+            <para>Breeder distribution variances by Warehouse generated on or
           after this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +57,7 @@
         <term id="Para520215">End Date</term>
 
         <listitem>
-          <para>Breeder distribution variances by Warehouse generated on or
+            <para>Breeder distribution variances by Warehouse generated on or
           before this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +66,7 @@
         <term id="Para520217">Breeder Distribution Variance</term>
 
         <listitem>
-          <para>Display lists breeder distribution variances by Warehouse,
+            <para>Display lists breeder distribution variances by Warehouse,
           using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +80,7 @@
         <term id="Para542385">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +89,7 @@
         <term id="Para545167">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +98,7 @@
         <term id="Para542386">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

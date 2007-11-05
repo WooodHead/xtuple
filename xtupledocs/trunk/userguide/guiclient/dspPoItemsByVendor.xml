@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518917">
-    <title><anchor id="Anchor919411" role="Index"
-    xreflabel="purchase orders:line items by vendor;vendors:p/o line item details for" />
-    <indexterm significance="normal" zone="Anchor919411">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518917">
+    <title>
+      <anchor id="Anchor919411" role="Index"
+              xreflabel="purchase orders:line items by vendor;vendors:p/o line item details for"/>
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>line items by vendor</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919411">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>vendors</primary>
 
         <secondary>p/o line item details for</secondary>
@@ -18,16 +19,17 @@
     <para id="Para522162">To view Purchase Order Items by Vendor, select the
     "P/O Items by Vendor" option. The following screen will appear:</para>
 
-    <para id="Para949316"><screenshot>
+    <para id="Para949316">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_lineItemsByVendor.png"
-                       id="Graphic949314" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_lineItemsByVendor.png" id="Graphic949314"/>
+            </imageobject>
 
-          <caption id="Caption952503">Purchase Order Items by Vendor</caption>
+            <caption id="Caption952503">Purchase Order Items by Vendor</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para952505">A Purchase Order will remain open if at least one
@@ -44,7 +46,7 @@
         <term id="Para521992">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18b3118">
-          <para>Enter the Vendor Number of the Vendor whose Purchase Order
+            <para>Enter the Vendor Number of the Vendor whose Purchase Order
           Items you want to view.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +55,7 @@
         <term id="Para920885">All Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b3160">
-          <para>Select to include all Purchase Order Items by Vendor in the
+            <para>Select to include all Purchase Order Items by Vendor in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +64,7 @@
         <term id="Para920886">Open Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b31a8">
-          <para>Select to include open Purchase Order Items by Vendor in the
+            <para>Select to include open Purchase Order Items by Vendor in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +73,7 @@
         <term id="Para920887">Closed Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b31f0">
-          <para>Select to include closed Purchase Order Items by Vendor in the
+            <para>Select to include closed Purchase Order Items by Vendor in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +82,7 @@
         <term id="Para947842">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18b3214">
-          <para>Select to display Purchase Order Items by Vendor for all
+            <para>Select to display Purchase Order Items by Vendor for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +91,7 @@
         <term id="Para947843">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18b3238">
-          <para>Specify Warehouse whose Purchase Order Items by Vendor you
+            <para>Specify Warehouse whose Purchase Order Items by Vendor you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +100,7 @@
         <term id="Para522804">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18b3280">
-          <para>Select to display Purchase Order Items by Vendor for all
+            <para>Select to display Purchase Order Items by Vendor for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -107,10 +109,10 @@
         <term id="Para522749">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18b32c8">
-          <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
+            <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
           you want to display.</para>
 
-          <para id="Para935508">Users may be designated as Purchasing Agents
+            <para id="Para935508">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -119,7 +121,7 @@
         <term id="Para949330">All PO #s</term>
 
         <listitem id="listitemN0x180ac00N0x18b3310">
-          <para>Select to display Purchase Order Items by Vendor for all
+            <para>Select to display Purchase Order Items by Vendor for all
           Purchase Order Numbers.</para>
         </listitem>
       </varlistentry>
@@ -128,7 +130,7 @@
         <term id="Para949331">Selected PO #</term>
 
         <listitem id="listitemN0x180ac00N0x18b3358">
-          <para>Specify Purchase Order Number whose Purchase Order Items by
+            <para>Specify Purchase Order Number whose Purchase Order Items by
           Vendor you want to display.</para>
         </listitem>
       </varlistentry>
@@ -137,7 +139,7 @@
         <term id="Para522708">P/O Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b33a0">
-          <para>Display lists Purchase Order Items by Vendor, using the
+            <para>Display lists Purchase Order Items by Vendor, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -151,7 +153,7 @@
         <term id="Para522689">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18b340c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -160,7 +162,7 @@
         <term id="Para934510">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18b3454">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -169,7 +171,7 @@
         <term id="Para969983">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18b349c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -178,25 +180,21 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para929474">If the Line Item is closed, the following option
     will be available:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/8/2/8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/8)"/>
     </variablelist>
   </section>

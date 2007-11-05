@@ -1,272 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section959762" role="openmfg">
   <title>EDI Form</title>
 
-  <para id="Para961030"><anchor id="Anchor961033" role="Index"
-  xreflabel="electronic data interchange:creating new forms for;forms:creating new for edi" />
-  <indexterm significance="normal" zone="Anchor961033">
-      <primary>electronic data interchange</primary>
+  <para id="Para961030">
+      <anchor id="Anchor961033" role="Index"
+              xreflabel="electronic data interchange:creating new forms for;forms:creating new for edi"/>
+      <indexterm significance="normal">
+         <primary>electronic data interchange</primary>
 
-      <secondary>creating new forms for</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor961033">
-      <primary>forms</primary>
+         <secondary>creating new forms for</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>forms</primary>
 
-      <secondary>creating new for edi</secondary>
-    </indexterm>EDI Forms specify the file format an EDI Profile will use. To
+         <secondary>creating new for edi</secondary>
+      </indexterm>EDI Forms specify the file format an EDI Profile will use. To
   associate an EDI Form with a Profile, select the NEW button. For this
   example, we will choose the "Report" format, as shown in the following
   screenshot:</para>
 
-  <para id="Para960585"><anchor id="Anchor41905" role="Cross-Ref"
-  xreflabel="41905: Figure: Figure System.25:  Create New EDI Form Using Report Format" />
-  <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_ediFormReport.png" id="Graphic960583" />
-        </imageobject>
+  <para id="Para960585">
+      <anchor id="Anchor41905" role="Cross-Ref"
+              xreflabel="41905: Figure: Figure System.25:  Create New EDI Form Using Report Format"/>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_ediFormReport.png" id="Graphic960583"/>
+            </imageobject>
 
-        <caption id="Caption960587">Create New EDI Form Using Report
+            <caption id="Caption960587">Create New EDI Form Using Report
         Format</caption>
-      </mediaobject>
-    </screenshot></para>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para960588">When creating a new EDI Form using the Report format,
   you are presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para960419">Type</term>
+      <varlistentry>
+         <term id="Para960419">Type</term>
 
-      <listitem id="listitemN0x180ac00N0x188056c">
-        <para>Select the type of document the Form will be used for.</para>
+         <listitem id="listitemN0x180ac00N0x188056c">
+            <para>Select the type of document the Form will be used for.</para>
 
-        <para id="Para960666">Invoices are currently the only supported
+            <para id="Para960666">Invoices are currently the only supported
         document type. The Invoice type will be selected by default.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960673">Output</term>
+      <varlistentry>
+         <term id="Para960673">Output</term>
 
-      <listitem id="listitemN0x180ac00N0x18805b4">
-        <para>For this example, we have selected the "Report" output
+         <listitem id="listitemN0x180ac00N0x18805b4">
+            <para>For this example, we have selected the "Report" output
         format.</para>
 
-        <para id="Para960674">Selecting the "Report" option indicates that
+            <para id="Para960674">Selecting the "Report" option indicates that
         document information will be written using the report definition
         specified below. Documents will be forwarded to EDI recipients in .PDF
         format.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960634">File Name</term>
+      <varlistentry>
+         <term id="Para960634">File Name</term>
 
-      <listitem id="listitemN0x180ac00N0x18805fc">
-        <para>Enter a standard file name to be used when documents are
+         <listitem id="listitemN0x180ac00N0x18805fc">
+            <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <link endterm="Anchor41905" id="XRef960758"
-        linkend="Anchor41905"> Create New EDI Form Using Report
+        In the example shown in <link endterm="Anchor41905" id="XRef960758" linkend="Anchor41905"> Create New EDI Form Using Report
         Format</link>Figure System.39, the file name will include the specific
         Invoice Number of each Invoice being forwarded to EDI
         recipients.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960635">Query</term>
+      <varlistentry>
+         <term id="Para960635">Query</term>
 
-      <listitem id="listitemN0x180ac00N0x1880644">
-        <para>This is an optional field to be used if you want to generate
+         <listitem id="listitemN0x180ac00N0x1880644">
+            <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <link endterm="Anchor41905" id="XRef960788"
-        linkend="Anchor41905"> Create New EDI Form Using Report
+        example shown in <link endterm="Anchor41905" id="XRef960788" linkend="Anchor41905"> Create New EDI Form Using Report
         Format</link>Figure System.39 uses a basic SQL statement to select an
         Invoice number from the "invchead" table. You will note in the WHERE
         clause that MetaSQL is used to dynamically capture the specific
         Invoice number. For more information on writing queries using MetaSQL,
         please see the Report Writer User Guide.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960798">Report</term>
+      <varlistentry>
+         <term id="Para960798">Report</term>
 
-      <listitem id="listitemN0x180ac00N0x188068c">
-        <para>Specify the report definition you want to associate with the EDI
+         <listitem id="listitemN0x180ac00N0x188068c">
+            <para>Specify the report definition you want to associate with the EDI
         Form.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <para id="Para961163"><anchor id="Anchor961161" role="Index"
-  xreflabel="electronic data interchange:creating new forms for;forms:creating new for edi;comma separated value:format for edi" />
-  <indexterm significance="normal" zone="Anchor961161">
-      <primary>electronic data interchange</primary>
+  <para id="Para961163">
+      <anchor id="Anchor961161" role="Index"
+              xreflabel="electronic data interchange:creating new forms for;forms:creating new for edi;comma separated value:format for edi"/>
+      <indexterm significance="normal">
+         <primary>electronic data interchange</primary>
 
-      <secondary>creating new forms for</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor961161">
-      <primary>forms</primary>
+         <secondary>creating new forms for</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>forms</primary>
 
-      <secondary>creating new for edi</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor961161">
-      <primary>comma separated value</primary>
+         <secondary>creating new for edi</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>comma separated value</primary>
 
-      <secondary>format for edi</secondary>
-    </indexterm>To create a new EDI Form using <anchor id="Anchor961162"
-  role="Index" xreflabel="CSV. See comma separated value" /> <indexterm
-      significance="normal" zone="Anchor961162">
-      <primary>CSV</primary>
+         <secondary>format for edi</secondary>
+      </indexterm>To create a new EDI Form using <anchor id="Anchor961162" role="Index" xreflabel="CSV. See comma separated value"/> 
+      <indexterm significance="normal">
+         <primary>CSV</primary>
 
-      <see>comma separated value</see>
-    </indexterm>Comma Separated Value (CSV) format, select the NEW button from
+         <see>comma separated value</see>
+      </indexterm>Comma Separated Value (CSV) format, select the NEW button from
   the EDI Profiles master list. Once the new Profile screen opens, choose the
   "CSV" option. As the following screenshot shows, the screen options change
   when "CSV" is selected:</para>
 
-  <para id="Para961166"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_ediFormCSV.png" id="Graphic961165" />
-        </imageobject>
+  <para id="Para961166">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_ediFormCSV.png" id="Graphic961165"/>
+            </imageobject>
 
-        <caption id="Caption961167">Create New EDI Form Using CSV
+            <caption id="Caption961167">Create New EDI Form Using CSV
         Format</caption>
-      </mediaobject>
-    </screenshot></para>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para960817">When creating a new EDI Form using the Report format,
   you are presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para960818">Type</term>
+      <varlistentry>
+         <term id="Para960818">Type</term>
 
-      <listitem id="listitemN0x180ac00N0x1880884">
-        <para>Select the type of document the Form will be used for.</para>
+         <listitem id="listitemN0x180ac00N0x1880884">
+            <para>Select the type of document the Form will be used for.</para>
 
-        <para id="Para960819">Invoices are currently the only supported
+            <para id="Para960819">Invoices are currently the only supported
         document type. The Invoice type will be selected by default.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960820">Output</term>
+      <varlistentry>
+         <term id="Para960820">Output</term>
 
-      <listitem id="listitemN0x180ac00N0x18808cc">
-        <para>For this example, we have selected the "CSV" output
+         <listitem id="listitemN0x180ac00N0x18808cc">
+            <para>For this example, we have selected the "CSV" output
         format.</para>
 
-        <para id="Para960821">Selecting the "CSV" option indicates that
+            <para id="Para960821">Selecting the "CSV" option indicates that
         document information will be written using the Form details specified
         below. Documents will be forwarded to EDI recipients in .TXT
         format.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960825">File Name</term>
+      <varlistentry>
+         <term id="Para960825">File Name</term>
 
-      <listitem id="listitemN0x180ac00N0x1880914">
-        <para>Enter a standard file name to be used when documents are
+         <listitem id="listitemN0x180ac00N0x1880914">
+            <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <link endterm="Anchor41905" id="XRef960828"
-        linkend="Anchor41905"> Create New EDI Form Using Report
+        In the example shown in <link endterm="Anchor41905" id="XRef960828" linkend="Anchor41905"> Create New EDI Form Using Report
         Format</link>Figure System.39, the file name will include the specific
         Invoice Number of each Invoice being forwarded to EDI
         recipients.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960833">Query</term>
+      <varlistentry>
+         <term id="Para960833">Query</term>
 
-      <listitem id="listitemN0x180ac00N0x188095c">
-        <para>This is an optional field to be used if you want to generate
+         <listitem id="listitemN0x180ac00N0x188095c">
+            <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <link endterm="Anchor41905" id="XRef960836"
-        linkend="Anchor41905"> Create New EDI Form Using Report
+        example shown in <link endterm="Anchor41905" id="XRef960836" linkend="Anchor41905"> Create New EDI Form Using Report
         Format</link>Figure System.39 uses a basic SQL statement to select an
         Invoice number from the "invchead" table. You will note in the WHERE
         clause that MetaSQL is used to dynamically capture the specific
         Invoice number. For more information on writing queries using MetaSQL,
         please see the Report Writer User Guide.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960366"><anchor id="Anchor961291" role="Index"
-      xreflabel="comma separated value:delimiter options for edi;electronic data interchange:file delimiter options for" />
-      <indexterm significance="normal" zone="Anchor961291">
-          <primary>comma separated value</primary>
+      <varlistentry>
+         <term id="Para960366">
+            <anchor id="Anchor961291" role="Index"
+                    xreflabel="comma separated value:delimiter options for edi;electronic data interchange:file delimiter options for"/>
+            <indexterm significance="normal">
+               <primary>comma separated value</primary>
 
-          <secondary>delimiter options for edi</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor961291">
-          <primary>electronic data interchange</primary>
+               <secondary>delimiter options for edi</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>electronic data interchange</primary>
 
-          <secondary>file delimiter options for</secondary>
-        </indexterm>Delimiter</term>
+               <secondary>file delimiter options for</secondary>
+            </indexterm>Delimiter</term>
 
-      <listitem id="listitemN0x180ac00N0x1888824">
-        <para>Select one of the following delimiter options:</para>
+         <listitem id="listitemN0x180ac00N0x1888824">
+            <para>Select one of the following delimiter options:</para>
 
-        <para id="Para961179">Comma: Select to generated comma-delimited CSV
+            <para id="Para961179">Comma: Select to generated comma-delimited CSV
         files.</para>
 
-        <para id="Para961183">Tab: Select to generated tab-delimited CSV
+            <para id="Para961183">Tab: Select to generated tab-delimited CSV
         files.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para960088">EDI Form Details</term>
+      <varlistentry>
+         <term id="Para960088">EDI Form Details</term>
 
-      <listitem id="listitemN0x180ac00N0x188886c">
-        <para>Displays a list of all the SQL queries to be used when
+         <listitem id="listitemN0x180ac00N0x188886c">
+            <para>Displays a list of all the SQL queries to be used when
         generating the CSV file output.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para961254">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para961256">NEW</term>
+      <varlistentry>
+         <term id="Para961256">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18888d8">
-        <para>Opens screen for creating a new Form Detail query.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18888d8">
+            <para>Opens screen for creating a new Form Detail query.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961257">EDIT</term>
+      <varlistentry>
+         <term id="Para961257">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x1888920">
-        <para>Enables you to edit highlighted Form Detail definitions. The
+         <listitem id="listitemN0x180ac00N0x1888920">
+            <para>Enables you to edit highlighted Form Detail definitions. The
         edit screen is the same as that for creating a new Form Detail
         definition--except that when editing, the fields will contain Form
         Detail information. Double-clicking on a Form Detail definition will
         also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961258">DELETE</term>
+      <varlistentry>
+         <term id="Para961258">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x1888968">
-        <para>Highlight a Form Detail definition and then select this button
+         <listitem id="listitemN0x180ac00N0x1888968">
+            <para>Highlight a Form Detail definition and then select this button
         to remove the Form Detail from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="ediFormDetail.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ediFormDetail.xml"
+               xpointer="element(/1)"/>
 </section>

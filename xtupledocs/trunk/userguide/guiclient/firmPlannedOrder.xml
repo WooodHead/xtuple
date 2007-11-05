@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Firm Planned Order
@@ -37,14 +37,14 @@
          <tbody>
                     <row>
                <entry>
-                  <guilabel>Order Type:</guilabel>
+                  <guilabel moreinfo="none">Order Type:</guilabel>
                </entry>
                <entry>_orderTypeLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_orderType</entry>
                <entry>QLabel</entry>
@@ -56,7 +56,7 @@
             </row>
                             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>W</accel>arehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
@@ -69,7 +69,7 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uantity:</guilabel>
                </entry>
                <entry>_quantityLit</entry>
@@ -77,7 +77,7 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>D</accel>ue Date:</guilabel>
                </entry>
                <entry>_dueDateLit</entry>
@@ -95,7 +95,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -103,7 +103,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>F</accel>irm</guilabel>
                </entry>
                <entry>_firm</entry>
@@ -111,7 +111,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Co<accel>m</accel>ments:</guilabel>
+                  <guilabel moreinfo="none">Co<accel>m</accel>ments:</guilabel>
                </entry>
                <entry>_commentsLit</entry>
                <entry>QLabel</entry>

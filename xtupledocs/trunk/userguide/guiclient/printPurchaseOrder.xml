@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section972547">
-    <title><anchor id="Anchor972546" role="Index"
-    xreflabel="purchase orders:printing of" /> <indexterm
-        significance="normal" zone="Anchor972546">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972547">
+    <title>
+      <anchor id="Anchor972546" role="Index" xreflabel="purchase orders:printing of"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>printing of</secondary>
@@ -14,15 +13,17 @@
     <para id="Para972548">To print a Purchase Order, select the "Print
     Purchase Order" option. The following screen will appear:</para>
 
-    <para id="Para972552"><screenshot>
+    <para id="Para972552">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_printPO.png" id="Graphic972550" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_PO_printPO.png" id="Graphic972550"/>
+            </imageobject>
 
-          <caption id="Caption972553">Print Purchase Order</caption>
+            <caption id="Caption972553">Print Purchase Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para972554">When printing a Purchase Order, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para972555">P/O #</term>
 
         <listitem id="listitemN0x180ac00N0x1870030">
-          <para>Enter the Purchase Order Number of the Purchase Order you want
+            <para>Enter the Purchase Order Number of the Purchase Order you want
           to print.</para>
         </listitem>
       </varlistentry>
@@ -41,16 +42,16 @@
         <term id="Para972556">Copies</term>
 
         <listitem id="listitemN0x180ac00N0x1870078">
-          <para>Indicate the copies you want to print:</para>
+            <para>Indicate the copies you want to print:</para>
 
-          <para id="Para972557">Vendor: Select to print one Vendor copy of the
+            <para id="Para972557">Vendor: Select to print one Vendor copy of the
           specified Purchase Order.</para>
 
-          <para id="Para972558">Internal: Select to print internal copies of
+            <para id="Para972558">Internal: Select to print internal copies of
           the specified Purchase Order. When you select this option, the "# of
           Copies" field will be enabled.</para>
 
-          <para id="Para972559"># of Copies: Specify the number of internal
+            <para id="Para972559"># of Copies: Specify the number of internal
           copies you want to print.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +65,7 @@
         <term id="Para972561">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18700e4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +74,7 @@
         <term id="Para972562">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x187012c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

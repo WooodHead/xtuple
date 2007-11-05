@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section560312">
-    <title><anchor id="Anchor563555" role="Index"
-    xreflabel="contacts:creating new;customer relationship management:creating new contacts for" />
-    <indexterm significance="normal" zone="Anchor563555">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560312">
+    <title>
+      <anchor id="Anchor563555" role="Index"
+              xreflabel="contacts:creating new;customer relationship management:creating new contacts for"/>
+      <indexterm significance="normal">
         <primary>contacts</primary>
 
         <secondary>creating new</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor563555">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customer relationship management</primary>
 
         <secondary>creating new contacts for</secondary>
@@ -19,15 +21,17 @@
     Addresses, and Warehouses. To create a new Contact, select the "New
     Contacts" option. The following screen will appear:</para>
 
-    <para id="Para563521"><screenshot>
+    <para id="Para563521">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_AB_cntctNew.png" id="Graphic563520" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_cntctNew.png" id="Graphic563520"/>
+            </imageobject>
 
-          <caption id="Caption563522">Create New Contact</caption>
+            <caption id="Caption563522">Create New Contact</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para560344">When creating a new Contact, you are presented with
     the following options:</para>
@@ -37,7 +41,7 @@
         <term id="Para577047">Title</term>
 
         <listitem id="listitemN0x180ac00N0x186dbe0">
-          <para>Select a Title from the list of available Titles.</para>
+            <para>Select a Title from the list of available Titles.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +49,7 @@
         <term id="Para566260">First</term>
 
         <listitem id="listitemN0x180ac00N0x186dc28">
-          <para>Enter the Contact's first name.</para>
+            <para>Enter the Contact's first name.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +57,7 @@
         <term id="Para566261">Last</term>
 
         <listitem id="listitemN0x180ac00N0x186dc70">
-          <para>Enter the Contact's last name.</para>
+            <para>Enter the Contact's last name.</para>
         </listitem>
       </varlistentry>
 
@@ -61,7 +65,7 @@
         <term id="Para566270">Initials</term>
 
         <listitem id="listitemN0x180ac00N0x186dcb8">
-          <para>Enter the Contact's initials.</para>
+            <para>Enter the Contact's initials.</para>
         </listitem>
       </varlistentry>
 
@@ -69,10 +73,10 @@
         <term id="Para566271">CRM Account</term>
 
         <listitem id="listitemN0x180ac00N0x186dd00">
-          <para>Specify the CRM Account the Contact is associated with (if
+            <para>Specify the CRM Account the Contact is associated with (if
           any).</para>
 
-          <para id="Para577267">Contacts may also be attached to a CRM Account
+            <para id="Para577267">Contacts may also be attached to a CRM Account
           on the Account master.</para>
         </listitem>
       </varlistentry>
@@ -81,10 +85,10 @@
         <term id="Para566423">Active</term>
 
         <listitem id="listitemN0x180ac00N0x186dd48">
-          <para>Select if you are actively doing business with this
+            <para>Select if you are actively doing business with this
           Contact.</para>
 
-          <para id="Para577271">Not selecting makes the Contact
+            <para id="Para577271">Not selecting makes the Contact
           inactive.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +97,7 @@
         <term id="Para571852">Job Title</term>
 
         <listitem id="listitemN0x180ac00N0x186dd90">
-          <para>Enter the Contact's job title.</para>
+            <para>Enter the Contact's job title.</para>
         </listitem>
       </varlistentry>
 
@@ -101,7 +105,7 @@
         <term id="Para566262">Voice</term>
 
         <listitem id="listitemN0x180ac00N0x186ddd8">
-          <para>Enter the Contact's phone number.</para>
+            <para>Enter the Contact's phone number.</para>
         </listitem>
       </varlistentry>
 
@@ -109,7 +113,7 @@
         <term id="Para566273">Alternate</term>
 
         <listitem id="listitemN0x180ac00N0x186de20">
-          <para>Enter an alternate phone number for the Contact.</para>
+            <para>Enter an alternate phone number for the Contact.</para>
         </listitem>
       </varlistentry>
 
@@ -117,7 +121,7 @@
         <term id="Para566263">Fax</term>
 
         <listitem id="listitemN0x180ac00N0x186de68">
-          <para>Enter the Contact's fax number.</para>
+            <para>Enter the Contact's fax number.</para>
         </listitem>
       </varlistentry>
 
@@ -125,7 +129,7 @@
         <term id="Para566475">E-Mail</term>
 
         <listitem id="listitemN0x180ac00N0x186deb0">
-          <para>Enter the Contact's e-mail address.</para>
+            <para>Enter the Contact's e-mail address.</para>
         </listitem>
       </varlistentry>
 
@@ -133,7 +137,7 @@
         <term id="Para566476">Web</term>
 
         <listitem id="listitemN0x180ac00N0x186def8">
-          <para>Enter the Contact's website address.</para>
+            <para>Enter the Contact's website address.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -149,22 +153,22 @@
         <term id="Para570660">Address</term>
 
         <listitem id="listitemN0x180ac00N0x186df88">
-          <para>Manually enter Address information in the fields below--or use
+            <para>Manually enter Address information in the fields below--or use
           the browse button to select pre-existing Address information.</para>
 
-          <para id="Para570661">Street Address: Enter the street Address for
+            <para id="Para570661">Street Address: Enter the street Address for
           the Contact.</para>
 
-          <para id="Para570662">City: Enter the city where the Contact is
+            <para id="Para570662">City: Enter the city where the Contact is
           located.</para>
 
-          <para id="Para570663">State: Enter the state where the Contact is
+            <para id="Para570663">State: Enter the state where the Contact is
           located.</para>
 
-          <para id="Para570664">Postal Code: Enter the Postal Code for the
+            <para id="Para570664">Postal Code: Enter the Postal Code for the
           Contact.</para>
 
-          <para id="Para570665">Country: Enter the country where the Contact
+            <para id="Para570665">Country: Enter the country where the Contact
           is located.</para>
         </listitem>
       </varlistentry>
@@ -173,7 +177,7 @@
         <term id="Para566288">Notes</term>
 
         <listitem id="listitemN0x180ac00N0x186dfd0">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Notes related to the Contact. Any Notes entered on this screen are
           for internal purposes only.</para>
         </listitem>
@@ -184,16 +188,17 @@
     tab at the bottom of the "Contact" screen. The following screen will
     appear:</para>
 
-    <para id="Para565760"><screenshot>
+    <para id="Para565760">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_AB_cntctNewComm.png"
-                       id="Graphic565758" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_cntctNewComm.png" id="Graphic565758"/>
+            </imageobject>
 
-          <caption id="Caption565761">Contact Comments</caption>
+            <caption id="Caption565761">Contact Comments</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para566145">When adding Comments to a Contact, you are presented
     with the following options:</para>
@@ -203,7 +208,7 @@
         <term id="Para566146">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x186e0a8">
-          <para>Display lists Comments related to the Contact.</para>
+            <para>Display lists Comments related to the Contact.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -216,7 +221,7 @@
         <term id="Para566149">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x186e114">
-          <para>Opens the screen for creating a new Contact Comment.</para>
+            <para>Opens the screen for creating a new Contact Comment.</para>
         </listitem>
       </varlistentry>
 
@@ -224,7 +229,7 @@
         <term id="Para566150">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x186e15c">
-          <para>Opens a read-only view of the Contact Comment.</para>
+            <para>Opens a read-only view of the Contact Comment.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -232,25 +237,27 @@
     <para id="Para566151">To enter a new Contact Comment, select the NEW
     button. The following screen will appear:</para>
 
-    <para id="Para566155"><screenshot>
+    <para id="Para566155">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CommentNew.png" id="Graphic566153" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CommentNew.png" id="Graphic566153"/>
+            </imageobject>
 
-          <caption id="Caption566156">Create New Comment</caption>
+            <caption id="Caption566156">Create New Comment</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <variablelist>
       <varlistentry>
         <term id="Para566195">Comment Type</term>
 
         <listitem id="listitemN0x180ac00N0x1875424">
-          <para>Specify one of the following Comment Types from the drop-down
+            <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
 
-          <para id="Para566196">Comment Types are used to categorize Comments.
+            <para id="Para566196">Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
@@ -266,7 +273,7 @@
         <term id="Para566160">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1875490">
-          <para>Closes the screen without creating the Contact Comment,
+            <para>Closes the screen without creating the Contact Comment,
           returning you to the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -275,7 +282,7 @@
         <term id="Para566161">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18754d8">
-          <para>Creates the Comment and adds it to the list of Contact
+            <para>Creates the Comment and adds it to the list of Contact
           Comments.</para>
         </listitem>
       </varlistentry>
@@ -284,28 +291,30 @@
     <para id="Para565754">Contact Characteristics are user-defined definitions
     of a Contact which may be used to provide additional layers of
     description. To enter <anchor id="Anchor566019" role="Index"
-    xreflabel="characteristics:creating new for contacts;characteristics:contacts having" />
-    <indexterm significance="normal" zone="Anchor566019">
+              xreflabel="characteristics:creating new for contacts;characteristics:contacts having"/>
+      <indexterm significance="normal">
         <primary>characteristics</primary>
 
         <secondary>creating new for contacts</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor566019">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>characteristics</primary>
 
         <secondary>contacts having</secondary>
       </indexterm>Characteristics associated with a Contact, select the
     "Characteristics" tab. The following screen will appear:</para>
 
-    <para id="Para565790"><screenshot>
+    <para id="Para565790">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_AB_cntctNewChar.png"
-                       id="Graphic565788" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_cntctNewChar.png" id="Graphic565788"/>
+            </imageobject>
 
-          <caption id="Caption565791">Contact Characteristics</caption>
+            <caption id="Caption565791">Contact Characteristics</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para572489">Use Contact Characteristics, for example, to
@@ -318,7 +327,7 @@
         <term id="Para565874">Characteristics</term>
 
         <listitem id="listitemN0x180ac00N0x1875664">
-          <para>Display lists the Characteristics related to the
+            <para>Display lists the Characteristics related to the
           Contact.</para>
         </listitem>
       </varlistentry>
@@ -332,7 +341,7 @@
         <term id="Para565877">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x18756d0">
-          <para>Opens screen for creating a new Contact Characteristic.</para>
+            <para>Opens screen for creating a new Contact Characteristic.</para>
         </listitem>
       </varlistentry>
 
@@ -340,7 +349,7 @@
         <term id="Para565878">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x1875718">
-          <para>Enables you to edit highlighted Contact Characteristics. The
+            <para>Enables you to edit highlighted Contact Characteristics. The
           edit screen is the same as that for creating a new Contact
           Characteristic--except that when editing, the fields will contain
           Contact Characteristic information. Double-clicking on a Contact
@@ -352,7 +361,7 @@
         <term id="Para565879">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x1875760">
-          <para>Highlight a Contact Characteristic and then select this button
+            <para>Highlight a Contact Characteristic and then select this button
           to remove the Contact Characteristic from the list.</para>
         </listitem>
       </varlistentry>
@@ -361,17 +370,18 @@
     <para id="Para565880">To create a new Contact Characteristic, select the
     NEW button. The following screen will appear:</para>
 
-    <para id="Para565884"><screenshot>
+    <para id="Para565884">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_AB_cntctNewCharItem.png"
-                       id="Graphic565882" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_cntctNewCharItem.png" id="Graphic565882"/>
+            </imageobject>
 
-          <caption id="Caption565885">Create New Contact
+            <caption id="Caption565885">Create New Contact
           Characteristic</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para567101">When creating a new Contact Characteristic, you are
     presented with the following options:</para>
@@ -381,7 +391,7 @@
         <term id="Para577009">Characteristic</term>
 
         <listitem id="listitemN0x180ac00N0x1875838">
-          <para>Select a Characteristic from the list of Characteristics
+            <para>Select a Characteristic from the list of Characteristics
           designated as being available for use as Contact
           Characteristics.</para>
         </listitem>
@@ -391,7 +401,7 @@
         <term id="Para565888">Value</term>
 
         <listitem id="listitemN0x180ac00N0x1875880">
-          <para>Enter a value to associate with the Characteristic.</para>
+            <para>Enter a value to associate with the Characteristic.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -404,7 +414,7 @@
         <term id="Para565890">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18758ec">
-          <para>Closes the screen without creating the Contact Characteristic,
+            <para>Closes the screen without creating the Contact Characteristic,
           returning you to the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -413,7 +423,7 @@
         <term id="Para566059">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1875934">
-          <para>Creates the Contact Characteristic and adds it to the list of
+            <para>Creates the Contact Characteristic and adds it to the list of
           Contact Characteristics</para>
         </listitem>
       </varlistentry>
@@ -423,16 +433,17 @@
     used, select the "Uses of the Contact" tab. The following screen will
     appear:</para>
 
-    <para id="Para572538"><screenshot>
+    <para id="Para572538">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_AB_cntctWhereUsed.png"
-                       id="Graphic572536" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_cntctWhereUsed.png" id="Graphic572536"/>
+            </imageobject>
 
-          <caption id="Caption572539">Uses of the Contact</caption>
+            <caption id="Caption572539">Uses of the Contact</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para572585">The "Uses of the Contact" list displays information
     on all Contact cross-references, including used-at reference, CRM Account
@@ -446,7 +457,7 @@
         <term id="Para572587">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x1875a0c">
-          <para>Enables you to edit highlighted used-at references.</para>
+            <para>Enables you to edit highlighted used-at references.</para>
         </listitem>
       </varlistentry>
 
@@ -454,7 +465,7 @@
         <term id="Para572588">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x1875a54">
-          <para>Highlight a used-at reference and then select this button to
+            <para>Highlight a used-at reference and then select this button to
           reach a read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>

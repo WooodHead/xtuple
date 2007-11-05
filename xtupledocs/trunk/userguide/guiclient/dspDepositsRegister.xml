@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section556323">
-    <title><anchor id="Anchor556322" role="Index"
-    xreflabel="deposits:register of;registers:for deposits" /> <indexterm
-        significance="normal" zone="Anchor556322">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556323">
+    <title>
+      <anchor id="Anchor556322" role="Index"
+              xreflabel="deposits:register of;registers:for deposits"/> 
+      <indexterm significance="normal">
         <primary>deposits</primary>
 
         <secondary>register of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor556322">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>registers</primary>
 
         <secondary>for deposits</secondary>
@@ -18,16 +19,17 @@
     <para id="Para556989">To view the records of posted Cash Receipts, select
     the "Deposits Register" option. The following screen will appear:</para>
 
-    <para id="Para556906"><screenshot>
+    <para id="Para556906">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_depRegister.png"
-                       id="Graphic556904" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_depRegister.png" id="Graphic556904"/>
+            </imageobject>
 
-          <caption id="Caption556907">Deposits Register</caption>
+            <caption id="Caption556907">Deposits Register</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para556908">When displaying the Deposits Register, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para557125">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18bdb60">
-          <para>Cash Receipts posted on and after this date will be
+            <para>Cash Receipts posted on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para557130">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18bdba8">
-          <para>Cash Receipts posted on and before this date will be
+            <para>Cash Receipts posted on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -55,10 +57,10 @@
         <term id="Para557132">Transactions</term>
 
         <listitem id="listitemN0x180ac00N0x18bdbf0">
-          <para>Display lists posted Cash Receipts, using the specified
+            <para>Display lists posted Cash Receipts, using the specified
           parameters.</para>
 
-          <para id="Para572454">The totals for the received and A/R
+            <para id="Para572454">The totals for the received and A/R
           application amounts will display at the bottom of the screen.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +81,7 @@
         <term id="Para557135">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18bdc80">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +90,7 @@
         <term id="Para557136">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18bdcc8">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +99,7 @@
         <term id="Para572325">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18bdd10">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

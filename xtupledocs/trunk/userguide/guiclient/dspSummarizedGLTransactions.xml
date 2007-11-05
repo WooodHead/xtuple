@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section569994">
-    <title><anchor id="Anchor569993" role="Index"
-    xreflabel="general ledger:summarized transactions in;transactions:summarized in general ledger" />
-    <indexterm significance="normal" zone="Anchor569993">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section569994">
+    <title>
+      <anchor id="Anchor569993" role="Index"
+              xreflabel="general ledger:summarized transactions in;transactions:summarized in general ledger"/>
+      <indexterm significance="normal">
         <primary>general ledger</primary>
 
         <secondary>summarized transactions in</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor569993">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>transactions</primary>
 
         <secondary>summarized in general ledger</secondary>
@@ -20,16 +20,17 @@
     select the "Summarized G/L Transactions" option. The following screen will
     appear:</para>
 
-    <para id="Para525488"><screenshot>
+    <para id="Para525488">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/GL_Disp_summGLTrans.png"
-                       id="Graphic525486" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/GL_Disp_summGLTrans.png" id="Graphic525486"/>
+            </imageobject>
 
-          <caption id="Caption525489">Summarized G/L Transactions</caption>
+            <caption id="Caption525489">Summarized G/L Transactions</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para529640">When displaying summarized General Ledger
     transactions, you are presented with the following options:</para>
@@ -39,7 +40,7 @@
         <term id="Para529641">All Sources</term>
 
         <listitem id="listitemN0x180ac00N0x191536c">
-          <para>Select to display summarized G/L transactions from all source
+            <para>Select to display summarized G/L transactions from all source
           modules.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +49,7 @@
         <term id="Para529642">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19153b4">
-          <para>Specify source module whose summarized G/L transactions you
+            <para>Specify source module whose summarized G/L transactions you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +58,7 @@
         <term id="Para529646">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x19153fc">
-          <para>G/L transactions posted on and after this date will be
+            <para>G/L transactions posted on and after this date will be
           summarized in the display. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -66,7 +67,7 @@
         <term id="Para529651">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1915444">
-          <para>G/L transactions posted on and before this date will be
+            <para>G/L transactions posted on and before this date will be
           summarized in the display. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -75,12 +76,12 @@
         <term id="Para531143">Show</term>
 
         <listitem id="listitemN0x180ac00N0x191548c">
-          <para>Select one of the following display options:</para>
+            <para>Select one of the following display options:</para>
 
-          <para id="Para531150">All Transactions: Select to summarize all
+            <para id="Para531150">All Transactions: Select to summarize all
           transactions in the display.</para>
 
-          <para id="Para531154">Unposted Transactions: Select to summarize
+            <para id="Para531154">Unposted Transactions: Select to summarize
           only unposted transactions in the display.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +128,7 @@
         <term id="Para529656">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1915588">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -136,10 +137,10 @@
         <term id="Para533811">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19155d0">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para529687">Start date and end date must be entered for
+            <para id="Para529687">Start date and end date must be entered for
           request to proceed. Results will be displayed in the "Summarized G/L
           Transactions" list.</para>
         </listitem>
@@ -149,7 +150,7 @@
         <term id="Para529659">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1915618">
-          <para>Prints a copy of the contents displayed on the screen.</para>
+            <para>Prints a copy of the contents displayed on the screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -158,13 +159,11 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para569953">If the transaction refers to an Invoice, Purchase

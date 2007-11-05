@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520094">
-    <title><anchor id="Anchor595488" role="Index"
-    xreflabel="costing:history by item;item costs:history of" /> <indexterm
-        significance="normal" zone="Anchor595488">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520094">
+    <title>
+      <anchor id="Anchor595488" role="Index"
+              xreflabel="costing:history by item;item costs:history of"/> 
+      <indexterm significance="normal">
         <primary>costing</primary>
 
         <secondary>history by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595488">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item costs</primary>
 
         <secondary>history of</secondary>
@@ -20,16 +21,17 @@
     the history of Costs associated with an individual Item, select the "Item
     Costs History" option. The following screen will appear:</para>
 
-    <para id="Para520099"><screenshot>
+    <para id="Para520099">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_dispItemCostHist.png"
-                       id="Graphic563475" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_dispItemCostHist.png" id="Graphic563475"/>
+            </imageobject>
 
-          <caption id="Caption520100">Item Costs History</caption>
+            <caption id="Caption520100">Item Costs History</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520106">When displaying the history of Costs associated with
     an Item, you are presented with the following options:</para>
@@ -39,7 +41,7 @@
         <term id="Para520107">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x19234c8">
-          <para>Enter the Item Number of the Item whose Cost history you would
+            <para>Enter the Item Number of the Item whose Cost history you would
           like to view.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +50,7 @@
         <term id="Para663317">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1923510">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -56,7 +58,7 @@
         <term id="Para520111">Costing History</term>
 
         <listitem id="listitemN0x180ac00N0x1923558">
-          <para>Display lists an Item's Cost History, using the specified
+            <para>Display lists an Item's Cost History, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +72,7 @@
         <term id="Para520114">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x19235c4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +81,7 @@
         <term id="Para663977">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x192360c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

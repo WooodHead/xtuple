@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section920970">
-    <title><anchor id="Anchor920969" role="Index"
-    xreflabel="purchase orders:line items by date" /> <indexterm
-        significance="normal" zone="Anchor920969">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section920970">
+    <title>
+      <anchor id="Anchor920969" role="Index" xreflabel="purchase orders:line items by date"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>line items by date</secondary>
@@ -14,16 +13,17 @@
     <para id="Para535422">To view Purchase Order Items by date, select the
     "P/O Items by Date" option. The following screen will appear:</para>
 
-    <para id="Para535426"><screenshot>
+    <para id="Para535426">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_lineItemsByDate.png"
-                       id="Graphic535424" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_lineItemsByDate.png" id="Graphic535424"/>
+            </imageobject>
 
-          <caption id="Caption535427">Purchase Order Items by Date</caption>
+            <caption id="Caption535427">Purchase Order Items by Date</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para952549">A Purchase Order will remain open if at least one
@@ -40,7 +40,7 @@
         <term id="Para535432">Starting Due Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b93f0">
-          <para>Purchase Order Items entered on and after this date will be
+            <para>Purchase Order Items entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -49,7 +49,7 @@
         <term id="Para535437">Ending Due Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b9438">
-          <para>Purchase Order Items entered on and before this date will be
+            <para>Purchase Order Items entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +58,7 @@
         <term id="Para535439">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18b945c">
-          <para>Select to display Purchase Order Items by date for all
+            <para>Select to display Purchase Order Items by date for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +67,7 @@
         <term id="Para535441">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18b9480">
-          <para>Specify Warehouse whose Purchase Order Items by date you want
+            <para>Specify Warehouse whose Purchase Order Items by date you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +76,7 @@
         <term id="Para535443">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18b94c8">
-          <para>Select to display Purchase Order Items by date for all
+            <para>Select to display Purchase Order Items by date for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -85,10 +85,10 @@
         <term id="Para535444">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18b9510">
-          <para>Specify Purchasing Agent whose Purchase Order Items by date
+            <para>Specify Purchasing Agent whose Purchase Order Items by date
           you want to display.</para>
 
-          <para id="Para935579">Users may be designated as Purchasing Agents
+            <para id="Para935579">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +97,7 @@
         <term id="Para535447">All Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b9558">
-          <para>Select to include all Purchase Order Items by date in the
+            <para>Select to include all Purchase Order Items by date in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +106,7 @@
         <term id="Para535448">Open Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b95a0">
-          <para>Select to include open Purchase Order Items by date in the
+            <para>Select to include open Purchase Order Items by date in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +115,7 @@
         <term id="Para535449">Closed Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b95e8">
-          <para>Select to include closed Purchase Order Items by date in the
+            <para>Select to include closed Purchase Order Items by date in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -124,7 +124,7 @@
         <term id="Para535450">P/O Items</term>
 
         <listitem id="listitemN0x180ac00N0x18b9630">
-          <para>Display lists Purchase Order Items by date, using the
+            <para>Display lists Purchase Order Items by date, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -138,7 +138,7 @@
         <term id="Para535453">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18b969c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -147,7 +147,7 @@
         <term id="Para934524">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18b96e4">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -156,7 +156,7 @@
         <term id="Para969993">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18b972c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -165,25 +165,21 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para953777">If the Line Item is closed, the following option
     will be available:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/8/2/8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/8)"/>
     </variablelist>
   </section>

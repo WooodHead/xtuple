@@ -1,101 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518794" role="openmfg">
   <title>MPS Detail</title>
 
   <para id="Para533463">To view the Master Production Schedule (MPS), select
   the "MPS Detail" option. The following screen will appear:</para>
 
-  <para id="Para520715"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/MS_Disp_mpsDetail.png" id="Graphic520713" />
-        </imageobject>
+  <para id="Para520715">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Disp_mpsDetail.png" id="Graphic520713"/>
+            </imageobject>
 
-        <caption id="Caption520716">MPS Detail</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption520716">MPS Detail</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para518801">When viewing the Master Production Schedule, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518802">All Warehouses</term>
+      <varlistentry>
+         <term id="Para518802">All Warehouses</term>
 
-      <listitem>
-        <para>Select to display MPS detail for all Warehouses.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Select to display MPS detail for all Warehouses.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518804">Selected</term>
+      <varlistentry>
+         <term id="Para518804">Selected</term>
 
-      <listitem>
-        <para>Specify Warehouse whose MPS detail you want to display.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Specify Warehouse whose MPS detail you want to display.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518806">All Planner Codes</term>
+      <varlistentry>
+         <term id="Para518806">All Planner Codes</term>
 
-      <listitem>
-        <para>Select to display MPS detail for all Planner Codes.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Select to display MPS detail for all Planner Codes.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518807">Selected</term>
+      <varlistentry>
+         <term id="Para518807">Selected</term>
 
-      <listitem>
-        <para>Specify Planner Code whose MPS detail you want to
+         <listitem>
+            <para>Specify Planner Code whose MPS detail you want to
         display.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526352">Pattern</term>
+      <varlistentry>
+         <term id="Para526352">Pattern</term>
 
-      <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner
+         <listitem>
+            <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
 
-        <para id="Para554638">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef554637"
-        linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554638">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef554637" linkend="Anchor77806"> Pattern Matching with Regular
         Expressions</link>"Topic: Pattern Matching with Regular
         Expressions".</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para552712">Calendar</term>
+      <varlistentry>
+         <term id="Para552712">Calendar</term>
 
-      <listitem>
-        <para>Select the Calendar you want to use for the report.</para>
+         <listitem>
+            <para>Select the Calendar you want to use for the report.</para>
 
-        <para id="Para552713">By default, the Calendar defined at the system
+            <para id="Para552713">By default, the Calendar defined at the system
         level will be used. Associated Calendar periods will be
         displayed.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <tip>
-    <para id="Para522398">When setting up a planning Calendar, be sure to
+      <para id="Para522398">When setting up a planning Calendar, be sure to
     include past due information in the first period of the Calendar.</para>
   </tip>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para523296">Name/Selected Periods</term>
+      <varlistentry>
+         <term id="Para523296">Name/Selected Periods</term>
 
-      <listitem>
-        <para>Select as many periods as you want to display. Selected periods
+         <listitem>
+            <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
 
-        <para id="Para526711">Select individual periods or groups of periods
+            <para id="Para526711">Select individual periods or groups of periods
         together. To select an individual period, highlight the period using
         your mouse button. The period is now selected. To select a sequence of
         periods, highlight the first in the sequence using your mouse button.
@@ -107,30 +108,30 @@
         select. Continue highlighting periods with the CTRL key depressed
         until all desired periods are selected. The entire group is now
         selected.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518815">Item Sites</term>
+      <varlistentry>
+         <term id="Para518815">Item Sites</term>
 
-      <listitem>
-        <para>Display lists Item Sites for Items matching the specified
+         <listitem>
+            <para>Display lists Item Sites for Items matching the specified
         parameters.</para>
 
-        <para id="Para553860">When you have selected a Calendar type and
+            <para id="Para553860">When you have selected a Calendar type and
         corresponding Calendar period(s), highlight an Item Site to display
         MPS detail for the Item Site in the "MPS Detail" display below.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518817">MPS Detail</term>
+      <varlistentry>
+         <term id="Para518817">MPS Detail</term>
 
-      <listitem>
-        <para>Display lists MPS detail for the Item Site you selected in the
+         <listitem>
+            <para>Display lists MPS detail for the Item Site you selected in the
         "Item Sites" display above.</para>
 
-        <para id="Para553968">MPS detail will include the following rows:
+            <para id="Para553968">MPS detail will include the following rows:
         Forecast (based on MPS reading of Production Plans); Allocations
         (requirements from Customer Orders or Work Orders); Orders (based on
         Work Orders or Purchase Orders); Projected Quantity on Hand (based on
@@ -139,30 +140,30 @@
         Availability); Availability (based on current Allocations and Orders);
         Available to Promise (uncommitted quantity available to support new
         Sales Orders).</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para541548">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para541549">CLOSE</term>
+      <varlistentry>
+         <term id="Para541549">CLOSE</term>
 
-      <listitem>
-        <para>Closes the screen, returning you to the application
+         <listitem>
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para553772">PRINT</term>
+      <varlistentry>
+         <term id="Para553772">PRINT</term>
 
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para525749">Right-clicking on a Line Item in the MPS Detail
@@ -170,17 +171,14 @@
   options.</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/18)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/18)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/24)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/24)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
   <para id="Para525753">You will only be able to view Allocations if
@@ -193,21 +191,18 @@
   additional options will be available:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/11)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/10)"/>
   </variablelist>
 
   <para id="Para530194">If the Line Item is a manufactured Item, the following
   additional option will be available:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/13)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/8/2/13)"/>
   </variablelist>
 </section>

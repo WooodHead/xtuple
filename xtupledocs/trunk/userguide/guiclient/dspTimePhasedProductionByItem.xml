@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section518748" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518748" role="openmfg">
     <title>Time-Phased Production by Item</title>
 
     <para id="Para519962">To view time-phased production by Item, select the
     "Time-Phased Production by Item" option. The following screen will
     appear:</para>
 
-    <para id="Para519966"><screenshot>
+    <para id="Para519966">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CP_Disp_tpProdByItem.png"
-                       id="Graphic519964" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CP_Disp_tpProdByItem.png" id="Graphic519964"/>
+            </imageobject>
 
-          <caption id="Caption519967">Time-Phased Production by Item</caption>
+            <caption id="Caption519967">Time-Phased Production by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519968">When displaying time-phased production by Item, you
     are presented with the following options:</para>
@@ -29,7 +28,7 @@
         <term id="Para521129">All Warehouses</term>
 
         <listitem>
-          <para>Select to display time-phased production by Item for all
+            <para>Select to display time-phased production by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +37,7 @@
         <term id="Para525828">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose time-phased production by Item you
+            <para>Specify Warehouse whose time-phased production by Item you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +46,7 @@
         <term id="Para525829">All Planner Codes</term>
 
         <listitem>
-          <para>Select to display time-phased production by Item for all
+            <para>Select to display time-phased production by Item for all
           Planner Codes.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +55,7 @@
         <term id="Para525830">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose time-phased production by Item you
+            <para>Specify Planner Code whose time-phased production by Item you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -65,12 +64,11 @@
         <term id="Para522933">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para530056">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef530055"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para530056">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef530055" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -80,9 +78,9 @@
         <term id="Para529484">Calendar</term>
 
         <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para529485">Associated Calendar periods will be
+            <para id="Para529485">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -91,11 +89,11 @@
         <term id="Para521149">Name/Selected Periods</term>
 
         <listitem>
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para523051">Select individual periods or groups of periods
+            <para id="Para523051">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -114,7 +112,7 @@
         <term id="Para521151">Production</term>
 
         <listitem>
-          <para>Display lists time-phased production by Item, using the
+            <para>Display lists time-phased production by Item, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -128,7 +126,7 @@
         <term id="Para521154">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -137,10 +135,10 @@
         <term id="Para525542">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para521156">Start date and end date must be entered for
+            <para id="Para521156">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the
           "Production" display.</para>
         </listitem>
@@ -150,7 +148,7 @@
         <term id="Para529864">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -158,9 +156,8 @@
         <term id="Para529098">SUBMIT</term>
 
         <listitem>
-          <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef529100"
-          linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            <para>Select to submit report to the Batch Manager. For additional
+          information, see the <link endterm="Anchor61009" id="XRef529100" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
         </listitem>
@@ -175,12 +172,11 @@
         <term id="Para522876">View Transactions</term>
 
         <listitem>
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

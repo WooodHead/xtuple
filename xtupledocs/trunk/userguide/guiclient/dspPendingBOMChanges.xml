@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520437">
-    <title><anchor id="Anchor595520" role="Index"
-    xreflabel="bills of materials:pending changes in" /> <indexterm
-        significance="normal" zone="Anchor595520">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520437">
+    <title>
+      <anchor id="Anchor595520" role="Index"
+              xreflabel="bills of materials:pending changes in"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>pending changes in</secondary>
@@ -15,17 +15,18 @@
     select the "Pending Bill of Materials Changes" option. The following
     screen will appear:</para>
 
-    <para id="Para520442"><screenshot>
+    <para id="Para520442">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_pendingBOM.png"
-                       id="Graphic563725" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_pendingBOM.png" id="Graphic563725"/>
+            </imageobject>
 
-          <caption id="Caption520443">Pending Bill of Materials
+            <caption id="Caption520443">Pending Bill of Materials
           Changes</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520449">When displaying an Item's pending Bill of Materials
     changes, you are presented with the following options:</para>
@@ -35,7 +36,7 @@
         <term id="Para520450">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1939e9c">
-          <para>Enter the Item Number of the manufactured Item whose pending
+            <para>Enter the Item Number of the manufactured Item whose pending
           Bill of Materials changes you want to view.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +45,7 @@
         <term id="Para663379">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1939ee4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -52,7 +53,7 @@
         <term id="Para520457">Cutoff Date</term>
 
         <listitem id="listitemN0x180ac00N0x1939f2c">
-          <para>Indicates the last event date to display.</para>
+            <para>Indicates the last event date to display.</para>
         </listitem>
       </varlistentry>
 
@@ -60,7 +61,7 @@
         <term id="Para520459">Pending Bill of Materials Changes</term>
 
         <listitem id="listitemN0x180ac00N0x1939f74">
-          <para>Display lists pending Bill of Materials changes, using the
+            <para>Display lists pending Bill of Materials changes, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +75,7 @@
         <term id="Para520462">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1939fe0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +84,7 @@
         <term id="Para664041">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193a028">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -96,7 +97,7 @@
         <term id="Para520465">Edit BOM Item</term>
 
         <listitem id="listitemN0x180ac00N0x193a094">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -104,12 +105,11 @@
         <term id="Para615676">View BOM Item</term>
 
         <listitem id="listitemN0x180ac00N0x193a0dc">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

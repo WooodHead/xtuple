@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section970006">
   <title>View Database Log</title>
 
@@ -12,7 +12,7 @@
   cause of the problem.</para>
 
   <note>
-    <para>This tool reports only on database errors--not the full range of log
+      <para>This tool reports only on database errors--not the full range of log
     messages which are written to the database. If no errors have occurred,
     then the log viewer will not display any information. Support personnel
     can use Database Log information to help them locate the source of errors
@@ -22,29 +22,30 @@
   <para>To view the Database Log, select the "View Database Log" option. The
   following screen will appear:</para>
 
-  <para id="Para969870"><anchor id="Anchor91396" role="Cross-Ref"
-  xreflabel="91396: Figure: Figure System.85:  View Database Log Messages" />
-  <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_dbLog.png" id="Graphic969868" />
-        </imageobject>
+  <para id="Para969870">
+      <anchor id="Anchor91396" role="Cross-Ref"
+              xreflabel="91396: Figure: Figure System.85:  View Database Log Messages"/>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_dbLog.png" id="Graphic969868"/>
+            </imageobject>
 
-        <caption id="Caption969871">View Database Log Messages</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption969871">View Database Log Messages</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para969862">While the information written to the Database Log may
   seem cryptic to the average user, the contents written there are invaluable
   to support technicians as they attempt to discover the root cause of a
-  problem. For example, <link endterm="Anchor91396" id="XRef970106"
-  linkend="Anchor91396"> View Database Log Messages</link>Figure System.80
+  problem. For example, <link endterm="Anchor91396" id="XRef970106" linkend="Anchor91396"> View Database Log Messages</link>Figure System.80
   shows the log information displayed after a user tried unsuccessfully to
   ship a Sales Order. Reading the Log, it becomes clear that an Item Site on
   the Order did not have its Cost Category defined properly.</para>
 
   <tip>
-    <para id="Para970152">Include the contents of the Log file when reporting
+      <para id="Para970152">Include the contents of the Log file when reporting
     problems to your support provider. To copy the contents, highlight the
     portion you want to copy, then select the "Copy" option from the
     right-click menu. Finally, paste the copied text into an email or other

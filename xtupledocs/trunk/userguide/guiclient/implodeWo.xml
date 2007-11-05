@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518586">
-    <title><anchor id="Anchor533165" role="Index"
-    xreflabel="work orders:implosion of;implosion:of work orders" />
-    <indexterm significance="normal" zone="Anchor533165">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518586">
+    <title>
+      <anchor id="Anchor533165" role="Index"
+              xreflabel="work orders:implosion of;implosion:of work orders"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>implosion of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533165">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>implosion</primary>
 
         <secondary>of work orders</secondary>
@@ -22,16 +24,17 @@
     implode a Work Order, select the "Implode Work Order" option. The
     following screen will appear:</para>
 
-    <para id="Para518591"><screenshot>
+    <para id="Para518591">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_implodeWO.png"
-                       id="Graphic523453" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_implodeWO.png" id="Graphic523453"/>
+            </imageobject>
 
-          <caption id="Caption518592">Implode Work Order</caption>
+            <caption id="Caption518592">Implode Work Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518593">When imploding a Work Order, you are presented with
     the following options:</para>
@@ -41,7 +44,7 @@
         <term id="Para518594">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           implode.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +53,7 @@
         <term id="Para518596">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +62,7 @@
         <term id="Para518598">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +71,7 @@
         <term id="Para568594">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +79,7 @@
         <term id="Para518602">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -90,7 +93,7 @@
         <term id="Para518605">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without imploding the Work Order, returning
+            <para>Closes the screen without imploding the Work Order, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -99,7 +102,7 @@
         <term id="Para518606">IMPLODE</term>
 
         <listitem>
-          <para>Implodes the Work Order.</para>
+            <para>Implodes the Work Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>

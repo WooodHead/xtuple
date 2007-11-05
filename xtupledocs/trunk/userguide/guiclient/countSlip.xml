@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519273">
-    <title><anchor id="Anchor552160" role="Index"
-    xreflabel="count slips:entering of;physical inventory:entering count slips" />
-    <indexterm significance="normal" zone="Anchor552160">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519273">
+    <title>
+      <anchor id="Anchor552160" role="Index"
+              xreflabel="count slips:entering of;physical inventory:entering count slips"/>
+      <indexterm significance="normal">
         <primary>count slips</primary>
 
         <secondary>entering of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552160">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>entering count slips</secondary>
@@ -20,26 +22,25 @@
     Count Slip, select the "Enter Count Slip" option. The following screen
     will appear:</para>
 
-    <para id="Para519278"><screenshot>
+    <para id="Para519278">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_enterCountSlip.png"
-                       id="Graphic526034" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_enterCountSlip.png" id="Graphic526034"/>
+            </imageobject>
 
-          <caption id="Caption519279">Enter Count Slip</caption>
+            <caption id="Caption519279">Enter Count Slip</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519280">When entering a Count Slip, you are presented with
     the following options:</para>
 
     <tip>
       <para id="Para597980">Restrictions may be imposed on the creation of
-      Count Slips. To learn more, see the <link endterm="Anchor19758"
-      id="XRef598062" linkend="Anchor19758"> Configure I/M</link>"Configure
-      I/M" section of the <link endterm="Anchor30917" id="XRef598067"
-      linkend="Anchor30917"> System Module</link>System Module chapter.</para>
+      Count Slips. To learn more, see the <link endterm="Anchor19758" id="XRef598062" linkend="Anchor19758"> Configure I/M</link>"Configure
+      I/M" section of the <link endterm="Anchor30917" id="XRef598067" linkend="Anchor30917"> System Module</link>System Module chapter.</para>
     </tip>
 
     <variablelist>
@@ -47,7 +48,7 @@
         <term id="Para519284">Count Tag #</term>
 
         <listitem id="listitemN0x180ac00N0x19073e8">
-          <para>Enter the Count Tag Number of the Count Tag you want to enter
+            <para>Enter the Count Tag Number of the Count Tag you want to enter
           a Count Slip toward.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +57,7 @@
         <term id="Para519286">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1907430">
-          <para>Displays Item Number automatically when Count Tag Number is
+            <para>Displays Item Number automatically when Count Tag Number is
           entered into "Count Tag #" field.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +66,7 @@
         <term id="Para672005">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1907478">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -73,7 +74,7 @@
         <term id="Para519290">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x19074c0">
-          <para>Specify Warehouse where count is being conducted.</para>
+            <para>Specify Warehouse where count is being conducted.</para>
         </listitem>
       </varlistentry>
 
@@ -81,7 +82,7 @@
         <term id="Para519292">Counted Qty. TD</term>
 
         <listitem id="listitemN0x180ac00N0x1907508">
-          <para>Displays total for specified Count Tag to date.</para>
+            <para>Displays total for specified Count Tag to date.</para>
         </listitem>
       </varlistentry>
 
@@ -89,12 +90,10 @@
         <term id="Para519297">Slip #</term>
 
         <listitem id="listitemN0x180ac00N0x1907550">
-          <para>Enter a Count Slip Number to identify the Count Slip. Some
+            <para>Enter a Count Slip Number to identify the Count Slip. Some
           restrictions may apply. To learn more about Count Slip numbering
-          restrictions, see the <link endterm="Anchor19758" id="XRef530363"
-          linkend="Anchor19758"> Configure I/M</link>"Configure I/M" section
-          of the <link endterm="Anchor30917" id="XRef529029"
-          linkend="Anchor30917"> System Module</link>System Module
+          restrictions, see the <link endterm="Anchor19758" id="XRef530363" linkend="Anchor19758"> Configure I/M</link>"Configure I/M" section
+          of the <link endterm="Anchor30917" id="XRef529029" linkend="Anchor30917"> System Module</link>System Module
           chapter.</para>
         </listitem>
       </varlistentry>
@@ -103,7 +102,7 @@
         <term id="Para519302">Slip Qty</term>
 
         <listitem id="listitemN0x180ac00N0x1907598">
-          <para>Enter the Physical Count total.</para>
+            <para>Enter the Physical Count total.</para>
         </listitem>
       </varlistentry>
 
@@ -111,10 +110,10 @@
         <term id="Para544355">Location</term>
 
         <listitem id="listitemN0x180ac00N0x19075e0">
-          <para>Specify the Location you want the Count Slip created
+            <para>Specify the Location you want the Count Slip created
           for.</para>
 
-          <para id="Para552552">The list will show all valid Warehouse
+            <para id="Para552552">The list will show all valid Warehouse
           Locations for the specified Item.</para>
         </listitem>
       </varlistentry>
@@ -123,7 +122,7 @@
         <term id="Para552553">Lot/Serial #</term>
 
         <listitem id="listitemN0x180ac00N0x1907628">
-          <para>Displays related Lot/Serial Number information, if
+            <para>Displays related Lot/Serial Number information, if
           applicable.</para>
         </listitem>
       </varlistentry>
@@ -132,7 +131,7 @@
         <term id="Para631875">Lot Expiration</term>
 
         <listitem id="listitemN0x180ac00N0x1907670">
-          <para>If a Lot-controlled Item Site is also perishable, you will
+            <para>If a Lot-controlled Item Site is also perishable, you will
           have the option to enter an expiration date for the counted
           quantity.</para>
         </listitem>
@@ -142,7 +141,7 @@
         <term id="Para552557">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x19076b8">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the Count Slip.</para>
         </listitem>
       </varlistentry>
@@ -156,7 +155,7 @@
         <term id="Para559613">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1907724">
-          <para>Closes the screen without creating a Count Slip, returning you
+            <para>Closes the screen without creating a Count Slip, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -165,7 +164,7 @@
         <term id="Para559614">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x190776c">
-          <para>Creates Count Slip and adds Count Slip quantity to the total
+            <para>Creates Count Slip and adds Count Slip quantity to the total
           of the specified Count Tag.</para>
         </listitem>
       </varlistentry>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section519930">
-    <title><anchor id="Anchor549028" role="Index"
-    xreflabel="sales orders:finding by item;items:finding sales orders for" />
-    <indexterm significance="normal" zone="Anchor549028">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519930">
+    <title>
+      <anchor id="Anchor549028" role="Index"
+              xreflabel="sales orders:finding by item;items:finding sales orders for"/>
+      <indexterm significance="normal">
         <primary>sales orders</primary>
 
         <secondary>finding by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor549028">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>finding sales orders for</secondary>
@@ -19,16 +20,17 @@
     Order Lookup by Item" option from the "Displays" menu. The following
     screen will appear:</para>
 
-    <para id="Para519935"><screenshot>
+    <para id="Para519935">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_soLookByItem.png"
-                       id="Graphic524030" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_soLookByItem.png" id="Graphic524030"/>
+            </imageobject>
 
-          <caption id="Caption519936">Sales Order Lookup by Item</caption>
+            <caption id="Caption519936">Sales Order Lookup by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519942">When displaying Sales Orders by Item, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para519943">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1963070">
-          <para>Enter the Item Number of the Item whose Sales Orders you want
+            <para>Enter the Item Number of the Item whose Sales Orders you want
           to view.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para652630">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x19630b8">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -55,7 +57,7 @@
         <term id="Para618981">Starting Order Date</term>
 
         <listitem id="listitemN0x180ac00N0x1963100">
-          <para>Sales Orders entered on and after this date will be
+            <para>Sales Orders entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +66,7 @@
         <term id="Para618986">Ending Order Date</term>
 
         <listitem id="listitemN0x180ac00N0x1963148">
-          <para>Sales Orders entered on and before this date will be
+            <para>Sales Orders entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +75,7 @@
         <term id="Para519947">Sales Orders</term>
 
         <listitem id="listitemN0x180ac00N0x1963190">
-          <para>Display lists Sales Orders for the specified Item.</para>
+            <para>Display lists Sales Orders for the specified Item.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -86,7 +88,7 @@
         <term id="Para519950">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x19631fc">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -96,24 +98,19 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/17)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/17)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/16)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/16)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

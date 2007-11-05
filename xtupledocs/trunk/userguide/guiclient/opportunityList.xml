@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section574794">
-    <title><anchor id="Anchor574801" role="Index"
-    xreflabel="opportunities:master list of" /> <indexterm
-        significance="normal" zone="Anchor574801">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section574794">
+    <title>
+      <anchor id="Anchor574801" role="Index" xreflabel="opportunities:master list of"/> 
+      <indexterm significance="normal">
         <primary>opportunities</primary>
 
         <secondary>master list of</secondary>
@@ -13,15 +13,17 @@
     <para id="Para576439">To access the master list of Opportunities, select
     the "List Opportunities" option. The following screen will appear.</para>
 
-    <para id="Para575487"><screenshot>
+    <para id="Para575487">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_OP_optyList.png" id="Graphic575485" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_OP_optyList.png" id="Graphic575485"/>
+            </imageobject>
 
-          <caption id="Caption575488">Opportunities Master List</caption>
+            <caption id="Caption575488">Opportunities Master List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para576480">The "Opportunity List" screen displays information
     on all existing Opportunities, including the Opportunity name, CRM
@@ -35,7 +37,7 @@
         <term id="Para576482">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18972a4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +46,7 @@
         <term id="Para577436">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18972ec">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -52,7 +54,7 @@
         <term id="Para576484">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x1897334">
-          <para>Opens screen for creating a new Opportunity.</para>
+            <para>Opens screen for creating a new Opportunity.</para>
         </listitem>
       </varlistentry>
 
@@ -60,7 +62,7 @@
         <term id="Para576485">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x189737c">
-          <para>Enables you to edit highlighted Opportunities. The edit screen
+            <para>Enables you to edit highlighted Opportunities. The edit screen
           is the same as that for creating a new Opportunity--except that when
           editing, the fields will contain Opportunity information.
           Double-clicking on an Opportunity will also bring you to the editing
@@ -72,7 +74,7 @@
         <term id="Para576486">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x18973c4">
-          <para>Highlight an Opportunity and then select this button to reach
+            <para>Highlight an Opportunity and then select this button to reach
           a read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>
@@ -81,7 +83,7 @@
         <term id="Para576487">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x189740c">
-          <para>Highlight an Opportunity and then select this button to remove
+            <para>Highlight an Opportunity and then select this button to remove
           the Opportunity from the list.</para>
         </listitem>
       </varlistentry>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Copy Sales Order
@@ -37,14 +37,14 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Sales Order #:</guilabel>
+                  <guilabel moreinfo="none">Sales Order #:</guilabel>
                </entry>
                <entry>_salesOrderLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Order Date:</guilabel>
+                  <guilabel moreinfo="none">Order Date:</guilabel>
                </entry>
                <entry>_orderDateLit</entry>
                <entry>QLabel</entry>
@@ -56,7 +56,7 @@
             </row>
               <row>
                <entry>
-                  <guilabel>...</guilabel>
+                  <guilabel moreinfo="none">...</guilabel>
                </entry>
                <entry>_soList</entry>
                <entry>QPushButton</entry>
@@ -68,35 +68,35 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Cust. Name:</guilabel>
+                  <guilabel moreinfo="none">Cust. Name:</guilabel>
                </entry>
                <entry>_custNameLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Cust. Phone:</guilabel>
+                  <guilabel moreinfo="none">Cust. Phone:</guilabel>
                </entry>
                <entry>_custPhoneLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>P/O Number:</guilabel>
+                  <guilabel moreinfo="none">P/O Number:</guilabel>
                </entry>
                <entry>_poNumberLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_custName</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_custPhone</entry>
                <entry>QLabel</entry>
@@ -108,7 +108,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -116,14 +116,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Co<accel>p</accel>y</guilabel>
+                  <guilabel moreinfo="none">Co<accel>p</accel>y</guilabel>
                </entry>
                <entry>_copy</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Line Items:</guilabel>
+                  <guilabel moreinfo="none">Line Items:</guilabel>
                </entry>
                <entry>_solineLit</entry>
                <entry>QLabel</entry>
@@ -140,14 +140,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Use Source Schedule Dates</guilabel>
+                  <guilabel moreinfo="none">Use Source Schedule Dates</guilabel>
                </entry>
                <entry>_useSourceDates</entry>
                <entry>QRadioButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Reschedule all Schedule Dates to:</guilabel>
+                  <guilabel moreinfo="none">Reschedule all Schedule Dates to:</guilabel>
                </entry>
                <entry>_reschedule</entry>
                <entry>QRadioButton</entry>

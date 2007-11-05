@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Substitute List
@@ -42,7 +42,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>
@@ -59,14 +59,14 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Item Site Lead Time</guilabel>
+                  <guilabel moreinfo="none">Item Site Lead Time</guilabel>
                </entry>
                <entry>_byLeadTime</entry>
                <entry>QRadioButton</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Look Ahead Days:</guilabel>
+                  <guilabel moreinfo="none">Look Ahead Days:</guilabel>
                </entry>
                <entry>_byDays</entry>
                <entry>QRadioButton</entry>
@@ -78,7 +78,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Date:</guilabel>
+                  <guilabel moreinfo="none">Date:</guilabel>
                </entry>
                <entry>_byDate</entry>
                <entry>QRadioButton</entry>
@@ -90,7 +90,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -98,7 +98,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>elect</guilabel>
                </entry>
                <entry>_select</entry>
@@ -106,7 +106,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Substitutions:</guilabel>
+                  <guilabel moreinfo="none">Substitutions:</guilabel>
                </entry>
                <entry>_substitututionsLit</entry>
                <entry>QLabel</entry>

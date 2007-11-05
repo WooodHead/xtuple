@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518750">
-    <title><anchor id="Anchor919385" role="Index"
-    xreflabel="purchase orders:posting by agent" /> <indexterm
-        significance="normal" zone="Anchor919385">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518750">
+    <title>
+      <anchor id="Anchor919385" role="Index" xreflabel="purchase orders:posting by agent"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>posting by agent</secondary>
@@ -14,16 +13,17 @@
     <para id="Para518751">To post Purchase Orders by Agent, select the "Post
     Purchase Orders by Agent" option. The following screen will appear:</para>
 
-    <para id="Para518755"><screenshot>
+    <para id="Para518755">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_postPObyAgent.png"
-                       id="Graphic521768" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_PO_postPObyAgent.png" id="Graphic521768"/>
+            </imageobject>
 
-          <caption id="Caption518756">Post Purchase Orders by Agent</caption>
+            <caption id="Caption518756">Post Purchase Orders by Agent</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para954885">When posting Purchase Orders by Agent, you are
     presented with the following options:</para>
@@ -33,7 +33,7 @@
         <term id="Para954886">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x1877e64">
-          <para>Select to post Purchase Orders for all Purchasing
+            <para>Select to post Purchase Orders for all Purchasing
           Agents.</para>
         </listitem>
       </varlistentry>
@@ -42,10 +42,10 @@
         <term id="Para954887">Purchasing Agent</term>
 
         <listitem id="listitemN0x180ac00N0x1877eac">
-          <para>Specify Purchasing Agent whose Purchase Orders you want to
+            <para>Specify Purchasing Agent whose Purchase Orders you want to
           post.</para>
 
-          <para id="Para518759">Users may be designated as Purchasing Agents
+            <para id="Para518759">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +64,7 @@
         <term id="Para518761">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1877f3c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +73,7 @@
         <term id="Para518762">POST</term>
 
         <listitem id="listitemN0x180ac00N0x1877f84">
-          <para>Posts Purchase Orders using the specified parameters.</para>
+            <para>Posts Purchase Orders using the specified parameters.</para>
         </listitem>
       </varlistentry>
     </variablelist>

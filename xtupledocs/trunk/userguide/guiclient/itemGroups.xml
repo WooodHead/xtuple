@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section649771">
-    <title><anchor id="Anchor649770" role="Index"
-    xreflabel="item groups:master list of;items:item groups" /> <indexterm
-        significance="normal" zone="Anchor649770">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section649771">
+    <title>
+      <anchor id="Anchor649770" role="Index"
+              xreflabel="item groups:master list of;items:item groups"/> 
+      <indexterm significance="normal">
         <primary>item groups</primary>
 
         <secondary>master list of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor649770">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>item groups</secondary>
@@ -21,15 +23,17 @@
     these categories. To access the master list of Item Groups, select the
     "Items Groups" option. The following screen will appear:</para>
 
-    <para id="Para519245"><screenshot>
+    <para id="Para519245">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Items_groups.png" id="Graphic562929" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Items_groups.png" id="Graphic562929"/>
+            </imageobject>
 
-          <caption id="Caption519246">Item Groups</caption>
+            <caption id="Caption519246">Item Groups</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519247">The "Item Groups" screen displays an alphabetical
     list of all existing Item Groups and their description.</para>
@@ -42,7 +46,7 @@
         <term id="Para519249">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x188fb20">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -51,7 +55,7 @@
         <term id="Para519250">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x188fb68">
-          <para>Opens screen for creating a new Item Group.</para>
+            <para>Opens screen for creating a new Item Group.</para>
         </listitem>
       </varlistentry>
 
@@ -59,7 +63,7 @@
         <term id="Para519251">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x188fbb0">
-          <para>Enables you to edit highlighted Item Groups. The edit screen
+            <para>Enables you to edit highlighted Item Groups. The edit screen
           is the same as that for creating a new Item Group--except that when
           editing, the fields will contain Item Group information.
           Double-clicking on an Item Group will also bring you to the editing
@@ -71,7 +75,7 @@
         <term id="Para519252">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x188fbf8">
-          <para>Highlight an Item Group and then select this button to reach a
+            <para>Highlight an Item Group and then select this button to reach a
           read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>
@@ -80,38 +84,38 @@
         <term id="Para519253">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x188fc40">
-          <para>Highlight an Item Group and then select this button to remove
+            <para>Highlight an Item Group and then select this button to remove
           the Class Code from the list.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para519254"><anchor id="Anchor599874" role="Index"
-    xreflabel="item groups:creating new" /> <indexterm significance="normal"
-        zone="Anchor599874">
+    <para id="Para519254">
+      <anchor id="Anchor599874" role="Index" xreflabel="item groups:creating new"/> 
+      <indexterm significance="normal">
         <primary>item groups</primary>
 
         <secondary>creating new</secondary>
       </indexterm>To create a new Item Group, select the NEW button. The
     following screen will appear:</para>
 
-    <para id="Para519258"><screenshot>
+    <para id="Para519258">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Items_groupsNew.png"
-                       id="Graphic562941" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Items_groupsNew.png" id="Graphic562941"/>
+            </imageobject>
 
-          <caption id="Caption519259">Create New Item Group</caption>
+            <caption id="Caption519259">Create New Item Group</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para595137">Create your Item Groups using a logical,
       hierarchical structure. This will make it easier to retrieve Item Group
       information in the future. For more information on matching patterns
-      using Regular Expressions, see <link endterm="Anchor77806"
-      id="XRef664921" linkend="Anchor77806"> Pattern Matching with Regular
+      using Regular Expressions, see <link endterm="Anchor77806" id="XRef664921" linkend="Anchor77806"> Pattern Matching with Regular
       Expressions</link>"Topic: Pattern Matching with Regular
       Expressions".</para>
     </tip>
@@ -124,7 +128,7 @@
         <term id="Para519264">Name</term>
 
         <listitem id="listitemN0x180ac00N0x188fd84">
-          <para>Enter a unique name for the Item Group.</para>
+            <para>Enter a unique name for the Item Group.</para>
         </listitem>
       </varlistentry>
 
@@ -132,7 +136,7 @@
         <term id="Para519269">Description</term>
 
         <listitem id="listitemN0x180ac00N0x188fdcc">
-          <para>Enter a description to further identify the Item Group.</para>
+            <para>Enter a description to further identify the Item Group.</para>
         </listitem>
       </varlistentry>
 
@@ -140,7 +144,7 @@
         <term id="Para519271">Member Items</term>
 
         <listitem id="listitemN0x180ac00N0x188fe14">
-          <para>Display lists member Items of the Item Group.</para>
+            <para>Display lists member Items of the Item Group.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -153,7 +157,7 @@
         <term id="Para519274">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x188fe80">
-          <para>Creates the Item Group and adds it to the master list of Item
+            <para>Creates the Item Group and adds it to the master list of Item
           Groups.</para>
         </listitem>
       </varlistentry>
@@ -162,7 +166,7 @@
         <term id="Para519275">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x188fec8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -171,7 +175,7 @@
         <term id="Para519276">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x188ff10">
-          <para>Opens a searchable Item list. Select an Item from the list to
+            <para>Opens a searchable Item list. Select an Item from the list to
           have the Item added to the Item Group</para>
         </listitem>
       </varlistentry>
@@ -180,7 +184,7 @@
         <term id="Para519277">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x188ff58">
-          <para>Highlight an Item Group and then select this button to remove
+            <para>Highlight an Item Group and then select this button to remove
           the Item Group from the list.</para>
         </listitem>
       </varlistentry>

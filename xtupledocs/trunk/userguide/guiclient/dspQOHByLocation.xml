@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520086">
-    <title><anchor id="Anchor552226" role="Index"
-    xreflabel="quantity on hand:by location;locations:quantity on hand for" />
-    <indexterm significance="normal" zone="Anchor552226">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520086">
+    <title>
+      <anchor id="Anchor552226" role="Index"
+              xreflabel="quantity on hand:by location;locations:quantity on hand for"/>
+      <indexterm significance="normal">
         <primary>quantity on hand</primary>
 
         <secondary>by location</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552226">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>locations</primary>
 
         <secondary>quantity on hand for</secondary>
@@ -18,16 +20,17 @@
     "Quantities on Hand by Location" option. The following screen will
     appear:</para>
 
-    <para id="Para520091"><screenshot>
+    <para id="Para520091">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_QOHlocation.png"
-                       id="Graphic526654" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_QOHlocation.png" id="Graphic526654"/>
+            </imageobject>
 
-          <caption id="Caption520092">Quantities on Hand by Location</caption>
+            <caption id="Caption520092">Quantities on Hand by Location</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520093">When displaying Quantities on Hand by Location, you
     are presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para520094">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1947708">
-          <para>Select to display Quantities on Hand for all
+            <para>Select to display Quantities on Hand for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +49,7 @@
         <term id="Para670626">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x194772c">
-          <para>Specify Warehouse whose Quantities on Hand by Location you
+            <para>Specify Warehouse whose Quantities on Hand by Location you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -55,10 +58,10 @@
         <term id="Para670627">Location</term>
 
         <listitem id="listitemN0x180ac00N0x1947750">
-          <para>Specify Location whose Quantity on Hand you want to
+            <para>Specify Location whose Quantity on Hand you want to
           display.</para>
 
-          <para id="Para670628">Displays Quantity on Hand for selected
+            <para id="Para670628">Displays Quantity on Hand for selected
           Location.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +70,7 @@
         <term id="Para520100">Netable</term>
 
         <listitem id="listitemN0x180ac00N0x1947798">
-          <para>Indicates whether Location is Netable or not.</para>
+            <para>Indicates whether Location is Netable or not.</para>
         </listitem>
       </varlistentry>
 
@@ -75,7 +78,7 @@
         <term id="Para520102">Restricted</term>
 
         <listitem id="listitemN0x180ac00N0x19477e0">
-          <para>Indicates whether Location is Restricted or not.</para>
+            <para>Indicates whether Location is Restricted or not.</para>
         </listitem>
       </varlistentry>
 
@@ -83,7 +86,7 @@
         <term id="Para520104">Quantities on Hand</term>
 
         <listitem id="listitemN0x180ac00N0x1947828">
-          <para>Display lists Quantities on Hand by Location, using the
+            <para>Display lists Quantities on Hand by Location, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +100,7 @@
         <term id="Para520107">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1947894">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +109,7 @@
         <term id="Para585465">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19478dc">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +118,7 @@
         <term id="Para675668">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1947924">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -124,8 +127,7 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

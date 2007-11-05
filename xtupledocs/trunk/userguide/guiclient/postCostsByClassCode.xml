@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section647554">
-    <title><anchor id="Anchor647553" role="Index"
-    xreflabel="standard costs:updating by class code;class codes:updating standard costs for" />
-    <indexterm significance="normal" zone="Anchor647553">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section647554">
+    <title>
+      <anchor id="Anchor647553" role="Index"
+              xreflabel="standard costs:updating by class code;class codes:updating standard costs for"/>
+      <indexterm significance="normal">
         <primary>standard costs</primary>
 
         <secondary>updating by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor647553">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>updating standard costs for</secondary>
@@ -21,17 +23,18 @@
     Class Code, select the "Update Standard Costs by Class Code" option. The
     following screen will appear:</para>
 
-    <para id="Para647559"><screenshot>
+    <para id="Para647559">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_upStandCostByClass.png"
-                       id="Graphic647557" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_upStandCostByClass.png" id="Graphic647557"/>
+            </imageobject>
 
-          <caption id="Caption647560">Update Standard Costs by Class
+            <caption id="Caption647560">Update Standard Costs by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para647562">For best performance, you should run this utility
@@ -47,9 +50,9 @@
         <term id="Para647564">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x1910d68">
-          <para>Select to update Standard Costs for all Class Codes.</para>
+            <para>Select to update Standard Costs for all Class Codes.</para>
 
-          <para id="Para647565">Running the utility by all Class Codes is the
+            <para id="Para647565">Running the utility by all Class Codes is the
           preferred method.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +61,7 @@
         <term id="Para647566">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1910db0">
-          <para>Specify Class Code whose Standard Costs you want to
+            <para>Specify Class Code whose Standard Costs you want to
           update.</para>
         </listitem>
       </varlistentry>
@@ -67,12 +70,11 @@
         <term id="Para647567">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1910df8">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para664804">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664803"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664804">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664803" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -87,18 +89,18 @@
 
     <variablelist>
       <varlistentry>
-        <term id="Para647578"><anchor id="Anchor647577" role="Index"
-        xreflabel="standard costs:rolling up of" /> <indexterm
-            significance="normal" zone="Anchor647577">
-            <primary>standard costs</primary>
+        <term id="Para647578">
+            <anchor id="Anchor647577" role="Index" xreflabel="standard costs:rolling up of"/> 
+            <indexterm significance="normal">
+               <primary>standard costs</primary>
 
-            <secondary>rolling up of</secondary>
-          </indexterm>Roll Up Standard Costs</term>
+               <secondary>rolling up of</secondary>
+            </indexterm>Roll Up Standard Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1910ed0">
-          <para>Select to roll up Standard Costs.</para>
+            <para>Select to roll up Standard Costs.</para>
 
-          <para id="Para647579">When this option is specified, all selected
+            <para id="Para647579">When this option is specified, all selected
           Costs will be added together to establish a revised total Standard
           Cost for the Item. This revised total goes into effect after the
           UPDATE button is selected. If all Costs are selected, all Costs will
@@ -110,26 +112,29 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para647581"><anchor id="Anchor647580" role="Index"
-        xreflabel="material costs:updating of;costing:updating of material costs;standard costs:updating material costs" />
-        <indexterm significance="normal" zone="Anchor647580">
-            <primary>material costs</primary>
+        <term id="Para647581">
+            <anchor id="Anchor647580" role="Index"
+                    xreflabel="material costs:updating of;costing:updating of material costs;standard costs:updating material costs"/>
+            <indexterm significance="normal">
+               <primary>material costs</primary>
 
-            <secondary>updating of</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor647580">
-            <primary>costing</primary>
+               <secondary>updating of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>costing</primary>
 
-            <secondary>updating of material costs</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor647580">
-            <primary>standard costs</primary>
+               <secondary>updating of material costs</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>standard costs</primary>
 
-            <secondary>updating material costs</secondary>
-          </indexterm>Update Lower Level Material Costs</term>
+               <secondary>updating material costs</secondary>
+            </indexterm>Update Lower Level Material Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1910ff0">
-          <para>Select to update lower level material Costs.</para>
+            <para>Select to update lower level material Costs.</para>
 
-          <para id="Para647582">Not selecting means lower level material Costs
+            <para id="Para647582">Not selecting means lower level material Costs
           will not be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -138,9 +143,9 @@
         <term id="Para647584">Update Direct Labor Cost</term>
 
         <listitem id="listitemN0x180ac00N0x1911014">
-          <para>Select to update direct labor Cost.</para>
+            <para>Select to update direct labor Cost.</para>
 
-          <para id="Para647585">Not selecting means the direct labor Cost will
+            <para id="Para647585">Not selecting means the direct labor Cost will
           not be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -149,9 +154,9 @@
         <term id="Para647586">Update Lower Level Direct Labor Cost</term>
 
         <listitem id="listitemN0x180ac00N0x1911038">
-          <para>Select to update lower level direct labor Cost.</para>
+            <para>Select to update lower level direct labor Cost.</para>
 
-          <para id="Para647587">Not selecting means the lower level direct
+            <para id="Para647587">Not selecting means the lower level direct
           labor Cost will not be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -168,9 +173,9 @@
         <term id="Para647591">Update Overhead Cost</term>
 
         <listitem id="listitemN0x180ac00N0x19110a4">
-          <para>Select to update overhead Cost.</para>
+            <para>Select to update overhead Cost.</para>
 
-          <para id="Para647592">Not selecting means the overhead Cost will not
+            <para id="Para647592">Not selecting means the overhead Cost will not
           be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -179,9 +184,9 @@
         <term id="Para647593">Update Lower Level Overhead Cost</term>
 
         <listitem id="listitemN0x180ac00N0x19110c8">
-          <para>Select to update lower level overhead Cost.</para>
+            <para>Select to update lower level overhead Cost.</para>
 
-          <para id="Para647594">Not selecting means the lower level overhead
+            <para id="Para647594">Not selecting means the lower level overhead
           Cost will not be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -190,9 +195,9 @@
         <term id="Para647595">Update Machine Overhead</term>
 
         <listitem id="listitemN0x180ac00N0x19110ec">
-          <para>Select to update machine overhead Cost.</para>
+            <para>Select to update machine overhead Cost.</para>
 
-          <para id="Para647596">This option is selected by default.</para>
+            <para id="Para647596">This option is selected by default.</para>
         </listitem>
       </varlistentry>
 
@@ -200,33 +205,36 @@
         <term id="Para647597">Update Lower Machine Overhead</term>
 
         <listitem id="listitemN0x180ac00N0x1911110">
-          <para>Select to update lower level machine overhead Cost.</para>
+            <para>Select to update lower level machine overhead Cost.</para>
 
-          <para id="Para647598">This option is selected by default.</para>
+            <para id="Para647598">This option is selected by default.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para647600"><anchor id="Anchor647599" role="Index"
-        xreflabel="user costs:updating of;costing:updating of user costs;standard costs:updating user costs" />
-        <indexterm significance="normal" zone="Anchor647599">
-            <primary>user costs</primary>
+        <term id="Para647600">
+            <anchor id="Anchor647599" role="Index"
+                    xreflabel="user costs:updating of;costing:updating of user costs;standard costs:updating user costs"/>
+            <indexterm significance="normal">
+               <primary>user costs</primary>
 
-            <secondary>updating of</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor647599">
-            <primary>costing</primary>
+               <secondary>updating of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>costing</primary>
 
-            <secondary>updating of user costs</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor647599">
-            <primary>standard costs</primary>
+               <secondary>updating of user costs</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>standard costs</primary>
 
-            <secondary>updating user costs</secondary>
-          </indexterm>Update User Costs</term>
+               <secondary>updating user costs</secondary>
+            </indexterm>Update User Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1911230">
-          <para>Select to update user Costs.</para>
+            <para>Select to update user Costs.</para>
 
-          <para id="Para647601">Not selecting means user Costs will not be
+            <para id="Para647601">Not selecting means user Costs will not be
           included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -235,9 +243,9 @@
         <term id="Para647602">Update Lower Level User Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1911278">
-          <para>Select to update lower level user Costs.</para>
+            <para>Select to update lower level user Costs.</para>
 
-          <para id="Para647603">Not selecting means lower level user Costs
+            <para id="Para647603">Not selecting means lower level user Costs
           will not be included in the Cost update.</para>
         </listitem>
       </varlistentry>
@@ -251,7 +259,7 @@
         <term id="Para647605">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x19112e4">
-          <para>Closes the screen without updating selected Costs, returning
+            <para>Closes the screen without updating selected Costs, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -260,9 +268,9 @@
         <term id="Para647606">UPDATE</term>
 
         <listitem id="listitemN0x180ac00N0x191132c">
-          <para>Updates all selected Costs for the specified Item.</para>
+            <para>Updates all selected Costs for the specified Item.</para>
 
-          <para id="Para647607">If the option "Roll Up Standard Costs" has
+            <para id="Para647607">If the option "Roll Up Standard Costs" has
           been selected, the total Standard Cost for the specified Item will
           be updated.</para>
         </listitem>
@@ -272,9 +280,8 @@
         <term id="Para647608">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x1911350">
-          <para>Select to submit requested action to the Batch Manager for
-          processing. For additional information, see the <link
-          endterm="Anchor61009" id="XRef660262" linkend="Anchor61009">
+            <para>Select to submit requested action to the Batch Manager for
+          processing. For additional information, see the <link endterm="Anchor61009" id="XRef660262" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
         </listitem>
@@ -284,9 +291,9 @@
         <term id="Para647609">SELECT ALL COSTS</term>
 
         <listitem id="listitemN0x180ac00N0x1911398">
-          <para>Selects all Costs for updating.</para>
+            <para>Selects all Costs for updating.</para>
 
-          <para id="Para647610">Use this option to save time when selecting
+            <para id="Para647610">Use this option to save time when selecting
           all Costs for updating. The option "Roll Up Standard Costs" must be
           selected separately if you want to include a rolled up total for the
           parent Item in the Cost update.</para>

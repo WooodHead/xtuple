@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519401">
-    <title><anchor id="Anchor552168" role="Index"
-    xreflabel="item sites:thawing by class code;item sites:thawing by warehouse;thawing:of item sites;physical inventory:thawing item sites" />
-    <indexterm significance="normal" zone="Anchor552168">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519401">
+    <title>
+      <anchor id="Anchor552168" role="Index"
+              xreflabel="item sites:thawing by class code;item sites:thawing by warehouse;thawing:of item sites;physical inventory:thawing item sites"/>
+      <indexterm significance="normal">
         <primary>item sites</primary>
 
         <secondary>thawing by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552168">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item sites</primary>
 
         <secondary>thawing by warehouse</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552168">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>thawing</primary>
 
         <secondary>of item sites</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552168">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>thawing item sites</secondary>
@@ -26,22 +30,22 @@
     and Warehouse, select the "Thaw Item Sites by Class Code Warehouse"
     option. The following screen will appear:</para>
 
-    <para id="Para519406"><screenshot>
+    <para id="Para519406">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_thawItemSitesByClass.png"
-                       id="Graphic526098" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_thawItemSitesByClass.png" id="Graphic526098"/>
+            </imageobject>
 
-          <caption id="Caption519407">Thaw Item Sites by Class
+            <caption id="Caption519407">Thaw Item Sites by Class
           Code/Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para524344">For a detailed explanation of freezing and
-      thawing, see the <link endterm="Anchor80983" id="XRef530069"
-      linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing and
+      thawing, see the <link endterm="Anchor80983" id="XRef530069" linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing and
       Thawing" section.</para>
     </note>
 
@@ -53,7 +57,7 @@
         <term id="Para580852">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x1913500">
-          <para>Select to thaw Item Sites by Warehouse for all Class
+            <para>Select to thaw Item Sites by Warehouse for all Class
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +66,7 @@
         <term id="Para580853">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1913548">
-          <para>Specify Class Code whose Item Sites by Warehouse you want to
+            <para>Specify Class Code whose Item Sites by Warehouse you want to
           thaw.</para>
         </listitem>
       </varlistentry>
@@ -71,12 +75,11 @@
         <term id="Para547811">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1913590">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677052">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677051"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677052">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677051" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -86,7 +89,7 @@
         <term id="Para519414">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x19135d8">
-          <para>Specify Warehouse whose Item Sites are to be thawed.</para>
+            <para>Specify Warehouse whose Item Sites are to be thawed.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -99,7 +102,7 @@
         <term id="Para519417">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1913644">
-          <para>Closes the screen without thawing previously frozen Item
+            <para>Closes the screen without thawing previously frozen Item
           Sites, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -108,12 +111,11 @@
         <term id="Para519418">THAW</term>
 
         <listitem id="listitemN0x180ac00N0x191368c">
-          <para>Thaws previously frozen Item Sites by specified Class Code(s)
+            <para>Thaws previously frozen Item Sites by specified Class Code(s)
           and Warehouse.</para>
 
-          <para id="Para519419">For a detailed explanation of these concepts,
-          see the <link endterm="Anchor80983" id="XRef530085"
-          linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
+            <para id="Para519419">For a detailed explanation of these concepts,
+          see the <link endterm="Anchor80983" id="XRef530085" linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
           and Thawing" section.</para>
         </listitem>
       </varlistentry>

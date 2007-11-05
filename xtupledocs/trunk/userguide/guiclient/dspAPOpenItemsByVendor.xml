@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section531012">
-    <title><anchor id="Anchor532592" role="Index"
-    xreflabel="open items:by vendor;vendors:open items for;accounts payable:vendor open items" />
-    <indexterm significance="normal" zone="Anchor532592">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section531012">
+    <title>
+      <anchor id="Anchor532592" role="Index"
+              xreflabel="open items:by vendor;vendors:open items for;accounts payable:vendor open items"/>
+      <indexterm significance="normal">
         <primary>open items</primary>
 
         <secondary>by vendor</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532592">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>vendors</primary>
 
         <secondary>open items for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532592">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>vendor open items</secondary>
@@ -23,16 +24,17 @@
     <para id="Para531092">To view open A/P open items by Vendor, select the
     "Open Items by Vendor" option. The following screen will appear:</para>
 
-    <para id="Para531096"><screenshot>
+    <para id="Para531096">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Disp_openItemsVendor.png"
-                       id="Graphic531094" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Disp_openItemsVendor.png" id="Graphic531094"/>
+            </imageobject>
 
-          <caption id="Caption531097">A/P Open Items by Vendor</caption>
+            <caption id="Caption531097">A/P Open Items by Vendor</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para531098">When displaying A/P open items by Vendor, you are
     presented with the following options:</para>
@@ -42,7 +44,7 @@
         <term id="Para531252">Vendor #</term>
 
         <listitem>
-          <para>Enter the Vendor number of the Vendor whose A/P open items you
+            <para>Enter the Vendor number of the Vendor whose A/P open items you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -51,7 +53,7 @@
         <term id="Para531448">Start Date</term>
 
         <listitem>
-          <para>A/P open items for the specified Vendor entered on and after
+            <para>A/P open items for the specified Vendor entered on and after
           this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +62,7 @@
         <term id="Para531465">End Date</term>
 
         <listitem>
-          <para>A/P open items for the specified Vendor entered on and before
+            <para>A/P open items for the specified Vendor entered on and before
           this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +71,7 @@
         <term id="Para531467">A/P Open Items</term>
 
         <listitem>
-          <para>Display lists A/P open items by Vendor, using the specified
+            <para>Display lists A/P open items by Vendor, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +85,7 @@
         <term id="Para531184">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +94,7 @@
         <term id="Para536030">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +103,7 @@
         <term id="Para565674">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -110,16 +112,13 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

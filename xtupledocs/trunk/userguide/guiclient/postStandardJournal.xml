@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section524406">
-    <title><anchor id="Anchor532804" role="Index"
-    xreflabel="standard journals:posting of" /> <indexterm
-        significance="normal" zone="Anchor532804">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524406">
+    <title>
+      <anchor id="Anchor532804" role="Index" xreflabel="standard journals:posting of"/> 
+      <indexterm significance="normal">
         <primary>standard journals</primary>
 
         <secondary>posting of</secondary>
@@ -13,16 +13,17 @@
     <para id="Para524413">To post a Standard Journal, select the "Post
     Standard Journal" option. The following screen will appear:</para>
 
-    <para id="Para525320"><screenshot>
+    <para id="Para525320">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/GL_SJ_postStandJourn.png"
-                       id="Graphic525318" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/GL_SJ_postStandJourn.png" id="Graphic525318"/>
+            </imageobject>
 
-          <caption id="Caption525321">Post Standard Journal</caption>
+            <caption id="Caption525321">Post Standard Journal</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para524585">When posting a Standard Journal, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para529138">Standard Journal</term>
 
         <listitem id="listitemN0x180ac00N0x18cc630">
-          <para>Specify the Standard Journal you want to post.</para>
+            <para>Specify the Standard Journal you want to post.</para>
         </listitem>
       </varlistentry>
 
@@ -40,7 +41,7 @@
         <term id="Para529146">Distribution Date</term>
 
         <listitem id="listitemN0x180ac00N0x18cc678">
-          <para>Indicates date when the Standard Journal should be posted to
+            <para>Indicates date when the Standard Journal should be posted to
           the General Ledger.</para>
         </listitem>
       </varlistentry>
@@ -49,7 +50,7 @@
         <term id="Para605484">Reverse Journal Entries</term>
 
         <listitem id="listitemN0x180ac00N0x18cc6c0">
-          <para>Select if you want to reverse the selected Standard Journal
+            <para>Select if you want to reverse the selected Standard Journal
           when it is posted.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +64,7 @@
         <term id="Para529217">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18cc72c">
-          <para>Closes the screen without posting the Standard Journal,
+            <para>Closes the screen without posting the Standard Journal,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -72,7 +73,7 @@
         <term id="Para529218">POST</term>
 
         <listitem id="listitemN0x180ac00N0x18cc774">
-          <para>Posts Standard Journal to the General Ledger effective on the
+            <para>Posts Standard Journal to the General Ledger effective on the
           specified distribution date.</para>
         </listitem>
       </varlistentry>
@@ -81,9 +82,8 @@
         <term id="Para605515">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x18cc798">
-          <para>Select to submit the Standard Journal to the Batch Manager.
-          For additional information, see the <link endterm="Anchor61009"
-          id="XRef605517" linkend="Anchor61009"> Submitting Reports and Jobs
+            <para>Select to submit the Standard Journal to the Batch Manager.
+          For additional information, see the <link endterm="Anchor61009" id="XRef605517" linkend="Anchor61009"> Submitting Reports and Jobs
           to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
           the Batch Manager".</para>
         </listitem>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519160">
-    <title><anchor id="Anchor65842" role="Cross-Ref"
-    xreflabel="65842: Heading2: Configure P/O" /> <anchor id="Anchor932290"
-    role="Index" xreflabel="configuration:of p/o module" /> <indexterm
-        significance="normal" zone="Anchor932290">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519160">
+    <title>
+      <anchor id="Anchor65842" role="Cross-Ref" xreflabel="65842: Heading2: Configure P/O"/> 
+      <anchor id="Anchor932290" role="Index" xreflabel="configuration:of p/o module"/> 
+      <indexterm significance="normal">
         <primary>configuration</primary>
 
         <secondary>of p/o module</secondary>
@@ -14,42 +14,44 @@
     <para id="Para924089">To configure the Purchase Order (P/O) module, select
     the "Configure P/O" option. The following screen will appear:</para>
 
-    <para id="Para924093"><screenshot>
+    <para id="Para924093">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configPO.png" id="Graphic924091" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configPO.png" id="Graphic924091"/>
+            </imageobject>
 
-          <caption id="Caption924094">Configure P/O Module</caption>
+            <caption id="Caption924094">Configure P/O Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para924095">When configuring the P/O module, you are presented
     with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para924209"><anchor id="Anchor934318" role="Index"
-        xreflabel="purchase orders:numbering of" /> <indexterm
-            significance="normal" zone="Anchor934318">
-            <primary>purchase orders</primary>
+        <term id="Para924209">
+            <anchor id="Anchor934318" role="Index" xreflabel="purchase orders:numbering of"/> 
+            <indexterm significance="normal">
+               <primary>purchase orders</primary>
 
-            <secondary>numbering of</secondary>
-          </indexterm>Order # Generation</term>
+               <secondary>numbering of</secondary>
+            </indexterm>Order # Generation</term>
 
         <listitem id="listitemN0x180ac00N0x18a5be8">
-          <para>Specify one of the available Purchase Order Number generation
+            <para>Specify one of the available Purchase Order Number generation
           methods:</para>
 
-          <para id="Para924210">Automatic - Purchase Order Numbers will be
+            <para id="Para924210">Automatic - Purchase Order Numbers will be
           automatically incremented by 1 each time a new Purchase Order is
           created. These automatically-generated numbers may not be edited.
           They are read-only.</para>
 
-          <para id="Para924211">Manual - Purchase Order Numbers must be
+            <para id="Para924211">Manual - Purchase Order Numbers must be
           entered manually whenever you create a new Purchase Order.</para>
 
-          <para id="Para924212">Automatic, Allow Override - Purchase Order
+            <para id="Para924212">Automatic, Allow Override - Purchase Order
           Numbers will be automatically generated and incremented, as under
           the "Automatic" option described above. However, this option also
           allows you to manually override the Purchase Order Number at the
@@ -61,7 +63,7 @@
         <term id="Para924216">Next #</term>
 
         <listitem id="listitemN0x180ac00N0x18a5c30">
-          <para>The next sequentially available Purchase Order Number will
+            <para>The next sequentially available Purchase Order Number will
           display here. You may change the number--creating a new basis for
           the next Purchase Order Number--by typing the new number into this
           field. Any changes you make here will be reflected the next time a
@@ -70,16 +72,16 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para924218"><anchor id="Anchor934320" role="Index"
-        xreflabel="vouchers:numbering of" /> <indexterm significance="normal"
-            zone="Anchor934320">
-            <primary>vouchers</primary>
+        <term id="Para924218">
+            <anchor id="Anchor934320" role="Index" xreflabel="vouchers:numbering of"/> 
+            <indexterm significance="normal">
+               <primary>vouchers</primary>
 
-            <secondary>numbering of</secondary>
-          </indexterm>Voucher # Generation</term>
+               <secondary>numbering of</secondary>
+            </indexterm>Voucher # Generation</term>
 
         <listitem id="listitemN0x180ac00N0x18a5cc0">
-          <para>By default, Voucher Numbers are automatically generated. This
+            <para>By default, Voucher Numbers are automatically generated. This
           system setting cannot be changed.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +90,7 @@
         <term id="Para924226">Next #</term>
 
         <listitem id="listitemN0x180ac00N0x18a5d08">
-          <para>The next sequentially available Voucher Number will display
+            <para>The next sequentially available Voucher Number will display
           here. You may change the number--creating a new basis for the next
           Voucher Number--by typing the new number into this field. Any
           changes you make here will be reflected the next time a new Voucher
@@ -97,27 +99,27 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para924228"><anchor id="Anchor934321" role="Index"
-        xreflabel="purchase requests:numbering of" /> <indexterm
-            significance="normal" zone="Anchor934321">
-            <primary>purchase requests</primary>
+        <term id="Para924228">
+            <anchor id="Anchor934321" role="Index" xreflabel="purchase requests:numbering of"/> 
+            <indexterm significance="normal">
+               <primary>purchase requests</primary>
 
-            <secondary>numbering of</secondary>
-          </indexterm>P/R # Generation</term>
+               <secondary>numbering of</secondary>
+            </indexterm>P/R # Generation</term>
 
         <listitem id="listitemN0x180ac00N0x18a5d98">
-          <para>Select one of the available Purchase Request Number generation
+            <para>Select one of the available Purchase Request Number generation
           methods:</para>
 
-          <para id="Para924374">Automatic - Purchase Request Numbers will be
+            <para id="Para924374">Automatic - Purchase Request Numbers will be
           automatically incremented by 1 each time a new Purchase Request is
           created. These automatically-generated numbers may not be edited.
           They are read-only.</para>
 
-          <para id="Para924375">Manual - Purchase Request Numbers must be
+            <para id="Para924375">Manual - Purchase Request Numbers must be
           entered manually whenever you create a new Purchase Order.</para>
 
-          <para id="Para924376">Automatic, Allow Override - Purchase Request
+            <para id="Para924376">Automatic, Allow Override - Purchase Request
           Numbers will be automatically generated and incremented, as under
           the "Automatic" option described above. However, this option also
           allows you to manually override the Purchase Request Number at the
@@ -129,7 +131,7 @@
         <term id="Para924236">Next #</term>
 
         <listitem id="listitemN0x180ac00N0x18a5de0">
-          <para>The next sequentially available Purchase Request Number will
+            <para>The next sequentially available Purchase Request Number will
           display here. You may change the number--creating a new basis for
           the next Purchase Request Number--by typing the new number into this
           field. Any changes you make here will be reflected the next time you
@@ -141,16 +143,16 @@
         <term id="Para933663">Default P/O Copies</term>
 
         <listitem id="listitemN0x180ac00N0x18a5e28">
-          <para>Indicate the copies you want to print.</para>
+            <para>Indicate the copies you want to print.</para>
 
-          <para id="Para924247">Vendor: Select to print one Vendor
+            <para id="Para924247">Vendor: Select to print one Vendor
           copy.</para>
 
-          <para id="Para924248">Internal: Select to print a specified number
+            <para id="Para924248">Internal: Select to print a specified number
           of internal copies. When you select this option, the "# of Copies"
           field will be enabled.</para>
 
-          <para id="Para924250"># of Copies: Specify the number of copies you
+            <para id="Para924250"># of Copies: Specify the number of copies you
           want to print.</para>
         </listitem>
       </varlistentry>
@@ -159,7 +161,7 @@
         <term id="Para948732">Post P/O Changes to the Change Log</term>
 
         <listitem id="listitemN0x180ac00N0x18a5e70">
-          <para>Select to post to the Change Log any changes made to Purchase
+            <para>Select to post to the Change Log any changes made to Purchase
           Orders.</para>
         </listitem>
       </varlistentry>
@@ -168,7 +170,7 @@
         <term id="Para948736">Post Vendor Changes to the Change Log</term>
 
         <listitem id="listitemN0x180ac00N0x18a5eb8">
-          <para>Select to post to the Change Log any changes made to Vendor
+            <para>Select to post to the Change Log any changes made to Vendor
           masters.</para>
         </listitem>
       </varlistentry>
@@ -178,11 +180,11 @@
         Item</term>
 
         <listitem id="listitemN0x180ac00N0x18a5f00">
-          <para>Select to use Item Source Earliest Available dates as the
+            <para>Select to use Item Source Earliest Available dates as the
           default due date when entering manual Purchase Order Line
           Items.</para>
 
-          <para id="Para973367">If not selected, the due date field will be
+            <para id="Para973367">If not selected, the due date field will be
           left blank when entering Purchase Order Line Items--requiring users
           to enter the date manually. Earliest Available dates are determined
           by adding Item Source Lead Times to the current date.</para>
@@ -202,10 +204,10 @@
         Exists</term>
 
         <listitem id="listitemN0x180ac00N0x18a5f90">
-          <para>Select if you want to prevent users from entering Purchase
+            <para>Select if you want to prevent users from entering Purchase
           Order Line Items for Items which have no Standard Cost.</para>
 
-          <para id="Para974277">If selected, users will be shown a message
+            <para id="Para974277">If selected, users will be shown a message
           stating the problem. The solution is to add Standard Cost to the
           Item(s) in question.</para>
         </listitem>
@@ -215,28 +217,28 @@
         <term id="Para977186">Check Print P/O on Save by Default</term>
 
         <listitem id="listitemN0x180ac00N0x18a5fd8">
-          <para>Select to prompt users to print Purchase Orders whenever
+            <para>Select to prompt users to print Purchase Orders whenever
           Purchase Orders are saved.</para>
 
-          <para id="Para977187">If selected, users will be presented with a
+            <para id="Para977187">If selected, users will be presented with a
           Purchase Order print screen whenever a Purchase Order is saved. To
           bypass this feature, do not select this option.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para930949"><anchor id="Anchor934322" role="Index"
-        xreflabel="vendors:default settings for" /> <indexterm
-            significance="normal" zone="Anchor934322">
-            <primary>vendors</primary>
+        <term id="Para930949">
+            <anchor id="Anchor934322" role="Index" xreflabel="vendors:default settings for"/> 
+            <indexterm significance="normal">
+               <primary>vendors</primary>
 
-            <secondary>default settings for</secondary>
-          </indexterm>Vendor Defaults</term>
+               <secondary>default settings for</secondary>
+            </indexterm>Vendor Defaults</term>
 
         <listitem id="listitemN0x180ac00N0x18a6068">
-          <para>Specify the following Vendor defaults:</para>
+            <para>Specify the following Vendor defaults:</para>
 
-          <para id="Para933734">Ship Via: Specify the default Ship Via to be
+            <para id="Para933734">Ship Via: Specify the default Ship Via to be
           used for Purchase Orders.</para>
         </listitem>
       </varlistentry>
@@ -250,7 +252,7 @@
         <term id="Para924269">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18a60d4">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -259,7 +261,7 @@
         <term id="Para924270">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18a611c">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

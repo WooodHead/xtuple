@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section528862">
-    <title><anchor id="Anchor548958" role="Index"
-    xreflabel="packing lists:printing of" /> <indexterm significance="normal"
-        zone="Anchor548958">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section528862">
+    <title>
+      <anchor id="Anchor548958" role="Index" xreflabel="packing lists:printing of"/> 
+      <indexterm significance="normal">
         <primary>packing lists</primary>
 
         <secondary>printing of</secondary>
@@ -23,16 +23,17 @@
       Type.</para>
     </note>
 
-    <para id="Para533697"><screenshot>
+    <para id="Para533697">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Ord_printPackList.png"
-                       id="Graphic533696" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Ord_printPackList.png" id="Graphic533696"/>
+            </imageobject>
 
-          <caption id="Caption531815">Print Packing List</caption>
+            <caption id="Caption531815">Print Packing List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para635105">The system includes two alternate Sales Order Pick
@@ -54,7 +55,7 @@
         <term id="Para532099">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18d5a90">
-          <para>Enter the Sales Order Number of the Sales Order whose Packing
+            <para>Enter the Sales Order Number of the Sales Order whose Packing
           List you want to print.</para>
         </listitem>
       </varlistentry>
@@ -63,10 +64,10 @@
         <term id="Para635036">Shipment #</term>
 
         <listitem id="listitemN0x180ac00N0x18d5ad8">
-          <para>Specify the Shipment Number you want to print a Packing List
+            <para>Specify the Shipment Number you want to print a Packing List
           for.</para>
 
-          <para id="Para635155">Shipment Numbers are assigned to Sales Orders
+            <para id="Para635155">Shipment Numbers are assigned to Sales Orders
           when Line Item quantity is issued to Shipping. A single Sales Order
           may have multiple Shipments associated with it. If no stock has ever
           been issued to Shipping for a Sales Order, then no Shipment Number
@@ -78,7 +79,7 @@
         <term id="Para566823">Order Date</term>
 
         <listitem id="listitemN0x180ac00N0x18d5b20">
-          <para>Displays the Order date for the Sales Order.</para>
+            <para>Displays the Order date for the Sales Order.</para>
         </listitem>
       </varlistentry>
 
@@ -86,7 +87,7 @@
         <term id="Para532123">Cust. Name</term>
 
         <listitem id="listitemN0x180ac00N0x18d5b68">
-          <para>Displays the Customer's name.</para>
+            <para>Displays the Customer's name.</para>
         </listitem>
       </varlistentry>
 
@@ -94,7 +95,7 @@
         <term id="Para532124">Cust. Phone</term>
 
         <listitem id="listitemN0x180ac00N0x18d5bb0">
-          <para>Displays the Customer's phone number.</para>
+            <para>Displays the Customer's phone number.</para>
         </listitem>
       </varlistentry>
 
@@ -102,7 +103,7 @@
         <term id="Para532129">P/O Number</term>
 
         <listitem id="listitemN0x180ac00N0x18d5bf8">
-          <para>Displays the Customer's Purchase Order Number.</para>
+            <para>Displays the Customer's Purchase Order Number.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -115,7 +116,7 @@
         <term id="Para532102">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18d5c64">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -124,7 +125,7 @@
         <term id="Para532103">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18d5cac">
-          <para>Prints a copy of either the Packing List or Sales Order Pick
+            <para>Prints a copy of either the Packing List or Sales Order Pick
           List for the specified Sales Order. A Sales Order Pick List will be
           printed if the Sales Order does not yet have a Shipment Number
           associated with it--that is, if no Line Item quantity has been

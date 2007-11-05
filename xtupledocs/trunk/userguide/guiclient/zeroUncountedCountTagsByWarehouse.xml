@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519381">
-    <title><anchor id="Anchor552166" role="Index"
-    xreflabel="count tags:zeroing uncounted by warehouse;zeroing:of uncounted count tags;warehouses:zeroing uncounted count tags in" />
-    <indexterm significance="normal" zone="Anchor552166">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519381">
+    <title>
+      <anchor id="Anchor552166" role="Index"
+              xreflabel="count tags:zeroing uncounted by warehouse;zeroing:of uncounted count tags;warehouses:zeroing uncounted count tags in"/>
+      <indexterm significance="normal">
         <primary>count tags</primary>
 
         <secondary>zeroing uncounted by warehouse</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552166">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>zeroing</primary>
 
         <secondary>of uncounted count tags</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552166">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>warehouses</primary>
 
         <secondary>zeroing uncounted count tags in</secondary>
       </indexterm>Zero Uncounted Count Tags by Warehouse</title>
 
-    <para id="Para519382"><anchor id="Anchor577187" role="Index"
-    xreflabel="physical inventory:zeroing uncounted count tags;count tags:zeroing uncounted" />
-    <indexterm significance="normal" zone="Anchor577187">
+    <para id="Para519382">
+      <anchor id="Anchor577187" role="Index"
+              xreflabel="physical inventory:zeroing uncounted count tags;count tags:zeroing uncounted"/>
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>zeroing uncounted count tags</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor577187">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>count tags</primary>
 
         <secondary>zeroing uncounted</secondary>
@@ -35,17 +40,18 @@
     counted values of uncounted Count Tags to zero, select the "Zero Uncounted
     Count Tags by Warehouse" option. The following screen will appear:</para>
 
-    <para id="Para519386"><screenshot>
+    <para id="Para519386">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_zeroUncountedCTByWare.png"
-                       id="Graphic526079" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_zeroUncountedCTByWare.png" id="Graphic526079"/>
+            </imageobject>
 
-          <caption id="Caption519387">Zero Uncounted Count Tags by
+            <caption id="Caption519387">Zero Uncounted Count Tags by
           Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519388">When zeroing uncounted Count Tags by Warehouse, you
     are presented with the following options:</para>
@@ -55,7 +61,7 @@
         <term id="Para581496">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19131a0">
-          <para>Select to reset uncounted Count Tags to zero for all
+            <para>Select to reset uncounted Count Tags to zero for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +70,7 @@
         <term id="Para581497">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19131c4">
-          <para>Specify Warehouse where uncounted Count Tags are to be
+            <para>Specify Warehouse where uncounted Count Tags are to be
           zeroed.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +79,7 @@
         <term id="Para581501">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x191320c">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the zeroing process.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +93,7 @@
         <term id="Para519399">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1913278">
-          <para>Closes the screen without resetting uncounted Count Tags to
+            <para>Closes the screen without resetting uncounted Count Tags to
           zero, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +102,7 @@
         <term id="Para519400">ZERO</term>
 
         <listitem id="listitemN0x180ac00N0x19132c0">
-          <para>Resets uncounted Count Tags values to zero.</para>
+            <para>Resets uncounted Count Tags values to zero.</para>
         </listitem>
       </varlistentry>
     </variablelist>

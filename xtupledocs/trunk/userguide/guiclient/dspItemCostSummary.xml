@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520069">
-    <title><anchor id="Anchor595486" role="Index"
-    xreflabel="costing:summary by item;item costs:summary of" /> <indexterm
-        significance="normal" zone="Anchor595486">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520069">
+    <title>
+      <anchor id="Anchor595486" role="Index"
+              xreflabel="costing:summary by item;item costs:summary of"/> 
+      <indexterm significance="normal">
         <primary>costing</primary>
 
         <secondary>summary by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595486">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item costs</primary>
 
         <secondary>summary of</secondary>
@@ -18,16 +19,17 @@
     <para id="Para520070">To view a summary of Item Costs, select the "Item
     Costs Summary" option. The following screen will appear:</para>
 
-    <para id="Para520074"><screenshot>
+    <para id="Para520074">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_dispItemCostSum.png"
-                       id="Graphic563460" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_dispItemCostSum.png" id="Graphic563460"/>
+            </imageobject>
 
-          <caption id="Caption520075">Item Costs Summary</caption>
+            <caption id="Caption520075">Item Costs Summary</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520081">When displaying a summary of Item Costs, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para520082">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1923144">
-          <para>Enter the Item Number of the Item you would like to view
+            <para>Enter the Item Number of the Item you would like to view
           summarized Costs for.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para663312">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x192318c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +56,7 @@
         <term id="Para520086">Costing Elements</term>
 
         <listitem id="listitemN0x180ac00N0x19231d4">
-          <para>Display lists an Item Costs Summary, using the specified
+            <para>Display lists an Item Costs Summary, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +70,7 @@
         <term id="Para520089">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1923240">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -77,7 +79,7 @@
         <term id="Para663971">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1923288">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -92,12 +94,11 @@
         <term id="Para520092">View Costing Detail</term>
 
         <listitem id="listitemN0x180ac00N0x19232f4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

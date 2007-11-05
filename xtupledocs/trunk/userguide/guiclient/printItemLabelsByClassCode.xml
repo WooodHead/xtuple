@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section665468">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section665468">
     <title>Print Item Labels by Class Code</title>
 
     <para id="Para665469">To print Item Labels by Class Code, select the
     "Print Item Labels by Class Code" option. The following screen will
     appear:</para>
 
-    <para id="Para665473"><screenshot>
+    <para id="Para665473">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Rep_printItemLabels.png"
-                       id="Graphic665471" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Rep_printItemLabels.png" id="Graphic665471"/>
+            </imageobject>
 
-          <caption id="Caption665474">Print Item Labels by Class
+            <caption id="Caption665474">Print Item Labels by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para665475">When printing Item Labels by Class Code, you are
     presented with the following options:</para>
@@ -28,7 +29,7 @@
         <term id="Para665476">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x19a09f8">
-          <para>Select to print Item Labels for all Class Codes.</para>
+            <para>Select to print Item Labels for all Class Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -36,7 +37,7 @@
         <term id="Para665477">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19a0a40">
-          <para>Specify Class Code you want to print Item Labels for.</para>
+            <para>Specify Class Code you want to print Item Labels for.</para>
         </listitem>
       </varlistentry>
 
@@ -44,12 +45,11 @@
         <term id="Para665478">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x19a0a88">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677349">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677348"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677349">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677348" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -59,7 +59,7 @@
         <term id="Para665489">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19a0aac">
-          <para>Select to print Item Labels for all Warehouses.</para>
+            <para>Select to print Item Labels for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -67,7 +67,7 @@
         <term id="Para665493">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19a0ad0">
-          <para>Specify Warehouse you want to print Item Labels for.</para>
+            <para>Specify Warehouse you want to print Item Labels for.</para>
         </listitem>
       </varlistentry>
 
@@ -75,10 +75,10 @@
         <term id="Para665494">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x19a0b18">
-          <para>Specify the Report you want to use for printing Item
+            <para>Specify the Report you want to use for printing Item
           Labels.</para>
 
-          <para id="Para665495">Menu will list available Label Form
+            <para id="Para665495">Menu will list available Label Form
           definitions.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +92,7 @@
         <term id="Para665500">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x19a0b84">
-          <para>Closes the screen without printing Item Labels, returning you
+            <para>Closes the screen without printing Item Labels, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +101,7 @@
         <term id="Para665501">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x19a0bcc">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

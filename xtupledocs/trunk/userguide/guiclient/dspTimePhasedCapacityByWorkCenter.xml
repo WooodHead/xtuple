@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section518741" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518741" role="openmfg">
     <title>Time-Phased Capacity by Work Center</title>
 
     <para id="Para519885">To view time-phased Capacity by Work Center, select
     the "Time-Phased Capacity by Work Center" option. The following screen
     will appear:</para>
 
-    <para id="Para519803"><screenshot>
+    <para id="Para519803">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CP_Disp_tpCapByWCenter.png"
-                       id="Graphic519871" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CP_Disp_tpCapByWCenter.png" id="Graphic519871"/>
+            </imageobject>
 
-          <caption id="Caption519874">Time-Phased Capacity by Work
+            <caption id="Caption519874">Time-Phased Capacity by Work
           Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519909">When displaying time-phased Capacity by Work Center,
     you are presented with the following options:</para>
@@ -30,7 +29,7 @@
         <term id="Para520600">All Warehouses</term>
 
         <listitem>
-          <para>Select to display time-phased Capacity by Work Center for all
+            <para>Select to display time-phased Capacity by Work Center for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -39,7 +38,7 @@
         <term id="Para520602">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose time-phased Capacity by Work Center
+            <para>Specify Warehouse whose time-phased Capacity by Work Center
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -48,9 +47,9 @@
         <term id="Para529455">Calendar</term>
 
         <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para529456">Associated Calendar periods will be
+            <para id="Para529456">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -59,11 +58,11 @@
         <term id="Para520606">Name/Selected Periods</term>
 
         <listitem>
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para523036">Select individual periods or groups of periods
+            <para id="Para523036">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -82,7 +81,7 @@
         <term id="Para520608">Capacity</term>
 
         <listitem>
-          <para>Display lists time-phased Capacity by Work Center, using the
+            <para>Display lists time-phased Capacity by Work Center, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +95,7 @@
         <term id="Para520611">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -105,10 +104,10 @@
         <term id="Para525484">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para520613">Start date and end date must be entered for
+            <para id="Para520613">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the "Capacity"
           display.</para>
         </listitem>
@@ -118,7 +117,7 @@
         <term id="Para529877">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

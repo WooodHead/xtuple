@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section971138">
-    <title><anchor id="Anchor971239" role="Index"
-    xreflabel="configuration:of crm module" /> <indexterm
-        significance="normal" zone="Anchor971239">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section971138">
+    <title>
+      <anchor id="Anchor971239" role="Index" xreflabel="configuration:of crm module"/> 
+      <indexterm significance="normal">
         <primary>configuration</primary>
 
         <secondary>of crm module</secondary>
@@ -14,15 +14,17 @@
     (CRM) module, select the "Configure CRM" option. The following screen will
     appear:</para>
 
-    <para id="Para971193"><screenshot>
+    <para id="Para971193">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configCRM.png" id="Graphic971191" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configCRM.png" id="Graphic971191"/>
+            </imageobject>
 
-          <caption id="Caption971194">Configure CRM Module</caption>
+            <caption id="Caption971194">Configure CRM Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para971195">When configuring the CRM module, you are presented
     with the following options:</para>
@@ -32,7 +34,7 @@
         <term id="Para971156">Incident # Generation</term>
 
         <listitem id="listitemN0x180ac00N0x18c3a88">
-          <para>By default, Incident numbers are generated automatically.
+            <para>By default, Incident numbers are generated automatically.
           However, you have the ability to specify the next available
           number.</para>
         </listitem>
@@ -42,9 +44,9 @@
         <term id="Para971249">Next #</term>
 
         <listitem id="listitemN0x180ac00N0x18c3ad0">
-          <para>Specify the next available Incident number.</para>
+            <para>Specify the next available Incident number.</para>
 
-          <para id="Para971266">The next Incident entered will use the number
+            <para id="Para971266">The next Incident entered will use the number
           specified here.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +60,7 @@
         <term id="Para971242">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c3b3c">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para971274">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18c3b84">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

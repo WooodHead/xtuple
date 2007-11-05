@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590389">
-  <title><anchor id="Anchor590406" role="Index"
-  xreflabel="financial reports:ad hoc type;ad hoc reports" /> <indexterm
-      significance="normal" zone="Anchor590406">
-      <primary>financial reports</primary>
+  <title>
+      <anchor id="Anchor590406" role="Index"
+              xreflabel="financial reports:ad hoc type;ad hoc reports"/> 
+      <indexterm significance="normal">
+         <primary>financial reports</primary>
 
-      <secondary>ad hoc type</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor590406">
-      <primary>ad hoc reports</primary>
-    </indexterm> <anchor id="Anchor69529" role="Cross-Ref"
-  xreflabel="69529: Heading3: Ad Hoc Report" />Ad Hoc Report</title>
+         <secondary>ad hoc type</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>ad hoc reports</primary>
+      </indexterm> 
+      <anchor id="Anchor69529" role="Cross-Ref" xreflabel="69529: Heading3: Ad Hoc Report"/>Ad Hoc Report</title>
 
   <para id="Para592872">Ad Hoc reports are completely free-form and
   user-defined. They give you the flexibility to create Financial Reports
   which do not fit neatly within the three standard statement formats.</para>
 
   <note>
-    <para id="Para593798">Any Financial Reports created in the system prior to
+      <para id="Para593798">Any Financial Reports created in the system prior to
     version 2.1.0 are considered to be Ad Hoc reports.</para>
   </note>
 
   <tip>
-    <para id="Para595593">Exercise caution before converting an Ad Hoc report
+      <para id="Para595593">Exercise caution before converting an Ad Hoc report
     to another report type. The process removes Ad Hoc group definitions,
     replacing them with standard statement format settings.</para>
   </tip>
@@ -31,133 +33,132 @@
   <para id="Para593143">To create an Ad Hoc Report, select the "Ad Hoc" report
   type. The following screen will appear:</para>
 
-  <para id="Para589160"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/GL_FR_adHocReport.png" id="Graphic589159" />
-        </imageobject>
+  <para id="Para589160">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/GL_FR_adHocReport.png" id="Graphic589159"/>
+            </imageobject>
 
-        <caption id="Caption589161">Ad Hoc Financial Report</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption589161">Ad Hoc Financial Report</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para589198">When creating a new Ad Hoc report, you are presented
   with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para576024">Row Layout</term>
+      <varlistentry>
+         <term id="Para576024">Row Layout</term>
 
-      <listitem id="listitemN0x180ac00N0x18f16e4">
-        <para>Display lists groups and Account Numbers for the specified
+         <listitem id="listitemN0x180ac00N0x18f16e4">
+            <para>Display lists groups and Account Numbers for the specified
         Financial Report.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para571761">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para571762">CANCEL</term>
+      <varlistentry>
+         <term id="Para571762">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1750">
-        <para>Closes the screen without creating a report, returning you to
+         <listitem id="listitemN0x180ac00N0x18f1750">
+            <para>Closes the screen without creating a report, returning you to
         the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571763">SAVE</term>
+      <varlistentry>
+         <term id="Para571763">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1798">
-        <para>Creates the report and adds it to the master list of Financial
+         <listitem id="listitemN0x180ac00N0x18f1798">
+            <para>Creates the report and adds it to the master list of Financial
         Reports.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571764">ADD TOP LEVEL GROUP</term>
+      <varlistentry>
+         <term id="Para571764">ADD TOP LEVEL GROUP</term>
 
-      <listitem id="listitemN0x180ac00N0x18f17e0">
-        <para>Select to add a top level group to the report.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18f17e0">
+            <para>Select to add a top level group to the report.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571765">ADD GROUP</term>
+      <varlistentry>
+         <term id="Para571765">ADD GROUP</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1828">
-        <para>Select to add a group to the report.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18f1828">
+            <para>Select to add a group to the report.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571768">ADD ACCOUNT</term>
+      <varlistentry>
+         <term id="Para571768">ADD ACCOUNT</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1870">
-        <para>Select to add G/L Account(s) to a Financial Report Group.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18f1870">
+            <para>Select to add G/L Account(s) to a Financial Report Group.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para576089">ADD SPECIAL</term>
+      <varlistentry>
+         <term id="Para576089">ADD SPECIAL</term>
 
-      <listitem id="listitemN0x180ac00N0x18f18b8">
-        <para>Select to add a Financial Report Special item.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18f18b8">
+            <para>Select to add a Financial Report Special item.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para576085">EDIT</term>
+      <varlistentry>
+         <term id="Para576085">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1900">
-        <para>Enables you to edit highlighted Group or Account. The edit
+         <listitem id="listitemN0x180ac00N0x18f1900">
+            <para>Enables you to edit highlighted Group or Account. The edit
         screen is the same as that for creating a new Group or Account--except
         that when editing, the fields will contain Group or Account
         information. Double-clicking on a Group or Account will also bring you
         to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para576086">DELETE</term>
+      <varlistentry>
+         <term id="Para576086">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1948">
-        <para>Highlight a Group or Account and then select this button to
+         <listitem id="listitemN0x180ac00N0x18f1948">
+            <para>Highlight a Group or Account and then select this button to
         remove the Group or Account from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571771">MOVE UP</term>
+      <varlistentry>
+         <term id="Para571771">MOVE UP</term>
 
-      <listitem id="listitemN0x180ac00N0x18f1990">
-        <para>Highlight a Group or Account and then select this button to move
+         <listitem id="listitemN0x180ac00N0x18f1990">
+            <para>Highlight a Group or Account and then select this button to move
         the Group or Account up the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para571772">MOVE DOWN</term>
+      <varlistentry>
+         <term id="Para571772">MOVE DOWN</term>
 
-      <listitem id="listitemN0x180ac00N0x18f19d8">
-        <para>Highlight a Group or Account and then select this button to move
+         <listitem id="listitemN0x180ac00N0x18f19d8">
+            <para>Highlight a Group or Account and then select this button to move
         the Group or Account up the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="financialLayoutGroup.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutGroup.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="financialLayoutSpecial.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutSpecial.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="financialLayoutOptions.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutOptions.xml"
+               xpointer="element(/1)"/>
 </section>

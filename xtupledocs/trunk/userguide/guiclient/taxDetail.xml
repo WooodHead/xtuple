@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Tax Detail
@@ -37,28 +37,28 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Unspecified</guilabel>
+                  <guilabel moreinfo="none">Unspecified</guilabel>
                </entry>
                <entry>_description</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Description:</guilabel>
+                  <guilabel moreinfo="none">Description:</guilabel>
                </entry>
                <entry>_descriptionLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Cumulative:</guilabel>
+                  <guilabel moreinfo="none">Cumulative:</guilabel>
                </entry>
                <entry>_cumulativeLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Unspecified</guilabel>
+                  <guilabel moreinfo="none">Unspecified</guilabel>
                </entry>
                <entry>_cumulative</entry>
                <entry>QLabel</entry>
@@ -70,7 +70,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Tax Code:</guilabel>
+                  <guilabel moreinfo="none">Tax Code:</guilabel>
                </entry>
                <entry>_taxCodeLit</entry>
                <entry>QLabel</entry>
@@ -82,14 +82,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Taxable Amount:</guilabel>
+                  <guilabel moreinfo="none">Taxable Amount:</guilabel>
                </entry>
                <entry>_subtotalLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_cancel</entry>
@@ -97,7 +97,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -110,35 +110,35 @@
             </row>
                <row>
                <entry>
-                  <guilabel>unassigned</guilabel>
+                  <guilabel moreinfo="none">unassigned</guilabel>
                </entry>
                <entry>_accntA</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Account:</guilabel>
+                  <guilabel moreinfo="none">Account:</guilabel>
                </entry>
                <entry>_accntALit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Percentage:</guilabel>
+                  <guilabel moreinfo="none">Percentage:</guilabel>
                </entry>
                <entry>_prcntALit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>0.0%</guilabel>
+                  <guilabel moreinfo="none">0.0%</guilabel>
                </entry>
                <entry>_prcntA</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Amount</guilabel>
+                  <guilabel moreinfo="none">Amount</guilabel>
                </entry>
                <entry>_amountALit</entry>
                <entry>QLabel</entry>
@@ -155,35 +155,35 @@
             </row>
                <row>
                <entry>
-                  <guilabel>unassigned</guilabel>
+                  <guilabel moreinfo="none">unassigned</guilabel>
                </entry>
                <entry>_accntB</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Account:</guilabel>
+                  <guilabel moreinfo="none">Account:</guilabel>
                </entry>
                <entry>_accntBLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Percentage:</guilabel>
+                  <guilabel moreinfo="none">Percentage:</guilabel>
                </entry>
                <entry>_prcntBLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>0.0%</guilabel>
+                  <guilabel moreinfo="none">0.0%</guilabel>
                </entry>
                <entry>_prcntB</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Amount</guilabel>
+                  <guilabel moreinfo="none">Amount</guilabel>
                </entry>
                <entry>_amountBLit</entry>
                <entry>QLabel</entry>
@@ -200,35 +200,35 @@
             </row>
                <row>
                <entry>
-                  <guilabel>unassigned</guilabel>
+                  <guilabel moreinfo="none">unassigned</guilabel>
                </entry>
                <entry>_accntC</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Account:</guilabel>
+                  <guilabel moreinfo="none">Account:</guilabel>
                </entry>
                <entry>_accntCLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Percentage:</guilabel>
+                  <guilabel moreinfo="none">Percentage:</guilabel>
                </entry>
                <entry>_prcntCLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>0.0%</guilabel>
+                  <guilabel moreinfo="none">0.0%</guilabel>
                </entry>
                <entry>_prcntC</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Amount</guilabel>
+                  <guilabel moreinfo="none">Amount</guilabel>
                </entry>
                <entry>_amountCLit</entry>
                <entry>QLabel</entry>
@@ -240,14 +240,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Calculate Tax</guilabel>
+                  <guilabel moreinfo="none">Calculate Tax</guilabel>
                </entry>
                <entry>_calculate</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Total:</guilabel>
+                  <guilabel moreinfo="none">Total:</guilabel>
                </entry>
                <entry>_totalLit</entry>
                <entry>QLabel</entry>

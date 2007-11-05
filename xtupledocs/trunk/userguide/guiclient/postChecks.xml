@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section524368">
-    <title><anchor id="Anchor532586" role="Index"
-    xreflabel="checks:posting multiple;accounts payable:posting checks for" />
-    <indexterm significance="normal" zone="Anchor532586">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524368">
+    <title>
+      <anchor id="Anchor532586" role="Index"
+              xreflabel="checks:posting multiple;accounts payable:posting checks for"/>
+      <indexterm significance="normal">
         <primary>checks</primary>
 
         <secondary>posting multiple</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532586">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>posting checks for</secondary>
@@ -17,16 +19,17 @@
     <para id="Para529768">To post multiple Checks, select the "Post A/P
     Checks" option. The following screen will appear:</para>
 
-    <para id="Para529772"><screenshot>
+    <para id="Para529772">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_postChkRun.png"
-                       id="Graphic529770" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_postChkRun.png" id="Graphic529770"/>
+            </imageobject>
 
-          <caption id="Caption529773">Post Multiple A/P Checks</caption>
+            <caption id="Caption529773">Post Multiple A/P Checks</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para529774">When posting multiple Checks, you are presented with
     the following options:</para>
@@ -36,7 +39,7 @@
         <term id="Para529775">Bank Account</term>
 
         <listitem>
-          <para>Specify the Bank Account for the multiple Checks you want to
+            <para>Specify the Bank Account for the multiple Checks you want to
           post.</para>
         </listitem>
       </varlistentry>
@@ -45,25 +48,27 @@
         <term id="Para529777">Number of Unposted Checks</term>
 
         <listitem>
-          <para>Displays the total number of unposted Checks.</para>
+            <para>Displays the total number of unposted Checks.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para529833"><anchor id="Anchor534591" role="Index"
-        xreflabel="checks:printing journal;check journal:printing of" />
-        <indexterm significance="normal" zone="Anchor534591">
-            <primary>checks</primary>
+        <term id="Para529833">
+            <anchor id="Anchor534591" role="Index"
+                    xreflabel="checks:printing journal;check journal:printing of"/>
+            <indexterm significance="normal">
+               <primary>checks</primary>
 
-            <secondary>printing journal</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor534591">
-            <primary>check journal</primary>
+               <secondary>printing journal</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>check journal</primary>
 
-            <secondary>printing of</secondary>
-          </indexterm>Print Check Journal</term>
+               <secondary>printing of</secondary>
+            </indexterm>Print Check Journal</term>
 
         <listitem>
-          <para>Select to print the Check Journal.</para>
+            <para>Select to print the Check Journal.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -76,7 +81,7 @@
         <term id="Para529780">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without posting a Check, returning you to
+            <para>Closes the screen without posting a Check, returning you to
           the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +90,7 @@
         <term id="Para529781">POST</term>
 
         <listitem>
-          <para>Posts the Check, using the specified parameters.</para>
+            <para>Posts the Check, using the specified parameters.</para>
         </listitem>
       </varlistentry>
     </variablelist>

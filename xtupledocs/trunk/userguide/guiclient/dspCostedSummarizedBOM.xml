@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section636366">
-    <title><anchor id="Anchor636365" role="Index"
-    xreflabel="costing:for summarized BOMs;bills of materials:costed summarized view of" />
-    <indexterm significance="normal" zone="Anchor636365">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section636366">
+    <title>
+      <anchor id="Anchor636365" role="Index"
+              xreflabel="costing:for summarized BOMs;bills of materials:costed summarized view of"/>
+      <indexterm significance="normal">
         <primary>costing</primary>
 
         <secondary>for summarized BOMs</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor636365">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>costed summarized view of</secondary>
@@ -21,17 +22,18 @@
     excluded. To view a Costed summarized Bill of Materials, select the
     "Costed Summarized BOM" option. The following screen will appear:</para>
 
-    <para id="Para636465"><screenshot>
+    <para id="Para636465">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_dispCostSumBOM.png"
-                       id="Graphic636463" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_dispCostSumBOM.png" id="Graphic636463"/>
+            </imageobject>
 
-          <caption id="Caption636466">Costed Summarized Bill of
+            <caption id="Caption636466">Costed Summarized Bill of
           Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para636467">When displaying a Costed summarized Bill of
     Materials, you are presented with the following options:</para>
@@ -41,7 +43,7 @@
         <term id="Para636551">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x191b510">
-          <para>Enter the Item Number of the manufactured Item you would like
+            <para>Enter the Item Number of the manufactured Item you would like
           to view a Costed summarized Bill of Materials for.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +52,7 @@
         <term id="Para663306">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x191b558">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -58,7 +60,7 @@
         <term id="Para636554">Show Expired Components</term>
 
         <listitem id="listitemN0x180ac00N0x191b5a0">
-          <para>Select to cause expired components to be listed in the "Bill
+            <para>Select to cause expired components to be listed in the "Bill
           of Materials" display.</para>
         </listitem>
       </varlistentry>
@@ -67,10 +69,10 @@
         <term id="Para636555">Threshold Days</term>
 
         <listitem id="listitemN0x180ac00N0x191b5e8">
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
 
-          <para id="Para636556">Components that have been expired from the
+            <para id="Para636556">Components that have been expired from the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
         </listitem>
@@ -80,7 +82,7 @@
         <term id="Para636557">Show Future Components</term>
 
         <listitem id="listitemN0x180ac00N0x191b630">
-          <para>Select to cause future components to be listed in the "Bill of
+            <para>Select to cause future components to be listed in the "Bill of
           Materials" display.</para>
         </listitem>
       </varlistentry>
@@ -89,10 +91,10 @@
         <term id="Para636558">Threshold Days</term>
 
         <listitem id="listitemN0x180ac00N0x191b678">
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
 
-          <para id="Para636559">Components that will be added in future to the
+            <para id="Para636559">Components that will be added in future to the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
         </listitem>
@@ -102,7 +104,7 @@
         <term id="Para636610">Use Standard Costs</term>
 
         <listitem id="listitemN0x180ac00N0x191b6c0">
-          <para>Select to display Standard Costs for the specified
+            <para>Select to display Standard Costs for the specified
           Item.</para>
         </listitem>
       </varlistentry>
@@ -124,7 +126,7 @@
         <term id="Para636611">Use Actual Costs</term>
 
         <listitem id="listitemN0x180ac00N0x191b750">
-          <para>Select to display Actual Costs for the specified Item.</para>
+            <para>Select to display Actual Costs for the specified Item.</para>
         </listitem>
       </varlistentry>
 
@@ -132,7 +134,7 @@
         <term id="Para636560">Bill of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x191b798">
-          <para>Display lists summarized Bill of Materials components, using
+            <para>Display lists summarized Bill of Materials components, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -146,7 +148,7 @@
         <term id="Para636563">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x191b804">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +157,7 @@
         <term id="Para636619">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x191b84c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +166,7 @@
         <term id="Para663955">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x191b894">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

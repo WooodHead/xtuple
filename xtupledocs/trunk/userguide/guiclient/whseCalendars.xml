@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538730" role="openmfg">
   <title>List Warehouse Calendar Exceptions</title>
 
@@ -10,7 +10,7 @@
   whether extra shifts are being added to extend the standard week.</para>
 
   <note>
-    <para id="Para538930">The Buffer Management system will consider calendar
+      <para id="Para538930">The Buffer Management system will consider calendar
     exceptions when determining the time buffer status for an Item
     Site.</para>
   </note>
@@ -19,16 +19,17 @@
   select the "Warehouse Calendar Exceptions" option. The following screen will
   appear:</para>
 
-  <para id="Para538751"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/MS_MI_wareExceptList.png"
-                     id="Graphic538749" />
-        </imageobject>
+  <para id="Para538751">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/MS_MI_wareExceptList.png" id="Graphic538749"/>
+            </imageobject>
 
-        <caption id="Caption538752">Warehouse Calendar Exceptions</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption538752">Warehouse Calendar Exceptions</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para538955">The "Warehouse Calendar Exceptions" screen displays
   information on all existing Warehouse calendar exceptions, including
@@ -38,60 +39,60 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para538957">CLOSE</term>
+      <varlistentry>
+         <term id="Para538957">CLOSE</term>
 
-      <listitem>
-        <para>Closes the screen, returning you to the application
+         <listitem>
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para553745">PRINT</term>
+      <varlistentry>
+         <term id="Para553745">PRINT</term>
 
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para538995">NEW</term>
+      <varlistentry>
+         <term id="Para538995">NEW</term>
 
-      <listitem>
-        <para>Opens screen for creating a new Warehouse calendar
+         <listitem>
+            <para>Opens screen for creating a new Warehouse calendar
         exception.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para538960">EDIT</term>
+      <varlistentry>
+         <term id="Para538960">EDIT</term>
 
-      <listitem>
-        <para>Enables you to edit Warehouse calendar exceptions. The edit
+         <listitem>
+            <para>Enables you to edit Warehouse calendar exceptions. The edit
         screen is the same as that for creating a new Warehouse calendar
         exception--except that when editing, the fields will contain Warehouse
         calendar exception information. Double-clicking on a Warehouse
         calendar exception will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para538961">VIEW</term>
+      <varlistentry>
+         <term id="Para538961">VIEW</term>
 
-      <listitem>
-        <para>Highlight a Warehouse calendar exception and then select this
+         <listitem>
+            <para>Highlight a Warehouse calendar exception and then select this
         button to reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para538962">DELETE</term>
+      <varlistentry>
+         <term id="Para538962">DELETE</term>
 
-      <listitem>
-        <para>Highlight a Warehouse calendar exception and then select this
+         <listitem>
+            <para>Highlight a Warehouse calendar exception and then select this
         button to remove it from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520037" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520037" role="openmfg">
     <title>Labor Variance by BOO Item</title>
 
     <para id="Para520038">To view labor variances by Bill of Operations Item,
     select the "Labor Variance by BOO Item" option. The following screen will
     appear:</para>
 
-    <para id="Para520042"><screenshot>
+    <para id="Para520042">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_labVarBOOItem.png"
-                       id="Graphic524134" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_labVarBOOItem.png" id="Graphic524134"/>
+            </imageobject>
 
-          <caption id="Caption520043">Labor Variance by Bill of Operations
+            <caption id="Caption520043">Labor Variance by Bill of Operations
           Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520049">When viewing labor variances by Bill of Operations
     Item, you are presented with the following options:</para>
@@ -29,7 +29,7 @@
         <term id="Para520050">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item whose labor variances by
+            <para>Enter the Item Number of the Item whose labor variances by
           Bill of Operations Item you want to view.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +38,7 @@
         <term id="Para568862">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -46,7 +46,7 @@
         <term id="Para520054">Bill of Operations Item</term>
 
         <listitem>
-          <para>Select desired Bill of Operations Item listed on the parent
+            <para>Select desired Bill of Operations Item listed on the parent
           Item's Bill of Operations.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +55,7 @@
         <term id="Para520056">All Warehouses</term>
 
         <listitem>
-          <para>Select to display labor variances by Bill of Operations Item
+            <para>Select to display labor variances by Bill of Operations Item
           for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +64,7 @@
         <term id="Para520058">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose labor variances by Bill of Operations
+            <para>Specify Warehouse whose labor variances by Bill of Operations
           Item you want to display.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +73,7 @@
         <term id="Para520063">Start Date</term>
 
         <listitem>
-          <para>Labor variances by Bill of Operations Item generated on or
+            <para>Labor variances by Bill of Operations Item generated on or
           after this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +82,7 @@
         <term id="Para520068">End Date</term>
 
         <listitem>
-          <para>Labor variances by Bill of Operations Item generated on or
+            <para>Labor variances by Bill of Operations Item generated on or
           before this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -91,7 +91,7 @@
         <term id="Para520070">Labor Variance</term>
 
         <listitem>
-          <para>Display lists labor variances by Bill of Operations Item,
+            <para>Display lists labor variances by Bill of Operations Item,
           using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +105,7 @@
         <term id="Para520073">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +114,7 @@
         <term id="Para520074">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

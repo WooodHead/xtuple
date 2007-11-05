@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519985">
-    <title><anchor id="Anchor552220" role="Index"
-    xreflabel="valid locations:by item;items:valid locations for" />
-    <indexterm significance="normal" zone="Anchor552220">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519985">
+    <title>
+      <anchor id="Anchor552220" role="Index"
+              xreflabel="valid locations:by item;items:valid locations for"/>
+      <indexterm significance="normal">
         <primary>valid locations</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552220">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>valid locations for</secondary>
@@ -17,16 +19,17 @@
     <para id="Para519986">To view valid Locations by Item, select the "Valid
     Locations by Item" option. The following screen will appear:</para>
 
-    <para id="Para519990"><screenshot>
+    <para id="Para519990">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_validLocationsByIte.png"
-                       id="Graphic526614" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_validLocationsByIte.png" id="Graphic526614"/>
+            </imageobject>
 
-          <caption id="Caption519991">Valid Locations by Item</caption>
+            <caption id="Caption519991">Valid Locations by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519997">When displaying valid Locations by Item, you are
     presented with the following options:</para>
@@ -36,7 +39,7 @@
         <term id="Para519998">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x193a3fc">
-          <para>Enter the Item Number of the Item whose valid Location(s) you
+            <para>Enter the Item Number of the Item whose valid Location(s) you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +48,7 @@
         <term id="Para672048">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x193a444">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +56,7 @@
         <term id="Para520002">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x193a468">
-          <para>Select to display Locations for all Warehouses.</para>
+            <para>Select to display Locations for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -61,7 +64,7 @@
         <term id="Para520004">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x193a48c">
-          <para>Specify Warehouse whose Locations you want to display.</para>
+            <para>Specify Warehouse whose Locations you want to display.</para>
         </listitem>
       </varlistentry>
 
@@ -69,7 +72,7 @@
         <term id="Para520006">Valid Location</term>
 
         <listitem id="listitemN0x180ac00N0x193a4d4">
-          <para>Display lists valid Locations by Item, using the specified
+            <para>Display lists valid Locations by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +86,7 @@
         <term id="Para520009">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193a540">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +95,7 @@
         <term id="Para620732">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x193a588">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +104,7 @@
         <term id="Para675652">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193a5d0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

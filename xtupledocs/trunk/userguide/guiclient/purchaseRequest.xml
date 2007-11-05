@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Purchase Request
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Purchase Request #:</guilabel>
+                  <guilabel moreinfo="none">Purchase Request #:</guilabel>
                </entry>
                <entry>_numberLit</entry>
                <entry>QLabel</entry>
@@ -54,7 +54,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -62,28 +62,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>C<accel>r</accel>eate</guilabel>
+                  <guilabel moreinfo="none">C<accel>r</accel>eate</guilabel>
                </entry>
                <entry>_create</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Qty. Ordered:</guilabel>
+                  <guilabel moreinfo="none">Qty. Ordered:</guilabel>
                </entry>
                <entry>_qtyLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Due Date:</guilabel>
+                  <guilabel moreinfo="none">Due Date:</guilabel>
                </entry>
                <entry>_eueDateLit</entry>
                <entry>QLabel</entry>
@@ -110,7 +110,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Notes:</guilabel>
+                  <guilabel moreinfo="none">Notes:</guilabel>
                </entry>
                <entry>_notesLit</entry>
                <entry>QLabel</entry>

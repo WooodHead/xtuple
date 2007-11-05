@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section631687">
-    <title><anchor id="Anchor631686" role="Index"
-    xreflabel="costing elements:user-defined" /> <indexterm
-        significance="normal" zone="Anchor631686">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section631687">
+    <title>
+      <anchor id="Anchor631686" role="Index" xreflabel="costing elements:user-defined"/> 
+      <indexterm significance="normal">
         <primary>costing elements</primary>
 
         <secondary>user-defined</secondary>
-      </indexterm> <anchor id="Anchor68692" role="Cross-Ref"
-    xreflabel="68692: Heading2: User-Defined Costing Elements" />User-Defined
+      </indexterm> 
+      <anchor id="Anchor68692" role="Cross-Ref"
+              xreflabel="68692: Heading2: User-Defined Costing Elements"/>User-Defined
     Costing Elements</title>
 
     <para id="Para631688">If you need to establish Costing Elements above and
@@ -22,17 +22,18 @@
     user-defined Costing Elements, select the "User-Defined Costing Elements"
     option. The following screen will appear:</para>
 
-    <para id="Para520227"><screenshot>
+    <para id="Para520227">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_userCostEle.png"
-                       id="Graphic563586" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_userCostEle.png" id="Graphic563586"/>
+            </imageobject>
 
-          <caption id="Caption520228">User-Defined Costing Elements Master
+            <caption id="Caption520228">User-Defined Costing Elements Master
           List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520231">The user-defined Costing Elements master list
     displays an alphabetical list of all user-defined Costing Elements.</para>
@@ -45,7 +46,7 @@
         <term id="Para520233">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1923750">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +55,7 @@
         <term id="Para520234">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x1923798">
-          <para>Opens screen for creating a new Costing Element.</para>
+            <para>Opens screen for creating a new Costing Element.</para>
         </listitem>
       </varlistentry>
 
@@ -62,7 +63,7 @@
         <term id="Para520235">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x19237e0">
-          <para>Enables you to edit highlighted Costing Elements. The edit
+            <para>Enables you to edit highlighted Costing Elements. The edit
           screen is the same as that for creating a new Costing
           Element--except that when editing, the fields will contain Costing
           Element information. Double-clicking on a Costing Element will also
@@ -74,7 +75,7 @@
         <term id="Para520236">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x1923828">
-          <para>Highlight a Costing Element and then select this button to
+            <para>Highlight a Costing Element and then select this button to
           remove the Costing Element from the list.</para>
         </listitem>
       </varlistentry>
@@ -96,26 +97,28 @@
       <para id="Para628632">Material</para>
     </note>
 
-    <para id="Para520237"><anchor id="Anchor601592" role="Index"
-    xreflabel="costing elements:creating user-defined" /> <indexterm
-        significance="normal" zone="Anchor601592">
+    <para id="Para520237">
+      <anchor id="Anchor601592" role="Index"
+              xreflabel="costing elements:creating user-defined"/> 
+      <indexterm significance="normal">
         <primary>costing elements</primary>
 
         <secondary>creating user-defined</secondary>
       </indexterm>To create a new user-defined Costing Element, select the NEW
     button. The following screen will appear:</para>
 
-    <para id="Para520241"><screenshot>
+    <para id="Para520241">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_userCostEleNew.png"
-                       id="Graphic563600" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_userCostEleNew.png" id="Graphic563600"/>
+            </imageobject>
 
-          <caption id="Caption520242">Create New User-Defined Costing
+            <caption id="Caption520242">Create New User-Defined Costing
           Element</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520243">When creating a new user-defined Costing Element,
     you are presented with the following options:</para>
@@ -125,7 +128,7 @@
         <term id="Para520247">Element Name</term>
 
         <listitem id="listitemN0x180ac00N0x192396c">
-          <para>Specify a name to describe the Costing Element.</para>
+            <para>Specify a name to describe the Costing Element.</para>
         </listitem>
       </varlistentry>
 
@@ -133,7 +136,7 @@
         <term id="Para648320">Active</term>
 
         <listitem id="listitemN0x180ac00N0x19239b4">
-          <para>Select to make the user-defined Costing Element active.</para>
+            <para>Select to make the user-defined Costing Element active.</para>
         </listitem>
       </varlistentry>
 
@@ -141,10 +144,10 @@
         <term id="Para520249">Accept P/O Distributions</term>
 
         <listitem id="listitemN0x180ac00N0x19239fc">
-          <para>Select if you want the Costing Element to be used for
+            <para>Select if you want the Costing Element to be used for
           distributing Costs related to Purchase Order Vouchers.</para>
 
-          <para id="Para520250">If selected, the Costing Element will be
+            <para id="Para520250">If selected, the Costing Element will be
           included as one of the available Costing Elements when Voucher Item
           Costs are distributed.</para>
         </listitem>
@@ -154,10 +157,10 @@
         <term id="Para641313">Use Costing Item for Cost Source</term>
 
         <listitem id="listitemN0x180ac00N0x1923a44">
-          <para>Select if you want to associate the Costing Element with a
+            <para>Select if you want to associate the Costing Element with a
           Costing Item, for the purpose of tracking Item Costs.</para>
 
-          <para id="Para641324">A Costing Item kind of pseudo-Item used solely
+            <para id="Para641324">A Costing Item kind of pseudo-Item used solely
           to provide a costed value for a Costing Element. When a user-defined
           Costing Element is linked to a Costing Item, the Costing Element
           assumes the Costs associated with the Costing Item.</para>
@@ -168,7 +171,7 @@
         <term id="Para641339">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1923a8c">
-          <para>Enter the Item Number of the Costing Item you would like to
+            <para>Enter the Item Number of the Costing Item you would like to
           assign to the Costing Element.</para>
         </listitem>
       </varlistentry>
@@ -177,7 +180,7 @@
         <term id="Para663327">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1923ad4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -190,7 +193,7 @@
         <term id="Para520252">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1923b40">
-          <para>Closes the screen without creating the user-defined Costing
+            <para>Closes the screen without creating the user-defined Costing
           Element, returning you to the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -199,7 +202,7 @@
         <term id="Para520253">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1923b88">
-          <para>Creates the Costing Element and adds it to the master list of
+            <para>Creates the Costing Element and adds it to the master list of
           user-defined Costing Elements.</para>
         </listitem>
       </varlistentry>

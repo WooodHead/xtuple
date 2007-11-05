@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section533636">
-    <title><anchor id="Anchor533635" role="Index"
-    xreflabel="receiving labels:printing by p/o;purchase orders:printing receiving labels for" />
-    <indexterm significance="normal" zone="Anchor533635">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section533636">
+    <title>
+      <anchor id="Anchor533635" role="Index"
+              xreflabel="receiving labels:printing by p/o;purchase orders:printing receiving labels for"/>
+      <indexterm significance="normal">
         <primary>receiving labels</primary>
 
         <secondary>printing by p/o</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533635">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>printing receiving labels for</secondary>
@@ -18,17 +20,18 @@
     select the "Print Receiving Labels by P/O #" option. The following screen
     will appear:</para>
 
-    <para id="Para533505"><screenshot>
+    <para id="Para533505">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Forms_printLabByPO.png"
-                       id="Graphic533503" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Forms_printLabByPO.png" id="Graphic533503"/>
+            </imageobject>
 
-          <caption id="Caption533506">Print Receiving Labels by Purchase Order
+            <caption id="Caption533506">Print Receiving Labels by Purchase Order
           Number</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para533507">When printing Receiving labels by Purchase Order
     Number, you are presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para533508">Purchase Order #</term>
 
         <listitem id="listitemN0x180ac00N0x186828c">
-          <para>: Enter the Purchase Order Number of the Purchase Order whose
+            <para>: Enter the Purchase Order Number of the Purchase Order whose
           Receiving labels you want to print.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para539077">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x18682d4">
-          <para>Specify the name of the Shipping Label Form you want to
+            <para>Specify the name of the Shipping Label Form you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +59,7 @@
         <term id="Para539082">Labels</term>
 
         <listitem id="listitemN0x180ac00N0x186831c">
-          <para>Specify the range of Receiving labels you want to
+            <para>Specify the range of Receiving labels you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +73,7 @@
         <term id="Para533517">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1868388">
-          <para>Closes the screen without printing any Receiving labels,
+            <para>Closes the screen without printing any Receiving labels,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +82,7 @@
         <term id="Para533518">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18683d0">
-          <para>Prints specified number of Receiving label copies for the
+            <para>Prints specified number of Receiving label copies for the
           specified Purchase Order.</para>
         </listitem>
       </varlistentry>

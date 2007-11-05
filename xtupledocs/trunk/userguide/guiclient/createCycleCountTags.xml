@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519249">
-    <title><anchor id="Anchor552158" role="Index"
-    xreflabel="cycle count tags:creating by warehouse;cycle counts:creating tags for;physical inventory:creating cycle count tags" />
-    <indexterm significance="normal" zone="Anchor552158">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519249">
+    <title>
+      <anchor id="Anchor552158" role="Index"
+              xreflabel="cycle count tags:creating by warehouse;cycle counts:creating tags for;physical inventory:creating cycle count tags"/>
+      <indexterm significance="normal">
         <primary>cycle count tags</primary>
 
         <secondary>creating by warehouse</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552158">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>cycle counts</primary>
 
         <secondary>creating tags for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552158">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>creating cycle count tags</secondary>
@@ -73,17 +76,18 @@
     "Create Cycle Count Tags by Warehouse" option. The following screen will
     appear:</para>
 
-    <para id="Para519254"><screenshot>
+    <para id="Para519254">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_createCycleCTByWareho.png"
-                       id="Graphic526024" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_createCycleCTByWareho.png" id="Graphic526024"/>
+            </imageobject>
 
-          <caption id="Caption519255">Create Cycle Count Tags by
+            <caption id="Caption519255">Create Cycle Count Tags by
           Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519256">When creating Cycle Count Tags by Warehouse, you are
     presented with the following options:</para>
@@ -93,7 +97,7 @@
         <term id="Para519257">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x18fa708">
-          <para>Specify Warehouse where Cycle Count will be conducted.</para>
+            <para>Specify Warehouse where Cycle Count will be conducted.</para>
         </listitem>
       </varlistentry>
 
@@ -101,9 +105,9 @@
         <term id="Para519259">Mark Created Count Tag as Priority</term>
 
         <listitem id="listitemN0x180ac00N0x18fa750">
-          <para>Select to give priority status to Count Tag.</para>
+            <para>Select to give priority status to Count Tag.</para>
 
-          <para id="Para596785">Count Tags marked as having priority status
+            <para id="Para596785">Count Tags marked as having priority status
           are listed first in any prioritized lists. For example, priority
           Count Tags will appear at the top of the Count Tag Edit List;
           whereas, non-priority Count Tags will appear at the bottom of the
@@ -112,32 +116,34 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para519260"><anchor id="Anchor558298" role="Index"
-        xreflabel="freezing:of inventory;inventory:freezing during cycle counts;cycle counts:freezing inventory during" />
-        <indexterm significance="normal" zone="Anchor558298">
-            <primary>freezing</primary>
+        <term id="Para519260">
+            <anchor id="Anchor558298" role="Index"
+                    xreflabel="freezing:of inventory;inventory:freezing during cycle counts;cycle counts:freezing inventory during"/>
+            <indexterm significance="normal">
+               <primary>freezing</primary>
 
-            <secondary>of inventory</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor558298">
-            <primary>inventory</primary>
+               <secondary>of inventory</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>inventory</primary>
 
-            <secondary>freezing during cycle counts</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor558298">
-            <primary>cycle counts</primary>
+               <secondary>freezing during cycle counts</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>cycle counts</primary>
 
-            <secondary>freezing inventory during</secondary>
-          </indexterm>Freeze Inventory</term>
+               <secondary>freezing inventory during</secondary>
+            </indexterm>Freeze Inventory</term>
 
         <listitem id="listitemN0x180ac00N0x18fa870">
-          <para>Select to freeze Inventory.</para>
+            <para>Select to freeze Inventory.</para>
 
-          <para id="Para519261">The Quantity on Hand value is not updated when
+            <para id="Para519261">The Quantity on Hand value is not updated when
           a transaction is posted against a frozen Item Site. Instead,
           Inventory transactions are pooled and then posted later when the
           Item Site is unfrozen--or thawed. The Quantity on Hand is updated
           when the Item Site is thawed. For a detailed explanation of these
-          concepts, see the <link endterm="Anchor80983" id="XRef530055"
-          linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
+          concepts, see the <link endterm="Anchor80983" id="XRef530055" linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
           and Thawing" section.</para>
         </listitem>
       </varlistentry>
@@ -154,10 +160,10 @@
         <term id="Para629749">Ignore Zero Balance Item Sites</term>
 
         <listitem id="listitemN0x180ac00N0x18fa900">
-          <para>Select to ignore Item Sites which have a Quantity on Hand
+            <para>Select to ignore Item Sites which have a Quantity on Hand
           balance of zero.</para>
 
-          <para id="Para629750">If selected, Count Tags will not be created
+            <para id="Para629750">If selected, Count Tags will not be created
           for any Item Site having a Quantity on Hand balance of zero.</para>
         </listitem>
       </varlistentry>
@@ -166,7 +172,7 @@
         <term id="Para519262">Maximum Number of Tags to Create</term>
 
         <listitem id="listitemN0x180ac00N0x18fa948">
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 1,000.</para>
         </listitem>
       </varlistentry>
@@ -175,13 +181,13 @@
         <term id="Para629755">Item Sites in</term>
 
         <listitem id="listitemN0x180ac00N0x18fa990">
-          <para>Specify which of the following codes you want to have Cycle
+            <para>Specify which of the following codes you want to have Cycle
           Count Tags created for:</para>
 
-          <para id="Para629783">Class Code: If selected, you will be presented
+            <para id="Para629783">Class Code: If selected, you will be presented
           with Class Code options.</para>
 
-          <para id="Para629787">Planner Code: If selected, you will be
+            <para id="Para629787">Planner Code: If selected, you will be
           presented with Planner Code options.</para>
         </listitem>
       </varlistentry>
@@ -190,10 +196,10 @@
         <term id="Para629772">Only for Specified Location</term>
 
         <listitem id="listitemN0x180ac00N0x18fa9d8">
-          <para>Select if you want to create Count Tags for an individual
+            <para>Select if you want to create Count Tags for an individual
           Warehouse Location.</para>
 
-          <para id="Para629773">If selected, you will have the option to
+            <para id="Para629773">If selected, you will have the option to
           specify which Warehouse Location you want to have Count Tags created
           for. This option enables you to count individual Warehouse Locations
           separately, without having to post counts for an entire Warehouse
@@ -202,20 +208,22 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para596841"><anchor id="Anchor596837" role="Index"
-        xreflabel="cycle counters:creating instructions for;cycle counts:creating instructions for" />
-        <indexterm significance="normal" zone="Anchor596837">
-            <primary>cycle counters</primary>
+        <term id="Para596841">
+            <anchor id="Anchor596837" role="Index"
+                    xreflabel="cycle counters:creating instructions for;cycle counts:creating instructions for"/>
+            <indexterm significance="normal">
+               <primary>cycle counters</primary>
 
-            <secondary>creating instructions for</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor596837">
-            <primary>cycle counts</primary>
+               <secondary>creating instructions for</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>cycle counts</primary>
 
-            <secondary>creating instructions for</secondary>
-          </indexterm>Comments</term>
+               <secondary>creating instructions for</secondary>
+            </indexterm>Comments</term>
 
         <listitem id="listitemN0x180ac00N0x18faab0">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the Cycle Count. Use the Comments field to enter
           any instructions or other Comments that need to reach and be read by
           the cycle counters.</para>
@@ -231,7 +239,7 @@
         <term id="Para519269">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18fab1c">
-          <para>Closes the screen without creating a Count Tag, returning you
+            <para>Closes the screen without creating a Count Tag, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -240,9 +248,9 @@
         <term id="Para519270">CREATE TAGS</term>
 
         <listitem id="listitemN0x180ac00N0x18fab64">
-          <para>Creates Cycle Count Tags.</para>
+            <para>Creates Cycle Count Tags.</para>
 
-          <para id="Para604805">Cycle Count Tag Numbers are generated
+            <para id="Para604805">Cycle Count Tag Numbers are generated
           automatically in an ordered sequence.</para>
         </listitem>
       </varlistentry>

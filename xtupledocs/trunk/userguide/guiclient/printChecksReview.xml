@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Review Printed Checks
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Make any necessary adjustments by marking the listed Checks appropriately.</guilabel>
+                  <guilabel moreinfo="none">Make any necessary adjustments by marking the listed Checks appropriately.</guilabel>
                </entry>
                <entry>_label</entry>
                <entry>QLabel</entry>
@@ -49,7 +49,7 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Complete</guilabel>
+                  <guilabel moreinfo="none">Complete</guilabel>
                </entry>
                <entry>_complete</entry>
                <entry>QPushButton</entry>
@@ -61,7 +61,7 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>U</accel>nmark</guilabel>
                </entry>
                <entry>_unmark</entry>
@@ -69,14 +69,14 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Mark as <accel>P</accel>rinted</guilabel>
+                  <guilabel moreinfo="none">Mark as <accel>P</accel>rinted</guilabel>
                </entry>
                <entry>_printed</entry>
                <entry>QPushButton</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>V</accel>oid</guilabel>
                </entry>
                <entry>_voided</entry>
@@ -84,7 +84,7 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Void <accel>&amp;</accel> 
+                  <guilabel moreinfo="none">Void <accel>&amp;</accel> 
                      <accel>R</accel>eplace</guilabel>
                </entry>
                <entry>_replace</entry>
@@ -97,7 +97,7 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Select All</guilabel>
+                  <guilabel moreinfo="none">Select All</guilabel>
                </entry>
                <entry>_selectAll</entry>
                <entry>QPushButton</entry>

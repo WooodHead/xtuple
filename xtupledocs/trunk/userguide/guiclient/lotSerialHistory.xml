@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Lot/Serial History
@@ -42,7 +42,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Lot/Serial #:</guilabel>
+                  <guilabel moreinfo="none">Lot/Serial #:</guilabel>
                </entry>
                <entry>_lotSerialNumLit</entry>
                <entry>QLabel</entry>
@@ -54,7 +54,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -62,7 +62,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>History:</guilabel>
+                  <guilabel moreinfo="none">History:</guilabel>
                </entry>
                <entry>_historyLit</entry>
                <entry>QLabel</entry>
@@ -74,7 +74,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>V</accel>iew</guilabel>
                </entry>
                <entry>_view</entry>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>List Work Centers</title>
 
@@ -13,23 +13,24 @@
   multiple Work Centers. To access the master list of Work Centers, select the
   "Work Centers" option. The following screen will appear.</para>
 
-  <para id="Para530123"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/PD_MI_workCenterList.png"
-                     id="Graphic530121" />
-        </imageobject>
+  <para id="Para530123">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/PD_MI_workCenterList.png" id="Graphic530121"/>
+            </imageobject>
 
-        <caption id="Caption530124">Work Centers Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption530124">Work Centers Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para530125">The "Work Centers" screen displays information on all
   existing Work Centers, including Warehouse Location, Work Center name,
   number of machines, and Work Center description.</para>
 
   <tip>
-    <para id="Para530127">At least one Warehouse must be entered into the
+      <para id="Para530127">At least one Warehouse must be entered into the
     system before a Work Center may be added.</para>
   </tip>
 
@@ -37,122 +38,124 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530129">CLOSE</term>
+      <varlistentry>
+         <term id="Para530129">CLOSE</term>
 
-      <listitem>
-        <para>Closes the screen, returning you to the application
+         <listitem>
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530130">PRINT</term>
+      <varlistentry>
+         <term id="Para530130">PRINT</term>
 
-      <listitem>
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530131">NEW</term>
+      <varlistentry>
+         <term id="Para530131">NEW</term>
 
-      <listitem>
-        <para>Opens screen for creating a new Work Center.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Opens screen for creating a new Work Center.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530132">EDIT</term>
+      <varlistentry>
+         <term id="Para530132">EDIT</term>
 
-      <listitem>
-        <para>Enables you to edit highlighted Work Centers. The edit screen is
+         <listitem>
+            <para>Enables you to edit highlighted Work Centers. The edit screen is
         the same as that for creating a new Work Center --except that when
         editing, the fields will contain Work Center information.
         Double-clicking on Work Center will also bring you to the editing
         screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530133">VIEW</term>
+      <varlistentry>
+         <term id="Para530133">VIEW</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
+         <listitem>
+            <para>Highlight a Work Center and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530134">COPY</term>
+      <varlistentry>
+         <term id="Para530134">COPY</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
+         <listitem>
+            <para>Highlight a Work Center and then select this button to reach a
         screen for copying the Work Center master.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530135">DELETE</term>
+      <varlistentry>
+         <term id="Para530135">DELETE</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to remove
+         <listitem>
+            <para>Highlight a Work Center and then select this button to remove
         the Work Center from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para530136">Right-clicking on a Work Center in the Work Center
   list enables you to select from the following menu options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para530137">Edit Work Center</term>
+      <varlistentry>
+         <term id="Para530137">Edit Work Center</term>
 
-      <listitem>
-        <para>Enables you to edit highlighted Work Centers. The edit screen is
+         <listitem>
+            <para>Enables you to edit highlighted Work Centers. The edit screen is
         the same as that for creating a new Work Center --except that when
         editing, the fields will contain Work Center information.
         Double-clicking on Work Center will also bring you to the editing
         screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530138">View Work Center</term>
+      <varlistentry>
+         <term id="Para530138">View Work Center</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
+         <listitem>
+            <para>Highlight a Work Center and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530139">Copy Work Center</term>
+      <varlistentry>
+         <term id="Para530139">Copy Work Center</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
+         <listitem>
+            <para>Highlight a Work Center and then select this button to reach a
         screen for copying the Work Center master.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530140">Delete Work Center</term>
+      <varlistentry>
+         <term id="Para530140">Delete Work Center</term>
 
-      <listitem>
-        <para>Highlight a Work Center and then select this button to remove
+         <listitem>
+            <para>Highlight a Work Center and then select this button to remove
         the Work Center from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry id="xtreewidget.menu.exportcontents">
-      <term><guimenuitem>Export Contents</guimenuitem></term>
+      <varlistentry id="xtreewidget.menu.exportcontents">
+         <term>
+            <guimenuitem moreinfo="none">Export Contents</guimenuitem>
+         </term>
 
-      <listitem>
-        <para>Export the data displayed on the screen into a plain-text,
+         <listitem>
+            <para>Export the data displayed on the screen into a plain-text,
         TAB-delimited file. This file may subsequently be imported into a
         spreadsheet or other office tool.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

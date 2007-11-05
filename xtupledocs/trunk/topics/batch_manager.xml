@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-
-  <section id="Section979997" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section979997" role="openmfg">
     <title>Topic: Submitting Reports and Jobs to the Batch Manager</title>
 
     <para id="Para979998">While the majority of OpenMFG reports and other jobs
@@ -27,17 +26,18 @@
       Manager, consider the I/M Module report "Time-Phased Item Usage
       Statistics by Item," as shown below:</para>
 
-      <para id="Para980006"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/Topic_tpItemStats.png"
-                         id="Graphic980004" />
-            </imageobject>
+      <para id="Para980006">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_tpItemStats.png" id="Graphic980004"/>
+               </imageobject>
 
-            <caption id="Caption980007">I/M Report: Time-Phased Item Usage
+               <caption id="Caption980007">I/M Report: Time-Phased Item Usage
             Statistics by Item</caption>
-          </mediaobject>
-        </screenshot></para>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <note>
         <para id="Para980009">For details on installing and setting up the
@@ -58,80 +58,81 @@
       generating the report, select the SUBMIT button. The following screen
       will appear:</para>
 
-      <para id="Para980015"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/Topic_submitReportBatch.png"
-                         id="Graphic980013" />
-            </imageobject>
+      <para id="Para980015">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_submitReportBatch.png" id="Graphic980013"/>
+               </imageobject>
 
-            <caption id="Caption980016">Submit Report to Batch
+               <caption id="Caption980016">Submit Report to Batch
             Manager</caption>
-          </mediaobject>
-        </screenshot></para>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <para id="Para980017">When submitting a report to the Batch Manager for
       printing, you are presented with the following options:</para>
 
       <variablelist>
         <varlistentry>
-          <term id="Para980018">Scheduled</term>
+            <term id="Para980018">Scheduled</term>
 
-          <listitem id="listitemN0x180ac00N0x18eba30">
-            <para id="Para">Specify when you would like the report to be
+            <listitem id="listitemN0x180ac00N0x18eba30">
+               <para id="Para">Specify when you would like the report to be
             run.</para>
 
-            <para id="Para980019">ASAP: Select to have the report run as soon
+               <para id="Para980019">ASAP: Select to have the report run as soon
             as possible.</para>
 
-            <para id="Para980020">Scheduled: Schedule a date and time to run
+               <para id="Para980020">Scheduled: Schedule a date and time to run
             the report. Specify a date in the first field using a standard
             date format. Use the arrow buttons in the second field to specify
             a time of day.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980021">Document Name</term>
+            <term id="Para980021">Document Name</term>
 
-          <listitem id="listitemN0x180ac00N0x18eba78">
-            <para id="Para">Displays the name of the report being submitted to
+            <listitem id="listitemN0x180ac00N0x18eba78">
+               <para id="Para">Displays the name of the report being submitted to
             the Batch Manager.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980022">Email From</term>
+            <term id="Para980022">Email From</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebac0">
-            <para id="Para">Enter the email address of the person who is
+            <listitem id="listitemN0x180ac00N0x18ebac0">
+               <para id="Para">Enter the email address of the person who is
             sending the email.</para>
 
-            <para id="Para980023">The Batch Manager will print the report to
+               <para id="Para980023">The Batch Manager will print the report to
             .PDF format and then email it to the person whose email address
             appears in the "Response Email To" field.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980024">Response Email To</term>
+            <term id="Para980024">Response Email To</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebb08">
-            <para id="Para">Enter the email address where you want the report
+            <listitem id="listitemN0x180ac00N0x18ebb08">
+               <para id="Para">Enter the email address where you want the report
             to be sent once it has been generated and printed.</para>
 
-            <para id="Para980025">The recipient will receive an email with the
+               <para id="Para980025">The recipient will receive an email with the
             submitted report attached in.PDF format.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980026">Response Body</term>
+            <term id="Para980026">Response Body</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebb50">
-            <para id="Para">Enter text to be included in the body of the email
+            <listitem id="listitemN0x180ac00N0x18ebb50">
+               <para id="Para">Enter text to be included in the body of the email
             sent to the recipient.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
       </variablelist>
 
@@ -151,21 +152,21 @@
 
       <variablelist>
         <varlistentry>
-          <term id="Para980030">CANCEL</term>
+            <term id="Para980030">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebbe0">
-            <para id="Para">Closes the screen without generating a report,
+            <listitem id="listitemN0x180ac00N0x18ebbe0">
+               <para id="Para">Closes the screen without generating a report,
             returning you to the application desktop.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980031">SUBMIT</term>
+            <term id="Para980031">SUBMIT</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebc28">
-            <para id="Para">Submits the report to the Batch Manager, using the
+            <listitem id="listitemN0x180ac00N0x18ebc28">
+               <para id="Para">Submits the report to the Batch Manager, using the
             specified parameters.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
       </variablelist>
     </section>
@@ -185,17 +186,18 @@
         (Day = +1, Week = +7, and Month = +30).</para>
       </tip>
 
-      <para id="Para980039"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/Topic_batchUpdateActual.png"
-                         id="Graphic980037" />
-            </imageobject>
+      <para id="Para980039">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_batchUpdateActual.png" id="Graphic980037"/>
+               </imageobject>
 
-            <caption id="Caption980040">Update Actual Costs by Class
+               <caption id="Caption980040">Update Actual Costs by Class
             Code</caption>
-          </mediaobject>
-        </screenshot></para>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <note>
         <para id="Para980042">For details on installing and setting up the
@@ -216,58 +218,59 @@
       processing the job, select the SUBMIT button. The following screen will
       appear:</para>
 
-      <para id="Para980048"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/Topic_submitJobBatch.png"
-                         id="Graphic980046" />
-            </imageobject>
+      <para id="Para980048">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_submitJobBatch.png" id="Graphic980046"/>
+               </imageobject>
 
-            <caption id="Caption980049">Submit Job to Batch Manager</caption>
-          </mediaobject>
-        </screenshot></para>
+               <caption id="Caption980049">Submit Job to Batch Manager</caption>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <para id="Para980050">When submitting a job to the Batch Manager for
       processing, you are presented with the following options:</para>
 
       <variablelist>
         <varlistentry>
-          <term id="Para980051">Action</term>
+            <term id="Para980051">Action</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebdd8">
-            <para id="Para">Displays the name of the job being submitted to
+            <listitem id="listitemN0x180ac00N0x18ebdd8">
+               <para id="Para">Displays the name of the job being submitted to
             the Batch Manager.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980052">Response Email</term>
+            <term id="Para980052">Response Email</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebe20">
-            <para id="Para">Enter the email address where you want
+            <listitem id="listitemN0x180ac00N0x18ebe20">
+               <para id="Para">Enter the email address where you want
             notification that the job is complete to be sent once it has been
             completed.</para>
 
-            <para id="Para980053">The recipient will receive an email letting
+               <para id="Para980053">The recipient will receive an email letting
             them know the submitted job has been completed.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980054">Scheduled</term>
+            <term id="Para980054">Scheduled</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebe68">
-            <para id="Para">Specify when you would like the job to be
+            <listitem id="listitemN0x180ac00N0x18ebe68">
+               <para id="Para">Specify when you would like the job to be
             run.</para>
 
-            <para id="Para980055">ASAP: Select to have the job run as soon as
+               <para id="Para980055">ASAP: Select to have the job run as soon as
             possible.</para>
 
-            <para id="Para980056">Scheduled: Schedule a date and time to run
+               <para id="Para980056">Scheduled: Schedule a date and time to run
             the job. Specify a date in the first field using a standard date
             format. Use the arrow buttons in the second field to specify a
             time of day.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
       </variablelist>
 
@@ -287,21 +290,21 @@
 
       <variablelist>
         <varlistentry>
-          <term id="Para980060">CANCEL</term>
+            <term id="Para980060">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebef8">
-            <para id="Para">Closes the screen without submitting the job,
+            <listitem id="listitemN0x180ac00N0x18ebef8">
+               <para id="Para">Closes the screen without submitting the job,
             returning you to the application desktop.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
 
         <varlistentry>
-          <term id="Para980061">SUBMIT</term>
+            <term id="Para980061">SUBMIT</term>
 
-          <listitem id="listitemN0x180ac00N0x18ebf40">
-            <para id="Para">Submits the job to the Batch Manager, using the
+            <listitem id="listitemN0x180ac00N0x18ebf40">
+               <para id="Para">Submits the job to the Batch Manager, using the
             specified parameters.</para>
-          </listitem>
+            </listitem>
         </varlistentry>
       </variablelist>
     </section>

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518829">
-    <title><anchor id="Anchor552134" role="Index"
-    xreflabel="miscellaneous adjustments;adjustments:miscellaneous for inventory;inventory:miscellaneous adjustments to" />
-    <indexterm significance="normal" zone="Anchor552134">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518829">
+    <title>
+      <anchor id="Anchor552134" role="Index"
+              xreflabel="miscellaneous adjustments;adjustments:miscellaneous for inventory;inventory:miscellaneous adjustments to"/>
+      <indexterm significance="normal">
         <primary>miscellaneous adjustments</primary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552134">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>adjustments</primary>
 
         <secondary>miscellaneous for inventory</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552134">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>inventory</primary>
 
         <secondary>miscellaneous adjustments to</secondary>
@@ -20,23 +23,23 @@
     on Hand value for an Item, select the "Miscellaneous Adjustment" option.
     The following screen will appear:</para>
 
-    <para id="Para518834"><screenshot>
+    <para id="Para518834">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_IT_enterMiscAdjustment.png"
-                       id="Graphic525621" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_IT_enterMiscAdjustment.png" id="Graphic525621"/>
+            </imageobject>
 
-          <caption id="Caption518835">Enter Miscellaneous Adjustment</caption>
+            <caption id="Caption518835">Enter Miscellaneous Adjustment</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para596471">Use the Miscellaneous Adjustment utility to handle
       Inventory adjustments not covered by another transaction type--for
       example, Receipt from Purchasing, Receipt from Manufacturing, Scrap,
-      etc. For a complete list of Inventory transaction Types, see <link
-      endterm="Anchor80421" id="XRef596472" linkend="Anchor80421"> Appendix
+      etc. For a complete list of Inventory transaction Types, see <link endterm="Anchor80421" id="XRef596472" linkend="Anchor80421"> Appendix
       A</link>Appendix A.</para>
     </note>
 
@@ -48,7 +51,7 @@
         <term id="Para518842">Transaction Date</term>
 
         <listitem id="listitemN0x180ac00N0x188a518">
-          <para>Displays the current day's date.</para>
+            <para>Displays the current day's date.</para>
         </listitem>
       </varlistentry>
 
@@ -56,7 +59,7 @@
         <term id="Para518844">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x188a560">
-          <para>Enter the Item Number of the Item you want to create a
+            <para>Enter the Item Number of the Item you want to create a
           Miscellaneous Adjustment for.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +68,7 @@
         <term id="Para671942">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x188a5a8">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -73,10 +76,10 @@
         <term id="Para518848">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x188a5f0">
-          <para>Specify the Warehouse where the Miscellaneous Adjustment
+            <para>Specify the Warehouse where the Miscellaneous Adjustment
           should be recorded.</para>
 
-          <para id="Para518849">If an Item is located in more than one
+            <para id="Para518849">If an Item is located in more than one
           Warehouse, be sure to specify the correct Warehouse for the
           Miscellaneous Adjustment.</para>
         </listitem>
@@ -86,7 +89,7 @@
         <term id="Para518853">Adjustment Qty.</term>
 
         <listitem id="listitemN0x180ac00N0x188a638">
-          <para>: The number entered will adjust the Quantity on Hand for the
+            <para>: The number entered will adjust the Quantity on Hand for the
           specified Item. Field accepts positive and negative numbers. To
           enter a negative number, simply prefix the number with a minus
           symbol.</para>
@@ -97,10 +100,10 @@
         <term id="Para518855">Relative</term>
 
         <listitem id="listitemN0x180ac00N0x188a680">
-          <para>Select to make a relative adjustment to the Item's Quantity on
+            <para>Select to make a relative adjustment to the Item's Quantity on
           Hand.</para>
 
-          <para id="Para518856">The "Before" value, which represents current
+            <para id="Para518856">The "Before" value, which represents current
           Quantity on Hand, will increase or decrease relative to the number
           entered in the "Adjustment Qty." field. The new Quantity on Hand
           value will appear beneath the "After" heading. Non-netable Quantity
@@ -112,10 +115,10 @@
         <term id="Para518857">Absolute</term>
 
         <listitem id="listitemN0x180ac00N0x188a6c8">
-          <para>Select to make an absolute adjustment to the Item's Quantity
+            <para>Select to make an absolute adjustment to the Item's Quantity
           on Hand.</para>
 
-          <para id="Para518858">The "Before" value, which represents current
+            <para id="Para518858">The "Before" value, which represents current
           Quantity on Hand, will be changed to the new value entered in the
           "Adjustment Qty." field. This absolutely new Quantity on Hand value
           will appear beneath the "After" heading. Non-netable Quantity on
@@ -127,7 +130,7 @@
         <term id="Para518862">Document #</term>
 
         <listitem id="listitemN0x180ac00N0x188a710">
-          <para>Creates a user-defined reference for the Miscellaneous
+            <para>Creates a user-defined reference for the Miscellaneous
           Adjustment. The Document reference will be posted with the General
           Ledger (G/L) transaction record when the Miscellaneous Adjustment is
           generated. This field may be used for internal tracking and auditing
@@ -139,7 +142,7 @@
         <term id="Para518867">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x188a758">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the adjustment.</para>
         </listitem>
       </varlistentry>
@@ -153,7 +156,7 @@
         <term id="Para518870">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x188a7c4">
-          <para>Closes the screen without posting an adjusted value, returning
+            <para>Closes the screen without posting an adjusted value, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -162,10 +165,9 @@
         <term id="Para518871">POST</term>
 
         <listitem id="listitemN0x180ac00N0x188a80c">
-          <para>Posts the adjusted value to the Quantity on Hand balance.
+            <para>Posts the adjusted value to the Quantity on Hand balance.
           Additional steps will be necessary if the specified Item is stored
-          in multiple Locations. For more information, see the <link
-          endterm="Anchor81167" id="XRef537962" linkend="Anchor81167">
+          in multiple Locations. For more information, see the <link endterm="Anchor81167" id="XRef537962" linkend="Anchor81167">
           Distributing Multiple Location Control (MLC)
           Items</link>"Inter-Warehouse Transfer" section.</para>
         </listitem>

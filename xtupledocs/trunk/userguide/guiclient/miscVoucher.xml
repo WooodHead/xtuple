@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section972204">
-    <title><anchor id="Anchor972203" role="Index"
-    xreflabel="vouchers:creating new miscellaneous;miscellaneous vouchers:creating new" />
-    <indexterm significance="normal" zone="Anchor972203">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972204">
+    <title>
+      <anchor id="Anchor972203" role="Index"
+              xreflabel="vouchers:creating new miscellaneous;miscellaneous vouchers:creating new"/>
+      <indexterm significance="normal">
         <primary>vouchers</primary>
 
         <secondary>creating new miscellaneous</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor972203">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>miscellaneous vouchers</primary>
 
         <secondary>creating new</secondary>
@@ -22,16 +23,17 @@
     the "Enter New Miscellaneous Voucher" option. The following screen will
     appear:</para>
 
-    <para id="Para972209"><screenshot>
+    <para id="Para972209">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Vouch_miscVouch.png"
-                       id="Graphic972207" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Vouch_miscVouch.png" id="Graphic972207"/>
+            </imageobject>
 
-          <caption id="Caption972210">Enter Miscellaneous Voucher</caption>
+            <caption id="Caption972210">Enter Miscellaneous Voucher</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para972212">A Voucher posts to the General Ledger effective on
@@ -47,11 +49,11 @@
         <term id="Para972214">Voucher #</term>
 
         <listitem id="listitemN0x180ac00N0x1889a68">
-          <para>Next available Voucher Number will automatically display,
+            <para>Next available Voucher Number will automatically display,
           unless your system requires you to enter Voucher Numbers
           manually.</para>
 
-          <para id="Para972215">Default values and input parameters for
+            <para id="Para972215">Default values and input parameters for
           Voucher Numbers are configurable at the system level.</para>
         </listitem>
       </varlistentry>
@@ -60,22 +62,22 @@
         <term id="Para972216">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x1889ab0">
-          <para>Enter the Vendor number of the Vendor you want to enter a
+            <para>Enter the Vendor number of the Vendor you want to enter a
           Miscellaneous Voucher for.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para972218"><anchor id="Anchor972217" role="Index"
-        xreflabel="vouchers:distributing quantities to" /> <indexterm
-            significance="normal" zone="Anchor972217">
-            <primary>vouchers</primary>
+        <term id="Para972218">
+            <anchor id="Anchor972217" role="Index" xreflabel="vouchers:distributing quantities to"/> 
+            <indexterm significance="normal">
+               <primary>vouchers</primary>
 
-            <secondary>distributing quantities to</secondary>
-          </indexterm>Amount to Distribute</term>
+               <secondary>distributing quantities to</secondary>
+            </indexterm>Amount to Distribute</term>
 
         <listitem id="listitemN0x180ac00N0x1889b40">
-          <para>Specify the dollar amount you intend to distribute to the
+            <para>Specify the dollar amount you intend to distribute to the
           Vendor for the Miscellaneous Voucher.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +86,7 @@
         <term id="Para972219">Amount Distributed</term>
 
         <listitem id="listitemN0x180ac00N0x1889b88">
-          <para>Displays sum of all miscellaneous distributions for the
+            <para>Displays sum of all miscellaneous distributions for the
           Miscellaneous Voucher.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +95,7 @@
         <term id="Para972220">Balance</term>
 
         <listitem id="listitemN0x180ac00N0x1889bd0">
-          <para>Displays the difference between amount to distribute and
+            <para>Displays the difference between amount to distribute and
           amount distributed.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +104,7 @@
         <term id="Para972221">Flag for 1099</term>
 
         <listitem id="listitemN0x180ac00N0x1889c18">
-          <para>Select to flag transaction for Form 1099 Tax reporting.</para>
+            <para>Select to flag transaction for Form 1099 Tax reporting.</para>
         </listitem>
       </varlistentry>
 
@@ -110,7 +112,7 @@
         <term id="Para972222">Invoice Date</term>
 
         <listitem id="listitemN0x180ac00N0x1889c60">
-          <para>Enter an Invoice date for the Voucher. The Invoice date is
+            <para>Enter an Invoice date for the Voucher. The Invoice date is
           used for determining the due date, based on the specified
           Terms.</para>
         </listitem>
@@ -120,7 +122,7 @@
         <term id="Para972223">Distribution Date</term>
 
         <listitem id="listitemN0x180ac00N0x1889ca8">
-          <para>Enter the date of the current distribution. When the Voucher
+            <para>Enter the date of the current distribution. When the Voucher
           is posted, this is the date when the posting will be recorded in the
           General Ledger.</para>
         </listitem>
@@ -130,7 +132,7 @@
         <term id="Para972224">Due Date</term>
 
         <listitem id="listitemN0x180ac00N0x1889cf0">
-          <para>Enter the date payment is due to the Vendor. The due date is
+            <para>Enter the date payment is due to the Vendor. The due date is
           derived when the specified Terms are added to the Invoice
           date.</para>
         </listitem>
@@ -140,7 +142,7 @@
         <term id="Para972225">Terms</term>
 
         <listitem id="listitemN0x180ac00N0x1889d38">
-          <para>Specify the billing Terms for the Voucher.</para>
+            <para>Specify the billing Terms for the Voucher.</para>
         </listitem>
       </varlistentry>
 
@@ -148,7 +150,7 @@
         <term id="Para972226">Vendor Invoice #</term>
 
         <listitem id="listitemN0x180ac00N0x1889d80">
-          <para>Enter the Vendor Invoice Number associated with the
+            <para>Enter the Vendor Invoice Number associated with the
           Miscellaneous Voucher.</para>
         </listitem>
       </varlistentry>
@@ -157,7 +159,7 @@
         <term id="Para972227">Reference</term>
 
         <listitem id="listitemN0x180ac00N0x1889dc8">
-          <para>Use this field to enter any notation or reference required for
+            <para>Use this field to enter any notation or reference required for
           further identification.</para>
         </listitem>
       </varlistentry>
@@ -166,7 +168,7 @@
         <term id="Para972228">Miscellaneous Distributions</term>
 
         <listitem id="listitemN0x180ac00N0x1890c00">
-          <para>Display lists miscellaneous Cost distributions related to the
+            <para>Display lists miscellaneous Cost distributions related to the
           Miscellaneous Voucher.</para>
         </listitem>
       </varlistentry>
@@ -180,7 +182,7 @@
         <term id="Para972230">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1890c6c">
-          <para>Closes the screen without entering a new Miscellaneous
+            <para>Closes the screen without entering a new Miscellaneous
           Voucher, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -189,7 +191,7 @@
         <term id="Para972231">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1890cb4">
-          <para>Creates the Miscellaneous Voucher.</para>
+            <para>Creates the Miscellaneous Voucher.</para>
         </listitem>
       </varlistentry>
 
@@ -197,7 +199,7 @@
         <term id="Para972232">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x1890cfc">
-          <para>Select to distribute Costs for the Miscellaneous
+            <para>Select to distribute Costs for the Miscellaneous
           Voucher.</para>
         </listitem>
       </varlistentry>
@@ -206,7 +208,7 @@
         <term id="Para972233">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x1890d44">
-          <para>Enables you to edit highlighted miscellaneous distributions.
+            <para>Enables you to edit highlighted miscellaneous distributions.
           The edit screen is the same as that for creating a new miscellaneous
           distribution--except that when editing, the fields will contain
           miscellaneous distribution information. Double-clicking on a
@@ -219,33 +221,34 @@
         <term id="Para972234">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x1890d8c">
-          <para>Highlight a miscellaneous distribution and then select this
+            <para>Highlight a miscellaneous distribution and then select this
           button to remove the miscellaneous distribution from the
           list.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para972236"><anchor id="Anchor972235" role="Index"
-    xreflabel="vouchers:distributing quantities to" /> <indexterm
-        significance="normal" zone="Anchor972235">
+    <para id="Para972236">
+      <anchor id="Anchor972235" role="Index" xreflabel="vouchers:distributing quantities to"/> 
+      <indexterm significance="normal">
         <primary>vouchers</primary>
 
         <secondary>distributing quantities to</secondary>
       </indexterm>To distribute Costs for a Miscellaneous Voucher, select the
     NEW button. The following screen will appear:</para>
 
-    <para id="Para972240"><screenshot>
+    <para id="Para972240">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Vouch_miscVouchDistr.png"
-                       id="Graphic972238" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Vouch_miscVouchDistr.png" id="Graphic972238"/>
+            </imageobject>
 
-          <caption id="Caption972241">Miscellaneous Voucher
+            <caption id="Caption972241">Miscellaneous Voucher
           Distribution</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para972242">When distributing Costs for a Miscellaneous Voucher,
     you are presented with the following options:</para>
@@ -255,12 +258,12 @@
         <term id="Para972243">Distribution Options</term>
 
         <listitem id="listitemN0x180ac00N0x1890eac">
-          <para>Select one of the following distribution options:</para>
+            <para>Select one of the following distribution options:</para>
 
-          <para id="Para972244">Account: Select a General Ledger Account to
+            <para id="Para972244">Account: Select a General Ledger Account to
           use for the distribution.</para>
 
-          <para id="Para972245">Expense Category: Select an Expense Category
+            <para id="Para972245">Expense Category: Select an Expense Category
           to use for the distribution.</para>
         </listitem>
       </varlistentry>
@@ -269,7 +272,7 @@
         <term id="Para972246">Amount to Distribute</term>
 
         <listitem id="listitemN0x180ac00N0x1890ef4">
-          <para>Specify the amount of the miscellaneous distribution.</para>
+            <para>Specify the amount of the miscellaneous distribution.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -282,7 +285,7 @@
         <term id="Para972248">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1890f60">
-          <para>Closes the screen, returning you to the previous
+            <para>Closes the screen, returning you to the previous
           screen.</para>
         </listitem>
       </varlistentry>
@@ -291,7 +294,7 @@
         <term id="Para972249">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1890fa8">
-          <para>Saves the information and adds it to the list of miscellaneous
+            <para>Saves the information and adds it to the list of miscellaneous
           distributions, simultaneously adjusting both the Miscellaneous
           Voucher amount distributed and the balance distributed.</para>
         </listitem>

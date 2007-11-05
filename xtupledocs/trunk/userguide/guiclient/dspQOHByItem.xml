@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520011">
-    <title><anchor id="Anchor552222" role="Index"
-    xreflabel="quantity on hand:by item group;item groups:quantity on hand for" />
-    <indexterm significance="normal" zone="Anchor552222">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520011">
+    <title>
+      <anchor id="Anchor552222" role="Index"
+              xreflabel="quantity on hand:by item group;item groups:quantity on hand for"/>
+      <indexterm significance="normal">
         <primary>quantity on hand</primary>
 
         <secondary>by item group</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552222">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item groups</primary>
 
         <secondary>quantity on hand for</secondary>
@@ -18,16 +20,17 @@
     "Quantities on Hand by Item" option. The following screen will
     appear:</para>
 
-    <para id="Para520016"><screenshot>
+    <para id="Para520016">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_QOHByItem.png"
-                       id="Graphic526626" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_QOHByItem.png" id="Graphic526626"/>
+            </imageobject>
 
-          <caption id="Caption520017">Quantities on Hand by Item</caption>
+            <caption id="Caption520017">Quantities on Hand by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520023">When displaying Quantities on Hand by Item, you are
     presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para520024">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x193a75c">
-          <para>Enter the Item Number of the Item whose Quantity on Hand you
+            <para>Enter the Item Number of the Item whose Quantity on Hand you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +49,7 @@
         <term id="Para672057">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x193a7a4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +57,7 @@
         <term id="Para520028">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x193a7c8">
-          <para>Select to display Quantities on Hand by Item for all
+            <para>Select to display Quantities on Hand by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +66,7 @@
         <term id="Para520030">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x193a7ec">
-          <para>Specify Warehouse whose Quantities on Hand by Item you want to
+            <para>Specify Warehouse whose Quantities on Hand by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -72,10 +75,10 @@
         <term id="Para572296">Show Inventory Value</term>
 
         <listitem id="listitemN0x180ac00N0x1940a24">
-          <para>Select to include the Inventory value of Quantities on Hand by
+            <para>Select to include the Inventory value of Quantities on Hand by
           Item in the display.</para>
 
-          <para id="Para572297">Specify whether to display Inventory value
+            <para id="Para572297">Specify whether to display Inventory value
           using Standard Costs or Actual Costs.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +87,7 @@
         <term id="Para520034">Use Standard Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1940a6c">
-          <para>Select to show Inventory value based on Standard Costs.</para>
+            <para>Select to show Inventory value based on Standard Costs.</para>
         </listitem>
       </varlistentry>
 
@@ -92,7 +95,7 @@
         <term id="Para520035">Use Actual Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1940ab4">
-          <para>Select to show Inventory value based on Actual Costs.</para>
+            <para>Select to show Inventory value based on Actual Costs.</para>
         </listitem>
       </varlistentry>
 
@@ -100,10 +103,10 @@
         <term id="Para520036">Quantities on Hand</term>
 
         <listitem id="listitemN0x180ac00N0x1940afc">
-          <para>Display lists Quantities on Hand by Item, using the specified
+            <para>Display lists Quantities on Hand by Item, using the specified
           parameters.</para>
 
-          <para id="Para675957">If the "Show Inventory Value" box is selected,
+            <para id="Para675957">If the "Show Inventory Value" box is selected,
           the display will also show unit Cost, value, and non- netable value.
           Totals for each column will be calculated at the bottom of the
           display. If a Quantity on Hand value displays in the color orange,
@@ -122,7 +125,7 @@
         <term id="Para520039">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1940b68">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -131,7 +134,7 @@
         <term id="Para610581">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1940bb0">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -140,7 +143,7 @@
         <term id="Para675657">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1940bf8">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -153,7 +156,7 @@
         <term id="Para656120">Transfer to another Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x1940c64">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -161,7 +164,7 @@
         <term id="Para656121">Adjust this QOH</term>
 
         <listitem id="listitemN0x180ac00N0x1940cac">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -169,7 +172,7 @@
         <term id="Para520044">Reset this QOH to 0</term>
 
         <listitem id="listitemN0x180ac00N0x1940cf4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -177,7 +180,7 @@
         <term id="Para520045">Enter Misc. Count</term>
 
         <listitem id="listitemN0x180ac00N0x1940d3c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -185,13 +188,12 @@
         <term id="Para520046">Issue Count Tag</term>
 
         <listitem id="listitemN0x180ac00N0x1940d84">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para520048">If an Item has a Default Location defined, the
@@ -199,8 +201,7 @@
     mentioned above--when you right-click on the Item:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/11)"/>
     </variablelist>
   </section>

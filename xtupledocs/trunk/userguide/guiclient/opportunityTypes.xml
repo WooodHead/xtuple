@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section575005">
-  <title><anchor id="Anchor575004" role="Index"
-  xreflabel="opportunities:types for" /> <indexterm significance="normal"
-      zone="Anchor575004">
-      <primary>opportunities</primary>
+  <title>
+      <anchor id="Anchor575004" role="Index" xreflabel="opportunities:types for"/> 
+      <indexterm significance="normal">
+         <primary>opportunities</primary>
 
-      <secondary>types for</secondary>
-    </indexterm>List Opportunity Types</title>
+         <secondary>types for</secondary>
+      </indexterm>List Opportunity Types</title>
 
   <para id="Para575016">Opportunity Types are used by the Opportunity
   Management system to categorize kinds of Opportunities. When Opportunity
@@ -16,7 +16,7 @@
   available for use when entering or updating Opportunities.</para>
 
   <tip>
-    <para id="Para575018">You must manually create Opportunity Types if you
+      <para id="Para575018">You must manually create Opportunity Types if you
     want the ability to assign them to Opportunities. If no Opportunity Types
     are defined, then none will be available when entering
     Opportunities.</para>
@@ -25,15 +25,17 @@
   <para id="Para575019">To access the master list of Opportunity Types, select
   the "Opportunity Types" option. The following screen will appear.</para>
 
-  <para id="Para575011"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_MI_optyTypes.png" id="Graphic575009" />
-        </imageobject>
+  <para id="Para575011">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_MI_optyTypes.png" id="Graphic575009"/>
+            </imageobject>
 
-        <caption id="Caption574878">Opportunity Types Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption574878">Opportunity Types Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para575254">The "Opportunity Types" screen displays information on
   all existing Opportunity Types, including Opportunity Type code and
@@ -43,51 +45,51 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para575256">CLOSE</term>
+      <varlistentry>
+         <term id="Para575256">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x1848d18">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x1848d18">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575257">NEW</term>
+      <varlistentry>
+         <term id="Para575257">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x1848d60">
-        <para>Opens screen for creating a new Opportunity Type.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x1848d60">
+            <para>Opens screen for creating a new Opportunity Type.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575258">EDIT</term>
+      <varlistentry>
+         <term id="Para575258">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x1848da8">
-        <para>Enables you to edit highlighted Opportunity Types. The edit
+         <listitem id="listitemN0x180ac00N0x1848da8">
+            <para>Enables you to edit highlighted Opportunity Types. The edit
         screen is the same as that for creating a new Opportunity Type--except
         that when editing, the fields will contain Opportunity Type
         information. Double-clicking on an Opportunity Type will also bring
         you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575259">VIEW</term>
+      <varlistentry>
+         <term id="Para575259">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x1848df0">
-        <para>Highlight an Opportunity Type and then select this button to
+         <listitem id="listitemN0x180ac00N0x1848df0">
+            <para>Highlight an Opportunity Type and then select this button to
         reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575260">DELETE</term>
+      <varlistentry>
+         <term id="Para575260">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x1848e38">
-        <para>Highlight an Opportunity Type and then select this button to
+         <listitem id="listitemN0x180ac00N0x1848e38">
+            <para>Highlight an Opportunity Type and then select this button to
         remove the Opportunity Type from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518930">
-    <title><anchor id="Anchor919439" role="Index"
-    xreflabel="rejected materials:by vendor;vendors:rejected materials to" />
-    <indexterm significance="normal" zone="Anchor919439">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518930">
+    <title>
+      <anchor id="Anchor919439" role="Index"
+              xreflabel="rejected materials:by vendor;vendors:rejected materials to"/>
+      <indexterm significance="normal">
         <primary>rejected materials</primary>
 
         <secondary>by vendor</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919439">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>vendors</primary>
 
         <secondary>rejected materials to</secondary>
@@ -19,16 +20,17 @@
     "Rejected Material by Vendor" option. The following screen will
     appear:</para>
 
-    <para id="Para522345"><screenshot>
+    <para id="Para522345">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_rejectMatByVend.png"
-                       id="Graphic522344" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_rejectMatByVend.png" id="Graphic522344"/>
+            </imageobject>
 
-          <caption id="Caption522346">Rejected Material by Vendor</caption>
+            <caption id="Caption522346">Rejected Material by Vendor</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para522347">When displaying rejected material by Vendor, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para534111">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18d5fd8">
-          <para>Enter the Vendor Number of the Vendor whose rejected material
+            <para>Enter the Vendor Number of the Vendor whose rejected material
           you want to view.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para534119">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18d5ffc">
-          <para>Select to display rejected material by Vendor for all
+            <para>Select to display rejected material by Vendor for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +58,7 @@
         <term id="Para534121">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18d6020">
-          <para>Specify Warehouse whose rejected material by Vendor you want
+            <para>Specify Warehouse whose rejected material by Vendor you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +67,7 @@
         <term id="Para534126">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18d6068">
-          <para>Rejected material by Vendor entered on and after this date
+            <para>Rejected material by Vendor entered on and after this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +76,7 @@
         <term id="Para534131">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18d60b0">
-          <para>Rejected material by Vendor entered on and before this date
+            <para>Rejected material by Vendor entered on and before this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +85,7 @@
         <term id="Para534133">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18d60f8">
-          <para>Select to display rejected material by Vendor for all
+            <para>Select to display rejected material by Vendor for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -92,10 +94,10 @@
         <term id="Para534134">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18d6140">
-          <para>Specify Purchasing Agent whose rejected material by Vendor you
+            <para>Specify Purchasing Agent whose rejected material by Vendor you
           want to display.</para>
 
-          <para id="Para935711">Users may be designated as Purchasing Agents
+            <para id="Para935711">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +106,7 @@
         <term id="Para534213">Rejected Material</term>
 
         <listitem id="listitemN0x180ac00N0x18d6188">
-          <para>Display lists rejected material by Vendor, using the specified
+            <para>Display lists rejected material by Vendor, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +120,7 @@
         <term id="Para534143">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18d61f4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +129,7 @@
         <term id="Para934598">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18d623c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -136,7 +138,7 @@
         <term id="Para970092">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18d6284">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

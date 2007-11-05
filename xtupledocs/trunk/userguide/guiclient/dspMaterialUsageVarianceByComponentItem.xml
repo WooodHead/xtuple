@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section519951">
-    <title><anchor id="Anchor533245" role="Index"
-    xreflabel="variances:material usage by component item;items:material usage variances for;material usage variances:component item details for" />
-    <indexterm significance="normal" zone="Anchor533245">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519951">
+    <title>
+      <anchor id="Anchor533245" role="Index"
+              xreflabel="variances:material usage by component item;items:material usage variances for;material usage variances:component item details for"/>
+      <indexterm significance="normal">
         <primary>variances</primary>
 
         <secondary>material usage by component item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533245">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>material usage variances for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533245">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>material usage variances</primary>
 
         <secondary>component item details for</secondary>
@@ -23,17 +25,18 @@
     select the "Material Usage Variance by Component Item" option. The
     following screen will appear:</para>
 
-    <para id="Para519956"><screenshot>
+    <para id="Para519956">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_matVarCompItem.png"
-                       id="Graphic524095" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_matVarCompItem.png" id="Graphic524095"/>
+            </imageobject>
 
-          <caption id="Caption519957">Material Usage Variance by Component
+            <caption id="Caption519957">Material Usage Variance by Component
           Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519963">When viewing material usage variances by Item, you
     are presented with the following options:</para>
@@ -43,7 +46,7 @@
         <term id="Para519964">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the component Item whose material
+            <para>Enter the Item Number of the component Item whose material
           usage variances you want to view.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +55,7 @@
         <term id="Para568846">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -60,7 +63,7 @@
         <term id="Para519968">All Warehouses</term>
 
         <listitem>
-          <para>Select to display material usage variances by component Item
+            <para>Select to display material usage variances by component Item
           for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +72,7 @@
         <term id="Para519970">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose material usage variances by component
+            <para>Specify Warehouse whose material usage variances by component
           Item you want to display.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +81,7 @@
         <term id="Para519975">Start Date</term>
 
         <listitem>
-          <para>Material usage variances by component Item generated on or
+            <para>Material usage variances by component Item generated on or
           after this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +90,7 @@
         <term id="Para519980">End Date</term>
 
         <listitem>
-          <para>Material usage variances by component Item generated on or
+            <para>Material usage variances by component Item generated on or
           before this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +99,7 @@
         <term id="Para519982">Material Usage Variance</term>
 
         <listitem>
-          <para>Display lists material usage variances by component Item,
+            <para>Display lists material usage variances by component Item,
           using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -110,7 +113,7 @@
         <term id="Para519985">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -119,7 +122,7 @@
         <term id="Para548883">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -128,7 +131,7 @@
         <term id="Para519986">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

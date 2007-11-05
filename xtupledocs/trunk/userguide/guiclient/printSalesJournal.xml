@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section568221">
-    <title><anchor id="Anchor568220" role="Index"
-    xreflabel="sales journals:printing of" /> <indexterm significance="normal"
-        zone="Anchor568220">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section568221">
+    <title>
+      <anchor id="Anchor568220" role="Index" xreflabel="sales journals:printing of"/> 
+      <indexterm significance="normal">
         <primary>sales journals</primary>
 
         <secondary>printing of</secondary>
@@ -14,16 +14,17 @@
     the option to print a Sales Journal. To print a Sales Journal, select the
     "Sales Journal" option. The following screen will appear:</para>
 
-    <para id="Para568226"><screenshot>
+    <para id="Para568226">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Rep_salesJourn.png"
-                       id="Graphic568224" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Rep_salesJourn.png" id="Graphic568224"/>
+            </imageobject>
 
-          <caption id="Caption568227">Print Sales Journal</caption>
+            <caption id="Caption568227">Print Sales Journal</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para568228">When printing a Sales Journal, you are presented
     with the following options:</para>
@@ -40,10 +41,10 @@
         <term id="Para568231">Journal Number</term>
 
         <listitem id="listitemN0x180ac00N0x18c4d5c">
-          <para>Specify the number of the Sales Journal you want to
+            <para>Specify the number of the Sales Journal you want to
           print.</para>
 
-          <para id="Para568232">Sales Journals are created when Invoices are
+            <para id="Para568232">Sales Journals are created when Invoices are
           posted. The Journal Number you select will include both the Sales
           Journal Number and also the date when the Invoices were
           posted.</para>
@@ -59,7 +60,7 @@
         <term id="Para568234">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c4dc8">
-          <para>Closes the screen without printing a Sales Journal, returning
+            <para>Closes the screen without printing a Sales Journal, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +69,7 @@
         <term id="Para572353">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18cd000">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

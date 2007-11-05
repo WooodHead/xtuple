@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section965234">
-    <title><anchor id="Anchor965233" role="Index"
-    xreflabel="purchase orders:printing vendor form;forms:for vendors;vendors:p/o forms for" />
-    <indexterm significance="normal" zone="Anchor965233">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965234">
+    <title>
+      <anchor id="Anchor965233" role="Index"
+              xreflabel="purchase orders:printing vendor form;forms:for vendors;vendors:p/o forms for"/>
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>printing vendor form</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor965233">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>forms</primary>
 
         <secondary>for vendors</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor965233">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>vendors</primary>
 
         <secondary>p/o forms for</secondary>
@@ -22,16 +24,17 @@
     <para id="Para965235">To print a Vendor Form, select the "Print Vendor
     Form" option. The following screen will appear:</para>
 
-    <para id="Para965239"><screenshot>
+    <para id="Para965239">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Rep_printVendForm.png"
-                       id="Graphic965237" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Rep_printVendForm.png" id="Graphic965237"/>
+            </imageobject>
 
-          <caption id="Caption965240">Print Vendor Form</caption>
+            <caption id="Caption965240">Print Vendor Form</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para965241">When printing a Vendor Form, you are presented with
     the following options:</para>
@@ -41,7 +44,7 @@
         <term id="Para965242">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18dc0d0">
-          <para>Enter the Vendor number of the Vendor whose Form you want to
+            <para>Enter the Vendor number of the Vendor whose Form you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +53,7 @@
         <term id="Para965244">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x18dc118">
-          <para>Specify the Form you want to use for printing the Vendor
+            <para>Specify the Form you want to use for printing the Vendor
           information.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +67,7 @@
         <term id="Para965250">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18dc184">
-          <para>Closes the screen without generating a report, returning you
+            <para>Closes the screen without generating a report, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +76,7 @@
         <term id="Para970108">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18dc1cc">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

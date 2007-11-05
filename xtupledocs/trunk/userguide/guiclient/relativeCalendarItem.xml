@@ -1,114 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923258">
-  <title><anchor id="Anchor932272" role="Index"
-  xreflabel="calendars:master list of" /> <indexterm significance="normal"
-      zone="Anchor933972">
-      <primary>calendars</primary>
+  <title>
+      <anchor id="Anchor932272" role="Index" xreflabel="calendars:master list of"/> 
+      <indexterm significance="normal">
+         <primary>calendars</primary>
 
-      <secondary>adding periods to</secondary>
-    </indexterm><indexterm significance="normal" zone="Anchor933972">
-      <primary>relative calendars</primary>
+         <secondary>adding periods to</secondary>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>relative calendars</primary>
 
-      <secondary>adding periods to</secondary>
-    </indexterm> Relative Calendar Item</title>
+         <secondary>adding periods to</secondary>
+      </indexterm> Relative Calendar Item</title>
 
   <para id="Para535463">The following screen will appear if the specified
   Calendar is a relative Calendar:</para>
 
-  <para id="Para518656"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_calendarRelItem.png"
-                     id="Graphic521971" />
-        </imageobject>
+  <para id="Para518656">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_calendarRelItem.png" id="Graphic521971"/>
+            </imageobject>
 
-        <caption id="Caption518657">Relative Calendar Item</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption518657">Relative Calendar Item</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para518658">When creating a new Calendar Item for a relative
   Calendar, you are presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518662">Calendar Name</term>
+      <varlistentry>
+         <term id="Para518662">Calendar Name</term>
 
-      <listitem id="listitemN0x180ac00N0x184a824">
-        <para>Displays name of Calendar.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x184a824">
+            <para>Displays name of Calendar.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para916741">Period Name</term>
+      <varlistentry>
+         <term id="Para916741">Period Name</term>
 
-      <listitem id="listitemN0x180ac00N0x184a86c">
-        <para>Enter a unique name to identify the relative Calendar
+         <listitem id="listitemN0x180ac00N0x184a86c">
+            <para>Enter a unique name to identify the relative Calendar
         Item.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para935096">Negative numbers may be used when defining an Offset
+      <para id="Para935096">Negative numbers may be used when defining an Offset
     period in a relative Calendar. This enables you to view data prior to the
     current period, for example.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518664">Offset</term>
+      <varlistentry>
+         <term id="Para518664">Offset</term>
 
-      <listitem id="listitemN0x180ac00N0x184a8fc">
-        <para>Select a value between -999 and 999 using the arrow buttons
+         <listitem id="listitemN0x180ac00N0x184a8fc">
+            <para>Select a value between -999 and 999 using the arrow buttons
         located to the right of the field.</para>
 
-        <para id="Para535311">The offset is used to indicate the length of
+            <para id="Para535311">The offset is used to indicate the length of
         time a period is removed from a given starting point--for example, the
         current day, the current week, etc. Specify the type of interval to be
         used for the offset by selecting one from the list in the adjacent
         field. There are four different offset interval types to choose from:
         days, weeks, months, and years.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518671">Period Length</term>
+      <varlistentry>
+         <term id="Para518671">Period Length</term>
 
-      <listitem id="listitemN0x180ac00N0x184a944">
-        <para>Select a value between 0 and 999 using the arrow buttons located
+         <listitem id="listitemN0x180ac00N0x184a944">
+            <para>Select a value between 0 and 999 using the arrow buttons located
         to the right of the field.</para>
 
-        <para id="Para518672">The period length dictates the length of the
+            <para id="Para518672">The period length dictates the length of the
         specified period. Specify the type of interval to be used for the
         period by selecting one from the list in the adjacent field. There are
         four different period interval types to choose from: days, weeks,
         months, and years.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para518673">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518674">CANCEL</term>
+      <varlistentry>
+         <term id="Para518674">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x184a9b0">
-        <para>Closes the screen without creating a new relative Calendar Item,
+         <listitem id="listitemN0x180ac00N0x184a9b0">
+            <para>Closes the screen without creating a new relative Calendar Item,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para966196">SAVE</term>
+      <varlistentry>
+         <term id="Para966196">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x184a9f8">
-        <para>Creates the relative Calendar Item and adds it to the list of
+         <listitem id="listitemN0x180ac00N0x184a9f8">
+            <para>Creates the relative Calendar Item and adds it to the list of
         Calendar Items.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section524327">
-    <title><anchor id="Anchor533949" role="Index"
-    xreflabel="invoices:information about" /> <indexterm significance="normal"
-        zone="Anchor533949">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524327">
+    <title>
+      <anchor id="Anchor533949" role="Index" xreflabel="invoices:information about"/> 
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>information about</secondary>
@@ -14,15 +13,17 @@
     <para id="Para530887">To view Invoice information, select the "Invoice
     Information" option. The following screen will appear:</para>
 
-    <para id="Para530890"><screenshot>
+    <para id="Para530890">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_invInfo.png" id="Graphic530889" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_invInfo.png" id="Graphic530889"/>
+            </imageobject>
 
-          <caption id="Caption530891">Invoice Information</caption>
+            <caption id="Caption530891">Invoice Information</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para530491">When displaying Invoice information, you are
     presented with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para560937">Invoice #</term>
 
         <listitem id="listitemN0x180ac00N0x18b7398">
-          <para>Enter the Invoice Number of the Invoice whose information you
+            <para>Enter the Invoice Number of the Invoice whose information you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -41,7 +42,7 @@
         <term id="Para560938">Customer #</term>
 
         <listitem id="listitemN0x180ac00N0x18b73e0">
-          <para>Displays the Customer Number of the Customer associated with
+            <para>Displays the Customer Number of the Customer associated with
           the specified Invoice. The Customer name and billing address will
           also display.</para>
         </listitem>
@@ -51,7 +52,7 @@
         <term id="Para549560">Customer P/O #</term>
 
         <listitem id="listitemN0x180ac00N0x18b7428">
-          <para>Displays related Customer Purchase Order Number, if
+            <para>Displays related Customer Purchase Order Number, if
           any.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +61,7 @@
         <term id="Para531433">Invoice Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b7470">
-          <para>Displays the date the Invoice was created.</para>
+            <para>Displays the date the Invoice was created.</para>
         </listitem>
       </varlistentry>
 
@@ -68,7 +69,7 @@
         <term id="Para531447">Ship Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b74b8">
-          <para>Displays the date the Invoice Items were shipped.</para>
+            <para>Displays the date the Invoice Items were shipped.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +77,7 @@
         <term id="Para531448">Invoice Amount</term>
 
         <listitem id="listitemN0x180ac00N0x18b7500">
-          <para>Displays the amount due on the Invoice.</para>
+            <para>Displays the amount due on the Invoice.</para>
         </listitem>
       </varlistentry>
 
@@ -84,7 +85,7 @@
         <term id="Para531449">Bill-To</term>
 
         <listitem id="listitemN0x180ac00N0x18b7548">
-          <para>Displays the Customer's Bill-To Address.</para>
+            <para>Displays the Customer's Bill-To Address.</para>
         </listitem>
       </varlistentry>
 
@@ -92,7 +93,7 @@
         <term id="Para531367">Ship-To</term>
 
         <listitem id="listitemN0x180ac00N0x18b7590">
-          <para>Displays the Ship-To Address used for the specified
+            <para>Displays the Ship-To Address used for the specified
           Invoice.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +102,7 @@
         <term id="Para531368">Notes</term>
 
         <listitem id="listitemN0x180ac00N0x18b75d8">
-          <para>Displays any Notes associated with the Invoice.</para>
+            <para>Displays any Notes associated with the Invoice.</para>
         </listitem>
       </varlistentry>
 
@@ -109,7 +110,7 @@
         <term id="Para539310">Applications</term>
 
         <listitem id="listitemN0x180ac00N0x18b7620">
-          <para>Display lists associated applications.</para>
+            <para>Display lists associated applications.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -122,7 +123,7 @@
         <term id="Para531416">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18b768c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -131,7 +132,7 @@
         <term id="Para550870">VIEW DETAILS</term>
 
         <listitem id="listitemN0x180ac00N0x18b76d4">
-          <para>Select to view the original Invoice.</para>
+            <para>Select to view the original Invoice.</para>
         </listitem>
       </varlistentry>
 
@@ -139,7 +140,7 @@
         <term id="Para572314">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18b771c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

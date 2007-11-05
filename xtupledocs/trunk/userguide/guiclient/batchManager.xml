@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section937769" role="openmfg">
   <title>Batch Manager</title>
 
@@ -16,7 +16,7 @@
   "Batch Manager" option from the System module.</para>
 
   <note>
-    <para id="Para971480">For details on installing and setting up the Batch
+      <para id="Para971480">For details on installing and setting up the Batch
     Manager at your site, please see the Batch Manager documentation available
     in the Downloads area of the xTuple community website.</para>
   </note>
@@ -24,18 +24,20 @@
   <para>To access the system interface to the Batch Manager, select the "Batch
   Manager" option. The following screen will appear:</para>
 
-  <para id="Para938610"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_batchMgrList.png" id="Graphic938608" />
-        </imageobject>
+  <para id="Para938610">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_batchMgrList.png" id="Graphic938608"/>
+            </imageobject>
 
-        <caption id="Caption954099">Batch Manager</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption954099">Batch Manager</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <note>
-    <para id="Para954176">When a report or other job is submitted to the Batch
+      <para id="Para954176">When a report or other job is submitted to the Batch
     Manager with a scheduled time of ASAP, the Batch Manager sets the
     scheduled time to the current time. However, a job will not necessarily be
     run immediately if it is scheduled for the current time. Any pre-existing
@@ -48,81 +50,81 @@
   to the Batch Manager, you are presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para938674">Submitted by</term>
+      <varlistentry>
+         <term id="Para938674">Submitted by</term>
 
-      <listitem id="listitemN0x180ac00N0x18e2acc">
-        <para>Specify the user(s) whose Batch Items you want to
+         <listitem id="listitemN0x180ac00N0x18e2acc">
+            <para>Specify the user(s) whose Batch Items you want to
         display.</para>
 
-        <para id="Para938750">Current User: Select to display Batch Items for
+            <para id="Para938750">Current User: Select to display Batch Items for
         the current user.</para>
 
-        <para id="Para938754">All Users: Select to display Batch Items for all
+            <para id="Para938754">All Users: Select to display Batch Items for all
         users.</para>
 
-        <para id="Para938755">Selected User: Specify the user whose Batch
+            <para id="Para938755">Selected User: Specify the user whose Batch
         Items you want to display.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para938678">Show Completed Actions</term>
+      <varlistentry>
+         <term id="Para938678">Show Completed Actions</term>
 
-      <listitem id="listitemN0x180ac00N0x18e2b14">
-        <para>Select to include completed Batch Items in the display.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18e2b14">
+            <para>Select to include completed Batch Items in the display.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para938679">Batch</term>
+      <varlistentry>
+         <term id="Para938679">Batch</term>
 
-      <listitem id="listitemN0x180ac00N0x18e2b5c">
-        <para>Displays Batch Items using the specified parameters.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18e2b5c">
+            <para>Displays Batch Items using the specified parameters.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para938684">Automatically Update</term>
+      <varlistentry>
+         <term id="Para938684">Automatically Update</term>
 
-      <listitem id="listitemN0x180ac00N0x18e2ba4">
-        <para>Select to automatically update the display every five
+         <listitem id="listitemN0x180ac00N0x18e2ba4">
+            <para>Select to automatically update the display every five
         minutes.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para938697">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para938709">CLOSE</term>
+      <varlistentry>
+         <term id="Para938709">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x18eb400">
-        <para>Closes the screen, returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18eb400">
+            <para>Closes the screen, returning you to the previous screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para938699">RESCHEDULE</term>
+      <varlistentry>
+         <term id="Para938699">RESCHEDULE</term>
 
-      <listitem id="listitemN0x180ac00N0x18eb448">
-        <para>Highlight a Batch Item and then select this button to reschedule
+         <listitem id="listitemN0x180ac00N0x18eb448">
+            <para>Highlight a Batch Item and then select this button to reschedule
         the Item.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para938705">CANCEL</term>
+      <varlistentry>
+         <term id="Para938705">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x18eb490">
-        <para>Highlight a Batch Item and then select this button to remove the
+         <listitem id="listitemN0x180ac00N0x18eb490">
+            <para>Highlight a Batch Item and then select this button to remove the
         Item from the Batch Manager list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="batchItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="batchItem.xml"
+               xpointer="element(/1)"/>
 </section>

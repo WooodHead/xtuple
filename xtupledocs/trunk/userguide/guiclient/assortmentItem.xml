@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE UI
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <UI version="3.2" stdsetdef="1">
    <table>
       <title>
@@ -53,7 +53,7 @@
                                             <vbox>
                                                 <row>
                                  <entry>
-                                    <guilabel>
+                                    <guilabel moreinfo="none">
                                        <accel>C</accel>ancel</guilabel>
                                  </entry>
                                  <entry/>
@@ -61,7 +61,7 @@
                               </row>
                                                 <row>
                                  <entry>
-                                    <guilabel>
+                                    <guilabel moreinfo="none">
                                        <accel>S</accel>ave</guilabel>
                                  </entry>
                                  <entry/>
@@ -98,7 +98,7 @@
                     <hbox>
                         <row>
                         <entry>
-                           <guilabel>
+                           <guilabel moreinfo="none">
                               <accel>Q</accel>ty. Per:</guilabel>
                         </entry>
                         <entry/>
@@ -135,7 +135,7 @@
       <slot>populate()</slot>
    </slots>
    <functions>
-      <function>init()</function>
+      <function moreinfo="none">init()</function>
    </functions>
    <layoutdefaults spacing="5" margin="10"/>
    <includehints>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section572767">
-    <title><anchor id="Anchor572766" role="Index"
-    xreflabel="order up to levels:updating by class code;class codes:updating out levels using" />
-    <indexterm significance="normal" zone="Anchor572766">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section572767">
+    <title>
+      <anchor id="Anchor572766" role="Index"
+              xreflabel="order up to levels:updating by class code;class codes:updating out levels using"/>
+      <indexterm significance="normal">
         <primary>order up to levels</primary>
 
         <secondary>updating by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor572766">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>updating out levels using</secondary>
@@ -18,17 +20,18 @@
     the "Order Up To Levels by Class Code" option. The following screen will
     appear:</para>
 
-    <para id="Para572772"><screenshot>
+    <para id="Para572772">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Utilities_upOUTbyClass.png"
-                       id="Graphic572770" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Utilities_upOUTbyClass.png" id="Graphic572770"/>
+            </imageobject>
 
-          <caption id="Caption572773">Update Order Up To Levels by Class
+            <caption id="Caption572773">Update Order Up To Levels by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para572774">When updating Order Up To Levels by Class Code, you
     are presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para573002">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19bda6c">
-          <para>Select to update Order Up To Levels by Class Code for all
+            <para>Select to update Order Up To Levels by Class Code for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para573003">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19bda90">
-          <para>Specify Warehouse where Order Up To Levels by Class Code are
+            <para>Specify Warehouse where Order Up To Levels by Class Code are
           to be updated.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +59,7 @@
         <term id="Para573005">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x19bdad8">
-          <para>Select to update Order Up To Levels for all Class
+            <para>Select to update Order Up To Levels for all Class
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +68,7 @@
         <term id="Para573006">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19bdb20">
-          <para>Specify Class Code whose Order Up To Levels you want to
+            <para>Specify Class Code whose Order Up To Levels you want to
           update.</para>
         </listitem>
       </varlistentry>
@@ -74,12 +77,11 @@
         <term id="Para573008">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x19bdb68">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677263">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677262"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677263">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677262" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -89,15 +91,15 @@
         <term id="Para573016">Days of Stock at Reorder Level</term>
 
         <listitem id="listitemN0x180ac00N0x19bdbb0">
-          <para>Specify number of days using one of the following
+            <para>Specify number of days using one of the following
           options:</para>
 
-          <para id="Para573017">Item Site Lead Time +: Select a number using
+            <para id="Para573017">Item Site Lead Time +: Select a number using
           the arrow buttons, or manually enter a value up to a maximum of 99.
           Average daily usage calculated using selected Calendar periods will
           be multiplied by this value to determine Reorder Level.</para>
 
-          <para id="Para573018">Fixed Days: Select a number using the arrow
+            <para id="Para573018">Fixed Days: Select a number using the arrow
           buttons, or manually enter a value up to a maximum of 999. Average
           daily usage calculated using selected Calendar periods will be
           multiplied by this value to determine Reorder Level.</para>
@@ -108,13 +110,13 @@
         <term id="Para573019">Periods to Include in Analysis</term>
 
         <listitem id="listitemN0x180ac00N0x19bdbf8">
-          <para>Specify the periods to include in the analysis using the
+            <para>Specify the periods to include in the analysis using the
           following Calendar options:</para>
 
-          <para id="Para670750">Calendar: Select the Calendar you want to use
+            <para id="Para670750">Calendar: Select the Calendar you want to use
           for the analysis.</para>
 
-          <para id="Para573021">Name/Selected Periods: Select as many periods
+            <para id="Para573021">Name/Selected Periods: Select as many periods
           as you want to include in the analysis. Selected periods correspond
           to Calendar specified in the "Calendar" field. Select individual
           periods or groups of periods together. To select an individual
@@ -141,7 +143,7 @@
         <term id="Para573023">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x19bdc64">
-          <para>Closes the screen without updating Reorder Levels by Class
+            <para>Closes the screen without updating Reorder Levels by Class
           Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -150,7 +152,7 @@
         <term id="Para573024">UPDATE</term>
 
         <listitem id="listitemN0x180ac00N0x19bdcac">
-          <para>Updates Reorder Levels by Class Code, using the specified
+            <para>Updates Reorder Levels by Class Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -159,9 +161,8 @@
         <term id="Para573025">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x19bdcd0">
-          <para>Select to submit requested action to the Batch Manager for
-          processing. For additional information, see the <link
-          endterm="Anchor61009" id="XRef665425" linkend="Anchor61009">
+            <para>Select to submit requested action to the Batch Manager for
+          processing. For additional information, see the <link endterm="Anchor61009" id="XRef665425" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
         </listitem>

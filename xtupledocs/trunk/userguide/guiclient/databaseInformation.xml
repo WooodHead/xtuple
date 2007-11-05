@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518504">
-    <title><anchor id="Anchor932260" role="Index"
-    xreflabel="databases:information about" /> <indexterm
-        significance="normal" zone="Anchor932260">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518504">
+    <title>
+      <anchor id="Anchor932260" role="Index" xreflabel="databases:information about"/> 
+      <indexterm significance="normal">
         <primary>databases</primary>
 
         <secondary>information about</secondary>
@@ -13,31 +13,33 @@
     <para id="Para518505">To enter information about your database, select the
     "Database Information" option. The following screen will appear:</para>
 
-    <para id="Para518509"><screenshot>
+    <para id="Para518509">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_dbInfo.png" id="Graphic521828" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_dbInfo.png" id="Graphic521828"/>
+            </imageobject>
 
-          <caption id="Caption518510">Database Information</caption>
+            <caption id="Caption518510">Database Information</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518511">When entering Database information, you are
     presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para527539"><anchor id="Anchor933772" role="Index"
-        xreflabel="databases:description of" /> <indexterm
-            significance="normal" zone="Anchor933772">
-            <primary>databases</primary>
+        <term id="Para527539">
+            <anchor id="Anchor933772" role="Index" xreflabel="databases:description of"/> 
+            <indexterm significance="normal">
+               <primary>databases</primary>
 
-            <secondary>description of</secondary>
-          </indexterm>Database Description</term>
+               <secondary>description of</secondary>
+            </indexterm>Database Description</term>
 
         <listitem id="listitemN0x180ac00N0x181a1cc">
-          <para>The description entered here will be displayed in the Title
+            <para>The description entered here will be displayed in the Title
           Bar of the main window. This field is typically used to store
           company names and/or the particular name of the server where the
           server software is running (e.g., "ABC Manufacturing - Production
@@ -46,16 +48,16 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para937584"><anchor id="Anchor937583" role="Index"
-        xreflabel="servers:addresses for" /> <indexterm significance="normal"
-            zone="Anchor937583">
-            <primary>servers</primary>
+        <term id="Para937584">
+            <anchor id="Anchor937583" role="Index" xreflabel="servers:addresses for"/> 
+            <indexterm significance="normal">
+               <primary>servers</primary>
 
-            <secondary>addresses for</secondary>
-          </indexterm>Server Address</term>
+               <secondary>addresses for</secondary>
+            </indexterm>Server Address</term>
 
         <listitem id="listitemN0x180ac00N0x181a25c">
-          <para>Displays the unique network address assigned to the server.
+            <para>Displays the unique network address assigned to the server.
           This will typically show a TCP/IP Address or Network Host
           Name.</para>
         </listitem>
@@ -76,7 +78,7 @@
         <term id="Para527568">Database Name</term>
 
         <listitem id="listitemN0x180ac00N0x181a2ec">
-          <para>Displays the default name of the database running on your
+            <para>Displays the default name of the database running on your
           server.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +94,7 @@
         <term id="Para527621">Database Version</term>
 
         <listitem id="listitemN0x180ac00N0x181a37c">
-          <para>Displays the version of the database running on your
+            <para>Displays the version of the database running on your
           server.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +103,7 @@
         <term id="Para955571">Default Batch Email Address</term>
 
         <listitem id="listitemN0x180ac00N0x181a3a0">
-          <para>Enter an email address to be used as the default "From"
+            <para>Enter an email address to be used as the default "From"
           address in situations when no other "From" address is specified. For
           example, this feature would apply if when scheduling an Invoice for
           email delivery no email address is entered in the "From"
@@ -113,10 +115,10 @@
         <term id="Para955574">Enable Batch Manager</term>
 
         <listitem id="listitemN0x180ac00N0x181a3c4">
-          <para>Select to enable the Batch Manager for the current
+            <para>Select to enable the Batch Manager for the current
           database.</para>
 
-          <para id="Para955545">If selected, any jobs submitted to the Batch
+            <para id="Para955545">If selected, any jobs submitted to the Batch
           Manager will be processed. If not selected, jobs submitted to the
           Batch Manager will not be processed.</para>
         </listitem>
@@ -126,7 +128,7 @@
         <term id="Para936650">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x181a40c">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to your database.</para>
         </listitem>
       </varlistentry>
@@ -135,7 +137,7 @@
         <term id="Para943738">Number of Database Users</term>
 
         <listitem id="listitemN0x180ac00N0x181a454">
-          <para>Displays the number of concurrent Database users.</para>
+            <para>Displays the number of concurrent Database users.</para>
         </listitem>
       </varlistentry>
 
@@ -143,7 +145,7 @@
         <term id="Para943742">Number of Server Users</term>
 
         <listitem id="listitemN0x180ac00N0x181a49c">
-          <para>Displays the number of concurrent server users.</para>
+            <para>Displays the number of concurrent server users.</para>
         </listitem>
       </varlistentry>
 
@@ -151,7 +153,7 @@
         <term id="Para943743">Number of Server Licenses</term>
 
         <listitem id="listitemN0x180ac00N0x181a4e4">
-          <para>Displays the number of licenses available for your
+            <para>Displays the number of licenses available for your
           server.</para>
         </listitem>
       </varlistentry>
@@ -171,7 +173,7 @@
         <term id="Para518529">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x181a574">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -180,10 +182,10 @@
         <term id="Para518530">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x181a5bc">
-          <para>Saves the specified Database information, returning you to the
+            <para>Saves the specified Database information, returning you to the
           application desktop.</para>
 
-          <para id="Para943721">This button will not appear if you have not
+            <para id="Para943721">This button will not appear if you have not
           been assigned the appropriate privileges.</para>
         </listitem>
       </varlistentry>

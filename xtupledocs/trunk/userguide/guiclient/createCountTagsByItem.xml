@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section601522">
-    <title><anchor id="Anchor552156" role="Index"
-    xreflabel="count tags:creating by item;physical inventory:creating count tags" />
-    <indexterm significance="normal" zone="Anchor552156">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section601522">
+    <title>
+      <anchor id="Anchor552156" role="Index"
+              xreflabel="count tags:creating by item;physical inventory:creating count tags"/>
+      <indexterm significance="normal">
         <primary>count tags</primary>
 
         <secondary>creating by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552156">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>creating count tags</secondary>
@@ -20,16 +22,17 @@
     Tag by Item, select the "Create Count Tag by Item" option. The following
     screen will appear:</para>
 
-    <para id="Para519223"><screenshot>
+    <para id="Para519223">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_createCTByItem.png"
-                       id="Graphic526009" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_createCTByItem.png" id="Graphic526009"/>
+            </imageobject>
 
-          <caption id="Caption519224">Create Count Tag by Item</caption>
+            <caption id="Caption519224">Create Count Tag by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519230">When creating Count Tags by Item, you are presented
     with the following options:</para>
@@ -45,7 +48,7 @@
         <term id="Para519231">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18e2d24">
-          <para>Enter the Item Number of the Item you want to create a Count
+            <para>Enter the Item Number of the Item you want to create a Count
           Tag for.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +57,7 @@
         <term id="Para672000">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18e2d6c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -62,10 +65,10 @@
         <term id="Para519235">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x18e2db4">
-          <para>Specify the Warehouse you want the Count Tag created
+            <para>Specify the Warehouse you want the Count Tag created
           for.</para>
 
-          <para id="Para519236">This field will remain blank until you enter
+            <para id="Para519236">This field will remain blank until you enter
           an Item Number into the "Item Number" field. Once that is entered,
           the Warehouse(s) where the Item is located will display in the
           list.</para>
@@ -76,9 +79,9 @@
         <term id="Para558254">Mark Created Count Tag as Priority</term>
 
         <listitem id="listitemN0x180ac00N0x18e2dfc">
-          <para>Select to give priority status to Count Tag.</para>
+            <para>Select to give priority status to Count Tag.</para>
 
-          <para id="Para596779">Count Tags marked as having priority status
+            <para id="Para596779">Count Tags marked as having priority status
           are listed first in any prioritized lists. For example, priority
           Count Tags will appear at the top of the Count Tag Edit List;
           whereas, non-priority Count Tags will appear at the bottom of the
@@ -87,28 +90,29 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para558255"><anchor id="Anchor558262" role="Index"
-        xreflabel="freezing:of inventory;inventory:freezing at count tag creation" />
-        <indexterm significance="normal" zone="Anchor558262">
-            <primary>freezing</primary>
+        <term id="Para558255">
+            <anchor id="Anchor558262" role="Index"
+                    xreflabel="freezing:of inventory;inventory:freezing at count tag creation"/>
+            <indexterm significance="normal">
+               <primary>freezing</primary>
 
-            <secondary>of inventory</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor558262">
-            <primary>inventory</primary>
+               <secondary>of inventory</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>inventory</primary>
 
-            <secondary>freezing at count tag creation</secondary>
-          </indexterm>Freeze Inventory</term>
+               <secondary>freezing at count tag creation</secondary>
+            </indexterm>Freeze Inventory</term>
 
         <listitem id="listitemN0x180ac00N0x18e2ed4">
-          <para>Select to freeze Inventory.</para>
+            <para>Select to freeze Inventory.</para>
 
-          <para id="Para558256">The Quantity on Hand value is not updated when
+            <para id="Para558256">The Quantity on Hand value is not updated when
           a transaction is posted against a frozen Item Site. Instead,
           Inventory transactions are pooled and then posted later when the
           Item Site is unfrozen--or thawed. The Quantity on Hand is updated
           when the Item Site is thawed. For a detailed explanation of these
-          concepts, see the <link endterm="Anchor80983" id="XRef558258"
-          linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
+          concepts, see the <link endterm="Anchor80983" id="XRef558258" linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
           and Thawing" section.</para>
         </listitem>
       </varlistentry>
@@ -125,10 +129,10 @@
         <term id="Para629675">Only for Specified Location</term>
 
         <listitem id="listitemN0x180ac00N0x18e2f64">
-          <para>Select if you want to create Count Tags for an individual
+            <para>Select if you want to create Count Tags for an individual
           Warehouse Location.</para>
 
-          <para id="Para629676">If selected, you will have the option to
+            <para id="Para629676">If selected, you will have the option to
           specify which Warehouse Location you want to have Count Tags created
           for. This option enables you to count individual Warehouse Locations
           separately, without having to post counts for an entire Warehouse
@@ -146,20 +150,22 @@
 
     <variablelist>
       <varlistentry>
-        <term id="Para596830"><anchor id="Anchor596826" role="Index"
-        xreflabel="cycle counters:creating instructions for;cycle counts:creating instructions for" />
-        <indexterm significance="normal" zone="Anchor596826">
-            <primary>cycle counters</primary>
+        <term id="Para596830">
+            <anchor id="Anchor596826" role="Index"
+                    xreflabel="cycle counters:creating instructions for;cycle counts:creating instructions for"/>
+            <indexterm significance="normal">
+               <primary>cycle counters</primary>
 
-            <secondary>creating instructions for</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor596826">
-            <primary>cycle counts</primary>
+               <secondary>creating instructions for</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>cycle counts</primary>
 
-            <secondary>creating instructions for</secondary>
-          </indexterm>Comments</term>
+               <secondary>creating instructions for</secondary>
+            </indexterm>Comments</term>
 
         <listitem id="listitemN0x180ac00N0x18e3084">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the Count Tag. Use the Comments field to enter
           any instructions or other Comments that need to reach and be read by
           the Inventory counters.</para>
@@ -175,7 +181,7 @@
         <term id="Para519246">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18e30f0">
-          <para>Closes the screen without creating a Count Tag, returning you
+            <para>Closes the screen without creating a Count Tag, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -184,9 +190,9 @@
         <term id="Para519247">CREATE TAG</term>
 
         <listitem id="listitemN0x180ac00N0x18e3138">
-          <para>Creates Count Tag.</para>
+            <para>Creates Count Tag.</para>
 
-          <para id="Para597832">Count Tag Numbers are generated automatically
+            <para id="Para597832">Count Tag Numbers are generated automatically
           in an ordered sequence.</para>
         </listitem>
       </varlistentry>

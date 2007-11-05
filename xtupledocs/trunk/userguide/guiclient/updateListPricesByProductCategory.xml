@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Update List Prices by Product Category
@@ -42,7 +42,7 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>Update Prices by:</guilabel>
+                  <guilabel moreinfo="none">Update Prices by:</guilabel>
                </entry>
                <entry>_updateLit</entry>
                <entry>QLabel</entry>
@@ -54,14 +54,14 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>%</guilabel>
+                  <guilabel moreinfo="none">%</guilabel>
                </entry>
                <entry>_percentLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -69,7 +69,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>U</accel>pdate</guilabel>
                </entry>
                <entry>_update</entry>

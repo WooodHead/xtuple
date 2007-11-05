@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section657192">
-    <title><anchor id="Anchor657191" role="Index"
-    xreflabel="invoices:purging records for" /> <indexterm
-        significance="normal" zone="Anchor657191">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657192">
+    <title>
+      <anchor id="Anchor657191" role="Index" xreflabel="invoices:purging records for"/> 
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>purging records for</secondary>
@@ -15,16 +15,17 @@
     Invoice records, select the "Purge Invoice Records" option. The following
     screen will appear:</para>
 
-    <para id="Para657197"><screenshot>
+    <para id="Para657197">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_purgeInvRecords.png"
-                       id="Graphic657195" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_purgeInvRecords.png" id="Graphic657195"/>
+            </imageobject>
 
-          <caption id="Caption657198">Purge Invoice Records</caption>
+            <caption id="Caption657198">Purge Invoice Records</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para657200">The consequence of purging Invoice records is that
@@ -39,7 +40,7 @@
         <term id="Para657202">Cut Off Date</term>
 
         <listitem id="listitemN0x180ac00N0x191d218">
-          <para>Invoice records created before and including this date will be
+            <para>Invoice records created before and including this date will be
           purged.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +54,7 @@
         <term id="Para657204">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x191d284">
-          <para>Closes the screen without purging any Invoice records,
+            <para>Closes the screen without purging any Invoice records,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +63,7 @@
         <term id="Para657205">PURGE</term>
 
         <listitem id="listitemN0x180ac00N0x191d2cc">
-          <para>Purges the Invoice records.</para>
+            <para>Purges the Invoice records.</para>
         </listitem>
       </varlistentry>
     </variablelist>

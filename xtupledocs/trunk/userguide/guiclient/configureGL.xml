@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section942568">
-    <title><anchor id="Anchor942567" role="Index"
-    xreflabel="configuration:of g/l module" /> <indexterm
-        significance="normal" zone="Anchor942567">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section942568">
+    <title>
+      <anchor id="Anchor942567" role="Index" xreflabel="configuration:of g/l module"/> 
+      <indexterm significance="normal">
         <primary>configuration</primary>
 
         <secondary>of g/l module</secondary>
@@ -44,20 +44,22 @@
       to define "related" Accounts.</para>
     </tip>
 
-    <para id="Para964166"></para>
+    <para id="Para964166"/>
 
     <para id="Para942569">To configure the General Ledger (G/L) module, select
     the "Configure G/L" option. The following screen will appear:</para>
 
-    <para id="Para942573"><screenshot>
+    <para id="Para942573">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configGL.png" id="Graphic942571" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configGL.png" id="Graphic942571"/>
+            </imageobject>
 
-          <caption id="Caption942574">Configure G/L Module</caption>
+            <caption id="Caption942574">Configure G/L Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para942575">When configuring the G/L module, you are presented
     with the following options:</para>
@@ -67,12 +69,12 @@
         <term id="Para942868">Main Segment Size</term>
 
         <listitem id="listitemN0x180ac00N0x18bacd4">
-          <para>Specify a main Segment size value between 3 and 10.</para>
+            <para>Specify a main Segment size value between 3 and 10.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para964201"></para>
+    <para id="Para964201"/>
 
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x18bad1c">
@@ -156,10 +158,10 @@
         <term id="Para973515">Allow manual entry of G/L Account Numbers</term>
 
         <listitem id="listitemN0x180ac00N0x18bae84">
-          <para>Select to enable users to manually enter G/L Account Numbers
+            <para>Select to enable users to manually enter G/L Account Numbers
           wherever G/L Account Numbers may be entered.</para>
 
-          <para id="Para973590">If not selected, users will be required to use
+            <para id="Para973590">If not selected, users will be required to use
           a browse button to select G/L Account Numbers from a list.</para>
         </listitem>
       </varlistentry>
@@ -177,7 +179,7 @@
         <term id="Para973523">Default Tax Authority</term>
 
         <listitem id="listitemN0x180ac00N0x18baf14">
-          <para>Specify the default Tax Authority to be used when setting up
+            <para>Specify the default Tax Authority to be used when setting up
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -186,9 +188,9 @@
         <term id="Para958569">Retained Earnings, Year End Account</term>
 
         <listitem id="listitemN0x180ac00N0x18baf5c">
-          <para>Select a valid General Ledger Account.</para>
+            <para>Select a valid General Ledger Account.</para>
 
-          <para id="Para967578">This is an Equity Account. It will be credited
+            <para id="Para967578">This is an Equity Account. It will be credited
           if retained earnings are positive--and debited if retained earnings
           are negative. The retained earnings calculation occurs when a Fiscal
           Year is closed. Total Expenses for the year are subtracted from
@@ -212,9 +214,9 @@
         <term id="Para967539">Currency Gain/Loss Account</term>
 
         <listitem id="listitemN0x180ac00N0x18c3800">
-          <para>Select a valid General Ledger Account.</para>
+            <para>Select a valid General Ledger Account.</para>
 
-          <para id="Para967540">This is an Expense Account. It will debited
+            <para id="Para967540">This is an Expense Account. It will debited
           for Currency gains and credited for Currency losses arising from
           fluctuating Exchange Rates. Currency gains/losses may be recognized
           at the following points: 1) When posting a Cash Receipt applied to
@@ -231,9 +233,9 @@
         <term id="Para967115">G/L Series Discrepancy Account</term>
 
         <listitem id="listitemN0x180ac00N0x18c3848">
-          <para>Select a valid General Ledger Account.</para>
+            <para>Select a valid General Ledger Account.</para>
 
-          <para id="Para967116">This is an Expense Account. It will be debited
+            <para id="Para967116">This is an Expense Account. It will be debited
           or credited if rounding errors cause discrepancies when multiple
           line item (i.e., series) transactions are posted to the General
           Ledger. If used, the amounts posted to this Account will be
@@ -245,13 +247,13 @@
         <term id="Para967123">Meaning of Currency Exchange Rates</term>
 
         <listitem id="listitemN0x180ac00N0x18c3890">
-          <para>Specify how you want Exchange Rates to be implemented and also
+            <para>Specify how you want Exchange Rates to be implemented and also
           displayed on the Exchange Rates master list:</para>
 
-          <para id="Para967127">Base x Exchange Rate = Foreign: If selected,
+            <para id="Para967127">Base x Exchange Rate = Foreign: If selected,
           this equation will be used.</para>
 
-          <para id="Para967131">Foreign x Exchange Rate = Base: If selected,
+            <para id="Para967131">Foreign x Exchange Rate = Base: If selected,
           this equation will be used.</para>
         </listitem>
       </varlistentry>
@@ -265,7 +267,7 @@
         <term id="Para942749">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c38fc">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -274,7 +276,7 @@
         <term id="Para942750">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18c3944">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519818" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519818" role="openmfg">
     <title>W/O Operations by Work Center</title>
 
     <para id="Para519819">To view Work Order Operations by Work Center, select
     the "W/O Operations by Work Center" option. The following screen will
     appear:</para>
 
-    <para id="Para519823"><screenshot>
+    <para id="Para519823">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_opsByWCenter.png"
-                       id="Graphic524045" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_opsByWCenter.png" id="Graphic524045"/>
+            </imageobject>
 
-          <caption id="Caption519824">Work Order Operations by Work
+            <caption id="Caption519824">Work Order Operations by Work
           Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para555117">You can print Pick Lists for multiple Work Orders
@@ -35,7 +36,7 @@
         <term id="Para519826">Work Center</term>
 
         <listitem>
-          <para>Specify Work Center whose Work Order Operations you want to
+            <para>Specify Work Center whose Work Order Operations you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +45,7 @@
         <term id="Para519828">Warehouse</term>
 
         <listitem>
-          <para>Displays Warehouse code for Warehouse where Work Center is
+            <para>Displays Warehouse code for Warehouse where Work Center is
           located.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +54,7 @@
         <term id="Para519833">Start Date</term>
 
         <listitem>
-          <para>Work Order Operations scheduled on and after this date will be
+            <para>Work Order Operations scheduled on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +63,7 @@
         <term id="Para519838">End Date</term>
 
         <listitem>
-          <para>Work Order Operations scheduled on and before this date will
+            <para>Work Order Operations scheduled on and before this date will
           be displayed.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +72,7 @@
         <term id="Para519840">Only Show W/O Operations with Load</term>
 
         <listitem>
-          <para>Select to only show Work Order Operations with load in the
+            <para>Select to only show Work Order Operations with load in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -80,10 +81,10 @@
         <term id="Para519841">Operations</term>
 
         <listitem>
-          <para>Display lists Work Order Operations by Work Center, using the
+            <para>Display lists Work Order Operations by Work Center, using the
           specified parameters.</para>
 
-          <para id="Para569347">If a Work Order is past its due date, the line
+            <para id="Para569347">If a Work Order is past its due date, the line
           will display in red.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +98,7 @@
         <term id="Para519844">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +107,7 @@
         <term id="Para548777">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +116,7 @@
         <term id="Para519845">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -124,36 +125,28 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/24)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/24)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/7)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/7)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/5)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/5)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/12)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/12)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/13)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/13)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/5/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/5/2/2)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/14)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/14)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

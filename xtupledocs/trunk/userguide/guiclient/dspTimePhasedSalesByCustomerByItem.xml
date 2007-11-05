@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section538699">
-    <title><anchor id="Anchor538698" role="Index"
-    xreflabel="sales history:time-phased by customer by item;customers:time-phased sales history for by item;items:time-phased sales history by customer" />
-    <indexterm significance="normal" zone="Anchor538698">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section538699">
+    <title>
+      <anchor id="Anchor538698" role="Index"
+              xreflabel="sales history:time-phased by customer by item;customers:time-phased sales history for by item;items:time-phased sales history by customer"/>
+      <indexterm significance="normal">
         <primary>sales history</primary>
 
         <secondary>time-phased by customer by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor538698">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>time-phased sales history for by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor538698">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>time-phased sales history by customer</secondary>
@@ -23,17 +25,18 @@
     Item, select the "Time-Phased Sales History by Customer by Item" option.
     The following screen will appear:</para>
 
-    <para id="Para538704"><screenshot>
+    <para id="Para538704">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_timePhSalesCustItem.png"
-                       id="Graphic538702" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_timePhSalesCustItem.png" id="Graphic538702"/>
+            </imageobject>
 
-          <caption id="Caption538705">Time-Phased Sales History by Customer by
+            <caption id="Caption538705">Time-Phased Sales History by Customer by
           Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para538706">When displaying time-phased Sales history by
     Customer by Item, you are presented with the following options:</para>
@@ -43,7 +46,7 @@
         <term id="Para538707">All Customer Types</term>
 
         <listitem id="listitemN0x180ac00N0x1884460">
-          <para>Select to display time-phased Sales history by Customer by
+            <para>Select to display time-phased Sales history by Customer by
           Item for all Customer Types.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +55,7 @@
         <term id="Para539661">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18844a8">
-          <para>Specify Customer Type whose time-phased Sales history by Item
+            <para>Specify Customer Type whose time-phased Sales history by Item
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -61,12 +64,11 @@
         <term id="Para538710">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18844f0">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para555780">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555779"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555780">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555779" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -85,7 +87,7 @@
         <term id="Para538877">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x1884580">
-          <para>Select to display time-phased Sales history by Customer for
+            <para>Select to display time-phased Sales history by Customer for
           all Product Categories.</para>
         </listitem>
       </varlistentry>
@@ -94,7 +96,7 @@
         <term id="Para539955">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18845c8">
-          <para>Specify Product Category whose time-phased Sales history by
+            <para>Specify Product Category whose time-phased Sales history by
           Customer you want to display.</para>
         </listitem>
       </varlistentry>
@@ -103,12 +105,11 @@
         <term id="Para538880">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x188c400">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para555788">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555787"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555788">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555787" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -118,9 +119,9 @@
         <term id="Para554509">Calendar</term>
 
         <listitem id="listitemN0x180ac00N0x188c448">
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para554510">Associated Calendar periods will be
+            <para id="Para554510">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -129,11 +130,11 @@
         <term id="Para538722">Name/Selected Periods</term>
 
         <listitem id="listitemN0x180ac00N0x188c490">
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para538723">Select individual periods or groups of periods
+            <para id="Para538723">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -152,12 +153,12 @@
         <term id="Para539195">Order By</term>
 
         <listitem id="listitemN0x180ac00N0x188c4d8">
-          <para>Order the output by one of the following methods:</para>
+            <para>Order the output by one of the following methods:</para>
 
-          <para id="Para539196">by Customer #: Select to order display by
+            <para id="Para539196">by Customer #: Select to order display by
           Customer Number.</para>
 
-          <para id="Para539197">by Sales Volume in first Period: Select to
+            <para id="Para539197">by Sales Volume in first Period: Select to
           order display by sales volume in first period.</para>
         </listitem>
       </varlistentry>
@@ -166,7 +167,7 @@
         <term id="Para538724">Sales History</term>
 
         <listitem id="listitemN0x180ac00N0x188c520">
-          <para>Display lists time-phased Sales history by Customer, using the
+            <para>Display lists time-phased Sales history by Customer, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -180,7 +181,7 @@
         <term id="Para538727">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x188c58c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -189,7 +190,7 @@
         <term id="Para541970">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x188c5d4">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -198,7 +199,7 @@
         <term id="Para555103">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x188c61c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -206,9 +207,8 @@
         <term id="Para553518">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x188c640">
-          <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef553520"
-          linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            <para>Select to submit report to the Batch Manager. For additional
+          information, see the <link endterm="Anchor61009" id="XRef553520" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
         </listitem>

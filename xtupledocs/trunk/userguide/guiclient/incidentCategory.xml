@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560844">
-  <title><anchor id="Anchor560992" role="Index"
-  xreflabel="crm:incident categories and;incidents:categories for" />
-  <indexterm significance="normal" zone="Anchor560948">
-      <primary>incidents</primary>
+  <title>
+      <anchor id="Anchor560992" role="Index"
+              xreflabel="crm:incident categories and;incidents:categories for"/>
+      <indexterm significance="normal">
+         <primary>incidents</primary>
 
-      <secondary>creating new categories for</secondary>
-    </indexterm>Incident Category</title>
+         <secondary>creating new categories for</secondary>
+      </indexterm>Incident Category</title>
 
   <para id="Para560949">To create a new Incident Category, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para560953"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_MI_incidCatNew.png"
-                     id="Graphic560951" />
-        </imageobject>
+  <para id="Para560953">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_MI_incidCatNew.png" id="Graphic560951"/>
+            </imageobject>
 
-        <caption id="Caption560954">Create New Incident Category</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption560954">Create New Incident Category</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para560955">When creating a new Incident Category, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para560956">Incident Category</term>
+      <varlistentry>
+         <term id="Para560956">Incident Category</term>
 
-      <listitem id="listitemN0x180ac00N0x181a9d0">
-        <para>Enter a name to define the Category (e.g., Customer Issue,
+         <listitem id="listitemN0x180ac00N0x181a9d0">
+            <para>Enter a name to define the Category (e.g., Customer Issue,
         Vendor Issue, etc.).</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para561081">Order</term>
+      <varlistentry>
+         <term id="Para561081">Order</term>
 
-      <listitem id="listitemN0x180ac00N0x181aa18">
-        <para>Specify the order in which the Category should appear when using
+         <listitem id="listitemN0x180ac00N0x181aa18">
+            <para>Specify the order in which the Category should appear when using
         the drop-down list on the Incident screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para561228">Description</term>
+      <varlistentry>
+         <term id="Para561228">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x181aa60">
-        <para>Enter a brief description of the Incident Category.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x181aa60">
+            <para>Enter a brief description of the Incident Category.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para560957">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para560958">CANCEL</term>
+      <varlistentry>
+         <term id="Para560958">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x181aacc">
-        <para>Closes the screen without creating an Incident Category,
+         <listitem id="listitemN0x180ac00N0x181aacc">
+            <para>Closes the screen without creating an Incident Category,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para560959">SAVE</term>
+      <varlistentry>
+         <term id="Para560959">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x181ab14">
-        <para>Creates the Incident Category and adds it to the master list of
+         <listitem id="listitemN0x180ac00N0x181ab14">
+            <para>Creates the Incident Category and adds it to the master list of
         Incident Categories.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

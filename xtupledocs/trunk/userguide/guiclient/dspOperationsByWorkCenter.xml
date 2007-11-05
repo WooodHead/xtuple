@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section520467" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520467" role="openmfg">
     <title>Operations by Work Center</title>
 
     <para id="Para520468">To view a list of Operations performed at a Work
     Center, select the "Operations by Work Center" option. The following
     screen will appear:</para>
 
-    <para id="Para520472"><screenshot>
+    <para id="Para520472">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_opsByWC.png" id="Graphic563735" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_opsByWC.png" id="Graphic563735"/>
+            </imageobject>
 
-          <caption id="Caption520473">Operations by Work Center</caption>
+            <caption id="Caption520473">Operations by Work Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520474">When displaying Operations by Work Center, you are
     presented with the following options:</para>
@@ -26,7 +28,7 @@
         <term id="Para520475">Work Center</term>
 
         <listitem id="listitemN0x180ac00N0x193a220">
-          <para>Specify Work Center whose Operations you want to
+            <para>Specify Work Center whose Operations you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -35,7 +37,7 @@
         <term id="Para520477">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x193a268">
-          <para>The Warehouse code for the Warehouse where the Work Center is
+            <para>The Warehouse code for the Warehouse where the Work Center is
           located will display once a Work Center has been selected.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +46,7 @@
         <term id="Para520479">Operations</term>
 
         <listitem id="listitemN0x180ac00N0x193a2b0">
-          <para>Display lists all Operations by Work Center, using the
+            <para>Display lists all Operations by Work Center, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +60,7 @@
         <term id="Para520482">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193a31c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para664047">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193a364">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -80,7 +82,7 @@
         <term id="Para520485">View Operation</term>
 
         <listitem id="listitemN0x180ac00N0x193a3d0">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -88,7 +90,7 @@
         <term id="Para520486">View Bill of Operations</term>
 
         <listitem id="listitemN0x180ac00N0x193a418">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -96,7 +98,7 @@
         <term id="Para520487">Edit Operation</term>
 
         <listitem id="listitemN0x180ac00N0x193a460">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -104,12 +106,11 @@
         <term id="Para520488">Edit Bill of Operations</term>
 
         <listitem id="listitemN0x180ac00N0x193a4a8">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

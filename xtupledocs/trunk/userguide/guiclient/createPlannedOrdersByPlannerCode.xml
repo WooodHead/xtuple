@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section551404" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section551404" role="openmfg">
     <title>Run MRP by Planner Code</title>
 
     <para id="Para534797">When you run MRP by Planner Code, you are running
@@ -23,16 +23,17 @@
     <para id="Para536576">To run MRP by Planner Code, select the "Run MRP by
     Planner Code" option. The following screen will appear:</para>
 
-    <para id="Para518624"><screenshot>
+    <para id="Para518624">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Sched_createPlanByPCode.png"
-                       id="Graphic520460" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Sched_createPlanByPCode.png" id="Graphic520460"/>
+            </imageobject>
 
-          <caption id="Caption518625">Run MRP by Planner Code</caption>
+            <caption id="Caption518625">Run MRP by Planner Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para535638">The system deletes any non-firmed Planned Orders
@@ -50,7 +51,7 @@
         <term id="Para531702">All Planner Codes</term>
 
         <listitem>
-          <para>Select to create Planned Replenishment Orders for all Planner
+            <para>Select to create Planned Replenishment Orders for all Planner
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +60,7 @@
         <term id="Para518627">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code you want to create Planned Replenishment
+            <para>Specify Planner Code you want to create Planned Replenishment
           Orders for.</para>
         </listitem>
       </varlistentry>
@@ -68,12 +69,11 @@
         <term id="Para526322">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554575">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554574"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554575">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554574" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -83,7 +83,7 @@
         <term id="Para518631">All Warehouses</term>
 
         <listitem>
-          <para>Select to create Planned Replenishment Orders by Planner Code
+            <para>Select to create Planned Replenishment Orders by Planner Code
           for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +92,7 @@
         <term id="Para518633">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse Planned Replenishment Orders should be
+            <para>Specify Warehouse Planned Replenishment Orders should be
           created for.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +101,7 @@
         <term id="Para531497">Cutoff Date</term>
 
         <listitem>
-          <para>Specify how far into the future the MRP run should look for
+            <para>Specify how far into the future the MRP run should look for
           demand.</para>
         </listitem>
       </varlistentry>
@@ -117,19 +117,19 @@
 
     <variablelist>
       <varlistentry>
-        <term id="Para518640"><anchor id="Anchor528692" role="Index"
-        xreflabel="firmed orders:deletion of" /> <indexterm
-            significance="normal" zone="Anchor528692">
-            <primary>firmed orders</primary>
+        <term id="Para518640">
+            <anchor id="Anchor528692" role="Index" xreflabel="firmed orders:deletion of"/> 
+            <indexterm significance="normal">
+               <primary>firmed orders</primary>
 
-            <secondary>deletion of</secondary>
-          </indexterm>Delete Existing Firmed MRP Orders</term>
+               <secondary>deletion of</secondary>
+            </indexterm>Delete Existing Firmed MRP Orders</term>
 
         <listitem>
-          <para>Firmed MRP Orders: Select to delete existing Firmed
+            <para>Firmed MRP Orders: Select to delete existing Firmed
           Orders.</para>
 
-          <para id="Para534842">A firm Planned Order is a Planned Order that
+            <para id="Para534842">A firm Planned Order is a Planned Order that
           has been solidified in the schedule. By default, firm Planned Orders
           are not deleted when MRP is run. Selecting this option overrides
           that default behavior. If firm Planned Orders are deleted when MRP
@@ -153,7 +153,7 @@
         <term id="Para518643">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without creating Planned Replenishment
+            <para>Closes the screen without creating Planned Replenishment
           Orders by Planner Code, returning you to the application
           desktop.</para>
         </listitem>
@@ -163,7 +163,7 @@
         <term id="Para535752">CREATE</term>
 
         <listitem>
-          <para>Creates Planned Replenishment Orders by Planner Code, using
+            <para>Creates Planned Replenishment Orders by Planner Code, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -172,12 +172,10 @@
         <term id="Para537096">SUBMIT</term>
 
         <listitem>
-          <para>Select to submit the MRP run to the Batch Manager. For
-          additional information, see the <link endterm="Anchor61009"
-          id="XRef547857" linkend="Anchor61009"> Submitting Reports and Jobs
+            <para>Select to submit the MRP run to the Batch Manager. For
+          additional information, see the <link endterm="Anchor61009" id="XRef547857" linkend="Anchor61009"> Submitting Reports and Jobs
           to the Batch Manager</link>"Topic: Submitting Reports and Jobs to
-          the Batch Manager" section in the <link endterm="Anchor30917"
-          id="XRef537101" linkend="Anchor30917"> System Module</link>System
+          the Batch Manager" section in the <link endterm="Anchor30917" id="XRef537101" linkend="Anchor30917"> System Module</link>System
           Module.</para>
         </listitem>
       </varlistentry>

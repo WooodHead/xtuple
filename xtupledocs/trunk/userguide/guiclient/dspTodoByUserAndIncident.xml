@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section560417">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section560417">
     <title>To-Do List Items by User and Incident</title>
 
     <para id="Para570374">To view To-Do List items by user and Incident,
     select the "To-Do List Items by User and Incident" option. The following
     screen will appear:</para>
 
-    <para id="Para570341"><screenshot>
+    <para id="Para570341">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_Disp_tdItemsByUser.png"
-                       id="Graphic570339" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_Disp_tdItemsByUser.png" id="Graphic570339"/>
+            </imageobject>
 
-          <caption id="Caption570342">To-Do List Items by User and
+            <caption id="Caption570342">To-Do List Items by User and
           Incident</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para570391">When displaying To-Do List items by user and
     Incident, you are presented with the following options:</para>
@@ -29,7 +29,7 @@
         <term id="Para570402">All Users</term>
 
         <listitem id="listitemN0x180ac00N0x1897a3c">
-          <para>Select to display To-Do List items for all users.</para>
+            <para>Select to display To-Do List items for all users.</para>
         </listitem>
       </varlistentry>
 
@@ -37,7 +37,7 @@
         <term id="Para570403">Selected User</term>
 
         <listitem id="listitemN0x180ac00N0x1897a84">
-          <para>Select user whose To-Do List items you want to display.</para>
+            <para>Select user whose To-Do List items you want to display.</para>
         </listitem>
       </varlistentry>
 
@@ -45,11 +45,10 @@
         <term id="Para570404">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1897acc">
-          <para>Enter a user pattern to select a range of users.</para>
+            <para>Enter a user pattern to select a range of users.</para>
 
-          <para id="Para577696">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef577695"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para577696">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef577695" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -59,7 +58,7 @@
         <term id="Para560420">All Incidents</term>
 
         <listitem id="listitemN0x180ac00N0x1897b14">
-          <para>Select to include all Incidents for the specified user(s) in
+            <para>Select to include all Incidents for the specified user(s) in
           the display.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +67,7 @@
         <term id="Para570529">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1897b5c">
-          <para>Select the Incident you want to display information
+            <para>Select the Incident you want to display information
           about.</para>
         </listitem>
       </varlistentry>
@@ -77,12 +76,12 @@
         <term id="Para570530">Date Started</term>
 
         <listitem id="listitemN0x180ac00N0x1897ba4">
-          <para>Enter a range of To-Do List item start dates:</para>
+            <para>Enter a range of To-Do List item start dates:</para>
 
-          <para id="Para570531">Start Date: To-Do List items started on or
+            <para id="Para570531">Start Date: To-Do List items started on or
           after this date will be included in the display.</para>
 
-          <para id="Para570438">End Date: To-Do List items started on or
+            <para id="Para570438">End Date: To-Do List items started on or
           before this date will be included in the display.</para>
         </listitem>
       </varlistentry>
@@ -91,12 +90,12 @@
         <term id="Para570440">Date Due</term>
 
         <listitem id="listitemN0x180ac00N0x1897bec">
-          <para>Enter a range of To-Do List item due dates:</para>
+            <para>Enter a range of To-Do List item due dates:</para>
 
-          <para id="Para570551">Start Date: To-Do List items due on or after
+            <para id="Para570551">Start Date: To-Do List items due on or after
           this date will be included in the display.</para>
 
-          <para id="Para570552">End Date: o-Do List items due on or before
+            <para id="Para570552">End Date: o-Do List items due on or before
           this date will be included in the display.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +104,7 @@
         <term id="Para560399">Show Completed Items</term>
 
         <listitem id="listitemN0x180ac00N0x189e824">
-          <para>Select to include completed To-Do List items in the
+            <para>Select to include completed To-Do List items in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +113,7 @@
         <term id="Para570454">Show Inactive Items</term>
 
         <listitem id="listitemN0x180ac00N0x189e86c">
-          <para>Select in include inactive To-Do List items in the
+            <para>Select in include inactive To-Do List items in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -123,7 +122,7 @@
         <term id="Para570455">To-Do List Items</term>
 
         <listitem id="listitemN0x180ac00N0x189e8b4">
-          <para>Display lists To-Do List items, using the specified
+            <para>Display lists To-Do List items, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -137,7 +136,7 @@
         <term id="Para570472">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x189e920">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -146,7 +145,7 @@
         <term id="Para570473">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x189e968">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +154,7 @@
         <term id="Para577446">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x189e9b0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -168,7 +167,7 @@
         <term id="Para570607">Edit</term>
 
         <listitem id="listitemN0x180ac00N0x189ea1c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -176,7 +175,7 @@
         <term id="Para570608">View</term>
 
         <listitem id="listitemN0x180ac00N0x189ea64">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -184,7 +183,7 @@
         <term id="Para570609">Edit Incident</term>
 
         <listitem id="listitemN0x180ac00N0x189eaac">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -192,12 +191,11 @@
         <term id="Para570621">View Incident</term>
 
         <listitem id="listitemN0x180ac00N0x189eaf4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section554209">
-    <title><anchor id="Anchor554208" role="Index"
-    xreflabel="invoices:register of;registers:for invoices" /> <indexterm
-        significance="normal" zone="Anchor554208">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section554209">
+    <title>
+      <anchor id="Anchor554208" role="Index"
+              xreflabel="invoices:register of;registers:for invoices"/> 
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>register of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor554208">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>registers</primary>
 
         <secondary>for invoices</secondary>
@@ -19,16 +20,17 @@
     select the "Invoice Register" option. The following screen will
     appear:</para>
 
-    <para id="Para554214"><screenshot>
+    <para id="Para554214">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_invRegister.png"
-                       id="Graphic554212" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_invRegister.png" id="Graphic554212"/>
+            </imageobject>
 
-          <caption id="Caption554215">Invoice Register</caption>
+            <caption id="Caption554215">Invoice Register</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para554216">When displaying the Invoice Register, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para554217">All Accounts</term>
 
         <listitem id="listitemN0x180ac00N0x18b78a8">
-          <para>Select to display Invoice and Credit Memo transactions for all
+            <para>Select to display Invoice and Credit Memo transactions for all
           G/L Accounts.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para554218">Selected Account</term>
 
         <listitem id="listitemN0x180ac00N0x18b78f0">
-          <para>Specify G/L Account whose Invoice and Credit Memo transactions
+            <para>Specify G/L Account whose Invoice and Credit Memo transactions
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +58,7 @@
         <term id="Para554222">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b7938">
-          <para>Invoices and Credit Memos posted on and after this date will
+            <para>Invoices and Credit Memos posted on and after this date will
           be displayed. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +67,7 @@
         <term id="Para554227">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b7980">
-          <para>Invoices and Credit Memos posted on and before this date will
+            <para>Invoices and Credit Memos posted on and before this date will
           be displayed. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -74,10 +76,10 @@
         <term id="Para554229">Transactions</term>
 
         <listitem id="listitemN0x180ac00N0x18b79c8">
-          <para>Display lists daily Invoice and Credit Memo transactions based
+            <para>Display lists daily Invoice and Credit Memo transactions based
           on the specified parameters.</para>
 
-          <para id="Para572442">This display is a nested list, with a plus
+            <para id="Para572442">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each date.
           By clicking your mouse on a plus sign, you reveal lower levels of
           information related to transactions on that date. In addition, the
@@ -101,7 +103,7 @@
         <term id="Para554232">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18bd848">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -110,10 +112,10 @@
         <term id="Para554233">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18bd890">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para554234">Start date and end date must be entered for
+            <para id="Para554234">Start date and end date must be entered for
           request to proceed. Results will be displayed in the "Transactions"
           list.</para>
         </listitem>
@@ -123,7 +125,7 @@
         <term id="Para572320">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18bd8d8">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -136,7 +138,7 @@
         <term id="Para564363">View Invoice</term>
 
         <listitem id="listitemN0x180ac00N0x18bd944">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -144,12 +146,11 @@
         <term id="Para564364">View Credit Memo</term>
 
         <listitem id="listitemN0x180ac00N0x18bd98c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

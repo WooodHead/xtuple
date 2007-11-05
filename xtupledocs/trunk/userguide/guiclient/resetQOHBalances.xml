@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section615525">
-    <title><anchor id="Anchor615504" role="Index"
-    xreflabel="quantity on hand:resetting QOH balances;inventory transactions:resetting QOH balances" />
-    <indexterm significance="normal" zone="Anchor615504">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section615525">
+    <title>
+      <anchor id="Anchor615504" role="Index"
+              xreflabel="quantity on hand:resetting QOH balances;inventory transactions:resetting QOH balances"/>
+      <indexterm significance="normal">
         <primary>quantity on hand</primary>
 
         <secondary>resetting QOH balances</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor615504">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>inventory transactions</primary>
 
         <secondary>resetting QOH balances</secondary>
@@ -21,23 +23,23 @@
     globally or locally, select the "Reset QOH Balances" option. The following
     screen will appear:</para>
 
-    <para id="Para519070"><screenshot>
+    <para id="Para519070">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_IT_resetQOHBalances.png"
-                       id="Graphic525901" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_IT_resetQOHBalances.png" id="Graphic525901"/>
+            </imageobject>
 
-          <caption id="Caption519071">Reset QOH Balances</caption>
+            <caption id="Caption519071">Reset QOH Balances</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para560082">Be sure to thaw any Item Site whose negative
       Quantity on Hand balance you want to reset to "0". An Item Site must be
       unfrozen before its QOH balance can be reset. For more information on
-      freezing and thawing, see the <link endterm="Anchor80983"
-      id="XRef567659" linkend="Anchor80983"> Freezing and
+      freezing and thawing, see the <link endterm="Anchor80983" id="XRef567659" linkend="Anchor80983"> Freezing and
       Thawing</link>"Topic: Freezing and Thawing" section.</para>
     </tip>
 
@@ -49,7 +51,7 @@
         <term id="Para519073">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18c9e44">
-          <para>Select to reset Quantity on Hand balances for all
+            <para>Select to reset Quantity on Hand balances for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +60,7 @@
         <term id="Para519075">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18c9e68">
-          <para>Specify Warehouse where Quantity on Hand balances are to be
+            <para>Specify Warehouse where Quantity on Hand balances are to be
           reset.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para519077">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x18c9eb0">
-          <para>Select to reset Quantity on Hand balances for all Class
+            <para>Select to reset Quantity on Hand balances for all Class
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +78,7 @@
         <term id="Para519078">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18c9ef8">
-          <para>Specify Class Code whose Quantity on Hand you want to
+            <para>Specify Class Code whose Quantity on Hand you want to
           reset.</para>
         </listitem>
       </varlistentry>
@@ -85,12 +87,11 @@
         <term id="Para547799">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18c9f40">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677019">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677018"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677019">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677018" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -105,7 +106,7 @@
         <term id="Para519083">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c9fac">
-          <para>Closes the screen without resetting Quantity on Hand,
+            <para>Closes the screen without resetting Quantity on Hand,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +115,7 @@
         <term id="Para578300">RESET</term>
 
         <listitem id="listitemN0x180ac00N0x18c9ff4">
-          <para>Resets Quantity on Hand balances for Warehouses and Class
+            <para>Resets Quantity on Hand balances for Warehouses and Class
           Codes specified above.</para>
         </listitem>
       </varlistentry>
@@ -123,8 +124,7 @@
     <note>
       <para id="Para578302">Additional steps will be necessary if any Items
       within the specified Class Code(s) are stored in multiple Locations. For
-      more information, see the <link endterm="Anchor81167" id="XRef578304"
-      linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+      more information, see the <link endterm="Anchor81167" id="XRef578304" linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
       Items</link>"Inter-Warehouse Transfer" section.</para>
     </note>
   </section>

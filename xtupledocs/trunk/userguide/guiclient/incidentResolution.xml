@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560610">
-  <title><anchor id="Anchor561145" role="Index"
-  xreflabel="crm:incident resolutions and;incidents:resolutions for" />
-  <indexterm significance="normal" zone="Anchor562209">
-      <primary>incidents</primary>
+  <title>
+      <anchor id="Anchor561145" role="Index"
+              xreflabel="crm:incident resolutions and;incidents:resolutions for"/>
+      <indexterm significance="normal">
+         <primary>incidents</primary>
 
-      <secondary>creating new priorities for</secondary>
-    </indexterm>Incident Resolution</title>
+         <secondary>creating new priorities for</secondary>
+      </indexterm>Incident Resolution</title>
 
   <para id="Para562210">To create a new Incident Resolution, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para562214"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_MI_incidResNew.png"
-                     id="Graphic562212" />
-        </imageobject>
+  <para id="Para562214">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_MI_incidResNew.png" id="Graphic562212"/>
+            </imageobject>
 
-        <caption id="Caption562215">Create New Incident Resolution</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption562215">Create New Incident Resolution</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para562216">When creating a new Incident Resolution, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para562217">Incident Priority</term>
+      <varlistentry>
+         <term id="Para562217">Incident Priority</term>
 
-      <listitem id="listitemN0x180ac00N0x183ebf0">
-        <para>Enter a name to define the Resolution (e.g., Fixed, Pending,
+         <listitem id="listitemN0x180ac00N0x183ebf0">
+            <para>Enter a name to define the Resolution (e.g., Fixed, Pending,
         Open, etc.).</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para562218">Order</term>
+      <varlistentry>
+         <term id="Para562218">Order</term>
 
-      <listitem id="listitemN0x180ac00N0x183ec38">
-        <para>Specify the order in which the Resolution should appear when
+         <listitem id="listitemN0x180ac00N0x183ec38">
+            <para>Specify the order in which the Resolution should appear when
         using the drop-down list on the Incident screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para562219">Description</term>
+      <varlistentry>
+         <term id="Para562219">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x183ec80">
-        <para>Enter a brief description of the Incident Resolution.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x183ec80">
+            <para>Enter a brief description of the Incident Resolution.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para562220">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para562221">CANCEL</term>
+      <varlistentry>
+         <term id="Para562221">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x183ecec">
-        <para>Closes the screen without creating an Incident Resolution,
+         <listitem id="listitemN0x180ac00N0x183ecec">
+            <para>Closes the screen without creating an Incident Resolution,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para562222">SAVE</term>
+      <varlistentry>
+         <term id="Para562222">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x183ed34">
-        <para>Creates the Incident Resolution and adds it to the master list
+         <listitem id="listitemN0x180ac00N0x183ed34">
+            <para>Creates the Incident Resolution and adds it to the master list
         of Incident Resolutions.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

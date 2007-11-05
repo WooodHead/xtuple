@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518860">
-    <title><anchor id="Anchor533209" role="Index"
-    xreflabel="sales history:summarized by customer;customers:sales history summarized by" />
-    <indexterm significance="normal" zone="Anchor533209">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518860">
+    <title>
+      <anchor id="Anchor533209" role="Index"
+              xreflabel="sales history:summarized by customer;customers:sales history summarized by"/>
+      <indexterm significance="normal">
         <primary>sales history</primary>
 
         <secondary>summarized by customer</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533209">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>sales history summarized by</secondary>
@@ -19,17 +20,18 @@
     the "Summarized Sales History by Customer" option. The following screen
     will appear:</para>
 
-    <para id="Para518865"><screenshot>
+    <para id="Para518865">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_summSalesHistByCust.png"
-                       id="Graphic521707" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_summSalesHistByCust.png" id="Graphic521707"/>
+            </imageobject>
 
-          <caption id="Caption518866">Summarized Sales History by
+            <caption id="Caption518866">Summarized Sales History by
           Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518867">When displaying summarized Sales history by
     Customer, you are presented with the following options:</para>
@@ -39,7 +41,7 @@
         <term id="Para518868">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x1860c28">
-          <para>Select to display summarized Sales history by Customer for all
+            <para>Select to display summarized Sales history by Customer for all
           Product Categories.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +50,7 @@
         <term id="Para539848">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1860c70">
-          <para>Specify Product Category whose summarized Sales history by
+            <para>Specify Product Category whose summarized Sales history by
           Customer you want to display.</para>
         </listitem>
       </varlistentry>
@@ -57,12 +59,11 @@
         <term id="Para528114">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1860cb8">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para555630">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555629"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555630">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555629" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -72,7 +73,7 @@
         <term id="Para518876">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x1860d00">
-          <para>Summarized Sales history by Customer generated on or after
+            <para>Summarized Sales history by Customer generated on or after
           this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -81,7 +82,7 @@
         <term id="Para518881">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1860d48">
-          <para>Summarized Sales history by Customer generated on or before
+            <para>Summarized Sales history by Customer generated on or before
           this date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -90,7 +91,7 @@
         <term id="Para518883">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1860d6c">
-          <para>Select to display summarized Sales history by Customer for all
+            <para>Select to display summarized Sales history by Customer for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -99,7 +100,7 @@
         <term id="Para518885">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1860d90">
-          <para>Specify Warehouse whose summarized Sales history by Customer
+            <para>Specify Warehouse whose summarized Sales history by Customer
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -108,7 +109,7 @@
         <term id="Para518887">Sales History</term>
 
         <listitem id="listitemN0x180ac00N0x1860dd8">
-          <para>Display lists summarized Sales history by Customer, using the
+            <para>Display lists summarized Sales history by Customer, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -122,7 +123,7 @@
         <term id="Para518890">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1860e44">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -131,7 +132,7 @@
         <term id="Para541863">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1860e8c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -140,7 +141,7 @@
         <term id="Para555012">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1860ed4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -149,12 +150,10 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/22)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/22)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

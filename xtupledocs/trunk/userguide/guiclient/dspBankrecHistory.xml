@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section563468">
-    <title><anchor id="Anchor563467" role="Index"
-    xreflabel="bank reconciliations:detailed history of" /> <indexterm
-        significance="normal" zone="Anchor563467">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section563468">
+    <title>
+      <anchor id="Anchor563467" role="Index"
+              xreflabel="bank reconciliations:detailed history of"/> 
+      <indexterm significance="normal">
         <primary>bank reconciliations</primary>
 
         <secondary>detailed history of</secondary>
@@ -16,16 +15,17 @@
     Reconciliations, select the "Bank Reconciliation History" option. The
     following screen will appear:</para>
 
-    <para id="Para563473"><screenshot>
+    <para id="Para563473">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/GL_BR_dispRecHist.png"
-                       id="Graphic563471" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/GL_BR_dispRecHist.png" id="Graphic563471"/>
+            </imageobject>
 
-          <caption id="Caption563474">Bank Reconciliation History</caption>
+            <caption id="Caption563474">Bank Reconciliation History</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para563475">When displaying detailed information on past Bank
     Reconciliations, you are presented with the following options:</para>
@@ -35,7 +35,7 @@
         <term id="Para563476">Bank Account</term>
 
         <listitem id="listitemN0x180ac00N0x191d028">
-          <para>Specify the Bank Account whose Bank Reconciliation History you
+            <para>Specify the Bank Account whose Bank Reconciliation History you
           want to view.</para>
         </listitem>
       </varlistentry>
@@ -44,10 +44,10 @@
         <term id="Para563478">Bank Rec. Post</term>
 
         <listitem id="listitemN0x180ac00N0x191d070">
-          <para>Select the Bank Reconciliation whose detailed history you want
+            <para>Select the Bank Reconciliation whose detailed history you want
           to display.</para>
 
-          <para id="Para563479">Bank Reconciliations are identified by the
+            <para id="Para563479">Bank Reconciliations are identified by the
           date range they encompass. When a Bank Account is reconciled, the
           date range is determined by the specified start date and end
           date.</para>
@@ -58,22 +58,23 @@
         <term id="Para563480">Posted by</term>
 
         <listitem id="listitemN0x180ac00N0x191d0b8">
-          <para>Displays the name of the user who posted the Bank
+            <para>Displays the name of the user who posted the Bank
           Reconciliation.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para563482"><anchor id="Anchor563481" role="Index"
-        xreflabel="bank reconciliations:posting dates for" /> <indexterm
-            significance="normal" zone="Anchor563481">
-            <primary>bank reconciliations</primary>
+        <term id="Para563482">
+            <anchor id="Anchor563481" role="Index"
+                    xreflabel="bank reconciliations:posting dates for"/> 
+            <indexterm significance="normal">
+               <primary>bank reconciliations</primary>
 
-            <secondary>posting dates for</secondary>
-          </indexterm>Date Posted</term>
+               <secondary>posting dates for</secondary>
+            </indexterm>Date Posted</term>
 
         <listitem id="listitemN0x180ac00N0x191d148">
-          <para>Displays the date when the Bank Reconciliation was
+            <para>Displays the date when the Bank Reconciliation was
           posted.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +83,7 @@
         <term id="Para563483">History</term>
 
         <listitem id="listitemN0x180ac00N0x191d190">
-          <para>Display lists details for the specified Bank
+            <para>Display lists details for the specified Bank
           Reconciliation.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +97,7 @@
         <term id="Para563486">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x191d1fc">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +106,7 @@
         <term id="Para563487">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x191d244">
-          <para>Prints a copy of the contents displayed on the screen.</para>
+            <para>Prints a copy of the contents displayed on the screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

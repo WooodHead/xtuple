@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter658560">
-  <title><anchor id="Anchor27334" role="Cross-Ref"
-  xreflabel="27334: ChapterTitle: Inventory Management (I/M) Module" />Inventory
+  <title>
+      <anchor id="Anchor27334" role="Cross-Ref"
+              xreflabel="27334: ChapterTitle: Inventory Management (I/M) Module"/>Inventory
   Management (I/M) Module</title>
 
   <para id="Para562490">In this chapter, we describe the Inventory module.
@@ -11,33 +12,33 @@
   components:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x1819e48">
-      <para id="Para562491">Item Sites</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e48">
+         <para id="Para562491">Item Sites</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e6c">
-      <para id="Para518507">Inventory Transactions</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e6c">
+         <para id="Para518507">Inventory Transactions</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e90">
-      <para id="Para518508">Physical Inventory</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e90">
+         <para id="Para518508">Physical Inventory</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819eb4">
-      <para id="Para518509">Warehouses</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819eb4">
+         <para id="Para518509">Warehouses</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819ed8">
-      <para id="Para625111">Warehouse Locations</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819ed8">
+         <para id="Para625111">Warehouse Locations</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819efc">
-      <para id="Para625112">Cost Categories</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819efc">
+         <para id="Para625112">Cost Categories</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819f20">
-      <para id="Para625113">Item Controls</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819f20">
+         <para id="Para625113">Item Controls</para>
+      </listitem>
   </itemizedlist>
 
   <para id="Para518513">The module is also responsible for generating General
@@ -45,484 +46,451 @@
   throughout the production environment.</para>
 
   <section id="Section518514">
-    <title><anchor id="Anchor552118" role="Index"
-    xreflabel="master information:for i/m module" /> <indexterm
-        significance="normal" zone="Anchor552118">
-        <primary>master information</primary>
+      <title>
+         <anchor id="Anchor552118" role="Index" xreflabel="master information:for i/m module"/> 
+         <indexterm significance="normal">
+            <primary>master information</primary>
 
-        <secondary>for i/m module</secondary>
-      </indexterm>Master Information</title>
+            <secondary>for i/m module</secondary>
+         </indexterm>Master Information</title>
 
-    <para id="Para518521">This is the section where you define Master
+      <para id="Para518521">This is the section where you define Master
     Information for the module.</para>
 
-    <xi:include href="guiclient/warehouses.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/warehouses.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/warehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/warehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/locations.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/locations.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/location.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/location.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/costCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/costCategories.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/costCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/costCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/expenseCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/expenseCategories.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/expenseCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/expenseCategory.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section675390">
-    <title><anchor id="Anchor44260" role="Cross-Ref"
-    xreflabel="44260: Heading1: Item Sites" />Item Sites</title>
+      <title>
+         <anchor id="Anchor44260" role="Cross-Ref" xreflabel="44260: Heading1: Item Sites"/>Item Sites</title>
 
-    <para id="Para518688">Item Sites identify and define the methods and
+      <para id="Para518688">Item Sites identify and define the methods and
     controls used when maintaining a given Item within a given
     Warehouse.</para>
 
-    <xi:include href="guiclient/itemSite.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/itemSite.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/orderparams_and_mrp.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="../topics/orderparams_and_mrp.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/itemSites.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/itemSites.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section518822">
-    <title><anchor id="Anchor552132" role="Index"
-    xreflabel="inventory:transactions involving;transactions:See also inventory transactions[transactions:aaa]" />
-    <indexterm significance="normal" zone="Anchor552132">
-        <primary>inventory</primary>
+      <title>
+         <anchor id="Anchor552132" role="Index"
+                 xreflabel="inventory:transactions involving;transactions:See also inventory transactions[transactions:aaa]"/>
+         <indexterm significance="normal">
+            <primary>inventory</primary>
 
-        <secondary>transactions involving</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552132">
-        <primary>transactions</primary>
+            <secondary>transactions involving</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-        <secondary>See also inventory transactions[transactions</secondary>
-      </indexterm>Inventory Transactions</title>
+            <secondary>See also inventory transactions[transactions</secondary>
+         </indexterm>Inventory Transactions</title>
 
-    <para id="Para518823">Inventory transactions are covered in this
+      <para id="Para518823">Inventory transactions are covered in this
     section.</para>
 
-    <xi:include href="guiclient/adjustmentTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/adjustmentTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/mlc_distribution.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/mlc_distribution.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/transferTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/transferTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/scrapTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/scrapTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/expenseTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/expenseTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/materialReceiptTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/materialReceiptTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/receiving_lotserial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="../topics/receiving_lotserial.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/transformTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/transformTrans.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/transferOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/transferOrders.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/transferOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/transferOrder.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/resetQOHBalances.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/resetQOHBalances.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/relocateInventory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/relocateInventory.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section652128" role="openmfg">
-    <title>Lot/Serial Control</title>
+      <title>Lot/Serial Control</title>
 
-    <para id="Para652129">Items that are controlled by either Lot or Serial
+      <para id="Para652129">Items that are controlled by either Lot or Serial
     Number require special handling.</para>
 
-    <note>
-      <para id="Para652131">For information on the special steps required to
+      <note>
+         <para id="Para652131">For information on the special steps required to
       receive Lot/Serial Items into Inventory, see the "Topic: Receiving
       Lot/Serial Items into Inventory" section.</para>
-    </note>
+      </note>
 
-    <xi:include href="guiclient/lotSerialComments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/lotSerialComments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryLocator.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryLocator.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/reassignLotSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reassignLotSerial.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section652234">
-    <title><anchor id="Anchor652233" role="Index"
-    xreflabel="physical inventory:management of" /> <indexterm
-        significance="normal" zone="Anchor652233">
-        <primary>physical inventory</primary>
+      <title>
+         <anchor id="Anchor652233" role="Index" xreflabel="physical inventory:management of"/> 
+         <indexterm significance="normal">
+            <primary>physical inventory</primary>
 
-        <secondary>management of</secondary>
-      </indexterm>Physical Inventory</title>
+            <secondary>management of</secondary>
+         </indexterm>Physical Inventory</title>
 
-    <para id="Para652235">The management of physical Inventory is covered in
+      <para id="Para652235">The management of physical Inventory is covered in
     this section.</para>
 
-    <xi:include href="guiclient/createCountTagsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/createCountTagsByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/createCountTagsByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/createCountTagsByPlannerCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/freeze_thaw.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/freeze_thaw.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/createCountTagsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/createCountTagsByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/count_tags.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/count_tags.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/createCycleCountTags.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/createCycleCountTags.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/cycle_counting.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/cycle_counting.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/countSlip.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/countSlip.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/countTag.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/countTag.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/enterMiscCount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/enterMiscCount.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/zeroUncountedCountTagsByWarehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/zeroUncountedCountTagsByWarehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/thawItemSitesByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/thawItemSitesByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postCountSlips.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postCountSlips.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postCountTags.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postCountTags.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/purgePostedCountSlips.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/purgePostedCountSlips.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/purgePostedCounts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/purgePostedCounts.xml"
+                  xpointer="element(/1)"/>
 
-    <section id="Section519492">
-      <title>Physical Inventory Reports</title>
+      <section id="Section519492">
+         <title>Physical Inventory Reports</title>
 
-      <para id="Para519493">The Physical Inventory area contains its own
+         <para id="Para519493">The Physical Inventory area contains its own
       reports section.</para>
-    </section>
+      </section>
 
-    <xi:include href="guiclient/dspFrozenItemSites.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspFrozenItemSites.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountSlipEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountSlipEditList.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountTagEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountTagEditList.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountSlipsByWarehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountSlipsByWarehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountTagsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountTagsByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountTagsByWarehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountTagsByWarehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCountTagsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCountTagsByClassCode.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section519902">
-    <title>I/M Reports</title>
+      <title>I/M Reports</title>
 
-    <para id="Para519903">This section covers Reports.</para>
+      <para id="Para519903">This section covers Reports.</para>
 
-    <xi:include href="guiclient/dspItemSitesByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspItemSitesByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspItemSitesByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspItemSitesByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspItemSitesByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspItemSitesByPlannerCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspItemSitesByCostCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspItemSitesByCostCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspValidLocationsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspValidLocationsByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQOHByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspQOHByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQOHByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspQOHByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQOHByItemGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspQOHByItemGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQOHByLocation.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspQOHByLocation.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryLocator.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryLocator.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSlowMovingInventoryByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSlowMovingInventoryByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspExpiredInventoryByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspExpiredInventoryByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityByItemGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityByItemGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityByPlannerCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityBySourceVendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityBySourceVendor.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSubstituteAvailabilityByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSubstituteAvailabilityByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryHistoryByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryHistoryByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryHistoryByItemGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryHistoryByItemGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryHistoryByOrderNumber.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryHistoryByOrderNumber.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryHistoryByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryHistoryByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryHistoryByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryHistoryByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspDetailedInventoryHistoryByLocation.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspDetailedInventoryHistoryByLocation.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspUsageStatisticsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspUsageStatisticsByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspUsageStatisticsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspUsageStatisticsByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspUsageStatisticsByItemGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspUsageStatisticsByItemGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspUsageStatisticsByWarehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspUsageStatisticsByWarehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspTimePhasedUsageStatisticsByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspTimePhasedUsageStatisticsByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printItemLabelsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/printItemLabelsByClassCode.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section521425">
-    <title><anchor id="Anchor552326" role="Index"
-    xreflabel="utilities:in i/m module" /> <indexterm significance="normal"
-        zone="Anchor552326">
-        <primary>utilities</primary>
+      <title>
+         <anchor id="Anchor552326" role="Index" xreflabel="utilities:in i/m module"/> 
+         <indexterm significance="normal">
+            <primary>utilities</primary>
 
-        <secondary>in i/m module</secondary>
-      </indexterm>Utilities</title>
+            <secondary>in i/m module</secondary>
+         </indexterm>Utilities</title>
 
-    <para id="Para521426">The Utilities for the module are located in this
+      <para id="Para521426">The Utilities for the module are located in this
     section.</para>
 
-    <xi:include href="guiclient/dspUnbalancedQOHByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspUnbalancedQOHByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <section id="Section521432">
-      <title><anchor id="Anchor552328" role="Index"
-      xreflabel="item controls:updating of;item sites:update controls for" />
-      <indexterm significance="normal" zone="Anchor552328">
-          <primary>item controls</primary>
+      <section id="Section521432">
+         <title>
+            <anchor id="Anchor552328" role="Index"
+                    xreflabel="item controls:updating of;item sites:update controls for"/>
+            <indexterm significance="normal">
+               <primary>item controls</primary>
 
-          <secondary>updating of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor552328">
-          <primary>item sites</primary>
+               <secondary>updating of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>item sites</primary>
 
-          <secondary>update controls for</secondary>
-        </indexterm>Update Item Controls</title>
+               <secondary>update controls for</secondary>
+            </indexterm>Update Item Controls</title>
 
-      <para id="Para539291">The utilities featured in this section are
+         <para id="Para539291">The utilities featured in this section are
       designed for updating several of the controls required for the effective
       management of Inventory. To access this section, select the "Update Item
       Controls" option.</para>
-    </section>
+      </section>
 
-    <xi:include href="guiclient/updateABCClass.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/updateABCClass.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateCycleCountFrequency.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateCycleCountFrequency.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateItemSiteLeadTimes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateItemSiteLeadTimes.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateReorderLevelByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateReorderLevelByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateReorderLevels.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateReorderLevels.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateReorderLevelsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateReorderLevelsByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateOUTLevelByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateOUTLevelByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateOUTLevels.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/updateOUTLevels.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateOUTLevelsByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateOUTLevelsByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/summarizeInvTransByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/summarizeInvTransByClassCode.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/createItemSitesByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/createItemSitesByClassCode.xml"
+                  xpointer="element(/1)"/>
   </section>
 </chapter>

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556039">
   <title>List Projects</title>
 
   <para id="Para556142">To access the master list of Projects, select the
   "Projects" option. The following screen will appear:</para>
 
-  <para id="Para556155"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/PM_Proj_listProjects.png"
-                     id="Graphic556153" />
-        </imageobject>
+  <para id="Para556155">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/PM_Proj_listProjects.png" id="Graphic556153"/>
+            </imageobject>
 
-        <caption id="Caption556156">Projects Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption556156">Projects Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para556157">The "Projects" screen displays information on all
   existing Projects, including Project Number, Project name, and Project
@@ -26,80 +27,79 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para556159">CLOSE</term>
+      <varlistentry>
+         <term id="Para556159">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x181ab14">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x181ab14">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556180">NEW</term>
+      <varlistentry>
+         <term id="Para556180">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x181ab5c">
-        <para>Opens screen for creating a new Project.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x181ab5c">
+            <para>Opens screen for creating a new Project.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556181">EDIT</term>
+      <varlistentry>
+         <term id="Para556181">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x181aba4">
-        <para>Enables you to edit highlighted Projects. The edit screen is the
+         <listitem id="listitemN0x180ac00N0x181aba4">
+            <para>Enables you to edit highlighted Projects. The edit screen is the
         same as that for creating a new Project--except that when editing, the
         fields will contain Project information. Double-clicking on a Project
         line will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556182">VIEW</term>
+      <varlistentry>
+         <term id="Para556182">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x181abec">
-        <para>Highlight a Project and then select this button to reach a
+         <listitem id="listitemN0x180ac00N0x181abec">
+            <para>Highlight a Project and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556183">DELETE</term>
+      <varlistentry>
+         <term id="Para556183">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x182fa24">
-        <para>Highlight a Project and then select this button to remove the
+         <listitem id="listitemN0x180ac00N0x182fa24">
+            <para>Highlight a Project and then select this button to remove the
         Project from the master list</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para556220">Right-clicking on a Project in the Project master list
   enables you to select from the following menu options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para556221">View</term>
+      <varlistentry>
+         <term id="Para556221">View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x181abec)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x181abec)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556222">Edit</term>
+      <varlistentry>
+         <term id="Para556222">Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x181aba4)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x181aba4)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para556223">Delete</term>
+      <varlistentry>
+         <term id="Para556223">Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x182fa24)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x182fa24)"/>
+      </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

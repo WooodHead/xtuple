@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555000">
-  <title><anchor id="Anchor554999" role="Index"
-  xreflabel="planner codes:in master scheduling;planner codes:master list of" />
-  <indexterm significance="normal" zone="Anchor555016">
-      <primary>planner codes</primary>
+  <title>
+      <anchor id="Anchor554999" role="Index"
+              xreflabel="planner codes:in master scheduling;planner codes:master list of"/>
+      <indexterm significance="normal">
+         <primary>planner codes</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm>Planner Code</title>
+         <secondary>creating new</secondary>
+      </indexterm>Planner Code</title>
 
   <para id="Para555017">To create a new Planner Code, select the NEW button.
   The following screen will appear:</para>
 
-  <para id="Para555021"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/MS_MI_newPlanCode.png" id="Graphic555019" />
-        </imageobject>
+  <para id="Para555021">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/MS_MI_newPlanCode.png" id="Graphic555019"/>
+            </imageobject>
 
-        <caption id="Caption555022">Create New Planner Code</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption555022">Create New Planner Code</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <tip>
-    <para id="Para555024">Create your Planner Codes using a logical,
+      <para id="Para555024">Create your Planner Codes using a logical,
     hierarchical structure. This will make it easier to retrieve Planner Code
     information in the future. For more information on matching patterns using
-    Regular Expressions, see <link endterm="Anchor77806" id="XRef555026"
-    linkend="Anchor77806"> Pattern Matching with Regular
+    Regular Expressions, see <link endterm="Anchor77806" id="XRef555026" linkend="Anchor77806"> Pattern Matching with Regular
     Expressions</link>"Topic: Pattern Matching with Regular
     Expressions".</para>
   </tip>
@@ -37,25 +39,25 @@
   with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para555029">Code</term>
+      <varlistentry>
+         <term id="Para555029">Code</term>
 
-      <listitem>
-        <para>Enter a code to identify the Planner Code.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Enter a code to identify the Planner Code.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para555030">Description</term>
+      <varlistentry>
+         <term id="Para555030">Description</term>
 
-      <listitem>
-        <para>Enter a brief description of the Planner Code.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Enter a brief description of the Planner Code.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para555032">If you want requirements to be created for Planned
+      <para id="Para555032">If you want requirements to be created for Planned
     Work Orders, the option "Automatically Explode Planned Orders" must be
     selected. If not selected, Planned Work Orders will not be exploded. This
     means that Planned Orders for lower level material requirements will not
@@ -63,36 +65,38 @@
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para555034"><anchor id="Anchor555033" role="Index"
-      xreflabel="explosion:automatic by planner code;planner codes:automatic explosion by" />
-      <indexterm significance="normal" zone="Anchor555033">
-          <primary>explosion</primary>
+      <varlistentry>
+         <term id="Para555034">
+            <anchor id="Anchor555033" role="Index"
+                    xreflabel="explosion:automatic by planner code;planner codes:automatic explosion by"/>
+            <indexterm significance="normal">
+               <primary>explosion</primary>
 
-          <secondary>automatic by planner code</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor555033">
-          <primary>planner codes</primary>
+               <secondary>automatic by planner code</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>planner codes</primary>
 
-          <secondary>automatic explosion by</secondary>
-        </indexterm>Automatically Explode Planned Orders</term>
+               <secondary>automatic explosion by</secondary>
+            </indexterm>Automatically Explode Planned Orders</term>
 
-      <listitem>
-        <para>Select one of the following if you want Planned Work Orders to
+         <listitem>
+            <para>Select one of the following if you want Planned Work Orders to
         be exploded automatically:</para>
 
-        <para id="Para555035">Single Level Explosion - This option specifies
+            <para id="Para555035">Single Level Explosion - This option specifies
         that when Planned Work Orders are exploded, requirements should be
         created for the parent Planned Work Order only.</para>
 
-        <para id="Para555036">Multiple Level Explosion - This option specifies
+            <para id="Para555036">Multiple Level Explosion - This option specifies
         that requirements should be created for both parent and child Planned
         Work Orders.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para555038">If you"re running MRP by Planner Code, the explosion
+      <para id="Para555038">If you"re running MRP by Planner Code, the explosion
     level setting may not make a difference--depending on how your Planner
     Codes are assigned. For example, if all your Items fall within the same
     Planner Code, Planned Orders will be generated for all levels of
@@ -104,22 +108,22 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para555040">CANCEL</term>
+      <varlistentry>
+         <term id="Para555040">CANCEL</term>
 
-      <listitem>
-        <para>Closes the screen without creating a Planner Code, returning you
+         <listitem>
+            <para>Closes the screen without creating a Planner Code, returning you
         to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para555041">SAVE</term>
+      <varlistentry>
+         <term id="Para555041">SAVE</term>
 
-      <listitem>
-        <para>Creates the Planner Code and adds it to the master list of
+         <listitem>
+            <para>Creates the Planner Code and adds it to the master list of
         Planner Codes.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

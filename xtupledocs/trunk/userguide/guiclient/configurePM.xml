@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section964395">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section964395">
     <title>Configure P/M</title>
 
     <para id="Para964415">To configure the Project Management (P/M) module,
     select the "Configure P/M" option. The following screen will
     appear:</para>
 
-    <para id="Para964419"><screenshot>
+    <para id="Para964419">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configPM.png" id="Graphic964417" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configPM.png" id="Graphic964417"/>
+            </imageobject>
 
-          <caption id="Caption964420">Configure P/M Module</caption>
+            <caption id="Caption964420">Configure P/M Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para964421">When configuring the P/M module, you are presented
     with the following options:</para>
@@ -26,10 +28,10 @@
         <term id="Para964541">Use Projects</term>
 
         <listitem id="listitemN0x180ac00N0x18ba4f4">
-          <para>Select to indicate the system is configured to use
+            <para>Select to indicate the system is configured to use
           Projects.</para>
 
-          <para id="Para964399">If selected, Project Management functionality
+            <para id="Para964399">If selected, Project Management functionality
           will be enabled throughout the system. For example, users will be
           able to assign Projects to Sales Orders, Quotes, Work Orders, and
           Purchase Order Line Items. Projects may also be created
@@ -44,10 +46,10 @@
         Orders</term>
 
         <listitem id="listitemN0x180ac00N0x18ba53c">
-          <para>Select if you want a new Project to be created automatically
+            <para>Select if you want a new Project to be created automatically
           every time a new Sales Order or Quote is entered.</para>
 
-          <para id="Para964489">When new Projects are created automatically,
+            <para id="Para964489">When new Projects are created automatically,
           the Projects assume the number of the Sales Order or Quote which
           caused their creation. If selected, this functionality applies to
           newly-entered Quotes and Sales Orders only.</para>
@@ -63,7 +65,7 @@
         <term id="Para964470">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18ba5a8">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -72,7 +74,7 @@
         <term id="Para964471">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18ba5f0">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

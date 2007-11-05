@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section537991" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537991" role="openmfg">
     <title>Run Buffer Status by Item</title>
 
     <para id="Para542133">When you run buffer status by Item, you are running
@@ -34,16 +33,17 @@
     <para id="Para542172">To run buffer status by Item, select the "Run Buffer
     Status by Item" option. The following screen will appear:</para>
 
-    <para id="Para542044"><screenshot>
+    <para id="Para542044">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Buff_runByItem.png"
-                       id="Graphic542042" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Buff_runByItem.png" id="Graphic542042"/>
+            </imageobject>
 
-          <caption id="Caption542045">Run Buffer Status by Item</caption>
+            <caption id="Caption542045">Run Buffer Status by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para542039">When running buffer status by Item, you are
     presented with the following options:</para>
@@ -53,7 +53,7 @@
         <term id="Para542238">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item whose buffer status you want
+            <para>Enter the Item Number of the Item whose buffer status you want
           to update.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +62,7 @@
         <term id="Para553588">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -70,7 +70,7 @@
         <term id="Para542241">Warehouse</term>
 
         <listitem>
-          <para>Specify Warehouse where buffer status update should
+            <para>Specify Warehouse where buffer status update should
           occur.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +84,7 @@
         <term id="Para542247">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without updating buffer status by Item,
+            <para>Closes the screen without updating buffer status by Item,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +93,7 @@
         <term id="Para542248">CREATE</term>
 
         <listitem>
-          <para>Runs the buffer status update by Item, using the specified
+            <para>Runs the buffer status update by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -102,9 +102,8 @@
         <term id="Para542257">SUBMIT</term>
 
         <listitem>
-          <para>Select to submit the buffer status update to the Batch
-          Manager. For additional information, see the <link
-          endterm="Anchor61009" id="XRef547874" linkend="Anchor61009">
+            <para>Select to submit the buffer status update to the Batch
+          Manager. For additional information, see the <link endterm="Anchor61009" id="XRef547874" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
         </listitem>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section537828" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537828" role="openmfg">
     <title>Run MRP by Item</title>
 
     <para id="Para537829">When you run MRP by Item, you are running the
@@ -24,16 +24,17 @@
     <para id="Para537832">To run MRP for an individual Item, select the "Run
     MRP by Item" option. The following screen will appear:</para>
 
-    <para id="Para537836"><screenshot>
+    <para id="Para537836">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Sched_createPlanOrdByItem.png"
-                       id="Graphic537834" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Sched_createPlanOrdByItem.png" id="Graphic537834"/>
+            </imageobject>
 
-          <caption id="Caption537837">Run MRP by Item</caption>
+            <caption id="Caption537837">Run MRP by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para537839">The system deletes any non-firmed Planned Orders
@@ -51,7 +52,7 @@
         <term id="Para537841">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item you want to create a Planned
+            <para>Enter the Item Number of the Item you want to create a Planned
           Order for.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +61,7 @@
         <term id="Para553577">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -68,7 +69,7 @@
         <term id="Para537844">Warehouse</term>
 
         <listitem>
-          <para>Specify Warehouse Planned Replenishment Orders should be
+            <para>Specify Warehouse Planned Replenishment Orders should be
           created for.</para>
         </listitem>
       </varlistentry>
@@ -77,25 +78,25 @@
         <term id="Para537845">Cutoff Date</term>
 
         <listitem>
-          <para>Specify how far into the future the MPS run should look for
+            <para>Specify how far into the future the MPS run should look for
           demand.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para537847"><anchor id="Anchor537846" role="Index"
-        xreflabel="firmed orders:deletion of" /> <indexterm
-            significance="normal" zone="Anchor537846">
-            <primary>firmed orders</primary>
+        <term id="Para537847">
+            <anchor id="Anchor537846" role="Index" xreflabel="firmed orders:deletion of"/> 
+            <indexterm significance="normal">
+               <primary>firmed orders</primary>
 
-            <secondary>deletion of</secondary>
-          </indexterm>Delete Existing Firmed MRP Orders</term>
+               <secondary>deletion of</secondary>
+            </indexterm>Delete Existing Firmed MRP Orders</term>
 
         <listitem>
-          <para>Firmed MRP Orders: Select to delete existing Firmed
+            <para>Firmed MRP Orders: Select to delete existing Firmed
           Orders.</para>
 
-          <para id="Para537848">A firm Planned Order is a Planned Order that
+            <para id="Para537848">A firm Planned Order is a Planned Order that
           has been solidified in the schedule. By default, firm Planned Orders
           are not deleted when MRP is run. Selecting this option overrides
           that default behavior. If firm Planned Orders are deleted when MRP
@@ -119,7 +120,7 @@
         <term id="Para537850">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without creating Planned Replenishment
+            <para>Closes the screen without creating Planned Replenishment
           Orders by Item, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -128,7 +129,7 @@
         <term id="Para537851">CREATE</term>
 
         <listitem>
-          <para>Creates Planned Replenishment Orders by Item, using the
+            <para>Creates Planned Replenishment Orders by Item, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>

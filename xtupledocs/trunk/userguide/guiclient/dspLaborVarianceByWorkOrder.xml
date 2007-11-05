@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520136" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520136" role="openmfg">
     <title>Labor Variance by Work Order</title>
 
     <para id="Para520137">To view labor variances by Work Order, select the
     "Labor Variance by Work Order" option. The following screen will
     appear:</para>
 
-    <para id="Para520141"><screenshot>
+    <para id="Para520141">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_labVarWOrder.png"
-                       id="Graphic524172" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_labVarWOrder.png" id="Graphic524172"/>
+            </imageobject>
 
-          <caption id="Caption520142">Material Usage Variance by Work
+            <caption id="Caption520142">Material Usage Variance by Work
           Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520143">When displaying labor variances by Work Order, you
     are presented with the following options:</para>
@@ -29,7 +29,7 @@
         <term id="Para520144">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose labor
+            <para>Enter the Work Order Number of the Work Order whose labor
           variances you want to view.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +38,7 @@
         <term id="Para520146">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +47,7 @@
         <term id="Para520148">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +56,7 @@
         <term id="Para568878">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -64,7 +64,7 @@
         <term id="Para520152">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +73,7 @@
         <term id="Para520154">Labor Variance</term>
 
         <listitem>
-          <para>Display lists labor variances by Work Order, using the
+            <para>Display lists labor variances by Work Order, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +87,7 @@
         <term id="Para520157">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +96,7 @@
         <term id="Para520158">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section553578">
-    <title><anchor id="Anchor553577" role="Index"
-    xreflabel="cash receipts:application of;credit memos:application of" />
-    <indexterm significance="normal" zone="Anchor553577">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section553578">
+    <title>
+      <anchor id="Anchor553577" role="Index"
+              xreflabel="cash receipts:application of;credit memos:application of"/>
+      <indexterm significance="normal">
         <primary>cash receipts</primary>
 
         <secondary>application of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor553577">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>credit memos</primary>
 
         <secondary>application of</secondary>
@@ -19,16 +20,17 @@
     Receipts and Credit Memos to A/R open items, select the "A/R Applications"
     option. The following screen will appear:</para>
 
-    <para id="Para548353"><screenshot>
+    <para id="Para548353">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_arApplications.png"
-                       id="Graphic548351" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_arApplications.png" id="Graphic548351"/>
+            </imageobject>
 
-          <caption id="Caption548354">A/R Applications</caption>
+            <caption id="Caption548354">A/R Applications</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para548056">When viewing A/R application details, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para548377">All Customers</term>
 
         <listitem id="listitemN0x180ac00N0x18b6dd4">
-          <para>Select to display A/R application details for all
+            <para>Select to display A/R application details for all
           Customers.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para548378">Selected Customer</term>
 
         <listitem id="listitemN0x180ac00N0x18b6e1c">
-          <para>Select to display A/R application details for a selected
+            <para>Select to display A/R application details for a selected
           Customer.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +58,7 @@
         <term id="Para548380">Selected Customer Type</term>
 
         <listitem id="listitemN0x180ac00N0x18b6e64">
-          <para>Specify Customer Type whose A/R application details you want
+            <para>Specify Customer Type whose A/R application details you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -65,12 +67,11 @@
         <term id="Para548382">Customer Type Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18b6eac">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para573189">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef573188"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para573189">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef573188" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -80,7 +81,7 @@
         <term id="Para548415">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b6ef4">
-          <para>A/R applications made on and after this date will be
+            <para>A/R applications made on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +90,7 @@
         <term id="Para548420">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18b6f3c">
-          <para>A/R applications made on and before this date will be
+            <para>A/R applications made on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +99,7 @@
         <term id="Para548426">Show Cash Receipts</term>
 
         <listitem id="listitemN0x180ac00N0x18b6f84">
-          <para>Select to display only Cash Receipt application
+            <para>Select to display only Cash Receipt application
           details.</para>
         </listitem>
       </varlistentry>
@@ -107,7 +108,7 @@
         <term id="Para548440">Show Credit Memos</term>
 
         <listitem id="listitemN0x180ac00N0x18b6fcc">
-          <para>Select to display only Credit Memo application details.</para>
+            <para>Select to display only Credit Memo application details.</para>
         </listitem>
       </varlistentry>
 
@@ -115,10 +116,10 @@
         <term id="Para548422">A/R Applications</term>
 
         <listitem id="listitemN0x180ac00N0x18b7014">
-          <para>Display lists A/R application details, using the specified
+            <para>Display lists A/R application details, using the specified
           parameters.</para>
 
-          <para id="Para572423">The total amount of all applications during
+            <para id="Para572423">The total amount of all applications during
           the period will display at the bottom of the screen.</para>
         </listitem>
       </varlistentry>
@@ -138,7 +139,7 @@
         <term id="Para548486">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18b70a4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -147,7 +148,7 @@
         <term id="Para548487">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18b70ec">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -156,7 +157,7 @@
         <term id="Para572308">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18b7134">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -169,13 +170,12 @@
         <term id="Para564304">View Apply to Invoice</term>
 
         <listitem id="listitemN0x180ac00N0x18b71a0">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para564340">If you are right-clicking on a Credit Memo, the
@@ -186,7 +186,7 @@
         <term id="Para564344">View Source Credit Memo</term>
 
         <listitem id="listitemN0x180ac00N0x18b7254">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
     </variablelist>

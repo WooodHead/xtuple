@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519010">
-    <title><anchor id="Anchor552142" role="Index"
-    xreflabel="material receipts:as inventory transaction;inventory transactions:receiving materials;receiving:as inventory transaction" />
-    <indexterm significance="normal" zone="Anchor552142">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519010">
+    <title>
+      <anchor id="Anchor552142" role="Index"
+              xreflabel="material receipts:as inventory transaction;inventory transactions:receiving materials;receiving:as inventory transaction"/>
+      <indexterm significance="normal">
         <primary>material receipts</primary>
 
         <secondary>as inventory transaction</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552142">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>inventory transactions</primary>
 
         <secondary>receiving materials</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552142">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>receiving</primary>
 
         <secondary>as inventory transaction</secondary>
-      </indexterm> <anchor id="Anchor66681" role="Cross-Ref"
-    xreflabel="66681: Heading2: Material Receipt" />Material Receipt</title>
+      </indexterm> 
+      <anchor id="Anchor66681" role="Cross-Ref" xreflabel="66681: Heading2: Material Receipt"/>Material Receipt</title>
 
     <para id="Para519011">To record the receipt of materials into Inventory,
     select the "Material Receipt" option. The following screen will
     appear:</para>
 
-    <para id="Para519015"><screenshot>
+    <para id="Para519015">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_IT_materialReceipt.png"
-                       id="Graphic525872" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_IT_materialReceipt.png" id="Graphic525872"/>
+            </imageobject>
 
-          <caption id="Caption519016">Enter Material Receipt</caption>
+            <caption id="Caption519016">Enter Material Receipt</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para638248">If an Item is Lot/Serial Number controlled, you
       will be given the opportunity to assign a Lot/Serial Number to incoming
       material during the receiving process. For more information on receiving
-      Lot-controlled Items, see the <link endterm="Anchor81167"
-      id="XRef638250" linkend="Anchor81167"> Distributing Multiple Location
+      Lot-controlled Items, see the <link endterm="Anchor81167" id="XRef638250" linkend="Anchor81167"> Distributing Multiple Location
       Control (MLC) Items</link>"Inter-Warehouse Transfer" section.</para>
     </note>
 
@@ -51,7 +54,7 @@
         <term id="Para519023">Transaction Date</term>
 
         <listitem id="listitemN0x180ac00N0x18987c8">
-          <para>Displays the current day's date.</para>
+            <para>Displays the current day's date.</para>
         </listitem>
       </varlistentry>
 
@@ -59,7 +62,7 @@
         <term id="Para519025">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18a0600">
-          <para>Enter the Item Number of the material you are receiving into
+            <para>Enter the Item Number of the material you are receiving into
           Inventory.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +71,7 @@
         <term id="Para671968">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18a0648">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +79,7 @@
         <term id="Para519029">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x18a0690">
-          <para>Specify Warehouse where material is being received.</para>
+            <para>Specify Warehouse where material is being received.</para>
         </listitem>
       </varlistentry>
 
@@ -84,7 +87,7 @@
         <term id="Para519034">Receipt Qty.</term>
 
         <listitem id="listitemN0x180ac00N0x18a06d8">
-          <para>: Record the quantity of the Item being received. The Item's
+            <para>: Record the quantity of the Item being received. The Item's
           Quantity on Hand before and after the material receipt will also be
           displayed. Non-netable Quantity on Hand is not included in these
           values. If the material is issued directly to a Work Order, the
@@ -96,9 +99,9 @@
         <term id="Para519036">Immediate Issue to Work Order</term>
 
         <listitem id="listitemN0x180ac00N0x18a0720">
-          <para>Check to issue material immediately to a Work Order.</para>
+            <para>Check to issue material immediately to a Work Order.</para>
 
-          <para id="Para596550">Any Work Order Material Requirements having an
+            <para id="Para596550">Any Work Order Material Requirements having an
           issue method of either "Mixed" or "Push" may be issued to a Work
           Order using this option. Because "Pull" Items are issued to Work
           Orders using a material backflush, they may not be issued from this
@@ -122,10 +125,10 @@
         <term id="Para519041">Work Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18a07b0">
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           issue the received materials to.</para>
 
-          <para id="Para596496">The browse button located to the right of the
+            <para id="Para596496">The browse button located to the right of the
           field leads to a searchable Work Orders list. The list will include
           Work Orders whose supplying Warehouse matches the Warehouse the
           materials are being received into.</para>
@@ -136,7 +139,7 @@
         <term id="Para596497">Whs.</term>
 
         <listitem id="listitemN0x180ac00N0x18a07f8">
-          <para>Specifies supplying Warehouse for the Work Order's parent
+            <para>Specifies supplying Warehouse for the Work Order's parent
           Item.</para>
         </listitem>
       </varlistentry>
@@ -145,7 +148,7 @@
         <term id="Para596498">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18a0840">
-          <para>Displays Item Number for the Work Order's parent Item.</para>
+            <para>Displays Item Number for the Work Order's parent Item.</para>
         </listitem>
       </varlistentry>
 
@@ -153,7 +156,7 @@
         <term id="Para671973">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18a0888">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -161,7 +164,7 @@
         <term id="Para596501">Status</term>
 
         <listitem id="listitemN0x180ac00N0x18a08d0">
-          <para>Displays the Status of the selected Work Order.</para>
+            <para>Displays the Status of the selected Work Order.</para>
         </listitem>
       </varlistentry>
 
@@ -169,7 +172,7 @@
         <term id="Para519054">Document #</term>
 
         <listitem id="listitemN0x180ac00N0x18a0918">
-          <para>Creates a user-defined reference for the Material Receipt. The
+            <para>Creates a user-defined reference for the Material Receipt. The
           Document reference will be posted with the General Ledger (G/L)
           transaction record when the Material Receipt is generated. This
           field may be used for internal tracking and auditing
@@ -181,7 +184,7 @@
         <term id="Para519059">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x18a0960">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the Material Receipt.</para>
         </listitem>
       </varlistentry>
@@ -195,7 +198,7 @@
         <term id="Para519062">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18a09cc">
-          <para>Closes the screen without posting and crediting the Material
+            <para>Closes the screen without posting and crediting the Material
           Receipt, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -204,12 +207,11 @@
         <term id="Para519063">POST</term>
 
         <listitem id="listitemN0x180ac00N0x18a0a14">
-          <para>Posts and credits the Material Receipt.</para>
+            <para>Posts and credits the Material Receipt.</para>
 
-          <para id="Para519064">Additional steps will be necessary if the
+            <para id="Para519064">Additional steps will be necessary if the
           specified Item is stored in multiple Locations. For more
-          information, see the <link endterm="Anchor81167" id="XRef638258"
-          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          information, see the <link endterm="Anchor81167" id="XRef638258" linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
           Items</link>"Inter-Warehouse Transfer" section.</para>
         </listitem>
       </varlistentry>

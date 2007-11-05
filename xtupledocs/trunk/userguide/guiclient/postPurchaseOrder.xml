@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section972566">
-    <title><anchor id="Anchor972565" role="Index"
-    xreflabel="purchase orders:posting of" /> <indexterm significance="normal"
-        zone="Anchor972565">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972566">
+    <title>
+      <anchor id="Anchor972565" role="Index" xreflabel="purchase orders:posting of"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>posting of</secondary>
@@ -14,15 +13,17 @@
     <para id="Para972567">To post a Purchase Order, select the "Post Purchase
     Order" option. The following screen will appear:</para>
 
-    <para id="Para972571"><screenshot>
+    <para id="Para972571">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_postPO.png" id="Graphic972569" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_PO_postPO.png" id="Graphic972569"/>
+            </imageobject>
 
-          <caption id="Caption972572">Post Purchase Order</caption>
+            <caption id="Caption972572">Post Purchase Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para972573">When posting a Purchase Order, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para972574">P/O #</term>
 
         <listitem id="listitemN0x180ac00N0x1877c48">
-          <para>Enter the Purchase Order Number of the Purchase Order you want
+            <para>Enter the Purchase Order Number of the Purchase Order you want
           to post.</para>
         </listitem>
       </varlistentry>
@@ -51,7 +52,7 @@
         <term id="Para972578">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1877cd8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +61,7 @@
         <term id="Para972579">POST</term>
 
         <listitem id="listitemN0x180ac00N0x1877d20">
-          <para>Posts the specified Purchase Order.</para>
+            <para>Posts the specified Purchase Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>

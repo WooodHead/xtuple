@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section954960">
-    <title><anchor id="Anchor954959" role="Index"
-    xreflabel="item sources:by vendor;vendors:as item sources" /> <indexterm
-        significance="normal" zone="Anchor954959">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section954960">
+    <title>
+      <anchor id="Anchor954959" role="Index"
+              xreflabel="item sources:by vendor;vendors:as item sources"/> 
+      <indexterm significance="normal">
         <primary>item sources</primary>
 
         <secondary>by vendor</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor954959">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>vendors</primary>
 
         <secondary>as item sources</secondary>
@@ -18,16 +19,17 @@
     <para id="Para931296">To view Item Sources by Vendor, select the "Item
     Sources by Vendor" option. The following screen will appear:</para>
 
-    <para id="Para931300"><screenshot>
+    <para id="Para931300">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_itemSrcByVend.png"
-                       id="Graphic931298" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_itemSrcByVend.png" id="Graphic931298"/>
+            </imageobject>
 
-          <caption id="Caption931301">Item Sources by Vendor</caption>
+            <caption id="Caption931301">Item Sources by Vendor</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para931302">When displaying Item Sources by Item, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para931303">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18c0c4c">
-          <para>Enter the Vendor Number of the Vendor whose Item Sources you
+            <para>Enter the Vendor Number of the Vendor whose Item Sources you
           want to view.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para931305">Item Sources</term>
 
         <listitem id="listitemN0x180ac00N0x18c0c94">
-          <para>Display lists Item Sources by Item, using the specified
+            <para>Display lists Item Sources by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +62,7 @@
         <term id="Para931308">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18c0d00">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +71,7 @@
         <term id="Para970005">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18c0d48">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -78,12 +80,10 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518601">
-    <title><anchor id="Anchor529421" role="Index"
-    xreflabel="shipping records:purging of" /> <indexterm
-        significance="normal" zone="Anchor529421">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518601">
+    <title>
+      <anchor id="Anchor529421" role="Index" xreflabel="shipping records:purging of"/> 
+      <indexterm significance="normal">
         <primary>shipping records</primary>
 
         <secondary>purging of</secondary>
@@ -13,16 +13,17 @@
     <para id="Para518602">To purge Shipping Records, select the "Purge
     Shipping Records" option. The following screen will appear:</para>
 
-    <para id="Para518606"><screenshot>
+    <para id="Para518606">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Ship_purgeShipRecords.png"
-                       id="Graphic520008" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Ship_purgeShipRecords.png" id="Graphic520008"/>
+            </imageobject>
 
-          <caption id="Caption518607">Purge Shipping Records</caption>
+            <caption id="Caption518607">Purge Shipping Records</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518608">When purging Shipping Records, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para518612">Cutoff Date</term>
 
         <listitem id="listitemN0x180ac00N0x184e29c">
-          <para>Shipping Records created on or before this date will be
+            <para>Shipping Records created on or before this date will be
           purged.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +47,7 @@
         <term id="Para518615">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x184e308">
-          <para>Closes the screen without purging the Shipping Records,
+            <para>Closes the screen without purging the Shipping Records,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +56,7 @@
         <term id="Para518616">PURGE</term>
 
         <listitem id="listitemN0x180ac00N0x184e350">
-          <para>Purges Shipping Records on and before the specified cutoff
+            <para>Purges Shipping Records on and before the specified cutoff
           date.</para>
         </listitem>
       </varlistentry>

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section568976">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section568976">
     <title>Print Production Entry Sheet</title>
 
     <para id="Para563776">To print a Production entry sheet, select the "Print
     Production Entry Sheet" option. The following screen will appear:</para>
 
-    <para id="Para563780"><screenshot>
+    <para id="Para563780">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Rep_printProdSheet.png"
-                       id="Graphic563778" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Rep_printProdSheet.png" id="Graphic563778"/>
+            </imageobject>
 
-          <caption id="Caption563781">Print Production Entry Sheet</caption>
+            <caption id="Caption563781">Print Production Entry Sheet</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para563782">When printing a Production entry sheet, you are
     presented with the following options:</para>
@@ -27,7 +27,7 @@
         <term id="Para563786">All Warehouses</term>
 
         <listitem>
-          <para>Select to print a Production entry sheet for all
+            <para>Select to print a Production entry sheet for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -36,7 +36,7 @@
         <term id="Para563790">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse you want to print Production entry sheet
+            <para>Specify Warehouse you want to print Production entry sheet
           for.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +45,7 @@
         <term id="Para563791">Start Date</term>
 
         <listitem>
-          <para>Production entered on or after this date will be included in
+            <para>Production entered on or after this date will be included in
           the report.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +54,7 @@
         <term id="Para563792">End Date</term>
 
         <listitem>
-          <para>Production entered on or before this date will be included in
+            <para>Production entered on or before this date will be included in
           the report.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +63,7 @@
         <term id="Para563793">Form Name</term>
 
         <listitem>
-          <para>Select Form definition you want to use for the report.</para>
+            <para>Select Form definition you want to use for the report.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -76,7 +76,7 @@
         <term id="Para563795">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without generating a report, returning you
+            <para>Closes the screen without generating a report, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +85,7 @@
         <term id="Para563796">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section555646" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section555646" role="openmfg">
     <title>P/O Items by Buffer Status</title>
 
     <para id="Para555647">The Purchase Order buffer status displays provide
@@ -18,17 +17,18 @@
     the "P/O Items by Buffer Status" option. The following screen will
     appear:</para>
 
-    <para id="Para555652"><screenshot>
+    <para id="Para555652">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Buff_poItemsByBuffStatus.png"
-                       id="Graphic555650" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Buff_poItemsByBuffStatus.png" id="Graphic555650"/>
+            </imageobject>
 
-          <caption id="Caption555653">Purchase Order Items by Buffer
+            <caption id="Caption555653">Purchase Order Items by Buffer
           Status</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para555655">When the buffer status for an Item hits 66 or
@@ -46,7 +46,7 @@
         <term id="Para555657">All Warehouses</term>
 
         <listitem>
-          <para>Select to display Purchase Order Item buffer statuses for all
+            <para>Select to display Purchase Order Item buffer statuses for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +55,7 @@
         <term id="Para555658">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose Purchase Order Item buffer statuses
+            <para>Specify Warehouse whose Purchase Order Item buffer statuses
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +64,7 @@
         <term id="Para555659">All Purchasing Agents</term>
 
         <listitem>
-          <para>Select to display Purchase Order Item buffer statuses for all
+            <para>Select to display Purchase Order Item buffer statuses for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -73,10 +73,10 @@
         <term id="Para555660">Selected</term>
 
         <listitem>
-          <para>Specify Purchasing Agent whose Purchase Order Item buffer
+            <para>Specify Purchasing Agent whose Purchase Order Item buffer
           statuses you want to display.</para>
 
-          <para id="Para555661">Users may be designated as Purchasing Agents
+            <para id="Para555661">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +95,7 @@
         <term id="Para555664">P/O Items</term>
 
         <listitem>
-          <para>Display lists buffer statuses for open Purchase Order Items,
+            <para>Display lists buffer statuses for open Purchase Order Items,
           using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -109,7 +109,7 @@
         <term id="Para555666">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +118,7 @@
         <term id="Para555667">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +127,7 @@
         <term id="Para555668">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

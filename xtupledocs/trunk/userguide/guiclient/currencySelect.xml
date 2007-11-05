@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Currency Selection
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Country:</guilabel>
+                  <guilabel moreinfo="none">Country:</guilabel>
                </entry>
                <entry>_countryLit</entry>
                <entry>QLabel</entry>
@@ -49,49 +49,49 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Currency Name:</guilabel>
+                  <guilabel moreinfo="none">Currency Name:</guilabel>
                </entry>
                <entry>_currNameLiteral</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_currName</entry>
                <entry>QLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_currAbbr</entry>
                <entry>QLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_currSymbol</entry>
                <entry>QLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Symbol:</guilabel>
+                  <guilabel moreinfo="none">Symbol:</guilabel>
                </entry>
                <entry>_currSymbolLiteral</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Abbreviation:</guilabel>
+                  <guilabel moreinfo="none">Abbreviation:</guilabel>
                </entry>
                <entry>_currAbbrLiteral</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -99,7 +99,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>elect</guilabel>
                </entry>
                <entry>_select</entry>

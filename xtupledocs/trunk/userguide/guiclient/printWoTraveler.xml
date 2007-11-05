@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518632">
-    <title><anchor id="Anchor533169" role="Index"
-    xreflabel="travelers:printing of" /> <indexterm significance="normal"
-        zone="Anchor533169">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518632">
+    <title>
+      <anchor id="Anchor533169" role="Index" xreflabel="travelers:printing of"/> 
+      <indexterm significance="normal">
         <primary>travelers</primary>
 
         <secondary>printing of</secondary>
@@ -15,16 +15,17 @@
     List, Routing, or Packing List. To print a Work Order Traveler, select the
     "Print Traveler" option. The following screen will appear:</para>
 
-    <para id="Para518637"><screenshot>
+    <para id="Para518637">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_printTraveler.png"
-                       id="Graphic523492" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_printTraveler.png" id="Graphic523492"/>
+            </imageobject>
 
-          <caption id="Caption518638">Print Traveler</caption>
+            <caption id="Caption518638">Print Traveler</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518639">When printing a Traveler, you are presented with the
     following options:</para>
@@ -34,7 +35,7 @@
         <term id="Para518640">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           print a Traveler for.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +44,7 @@
         <term id="Para518642">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +53,7 @@
         <term id="Para518644">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +62,7 @@
         <term id="Para568608">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -69,7 +70,7 @@
         <term id="Para518648">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +79,7 @@
         <term id="Para518650">Release Work Order</term>
 
         <listitem>
-          <para>Select to release the Work Order. Selecting this option causes
+            <para>Select to release the Work Order. Selecting this option causes
           the Work Order Status to change from exploded ("E") to released
           ("R").</para>
         </listitem>
@@ -88,65 +89,65 @@
         <term id="Para535826">Documents</term>
 
         <listitem>
-          <para>Select the documents you want to print.</para>
+            <para>Select the documents you want to print.</para>
 
-          <variablelist>
-            <varlistentry>
-              <term>Print Pick List</term>
+            <variablelist>
+               <varlistentry>
+                  <term>Print Pick List</term>
 
-              <listitem>
-                <para>Select to print a Pick List. A Pick List is a printed
+                  <listitem>
+                     <para>Select to print a Pick List. A Pick List is a printed
                 list showing the Work Order Material Requirements for a
                 specified Work Order. Not selecting means a Pick List will not
                 be printed with the Traveler.</para>
 
-                <tip>
-                  <para>At least one of the document options must be selected
+                     <tip>
+                        <para>At least one of the document options must be selected
                   for the PRINT button to be enabled.</para>
-                </tip>
-              </listitem>
-            </varlistentry>
+                     </tip>
+                  </listitem>
+               </varlistentry>
 
-            <varlistentry>
-              <term>Print Routing</term>
+               <varlistentry>
+                  <term>Print Routing</term>
 
-              <listitem>
-                <para>Select to print a Routing. A Routing is a list showing
+                  <listitem>
+                     <para>Select to print a Routing. A Routing is a list showing
                 the Work Order Operations for a specified Work Order. Not
                 selecting means a Routing will not be printed with the
                 Traveler.</para>
 
-                <note>
-                  <para>The Routing pulls its information from the list of
+                     <note>
+                        <para>The Routing pulls its information from the list of
                   Work Order Operations for the Work Order Item, not from the
                   Item's Bill of Operations.</para>
-                </note>
-              </listitem>
-            </varlistentry>
+                     </note>
+                  </listitem>
+               </varlistentry>
 
-            <varlistentry>
-              <term>Print Packing List</term>
+               <varlistentry>
+                  <term>Print Packing List</term>
 
-              <listitem>
-                <para>Select to print a Packing List. This option is only
+                  <listitem>
+                     <para>Select to print a Packing List. This option is only
                 enabled when a Work Order is driven by a Sales Order. The
                 option is not available for manually generated Work Orders.
                 Not selecting means a Packing List will not be printed with
                 the Traveler.</para>
-              </listitem>
-            </varlistentry>
+                  </listitem>
+               </varlistentry>
 
-            <varlistentry>
-              <term>Print Work Order Label</term>
+               <varlistentry>
+                  <term>Print Work Order Label</term>
 
-              <listitem>
-                <para>Select to print Work Order Labels. If selected, the
+                  <listitem>
+                     <para>Select to print Work Order Labels. If selected, the
                 quantity of Work Order Labels printed will equal the quantity
                 of Items ordered by the Work Order. Not selecting means Work
                 Order Labels will not be printed with the Traveler.</para>
-              </listitem>
-            </varlistentry>
-          </variablelist>
+                  </listitem>
+               </varlistentry>
+            </variablelist>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -166,7 +167,7 @@
         <term id="Para518659">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without printing any Traveler paperwork,
+            <para>Closes the screen without printing any Traveler paperwork,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -175,7 +176,7 @@
         <term id="Para518660">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section577251">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section577251">
     <title>Incidents by CRM Account</title>
 
     <para id="Para577252">To view Incidents by CRM Account, select the
     "Incidents by CRM Account" option. The following screen will
     appear:</para>
 
-    <para id="Para571185"><screenshot>
+    <para id="Para571185">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/CRM_Disp_incidByAcct.png"
-                       id="Graphic571183" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_Disp_incidByAcct.png" id="Graphic571183"/>
+            </imageobject>
 
-          <caption id="Caption571186">Incidents by CRM Account</caption>
+            <caption id="Caption571186">Incidents by CRM Account</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para571187">When displaying Incidents by CRM Account, you are
     presented with the following options:</para>
@@ -28,7 +28,7 @@
         <term id="Para571323">All CRM Accounts</term>
 
         <listitem id="listitemN0x180ac00N0x189752c">
-          <para>Select to include Incidents for all CRM Accounts in the
+            <para>Select to include Incidents for all CRM Accounts in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -37,7 +37,7 @@
         <term id="Para571324">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1897574">
-          <para>Select the CRM Account whose Incidents you want to
+            <para>Select the CRM Account whose Incidents you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -46,12 +46,12 @@
         <term id="Para571325">Incident Created</term>
 
         <listitem id="listitemN0x180ac00N0x18975bc">
-          <para>Enter a range of Incident created dates:</para>
+            <para>Enter a range of Incident created dates:</para>
 
-          <para id="Para571234">Start Date: Incidents created on or after this
+            <para id="Para571234">Start Date: Incidents created on or after this
           date will be included in the display.</para>
 
-          <para id="Para571235">End Date: Incidents created on or before this
+            <para id="Para571235">End Date: Incidents created on or before this
           date will be included in the display.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +60,7 @@
         <term id="Para571236">Show Accounts with No Incidents</term>
 
         <listitem id="listitemN0x180ac00N0x1897604">
-          <para>Select to include CRM Accounts which have no Incidents
+            <para>Select to include CRM Accounts which have no Incidents
           associated with them in the display.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +69,7 @@
         <term id="Para571237">Show Closed Incidents</term>
 
         <listitem id="listitemN0x180ac00N0x189764c">
-          <para>Select in include closed Incidents in the display.</para>
+            <para>Select in include closed Incidents in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -77,10 +77,10 @@
         <term id="Para571238">Incidents</term>
 
         <listitem id="listitemN0x180ac00N0x1897694">
-          <para>Display lists Incidents by CRM Account, using the specified
+            <para>Display lists Incidents by CRM Account, using the specified
           parameters.</para>
 
-          <para id="Para577592">This display is a nested list, with a plus
+            <para id="Para577592">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each CRM
           Account or Incident that may be expanded to lower levels. By
           clicking your mouse on a plus sign, you reveal lower levels of
@@ -97,7 +97,7 @@
         <term id="Para571241">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1897700">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +106,7 @@
         <term id="Para571242">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1897748">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +115,7 @@
         <term id="Para577441">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1897790">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -128,7 +128,7 @@
         <term id="Para571248">Edit Incident</term>
 
         <listitem id="listitemN0x180ac00N0x18977fc">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -136,13 +136,12 @@
         <term id="Para571249">View Incident</term>
 
         <listitem id="listitemN0x180ac00N0x1897844">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para571267">If you right-click on a To-Do List item, the
@@ -153,7 +152,7 @@
         <term id="Para571273">Edit To-Do Item</term>
 
         <listitem id="listitemN0x180ac00N0x18978f8">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -161,7 +160,7 @@
         <term id="Para571274">View To-Do Item</term>
 
         <listitem id="listitemN0x180ac00N0x1897940">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
     </variablelist>

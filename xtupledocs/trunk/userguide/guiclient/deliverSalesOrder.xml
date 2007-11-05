@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section644173" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section644173" role="openmfg">
     <title>Schedule S/O for Email Delivery</title>
 
     <para id="Para644181">To schedule a Sales Order for email delivery, select
     the "ScheduleS/O for Email Delivery" option. The following screen will
     appear:</para>
 
-    <para id="Para644185"><screenshot>
+    <para id="Para644185">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Ord_schedEmailDelivery.png"
-                       id="Graphic644183" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Ord_schedEmailDelivery.png" id="Graphic644183"/>
+            </imageobject>
 
-          <caption id="Caption644186">Schedule Sales Order for Email
+            <caption id="Caption644186">Schedule Sales Order for Email
           Delivery</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para644187">When scheduling a Sales Order for email delivery,
     you are presented with the following options:</para>
@@ -28,7 +29,7 @@
         <term id="Para644188">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18d5da8">
-          <para>Enter the Sales Order Number of the Sales Order you want to
+            <para>Enter the Sales Order Number of the Sales Order you want to
           schedule for email delivery.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +46,7 @@
         <term id="Para644313">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x18d5e38">
-          <para>Specify the Order Form you want to email to the
+            <para>Specify the Order Form you want to email to the
           Customer.</para>
         </listitem>
       </varlistentry>
@@ -54,11 +55,11 @@
         <term id="Para644195">From</term>
 
         <listitem id="listitemN0x180ac00N0x18d5e80">
-          <para>The default address appearing in the "From" field will
+            <para>The default address appearing in the "From" field will
           automatically be pre-populated with the email address of the user
           who is currently logged in to the application.</para>
 
-          <para id="Para644324">User email addresses are stored with user
+            <para id="Para644324">User email addresses are stored with user
           records at the system level. You may change the address in this
           field manually at run time.</para>
         </listitem>
@@ -68,11 +69,11 @@
         <term id="Para644196">Send To</term>
 
         <listitem id="listitemN0x180ac00N0x18d5ec8">
-          <para>If the Customer associated with the selected Sales Order has
+            <para>If the Customer associated with the selected Sales Order has
           been set up to receive email, then the default email address for
           that Customer will be automatically pre-populated here.</para>
 
-          <para id="Para644336">Because this is an editable field, you may
+            <para id="Para644336">Because this is an editable field, you may
           change the email address.</para>
         </listitem>
       </varlistentry>
@@ -81,11 +82,11 @@
         <term id="Para644197">Subject</term>
 
         <listitem id="listitemN0x180ac00N0x18d5f10">
-          <para>If EDI is set up for the Customer, then the default subject
+            <para>If EDI is set up for the Customer, then the default subject
           line found on the Customer master will be automatically
           pre-populated here.</para>
 
-          <para id="Para644332">Because this is an editable field, you may
+            <para id="Para644332">Because this is an editable field, you may
           modify the subject line.</para>
         </listitem>
       </varlistentry>
@@ -94,11 +95,11 @@
         <term id="Para644198">Filename</term>
 
         <listitem id="listitemN0x180ac00N0x18d5f58">
-          <para>If EDI is set up for the Customer, then the default filename
+            <para>If EDI is set up for the Customer, then the default filename
           found on the Customer master will be automatically pre-populated
           here.</para>
 
-          <para id="Para644328">Because this is an editable field, you may
+            <para id="Para644328">Because this is an editable field, you may
           modify the filename line. XML tags may be used in this field to
           dynamically generate filename text. In the example shown in the
           screenshot above, the filename will include the Document Type (i.e.,
@@ -111,11 +112,11 @@
         <term id="Para644199">Email Body</term>
 
         <listitem id="listitemN0x180ac00N0x18d5fa0">
-          <para>If EDI is set up for the Customer, then the default email body
+            <para>If EDI is set up for the Customer, then the default email body
           found on the Customer master will be automatically pre-populated
           here.</para>
 
-          <para id="Para644340">This is a scrolling text field with
+            <para id="Para644340">This is a scrolling text field with
           word-wrapping. You may edit the default email body.</para>
         </listitem>
       </varlistentry>
@@ -129,7 +130,7 @@
         <term id="Para644202">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18d600c">
-          <para>Closes the screen without scheduling a Sales Order for email
+            <para>Closes the screen without scheduling a Sales Order for email
           delivery, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -138,9 +139,8 @@
         <term id="Para644203">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x18d6054">
-          <para>Select to submit requested action to the Batch Manager for
-          processing. For additional information, see the <link
-          endterm="Anchor61009" id="XRef647866" linkend="Anchor61009">
+            <para>Select to submit requested action to the Batch Manager for
+          processing. For additional information, see the <link endterm="Anchor61009" id="XRef647866" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
         </listitem>

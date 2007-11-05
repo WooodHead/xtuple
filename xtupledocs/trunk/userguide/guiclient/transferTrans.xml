@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section600879" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section600879" role="openmfg">
     <title>Inter-Warehouse Transfer</title>
 
     <para id="Para600880">To transfer quantity of an Item from one Warehouse
     to another, select the "Inter-Warehouse Transfer" option. The following
     screen will appear:</para>
 
-    <para id="Para518932"><screenshot>
+    <para id="Para518932">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_IT_interWarehouseTrans.png"
-                       id="Graphic525831" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_IT_interWarehouseTrans.png" id="Graphic525831"/>
+            </imageobject>
 
-          <caption id="Caption518933">Enter Inter-Warehouse Transfer</caption>
+            <caption id="Caption518933">Enter Inter-Warehouse Transfer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para524296">An Inter-Warehouse Transfer can only be executed
@@ -38,7 +39,7 @@
         <term id="Para518941">Transaction Date</term>
 
         <listitem id="listitemN0x180ac00N0x1897afc">
-          <para>Displays the current day's date.</para>
+            <para>Displays the current day's date.</para>
         </listitem>
       </varlistentry>
 
@@ -46,7 +47,7 @@
         <term id="Para518943">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1897b44">
-          <para>Enter the Item Number of the Item you want to transfer from
+            <para>Enter the Item Number of the Item you want to transfer from
           one Warehouse to another.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +56,7 @@
         <term id="Para671952">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1897b8c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -63,9 +64,9 @@
         <term id="Para518947">From Whse</term>
 
         <listitem id="listitemN0x180ac00N0x1897bd4">
-          <para>Specify the source Warehouse for the transaction.</para>
+            <para>Specify the source Warehouse for the transaction.</para>
 
-          <para id="Para518948">If an Item is located in more than one
+            <para id="Para518948">If an Item is located in more than one
           Warehouse, be sure to specify the correct Warehouse you want to
           transfer the Item from. The "Before" column displays current
           Quantity on Hand for the Item.</para>
@@ -76,10 +77,10 @@
         <term id="Para518949">To Whse.</term>
 
         <listitem id="listitemN0x180ac00N0x1897c1c">
-          <para>: Specify the destination Warehouse for the
+            <para>: Specify the destination Warehouse for the
           transaction.</para>
 
-          <para id="Para518950">If an Item is located in more than one
+            <para id="Para518950">If an Item is located in more than one
           Warehouse, be sure to specify the correct Warehouse you want to
           transfer the Item to. The "Before" column displays current Quantity
           on Hand for the Item</para>
@@ -90,10 +91,10 @@
         <term id="Para518954">Transferred Qty.</term>
 
         <listitem id="listitemN0x180ac00N0x1897c64">
-          <para>The number entered will adjust the Item's Quantity on Hand in
+            <para>The number entered will adjust the Item's Quantity on Hand in
           both the "From" and "To" Warehouses.</para>
 
-          <para id="Para670460">The values displayed in the "After" column
+            <para id="Para670460">The values displayed in the "After" column
           represent the new Quantity on Hand in each Location. Non-netable
           Quantity on Hand is not included in these values.</para>
         </listitem>
@@ -103,10 +104,10 @@
         <term id="Para518959">Document #</term>
 
         <listitem id="listitemN0x180ac00N0x1897cac">
-          <para>Creates a user-defined reference for the Inter-Warehouse
+            <para>Creates a user-defined reference for the Inter-Warehouse
           Transfer.</para>
 
-          <para id="Para670467">The Document reference will be posted with the
+            <para id="Para670467">The Document reference will be posted with the
           General Ledger (G/L) transaction record when the Inter-Warehouse
           Transfer is generated. This field may be used for internal tracking
           and auditing purposes.</para>
@@ -117,7 +118,7 @@
         <term id="Para518964">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x1897cf4">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the transfer.</para>
         </listitem>
       </varlistentry>
@@ -131,7 +132,7 @@
         <term id="Para518967">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1897d60">
-          <para>Closes the screen without posting an Inter-Warehouse Transfer,
+            <para>Closes the screen without posting an Inter-Warehouse Transfer,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -140,15 +141,14 @@
         <term id="Para518968">POST</term>
 
         <listitem id="listitemN0x180ac00N0x1897da8">
-          <para>Posts the Inter-Warehouse Transfer.</para>
+            <para>Posts the Inter-Warehouse Transfer.</para>
 
-          <para id="Para518969">Creates two transactions, one at each affected
+            <para id="Para518969">Creates two transactions, one at each affected
           Warehouse. The Warehouse receiving Inventory is credited with the
           new Inventory amount, while the Warehouse being relieved of
           Inventory is debited. Additional steps will be necessary if the
           specified Item is stored in multiple Locations. For more
-          information, see the <link endterm="Anchor81167" id="XRef538112"
-          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          information, see the <link endterm="Anchor81167" id="XRef538112" linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
           Items</link>"Inter-Warehouse Transfer" section.</para>
         </listitem>
       </varlistentry>

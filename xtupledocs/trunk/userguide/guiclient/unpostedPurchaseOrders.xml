@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-
-  <section id="Section972514">
-    <title><anchor id="Anchor972513" role="Index"
-    xreflabel="purchase orders:list of unposted " /> <indexterm
-        significance="normal" zone="Anchor972513">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section972514">
+    <title>
+      <anchor id="Anchor972513" role="Index" xreflabel="purchase orders:list of unposted "/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>list of unposted</secondary>
@@ -17,16 +16,17 @@
     and/or unvouchered Purchase Orders, select the "List Unposted Purchase
     Orders" option. The following screen will appear:</para>
 
-    <para id="Para972519"><screenshot>
+    <para id="Para972519">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_listUnpostedPOs.png"
-                       id="Graphic972517" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_PO_listUnpostedPOs.png" id="Graphic972517"/>
+            </imageobject>
 
-          <caption id="Caption972520">List Unposted Purchase Orders</caption>
+            <caption id="Caption972520">List Unposted Purchase Orders</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para972522">Unposted Purchase Orders are considered to be a
@@ -53,7 +53,7 @@
         <term id="Para972527">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x186fad8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +62,7 @@
         <term id="Para972528">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x186fb20">
-          <para>Opens screen for creating a new Purchase Order.</para>
+            <para>Opens screen for creating a new Purchase Order.</para>
         </listitem>
       </varlistentry>
 
@@ -70,7 +70,7 @@
         <term id="Para972529">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x186fb68">
-          <para>Enables you to edit highlighted Purchase Order. The edit
+            <para>Enables you to edit highlighted Purchase Order. The edit
           screen is the same as that for creating a new Purchase Order
           --except that when editing, the fields will contain Purchase Order
           information. Double-clicking on a Purchase Order will also bring you
@@ -90,7 +90,7 @@
         <term id="Para972532">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x186fbf8">
-          <para>Highlight a Purchase Order and then select this button to
+            <para>Highlight a Purchase Order and then select this button to
           reach a read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>
@@ -99,7 +99,7 @@
         <term id="Para972533">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x186fc40">
-          <para>Highlight a Purchase Order and then select this button to
+            <para>Highlight a Purchase Order and then select this button to
           remove the Purchase Order from the list.</para>
         </listitem>
       </varlistentry>
@@ -108,7 +108,7 @@
         <term id="Para972534">PRINT P/O</term>
 
         <listitem id="listitemN0x180ac00N0x186fc88">
-          <para>Highlight a Purchase Order and then select this button to
+            <para>Highlight a Purchase Order and then select this button to
           print a copy of the selected Purchase Order.</para>
         </listitem>
       </varlistentry>
@@ -117,7 +117,7 @@
         <term id="Para972535">POST P/O</term>
 
         <listitem id="listitemN0x180ac00N0x186fcd0">
-          <para>Highlight a Purchase Order and then select this button to post
+            <para>Highlight a Purchase Order and then select this button to post
           the selected Purchase Order.</para>
         </listitem>
       </varlistentry>
@@ -131,49 +131,42 @@
       <varlistentry>
         <term id="Para972537">Edit</term>
 
-        <xi:include href="../po.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x186fb68)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../po.xml"
+                     xpointer="element(listitemN0x180ac00N0x186fb68)"/>
       </varlistentry>
 
       <varlistentry>
         <term id="Para972538">View</term>
 
-        <xi:include href="../po.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x186fbf8)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../po.xml"
+                     xpointer="element(listitemN0x180ac00N0x186fbf8)"/>
       </varlistentry>
 
       <varlistentry>
         <term id="Para972539">Delete</term>
 
-        <xi:include href="../po.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x186fc40)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../po.xml"
+                     xpointer="element(listitemN0x180ac00N0x186fc40)"/>
       </varlistentry>
 
       <varlistentry>
         <term id="Para972540">Print</term>
 
-        <xi:include href="../po.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x186fc88)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../po.xml"
+                     xpointer="element(listitemN0x180ac00N0x186fc88)"/>
       </varlistentry>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/6)"/>
 
       <varlistentry>
         <term id="Para972542">Post</term>
 
-        <xi:include href="../po.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x186fcd0)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../po.xml"
+                     xpointer="element(listitemN0x180ac00N0x186fcd0)"/>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

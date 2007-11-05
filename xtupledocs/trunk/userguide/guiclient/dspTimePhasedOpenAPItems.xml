@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section549958">
-    <title><anchor id="Anchor549957" role="Index"
-    xreflabel="accounts payable:aging report for;open items:aging report for payables" />
-    <indexterm significance="normal" zone="Anchor549957">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section549958">
+    <title>
+      <anchor id="Anchor549957" role="Index"
+              xreflabel="accounts payable:aging report for;open items:aging report for payables"/>
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>aging report for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor549957">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>open items</primary>
 
         <secondary>aging report for payables</secondary>
@@ -20,15 +20,17 @@
     aging perspective, select the "A/P Aging" option. The following screen
     will appear:</para>
 
-    <para id="Para550037"><screenshot>
+    <para id="Para550037">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035"/>
+            </imageobject>
 
-          <caption id="Caption550291">A/P Aging</caption>
+            <caption id="Caption550291">A/P Aging</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para550292">When displaying aging A/P open items, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para558495">All Vendors</term>
 
         <listitem>
-          <para>Select to display A/P open items for all Vendors.</para>
+            <para>Select to display A/P open items for all Vendors.</para>
         </listitem>
       </varlistentry>
 
@@ -46,7 +48,7 @@
         <term id="Para558496">Selected Vendor</term>
 
         <listitem>
-          <para>Select to display A/P open items for a selected Vendor.</para>
+            <para>Select to display A/P open items for a selected Vendor.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +56,7 @@
         <term id="Para558498">Selected Vendor Type</term>
 
         <listitem>
-          <para>Specify Vendor Type whose A/P open items you want to
+            <para>Specify Vendor Type whose A/P open items you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -63,12 +65,11 @@
         <term id="Para558543">Vendor Type Pattern</term>
 
         <listitem>
-          <para>Enter a Vendor Type pattern to select a range of Vendor
+            <para>Enter a Vendor Type pattern to select a range of Vendor
           Types.</para>
 
-          <para id="Para566416">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef566415"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para566416">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef566415" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -78,10 +79,10 @@
         <term id="Para558513">As of</term>
 
         <listitem>
-          <para>Enter a date to use as the relative starting point for the
+            <para>Enter a date to use as the relative starting point for the
           aging report</para>
 
-          <para id="Para558557">By default, the current date is entered as the
+            <para id="Para558557">By default, the current date is entered as the
           relative date. However, you may change the relative date to a date
           of your choosing.</para>
         </listitem>
@@ -91,10 +92,10 @@
         <term id="Para558522">Use Custom Calendar</term>
 
         <listitem>
-          <para>Select if you want to display A/P open items using a custom
+            <para>Select if you want to display A/P open items using a custom
           Calendar of your choosing.</para>
 
-          <para id="Para558523">If selected, the screen will present a series
+            <para id="Para558523">If selected, the screen will present a series
           of different options, including the option to select a Calendar and
           associated periods.</para>
         </listitem>
@@ -104,19 +105,21 @@
         <term id="Para550142">A/P Open Items</term>
 
         <listitem>
-          <para>Display lists aging A/P open items, using the specified
+            <para>Display lists aging A/P open items, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para558647"><anchor id="Anchor558650" role="Index"
-    xreflabel="accounts payable:time-phased open items for;open items:time-phased for payables" />
-    <indexterm significance="normal" zone="Anchor558650">
+    <para id="Para558647">
+      <anchor id="Anchor558650" role="Index"
+              xreflabel="accounts payable:time-phased open items for;open items:time-phased for payables"/>
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>time-phased open items for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor558650">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>open items</primary>
 
         <secondary>time-phased for payables</secondary>
@@ -124,16 +127,17 @@
     "Use Custom Calendar" option above. The following screen will
     appear:</para>
 
-    <para id="Para558445"><screenshot>
+    <para id="Para558445">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Disp_apAgingCalendar.png"
-                       id="Graphic558443" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Disp_apAgingCalendar.png" id="Graphic558443"/>
+            </imageobject>
 
-          <caption id="Caption558446">Custom A/P Aging Calendar</caption>
+            <caption id="Caption558446">Custom A/P Aging Calendar</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para558447">When displaying A/P open items using a custom
     Calendar, you are presented with the following options:</para>
@@ -143,9 +147,9 @@
         <term id="Para563174">Calendar</term>
 
         <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para563175">Associated Calendar periods will be
+            <para id="Para563175">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -154,11 +158,11 @@
         <term id="Para558463">Name/Selected Periods</term>
 
         <listitem>
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para558464">Select individual periods or groups of periods
+            <para id="Para558464">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -177,7 +181,7 @@
         <term id="Para558465">A/P Open Items</term>
 
         <listitem>
-          <para>Display lists time-phased A/P open items, using the specified
+            <para>Display lists time-phased A/P open items, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -191,7 +195,7 @@
         <term id="Para558468">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -200,7 +204,7 @@
         <term id="Para558469">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -209,7 +213,7 @@
         <term id="Para565680">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -217,9 +221,8 @@
         <term id="Para561305">SUBMIT</term>
 
         <listitem>
-          <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef561307"
-          linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            <para>Select to submit report to the Batch Manager. For additional
+          information, see the <link endterm="Anchor61009" id="XRef561307" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
         </listitem>
@@ -230,12 +233,10 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/9/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/9/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

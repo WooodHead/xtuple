@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Shipping Rate
@@ -37,14 +37,14 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Price:</guilabel>
+                  <guilabel moreinfo="none">Price:</guilabel>
                </entry>
                <entry>_priceLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Number of Stops:</guilabel>
+                  <guilabel moreinfo="none">Number of Stops:</guilabel>
                </entry>
                <entry>_numberOfStopsLit</entry>
                <entry>QLabel</entry>
@@ -61,7 +61,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Carrier:</guilabel>
+                  <guilabel moreinfo="none">Carrier:</guilabel>
                </entry>
                <entry>_carrierLit</entry>
                <entry>QLabel</entry>
@@ -73,7 +73,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Destination:</guilabel>
+                  <guilabel moreinfo="none">Destination:</guilabel>
                </entry>
                <entry>_destinationLit</entry>
                <entry>QLabel</entry>
@@ -90,7 +90,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -98,7 +98,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -106,7 +106,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Comments:</guilabel>
+                  <guilabel moreinfo="none">Comments:</guilabel>
                </entry>
                <entry>_notesLit</entry>
                <entry>QLabel</entry>

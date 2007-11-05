@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-
-  <section id="Section611426">
-    <title> <anchor id="Anchor611425" role="Index"
-    xreflabel="topics:transaction accounting" /> <indexterm
-        significance="normal" zone="Anchor611425">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section611426">
+    <title> 
+      <anchor id="Anchor611425" role="Index" xreflabel="topics:transaction accounting"/> 
+      <indexterm significance="normal">
         <primary>topics</primary>
 
         <secondary>transaction accounting</secondary>
@@ -29,30 +28,35 @@
     </tip>
 
     <section id="Section611433">
-      <title><anchor id="Anchor611431" role="Index"
-      xreflabel="transactions:for inventory accounting;inventory transactions:accounting related to;inventory:accounting for" />
-      <indexterm significance="normal" zone="Anchor611431">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor611431" role="Index"
+                 xreflabel="transactions:for inventory accounting;inventory transactions:accounting related to;inventory:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for inventory accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor611431">
-          <primary>inventory transactions</primary>
+            <secondary>for inventory accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>inventory transactions</primary>
 
-          <secondary>accounting related to</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor611431">
-          <primary>inventory</primary>
+            <secondary>accounting related to</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>inventory</primary>
 
-          <secondary>accounting for</secondary>
-        </indexterm> <anchor id="Anchor611432" role="Index"
-      xreflabel="transactions:for inventory accounting;inventory:accounting for" />
-      <indexterm significance="normal" zone="Anchor611432">
-          <primary>transactions</primary>
+            <secondary>accounting for</secondary>
+        </indexterm> 
+         <anchor id="Anchor611432" role="Index"
+                 xreflabel="transactions:for inventory accounting;inventory:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for inventory accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor611432">
-          <primary>inventory</primary>
+            <secondary>for inventory accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>inventory</primary>
 
-          <secondary>accounting for</secondary>
+            <secondary>accounting for</secondary>
         </indexterm>I/M Module Transactions</title>
 
       <para id="Para611434">The majority of I/M Module transactions are
@@ -64,53 +68,73 @@
 
       <informaltable id="Table611435">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611439">Debit</para></entry>
+                  <entry>
+                     <para id="Para611439">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611441">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611441">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611443">Miscellaneous</para> <para
-              id="Para611444">Adjustment</para> <para
-              id="Para611445">(Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611443">Miscellaneous</para> 
+                     <para id="Para611444">Adjustment</para> 
+                     <para id="Para611445">(Positive)</para>
+                  </entry>
 
-              <entry><para id="Para611447">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611447">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611449">Inventory Adjustment</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611449">Inventory Adjustment</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611451">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611455">Debit</para></entry>
+                  <entry>
+                     <para id="Para611455">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611457">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611457">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611459">Miscellaneous</para> <para
-              id="Para611460">Adjustment</para> <para
-              id="Para611461">(Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611459">Miscellaneous</para> 
+                     <para id="Para611460">Adjustment</para> 
+                     <para id="Para611461">(Negative)</para>
+                  </entry>
 
-              <entry><para id="Para611463">Inventory Adjustment</para></entry>
+                  <entry>
+                     <para id="Para611463">Inventory Adjustment</para>
+                  </entry>
 
-              <entry><para id="Para611465">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611465">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -122,26 +146,36 @@
 
       <informaltable id="Table611468">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611472">Debit</para></entry>
+                  <entry>
+                     <para id="Para611472">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611474">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611474">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611476">Inter-Warehouse</para> <para
-              id="Para611477">Transfer</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611476">Inter-Warehouse</para> 
+                     <para id="Para611477">Transfer</para>
+                  </entry>
 
-              <entry><para id="Para611479">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611479">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611481">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611481">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -152,25 +186,35 @@
 
       <informaltable id="Table611484">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611488">Debit</para></entry>
+                  <entry>
+                     <para id="Para611488">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611490">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611490">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611492">Scrap</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611492">Scrap</para>
+                  </entry>
 
-              <entry><para id="Para611494">Inventory Scrap</para></entry>
+                  <entry>
+                     <para id="Para611494">Inventory Scrap</para>
+                  </entry>
 
-              <entry><para id="Para611496">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611496">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -181,25 +225,35 @@
 
       <informaltable id="Table611499">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611503">Debit</para></entry>
+                  <entry>
+                     <para id="Para611503">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611505">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611505">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611507">Expense</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611507">Expense</para>
+                  </entry>
 
-              <entry><para id="Para611509">Expense Account</para></entry>
+                  <entry>
+                     <para id="Para611509">Expense Account</para>
+                  </entry>
 
-              <entry><para id="Para611511">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611511">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -208,16 +262,16 @@
 
       <itemizedlist>
         <listitem id="listitemN0x180ac00N0x183efac">
-          <para id="Para611514">As a purchased Item from the P/O Module</para>
+            <para id="Para611514">As a purchased Item from the P/O Module</para>
         </listitem>
 
         <listitem id="listitemN0x180ac00N0x183efd0">
-          <para id="Para611515">As manufactured Item from the W/O
+            <para id="Para611515">As manufactured Item from the W/O
           Module</para>
         </listitem>
 
         <listitem id="listitemN0x180ac00N0x183eff4">
-          <para id="Para611516">As a Credit Memo Item from the S/O
+            <para id="Para611516">As a Credit Memo Item from the S/O
           Module</para>
         </listitem>
       </itemizedlist>
@@ -229,26 +283,36 @@
 
       <informaltable id="Table611518">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611522">Debit</para></entry>
+                  <entry>
+                     <para id="Para611522">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611524">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611524">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611526">Material Receipt</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611526">Material Receipt</para>
+                  </entry>
 
-              <entry><para id="Para611528">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611528">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611530">P/O Liability
-              Clearing</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611530">P/O Liability
+              Clearing</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -260,51 +324,71 @@
 
       <informaltable id="Table611533">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611537">Debit</para></entry>
+                  <entry>
+                     <para id="Para611537">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611539">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611539">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611541">Transform</para> <para
-              id="Para611542">(Source Item)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611541">Transform</para> 
+                     <para id="Para611542">(Source Item)</para>
+                  </entry>
 
-              <entry><para id="Para611544">Transform Clearing</para></entry>
+                  <entry>
+                     <para id="Para611544">Transform Clearing</para>
+                  </entry>
 
-              <entry><para id="Para611546">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611546">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611548">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611552">Debit</para></entry>
+                  <entry>
+                     <para id="Para611552">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611554">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611554">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611556">Transform</para> <para
-              id="Para611557">(Target Item)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611556">Transform</para> 
+                     <para id="Para611557">(Target Item)</para>
+                  </entry>
 
-              <entry><para id="Para611559">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611559">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611561">Transform Clearing</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611561">Transform Clearing</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -316,25 +400,35 @@
 
       <informaltable id="Table611564">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611568">Debit</para></entry>
+                  <entry>
+                     <para id="Para611568">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611570">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611570">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611572">Reset QOH</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611572">Reset QOH</para>
+                  </entry>
 
-              <entry><para id="Para611574">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611574">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611576">Inventory Adjustment</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611576">Inventory Adjustment</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -346,62 +440,82 @@
 
       <informaltable id="Table611579">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611583">Debit</para></entry>
+                  <entry>
+                     <para id="Para611583">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611585">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611585">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611587">Post Count Tag</para> <para
-              id="Para611588">(Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611587">Post Count Tag</para> 
+                     <para id="Para611588">(Positive)</para>
+                  </entry>
 
-              <entry><para id="Para611590">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611590">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611592">Inventory Adjustment</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611592">Inventory Adjustment</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611594">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611598">Debit</para></entry>
+                  <entry>
+                     <para id="Para611598">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611600">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611600">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611602">Post Count Tag</para> <para
-              id="Para611603">(Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611602">Post Count Tag</para> 
+                     <para id="Para611603">(Negative)</para>
+                  </entry>
 
-              <entry><para id="Para611605">Inventory Adjustment</para></entry>
+                  <entry>
+                     <para id="Para611605">Inventory Adjustment</para>
+                  </entry>
 
-              <entry><para id="Para611607">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611607">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
 
     <section id="Section611610">
-      <title><anchor id="Anchor611609" role="Index"
-      xreflabel="transactions:for p/d accounting" /> <indexterm
-          significance="normal" zone="Anchor611609">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor611609" role="Index" xreflabel="transactions:for p/d accounting"/> 
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for p/d accounting</secondary>
+            <secondary>for p/d accounting</secondary>
         </indexterm>P/D Module Transactions</title>
 
       <para id="Para611611">Whenever the Standard Cost for an Item is updated,
@@ -414,70 +528,92 @@
 
       <informaltable id="Table611612">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611616">Debit</para></entry>
+                  <entry>
+                     <para id="Para611616">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611618">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611618">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611620">Post Actual Cost</para> <para
-              id="Para611621">to Standard</para> <para
-              id="Para611622">(Increase)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611620">Post Actual Cost</para> 
+                     <para id="Para611621">to Standard</para> 
+                     <para id="Para611622">(Increase)</para>
+                  </entry>
 
-              <entry><para id="Para611624">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611624">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611626">Inventory Cost
-              Variance</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611626">Inventory Cost
+              Variance</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611628">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611632">Debit</para></entry>
+                  <entry>
+                     <para id="Para611632">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611634">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611634">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611636">Post Actual Cost</para> <para
-              id="Para611637">to Standard</para> <para
-              id="Para611638">(Decrease)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611636">Post Actual Cost</para> 
+                     <para id="Para611637">to Standard</para> 
+                     <para id="Para611638">(Decrease)</para>
+                  </entry>
 
-              <entry><para id="Para611640">Inventory Cost
-              Variance</para></entry>
+                  <entry>
+                     <para id="Para611640">Inventory Cost
+              Variance</para>
+                  </entry>
 
-              <entry><para id="Para611642">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611642">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
 
     <section id="Section611645">
-      <title><anchor id="Anchor611644" role="Index"
-      xreflabel="transactions:for purchasing accounting;purchasing:accounting for" />
-      <indexterm significance="normal" zone="Anchor611644">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor611644" role="Index"
+                 xreflabel="transactions:for purchasing accounting;purchasing:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for purchasing accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor611644">
-          <primary>purchasing</primary>
+            <secondary>for purchasing accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>purchasing</primary>
 
-          <secondary>accounting for</secondary>
+            <secondary>accounting for</secondary>
         </indexterm>P/O Module Transactions</title>
 
       <note>
@@ -500,53 +636,73 @@
 
       <informaltable id="Table611650">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611654">Debit</para></entry>
+                  <entry>
+                     <para id="Para611654">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611656">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611656">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611658">Post P/O Return</para> <para
-              id="Para611659">(Inventory Item)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611658">Post P/O Return</para> 
+                     <para id="Para611659">(Inventory Item)</para>
+                  </entry>
 
-              <entry><para id="Para611661">P/O Liability
-              Clearing</para></entry>
+                  <entry>
+                     <para id="Para611661">P/O Liability
+              Clearing</para>
+                  </entry>
 
-              <entry><para id="Para611663">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611663">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611665">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611669">Debit</para></entry>
+                  <entry>
+                     <para id="Para611669">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611671">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611671">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611673">Post P/O Return</para> <para
-              id="Para611674">(Non-Inventory Item)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611673">Post P/O Return</para> 
+                     <para id="Para611674">(Non-Inventory Item)</para>
+                  </entry>
 
-              <entry><para id="Para611676">P/O Liability
-              Clearing</para></entry>
+                  <entry>
+                     <para id="Para611676">P/O Liability
+              Clearing</para>
+                  </entry>
 
-              <entry><para id="Para611678">Expense Account</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611678">Expense Account</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
@@ -575,42 +731,54 @@
 
       <informaltable id="Table611685">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611689">Debit</para></entry>
+                  <entry>
+                     <para id="Para611689">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611691">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611691">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611693">Post S/O Credit Memo</para> <para
-              id="Para611694">(Inventory)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611693">Post S/O Credit Memo</para> 
+                     <para id="Para611694">(Inventory)</para>
+                  </entry>
 
-              <entry><para id="Para611696">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611696">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611698">Cost of Sales
-              Account</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611698">Cost of Sales
+              Account</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
 
     <section id="Section611701">
-      <title><anchor id="Anchor611700" role="Index"
-      xreflabel="transactions:for manufacturing accounting;manufacturing:accounting for" />
-      <indexterm significance="normal" zone="Anchor611700">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor611700" role="Index"
+                 xreflabel="transactions:for manufacturing accounting;manufacturing:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for manufacturing accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor611700">
-          <primary>manufacturing</primary>
+            <secondary>for manufacturing accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>manufacturing</primary>
 
-          <secondary>accounting for</secondary>
+            <secondary>accounting for</secondary>
         </indexterm>W/O Module Transactions</title>
 
       <para id="Para611702">Owing to the complexity of Work Order processing,
@@ -622,25 +790,35 @@
 
       <informaltable id="Table611703">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611707">Debit</para></entry>
+                  <entry>
+                     <para id="Para611707">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611709">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611709">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611711">Issue W/O Materials</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611711">Issue W/O Materials</para>
+                  </entry>
 
-              <entry><para id="Para611713">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611713">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611715">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611715">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -649,25 +827,35 @@
 
       <informaltable id="Table611718">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611722">Debit</para></entry>
+                  <entry>
+                     <para id="Para611722">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611724">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611724">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611726">Return W/O Materials</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611726">Return W/O Materials</para>
+                  </entry>
 
-              <entry><para id="Para611728">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611728">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611730">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611730">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -677,26 +865,36 @@
 
       <informaltable id="Table611733">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611737">Debit</para></entry>
+                  <entry>
+                     <para id="Para611737">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611739">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611739">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611741">Scrap W/O Materials</para> <para
-              id="Para611742">from Work Order</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611741">Scrap W/O Materials</para> 
+                     <para id="Para611742">from Work Order</para>
+                  </entry>
 
-              <entry><para id="Para611744">Manufacturing Scrap</para></entry>
+                  <entry>
+                     <para id="Para611744">Manufacturing Scrap</para>
+                  </entry>
 
-              <entry><para id="Para611746">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611746">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -706,17 +904,17 @@
 
       <itemizedlist>
         <listitem id="listitemN0x180ac00N0x184f20c">
-          <para id="Para611749">Materials that have not already been issued to
+            <para id="Para611749">Materials that have not already been issued to
           the Work Order are issued to the Work Order.</para>
         </listitem>
 
         <listitem id="listitemN0x180ac00N0x184f230">
-          <para id="Para611750">Manufactured Item quantity is entered into
+            <para id="Para611750">Manufactured Item quantity is entered into
           Inventory.</para>
         </listitem>
 
         <listitem id="listitemN0x180ac00N0x184f254">
-          <para id="Para611751">Work Order Operations--that is, setup and run
+            <para id="Para611751">Work Order Operations--that is, setup and run
           time records--are posted.</para>
         </listitem>
       </itemizedlist>
@@ -734,77 +932,107 @@
 
       <informaltable id="Table611754">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611758">Debit</para></entry>
+                  <entry>
+                     <para id="Para611758">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611760">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611760">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611762">Post Production</para> <para
-              id="Para611763">(Materials)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611762">Post Production</para> 
+                     <para id="Para611763">(Materials)</para>
+                  </entry>
 
-              <entry><para id="Para611765">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611765">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611767">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611767">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611769">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611773">Debit</para></entry>
+                  <entry>
+                     <para id="Para611773">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611775">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611775">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611777">Post Production</para> <para
-              id="Para611778">(Mfg. Items)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611777">Post Production</para> 
+                     <para id="Para611778">(Mfg. Items)</para>
+                  </entry>
 
-              <entry><para id="Para611780">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611780">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611782">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611782">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611784">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611788">Debit</para></entry>
+                  <entry>
+                     <para id="Para611788">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611790">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611790">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611792">Post Production</para> <para
-              id="Para611793">(Operations)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611792">Post Production</para> 
+                     <para id="Para611793">(Operations)</para>
+                  </entry>
 
-              <entry><para id="Para611795">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611795">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611797">Labor and Overhead</para> <para
-              id="Para611798">Costs</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611797">Labor and Overhead</para> 
+                     <para id="Para611798">Costs</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -819,51 +1047,71 @@
 
       <informaltable id="Table611801">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611805">Debit</para></entry>
+                  <entry>
+                     <para id="Para611805">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611807">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611807">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611809">Post Production</para> <para
-              id="Para611810">(Issue Breeder)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611809">Post Production</para> 
+                     <para id="Para611810">(Issue Breeder)</para>
+                  </entry>
 
-              <entry><para id="Para611812">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611812">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611814">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611814">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611816">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611820">Debit</para></entry>
+                  <entry>
+                     <para id="Para611820">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611822">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611822">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611824">Post Production</para> <para
-              id="Para611825">(Receive Breeder)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611824">Post Production</para> 
+                     <para id="Para611825">(Receive Breeder)</para>
+                  </entry>
 
-              <entry><para id="Para611827">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611827">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611829">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611829">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -873,26 +1121,36 @@
 
       <informaltable id="Table611832">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611836">Debit</para></entry>
+                  <entry>
+                     <para id="Para611836">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611838">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611838">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611840">Post Production</para> <para
-              id="Para611841">(Issue Materials)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611840">Post Production</para> 
+                     <para id="Para611841">(Issue Materials)</para>
+                  </entry>
 
-              <entry><para id="Para611843">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611843">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611845">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611845">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -902,26 +1160,36 @@
 
       <informaltable id="Table611848">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611852">Debit</para></entry>
+                  <entry>
+                     <para id="Para611852">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611854">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611854">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611856">Post Production</para> <para
-              id="Para611857">(Receive Products)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611856">Post Production</para> 
+                     <para id="Para611857">(Receive Products)</para>
+                  </entry>
 
-              <entry><para id="Para611859">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611859">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611861">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611861">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -931,55 +1199,75 @@
 
       <informaltable id="Table611864">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611868">Debit</para></entry>
+                  <entry>
+                     <para id="Para611868">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611870">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611870">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611872">Post Production</para> <para
-              id="Para611873">(Cost Variance -- </para> <para
-              id="Para611874">Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611872">Post Production</para> 
+                     <para id="Para611873">(Cost Variance -- </para> 
+                     <para id="Para611874">Positive)</para>
+                  </entry>
 
-              <entry><para id="Para611876">Inventory Cost
-              Variance</para></entry>
+                  <entry>
+                     <para id="Para611876">Inventory Cost
+              Variance</para>
+                  </entry>
 
-              <entry><para id="Para611878">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611878">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611880">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611884">Debit</para></entry>
+                  <entry>
+                     <para id="Para611884">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611886">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611886">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611888">Post Production</para> <para
-              id="Para611889">(Cost Variance -- </para> <para
-              id="Para611890">Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611888">Post Production</para> 
+                     <para id="Para611889">(Cost Variance -- </para> 
+                     <para id="Para611890">Negative)</para>
+                  </entry>
 
-              <entry><para id="Para611892">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611892">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611894">Inventory Cost
-              Variance</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611894">Inventory Cost
+              Variance</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -998,51 +1286,71 @@
 
       <informaltable id="Table611899">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611903">Debit</para></entry>
+                  <entry>
+                     <para id="Para611903">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611905">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611905">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611907">Correct Production</para> <para
-              id="Para611908">(Mfg. Items)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611907">Correct Production</para> 
+                     <para id="Para611908">(Mfg. Items)</para>
+                  </entry>
 
-              <entry><para id="Para611910">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611910">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611912">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611912">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611914">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611918">Debit</para></entry>
+                  <entry>
+                     <para id="Para611918">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611920">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611920">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611922">Correct Production</para> <para
-              id="Para611923">(Materials)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611922">Correct Production</para> 
+                     <para id="Para611923">(Materials)</para>
+                  </entry>
 
-              <entry><para id="Para611925">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611925">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611927">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611927">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1059,153 +1367,213 @@
 
       <informaltable id="Table611932">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611936">Debit</para></entry>
+                  <entry>
+                     <para id="Para611936">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611938">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611938">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611940">Post Misc. Production</para> <para
-              id="Para611941">(Mfg. Items - Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611940">Post Misc. Production</para> 
+                     <para id="Para611941">(Mfg. Items - Positive)</para>
+                  </entry>
 
-              <entry><para id="Para611943">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611943">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611945">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611945">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611947">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611951">Debit</para></entry>
+                  <entry>
+                     <para id="Para611951">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611953">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611953">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611955">Post Misc. Production</para> <para
-              id="Para611956">(Mfg. Items - Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611955">Post Misc. Production</para> 
+                     <para id="Para611956">(Mfg. Items - Negative)</para>
+                  </entry>
 
-              <entry><para id="Para611958">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611958">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611960">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611960">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611962">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611966">Debit</para></entry>
+                  <entry>
+                     <para id="Para611966">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611968">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611968">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611970">Post Misc. Production</para> <para
-              id="Para611971">(Materials - Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611970">Post Misc. Production</para> 
+                     <para id="Para611971">(Materials - Positive)</para>
+                  </entry>
 
-              <entry><para id="Para611973">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para611973">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para611975">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611975">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611977">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611981">Debit</para></entry>
+                  <entry>
+                     <para id="Para611981">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611983">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611983">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para611985">Post Misc. Production</para> <para
-              id="Para611986">(Materials - Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para611985">Post Misc. Production</para> 
+                     <para id="Para611986">(Materials - Negative)</para>
+                  </entry>
 
-              <entry><para id="Para611988">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para611988">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para611990">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para611990">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table611992">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para611996">Debit</para></entry>
+                  <entry>
+                     <para id="Para611996">Debit</para>
+                  </entry>
 
-              <entry><para id="Para611998">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para611998">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612000">Post Misc. Production</para> <para
-              id="Para612001">(Operations - Positive)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612000">Post Misc. Production</para> 
+                     <para id="Para612001">(Operations - Positive)</para>
+                  </entry>
 
-              <entry><para id="Para612003">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para612003">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para612005">Inventory Cost
-              Variance</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612005">Inventory Cost
+              Variance</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table612007">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612011">Debit</para></entry>
+                  <entry>
+                     <para id="Para612011">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612013">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612013">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612015">Post Misc. Production</para> <para
-              id="Para612016">(Operations - Negative)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612015">Post Misc. Production</para> 
+                     <para id="Para612016">(Operations - Negative)</para>
+                  </entry>
 
-              <entry><para id="Para612018">Inventory Cost
-              Variance</para></entry>
+                  <entry>
+                     <para id="Para612018">Inventory Cost
+              Variance</para>
+                  </entry>
 
-              <entry><para id="Para612020">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612020">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1214,26 +1582,36 @@
 
       <informaltable id="Table612023">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612027">Debit</para></entry>
+                  <entry>
+                     <para id="Para612027">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612029">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612029">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612031">Post Operations</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612031">Post Operations</para>
+                  </entry>
 
-              <entry><para id="Para612033">WIP Asset</para></entry>
+                  <entry>
+                     <para id="Para612033">WIP Asset</para>
+                  </entry>
 
-              <entry><para id="Para612035">Labor and Overhead</para> <para
-              id="Para612036">Costs</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612035">Labor and Overhead</para> 
+                     <para id="Para612036">Costs</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1242,26 +1620,36 @@
 
       <informaltable id="Table612039">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612043">Debit</para></entry>
+                  <entry>
+                     <para id="Para612043">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612045">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612045">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612047">Correct Operations</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612047">Correct Operations</para>
+                  </entry>
 
-              <entry><para id="Para612049">Labor and Overhead</para> <para
-              id="Para612050">Costs</para></entry>
+                  <entry>
+                     <para id="Para612049">Labor and Overhead</para> 
+                     <para id="Para612050">Costs</para>
+                  </entry>
 
-              <entry><para id="Para612052">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612052">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1272,27 +1660,37 @@
 
       <informaltable id="Table612055">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612059">Debit</para></entry>
+                  <entry>
+                     <para id="Para612059">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612061">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612061">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612063">Close Work Order</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612063">Close Work Order</para>
+                  </entry>
 
-              <entry><para id="Para612065">WIP Asset</para> <para
-              id="Para612066">Inventory Cost Variance</para></entry>
+                  <entry>
+                     <para id="Para612065">WIP Asset</para> 
+                     <para id="Para612066">Inventory Cost Variance</para>
+                  </entry>
 
-              <entry><para id="Para612068">Inventory Cost Variance</para>
-              <para id="Para612069">WIP Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612068">Inventory Cost Variance</para>
+                     <para id="Para612069">WIP Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
@@ -1306,26 +1704,36 @@
 
       <informaltable id="Table612073">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612077">Debit</para></entry>
+                  <entry>
+                     <para id="Para612077">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612079">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612079">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612081">Issue Stock</para> <para
-              id="Para612082">to Shipping</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612081">Issue Stock</para> 
+                     <para id="Para612082">to Shipping</para>
+                  </entry>
 
-              <entry><para id="Para612084">Shipping Asset</para></entry>
+                  <entry>
+                     <para id="Para612084">Shipping Asset</para>
+                  </entry>
 
-              <entry><para id="Para612086">Inventory Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612086">Inventory Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1336,26 +1744,36 @@
 
       <informaltable id="Table612089">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612093">Debit</para></entry>
+                  <entry>
+                     <para id="Para612093">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612095">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612095">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612097">Return Stock</para> <para
-              id="Para612098">from Shipping</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612097">Return Stock</para> 
+                     <para id="Para612098">from Shipping</para>
+                  </entry>
 
-              <entry><para id="Para612100">Inventory Asset</para></entry>
+                  <entry>
+                     <para id="Para612100">Inventory Asset</para>
+                  </entry>
 
-              <entry><para id="Para612102">Shipping Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612102">Shipping Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1365,25 +1783,35 @@
 
       <informaltable id="Table612105">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612109">Debit</para></entry>
+                  <entry>
+                     <para id="Para612109">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612111">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612111">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612113">Ship Order</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612113">Ship Order</para>
+                  </entry>
 
-              <entry><para id="Para612115">Cost of Sales</para></entry>
+                  <entry>
+                     <para id="Para612115">Cost of Sales</para>
+                  </entry>
 
-              <entry><para id="Para612117">Shipping Asset</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612117">Shipping Asset</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1393,26 +1821,36 @@
 
       <informaltable id="Table612120">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612124">Debit</para></entry>
+                  <entry>
+                     <para id="Para612124">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612126">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612126">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612128">Return Order</para> <para
-              id="Para612129">to Shipping</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612128">Return Order</para> 
+                     <para id="Para612129">to Shipping</para>
+                  </entry>
 
-              <entry><para id="Para612131">Shipping Asset</para></entry>
+                  <entry>
+                     <para id="Para612131">Shipping Asset</para>
+                  </entry>
 
-              <entry><para id="Para612133">Cost of Sales</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612133">Cost of Sales</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1425,55 +1863,75 @@
 
       <informaltable id="Table612136">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612140">Debit</para></entry>
+                  <entry>
+                     <para id="Para612140">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612142">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612142">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612144">Post P/O Receipt</para> <para
-              id="Para612145">(Inventory Item)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612144">Post P/O Receipt</para> 
+                     <para id="Para612145">(Inventory Item)</para>
+                  </entry>
 
-              <entry><para id="Para612147">Inventory Asset</para> <para
-              id="Para612148">P/O Freight Expense</para></entry>
+                  <entry>
+                     <para id="Para612147">Inventory Asset</para> 
+                     <para id="Para612148">P/O Freight Expense</para>
+                  </entry>
 
-              <entry><para id="Para612150">P/O Liability
-              Clearing</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612150">P/O Liability
+              Clearing</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table612152">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612156">Debit</para></entry>
+                  <entry>
+                     <para id="Para612156">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612158">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612158">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612160">Post P/O Receipt</para> <para
-              id="Para612161">(Non-Inventory)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612160">Post P/O Receipt</para> 
+                     <para id="Para612161">(Non-Inventory)</para>
+                  </entry>
 
-              <entry><para id="Para612163">Expense Account</para> <para
-              id="Para612164">P/O Freight Expense</para></entry>
+                  <entry>
+                     <para id="Para612163">Expense Account</para> 
+                     <para id="Para612164">P/O Freight Expense</para>
+                  </entry>
 
-              <entry><para id="Para612166">P/O Liability
-              Clearing</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612166">P/O Liability
+              Clearing</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1487,116 +1945,164 @@
       shown below for both Inventory and non-Inventory Items. Freight expenses
       may also be corrected:</para>
 
-      <para id="Para612185"><informaltable id="Table612169">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612185">
+         <informaltable id="Table612169">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612173"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612173"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612175"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612175"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612177"> Correct Receiving </para> <para
-                id="Para612178"> (Decrease Qty.: </para> <para
-                id="Para612179"> (Inventory Item) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612177"> Correct Receiving </para> 
+                        <para id="Para612178"> (Decrease Qty.: </para> 
+                        <para id="Para612179"> (Inventory Item) </para>
+                     </entry>
 
-                <entry><para id="Para612181"> P/O Liability Clearing
-                </para></entry>
+                     <entry>
+                        <para id="Para612181"> P/O Liability Clearing
+                </para>
+                     </entry>
 
-                <entry><para id="Para612183"> Inventory Asset </para> <para
-                id="Para612184"> P/O Freight Expense </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612183"> Inventory Asset </para> 
+                        <para id="Para612184"> P/O Freight Expense </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
-      <para id="Para612202"><informaltable id="Table612186">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612202">
+         <informaltable id="Table612186">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612190"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612190"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612192"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612192"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612194"> Correct Receiving </para> <para
-                id="Para612195"> (Increase Qty.: </para> <para
-                id="Para612196"> Inventory Item) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612194"> Correct Receiving </para> 
+                        <para id="Para612195"> (Increase Qty.: </para> 
+                        <para id="Para612196"> Inventory Item) </para>
+                     </entry>
 
-                <entry><para id="Para612198"> Inventory Asset </para> <para
-                id="Para612199"> P/O Freight Expense </para></entry>
+                     <entry>
+                        <para id="Para612198"> Inventory Asset </para> 
+                        <para id="Para612199"> P/O Freight Expense </para>
+                     </entry>
 
-                <entry><para id="Para612201"> P/O Liability Clearing
-                </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612201"> P/O Liability Clearing
+                </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
-      <para id="Para612219"><informaltable id="Table612203">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612219">
+         <informaltable id="Table612203">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612207"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612207"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612209"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612209"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612211"> Correct Receiving </para> <para
-                id="Para612212"> (Decrease Qty.: </para> <para
-                id="Para612213"> (Non-Inventory) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612211"> Correct Receiving </para> 
+                        <para id="Para612212"> (Decrease Qty.: </para> 
+                        <para id="Para612213"> (Non-Inventory) </para>
+                     </entry>
 
-                <entry><para id="Para612215"> P/O Liability Clearing
-                </para></entry>
+                     <entry>
+                        <para id="Para612215"> P/O Liability Clearing
+                </para>
+                     </entry>
 
-                <entry><para id="Para612217"> Expense Account </para> <para
-                id="Para612218"> P/O Freight Expense </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612217"> Expense Account </para> 
+                        <para id="Para612218"> P/O Freight Expense </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
-      <para id="Para612235"><informaltable id="Table612220">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612235">
+         <informaltable id="Table612220">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612224"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612224"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612226"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612226"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612228"> Correct Receiving </para> <para
-                id="Para612229"> (Increase Qty.: </para> <para
-                id="Para612230"> Non-Inventory) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612228"> Correct Receiving </para> 
+                        <para id="Para612229"> (Increase Qty.: </para> 
+                        <para id="Para612230"> Non-Inventory) </para>
+                     </entry>
 
-                <entry><para id="Para612232"> Expense Account </para></entry>
+                     <entry>
+                        <para id="Para612232"> Expense Account </para>
+                     </entry>
 
-                <entry><para id="Para612234"> P/O Liability Clearing
-                </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612234"> P/O Liability Clearing
+                </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <note>
         <para id="Para612237">While Purchase Order Items are returned using
@@ -1606,16 +2112,18 @@
     </section>
 
     <section id="Section612239">
-      <title><anchor id="Anchor612238" role="Index"
-      xreflabel="transactions:for payables accounting;payables:accounting for" />
-      <indexterm significance="normal" zone="Anchor612238">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor612238" role="Index"
+                 xreflabel="transactions:for payables accounting;payables:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for payables accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor612238">
-          <primary>payables</primary>
+            <secondary>for payables accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>payables</primary>
 
-          <secondary>accounting for</secondary>
+            <secondary>accounting for</secondary>
         </indexterm>A/P Module Transactions</title>
 
       <para id="Para612240">Even though Vouchers may be posted from the P/O
@@ -1637,27 +2145,37 @@
 
       <informaltable id="Table612243">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612247">Debit</para></entry>
+                  <entry>
+                     <para id="Para612247">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612249">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612249">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612251">Post Voucher</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612251">Post Voucher</para>
+                  </entry>
 
-              <entry><para id="Para612253">P/O Liability Clearing</para> <para
-              id="Para612254">Purch. Price Variance</para></entry>
+                  <entry>
+                     <para id="Para612253">P/O Liability Clearing</para> 
+                     <para id="Para612254">Purch. Price Variance</para>
+                  </entry>
 
-              <entry><para id="Para612256">Accounts Payable</para> <para
-              id="Para612257">Purch. Price Variance</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612256">Accounts Payable</para> 
+                     <para id="Para612257">Purch. Price Variance</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1668,27 +2186,37 @@
 
       <informaltable id="Table612260">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612264">Debit</para></entry>
+                  <entry>
+                     <para id="Para612264">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612266">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612266">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612268">Post Voucher</para> <para
-              id="Para612269">(Misc. Distribution)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612268">Post Voucher</para> 
+                     <para id="Para612269">(Misc. Distribution)</para>
+                  </entry>
 
-              <entry><para id="Para612271">Misc. Account (varies)</para> <para
-              id="Para612272">Expense Account (optional)</para></entry>
+                  <entry>
+                     <para id="Para612271">Misc. Account (varies)</para> 
+                     <para id="Para612272">Expense Account (optional)</para>
+                  </entry>
 
-              <entry><para id="Para612274">Accounts Payable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612274">Accounts Payable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1705,26 +2233,36 @@
 
       <informaltable id="Table612279">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612283">Debit</para></entry>
+                  <entry>
+                     <para id="Para612283">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612285">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612285">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612287">Post Misc. Voucher</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612287">Post Misc. Voucher</para>
+                  </entry>
 
-              <entry><para id="Para612289">Misc. Account
-              (varies)</para></entry>
+                  <entry>
+                     <para id="Para612289">Misc. Account
+              (varies)</para>
+                  </entry>
 
-              <entry><para id="Para612291">Accounts Payable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612291">Accounts Payable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1732,29 +2270,41 @@
       is selected for payment. The following Accounts are affected when
       applying a Discount to a Voucher:</para>
 
-      <para id="Para612307"><informaltable id="Table612294">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612307">
+         <informaltable id="Table612294">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612298"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612298"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612300"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612300"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612302"> Apply Discount </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612302"> Apply Discount </para>
+                     </entry>
 
-                <entry><para id="Para612304"> Accounts Payable </para></entry>
+                     <entry>
+                        <para id="Para612304"> Accounts Payable </para>
+                     </entry>
 
-                <entry><para id="Para612306"> Discount Account </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612306"> Discount Account </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <para id="Para612308">When posting Checks, the Bank Account selected at
       the time of posting determines which Asset Account will be used. This is
@@ -1763,25 +2313,35 @@
 
       <informaltable id="Table612309">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612313">Debit</para></entry>
+                  <entry>
+                     <para id="Para612313">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612315">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612315">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612317">Post Check(s)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612317">Post Check(s)</para>
+                  </entry>
 
-              <entry><para id="Para612319">Accounts Payable</para></entry>
+                  <entry>
+                     <para id="Para612319">Accounts Payable</para>
+                  </entry>
 
-              <entry><para id="Para612321">Asset Account</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612321">Asset Account</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1790,25 +2350,35 @@
 
       <informaltable id="Table612324">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612328">Debit</para></entry>
+                  <entry>
+                     <para id="Para612328">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612330">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612330">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612332">Post Misc. Check</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612332">Post Misc. Check</para>
+                  </entry>
 
-              <entry><para id="Para612334">Expense Account</para></entry>
+                  <entry>
+                     <para id="Para612334">Expense Account</para>
+                  </entry>
 
-              <entry><para id="Para612336">Asset Account</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612336">Asset Account</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1819,26 +2389,36 @@
 
       <informaltable id="Table612339">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612343">Debit</para></entry>
+                  <entry>
+                     <para id="Para612343">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612345">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612345">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612347">Post Misc. A/P</para> <para
-              id="Para612348">Credit Memo</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612347">Post Misc. A/P</para> 
+                     <para id="Para612348">Credit Memo</para>
+                  </entry>
 
-              <entry><para id="Para612350">Accounts Payable</para></entry>
+                  <entry>
+                     <para id="Para612350">Accounts Payable</para>
+                  </entry>
 
-              <entry><para id="Para612352">Prepaid Payables</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612352">Prepaid Payables</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1853,41 +2433,53 @@
 
       <informaltable id="Table612357">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612361">Debit</para></entry>
+                  <entry>
+                     <para id="Para612361">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612363">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612363">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612365">Post Misc. A/P</para> <para
-              id="Para612366">Debit Memo</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612365">Post Misc. A/P</para> 
+                     <para id="Para612366">Debit Memo</para>
+                  </entry>
 
-              <entry><para id="Para612368">Prepaid Payables</para></entry>
+                  <entry>
+                     <para id="Para612368">Prepaid Payables</para>
+                  </entry>
 
-              <entry><para id="Para612370">Accounts Payable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612370">Accounts Payable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
     </section>
 
     <section id="Section612373">
-      <title><anchor id="Anchor612372" role="Index"
-      xreflabel="transactions:for receivables accounting;receivables:accounting for" />
-      <indexterm significance="normal" zone="Anchor612372">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor612372" role="Index"
+                 xreflabel="transactions:for receivables accounting;receivables:accounting for"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for receivables accounting</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor612372">
-          <primary>receivables</primary>
+            <secondary>for receivables accounting</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>receivables</primary>
 
-          <secondary>accounting for</secondary>
+            <secondary>accounting for</secondary>
         </indexterm>A/R Module Transactions</title>
 
       <para id="Para612374">The G/L records generated when Invoices are posted
@@ -1898,28 +2490,38 @@
 
       <informaltable id="Table612375">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612379">Debit</para></entry>
+                  <entry>
+                     <para id="Para612379">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612381">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612381">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612383">Post Invoice</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612383">Post Invoice</para>
+                  </entry>
 
-              <entry><para id="Para612385">Accounts Receivable</para></entry>
+                  <entry>
+                     <para id="Para612385">Accounts Receivable</para>
+                  </entry>
 
-              <entry><para id="Para612387">Sales Account</para> <para
-              id="Para612388">Sales Tax Account</para> <para
-              id="Para612389">Freight Account</para> <para
-              id="Para612390">Misc. Charges Account</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612387">Sales Account</para> 
+                     <para id="Para612388">Sales Tax Account</para> 
+                     <para id="Para612389">Freight Account</para> 
+                     <para id="Para612390">Misc. Charges Account</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1929,25 +2531,35 @@
 
       <informaltable id="Table612393">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612397">Debit</para></entry>
+                  <entry>
+                     <para id="Para612397">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612399">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612399">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612401">Post Cash Receipt</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612401">Post Cash Receipt</para>
+                  </entry>
 
-              <entry><para id="Para612403">Asset Account</para></entry>
+                  <entry>
+                     <para id="Para612403">Asset Account</para>
+                  </entry>
 
-              <entry><para id="Para612405">Accounts Receivable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612405">Accounts Receivable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -1965,94 +2577,130 @@
       The Credit Memo portion of the transaction is represented by the second
       pair listed below:</para>
 
-      <para id="Para612426"><informaltable id="Table612410">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612426">
+         <informaltable id="Table612410">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612414"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612414"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612416"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612416"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612418"> Post Cash Receipt </para> <para
-                id="Para612419"> (No Application) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612418"> Post Cash Receipt </para> 
+                        <para id="Para612419"> (No Application) </para>
+                     </entry>
 
-                <entry><para id="Para612421"> Cash </para> <para
-                id="Para612422"> Prepaid Receivables </para></entry>
+                     <entry>
+                        <para id="Para612421"> Cash </para> 
+                        <para id="Para612422"> Prepaid Receivables </para>
+                     </entry>
 
-                <entry><para id="Para612424"> Prepaid Receivables </para>
-                <para id="Para612425"> Accounts Receivable </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612424"> Prepaid Receivables </para>
+                        <para id="Para612425"> Accounts Receivable </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <para id="Para612427">If your system is configured to enable Customer
       Deposits, then the following alternate Accounts will be affected when
       you post an unapplied Cash Receipt balance. The Credit Memo portion of
       the transaction is represented by the second pair listed below:</para>
 
-      <para id="Para612444"><informaltable id="Table612428">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612444">
+         <informaltable id="Table612428">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612432"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612432"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612434"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612434"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612436"> Post Cash Receipt </para> <para
-                id="Para612437"> (Customer Deposit)) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612436"> Post Cash Receipt </para> 
+                        <para id="Para612437"> (Customer Deposit)) </para>
+                     </entry>
 
-                <entry><para id="Para612439"> Cash </para> <para
-                id="Para612440"> Prepaid Receivables </para></entry>
+                     <entry>
+                        <para id="Para612439"> Cash </para> 
+                        <para id="Para612440"> Prepaid Receivables </para>
+                     </entry>
 
-                <entry><para id="Para612442"> Prepaid Receivables </para>
-                <para id="Para612443"> Deferred Revenue </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612442"> Prepaid Receivables </para>
+                        <para id="Para612443"> Deferred Revenue </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <para id="Para612445">The Deferred Revenue Account will be cleared when
       the Credit Memo generated by the Customer Deposit is applied to A/R open
       items:</para>
 
-      <para id="Para612460"><informaltable id="Table612446">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612460">
+         <informaltable id="Table612446">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612450"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612450"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612452"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612452"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612454"> Apply Credit Memo </para> <para
-                id="Para612455"> (Customer Deposit)) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612454"> Apply Credit Memo </para> 
+                        <para id="Para612455"> (Customer Deposit)) </para>
+                     </entry>
 
-                <entry><para id="Para612457"> Deferred Revenue </para></entry>
+                     <entry>
+                        <para id="Para612457"> Deferred Revenue </para>
+                     </entry>
 
-                <entry><para id="Para612459"> Accounts Receivable
-                </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612459"> Accounts Receivable
+                </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <para id="Para612461">If you make a miscellaneous distribution when
       posting a Cash Receipt, the following additional Accounts will be
@@ -2060,27 +2708,37 @@
 
       <informaltable id="Table612462">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612466">Debit</para></entry>
+                  <entry>
+                     <para id="Para612466">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612468">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612468">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612470">Post Cash Receipt</para> <para
-              id="Para612471">(Misc. Distribution)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612470">Post Cash Receipt</para> 
+                     <para id="Para612471">(Misc. Distribution)</para>
+                  </entry>
 
-              <entry><para id="Para612473">Asset Account</para></entry>
+                  <entry>
+                     <para id="Para612473">Asset Account</para>
+                  </entry>
 
-              <entry><para id="Para612475">Misc. Account
-              (varies)</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612475">Misc. Account
+              (varies)</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -2097,29 +2755,39 @@
 
       <informaltable id="Table612480">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612484">Debit</para></entry>
+                  <entry>
+                     <para id="Para612484">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612486">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612486">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612488">Post S/O Credit Memo</para> <para
-              id="Para612489">(Billing)</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612488">Post S/O Credit Memo</para> 
+                     <para id="Para612489">(Billing)</para>
+                  </entry>
 
-              <entry><para id="Para612491">Credit Memo Account</para> <para
-              id="Para612492">Sales Tax Account</para> <para
-              id="Para612493">Freight Account</para> <para
-              id="Para612494">Misc. Charges Account</para></entry>
+                  <entry>
+                     <para id="Para612491">Credit Memo Account</para> 
+                     <para id="Para612492">Sales Tax Account</para> 
+                     <para id="Para612493">Freight Account</para> 
+                     <para id="Para612494">Misc. Charges Account</para>
+                  </entry>
 
-              <entry><para id="Para612496">Accounts Receivable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612496">Accounts Receivable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -2130,26 +2798,36 @@
 
       <informaltable id="Table612499">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612503">Debit</para></entry>
+                  <entry>
+                     <para id="Para612503">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612505">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612505">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612507">Post Misc. A/R</para> <para
-              id="Para612508">Credit Memo</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612507">Post Misc. A/R</para> 
+                     <para id="Para612508">Credit Memo</para>
+                  </entry>
 
-              <entry><para id="Para612510">Prepaid Receivables</para></entry>
+                  <entry>
+                     <para id="Para612510">Prepaid Receivables</para>
+                  </entry>
 
-              <entry><para id="Para612512">Accounts Receivable</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612512">Accounts Receivable</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -2158,26 +2836,36 @@
 
       <informaltable id="Table612515">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612519">Debit</para></entry>
+                  <entry>
+                     <para id="Para612519">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612521">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612521">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612523">Post Misc. A/R</para> <para
-              id="Para612524">Debit Memo</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612523">Post Misc. A/R</para> 
+                     <para id="Para612524">Debit Memo</para>
+                  </entry>
 
-              <entry><para id="Para612526">Accounts Receivable</para></entry>
+                  <entry>
+                     <para id="Para612526">Accounts Receivable</para>
+                  </entry>
 
-              <entry><para id="Para612528">Prepaid Receivables</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612528">Prepaid Receivables</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
@@ -2188,32 +2876,44 @@
       the Cash is posted to the Asset Account for the relevant Bank
       Account:</para>
 
-      <para id="Para612547"><informaltable id="Table612531">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612547">
+         <informaltable id="Table612531">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612535"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612535"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612537"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612537"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612539"> Charge Credit Card </para> <para
-                id="Para612540"> (No Application) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612539"> Charge Credit Card </para> 
+                        <para id="Para612540"> (No Application) </para>
+                     </entry>
 
-                <entry><para id="Para612542"> Cash </para> <para
-                id="Para612543"> Prepaid Receivables </para></entry>
+                     <entry>
+                        <para id="Para612542"> Cash </para> 
+                        <para id="Para612543"> Prepaid Receivables </para>
+                     </entry>
 
-                <entry><para id="Para612545"> Prepaid Receivables </para>
-                <para id="Para612546"> Accounts Receivable </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612545"> Prepaid Receivables </para>
+                        <para id="Para612546"> Accounts Receivable </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
       <tip>
         <para id="Para612549">The default Bank Account used for Credit Card
@@ -2224,16 +2924,18 @@
     </section>
 
     <section id="Section612551">
-      <title><anchor id="Anchor612550" role="Index"
-      xreflabel="transactions:for g/l entries and;general ledger:direct entry accounting" />
-      <indexterm significance="normal" zone="Anchor612550">
-          <primary>transactions</primary>
+      <title>
+         <anchor id="Anchor612550" role="Index"
+                 xreflabel="transactions:for g/l entries and;general ledger:direct entry accounting"/>
+         <indexterm significance="normal">
+            <primary>transactions</primary>
 
-          <secondary>for g/l entries and</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor612550">
-          <primary>general ledger</primary>
+            <secondary>for g/l entries and</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>general ledger</primary>
 
-          <secondary>direct entry accounting</secondary>
+            <secondary>direct entry accounting</secondary>
         </indexterm>G/L Module Transactions</title>
 
       <para id="Para612552">G/L transactions entered from the G/L Module may
@@ -2243,155 +2945,219 @@
 
       <informaltable id="Table612553">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612557">Debit</para></entry>
+                  <entry>
+                     <para id="Para612557">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612559">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612559">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612561">Post Simple Entry</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612561">Post Simple Entry</para>
+                  </entry>
 
-              <entry><para id="Para612563">Varies</para></entry>
+                  <entry>
+                     <para id="Para612563">Varies</para>
+                  </entry>
 
-              <entry><para id="Para612565">Varies</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612565">Varies</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table612567">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612571">Debit</para></entry>
+                  <entry>
+                     <para id="Para612571">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612573">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612573">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612575">Post Series Entry</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612575">Post Series Entry</para>
+                  </entry>
 
-              <entry><para id="Para612577">Varies</para></entry>
+                  <entry>
+                     <para id="Para612577">Varies</para>
+                  </entry>
 
-              <entry><para id="Para612579">Varies</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612579">Varies</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table612581">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612585">Debit</para></entry>
+                  <entry>
+                     <para id="Para612585">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612587">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612587">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612589">Post Standard</para> <para
-              id="Para612590">Journal</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612589">Post Standard</para> 
+                     <para id="Para612590">Journal</para>
+                  </entry>
 
-              <entry><para id="Para612592">Varies</para></entry>
+                  <entry>
+                     <para id="Para612592">Varies</para>
+                  </entry>
 
-              <entry><para id="Para612594">Varies</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612594">Varies</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <informaltable id="Table612596">
         <tgroup cols="3">
-          <thead>
-            <row>
-              <entry></entry>
+            <thead>
+               <row>
+                  <entry/>
 
-              <entry><para id="Para612600">Debit</para></entry>
+                  <entry>
+                     <para id="Para612600">Debit</para>
+                  </entry>
 
-              <entry><para id="Para612602">Credit</para></entry>
-            </row>
-          </thead>
+                  <entry>
+                     <para id="Para612602">Credit</para>
+                  </entry>
+               </row>
+            </thead>
 
-          <tbody>
-            <row>
-              <entry><para id="Para612604">Post Standard</para> <para
-              id="Para612605">Journal Group</para></entry>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para612604">Post Standard</para> 
+                     <para id="Para612605">Journal Group</para>
+                  </entry>
 
-              <entry><para id="Para612607">Varies</para></entry>
+                  <entry>
+                     <para id="Para612607">Varies</para>
+                  </entry>
 
-              <entry><para id="Para612609">Varies</para></entry>
-            </row>
-          </tbody>
+                  <entry>
+                     <para id="Para612609">Varies</para>
+                  </entry>
+               </row>
+            </tbody>
         </tgroup>
       </informaltable>
 
       <para id="Para612611">When posting a Bank Adjustment, the sense of the
       transaction will vary based on the Adjustment Type:</para>
 
-      <para id="Para612626"><informaltable id="Table612612">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612626">
+         <informaltable id="Table612612">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612616"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612616"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612618"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612618"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612620"> Post Adjustment </para> <para
-                id="Para612621"> (Positive) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612620"> Post Adjustment </para> 
+                        <para id="Para612621"> (Positive) </para>
+                     </entry>
 
-                <entry><para id="Para612623"> Asset Account </para></entry>
+                     <entry>
+                        <para id="Para612623"> Asset Account </para>
+                     </entry>
 
-                <entry><para id="Para612625"> Adjustment Account
-                </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612625"> Adjustment Account
+                </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
 
-      <para id="Para612641"><informaltable id="Table612627">
-          <tgroup cols="3">
-            <thead>
-              <row>
-                <entry></entry>
+      <para id="Para612641">
+         <informaltable id="Table612627">
+            <tgroup cols="3">
+               <thead>
+                  <row>
+                     <entry/>
 
-                <entry><para id="Para612631"> Debit </para></entry>
+                     <entry>
+                        <para id="Para612631"> Debit </para>
+                     </entry>
 
-                <entry><para id="Para612633"> Credit </para></entry>
-              </row>
-            </thead>
+                     <entry>
+                        <para id="Para612633"> Credit </para>
+                     </entry>
+                  </row>
+               </thead>
 
-            <tbody>
-              <row>
-                <entry><para id="Para612635"> Post Adjustment </para> <para
-                id="Para612636"> (Negative) </para></entry>
+               <tbody>
+                  <row>
+                     <entry>
+                        <para id="Para612635"> Post Adjustment </para> 
+                        <para id="Para612636"> (Negative) </para>
+                     </entry>
 
-                <entry><para id="Para612638"> Adjustment Account
-                </para></entry>
+                     <entry>
+                        <para id="Para612638"> Adjustment Account
+                </para>
+                     </entry>
 
-                <entry><para id="Para612640"> Asset Account </para></entry>
-              </row>
-            </tbody>
-          </tgroup>
-        </informaltable></para>
+                     <entry>
+                        <para id="Para612640"> Asset Account </para>
+                     </entry>
+                  </row>
+               </tbody>
+            </tgroup>
+        </informaltable>
+      </para>
     </section>
   </section>

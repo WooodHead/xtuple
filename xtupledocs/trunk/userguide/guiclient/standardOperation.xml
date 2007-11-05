@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section663752" role="openmfg">
-  <title><anchor id="Anchor599313" role="Index"
-  xreflabel="standard operations:creating new" /> <indexterm
-      significance="normal" zone="Anchor599313">
-      <primary>standard operations</primary>
+  <title>
+      <anchor id="Anchor599313" role="Index" xreflabel="standard operations:creating new"/> 
+      <indexterm significance="normal">
+         <primary>standard operations</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm>Standard Operation</title>
+         <secondary>creating new</secondary>
+      </indexterm>Standard Operation</title>
 
   <para id="Para518819">To create a new Standard Operation, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para518823"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/PD_MI_standOpsNew.png" id="Graphic562729" />
-        </imageobject>
+  <para id="Para518823">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/PD_MI_standOpsNew.png" id="Graphic562729"/>
+            </imageobject>
 
-        <caption id="Caption518824">Create New Standard Operation</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption518824">Create New Standard Operation</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para518825">When creating a new Standard Operation, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518829">Std. Oper. #</term>
+      <varlistentry>
+         <term id="Para518829">Std. Oper. #</term>
 
-      <listitem id="listitemN0x180ac00N0x184cdf8">
-        <para>Enter a number or code to identify the Standard
+         <listitem id="listitemN0x180ac00N0x184cdf8">
+            <para>Enter a number or code to identify the Standard
         Operation.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518833">Description</term>
+      <varlistentry>
+         <term id="Para518833">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x184ce40">
-        <para>Enter a description to further identify the Operation.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x184ce40">
+            <para>Enter a description to further identify the Operation.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518834">Work Center #</term>
+      <varlistentry>
+         <term id="Para518834">Work Center #</term>
 
-      <listitem id="listitemN0x180ac00N0x184ce88">
-        <para>Select the Work Center you want to use for the Standard
+         <listitem id="listitemN0x180ac00N0x184ce88">
+            <para>Select the Work Center you want to use for the Standard
         Operation.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518839">Tool Reference</term>
+      <varlistentry>
+         <term id="Para518839">Tool Reference</term>
 
-      <listitem id="listitemN0x180ac00N0x184ced0">
-        <para>Use this field to briefly describe any tooling required for the
+         <listitem id="listitemN0x180ac00N0x184ced0">
+            <para>Use this field to briefly describe any tooling required for the
         Operation. For example, if you are making plastic products, the
         tooling reference might refer to the mold used to form the
         plastic.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para629186"><anchor id="Anchor629174" role="Index"
-      xreflabel="units of measure:in operations" /> <indexterm
-          significance="normal" zone="Anchor629174">
-          <primary>units of measure</primary>
+      <varlistentry>
+         <term id="Para629186">
+            <anchor id="Anchor629174" role="Index" xreflabel="units of measure:in operations"/> 
+            <indexterm significance="normal">
+               <primary>units of measure</primary>
 
-          <secondary>in operations</secondary>
-        </indexterm>Production UOM</term>
+               <secondary>in operations</secondary>
+            </indexterm>Production UOM</term>
 
-      <listitem id="listitemN0x180ac00N0x184cf60">
-        <para>Specify the Unit of Measure to use for the Production UOM--or
+         <listitem id="listitemN0x180ac00N0x184cf60">
+            <para>Specify the Unit of Measure to use for the Production UOM--or
         enter a free-form UOM.</para>
 
-        <para id="Para629187">Specify a UOM to be used optionally when Work
+            <para id="Para629187">Specify a UOM to be used optionally when Work
         Order Operations are posted for the specified Operation. Operations
         may be posted using either the Inventory or Production UOM. In
         addition, different Operations in a single Bill of Operations may use
@@ -87,178 +89,177 @@
         post Operations using the Production UOM, the Inventory/Production UOM
         ratio normalizes the posting so that the Inventory impact is recorded
         using the Inventory UOM.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para630490">When posting Work Order Operations, you are given
+      <para id="Para630490">When posting Work Order Operations, you are given
     the option to post Operations using Production UOMs or Inventory
     UOMs.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para629191">Inventory/Production UOM Ratio</term>
+      <varlistentry>
+         <term id="Para629191">Inventory/Production UOM Ratio</term>
 
-      <listitem id="listitemN0x180ac00N0x184cff0">
-        <para>When Work Order Operations are posted using the Production UOM,
+         <listitem id="listitemN0x180ac00N0x184cff0">
+            <para>When Work Order Operations are posted using the Production UOM,
         the Inventory/Production UOM ratio normalizes the posting so that the
         Inventory impact is recorded in the Inventory UOM. The ratio is set up
         in the same way as the Capacity/Inventory UOM ratio described in the
         <link endterm="Anchor13555" id="XRef645752" linkend="Anchor13555">
         Enter New Item</link>"Enter New Item" section.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518851">Use Standard Times</term>
+      <varlistentry>
+         <term id="Para518851">Use Standard Times</term>
 
-      <listitem id="listitemN0x180ac00N0x184d038">
-        <para>Select to activate fields for standard times below.</para>
+         <listitem id="listitemN0x180ac00N0x184d038">
+            <para>Select to activate fields for standard times below.</para>
 
-        <para id="Para605801">Standard times will be associated with the
+            <para id="Para605801">Standard times will be associated with the
         Standard Operation if selected.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para645704">Labor and overhead Costs associated with setup and
+      <para id="Para645704">Labor and overhead Costs associated with setup and
     run times must be reported if they are to be tracked in the G/L and
     elsewhere. To report setup and run times, select the appropriate boxes in
     the Operation screen.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518854"><anchor id="Anchor600774" role="Index"
-      xreflabel="setup time:for operations" /> <indexterm
-          significance="normal" zone="Anchor600774">
-          <primary>setup time</primary>
+      <varlistentry>
+         <term id="Para518854">
+            <anchor id="Anchor600774" role="Index" xreflabel="setup time:for operations"/> 
+            <indexterm significance="normal">
+               <primary>setup time</primary>
 
-          <secondary>for operations</secondary>
-        </indexterm>Setup Time (min)</term>
+               <secondary>for operations</secondary>
+            </indexterm>Setup Time (min)</term>
 
-      <listitem id="listitemN0x180ac00N0x184d110">
-        <para>Amount entered represents the number of minutes required to set
+         <listitem id="listitemN0x180ac00N0x184d110">
+            <para>Amount entered represents the number of minutes required to set
         up the Work Center for the Operation.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518857">Report Cost as (Setup Time)</term>
+      <varlistentry>
+         <term id="Para518857">Report Cost as (Setup Time)</term>
 
-      <listitem id="listitemN0x180ac00N0x184d158">
-        <para>Specify whether you want to report Setup Costs as "Direct
+         <listitem id="listitemN0x180ac00N0x184d158">
+            <para>Specify whether you want to report Setup Costs as "Direct
         Labor," "Overhead," or "None."</para>
 
-        <para id="Para662241">Specify the "None" option if you would do not
+            <para id="Para662241">Specify the "None" option if you would do not
         want to track Setup Time as part of the Operation's Cost.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518859">Report Setup Time</term>
+      <varlistentry>
+         <term id="Para518859">Report Setup Time</term>
 
-      <listitem id="listitemN0x180ac00N0x184d1a0">
-        <para>Select to report setup time.</para>
+         <listitem id="listitemN0x180ac00N0x184d1a0">
+            <para>Select to report setup time.</para>
 
-        <para id="Para607784">Must be selected for labor Costs associated with
+            <para id="Para607784">Must be selected for labor Costs associated with
         setup to be tracked in the G/L and elsewhere. If not selected, these
         Costs will not be reported.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518862"><anchor id="Anchor600775" role="Index"
-      xreflabel="run time:for standard operations" /> <indexterm
-          significance="normal" zone="Anchor600775">
-          <primary>run time</primary>
+      <varlistentry>
+         <term id="Para518862">
+            <anchor id="Anchor600775" role="Index" xreflabel="run time:for standard operations"/> 
+            <indexterm significance="normal">
+               <primary>run time</primary>
 
-          <secondary>for standard operations</secondary>
-        </indexterm>Run Time (min)</term>
+               <secondary>for standard operations</secondary>
+            </indexterm>Run Time (min)</term>
 
-      <listitem id="listitemN0x180ac00N0x184d230">
-        <para>Amount entered represents the number of minutes required to run
+         <listitem id="listitemN0x180ac00N0x184d230">
+            <para>Amount entered represents the number of minutes required to run
         the Operation.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para647312">per</term>
+      <varlistentry>
+         <term id="Para647312">per</term>
 
-      <listitem id="listitemN0x180ac00N0x184d278">
-        <para>Specify the standard quantity that will be produced during a
+         <listitem id="listitemN0x180ac00N0x184d278">
+            <para>Specify the standard quantity that will be produced during a
         typical run-time period.</para>
 
-        <para id="Para647313">The value entered here is equivalent to a run
+            <para id="Para647313">The value entered here is equivalent to a run
         size, batch size, or Economic Order Quantity (EOQ) for this particular
         Operation. Because Work Order Operations roll into the Actual and
         Standard Costs for manufactured Items, you should specify a per
         quantity which accurately reflects your normal batch size for the
         Operation. Specifying a standard batch size helps ensure your
         Operations Costs are evenly distributed. For an example of how the
-        batch size can help distribute Costs from Operations, see <link
-        endterm="Anchor15267" id="XRef647315" linkend="Anchor15267"> Affect of
+        batch size can help distribute Costs from Operations, see <link endterm="Anchor15267" id="XRef647315" linkend="Anchor15267"> Affect of
         Batch Size on Manufactured Item Costing</link>Figure 5.1.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518870">Report Cost as (Run Time)</term>
+      <varlistentry>
+         <term id="Para518870">Report Cost as (Run Time)</term>
 
-      <listitem id="listitemN0x180ac00N0x184d2c0">
-        <para>Specify whether you want to report Setup Costs as "Direct
+         <listitem id="listitemN0x180ac00N0x184d2c0">
+            <para>Specify whether you want to report Setup Costs as "Direct
         Labor," "Overhead," or "None."</para>
 
-        <para id="Para629281">Specify the "None" option if you would do not
+            <para id="Para629281">Specify the "None" option if you would do not
         want to track Run Time as part of the Operation's Cost.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518872">Report Run Time</term>
+      <varlistentry>
+         <term id="Para518872">Report Run Time</term>
 
-      <listitem id="listitemN0x180ac00N0x184d308">
-        <para>Select to report run time.</para>
+         <listitem id="listitemN0x180ac00N0x184d308">
+            <para>Select to report run time.</para>
 
-        <para id="Para607791">Must be selected for labor Costs associated with
+            <para id="Para607791">Must be selected for labor Costs associated with
         run time to be tracked in the G/L and elsewhere. If not selected,
         these Costs will not be reported.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518876">Instructions</term>
+      <varlistentry>
+         <term id="Para518876">Instructions</term>
 
-      <listitem id="listitemN0x180ac00N0x184d350">
-        <para>This is a scrolling text field with word-wrapping for entering
+         <listitem id="listitemN0x180ac00N0x184d350">
+            <para>This is a scrolling text field with word-wrapping for entering
         special instructions or Comments related to the Work Center.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para518878">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518879">CANCEL</term>
+      <varlistentry>
+         <term id="Para518879">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x184d3bc">
-        <para>Closes the screen without creating the Standard Operation,
+         <listitem id="listitemN0x180ac00N0x184d3bc">
+            <para>Closes the screen without creating the Standard Operation,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518880">SAVE</term>
+      <varlistentry>
+         <term id="Para518880">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x184d404">
-        <para>Creates the Standard Operation and adds it to the master list of
+         <listitem id="listitemN0x180ac00N0x184d404">
+            <para>Creates the Standard Operation and adds it to the master list of
         Standard Operations.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

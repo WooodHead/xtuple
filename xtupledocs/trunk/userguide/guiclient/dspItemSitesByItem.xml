@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519909">
-    <title><anchor id="Anchor552212" role="Index"
-    xreflabel="item sites:by item;items:item site details for" /> <indexterm
-        significance="normal" zone="Anchor552212">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519909">
+    <title>
+      <anchor id="Anchor552212" role="Index"
+              xreflabel="item sites:by item;items:item site details for"/> 
+      <indexterm significance="normal">
         <primary>item sites</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552212">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>item site details for</secondary>
@@ -17,16 +19,17 @@
     <para id="Para519910">To view Item Sites by Item, select the "Item Sites
     by Item" option. The following screen will appear:</para>
 
-    <para id="Para519914"><screenshot>
+    <para id="Para519914">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_itemSitesByItem.png"
-                       id="Graphic526572" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_itemSitesByItem.png" id="Graphic526572"/>
+            </imageobject>
 
-          <caption id="Caption519915">Item Sites by Item</caption>
+            <caption id="Caption519915">Item Sites by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519921">When displaying Item Sites by Item, you are
     presented with the following options:</para>
@@ -36,7 +39,7 @@
         <term id="Para519922">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1932984">
-          <para>Enter the Item Number of the Item whose Item Site(s) you want
+            <para>Enter the Item Number of the Item whose Item Site(s) you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +48,7 @@
         <term id="Para672040">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x19329cc">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +56,7 @@
         <term id="Para620637">Show Inactive</term>
 
         <listitem id="listitemN0x180ac00N0x1932a14">
-          <para>Select to display active as well as inactive Item
+            <para>Select to display active as well as inactive Item
           Sites.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +65,7 @@
         <term id="Para519926">Item Sites</term>
 
         <listitem id="listitemN0x180ac00N0x1932a5c">
-          <para>Display lists Item Sites for the specified Item.</para>
+            <para>Display lists Item Sites for the specified Item.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -75,7 +78,7 @@
         <term id="Para519929">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1932ac8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +87,7 @@
         <term id="Para620627">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1932b10">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +96,7 @@
         <term id="Para675640">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1932b58">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -106,7 +109,7 @@
         <term id="Para519932">View Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x1932bc4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -114,7 +117,7 @@
         <term id="Para519933">Edit Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x1932c0c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -122,7 +125,7 @@
         <term id="Para519934">View Inventory Availability</term>
 
         <listitem id="listitemN0x180ac00N0x1932c54">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -130,13 +133,12 @@
         <term id="Para556418">Issue Count Tag</term>
 
         <listitem id="listitemN0x180ac00N0x1932c9c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para578540">If the Item Site is an MLC Item Site or if its
@@ -148,7 +150,7 @@
         <term id="Para578563">View Location/Lot/Serial # Detail</term>
 
         <listitem id="listitemN0x180ac00N0x1932d50">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
     </variablelist>

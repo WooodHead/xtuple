@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section550001">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section550001">
     <title>Reprioritize Work Order</title>
 
     <para id="Para550005">You have the ability to reprioritize Work Orders
@@ -9,16 +9,17 @@
     Order, select the "Reprioritize Work Order" option. The following screen
     will appear:</para>
 
-    <para id="Para550754"><screenshot>
+    <para id="Para550754">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_reprioritizeWO.png"
-                       id="Graphic550752" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_reprioritizeWO.png" id="Graphic550752"/>
+            </imageobject>
 
-          <caption id="Caption550755">Reprioritize Work Order</caption>
+            <caption id="Caption550755">Reprioritize Work Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para560386">To edit a Work Order after it has been created,
@@ -34,7 +35,7 @@
         <term id="Para550821">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           reschedule.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +44,7 @@
         <term id="Para550823">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +53,7 @@
         <term id="Para550824">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +62,7 @@
         <term id="Para568627">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -69,7 +70,7 @@
         <term id="Para550826">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +79,7 @@
         <term id="Para550830">Current Priority</term>
 
         <listitem>
-          <para>Displays the current priority assigned to the Work
+            <para>Displays the current priority assigned to the Work
           Order.</para>
         </listitem>
       </varlistentry>
@@ -87,10 +88,10 @@
         <term id="Para550962">New Priority</term>
 
         <listitem>
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 99.</para>
 
-          <para id="Para550963">Value entered assigns a new priority to the
+            <para id="Para550963">Value entered assigns a new priority to the
           selected Work Order.</para>
         </listitem>
       </varlistentry>
@@ -99,7 +100,7 @@
         <term id="Para550837">Reschedule Child Work Orders (if any)</term>
 
         <listitem>
-          <para>Select to reprioritize child Work Orders to meet the demands
+            <para>Select to reprioritize child Work Orders to meet the demands
           of the reprioritized parent Work Order.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +114,7 @@
         <term id="Para550843">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without reprioritizing the selected Work
+            <para>Closes the screen without reprioritizing the selected Work
           Order, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -122,7 +123,7 @@
         <term id="Para550844">RESCHEDULE</term>
 
         <listitem>
-          <para>Assigns a new priority to the selected Work Order.</para>
+            <para>Assigns a new priority to the selected Work Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>

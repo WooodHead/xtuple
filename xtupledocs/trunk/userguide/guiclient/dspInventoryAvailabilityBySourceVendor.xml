@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section546362">
-    <title><anchor id="Anchor552238" role="Index"
-    xreflabel="inventory availability:by source vendor;item sources:inventory availability for" />
-    <indexterm significance="normal" zone="Anchor552238">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section546362">
+    <title>
+      <anchor id="Anchor552238" role="Index"
+              xreflabel="inventory availability:by source vendor;item sources:inventory availability for"/>
+      <indexterm significance="normal">
         <primary>inventory availability</primary>
 
         <secondary>by source vendor</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552238">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item sources</primary>
 
         <secondary>inventory availability for</secondary>
@@ -18,17 +20,18 @@
     select the "Inventory Availability by Source Vendor" option. The following
     screen will appear:</para>
 
-    <para id="Para546399"><screenshot>
+    <para id="Para546399">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_invAvailSrcVend.png"
-                       id="Graphic546397" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_invAvailSrcVend.png" id="Graphic546397"/>
+            </imageobject>
 
-          <caption id="Caption546400">Inventory Availability by Source
+            <caption id="Caption546400">Inventory Availability by Source
           Vendor</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para546401">When displaying Inventory Availability by source
     Vendor, you are presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para621037">All Vendors</term>
 
         <listitem id="listitemN0x180ac00N0x1965384">
-          <para>Select to display Inventory Availability for all
+            <para>Select to display Inventory Availability for all
           Vendors.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para621038">Selected Vendor</term>
 
         <listitem id="listitemN0x180ac00N0x19653cc">
-          <para>Enter the Vendor Number of the Vendor whose Inventory
+            <para>Enter the Vendor Number of the Vendor whose Inventory
           Availability you want to display.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +59,7 @@
         <term id="Para621040">Selected Vendor Type</term>
 
         <listitem id="listitemN0x180ac00N0x1965414">
-          <para>Specify Vendor Type whose Inventory Availability you want to
+            <para>Specify Vendor Type whose Inventory Availability you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -65,12 +68,11 @@
         <term id="Para621041">Vendor Type Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x196545c">
-          <para>Enter a Vendor Type pattern to select a range of Vendor
+            <para>Enter a Vendor Type pattern to select a range of Vendor
           Types.</para>
 
-          <para id="Para677159">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677158"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677159">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677158" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -80,22 +82,22 @@
         <term id="Para558974">Show Availability as of</term>
 
         <listitem id="listitemN0x180ac00N0x19654a4">
-          <para>Show Availability using one of the following criteria:</para>
+            <para>Show Availability using one of the following criteria:</para>
 
-          <para id="Para558975">Item Site Lead Time: Select to show projected
+            <para id="Para558975">Item Site Lead Time: Select to show projected
           Availability based on the Lead Time specified in the Item Site
           master.</para>
 
-          <para id="Para558976">Look Ahead Days: Select a number using the
+            <para id="Para558976">Look Ahead Days: Select a number using the
           arrow buttons, or manually enter a value up to a maximum of 1000.
           Future Availability for the specified Item will be displayed based
           on the value entered here.</para>
 
-          <para id="Para621804">Cutoff Date: Display will show projected
+            <para id="Para621804">Cutoff Date: Display will show projected
           Inventory Availability as of date entered up to a maximum of 1000
           days.</para>
 
-          <para id="Para621808">Dates: Display will show projected Inventory
+            <para id="Para621808">Dates: Display will show projected Inventory
           Availability for the date range entered.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +106,7 @@
         <term id="Para546415">Show Reorder Exceptions</term>
 
         <listitem id="listitemN0x180ac00N0x19654ec">
-          <para>Select to show Reorder Exceptions in display.</para>
+            <para>Select to show Reorder Exceptions in display.</para>
         </listitem>
       </varlistentry>
 
@@ -112,7 +114,7 @@
         <term id="Para546416">Ignore Reorder at 0</term>
 
         <listitem id="listitemN0x180ac00N0x1965534">
-          <para>Select to ignore reorder at 0 in display.</para>
+            <para>Select to ignore reorder at 0 in display.</para>
         </listitem>
       </varlistentry>
 
@@ -120,7 +122,7 @@
         <term id="Para546417">Show Shortages</term>
 
         <listitem id="listitemN0x180ac00N0x196557c">
-          <para>Select to only show Inventory shortages in display.</para>
+            <para>Select to only show Inventory shortages in display.</para>
         </listitem>
       </varlistentry>
 
@@ -128,7 +130,7 @@
         <term id="Para546418">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19655a0">
-          <para>Select to display Inventory Availability by source Vendor for
+            <para>Select to display Inventory Availability by source Vendor for
           all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -137,7 +139,7 @@
         <term id="Para546420">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19655c4">
-          <para>Specify Warehouse whose Inventory Availability by source
+            <para>Specify Warehouse whose Inventory Availability by source
           Vendor you want to display.</para>
         </listitem>
       </varlistentry>
@@ -146,10 +148,10 @@
         <term id="Para546422">Availability</term>
 
         <listitem id="listitemN0x180ac00N0x196560c">
-          <para>Display lists Inventory Availability by source Vendor, using
+            <para>Display lists Inventory Availability by source Vendor, using
           the specified parameters.</para>
 
-          <para id="Para676053">If Planned Availability displays in the color
+            <para id="Para676053">If Planned Availability displays in the color
           orange, this means the actual or projected Quantity on Hand is at or
           below the Reorder Level. If the color is red, the current or
           projected Quantity on Hand is below 0.</para>
@@ -173,7 +175,7 @@
         <term id="Para546425">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x196569c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -182,7 +184,7 @@
         <term id="Para578657">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19656e4">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -191,7 +193,7 @@
         <term id="Para546427">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x196572c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -200,36 +202,28 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/16)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/16)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/22)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/22)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/4)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/3)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/3)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/9)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/9)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/8)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

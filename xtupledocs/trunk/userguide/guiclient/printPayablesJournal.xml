@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section561372">
-    <title><anchor id="Anchor561371" role="Index"
-    xreflabel="accounts payable:payables journal;payables journal:printing of;payables journal:reprinting of" />
-    <indexterm significance="normal" zone="Anchor561371">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section561372">
+    <title>
+      <anchor id="Anchor561371" role="Index"
+              xreflabel="accounts payable:payables journal;payables journal:printing of;payables journal:reprinting of"/>
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>payables journal</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor561371">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>payables journal</primary>
 
         <secondary>printing of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor561371">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>payables journal</primary>
 
         <secondary>reprinting of</secondary>
@@ -23,16 +26,17 @@
     select the "Payables Journal" option. The following screen will
     appear:</para>
 
-    <para id="Para561377"><screenshot>
+    <para id="Para561377">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Rep_payJournal.png"
-                       id="Graphic561375" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Rep_payJournal.png" id="Graphic561375"/>
+            </imageobject>
 
-          <caption id="Caption561378">Print Payables Journal</caption>
+            <caption id="Caption561378">Print Payables Journal</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para564011">When printing a Payables Journal, you are presented
     with the following options:</para>
@@ -42,10 +46,10 @@
         <term id="Para564012">Journal Number</term>
 
         <listitem>
-          <para>Specify the number of the Payables Journal you want to
+            <para>Specify the number of the Payables Journal you want to
           print.</para>
 
-          <para id="Para564013">Payables Journals are created when Vouchers
+            <para id="Para564013">Payables Journals are created when Vouchers
           are posted. The Journal Number you select will include both the
           Payable Journal Number and also the date when the Vouchers were
           posted.</para>
@@ -61,7 +65,7 @@
         <term id="Para561383">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without printing a Payables Journal,
+            <para>Closes the screen without printing a Payables Journal,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +74,7 @@
         <term id="Para565686">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

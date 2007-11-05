@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section537996" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537996" role="openmfg">
     <title>Run Buffer Status by Planner Code</title>
 
     <para id="Para542188">When you run buffer status by Planner Code, you are
@@ -35,17 +34,18 @@
     "Run Buffer Status by Planner Code" option. The following screen will
     appear:</para>
 
-    <para id="Para542068"><screenshot>
+    <para id="Para542068">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Buff_runByPCode.png"
-                       id="Graphic542066" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Buff_runByPCode.png" id="Graphic542066"/>
+            </imageobject>
 
-          <caption id="Caption542069">Run Buffer Status by Planner
+            <caption id="Caption542069">Run Buffer Status by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para542070">When running buffer status by Planner Code, you are
     presented with the following options:</para>
@@ -55,7 +55,7 @@
         <term id="Para542296">All Planner Codes</term>
 
         <listitem>
-          <para>Select to update the buffer status for Item Sites in all
+            <para>Select to update the buffer status for Item Sites in all
           Planner Codes.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +64,7 @@
         <term id="Para542297">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose Item Site buffer statuses you want
+            <para>Specify Planner Code whose Item Site buffer statuses you want
           to update.</para>
         </listitem>
       </varlistentry>
@@ -73,12 +73,11 @@
         <term id="Para542298">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554618">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554617"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554618">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554617" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -88,7 +87,7 @@
         <term id="Para542306">All Warehouses</term>
 
         <listitem>
-          <para>Select to update buffer statuses by Planner Code in all
+            <para>Select to update buffer statuses by Planner Code in all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +96,7 @@
         <term id="Para542307">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse where buffer status updates should
+            <para>Specify Warehouse where buffer status updates should
           occur.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +110,7 @@
         <term id="Para542416">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without updating buffer statuses by Planner
+            <para>Closes the screen without updating buffer statuses by Planner
           Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -120,7 +119,7 @@
         <term id="Para542417">CREATE</term>
 
         <listitem>
-          <para>Runs the buffer status update by Planner Code, using the
+            <para>Runs the buffer status update by Planner Code, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -129,9 +128,8 @@
         <term id="Para542418">SUBMIT</term>
 
         <listitem>
-          <para>Select to submit the buffer status update to the Batch
-          Manager. For additional information, see the <link
-          endterm="Anchor61009" id="XRef547882" linkend="Anchor61009">
+            <para>Select to submit the buffer status update to the Batch
+          Manager. For additional information, see the <link endterm="Anchor61009" id="XRef547882" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
         </listitem>

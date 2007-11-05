@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Quantities on Hand by Parameter List
@@ -57,14 +57,14 @@
             </row>
                   <row>
                <entry>
-                  <guilabel>Item Number</guilabel>
+                  <guilabel moreinfo="none">Item Number</guilabel>
                </entry>
                <entry>_byItemNumber</entry>
                <entry>QRadioButton</entry>
             </row>
                   <row>
                <entry>
-                  <guilabel>Value</guilabel>
+                  <guilabel moreinfo="none">Value</guilabel>
                </entry>
                <entry>_byValue</entry>
                <entry>QRadioButton</entry>
@@ -76,28 +76,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Show All Quantities</guilabel>
+                  <guilabel moreinfo="none">Show All Quantities</guilabel>
                </entry>
                <entry>_showAll</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Only Show Positive Quantities</guilabel>
+                  <guilabel moreinfo="none">Only Show Positive Quantities</guilabel>
                </entry>
                <entry>_showPositive</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Only Show Negative Quantities</guilabel>
+                  <guilabel moreinfo="none">Only Show Negative Quantities</guilabel>
                </entry>
                <entry>_showNegative</entry>
                <entry>QRadioButton</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Show Inventory <accel>V</accel>alue</guilabel>
+                  <guilabel moreinfo="none">Show Inventory <accel>V</accel>alue</guilabel>
                </entry>
                <entry>_showValue</entry>
                <entry>XCheckBox</entry>
@@ -109,21 +109,21 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>Use Standard Costs</guilabel>
+                  <guilabel moreinfo="none">Use Standard Costs</guilabel>
                </entry>
                <entry>_useStandardCosts</entry>
                <entry>QRadioButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Use Actual Costs</guilabel>
+                  <guilabel moreinfo="none">Use Actual Costs</guilabel>
                </entry>
                <entry>_useActualCosts</entry>
                <entry>QRadioButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -131,7 +131,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uery</guilabel>
                </entry>
                <entry>_query</entry>
@@ -139,7 +139,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -152,7 +152,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Quantities on Hand</guilabel>
+                  <guilabel moreinfo="none">Quantities on Hand</guilabel>
                </entry>
                <entry>_qohLit</entry>
                <entry>QLabel</entry>

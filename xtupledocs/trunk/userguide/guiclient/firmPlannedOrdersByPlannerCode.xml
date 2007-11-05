@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section537876" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537876" role="openmfg">
     <title>Firm Planned Orders by Planner Code</title>
 
-    <para id="Para537878">A <anchor id="Anchor537877" role="Index"
-    xreflabel="firmed orders:by planner code" /> <indexterm
-        significance="normal" zone="Anchor537877">
+    <para id="Para537878">A <anchor id="Anchor537877" role="Index" xreflabel="firmed orders:by planner code"/> 
+      <indexterm significance="normal">
         <primary>firmed orders</primary>
 
         <secondary>by planner code</secondary>
@@ -20,17 +18,18 @@
     the "Firm Planned Orders by Planner Code" option. The following screen
     will appear:</para>
 
-    <para id="Para537882"><screenshot>
+    <para id="Para537882">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Sched_firmPlanOrdByPCode.png"
-                       id="Graphic537880" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Sched_firmPlanOrdByPCode.png" id="Graphic537880"/>
+            </imageobject>
 
-          <caption id="Caption537883">Firm Planned Orders by Planner
+            <caption id="Caption537883">Firm Planned Orders by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para537884">When firming Planned Orders by Planner Code, you are
     presented with the following options:</para>
@@ -40,7 +39,7 @@
         <term id="Para537885">All Planner Codes</term>
 
         <listitem>
-          <para>Select to firm Planned Orders for all Planner Codes.</para>
+            <para>Select to firm Planned Orders for all Planner Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -48,7 +47,7 @@
         <term id="Para537886">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose Planned Orders you want to
+            <para>Specify Planner Code whose Planned Orders you want to
           firm.</para>
         </listitem>
       </varlistentry>
@@ -57,12 +56,11 @@
         <term id="Para537887">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554585">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554584"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554585">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554584" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -72,7 +70,7 @@
         <term id="Para537895">Cutoff Date</term>
 
         <listitem>
-          <para>Indicates the last date when Planned Orders by Planner Code
+            <para>Indicates the last date when Planned Orders by Planner Code
           may be firmed.</para>
         </listitem>
       </varlistentry>
@@ -81,7 +79,7 @@
         <term id="Para537896">All Warehouses</term>
 
         <listitem>
-          <para>Select to firm Planned Orders by Planner Code for all
+            <para>Select to firm Planned Orders by Planner Code for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -90,7 +88,7 @@
         <term id="Para537897">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose Planned Orders by Planner Code you
+            <para>Specify Warehouse whose Planned Orders by Planner Code you
           want to firm.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +102,7 @@
         <term id="Para537899">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without firming the Planned Orders by
+            <para>Closes the screen without firming the Planned Orders by
           Planner Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +111,7 @@
         <term id="Para537900">FIRM</term>
 
         <listitem>
-          <para>Firms the Planned Orders by Planner Code.</para>
+            <para>Firms the Planned Orders by Planner Code.</para>
         </listitem>
       </varlistentry>
     </variablelist>

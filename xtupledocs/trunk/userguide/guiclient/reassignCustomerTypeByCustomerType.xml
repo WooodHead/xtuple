@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section567010">
-    <title><anchor id="Anchor567009" role="Index"
-    xreflabel="customer types:reassignment of" /> <indexterm
-        significance="normal" zone="Anchor567009">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section567010">
+    <title>
+      <anchor id="Anchor567009" role="Index" xreflabel="customer types:reassignment of"/> 
+      <indexterm significance="normal">
         <primary>customer types</primary>
 
         <secondary>reassignment of</secondary>
@@ -14,17 +14,18 @@
     the "Reassign Customer Types by Customer Type" option. The following
     screen will appear:</para>
 
-    <para id="Para567015"><screenshot>
+    <para id="Para567015">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Utils_reassignCustType.png"
-                       id="Graphic567013" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Utils_reassignCustType.png" id="Graphic567013"/>
+            </imageobject>
 
-          <caption id="Caption567016">Reassign Customer Types by Customer
+            <caption id="Caption567016">Reassign Customer Types by Customer
           Type</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para567017">When reassigning Customer Types by Customer Type,
     you are presented with the following options:</para>
@@ -34,7 +35,7 @@
         <term id="Para574556">Selected Customer Type</term>
 
         <listitem id="listitemN0x180ac00N0x199ab58">
-          <para>Specify the Customer Type you want to reassign.</para>
+            <para>Specify the Customer Type you want to reassign.</para>
         </listitem>
       </varlistentry>
 
@@ -42,12 +43,11 @@
         <term id="Para574557">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x199aba0">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para656159">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef656158"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para656159">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef656158" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -57,7 +57,7 @@
         <term id="Para567151">New Customer Type</term>
 
         <listitem id="listitemN0x180ac00N0x199abe8">
-          <para>Specify the new Customer Type you want to reassign the
+            <para>Specify the new Customer Type you want to reassign the
           Customers to.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +71,7 @@
         <term id="Para567046">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x199ac54">
-          <para>Closes the screen without reassigning Customer Type(s),
+            <para>Closes the screen without reassigning Customer Type(s),
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +80,7 @@
         <term id="Para567047">REASSIGN</term>
 
         <listitem id="listitemN0x180ac00N0x199ac9c">
-          <para>Reassigns Customer Type(s), using the specified
+            <para>Reassigns Customer Type(s), using the specified
           parameters.</para>
         </listitem>
       </varlistentry>

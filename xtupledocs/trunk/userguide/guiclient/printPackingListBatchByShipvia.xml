@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section547036">
-    <title><anchor id="Anchor541061" role="Index"
-    xreflabel="packing lists:batch printing of;batch mode:printing packing lists using;ship vias:printing packing lists by" />
-    <indexterm significance="normal" zone="Anchor541061">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section547036">
+    <title>
+      <anchor id="Anchor541061" role="Index"
+              xreflabel="packing lists:batch printing of;batch mode:printing packing lists using;ship vias:printing packing lists by"/>
+      <indexterm significance="normal">
         <primary>packing lists</primary>
 
         <secondary>batch printing of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor541061">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>batch mode</primary>
 
         <secondary>printing packing lists using</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor541061">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>ship vias</primary>
 
         <secondary>printing packing lists by</secondary>
@@ -22,17 +25,18 @@
     according to their Ship Via method, select the "Print Packing List Batch
     by Ship Via" option. The following screen will appear:</para>
 
-    <para id="Para541067"><screenshot>
+    <para id="Para541067">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Ship_printBatShipVia.png"
-                       id="Graphic541065" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Ship_printBatShipVia.png" id="Graphic541065"/>
+            </imageobject>
 
-          <caption id="Caption541068">Print Packing List Batch by Ship
+            <caption id="Caption541068">Print Packing List Batch by Ship
           Via</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para541369">If you don"t see any Ship Vias appearing in the
@@ -55,7 +59,7 @@
         <term id="Para541225">Ship Via</term>
 
         <listitem id="listitemN0x180ac00N0x181a550">
-          <para>Specify the Ship Via whose batched Packing Lists you want to
+            <para>Specify the Ship Via whose batched Packing Lists you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +73,7 @@
         <term id="Para541175">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x181a5bc">
-          <para>Closes the screen without printing a Packing List batch,
+            <para>Closes the screen without printing a Packing List batch,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +82,7 @@
         <term id="Para541176">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x181a604">
-          <para>Prints the Packing List batch for the specified Ship
+            <para>Prints the Packing List batch for the specified Ship
           Via.</para>
         </listitem>
       </varlistentry>

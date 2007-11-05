@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section553084">
-    <title><anchor id="Anchor553083" role="Index"
-    xreflabel="work orders:related to sales orders;sales orders:related to work orders" />
-    <indexterm significance="normal" zone="Anchor553083">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section553084">
+    <title>
+      <anchor id="Anchor553083" role="Index"
+              xreflabel="work orders:related to sales orders;sales orders:related to work orders"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>related to sales orders</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor553083">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>sales orders</primary>
 
         <secondary>related to work orders</secondary>
@@ -19,17 +21,18 @@
     Orders with Parent Sales Orders" option. The following screen will
     appear:</para>
 
-    <para id="Para553404"><screenshot>
+    <para id="Para553404">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_openWOParentSO.png"
-                       id="Graphic553402" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_openWOParentSO.png" id="Graphic553402"/>
+            </imageobject>
 
-          <caption id="Caption553405">Open Work Orders with Parent Sales
+            <caption id="Caption553405">Open Work Orders with Parent Sales
           Orders</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para553406">When displaying open Work Orders having parent Sales
     Orders, you are presented with the following options:</para>
@@ -39,7 +42,7 @@
         <term id="Para553407">All Warehouses</term>
 
         <listitem>
-          <para>Select to display open Work Orders with parent Sales Orders
+            <para>Select to display open Work Orders with parent Sales Orders
           for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +51,7 @@
         <term id="Para553408">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose open Work Orders with parent Sales
+            <para>Specify Warehouse whose open Work Orders with parent Sales
           Orders you want to display.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +60,7 @@
         <term id="Para553409">Work Orders</term>
 
         <listitem>
-          <para>Display lists open Work Orders with parent Sales Orders, using
+            <para>Display lists open Work Orders with parent Sales Orders, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +74,7 @@
         <term id="Para553412">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +83,7 @@
         <term id="Para553413">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -89,16 +92,13 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section524361">
-    <title><anchor id="Anchor532572" role="Index"
-    xreflabel="payments:list of selected" /> <indexterm significance="normal"
-        zone="Anchor532572">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524361">
+    <title>
+      <anchor id="Anchor532572" role="Index" xreflabel="payments:list of selected"/> 
+      <indexterm significance="normal">
         <primary>payments</primary>
 
         <secondary>list of selected</secondary>
@@ -14,16 +14,17 @@
     select the "List Selected Payments" option. The following screen will
     appear:</para>
 
-    <para id="Para528752"><screenshot>
+    <para id="Para528752">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_selectedPayList.png"
-                       id="Graphic528750" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_selectedPayList.png" id="Graphic528750"/>
+            </imageobject>
 
-          <caption id="Caption528753">Selected Payments Master List</caption>
+            <caption id="Caption528753">Selected Payments Master List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para528754">The "Selected Payments" screen displays information
     on all existing selected payments, including Bank Account to be paid from,
@@ -38,7 +39,7 @@
         <term id="Para528756">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +48,7 @@
         <term id="Para565640">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -55,7 +56,7 @@
         <term id="Para528874">EDIT</term>
 
         <listitem>
-          <para>Enables you to edit highlighted selected payment. The edit
+            <para>Enables you to edit highlighted selected payment. The edit
           screen is the same as that for creating new payment details--except
           that when editing, the fields will contain payment information.
           Double-clicking on a selected payment will also bring you to the
@@ -67,7 +68,7 @@
         <term id="Para528825">CLEAR SELECTION</term>
 
         <listitem>
-          <para>Highlight a selected payment and then select this button to
+            <para>Highlight a selected payment and then select this button to
           clear the selection. Because an Item that has been cleared is no
           longer selected for payment, this option removes the Item from the
           master list of selected payments.</para>

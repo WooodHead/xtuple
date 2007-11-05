@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Return Authorization Workbench
@@ -57,21 +57,21 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Customer Type</guilabel>
+                  <guilabel moreinfo="none">Customer Type</guilabel>
                </entry>
                <entry>_custtype</entry>
                <entry>QRadioButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Customer</guilabel>
+                  <guilabel moreinfo="none">Customer</guilabel>
                </entry>
                <entry>_cust</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -79,7 +79,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Query</guilabel>
+                  <guilabel moreinfo="none">Query</guilabel>
                </entry>
                <entry>_query</entry>
                <entry>QPushButton</entry>
@@ -101,7 +101,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Show Expired</guilabel>
+                  <guilabel moreinfo="none">Show Expired</guilabel>
                </entry>
                <entry>_expired</entry>
                <entry>QCheckBox</entry>
@@ -113,35 +113,35 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Shipments</guilabel>
+                  <guilabel moreinfo="none">Shipments</guilabel>
                </entry>
                <entry>_shipments</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Credits</guilabel>
+                  <guilabel moreinfo="none">Credits</guilabel>
                </entry>
                <entry>_credits</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Refunds</guilabel>
+                  <guilabel moreinfo="none">Refunds</guilabel>
                </entry>
                <entry>_refunds</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Receipts</guilabel>
+                  <guilabel moreinfo="none">Receipts</guilabel>
                </entry>
                <entry>_receipts</entry>
                <entry>QCheckBox</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_printopn</entry>
@@ -149,14 +149,14 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Edit</guilabel>
+                  <guilabel moreinfo="none">Edit</guilabel>
                </entry>
                <entry>_editopn</entry>
                <entry>QPushButton</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>View</guilabel>
+                  <guilabel moreinfo="none">View</guilabel>
                </entry>
                <entry>_viewopn</entry>
                <entry>QPushButton</entry>
@@ -168,7 +168,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Open Returns:</guilabel>
+                  <guilabel moreinfo="none">Open Returns:</guilabel>
                </entry>
                <entry>_raopenLit</entry>
                <entry>QLabel</entry>
@@ -180,14 +180,14 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Print Credit Memo after Post</guilabel>
+                  <guilabel moreinfo="none">Print Credit Memo after Post</guilabel>
                </entry>
                <entry>_printonpost</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Returns Eligible for Credit:</guilabel>
+                  <guilabel moreinfo="none">Returns Eligible for Credit:</guilabel>
                </entry>
                <entry>_radueLit</entry>
                <entry>QLabel</entry>
@@ -199,7 +199,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_printdue</entry>
@@ -207,42 +207,42 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Edit</guilabel>
+                  <guilabel moreinfo="none">Edit</guilabel>
                </entry>
                <entry>_editdue</entry>
                <entry>QPushButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>View</guilabel>
+                  <guilabel moreinfo="none">View</guilabel>
                </entry>
                <entry>_viewdue</entry>
                <entry>QPushButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Post</guilabel>
+                  <guilabel moreinfo="none">Post</guilabel>
                </entry>
                <entry>_post</entry>
                <entry>QPushButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Credit Memo</guilabel>
+                  <guilabel moreinfo="none">Credit Memo</guilabel>
                </entry>
                <entry>_creditmemo</entry>
                <entry>QCheckBox</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Check</guilabel>
+                  <guilabel moreinfo="none">Check</guilabel>
                </entry>
                <entry>_check</entry>
                <entry>QCheckBox</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>Credit Card</guilabel>
+                  <guilabel moreinfo="none">Credit Card</guilabel>
                </entry>
                <entry>_creditcard</entry>
                <entry>QCheckBox</entry>

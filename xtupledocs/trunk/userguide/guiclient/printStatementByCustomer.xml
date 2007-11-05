@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section568325">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section568325">
     <title>Print Statement by Customer</title>
 
     <para id="Para568326">A Customer Statement shows past due information for
     A/R open items. To print a Customer Statement, select the "Print Statement
     by Customer" option. The following screen will appear:</para>
 
-    <para id="Para568330"><screenshot>
+    <para id="Para568330">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Rep_printStateByCust.png"
-                       id="Graphic568328" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Rep_printStateByCust.png" id="Graphic568328"/>
+            </imageobject>
 
-          <caption id="Caption568331">Print Statement by Customer</caption>
+            <caption id="Caption568331">Print Statement by Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para568332">When printing a Customer Statement, you are
     presented with the following options:</para>
@@ -28,10 +28,10 @@
         <term id="Para568333">Customer #</term>
 
         <listitem id="listitemN0x180ac00N0x18c4870">
-          <para>Enter the Customer Number of the Customer whose Statement you
+            <para>Enter the Customer Number of the Customer whose Statement you
           want to print.</para>
 
-          <para id="Para568334">The browse button located to the right of the
+            <para id="Para568334">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
           is entered, the Customer name and billing address will display.
@@ -54,7 +54,7 @@
         <term id="Para568336">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c48dc">
-          <para>Closes the screen without printing a Customer Statement,
+            <para>Closes the screen without printing a Customer Statement,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +63,7 @@
         <term id="Para572347">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18c4924">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

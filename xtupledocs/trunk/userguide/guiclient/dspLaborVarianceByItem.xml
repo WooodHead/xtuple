@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520075" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520075" role="openmfg">
     <title>Labor Variance by Item</title>
 
     <para id="Para520076">To view labor variances by Item, select the "Labor
     Variance by Item" option. The following screen will appear:</para>
 
-    <para id="Para520080"><screenshot>
+    <para id="Para520080">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_labVarByItem.png"
-                       id="Graphic524148" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_labVarByItem.png" id="Graphic524148"/>
+            </imageobject>
 
-          <caption id="Caption520081">Labor Variance by Item</caption>
+            <caption id="Caption520081">Labor Variance by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520087">When viewing labor variances by Item, you are
     presented with the following options:</para>
@@ -27,7 +27,7 @@
         <term id="Para520088">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item whose labor variances by
+            <para>Enter the Item Number of the Item whose labor variances by
           Item you want to view.</para>
         </listitem>
       </varlistentry>
@@ -36,7 +36,7 @@
         <term id="Para568872">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -44,7 +44,7 @@
         <term id="Para520092">All Warehouses</term>
 
         <listitem>
-          <para>Select to display labor variances by Item for all
+            <para>Select to display labor variances by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +53,7 @@
         <term id="Para545352">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose labor variances by Item you want to
+            <para>Specify Warehouse whose labor variances by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +62,7 @@
         <term id="Para545356">Start Date</term>
 
         <listitem>
-          <para>Labor variances by Item generated on or after this date will
+            <para>Labor variances by Item generated on or after this date will
           be displayed.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +71,7 @@
         <term id="Para520104">End Date</term>
 
         <listitem>
-          <para>Labor variances by Item generated on or before this date will
+            <para>Labor variances by Item generated on or before this date will
           be displayed.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +80,7 @@
         <term id="Para520106">Labor Variance</term>
 
         <listitem>
-          <para>Display lists labor variances by Item, using the specified
+            <para>Display lists labor variances by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -94,7 +94,7 @@
         <term id="Para520109">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -103,7 +103,7 @@
         <term id="Para520110">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

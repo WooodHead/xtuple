@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section589675">
-    <title><anchor id="Anchor595514" role="Index"
-    xreflabel="bills of materials:sequenced view of" /> <indexterm
-        significance="normal" zone="Anchor595514">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section589675">
+    <title>
+      <anchor id="Anchor595514" role="Index" xreflabel="bills of materials:sequenced view of"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>sequenced view of</secondary>
@@ -15,16 +15,17 @@
     "Sequenced Bill of Materials" option. The following screen will
     appear:</para>
 
-    <para id="Para520361"><screenshot>
+    <para id="Para520361">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_sequenceBOM.png"
-                       id="Graphic563685" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_sequenceBOM.png" id="Graphic563685"/>
+            </imageobject>
 
-          <caption id="Caption520362">Sequenced Bill of Materials</caption>
+            <caption id="Caption520362">Sequenced Bill of Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520368">When displaying a sequenced Bill of Materials, you
     are presented with the following options:</para>
@@ -34,7 +35,7 @@
         <term id="Para520369">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1932924">
-          <para>Enter the Item Number of the manufactured Item you would like
+            <para>Enter the Item Number of the manufactured Item you would like
           to view a sequenced Bill of Materials for.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +44,7 @@
         <term id="Para663357">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x193296c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -51,10 +52,10 @@
         <term id="Para520373">Show Expired Components</term>
 
         <listitem id="listitemN0x180ac00N0x19329b4">
-          <para>Select to cause expired components to be listed in the "Bill
+            <para>Select to cause expired components to be listed in the "Bill
           of Materials" display.</para>
 
-          <para id="Para644571">Expired components will display in red
+            <para id="Para644571">Expired components will display in red
           font.</para>
         </listitem>
       </varlistentry>
@@ -63,10 +64,10 @@
         <term id="Para520374">Show Future Components</term>
 
         <listitem id="listitemN0x180ac00N0x19329fc">
-          <para>Select to cause future components to be listed in the "Bill of
+            <para>Select to cause future components to be listed in the "Bill of
           Materials" display.</para>
 
-          <para id="Para644592">Future components will display in blue
+            <para id="Para644592">Future components will display in blue
           font.</para>
         </listitem>
       </varlistentry>
@@ -75,7 +76,7 @@
         <term id="Para520375">Bill of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x1932a44">
-          <para>Display lists sequenced Bill of Materials components, using
+            <para>Display lists sequenced Bill of Materials components, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +90,7 @@
         <term id="Para520378">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1932ab0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +99,7 @@
         <term id="Para664022">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1932af8">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

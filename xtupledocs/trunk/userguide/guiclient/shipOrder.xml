@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518568">
-    <title><anchor id="Anchor529417" role="Index"
-    xreflabel="shipping:shipping sales orders" /> <indexterm
-        significance="normal" zone="Anchor529417">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518568">
+    <title>
+      <anchor id="Anchor529417" role="Index" xreflabel="shipping:shipping sales orders"/> 
+      <indexterm significance="normal">
         <primary>shipping</primary>
 
         <secondary>shipping sales orders</secondary>
-      </indexterm> <anchor id="Anchor28938" role="Cross-Ref"
-    xreflabel="28938: Heading2: Ship Order" />Ship Order</title>
+      </indexterm> 
+      <anchor id="Anchor28938" role="Cross-Ref" xreflabel="28938: Heading2: Ship Order"/>Ship Order</title>
 
     <para id="Para518569">To ship an Order, select the "Ship Order" option.
     The following screen will appear:</para>
 
-    <para id="Para518573"><screenshot>
+    <para id="Para518573">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Ship_shipOrder.png"
-                       id="Graphic519984" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Ship_shipOrder.png" id="Graphic519984"/>
+            </imageobject>
 
-          <caption id="Caption518574">Ship Order</caption>
+            <caption id="Caption518574">Ship Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para535542">Before a Sales Order can be shipped successfully,
@@ -39,10 +40,10 @@
         <term id="Para518576">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x1830e8c">
-          <para>Enter the Order Number of the Sales Order you want to
+            <para>Enter the Order Number of the Sales Order you want to
           ship.</para>
 
-          <para id="Para548804">The browse button located to the right of the
+            <para id="Para548804">The browse button located to the right of the
           field leads to a searchable list of Sales Orders available for
           Shipping. This option will be disabled if a Transfer Order is
           specified.</para>
@@ -53,10 +54,10 @@
         <term id="Para548810">Transfer Order #</term>
 
         <listitem id="listitemN0x180ac00N0x1830eb0">
-          <para>Enter the Order Number of the Transfer Order you want to
+            <para>Enter the Order Number of the Transfer Order you want to
           ship.</para>
 
-          <para id="Para548805">The browse button located to the right of the
+            <para id="Para548805">The browse button located to the right of the
           field leads to a searchable list of Transfer Orders available for
           Shipping. This option will be disabled if a Sales Order is
           specified.</para>
@@ -67,7 +68,7 @@
         <term id="Para549014">From</term>
 
         <listitem id="listitemN0x180ac00N0x1830ed4">
-          <para>Displays the Source Warehouse if a Transfer Order is
+            <para>Displays the Source Warehouse if a Transfer Order is
           selected.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +77,7 @@
         <term id="Para549018">To</term>
 
         <listitem id="listitemN0x180ac00N0x1830ef8">
-          <para>Displays the Destination Warehouse if a Transfer Order is
+            <para>Displays the Destination Warehouse if a Transfer Order is
           selected.</para>
         </listitem>
       </varlistentry>
@@ -85,10 +86,10 @@
         <term id="Para548806">Select for Billing</term>
 
         <listitem id="listitemN0x180ac00N0x1830f40">
-          <para>Specify this option to select the Sales Order for Billing as
+            <para>Specify this option to select the Sales Order for Billing as
           soon as it is shipped.</para>
 
-          <para id="Para541580">If selected, the Order will appear on the
+            <para id="Para541580">If selected, the Order will appear on the
           Billing Selections list--making it available to be converted into an
           Invoice. This option will be selected by default if specified in
           your system-level configuration. This option will be disabled if a
@@ -100,10 +101,10 @@
         <term id="Para541581">Create and Print Invoice</term>
 
         <listitem id="listitemN0x180ac00N0x1830f88">
-          <para>Specify this option to automatically create and print an
+            <para>Specify this option to automatically create and print an
           Invoice for the Sales Order as soon as it is shipped.</para>
 
-          <para id="Para541582">Selecting this option enables you to bypass
+            <para id="Para541582">Selecting this option enables you to bypass
           the Billing Selection process. Once the Order is shipped, an Invoice
           will be created and printed. This Invoice will appear on the list of
           unposted Invoices--making it available for posting. By default, the
@@ -116,7 +117,7 @@
         <term id="Para541585">Print Packing List</term>
 
         <listitem id="listitemN0x180ac00N0x1830fd0">
-          <para>Specify this option to automatically print a Packing List as
+            <para>Specify this option to automatically print a Packing List as
           soon as the Order is shipped.</para>
         </listitem>
       </varlistentry>
@@ -125,11 +126,11 @@
         <term id="Para548762">Receive Immediately</term>
 
         <listitem id="listitemN0x180ac00N0x1830ff4">
-          <para>Select if you want the Transfer Order to be received
+            <para>Select if you want the Transfer Order to be received
           automatically at the Destination Warehouse as soon as the Order is
           shipped.</para>
 
-          <para id="Para548785">If this option is not used, Transfer Order
+            <para id="Para548785">If this option is not used, Transfer Order
           Items must be received manually at the Destination Warehouse. This
           option will be disabled if a Sales Order is specified.</para>
         </listitem>
@@ -148,7 +149,7 @@
         <term id="Para518578">Bill To</term>
 
         <listitem id="listitemN0x180ac00N0x1831084">
-          <para>Displays the name of the Customer to be billed for the Sales
+            <para>Displays the name of the Customer to be billed for the Sales
           Order.</para>
         </listitem>
       </varlistentry>
@@ -157,7 +158,7 @@
         <term id="Para518580">Ship To</term>
 
         <listitem id="listitemN0x180ac00N0x18310cc">
-          <para>Displays the appropriate Ship-To Address.</para>
+            <para>Displays the appropriate Ship-To Address.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -166,8 +167,7 @@
       <para id="Para543733">If your site integrates UPS WorldShip with the
       system, you should process Orders in WorldShip after they have been
       issued to Shipping--but before they have been shipped. For more
-      information, see the <link endterm="Anchor29552" id="XRef543735"
-      linkend="Anchor29552"> UPS WorldShip Integration</link>"Topic: UPS
+      information, see the <link endterm="Anchor29552" id="XRef543735" linkend="Anchor29552"> UPS WorldShip Integration</link>"Topic: UPS
       WorldShip Integration" section.</para>
     </tip>
 
@@ -176,7 +176,7 @@
         <term id="Para518582">Items to Ship</term>
 
         <listitem id="listitemN0x180ac00N0x183115c">
-          <para>Display lists Order Line Items available for Shipping.</para>
+            <para>Display lists Order Line Items available for Shipping.</para>
         </listitem>
       </varlistentry>
 
@@ -184,29 +184,31 @@
         <term id="Para542648">Shipment Value</term>
 
         <listitem id="listitemN0x180ac00N0x18311a4">
-          <para>Displays the value of the Items being shipped.</para>
+            <para>Displays the value of the Items being shipped.</para>
 
-          <para id="Para542657">The shipment value represents the total of the
+            <para id="Para542657">The shipment value represents the total of the
           extended prices for all Items included in the Shipment. The amount
           does not include freight or Tax.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para535587"><anchor id="Anchor535583" role="Index"
-        xreflabel="freight:on sales orders;sales orders:freight charges on" />
-        <indexterm significance="normal" zone="Anchor535583">
-            <primary>freight</primary>
+        <term id="Para535587">
+            <anchor id="Anchor535583" role="Index"
+                    xreflabel="freight:on sales orders;sales orders:freight charges on"/>
+            <indexterm significance="normal">
+               <primary>freight</primary>
 
-            <secondary>on sales orders</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor535583">
-            <primary>sales orders</primary>
+               <secondary>on sales orders</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>sales orders</primary>
 
-            <secondary>freight charges on</secondary>
-          </indexterm>Freight</term>
+               <secondary>freight charges on</secondary>
+            </indexterm>Freight</term>
 
         <listitem id="listitemN0x180ac00N0x1842a6c">
-          <para>Enter the amount of freight charge to be added to the
+            <para>Enter the amount of freight charge to be added to the
           specified Order. Freight charges may be entered during the creation
           or modification of an Order--or at the time of shipment.</para>
         </listitem>
@@ -224,9 +226,9 @@
         <term id="Para542002">Ship Via</term>
 
         <listitem id="listitemN0x180ac00N0x1842afc">
-          <para>Specify the Ship Via for the Order.</para>
+            <para>Specify the Ship Via for the Order.</para>
 
-          <para id="Para538071">The Ship Via field supports free-form Ship
+            <para id="Para538071">The Ship Via field supports free-form Ship
           Vias. If you want to enter a free-form Ship Via, simply type the
           name of the Ship Via into the field.</para>
         </listitem>
@@ -246,7 +248,7 @@
         <term id="Para542594">Tracking Number</term>
 
         <listitem id="listitemN0x180ac00N0x1842b8c">
-          <para>Tracking Numbers associated with an Order may be viewed in the
+            <para>Tracking Numbers associated with an Order may be viewed in the
           Shipments by Sales Order report.</para>
         </listitem>
       </varlistentry>
@@ -260,7 +262,7 @@
         <term id="Para518585">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1842bf8">
-          <para>Closes the screen without Shipping the Order, returning you to
+            <para>Closes the screen without Shipping the Order, returning you to
           the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -269,7 +271,7 @@
         <term id="Para518586">SHIP</term>
 
         <listitem id="listitemN0x180ac00N0x1842c40">
-          <para>Ships the Order, clearing the screen of previously-displayed
+            <para>Ships the Order, clearing the screen of previously-displayed
           data.</para>
         </listitem>
       </varlistentry>

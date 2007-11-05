@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section556250">
-    <title><anchor id="Anchor556249" role="Index"
-    xreflabel="cash receipts:posting of;accounts receivable:posting cash receipts for" />
-    <indexterm significance="normal" zone="Anchor556249">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556250">
+    <title>
+      <anchor id="Anchor556249" role="Index"
+              xreflabel="cash receipts:posting of;accounts receivable:posting cash receipts for"/>
+      <indexterm significance="normal">
         <primary>cash receipts</primary>
 
         <secondary>posting of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor556249">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts receivable</primary>
 
         <secondary>posting cash receipts for</secondary>
@@ -17,31 +19,33 @@
     <para id="Para556251">To post unposted Cash Receipts, select the "Post
     Cash Receipts" option. The following screen will appear:</para>
 
-    <para id="Para526683"><screenshot>
+    <para id="Para526683">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_CashR_postCR.png" id="Graphic526681" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_CashR_postCR.png" id="Graphic526681"/>
+            </imageobject>
 
-          <caption id="Caption526684">Post Cash Receipts</caption>
+            <caption id="Caption526684">Post Cash Receipts</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para524400">When posting unposted Cash Receipts, you are
     presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para526689"><anchor id="Anchor535360" role="Index"
-        xreflabel="cash receipts:printing journal for" /> <indexterm
-            significance="normal" zone="Anchor535360">
-            <primary>cash receipts</primary>
+        <term id="Para526689">
+            <anchor id="Anchor535360" role="Index" xreflabel="cash receipts:printing journal for"/> 
+            <indexterm significance="normal">
+               <primary>cash receipts</primary>
 
-            <secondary>printing journal for</secondary>
-          </indexterm>Print Cash Receipts Journal</term>
+               <secondary>printing journal for</secondary>
+            </indexterm>Print Cash Receipts Journal</term>
 
         <listitem id="listitemN0x180ac00N0x18a0510">
-          <para>Select to print the Cash Receipts Journal.</para>
+            <para>Select to print the Cash Receipts Journal.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -54,22 +58,22 @@
         <term id="Para528361">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18a057c">
-          <para>Closes the screen without posting unposted Cash Receipts,
+            <para>Closes the screen without posting unposted Cash Receipts,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para528362"><anchor id="Anchor535362" role="Index"
-        xreflabel="cash receipts:posting of" /> <indexterm
-            significance="normal" zone="Anchor535362">
-            <primary>cash receipts</primary>
+        <term id="Para528362">
+            <anchor id="Anchor535362" role="Index" xreflabel="cash receipts:posting of"/> 
+            <indexterm significance="normal">
+               <primary>cash receipts</primary>
 
-            <secondary>posting of</secondary>
-          </indexterm>POST</term>
+               <secondary>posting of</secondary>
+            </indexterm>POST</term>
 
         <listitem id="listitemN0x180ac00N0x18a060c">
-          <para>Posts unposted Cash Receipts.</para>
+            <para>Posts unposted Cash Receipts.</para>
         </listitem>
       </varlistentry>
     </variablelist>

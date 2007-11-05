@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520287">
-    <title><anchor id="Anchor595508" role="Index"
-    xreflabel="items:by product category;product categories:item details for" />
-    <indexterm significance="normal" zone="Anchor595508">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520287">
+    <title>
+      <anchor id="Anchor595508" role="Index"
+              xreflabel="items:by product category;product categories:item details for"/>
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>by product category</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595508">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>product categories</primary>
 
         <secondary>item details for</secondary>
@@ -18,16 +19,17 @@
     <para id="Para520288">To view Items by Product Category, select the "Items
     by Product Category" option. The following screen will appear:</para>
 
-    <para id="Para520292"><screenshot>
+    <para id="Para520292">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_itemsByProdCat.png"
-                       id="Graphic563637" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_itemsByProdCat.png" id="Graphic563637"/>
+            </imageobject>
 
-          <caption id="Caption520293">Items by Product Category</caption>
+            <caption id="Caption520293">Items by Product Category</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520294">When displaying Items by Product Category, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para617064">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x192bd84">
-          <para>Select to display Items for all Product Categories.</para>
+            <para>Select to display Items for all Product Categories.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +47,7 @@
         <term id="Para616001">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x192bdcc">
-          <para>Specify Product Category whose Items you want to
+            <para>Specify Product Category whose Items you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -54,12 +56,11 @@
         <term id="Para593187">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x192be14">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para664836">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664835"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664836">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664835" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -69,7 +70,7 @@
         <term id="Para520299">Show Inactive Items</term>
 
         <listitem id="listitemN0x180ac00N0x192be5c">
-          <para>Select to show Inactive Items in the display.</para>
+            <para>Select to show Inactive Items in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -77,7 +78,7 @@
         <term id="Para520300">Items</term>
 
         <listitem id="listitemN0x180ac00N0x192bea4">
-          <para>Display lists Items by Product Category, using the specified
+            <para>Display lists Items by Product Category, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -91,7 +92,7 @@
         <term id="Para520303">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x192bf10">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -100,7 +101,7 @@
         <term id="Para618225">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x192bf58">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -109,7 +110,7 @@
         <term id="Para663989">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x192bfa0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -122,12 +123,11 @@
         <term id="Para520306">Edit Item Master</term>
 
         <listitem id="listitemN0x180ac00N0x192c00c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

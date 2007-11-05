@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Exported Transactions
@@ -47,14 +47,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>All Accounts</guilabel>
+                  <guilabel moreinfo="none">All Accounts</guilabel>
                </entry>
                <entry>_allAccounts</entry>
                <entry>QRadioButton</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Selected Account:</guilabel>
+                  <guilabel moreinfo="none">Selected Account:</guilabel>
                </entry>
                <entry>_selectedAccount</entry>
                <entry>QRadioButton</entry>
@@ -71,21 +71,21 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>A/R Distributions</guilabel>
+                  <guilabel moreinfo="none">A/R Distributions</guilabel>
                </entry>
                <entry>_arDist</entry>
                <entry>QRadioButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>A/P Distributions</guilabel>
+                  <guilabel moreinfo="none">A/P Distributions</guilabel>
                </entry>
                <entry>_apDist</entry>
                <entry>QRadioButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Other</guilabel>
+                  <guilabel moreinfo="none">Other</guilabel>
                </entry>
                <entry>_otherDist</entry>
                <entry>QRadioButton</entry>
@@ -97,21 +97,21 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>Show Exported and Unexported</guilabel>
+                  <guilabel moreinfo="none">Show Exported and Unexported</guilabel>
                </entry>
                <entry>_showAll</entry>
                <entry>QRadioButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Show Exported Only</guilabel>
+                  <guilabel moreinfo="none">Show Exported Only</guilabel>
                </entry>
                <entry>_showExported</entry>
                <entry>QRadioButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Show Unexported Only</guilabel>
+                  <guilabel moreinfo="none">Show Unexported Only</guilabel>
                </entry>
                <entry>_showUnexported</entry>
                <entry>QRadioButton</entry>
@@ -123,7 +123,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -131,7 +131,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uery</guilabel>
                </entry>
                <entry>_query</entry>
@@ -139,7 +139,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -147,7 +147,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>G/L Transactions:</guilabel>
+                  <guilabel moreinfo="none">G/L Transactions:</guilabel>
                </entry>
                <entry>_gltransLit</entry>
                <entry>QLabel</entry>

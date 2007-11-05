@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section559720" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section559720" role="openmfg">
     <title>Shop Floor Workbench</title>
 
     <para id="Para559721">The Shop Floor Workbench offers enhanced labor
@@ -19,16 +19,17 @@
     <para id="Para569977">To access the Shop Floor Workbench, select the "Shop
     Floor Workbench" option. The following screen will appear:</para>
 
-    <para id="Para559728"><screenshot>
+    <para id="Para559728">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_shopFloorWkbnch.png"
-                       id="Graphic559726" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_shopFloorWkbnch.png" id="Graphic559726"/>
+            </imageobject>
 
-          <caption id="Caption559729">Shop Floor Workbench</caption>
+            <caption id="Caption559729">Shop Floor Workbench</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para559731">The Shop Floor Workbench must be configured for
@@ -46,10 +47,10 @@
         <term id="Para559733">Username</term>
 
         <listitem>
-          <para>Enter the name of the user wanting to clock-in or clock-out of
+            <para>Enter the name of the user wanting to clock-in or clock-out of
           a Work Order.</para>
 
-          <para id="Para559734">Once a username is entered, the display at the
+            <para id="Para559734">Once a username is entered, the display at the
           bottom of the screen will show all the Work Orders the user is
           currently clocked-in to.</para>
         </listitem>
@@ -67,10 +68,10 @@
         <term id="Para559737">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order the user wants
+            <para>Enter the Work Order Number of the Work Order the user wants
           to clock-in to or clock-out of.</para>
 
-          <para id="Para559738">Only released "R" and in-process "I" Work
+            <para id="Para559738">Only released "R" and in-process "I" Work
           Orders may be processed using the Shop Floor Workbench.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +88,7 @@
         <term id="Para559741">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +97,7 @@
         <term id="Para559742">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +106,7 @@
         <term id="Para568575">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -113,10 +114,10 @@
         <term id="Para559744">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
 
-          <para id="Para559745">Only released "R" and in-process "I" Work
+            <para id="Para559745">Only released "R" and in-process "I" Work
           Orders may be processed using the Shop Floor Workbench.</para>
         </listitem>
       </varlistentry>
@@ -125,10 +126,10 @@
         <term id="Para559746">Operation</term>
 
         <listitem>
-          <para>If the Workbench is configured for Operations-posting, select
+            <para>If the Workbench is configured for Operations-posting, select
           an Operation from the list of Operations.</para>
 
-          <para id="Para559747">Users are required to clock-in and clock-out
+            <para id="Para559747">Users are required to clock-in and clock-out
           of individual Operations. This allows run-time calculations to be
           performed on an Operation-by-Operation basis. A user may be
           clocked-in to multiple Operations simultaneously. Also, multiple
@@ -147,7 +148,7 @@
         <term id="Para559749">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen without clocking-in or clocking-out,
+            <para>Closes the screen without clocking-in or clocking-out,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -156,9 +157,9 @@
         <term id="Para559750">CLOCK IN</term>
 
         <listitem>
-          <para>Select to clock-in to the specified Work Order.</para>
+            <para>Select to clock-in to the specified Work Order.</para>
 
-          <para id="Para559751">When a user clocks-in to a Work Order, the
+            <para id="Para559751">When a user clocks-in to a Work Order, the
           run-time clock starts running from that point. The clock stops when
           a user clocks-out of the Work Order. The elapsed time--or
           "effort"--is used for labor reporting purposes. Users may only
@@ -173,9 +174,9 @@
         <term id="Para559752">CLOCK OUT</term>
 
         <listitem>
-          <para>Select to clock-out of the specified Work Order.</para>
+            <para>Select to clock-out of the specified Work Order.</para>
 
-          <para id="Para559753">When selected, the run-time clock stops for
+            <para id="Para559753">When selected, the run-time clock stops for
           the specified Work Order. The time elapsed since the user last
           clocked-in is added to the run time total for the Work Order. This
           run-time calculation is automatic and cannot be overridden--except
@@ -202,7 +203,7 @@
         <term id="Para559756">POST PRODUCTION</term>
 
         <listitem>
-          <para>If the Workbench is configured for Production-posting, the
+            <para>If the Workbench is configured for Production-posting, the
           Post Production screen will be presented immediately after this
           button is selected. The button will be hidden if the Workbench is
           configured for Operations-posting.</para>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section604556">
-    <title><anchor id="Anchor604566" role="Index"
-    xreflabel="characteristics:items having;items:with characteristics" />
-    <indexterm significance="normal" zone="Anchor604566">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section604556">
+    <title>
+      <anchor id="Anchor604566" role="Index"
+              xreflabel="characteristics:items having;items:with characteristics"/>
+      <indexterm significance="normal">
         <primary>characteristics</primary>
 
         <secondary>items having</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor604566">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>with characteristics</secondary>
@@ -17,16 +19,17 @@
     <para id="Para604590">To view Items by Characteristic, select the "Items
     by Characteristic" option. The following screen will appear:</para>
 
-    <para id="Para604594"><screenshot>
+    <para id="Para604594">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_itemsByChar.png"
-                       id="Graphic604592" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_itemsByChar.png" id="Graphic604592"/>
+            </imageobject>
 
-          <caption id="Caption604595">Items by Characteristic</caption>
+            <caption id="Caption604595">Items by Characteristic</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para604596">When displaying Items by Characteristic, you are
     presented with the following options:</para>
@@ -36,7 +39,7 @@
         <term id="Para662322">Characteristic</term>
 
         <listitem id="listitemN0x180ac00N0x192c1e0">
-          <para>Select a Characteristic from the list of Characteristics
+            <para>Select a Characteristic from the list of Characteristics
           designated as being available for use as Item
           Characteristics.</para>
         </listitem>
@@ -46,7 +49,7 @@
         <term id="Para633071">Value</term>
 
         <listitem id="listitemN0x180ac00N0x192c228">
-          <para>Enter the Characteristic value whose associated Items you want
+            <para>Enter the Characteristic value whose associated Items you want
           to include in the display.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +58,7 @@
         <term id="Para604971">Show Inactive Items</term>
 
         <listitem id="listitemN0x180ac00N0x192c270">
-          <para>Select to include inactive Items in the display.</para>
+            <para>Select to include inactive Items in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -63,7 +66,7 @@
         <term id="Para604613">Items</term>
 
         <listitem id="listitemN0x180ac00N0x192c2b8">
-          <para>Display lists Items by Characteristic, using the specified
+            <para>Display lists Items by Characteristic, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -77,7 +80,7 @@
         <term id="Para604616">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x192c324">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +89,7 @@
         <term id="Para618384">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x192c36c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +98,7 @@
         <term id="Para663994">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x192c3b4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -108,12 +111,11 @@
         <term id="Para609468">Edit Item Master</term>
 
         <listitem id="listitemN0x180ac00N0x192c420">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

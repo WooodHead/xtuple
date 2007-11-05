@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section541038">
-    <title><anchor id="Anchor541042" role="Index"
-    xreflabel="checks:creating miscellaneous;miscellaneous checks:creating new" />
-    <indexterm significance="normal" zone="Anchor541042">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section541038">
+    <title>
+      <anchor id="Anchor541042" role="Index"
+              xreflabel="checks:creating miscellaneous;miscellaneous checks:creating new"/>
+      <indexterm significance="normal">
         <primary>checks</primary>
 
         <secondary>creating miscellaneous</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor541042">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>miscellaneous checks</primary>
 
         <secondary>creating new</secondary>
@@ -19,15 +21,17 @@
     create a miscellaneous Check, select the "Create Miscellaneous Check"
     option. The following screen will appear:</para>
 
-    <para id="Para541051"><screenshot>
+    <para id="Para541051">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_miscChk.png" id="Graphic541049" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_miscChk.png" id="Graphic541049"/>
+            </imageobject>
 
-          <caption id="Caption541052">Miscellaneous A/P Check</caption>
+            <caption id="Caption541052">Miscellaneous A/P Check</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para541045">When creating a miscellaneous A/P Check, you are
     presented with the following options:</para>
@@ -37,7 +41,7 @@
         <term id="Para541154">Vendor #</term>
 
         <listitem>
-          <para>Enter the Vendor number of the Vendor you want to create a
+            <para>Enter the Vendor number of the Vendor you want to create a
           miscellaneous Check for.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +50,7 @@
         <term id="Para541169">Amount</term>
 
         <listitem>
-          <para>Specify the amount of the miscellaneous Check.</para>
+            <para>Specify the amount of the miscellaneous Check.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +58,7 @@
         <term id="Para541183">Date</term>
 
         <listitem>
-          <para>Specify the date to appear on the miscellaneous Check.</para>
+            <para>Specify the date to appear on the miscellaneous Check.</para>
         </listitem>
       </varlistentry>
 
@@ -62,7 +66,7 @@
         <term id="Para541195">Bank Account</term>
 
         <listitem>
-          <para>Specify the Bank Account you want to use for the miscellaneous
+            <para>Specify the Bank Account you want to use for the miscellaneous
           Check.</para>
         </listitem>
       </varlistentry>
@@ -71,13 +75,13 @@
         <term id="Para541114">Expense To</term>
 
         <listitem>
-          <para>Select one of the following Expense distribution
+            <para>Select one of the following Expense distribution
           options:</para>
 
-          <para id="Para541238">Expense Category: Specify the Expense Category
+            <para id="Para541238">Expense Category: Specify the Expense Category
           you want to distribute the payment to.</para>
 
-          <para id="Para541242">Create Credit Memo: Once the miscellaneous
+            <para id="Para541242">Create Credit Memo: Once the miscellaneous
           Check is posted, a Credit Memo in the Check amount will be created.
           This Credit Memo will offset your Accounts Payable for the specified
           Vendor. You would use this option, for example, to handle
@@ -89,7 +93,7 @@
         <term id="Para541115">Memo</term>
 
         <listitem>
-          <para>Enter a Memo line to be included on the bottom portion of the
+            <para>Enter a Memo line to be included on the bottom portion of the
           printed miscellaneous Check.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +102,7 @@
         <term id="Para541212">Notes</term>
 
         <listitem>
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Notes related to the miscellaneous Check.</para>
         </listitem>
       </varlistentry>
@@ -112,7 +116,7 @@
         <term id="Para541135">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without creating a miscellaneous Check,
+            <para>Closes the screen without creating a miscellaneous Check,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -121,7 +125,7 @@
         <term id="Para541136">CREATE</term>
 
         <listitem>
-          <para>Creates the miscellaneous Check, using the specified
+            <para>Creates the miscellaneous Check, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>

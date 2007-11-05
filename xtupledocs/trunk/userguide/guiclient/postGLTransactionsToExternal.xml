@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Post G/L Transactions to External Accounting System
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Source <accel>M</accel>odule</guilabel>
+                  <guilabel moreinfo="none">Source <accel>M</accel>odule</guilabel>
                </entry>
                <entry>_sourceModuleLit</entry>
                <entry>QLabel</entry>
@@ -54,7 +54,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_cancel</entry>
@@ -62,7 +62,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>ost</guilabel>
                </entry>
                <entry>_post</entry>

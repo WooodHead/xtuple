@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter929788">
-  <title><anchor id="Anchor30917" role="Cross-Ref"
-  xreflabel="30917: ChapterTitle: System Module" />System Module</title>
+  <title>
+      <anchor id="Anchor30917" role="Cross-Ref"
+              xreflabel="30917: ChapterTitle: System Module"/>System Module</title>
 
   <para id="Para913593">In this chapter, we describe the System module. The
   System module is where you configure the application modules and the overall
@@ -11,52 +12,52 @@
   and maintained within the System module:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x1819e48">
-      <para id="Para518486">Module Configuration</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e48">
+         <para id="Para518486">Module Configuration</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e6c">
-      <para id="Para525022">User Accounts</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e6c">
+         <para id="Para525022">User Accounts</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e90">
-      <para id="Para525029">User Preferences</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e90">
+         <para id="Para525029">User Preferences</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819eb4">
-      <para id="Para959134">EDI Profiles</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819eb4">
+         <para id="Para959134">EDI Profiles</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819ed8">
-      <para id="Para959137">Locales</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819ed8">
+         <para id="Para959137">Locales</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819efc">
-      <para id="Para970621">Multi-currency</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819efc">
+         <para id="Para970621">Multi-currency</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819f20">
-      <para id="Para525037">System Messages</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819f20">
+         <para id="Para525037">System Messages</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819f44">
-      <para id="Para525038">Events</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819f44">
+         <para id="Para525038">Events</para>
+      </listitem>
   </itemizedlist>
 
   <para id="Para518487">Most of the administrative functions listed above will
-  be configured and maintained by individuals who are assigned system <anchor
-  id="Anchor933759" role="Index"
-  xreflabel="openmfg administrators:privileges for;privileges:for administrators" />
-  <indexterm significance="normal" zone="Anchor933759">
-      <primary>openmfg administrators</primary>
+  be configured and maintained by individuals who are assigned system <anchor id="Anchor933759" role="Index"
+              xreflabel="openmfg administrators:privileges for;privileges:for administrators"/>
+      <indexterm significance="normal">
+         <primary>openmfg administrators</primary>
 
-      <secondary>privileges for</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor933759">
-      <primary>privileges</primary>
+         <secondary>privileges for</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>privileges</primary>
 
-      <secondary>for administrators</secondary>
-    </indexterm>administrator privileges. However, individual users who have
+         <secondary>for administrators</secondary>
+      </indexterm>administrator privileges. However, individual users who have
   not been assigned Administrator privileges can also be granted granular
   security at the functional level. Regardless of the privileges assigned to
   them, all users have the ability to set their own preferences and
@@ -69,221 +70,181 @@
   are designated as system administrators.</para>
 
   <section id="Section518496">
-    <title><anchor id="Anchor14316" role="Cross-Ref"
-    xreflabel="14316: Heading1: Master Information" /> <anchor
-    id="Anchor932258" role="Index"
-    xreflabel="master information:for system module" /> <indexterm
-        significance="normal" zone="Anchor932258">
-        <primary>master information</primary>
+      <title>
+         <anchor id="Anchor14316" role="Cross-Ref"
+                 xreflabel="14316: Heading1: Master Information"/> 
+         <anchor id="Anchor932258" role="Index" xreflabel="master information:for system module"/> 
+         <indexterm significance="normal">
+            <primary>master information</primary>
 
-        <secondary>for system module</secondary>
-      </indexterm>Master Information</title>
+            <secondary>for system module</secondary>
+         </indexterm>Master Information</title>
 
-    <para id="Para518503">The Master Information section is where essential
+      <para id="Para518503">The Master Information section is where essential
     data affecting how various components of the system are defined and
     maintained. In this section we describe each of the Master Information
     options.</para>
 
-    <xi:include href="guiclient/databaseInformation.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/databaseInformation.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureBackup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureBackup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/images.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/images.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/image.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/image.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/reports.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reports.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/report.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/report.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/forms.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/forms.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/form.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/form.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/labelForms.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/labelForms.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/labelForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/labelForm.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/calendars.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/calendars.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/calendar.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/calendar.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/currencies.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/currencies.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/currency.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/currency.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="../topics/multi-currency.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/multi-currency.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/currencyConversions.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/currencyConversions.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/currencyConversion.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/currencyConversion.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/creditCard.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/creditCard.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/countries.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/countries.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/country.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/country.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/locales.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/locales.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/locale.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/locale.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/commentTypes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/commentTypes.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/commentType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/commentType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/ediProfiles.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/ediProfiles.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/ediProfile.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/ediProfile.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/departments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/departments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/department.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/department.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shifts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shifts.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shift.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shift.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customCommands.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customCommands.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customCommand.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customCommand.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section946231">
-    <title>Configure Modules</title>
+      <title>Configure Modules</title>
 
-    <para id="Para519080">Most of the modules in the application can be
+      <para id="Para519080">Most of the modules in the application can be
     configured to meet your requirements.</para>
 
-    <xi:include href="guiclient/configureIM.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureIM.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configurePD.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configurePD.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureMS.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureMS.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureWO.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureWO.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configurePO.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configurePO.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureSO.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureSO.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureSR.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureSR.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configurePM.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configurePM.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureAP.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureAP.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureAR.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureAR.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureGL.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureGL.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/configureCRM.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/configureCRM.xml"
+                  xpointer="element(/1)"/>
   </section>
 
-  <xi:include href="guiclient/userList.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/userList.xml"
+               xpointer="element(/1)"/>
 
   <section id="Section955801">
-    <title><anchor id="Anchor955800" role="Index"
-    xreflabel="rescan privileges;privileges:rescanning of" /> <indexterm
-        significance="normal" zone="Anchor955800">
-        <primary>rescan privileges</primary>
-      </indexterm> <indexterm significance="normal" zone="Anchor955800">
-        <primary>privileges</primary>
+      <title>
+         <anchor id="Anchor955800" role="Index"
+                 xreflabel="rescan privileges;privileges:rescanning of"/> 
+         <indexterm significance="normal">
+            <primary>rescan privileges</primary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>privileges</primary>
 
-        <secondary>rescanning of</secondary>
-      </indexterm>Rescan Privileges</title>
+            <secondary>rescanning of</secondary>
+         </indexterm>Rescan Privileges</title>
 
-    <para id="Para955802">The Rescan Privileges utility enables a user to
+      <para id="Para955802">The Rescan Privileges utility enables a user to
     realize newly-granted privileges without having to log out and log back in
     to the application. To realize newly-granted privileges, simply select the
     "Rescan Privileges" option to execute the utility. The privileges for the
@@ -291,58 +252,48 @@
     out of the application.</para>
   </section>
 
-  <xi:include href="guiclient/userPreferences.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/userPreferences.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/systemMessage.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/systemMessage.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/eventManager.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/eventManager.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="../topics/events.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/events.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/batchManager.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/batchManager.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="../topics/batch_manager.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../topics/batch_manager.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/errorLog.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/errorLog.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/schedServerMaint.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/schedServerMaint.xml"
+               xpointer="element(/1)"/>
 
-  <xi:include href="guiclient/schedServerBackup.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/schedServerBackup.xml"
+               xpointer="element(/1)"/>
 
   <section id="Section975141">
-    <title>System Utilities</title>
+      <title>System Utilities</title>
 
-    <para id="Para975145">System utilities are not specific to particular
+      <para id="Para975145">System utilities are not specific to particular
     modules. Instead, they have an impact on the system as a whole. To access
     the System utilities, select the "System Utilities" option.</para>
 
-    <xi:include href="guiclient/fixSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/fixSerial.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section519476">
-    <title>Print Alignment Page</title>
+      <title>Print Alignment Page</title>
 
-    <para id="Para941324">The alignment page utility prints out a formatted
+      <para id="Para941324">The alignment page utility prints out a formatted
     grid template, which you can use to align pre-printed forms (e.g.,
     Invoices, Bills of Lading, etc.) on your printer. When you select this
     option, you will be prompted to select the printer where you want to print
@@ -352,25 +303,25 @@
   </section>
 
   <section id="Section973211">
-    <title><anchor id="Anchor973210" role="Index"
-    xreflabel="exiting:how to" /> <indexterm significance="normal"
-        zone="Anchor973210">
-        <primary>exiting</primary>
+      <title>
+         <anchor id="Anchor973210" role="Index" xreflabel="exiting:how to"/> 
+         <indexterm significance="normal">
+            <primary>exiting</primary>
 
-        <secondary>how to</secondary>
-      </indexterm>Exit the Application</title>
+            <secondary>how to</secondary>
+         </indexterm>Exit the Application</title>
 
-    <para id="Para973223">There are two ways to successfully exit the system.
+      <para id="Para973223">There are two ways to successfully exit the system.
     Either use the "X" symbol associated with the desktop window. Or use the
     System menu's "Exit OpenMFG" (or "Exit PostBooks") option. Both work the
     same way and are equally valid methods for exiting the application.</para>
 
-    <para id="Para973224">After selecting this option, the application will
+      <para id="Para973224">After selecting this option, the application will
     close, returning you to your computer desktop.</para>
 
-    <tip>
-      <para id="Para973264">Be sure to close all open screens before exiting
+      <tip>
+         <para id="Para973264">Be sure to close all open screens before exiting
       the system to help prevent data loss.</para>
-    </tip>
+      </tip>
   </section>
 </chapter>

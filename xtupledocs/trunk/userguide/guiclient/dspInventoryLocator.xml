@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section677805" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section677805" role="openmfg">
     <title>Location/Lot/Serial # Detail</title>
 
     <para id="Para677806">To locate detailed Location and Lot/Serial Number
     information, select the "Location/Lot/Serial # Detail" option. The
     following screen will appear:</para>
 
-    <para id="Para677810"><screenshot>
+    <para id="Para677810">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_locationLotDetail.png"
-                       id="Graphic677808" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_locationLotDetail.png" id="Graphic677808"/>
+            </imageobject>
 
-          <caption id="Caption677811">Location/Lot/Serial Number
+            <caption id="Caption677811">Location/Lot/Serial Number
           Detail</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para677812">When displaying detailed Location and Lot/Serial
     Number information, you are presented with the following options:</para>
@@ -28,7 +29,7 @@
         <term id="Para677813">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1947ad4">
-          <para>Enter the Item Number of the Item whose detailed
+            <para>Enter the Item Number of the Item whose detailed
           Location/Lot/Serial Number information you want to display.</para>
         </listitem>
       </varlistentry>
@@ -37,7 +38,7 @@
         <term id="Para677814">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1947b1c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +46,7 @@
         <term id="Para677815">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1947b64">
-          <para>Select to display detailed Location/Lot/Serial Number
+            <para>Select to display detailed Location/Lot/Serial Number
           information for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +55,7 @@
         <term id="Para677816">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1947bac">
-          <para>Specify Warehouse whose detailed Location/Lot/Serial Number
+            <para>Specify Warehouse whose detailed Location/Lot/Serial Number
           information you want to display.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +64,7 @@
         <term id="Para677817">Locations</term>
 
         <listitem id="listitemN0x180ac00N0x1947bf4">
-          <para>Display lists Location/Lot/Serial Number detail, using the
+            <para>Display lists Location/Lot/Serial Number detail, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -77,7 +78,7 @@
         <term id="Para677819">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1947c60">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +87,7 @@
         <term id="Para677820">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1947ca8">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +96,7 @@
         <term id="Para677821">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1947cf0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

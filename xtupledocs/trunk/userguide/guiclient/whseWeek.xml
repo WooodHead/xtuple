@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section538592" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section538592" role="openmfg">
     <title>Warehouse Week</title>
 
     <para id="Para538593">Warehouse weeks are used to define the days of the
@@ -17,15 +17,17 @@
     <para id="Para538600">To define the work week for a Warehouse(s), select
     the "Warehouse Week" option. The following screen will appear:</para>
 
-    <para id="Para538542"><screenshot>
+    <para id="Para538542">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_MI_wareWeek.png" id="Graphic538540" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_MI_wareWeek.png" id="Graphic538540"/>
+            </imageobject>
 
-          <caption id="Caption538543">Create New Warehouse Work Week</caption>
+            <caption id="Caption538543">Create New Warehouse Work Week</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para538535">When defining the work week for a Warehouse, you are
     presented with the following options:</para>
@@ -35,9 +37,9 @@
         <term id="Para538645">All Warehouses</term>
 
         <listitem>
-          <para>Select to create a blanket schedule for all Warehouses.</para>
+            <para>Select to create a blanket schedule for all Warehouses.</para>
 
-          <para id="Para538662">Specify which days the Warehouses are open for
+            <para id="Para538662">Specify which days the Warehouses are open for
           business. Settings made using this option will be inherited by all
           Warehouses.</para>
         </listitem>
@@ -55,10 +57,10 @@
         <term id="Para538663">Selected</term>
 
         <listitem>
-          <para>Select the Warehouse whose work week you want to
+            <para>Select the Warehouse whose work week you want to
           define.</para>
 
-          <para id="Para538683">Specify which days the Warehouse is open for
+            <para id="Para538683">Specify which days the Warehouse is open for
           business. Settings made using this option are specific to the
           selected Warehouse.</para>
         </listitem>
@@ -73,7 +75,7 @@
         <term id="Para538726">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without creating work weeks for your
+            <para>Closes the screen without creating work weeks for your
           Warehouses, returning you to the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +84,7 @@
         <term id="Para538727">SAVE</term>
 
         <listitem>
-          <para>Creates the settings for any Warehouse weeks you have
+            <para>Creates the settings for any Warehouse weeks you have
           defined.</para>
         </listitem>
       </varlistentry>

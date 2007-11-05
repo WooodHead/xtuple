@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section570679">
-    <title><anchor id="Anchor570678" role="Index"
-    xreflabel="item sites:by cost category;cost categories:item site details for" />
-    <indexterm significance="normal" zone="Anchor570678">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section570679">
+    <title>
+      <anchor id="Anchor570678" role="Index"
+              xreflabel="item sites:by cost category;cost categories:item site details for"/>
+      <indexterm significance="normal">
         <primary>item sites</primary>
 
         <secondary>by cost category</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor570678">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>cost categories</primary>
 
         <secondary>item site details for</secondary>
@@ -18,16 +20,17 @@
     "Item Sites by Cost Category" option. The following screen will
     appear:</para>
 
-    <para id="Para570742"><screenshot>
+    <para id="Para570742">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_itemSitesByCost.png"
-                       id="Graphic570740" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_itemSitesByCost.png" id="Graphic570740"/>
+            </imageobject>
 
-          <caption id="Caption570743">Item Sites by Cost Category</caption>
+            <caption id="Caption570743">Item Sites by Cost Category</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para581849">When displaying Item Sites by Cost Category, you are
     presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para581850">All Cost Categories</term>
 
         <listitem id="listitemN0x180ac00N0x1939e80">
-          <para>Select to display Item Sites for all Cost Categories.</para>
+            <para>Select to display Item Sites for all Cost Categories.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +48,7 @@
         <term id="Para581851">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1939ec8">
-          <para>Specify Cost Category whose Item Sites you want to
+            <para>Specify Cost Category whose Item Sites you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -54,12 +57,11 @@
         <term id="Para571931">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1939f10">
-          <para>Enter a Cost Category pattern to select a range of Cost
+            <para>Enter a Cost Category pattern to select a range of Cost
           Categories.</para>
 
-          <para id="Para677085">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677084"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677085">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677084" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -69,7 +71,7 @@
         <term id="Para571939">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1939f34">
-          <para>Select to display Item Sites by Cost Category for all
+            <para>Select to display Item Sites by Cost Category for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +80,7 @@
         <term id="Para571940">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1939f58">
-          <para>Specify Warehouse whose Item Sites by Cost Category you want
+            <para>Specify Warehouse whose Item Sites by Cost Category you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +89,7 @@
         <term id="Para620707">Show Inactive</term>
 
         <listitem id="listitemN0x180ac00N0x1939fa0">
-          <para>Select to display active as well as inactive Item
+            <para>Select to display active as well as inactive Item
           Sites.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +98,7 @@
         <term id="Para571942">Item Sites</term>
 
         <listitem id="listitemN0x180ac00N0x1939fe8">
-          <para>Display lists Item Sites by Cost Category, using the specified
+            <para>Display lists Item Sites by Cost Category, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -110,7 +112,7 @@
         <term id="Para571945">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193a054">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -119,7 +121,7 @@
         <term id="Para585354">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x193a09c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -128,7 +130,7 @@
         <term id="Para675645">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193a0e4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -141,7 +143,7 @@
         <term id="Para571949">View Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x193a150">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -149,7 +151,7 @@
         <term id="Para571950">Edit Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x193a198">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -157,7 +159,7 @@
         <term id="Para571951">View Inventory Availability</term>
 
         <listitem id="listitemN0x180ac00N0x193a1e0">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -165,12 +167,11 @@
         <term id="Para571952">Issue Count Tag</term>
 
         <listitem id="listitemN0x180ac00N0x193a228">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

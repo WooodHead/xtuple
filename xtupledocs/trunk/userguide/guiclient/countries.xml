@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972122">
-  <title><anchor id="Anchor972126" role="Index"
-  xreflabel="countries:master list of" /> <indexterm significance="normal"
-      zone="Anchor972126">
-      <primary>countries</primary>
+  <title>
+      <anchor id="Anchor972126" role="Index" xreflabel="countries:master list of"/> 
+      <indexterm significance="normal">
+         <primary>countries</primary>
 
-      <secondary>master list of</secondary>
-    </indexterm> <anchor id="Anchor62146" role="Cross-Ref"
-  xreflabel="62146: Heading2: Countries" />List Countries</title>
+         <secondary>master list of</secondary>
+      </indexterm> 
+      <anchor id="Anchor62146" role="Cross-Ref" xreflabel="62146: Heading2: Countries"/>List Countries</title>
 
   <para id="Para972277">A comprehensive list of Country definitions is
   provided with the system for use in Address and Currency masters. To access
   the master list of Country definitions, select the "Countries" option. The
   following screen will appear:</para>
 
-  <para id="Para972281"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_countryList.png" id="Graphic972279" />
-        </imageobject>
+  <para id="Para972281">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_countryList.png" id="Graphic972279"/>
+            </imageobject>
 
-        <caption id="Caption972282">Countries Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption972282">Countries Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <tip>
-    <para id="Para972526">While Country definitions may be added or edited,
+      <para id="Para972526">While Country definitions may be added or edited,
     you should carefully consider before making any changes to the existing
     definitions. In general, changing Country definitions should be
     discouraged.</para>
@@ -42,81 +44,80 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para972285">CLOSE</term>
+      <varlistentry>
+         <term id="Para972285">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x18690dc">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x18690dc">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972287">NEW</term>
+      <varlistentry>
+         <term id="Para972287">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x1869124">
-        <para>Opens screen for creating a new Country definition.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x1869124">
+            <para>Opens screen for creating a new Country definition.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972393">EDIT</term>
+      <varlistentry>
+         <term id="Para972393">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x186916c">
-        <para>Enables you to edit highlighted Country definitions. The edit
+         <listitem id="listitemN0x180ac00N0x186916c">
+            <para>Enables you to edit highlighted Country definitions. The edit
         screen is the same as that for creating a new Country
         definition--except that when editing, the fields will contain Country
         information. Double-clicking on a Country definition will also bring
         you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972394">VIEW</term>
+      <varlistentry>
+         <term id="Para972394">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18691b4">
-        <para>Highlight a Country definition and then select this button to
+         <listitem id="listitemN0x180ac00N0x18691b4">
+            <para>Highlight a Country definition and then select this button to
         reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972292">DELETE</term>
+      <varlistentry>
+         <term id="Para972292">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x18691fc">
-        <para>Highlight a Country definition and then select this button to
+         <listitem id="listitemN0x180ac00N0x18691fc">
+            <para>Highlight a Country definition and then select this button to
         remove the Country from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para972436">Right-clicking on a Country in the Countries list
   enables you to select from the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para972437">Edit</term>
+      <varlistentry>
+         <term id="Para972437">Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x186916c)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x186916c)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972438">View</term>
+      <varlistentry>
+         <term id="Para972438">View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18691b4)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x18691b4)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para972439">Delete</term>
+      <varlistentry>
+         <term id="Para972439">Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18691fc)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x18691fc)"/>
+      </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

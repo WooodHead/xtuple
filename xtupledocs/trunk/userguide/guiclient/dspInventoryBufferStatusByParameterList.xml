@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Inventory Buffer Status by Parameter List
@@ -52,21 +52,21 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Greater than zero</guilabel>
+                  <guilabel moreinfo="none">Greater than zero</guilabel>
                </entry>
                <entry>_GreaterThanZero</entry>
                <entry>QRadioButton</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>In Emergency Zone:</guilabel>
+                  <guilabel moreinfo="none">In Emergency Zone:</guilabel>
                </entry>
                <entry>_EmergencyZone</entry>
                <entry>QRadioButton</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>All</guilabel>
+                  <guilabel moreinfo="none">All</guilabel>
                </entry>
                <entry>_All</entry>
                <entry>QRadioButton</entry>
@@ -78,7 +78,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -86,7 +86,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uery</guilabel>
                </entry>
                <entry>_query</entry>
@@ -94,7 +94,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -107,7 +107,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Availability:</guilabel>
+                  <guilabel moreinfo="none">Availability:</guilabel>
                </entry>
                <entry>_availabilityLit</entry>
                <entry>QLabel</entry>

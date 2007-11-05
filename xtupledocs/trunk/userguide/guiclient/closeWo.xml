@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518607">
-    <title><anchor id="Anchor533167" role="Index"
-    xreflabel="work orders:closing of" /> <indexterm significance="normal"
-        zone="Anchor533167">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518607">
+    <title>
+      <anchor id="Anchor533167" role="Index" xreflabel="work orders:closing of"/> 
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>closing of</secondary>
@@ -14,15 +14,17 @@
     Work Order, select the "Close Work Order" option. The following screen
     will appear:</para>
 
-    <para id="Para518612"><screenshot>
+    <para id="Para518612">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_closeWO.png" id="Graphic523470" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_closeWO.png" id="Graphic523470"/>
+            </imageobject>
 
-          <caption id="Caption518613">Close Work Order</caption>
+            <caption id="Caption518613">Close Work Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para560539">Work Order Materials and Operations history is
@@ -38,7 +40,7 @@
         <term id="Para518615">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           close.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para518617">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +58,7 @@
         <term id="Para518619">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +67,7 @@
         <term id="Para568603">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -73,29 +75,31 @@
         <term id="Para518623">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para518625"><anchor id="Anchor535805" role="Index"
-        xreflabel="variances:relation to w/o;work orders:variances related to" />
-        <indexterm significance="normal" zone="Anchor535805">
-            <primary>variances</primary>
+        <term id="Para518625">
+            <anchor id="Anchor535805" role="Index"
+                    xreflabel="variances:relation to w/o;work orders:variances related to"/>
+            <indexterm significance="normal">
+               <primary>variances</primary>
 
-            <secondary>relation to w/o</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor535805">
-            <primary>work orders</primary>
+               <secondary>relation to w/o</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>work orders</primary>
 
-            <secondary>variances related to</secondary>
-          </indexterm>Post Material Usage Variances</term>
+               <secondary>variances related to</secondary>
+            </indexterm>Post Material Usage Variances</term>
 
         <listitem>
-          <para>Material Usage Variances: Select to post material usage
+            <para>Material Usage Variances: Select to post material usage
           variances resulting from the Work Order.</para>
 
-          <para id="Para518626">Variance information can be found in the Work
+            <para id="Para518626">Variance information can be found in the Work
           Order reports.</para>
         </listitem>
       </varlistentry>
@@ -104,10 +108,10 @@
         <term id="Para569384">Post Labor Variances</term>
 
         <listitem>
-          <para>Select to post labor variances resulting from the Work
+            <para>Select to post labor variances resulting from the Work
           Order.</para>
 
-          <para id="Para569385">Variance information can be found in the Work
+            <para id="Para569385">Variance information can be found in the Work
           Order reports.</para>
         </listitem>
       </varlistentry>
@@ -116,9 +120,9 @@
         <term id="Para569386">Post Comment</term>
 
         <listitem>
-          <para>Select to attach a Comment to the Work Order.</para>
+            <para>Select to attach a Comment to the Work Order.</para>
 
-          <para id="Para550595">This option must be selected if you want to
+            <para id="Para550595">This option must be selected if you want to
           add a Comment to the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -127,10 +131,10 @@
         <term id="Para550346">Comment Type</term>
 
         <listitem>
-          <para>Specify one of the following Comment Types from the drop-down
+            <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
 
-          <para id="Para550347">Comment Types are used to categorize Comments.
+            <para id="Para550347">Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
@@ -146,7 +150,7 @@
         <term id="Para518630">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without closing the selected Work Order,
+            <para>Closes the screen without closing the selected Work Order,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +159,7 @@
         <term id="Para518631">CLOSE W/O</term>
 
         <listitem>
-          <para>Closes the selected Work Order.</para>
+            <para>Closes the selected Work Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>

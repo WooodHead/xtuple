@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Credit Memo
@@ -42,7 +42,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -50,7 +50,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -68,14 +68,14 @@
             </row>
                      <row>
                <entry>
-                  <guilabel>Memo #:</guilabel>
+                  <guilabel moreinfo="none">Memo #:</guilabel>
                </entry>
                <entry>_memoNumberLit</entry>
                <entry>QLabel</entry>
             </row>
                      <row>
                <entry>
-                  <guilabel>Memo Date:</guilabel>
+                  <guilabel moreinfo="none">Memo Date:</guilabel>
                </entry>
                <entry>_memoDateLit</entry>
                <entry>QLabel</entry>
@@ -92,21 +92,21 @@
             </row>
                    <row>
                <entry>
-                  <guilabel>Status:</guilabel>
+                  <guilabel moreinfo="none">Status:</guilabel>
                </entry>
                <entry>_statusLit</entry>
                <entry>QLabel</entry>
             </row>
                    <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_status</entry>
                <entry>QLabel</entry>
             </row>
                  <row>
                <entry>
-                  <guilabel>Apply To:</guilabel>
+                  <guilabel moreinfo="none">Apply To:</guilabel>
                </entry>
                <entry>lblApplyToLit</entry>
                <entry>QLabel</entry>
@@ -118,21 +118,21 @@
             </row>
                      <row>
                <entry>
-                  <guilabel>...</guilabel>
+                  <guilabel moreinfo="none">...</guilabel>
                </entry>
                <entry>_invoiceList</entry>
                <entry>QPushButton</entry>
             </row>
                    <row>
                <entry>
-                  <guilabel>Sales Rep.:</guilabel>
+                  <guilabel moreinfo="none">Sales Rep.:</guilabel>
                </entry>
                <entry>_salesRepLit</entry>
                <entry>QLabel</entry>
             </row>
                    <row>
                <entry>
-                  <guilabel>Commission:</guilabel>
+                  <guilabel moreinfo="none">Commission:</guilabel>
                </entry>
                <entry>_commissionLit</entry>
                <entry>QLabel</entry>
@@ -149,14 +149,14 @@
             </row>
                        <row>
                <entry>
-                  <guilabel>%</guilabel>
+                  <guilabel moreinfo="none">%</guilabel>
                </entry>
                <entry>_commissionPrcntLit</entry>
                <entry>QLabel</entry>
             </row>
                  <row>
                <entry>
-                  <guilabel>Tax Authority:</guilabel>
+                  <guilabel moreinfo="none">Tax Authority:</guilabel>
                </entry>
                <entry>_taxauthLit</entry>
                <entry>QLabel</entry>
@@ -173,21 +173,21 @@
             </row>
                  <row>
                <entry>
-                  <guilabel>Copy to Ship-to -&gt;</guilabel>
+                  <guilabel moreinfo="none">Copy to Ship-to -&gt;</guilabel>
                </entry>
                <entry>_copyToShipto</entry>
                <entry>QPushButton</entry>
             </row>
                  <row>
                <entry>
-                  <guilabel>    Name:</guilabel>
+                  <guilabel moreinfo="none">    Name:</guilabel>
                </entry>
                <entry>_billtoNameLit</entry>
                <entry>QLabel</entry>
             </row>
                  <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoName</entry>
                <entry>XLineEdit</entry>
@@ -199,7 +199,7 @@
             </row>
                  <row>
                <entry>
-                  <guilabel>Ship-To #:</guilabel>
+                  <guilabel moreinfo="none">Ship-To #:</guilabel>
                </entry>
                <entry>_shipToNumberLit</entry>
                <entry>QLabel</entry>
@@ -211,14 +211,14 @@
             </row>
                  <row>
                <entry>
-                  <guilabel>...</guilabel>
+                  <guilabel moreinfo="none">...</guilabel>
                </entry>
                <entry>_shipToList</entry>
                <entry>QPushButton</entry>
             </row>
                  <row>
                <entry>
-                  <guilabel>    Name:</guilabel>
+                  <guilabel moreinfo="none">    Name:</guilabel>
                </entry>
                <entry>_shipToNameLit</entry>
                <entry>QLabel</entry>
@@ -235,7 +235,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>Cust. PO #:</guilabel>
+                  <guilabel moreinfo="none">Cust. PO #:</guilabel>
                </entry>
                <entry>_customerPOLit</entry>
                <entry>QLabel</entry>
@@ -247,7 +247,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>lace on Hold</guilabel>
                </entry>
                <entry>_hold</entry>
@@ -255,7 +255,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>Reason Code:</guilabel>
+                  <guilabel moreinfo="none">Reason Code:</guilabel>
                </entry>
                <entry>_rsnCodeLit</entry>
                <entry>QLabel</entry>
@@ -272,7 +272,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>L</accel>ine Items:</guilabel>
                </entry>
                <entry>_lineItemsLit</entry>
@@ -285,7 +285,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>N</accel>ew Item...</guilabel>
                </entry>
                <entry>_new</entry>
@@ -293,7 +293,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>E</accel>dit Item...</guilabel>
                </entry>
                <entry>_edit</entry>
@@ -301,7 +301,7 @@
             </row>
                <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>D</accel>elete Item</guilabel>
                </entry>
                <entry>_delete</entry>
@@ -309,7 +309,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Currency:</guilabel>
+                  <guilabel moreinfo="none">Currency:</guilabel>
                </entry>
                <entry>_currencyLit</entry>
                <entry>QLabel</entry>
@@ -321,7 +321,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Subtotal:</guilabel>
+                  <guilabel moreinfo="none">Subtotal:</guilabel>
                </entry>
                <entry>_subtotalLit</entry>
                <entry>QLabel</entry>
@@ -333,7 +333,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Misc. Charge Description:</guilabel>
+                  <guilabel moreinfo="none">Misc. Charge Description:</guilabel>
                </entry>
                <entry>_miscChargeDescriptionLit</entry>
                <entry>QLabel</entry>
@@ -345,7 +345,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Misc. Charge:</guilabel>
+                  <guilabel moreinfo="none">Misc. Charge:</guilabel>
                </entry>
                <entry>_miscChargeAmountLit</entry>
                <entry>QLabel</entry>
@@ -357,7 +357,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Misc. Charge Credit Account:</guilabel>
+                  <guilabel moreinfo="none">Misc. Charge Credit Account:</guilabel>
                </entry>
                <entry>_miscChargeAccountLit</entry>
                <entry>QLabel</entry>
@@ -369,7 +369,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Freight:</guilabel>
+                  <guilabel moreinfo="none">Freight:</guilabel>
                </entry>
                <entry>_freightLit</entry>
                <entry>QLabel</entry>
@@ -381,7 +381,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Tax:</guilabel>
+                  <guilabel moreinfo="none">Tax:</guilabel>
                </entry>
                <entry>_taxLit</entry>
                <entry>XURLLabel</entry>
@@ -393,7 +393,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Total:</guilabel>
+                  <guilabel moreinfo="none">Total:</guilabel>
                </entry>
                <entry>_totalLit</entry>
                <entry>QLabel</entry>

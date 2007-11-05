@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section917430">
   <title>Maintain Users</title>
 
-  <para id="Para941064">The Maintain Users section enables <anchor
-  id="Anchor971279" role="Index"
-  xreflabel="openmfg administrators:privileges maintained by" /> <indexterm
-      significance="normal" zone="Anchor971279">
-      <primary>openmfg administrators</primary>
+  <para id="Para941064">The Maintain Users section enables <anchor id="Anchor971279" role="Index"
+              xreflabel="openmfg administrators:privileges maintained by"/> 
+      <indexterm significance="normal">
+         <primary>openmfg administrators</primary>
 
-      <secondary>privileges maintained by</secondary>
-    </indexterm>system administrators to set up and maintain user accounts,
+         <secondary>privileges maintained by</secondary>
+      </indexterm>system administrators to set up and maintain user accounts,
   passwords, and associated application privileges. This section can only be
   accessed by users who have been granted the "MaintainUsers" system
   privilege--a privilege typically reserved for system administrators. We
@@ -19,15 +18,17 @@
   people. The following screen will appear when you select the "Maintain
   Users" option:</para>
 
-  <para id="Para519249"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_maintUser.png" id="Graphic522169" />
-        </imageobject>
+  <para id="Para519249">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_maintUser.png" id="Graphic522169"/>
+            </imageobject>
 
-        <caption id="Caption519250">Maintain Users</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption519250">Maintain Users</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para917641">The "Maintain Users" screen displays information on
   all existing users, including username, proper name, and status. To include
@@ -38,43 +39,42 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para917693">CLOSE</term>
+      <varlistentry>
+         <term id="Para917693">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x18c3d34">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x18c3d34">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para979425">PRINT</term>
+      <varlistentry>
+         <term id="Para979425">PRINT</term>
 
-      <listitem id="listitemN0x180ac00N0x18c3d7c">
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18c3d7c">
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para917695">NEW</term>
+      <varlistentry>
+         <term id="Para917695">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18c3dc4">
-        <para>Opens screen for creating a new user.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18c3dc4">
+            <para>Opens screen for creating a new user.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para530965">EDIT</term>
+      <varlistentry>
+         <term id="Para530965">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x18c3e0c">
-        <para>Enables you to edit highlighted users. The edit screen is the
+         <listitem id="listitemN0x180ac00N0x18c3e0c">
+            <para>Enables you to edit highlighted users. The edit screen is the
         same as that for creating a new user--except that when editing, the
         fields will contain user information. Double-clicking on a user will
         also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="user.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user.xml" xpointer="element(/1)"/>
 </section>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518929">
-    <title><anchor id="Anchor533191" role="Index"
-    xreflabel="work orders:issuing materials individually;work order material requirements:issuing individually" />
-    <indexterm significance="normal" zone="Anchor533191">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518929">
+    <title>
+      <anchor id="Anchor533191" role="Index"
+              xreflabel="work orders:issuing materials individually;work order material requirements:issuing individually"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>issuing materials individually</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533191">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>work order material requirements</primary>
 
         <secondary>issuing individually</secondary>
@@ -18,16 +20,17 @@
     select the "Issue W/O Material Item" option. The following screen will
     appear:</para>
 
-    <para id="Para518934"><screenshot>
+    <para id="Para518934">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_issueMatItem.png"
-                       id="Graphic523636" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_issueMatItem.png" id="Graphic523636"/>
+            </imageobject>
 
-          <caption id="Caption518935">Issue Work Order Material Item</caption>
+            <caption id="Caption518935">Issue Work Order Material Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518936">When issuing Work Order Material Items individually,
     you are presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para518937">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose individual
+            <para>Enter the Work Order Number of the Work Order whose individual
           component Item you want to issue.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +49,7 @@
         <term id="Para518939">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +58,7 @@
         <term id="Para518941">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +67,7 @@
         <term id="Para568676">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -72,7 +75,7 @@
         <term id="Para518945">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -81,7 +84,7 @@
         <term id="Para518947">Comp. Item Number</term>
 
         <listitem>
-          <para>Select one of the specified Item's component Items whose issue
+            <para>Select one of the specified Item's component Items whose issue
           method is "Push" or "Mixed."</para>
         </listitem>
       </varlistentry>
@@ -99,7 +102,7 @@
         <term id="Para568682">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -107,7 +110,7 @@
         <term id="Para518952">Total Qty. Required</term>
 
         <listitem>
-          <para>The total quantity of the component Item required by the Work
+            <para>The total quantity of the component Item required by the Work
           Order will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -116,7 +119,7 @@
         <term id="Para518954">Qty. Issued to Date</term>
 
         <listitem>
-          <para>The total quantity of the component Item issued to the Work
+            <para>The total quantity of the component Item issued to the Work
           Order to date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -125,7 +128,7 @@
         <term id="Para518959">Qty. to Issue</term>
 
         <listitem>
-          <para>to Issue: Enter the quantity of the component Item you want to
+            <para>to Issue: Enter the quantity of the component Item you want to
           issue to the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -134,7 +137,7 @@
         <term id="Para518961">QOH Before</term>
 
         <listitem>
-          <para>Total Quantity on Hand prior to the issue will be
+            <para>Total Quantity on Hand prior to the issue will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -143,7 +146,7 @@
         <term id="Para518963">QOH After</term>
 
         <listitem>
-          <para>Total Quantity on Hand after the proposed issue will be
+            <para>Total Quantity on Hand after the proposed issue will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +167,7 @@
         <term id="Para518966">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without issuing any of the selected
+            <para>Closes the screen without issuing any of the selected
           component material to the selected Work Order, returning you to the
           application desktop.</para>
         </listitem>
@@ -174,7 +177,7 @@
         <term id="Para518967">ISSUE MATERIAL</term>
 
         <listitem>
-          <para>Issues the component Item in the quantity specified.</para>
+            <para>Issues the component Item in the quantity specified.</para>
         </listitem>
       </varlistentry>
     </variablelist>

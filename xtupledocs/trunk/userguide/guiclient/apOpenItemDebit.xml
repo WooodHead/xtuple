@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section539772">
-    <title><anchor id="Anchor539771" role="Index"
-    xreflabel="debit memos:entering new;accounts receivable:entering debit memos for" />
-    <indexterm significance="normal" zone="Anchor539771">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section539772">
+    <title>
+      <anchor id="Anchor539771" role="Index"
+              xreflabel="debit memos:entering new;accounts receivable:entering debit memos for"/>
+      <indexterm significance="normal">
         <primary>debit memos</primary>
 
         <secondary>entering new</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor539771">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts receivable</primary>
 
         <secondary>entering debit memos for</secondary>
@@ -20,16 +22,17 @@
     the "Enter Misc. Debit Memo" option. The following screen will
     appear:</para>
 
-    <para id="Para539777"><screenshot>
+    <para id="Para539777">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_DCMems_enterDM.png"
-                       id="Graphic539775" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_DCMems_enterDM.png" id="Graphic539775"/>
+            </imageobject>
 
-          <caption id="Caption539778">Enter Miscellaneous Debit Memo</caption>
+            <caption id="Caption539778">Enter Miscellaneous Debit Memo</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para539779">When entering a miscellaneous Debit Memo, you are
     presented with the following options:</para>
@@ -39,7 +42,7 @@
         <term id="Para539780">Vendor #</term>
 
         <listitem>
-          <para>Enter the Vendor number of the Vendor you want to enter a
+            <para>Enter the Vendor number of the Vendor you want to enter a
           miscellaneous Debit Memo for.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +51,7 @@
         <term id="Para539785">Document Date</term>
 
         <listitem>
-          <para>Specify a date to associate with the miscellaneous Debit
+            <para>Specify a date to associate with the miscellaneous Debit
           Memo.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +60,7 @@
         <term id="Para539787">Due Date</term>
 
         <listitem>
-          <para>Displays the due date for the miscellaneous Debit Memo.</para>
+            <para>Displays the due date for the miscellaneous Debit Memo.</para>
         </listitem>
       </varlistentry>
 
@@ -65,7 +68,7 @@
         <term id="Para539788">Document Type</term>
 
         <listitem>
-          <para>Displays the Document Type, namely "Debit Memo."</para>
+            <para>Displays the Document Type, namely "Debit Memo."</para>
         </listitem>
       </varlistentry>
 
@@ -73,10 +76,10 @@
         <term id="Para539789">Doc. Number</term>
 
         <listitem>
-          <para>Displays the next available miscellaneous Debit Memo
+            <para>Displays the next available miscellaneous Debit Memo
           Number.</para>
 
-          <para id="Para539790">The value for the next available Debit Memo
+            <para id="Para539790">The value for the next available Debit Memo
           Number can be configured at the system level.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +88,7 @@
         <term id="Para539794">P/O #</term>
 
         <listitem>
-          <para>Enter a Purchase Order Number to associate with the Credit
+            <para>Enter a Purchase Order Number to associate with the Credit
           Memo. You may leave this field blank if you do not want to enter an
           associated Purchase Order Number.</para>
         </listitem>
@@ -95,7 +98,7 @@
         <term id="Para539796">Journal #</term>
 
         <listitem>
-          <para>Displays the Journal number if any amount has been
+            <para>Displays the Journal number if any amount has been
           applied.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +107,7 @@
         <term id="Para539797">Terms</term>
 
         <listitem>
-          <para>Displays Invoice Terms if any amount has been applied to an
+            <para>Displays Invoice Terms if any amount has been applied to an
           Invoice.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +116,7 @@
         <term id="Para539804">Amount</term>
 
         <listitem>
-          <para>Specify the amount of the miscellaneous Debit Memo.</para>
+            <para>Specify the amount of the miscellaneous Debit Memo.</para>
         </listitem>
       </varlistentry>
 
@@ -121,7 +124,7 @@
         <term id="Para539806">Paid</term>
 
         <listitem>
-          <para>Displays the amount applied to date for the miscellaneous
+            <para>Displays the amount applied to date for the miscellaneous
           Debit Memo.</para>
         </listitem>
       </varlistentry>
@@ -130,7 +133,7 @@
         <term id="Para539807">Balance</term>
 
         <listitem>
-          <para>Displays the remaining amount still available to apply for the
+            <para>Displays the remaining amount still available to apply for the
           miscellaneous Debit Memo.</para>
         </listitem>
       </varlistentry>
@@ -139,9 +142,9 @@
         <term id="Para549887">Use Alternate Prepaid Account</term>
 
         <listitem>
-          <para>Select one of the following optional prepaid Accounts:</para>
+            <para>Select one of the following optional prepaid Accounts:</para>
 
-          <para id="Para549888">Alternate Prepaid Account: Specify an
+            <para id="Para549888">Alternate Prepaid Account: Specify an
           alternate prepaid Account to use instead of the default prepaid
           Account.</para>
         </listitem>
@@ -159,7 +162,7 @@
         <term id="Para539811">Notes</term>
 
         <listitem>
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Notes related to the miscellaneous Debit Memo.</para>
         </listitem>
       </varlistentry>
@@ -168,7 +171,7 @@
         <term id="Para539813">Applications</term>
 
         <listitem>
-          <para>Display lists the history of applications related to the
+            <para>Display lists the history of applications related to the
           miscellaneous Debit Memo, if any.</para>
         </listitem>
       </varlistentry>
@@ -182,7 +185,7 @@
         <term id="Para539816">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without entering a miscellaneous Debit Memo,
+            <para>Closes the screen without entering a miscellaneous Debit Memo,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -191,7 +194,7 @@
         <term id="Para539817">POST</term>
 
         <listitem>
-          <para>Posts the miscellaneous Debit Memo, using the amount
+            <para>Posts the miscellaneous Debit Memo, using the amount
           specified.</para>
         </listitem>
       </varlistentry>

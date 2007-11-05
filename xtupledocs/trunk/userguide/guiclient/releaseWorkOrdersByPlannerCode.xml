@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section543196">
-    <title><anchor id="Anchor543515" role="Index"
-    xreflabel="work orders:releasing by planner code;planner codes:releasing work orders by" />
-    <indexterm significance="normal" zone="Anchor543515">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section543196">
+    <title>
+      <anchor id="Anchor543515" role="Index"
+              xreflabel="work orders:releasing by planner code;planner codes:releasing work orders by"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>releasing by planner code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor543515">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>planner codes</primary>
 
         <secondary>releasing work orders by</secondary>
@@ -19,17 +21,18 @@
     release Work Orders by Planner Code, select the "Release Work Orders by
     Planner Code" option. The following screen will appear:</para>
 
-    <para id="Para543211"><screenshot>
+    <para id="Para543211">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_releaseByPCode.png"
-                       id="Graphic543209" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_releaseByPCode.png" id="Graphic543209"/>
+            </imageobject>
 
-          <caption id="Caption543212">Release Work Orders by Planner
+            <caption id="Caption543212">Release Work Orders by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para552634">Once an Order has been released, the system
@@ -45,7 +48,7 @@
         <term id="Para545538">All Planner Codes</term>
 
         <listitem>
-          <para>Select to release Work Orders for all Planner Codes.</para>
+            <para>Select to release Work Orders for all Planner Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +56,7 @@
         <term id="Para543439">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose exploded Work Orders you want to
+            <para>Specify Planner Code whose exploded Work Orders you want to
           release.</para>
         </listitem>
       </varlistentry>
@@ -62,12 +65,11 @@
         <term id="Para543441">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para569446">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef569460"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para569446">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef569460" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -77,7 +79,7 @@
         <term id="Para543459">Cutoff Date</term>
 
         <listitem>
-          <para>All relevant Work Orders exploded prior to the date entered
+            <para>All relevant Work Orders exploded prior to the date entered
           will be released.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +88,7 @@
         <term id="Para543472">by Start Date</term>
 
         <listitem>
-          <para>Select to make cutoff date effective as of Work Order start
+            <para>Select to make cutoff date effective as of Work Order start
           date.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +97,7 @@
         <term id="Para543476">by Due Date</term>
 
         <listitem>
-          <para>Select to make cutoff date effective as of Work Order due
+            <para>Select to make cutoff date effective as of Work Order due
           date.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +106,7 @@
         <term id="Para543461">All Warehouses</term>
 
         <listitem>
-          <para>Select to release Work Orders by Planner Code from all
+            <para>Select to release Work Orders by Planner Code from all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +115,7 @@
         <term id="Para543462">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose exploded Work Orders by Planner Code
+            <para>Specify Warehouse whose exploded Work Orders by Planner Code
           you want to release.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +129,7 @@
         <term id="Para543412">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without releasing Work Orders by Planner
+            <para>Closes the screen without releasing Work Orders by Planner
           Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -136,7 +138,7 @@
         <term id="Para543413">RELEASE</term>
 
         <listitem>
-          <para>Releases Work Orders by Planner Code, using the specified
+            <para>Releases Work Orders by Planner Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>

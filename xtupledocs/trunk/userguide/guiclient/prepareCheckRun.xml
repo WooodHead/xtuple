@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section524362">
-    <title><anchor id="Anchor532574" role="Index"
-    xreflabel="check runs:preparation of;checks:preparing runs of;accounts payable:preparing check runs for" />
-    <indexterm significance="normal" zone="Anchor532574">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524362">
+    <title>
+      <anchor id="Anchor532574" role="Index"
+              xreflabel="check runs:preparation of;checks:preparing runs of;accounts payable:preparing check runs for"/>
+      <indexterm significance="normal">
         <primary>check runs</primary>
 
         <secondary>preparation of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532574">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>checks</primary>
 
         <secondary>preparing runs of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532574">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>preparing check runs for</secondary>
@@ -21,16 +24,17 @@
     <para id="Para524386">To prepare a Check Run, select the "Prepare Check
     Run" option. The following screen will appear:</para>
 
-    <para id="Para528900"><screenshot>
+    <para id="Para528900">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_prepChkRun.png"
-                       id="Graphic528898" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_prepChkRun.png" id="Graphic528898"/>
+            </imageobject>
 
-          <caption id="Caption528901">Prepare Check Run</caption>
+            <caption id="Caption528901">Prepare Check Run</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para528895">When preparing a Check Run, you are presented with
     the following options:</para>
@@ -40,7 +44,7 @@
         <term id="Para528916">Bank Account</term>
 
         <listitem>
-          <para>Specify the Bank Account to be used for the Check Run.</para>
+            <para>Specify the Bank Account to be used for the Check Run.</para>
         </listitem>
       </varlistentry>
 
@@ -48,7 +52,7 @@
         <term id="Para528991">Next Check #</term>
 
         <listitem>
-          <para>Indicate the next Check Number to be issued from the Bank
+            <para>Indicate the next Check Number to be issued from the Bank
           Account. Check Numbers will increment in intervals of one (1)
           beginning with the Check Number entered here. By default, the next
           available number will display.</para>
@@ -59,7 +63,7 @@
         <term id="Para528925">Check Date</term>
 
         <listitem>
-          <para>Specify the date to appear on the Checks in the Check Run. By
+            <para>Specify the date to appear on the Checks in the Check Run. By
           default, the current day's date will display. You may change the
           date in this field, thereby changing the date that will appear on
           the Checks being prepared.</para>
@@ -75,7 +79,7 @@
         <term id="Para528947">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without preparing a Check Run, returning you
+            <para>Closes the screen without preparing a Check Run, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +88,7 @@
         <term id="Para528948">PREPARE</term>
 
         <listitem>
-          <para>Prepares the Check Run.</para>
+            <para>Prepares the Check Run.</para>
         </listitem>
       </varlistentry>
     </variablelist>

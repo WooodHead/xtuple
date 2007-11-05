@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524360">
-  <title> <anchor id="Anchor548274" role="Index"
-  xreflabel="discounts:applying to open a/p items" /><indexterm
-      significance="normal" zone="Anchor548274">
-      <primary>discounts</primary>
+  <title> 
+      <anchor id="Anchor548274" role="Index" xreflabel="discounts:applying to open a/p items"/>
+      <indexterm significance="normal">
+         <primary>discounts</primary>
 
-      <secondary>applying to open a/p items</secondary>
-    </indexterm>Apply Discount</title>
+         <secondary>applying to open a/p items</secondary>
+      </indexterm>Apply Discount</title>
 
   <para id="Para548056">To apply a billing Terms Discount and have the
   Discount amount deducted from the total owed, select the APPLY DISCOUNT
   button. The following screen will appear:</para>
 
-  <para id="Para547935"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/AP_Pay_selectPayDisc.png"
-                     id="Graphic547933" />
-        </imageobject>
+  <para id="Para547935">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_selectPayDisc.png" id="Graphic547933"/>
+            </imageobject>
 
-        <caption id="Caption547936">Apply Billing Terms Discount</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption547936">Apply Billing Terms Discount</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <note>
-    <para id="Para557469">Discounts are posted to the General Ledger (G/L)
+      <para id="Para557469">Discounts are posted to the General Ledger (G/L)
     when the Check they are associated with is posted. Any time prior to the
     posting of the Check, the Discount can be edited or reversed.</para>
   </note>
@@ -35,112 +36,112 @@
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para548097">Vendor #</term>
+      <varlistentry>
+         <term id="Para548097">Vendor #</term>
 
-      <listitem>
-        <para>Displays the name of the Vendor who is owed payment.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Displays the name of the Vendor who is owed payment.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548122">Doc. Type</term>
+      <varlistentry>
+         <term id="Para548122">Doc. Type</term>
 
-      <listitem>
-        <para>Displays the Document Type.</para>
+         <listitem>
+            <para>Displays the Document Type.</para>
 
-        <para id="Para548131">Valid Document Types include posted Vouchers and
+            <para id="Para548131">Valid Document Types include posted Vouchers and
         miscellaneous A/P Debit Memos.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548098">Doc #</term>
+      <varlistentry>
+         <term id="Para548098">Doc #</term>
 
-      <listitem>
-        <para>Displays the Document Number of the Document being selected for
+         <listitem>
+            <para>Displays the Document Number of the Document being selected for
         payment.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548101">Doc. Date</term>
+      <varlistentry>
+         <term id="Para548101">Doc. Date</term>
 
-      <listitem>
-        <para>Displays the Document's origination date.</para>
+         <listitem>
+            <para>Displays the Document's origination date.</para>
 
-        <para id="Para548102">In the case of a Voucher, the Document date is
+            <para id="Para548102">In the case of a Voucher, the Document date is
         the same as the Invoice date.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548139">Terms</term>
+      <varlistentry>
+         <term id="Para548139">Terms</term>
 
-      <listitem>
-        <para>Displays the billing Terms selected at the time the Document was
+         <listitem>
+            <para>Displays the billing Terms selected at the time the Document was
         posted.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548103">Discount Date</term>
+      <varlistentry>
+         <term id="Para548103">Discount Date</term>
 
-      <listitem>
-        <para>Displays the expiration date for the billing Terms Discount
+         <listitem>
+            <para>Displays the expiration date for the billing Terms Discount
         period.</para>
 
-        <para id="Para548104">The Discount date will display in red type once
+            <para id="Para548104">The Discount date will display in red type once
         the Discount period has expired. Once the Discount period has expired,
         the system will no longer automatically update the Discount amount
         field.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548121">Discount %</term>
+      <varlistentry>
+         <term id="Para548121">Discount %</term>
 
-      <listitem>
-        <para>Displays the Discount percentage, as specified in the billing
+         <listitem>
+            <para>Displays the Discount percentage, as specified in the billing
         Terms.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548106">Total Owed</term>
+      <varlistentry>
+         <term id="Para548106">Total Owed</term>
 
-      <listitem>
-        <para>Displays the total amount due to the Vendor.</para>
+         <listitem>
+            <para>Displays the total amount due to the Vendor.</para>
 
-        <para id="Para548107">The total owed is equal to the vouchered
+            <para id="Para548107">The total owed is equal to the vouchered
         amount--or to the amount of the miscellaneous A/P Credit Memo at the
         time of posting.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548108">Discounts Applied</term>
+      <varlistentry>
+         <term id="Para548108">Discounts Applied</term>
 
-      <listitem>
-        <para>Displays the amount of any Discounts previously applied to the
+         <listitem>
+            <para>Displays the amount of any Discounts previously applied to the
         selected Document.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para548113">Discount Amount</term>
+      <varlistentry>
+         <term id="Para548113">Discount Amount</term>
 
-      <listitem>
-        <para>Enter the amount of the Discount to be applied to the total
+         <listitem>
+            <para>Enter the amount of the Discount to be applied to the total
         owed.</para>
 
-        <para id="Para557486">As long as the Discount period has not expired,
+            <para id="Para557486">As long as the Discount period has not expired,
         the system will automatically calculate the Discount amount for you.
         The Discount amount will be equal to the total owed multiplied by the
         Discount percentage. The Account used for posting Discounts to the
         General Ledger (G/L) is defined on the A/P Account Assignments
         screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

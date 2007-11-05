@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Task
@@ -37,14 +37,14 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Name:</guilabel>
+                  <guilabel moreinfo="none">Name:</guilabel>
                </entry>
                <entry>_nameLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Number:</guilabel>
+                  <guilabel moreinfo="none">Number:</guilabel>
                </entry>
                <entry>_numberLit</entry>
                <entry>QLabel</entry>
@@ -61,7 +61,7 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Status:</guilabel>
+                  <guilabel moreinfo="none">Status:</guilabel>
                </entry>
                <entry>_statusLit</entry>
                <entry>QLabel</entry>
@@ -73,7 +73,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Description:</guilabel>
+                  <guilabel moreinfo="none">Description:</guilabel>
                </entry>
                <entry>_descriptionLit</entry>
                <entry>QLabel</entry>
@@ -85,7 +85,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -93,7 +93,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -116,28 +116,28 @@
             </row>
                <row>
                <entry>
-                  <guilabel>Budgeted:</guilabel>
+                  <guilabel moreinfo="none">Budgeted:</guilabel>
                </entry>
                <entry>_budgetHoursLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Actual:</guilabel>
+                  <guilabel moreinfo="none">Actual:</guilabel>
                </entry>
                <entry>_actualHoursLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Balance:</guilabel>
+                  <guilabel moreinfo="none">Balance:</guilabel>
                </entry>
                <entry>_balanceHoursLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_balanceHours</entry>
                <entry>QLabel</entry>
@@ -149,28 +149,28 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Balance:</guilabel>
+                  <guilabel moreinfo="none">Balance:</guilabel>
                </entry>
                <entry>_balanceExpLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_balanceExp</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Budgeted:</guilabel>
+                  <guilabel moreinfo="none">Budgeted:</guilabel>
                </entry>
                <entry>_budgetExpLit</entry>
                <entry>QLabel</entry>
             </row>
                <row>
                <entry>
-                  <guilabel>Actual:</guilabel>
+                  <guilabel moreinfo="none">Actual:</guilabel>
                </entry>
                <entry>_actualExpLit</entry>
                <entry>QLabel</entry>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520531">
-    <title><anchor id="Anchor595528" role="Index"
-    xreflabel="units of measure:capacity by product category;product categories:capacity uom details for" />
-    <indexterm significance="normal" zone="Anchor595528">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520531">
+    <title>
+      <anchor id="Anchor595528" role="Index"
+              xreflabel="units of measure:capacity by product category;product categories:capacity uom details for"/>
+      <indexterm significance="normal">
         <primary>units of measure</primary>
 
         <secondary>capacity by product category</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595528">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>product categories</primary>
 
         <secondary>capacity uom details for</secondary>
@@ -19,17 +20,18 @@
     Product Category, select the "Capacity UOMs by Product Category" option.
     The following screen will appear:</para>
 
-    <para id="Para520536"><screenshot>
+    <para id="Para520536">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_capUOMProdCat.png"
-                       id="Graphic563773" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_capUOMProdCat.png" id="Graphic563773"/>
+            </imageobject>
 
-          <caption id="Caption520537">Capacity UOMs by Product
+            <caption id="Caption520537">Capacity UOMs by Product
           Category</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520538">When displaying Capacity UOMs by Product Category,
     you are presented with the following options:</para>
@@ -39,7 +41,7 @@
         <term id="Para617119">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x193fdbc">
-          <para>Select to display Capacity UOMs for all Product
+            <para>Select to display Capacity UOMs for all Product
           Categories.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +50,7 @@
         <term id="Para616012">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x193fe04">
-          <para>Specify Product Category whose Capacity UOMs you want to
+            <para>Specify Product Category whose Capacity UOMs you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -57,12 +59,11 @@
         <term id="Para593194">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x193fe4c">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para664852">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664851"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664852">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664851" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -72,10 +73,10 @@
         <term id="Para520543">Capacity UOMs</term>
 
         <listitem id="listitemN0x180ac00N0x193fe94">
-          <para>Display lists Capacity UOMs by Product Category, using the
+            <para>Display lists Capacity UOMs by Product Category, using the
           specified parameters.</para>
 
-          <para id="Para664373">The list shows Capacity UOMs for all the Items
+            <para id="Para664373">The list shows Capacity UOMs for all the Items
           in the Product Categories specified above.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +90,7 @@
         <term id="Para520546">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193ff00">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +99,7 @@
         <term id="Para618308">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x193ff48">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -107,7 +108,7 @@
         <term id="Para664063">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193ff90">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -120,12 +121,11 @@
         <term id="Para520549">Edit Item</term>
 
         <listitem id="listitemN0x180ac00N0x193fffc">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

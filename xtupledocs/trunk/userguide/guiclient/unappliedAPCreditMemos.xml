@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section539706">
-  <title><anchor id="Anchor539705" role="Index"
-  xreflabel="credit memos:list of unapplied" /> <indexterm
-      significance="normal" zone="Anchor539705">
-      <primary>credit memos</primary>
+  <title>
+      <anchor id="Anchor539705" role="Index" xreflabel="credit memos:list of unapplied"/> 
+      <indexterm significance="normal">
+         <primary>credit memos</primary>
 
-      <secondary>list of unapplied</secondary>
-    </indexterm>List Unapplied Credit Memos</title>
+         <secondary>list of unapplied</secondary>
+      </indexterm>List Unapplied Credit Memos</title>
 
   <para id="Para539707">Whenever a Credit Memo amount has not been applied to
   a specific Voucher or Debit Memo--either in whole or in part--that Credit
   Memo will appear on the list of unapplied Credit Memos.</para>
 
   <note>
-    <para id="Para539709">A newly-entered miscellaneous Credit Memo is an
+      <para id="Para539709">A newly-entered miscellaneous Credit Memo is an
     unapplied Credit Memo by default.</para>
   </note>
 
@@ -23,17 +23,18 @@
   select the "List Unapplied Credit Memos" option. The following screen will
   appear:</para>
 
-  <para id="Para539714"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/AP_DCMems_unappliedList.png"
-                     id="Graphic539712" />
-        </imageobject>
+  <para id="Para539714">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/AP_DCMems_unappliedList.png" id="Graphic539712"/>
+            </imageobject>
 
-        <caption id="Caption539715">Unapplied Credit Memos Master
+            <caption id="Caption539715">Unapplied Credit Memos Master
         List</caption>
-      </mediaobject>
-    </screenshot></para>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para539716">The master list of unapplied Credit Memos displays
   basic information on all existing unapplied Credit Memos, including Document
@@ -41,7 +42,7 @@
   to apply.</para>
 
   <note>
-    <para id="Para539718">Once the full amount of a Credit Memo has been
+      <para id="Para539718">Once the full amount of a Credit Memo has been
     applied, the Credit Memo will be removed from the unapplied Credit Memos
     list.</para>
   </note>
@@ -50,52 +51,51 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para539720">CLOSE</term>
+      <varlistentry>
+         <term id="Para539720">CLOSE</term>
 
-      <listitem>
-        <para>Closes the screen, returning you to the application
+         <listitem>
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para539721">PRINT</term>
+      <varlistentry>
+         <term id="Para539721">PRINT</term>
 
-      <listitem>
-        <para>Prints a copy of the unapplied Credit Memos master list.</para>
-      </listitem>
-    </varlistentry>
+         <listitem>
+            <para>Prints a copy of the unapplied Credit Memos master list.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para539722">NEW</term>
+      <varlistentry>
+         <term id="Para539722">NEW</term>
 
-      <listitem>
-        <para>Opens screen for creating a new miscellaneous Credit
+         <listitem>
+            <para>Opens screen for creating a new miscellaneous Credit
         Memo.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para539723">VIEW</term>
+      <varlistentry>
+         <term id="Para539723">VIEW</term>
 
-      <listitem>
-        <para>Highlight an unapplied Credit Memo and then select this button
+         <listitem>
+            <para>Highlight an unapplied Credit Memo and then select this button
         to reach a read-only view of the A/P open item.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para539724">APPLY</term>
+      <varlistentry>
+         <term id="Para539724">APPLY</term>
 
-      <listitem>
-        <para>Highlight an unapplied Credit Memo and then select this button
+         <listitem>
+            <para>Highlight an unapplied Credit Memo and then select this button
         to apply an amount.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="applyAPCreditMemo.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applyAPCreditMemo.xml"
+               xpointer="element(/1)"/>
 </section>

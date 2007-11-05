@@ -1,40 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518825">
-    <title><anchor id="Anchor533207" role="Index"
-    xreflabel="bookings:by sales representative;sales representatives:booking details for" />
-    <indexterm significance="normal" zone="Anchor533207">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518825">
+    <title>
+      <anchor id="Anchor533207" role="Index"
+              xreflabel="bookings:by sales representative;sales representatives:booking details for"/>
+      <indexterm significance="normal">
         <primary>bookings</primary>
 
         <secondary>by sales representative</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533207">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>sales representatives</primary>
 
         <secondary>booking details for</secondary>
       </indexterm>Bookings by Sales Rep</title>
 
-    <para id="Para518826"><anchor id="Anchor547132" role="Index"
-    xreflabel="sales rep. See sales representatives" /> <indexterm
-        significance="normal" zone="Anchor547132">
+    <para id="Para518826">
+      <anchor id="Anchor547132" role="Index" xreflabel="sales rep. See sales representatives"/> 
+      <indexterm significance="normal">
         <primary>sales rep</primary>
 
         <see>sales representatives</see>
       </indexterm>To view Bookings by Sales Representative, select the
     "Bookings by Sales Rep" option. The following screen will appear:</para>
 
-    <para id="Para518830"><screenshot>
+    <para id="Para518830">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_bookBySalesRep.png"
-                       id="Graphic521689" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_bookBySalesRep.png" id="Graphic521689"/>
+            </imageobject>
 
-          <caption id="Caption518831">Bookings by Sales
+            <caption id="Caption518831">Bookings by Sales
           Representative</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518832">When displaying Bookings by Sales Representative,
     you are presented with the following options:</para>
@@ -44,7 +46,7 @@
         <term id="Para518833">Sales Rep.</term>
 
         <listitem id="listitemN0x180ac00N0x18607a8">
-          <para>Specify the Sales Representative whose bookings you want to
+            <para>Specify the Sales Representative whose bookings you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +55,7 @@
         <term id="Para518835">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18607cc">
-          <para>Select to display Bookings by Sales Representative for all
+            <para>Select to display Bookings by Sales Representative for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +64,7 @@
         <term id="Para518837">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18607f0">
-          <para>Specify Warehouse whose Bookings by Sales Representative you
+            <para>Specify Warehouse whose Bookings by Sales Representative you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +73,7 @@
         <term id="Para518849">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x1860838">
-          <para>Select to display Bookings by Sales Representative for all
+            <para>Select to display Bookings by Sales Representative for all
           Product Categories.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +82,7 @@
         <term id="Para539837">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1860880">
-          <para>Specify Product Category whose Bookings by Sales
+            <para>Specify Product Category whose Bookings by Sales
           Representative you want to display.</para>
         </listitem>
       </varlistentry>
@@ -89,12 +91,11 @@
         <term id="Para528108">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18608c8">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para555619">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555618"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555619">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555618" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -104,7 +105,7 @@
         <term id="Para549940">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x1860910">
-          <para>Bookings by Sales Representative generated on or after this
+            <para>Bookings by Sales Representative generated on or after this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +114,7 @@
         <term id="Para549902">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1860958">
-          <para>Bookings by Sales Representative generated on or before this
+            <para>Bookings by Sales Representative generated on or before this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -122,7 +123,7 @@
         <term id="Para518854">Bookings</term>
 
         <listitem id="listitemN0x180ac00N0x18609a0">
-          <para>Display lists Bookings by Sales Representative, using the
+            <para>Display lists Bookings by Sales Representative, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -136,7 +137,7 @@
         <term id="Para518857">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1860a0c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -145,7 +146,7 @@
         <term id="Para541855">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1860a54">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -154,7 +155,7 @@
         <term id="Para555004">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1860a9c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

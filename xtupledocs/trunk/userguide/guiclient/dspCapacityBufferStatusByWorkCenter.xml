@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section530193" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section530193" role="openmfg">
     <title>Capacity Buffer Status by Work Center</title>
 
     <para id="Para530194">The capacity buffer status display provides
@@ -19,17 +17,18 @@
     select the "Capacity Buffer Status by Work Center" option. The following
     screen will appear:</para>
 
-    <para id="Para530199"><screenshot>
+    <para id="Para530199">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Buff_statusByWCenter.png"
-                       id="Graphic530197" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Buff_statusByWCenter.png" id="Graphic530197"/>
+            </imageobject>
 
-          <caption id="Caption530200">Capacity Buffer Status by Work
+            <caption id="Caption530200">Capacity Buffer Status by Work
           Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para530202">When the buffer status for a Work Center hits 66
@@ -47,7 +46,7 @@
         <term id="Para530204">All Work Centers</term>
 
         <listitem>
-          <para>Select to display capacity buffer statuses for all Work
+            <para>Select to display capacity buffer statuses for all Work
           Centers.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +55,7 @@
         <term id="Para530205">Selected</term>
 
         <listitem>
-          <para>Specify Work Center whose Inventory buffer status you want to
+            <para>Specify Work Center whose Inventory buffer status you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +64,7 @@
         <term id="Para530206">All Warehouses</term>
 
         <listitem>
-          <para>Select to display capacity buffer statuses for all
+            <para>Select to display capacity buffer statuses for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +73,7 @@
         <term id="Para530207">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose capacity buffer statuses you want to
+            <para>Specify Warehouse whose capacity buffer statuses you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -83,16 +82,16 @@
         <term id="Para530208">Max Days Load</term>
 
         <listitem>
-          <para>Specify the maximum number of days worth of Work Center load
+            <para>Specify the maximum number of days worth of Work Center load
           you want to view, using the arrows to the right of the field. This
           is required information</para>
 
-          <para id="Para530209">You must enter a value greater than 0 to
+            <para id="Para530209">You must enter a value greater than 0 to
           generate buffer status information. The system uses the following
           equation to determine the capacity buffer status for a Work
           Center:</para>
 
-          <para id="Para530210">(Total Setup + Total Run) / (Max Days Load x
+            <para id="Para530210">(Total Setup + Total Run) / (Max Days Load x
           Daily Capacity) = Buffer (%)</para>
         </listitem>
       </varlistentry>
@@ -110,7 +109,7 @@
         <term id="Para530213">Buffer Status by Work Center</term>
 
         <listitem>
-          <para>Display lists capacity buffer status by Work Center, using the
+            <para>Display lists capacity buffer status by Work Center, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -124,7 +123,7 @@
         <term id="Para530215">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -133,7 +132,7 @@
         <term id="Para530216">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -142,7 +141,7 @@
         <term id="Para530217">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

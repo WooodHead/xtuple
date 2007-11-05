@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519031">
-    <title><anchor id="Anchor533197" role="Index"
-    xreflabel="scrap:from w/o materials" /> <indexterm significance="normal"
-        zone="Anchor533197">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519031">
+    <title>
+      <anchor id="Anchor533197" role="Index" xreflabel="scrap:from w/o materials"/> 
+      <indexterm significance="normal">
         <primary>scrap</primary>
 
         <secondary>from w/o materials</secondary>
@@ -15,17 +15,18 @@
     select the "Scrap W/O Material from Work Order" option. The following
     screen will appear:</para>
 
-    <para id="Para519036"><screenshot>
+    <para id="Para519036">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_scrapWOMat.png"
-                       id="Graphic523671" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_scrapWOMat.png" id="Graphic523671"/>
+            </imageobject>
 
-          <caption id="Caption519037">Scrap Work Order Material from Work
+            <caption id="Caption519037">Scrap Work Order Material from Work
           Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para551661">You may only scrap W/O Materials which have been
@@ -41,7 +42,7 @@
         <term id="Para519039">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose materials
+            <para>Enter the Work Order Number of the Work Order whose materials
           you want to scrap.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +51,7 @@
         <term id="Para519041">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +60,7 @@
         <term id="Para519043">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +69,7 @@
         <term id="Para568709">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +77,7 @@
         <term id="Para519047">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +86,7 @@
         <term id="Para557722">Top-Level Finished Item</term>
 
         <listitem>
-          <para>Select if you want to scrap parent-level Items.</para>
+            <para>Select if you want to scrap parent-level Items.</para>
         </listitem>
       </varlistentry>
 
@@ -93,7 +94,7 @@
         <term>Qty. to Scrap</term>
 
         <listitem>
-          <para>Enter the quantity of top-level finished Items you want to
+            <para>Enter the quantity of top-level finished Items you want to
           scrap. You may scrap top-level Items after they have been received
           into Inventory--or before. Keep in mind that if you scrap top-level
           Items prior to receiving them, material requirements for those Items
@@ -119,7 +120,7 @@
         <term id="Para557747">Scrap Component</term>
 
         <listitem>
-          <para>Select if you want to scrap component Items issued to the Work
+            <para>Select if you want to scrap component Items issued to the Work
           Order.</para>
         </listitem>
       </varlistentry>
@@ -128,15 +129,15 @@
         <term>Component Item Number</term>
 
         <listitem>
-          <para>Select one of the component Items from the parent Item's Work
+            <para>Select one of the component Items from the parent Item's Work
           Order Material Requirements will be listed.</para>
 
-          <note>
-            <para>You may scrap component Items regardless of their issue
+            <note>
+               <para>You may scrap component Items regardless of their issue
             method. However, components must first be issued to a Work Order
             before they can be scrapped from it. Components are issued to Work
             Orders either manually or through a material backflush.</para>
-          </note>
+            </note>
         </listitem>
       </varlistentry>
 
@@ -144,7 +145,7 @@
         <term>UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -152,7 +153,7 @@
         <term>Qty. Per</term>
 
         <listitem>
-          <para>Displays the component quantity per each specified on the
+            <para>Displays the component quantity per each specified on the
           parent Item's Work Order Material Requirements.</para>
         </listitem>
       </varlistentry>
@@ -161,7 +162,7 @@
         <term>Scrap %</term>
 
         <listitem>
-          <para>Displays the component scrap percentage specified on the
+            <para>Displays the component scrap percentage specified on the
           Item's Bill of Materials.</para>
         </listitem>
       </varlistentry>
@@ -170,7 +171,7 @@
         <term>Qty. Required</term>
 
         <listitem>
-          <para>Displays the component quantity required to fulfill the Work
+            <para>Displays the component quantity required to fulfill the Work
           Order Material Requirements.</para>
         </listitem>
       </varlistentry>
@@ -179,7 +180,7 @@
         <term>Qty. Issued</term>
 
         <listitem>
-          <para>Displays the component quantity currently issued to the Work
+            <para>Displays the component quantity currently issued to the Work
           Order. You may only scrap components which have already been issued
           to a Work Order--either manually or through a material
           backflush.</para>
@@ -190,13 +191,13 @@
         <term>Qty. Scrapped from WIP</term>
 
         <listitem>
-          <para>Displays a running total of the component quantity already
+            <para>Displays a running total of the component quantity already
           scrapped--if any.</para>
 
-          <tip>
-            <para>You may not scrap the full quantity of a Work Order Material
+            <tip>
+               <para>You may not scrap the full quantity of a Work Order Material
             Requirement from a Work Order.</para>
-          </tip>
+            </tip>
         </listitem>
       </varlistentry>
 
@@ -204,7 +205,7 @@
         <term>Qty. to Scrap</term>
 
         <listitem>
-          <para>Enter the quantity of the component Item you want to scrap
+            <para>Enter the quantity of the component Item you want to scrap
           from the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -218,7 +219,7 @@
         <term id="Para519067">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen without scrapping the material from the Work
+            <para>Closes the screen without scrapping the material from the Work
           Order.</para>
         </listitem>
       </varlistentry>
@@ -227,7 +228,7 @@
         <term id="Para519068">SCRAP</term>
 
         <listitem>
-          <para>Scraps the specified quantity of the component Item from the
+            <para>Scraps the specified quantity of the component Item from the
           Work Order.</para>
         </listitem>
       </varlistentry>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520580">
-    <title><anchor id="Anchor552256" role="Index"
-    xreflabel="item usage statistics:by item;items:usage statistics for" />
-    <indexterm significance="normal" zone="Anchor552256">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520580">
+    <title>
+      <anchor id="Anchor552256" role="Index"
+              xreflabel="item usage statistics:by item;items:usage statistics for"/>
+      <indexterm significance="normal">
         <primary>item usage statistics</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552256">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>usage statistics for</secondary>
@@ -18,16 +20,17 @@
     "Item Usage Statistics by Item" option. The following screen will
     appear:</para>
 
-    <para id="Para520585"><screenshot>
+    <para id="Para520585">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_itemUseStats.png"
-                       id="Graphic526868" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_itemUseStats.png" id="Graphic526868"/>
+            </imageobject>
 
-          <caption id="Caption520586">Item Usage Statistics by Item</caption>
+            <caption id="Caption520586">Item Usage Statistics by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520592">When displaying Item usage statistics by Item, you
     are presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para520593">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1991950">
-          <para>Enter the Item Number of the Item whose usage statistics you
+            <para>Enter the Item Number of the Item whose usage statistics you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +49,7 @@
         <term id="Para672085">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1991998">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +57,7 @@
         <term id="Para520597">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19919bc">
-          <para>Select to display Item usage Statistics for all
+            <para>Select to display Item usage Statistics for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +66,7 @@
         <term id="Para520599">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19919e0">
-          <para>Specify Warehouse whose Item usage statistics you want to
+            <para>Specify Warehouse whose Item usage statistics you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -72,7 +75,7 @@
         <term id="Para520604">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x1991a28">
-          <para>Inventory transactions conducted on and after this date will
+            <para>Inventory transactions conducted on and after this date will
           be displayed. Start date and end date must be entered for
           calculation to proceed.</para>
         </listitem>
@@ -82,7 +85,7 @@
         <term id="Para520609">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1991a70">
-          <para>Inventory transactions conducted on and before this date will
+            <para>Inventory transactions conducted on and before this date will
           be displayed. Start date and end date must be entered for
           calculation to proceed.</para>
         </listitem>
@@ -92,7 +95,7 @@
         <term id="Para520611">Usage</term>
 
         <listitem id="listitemN0x180ac00N0x1991ab8">
-          <para>Display lists Item usage statistics by Item, using the
+            <para>Display lists Item usage statistics by Item, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +109,7 @@
         <term id="Para520614">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1991b24">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -115,10 +118,10 @@
         <term id="Para578719">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1991b6c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para557162">Start date and end date must be entered for
+            <para id="Para557162">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the "Usage"
           list.</para>
         </listitem>
@@ -128,7 +131,7 @@
         <term id="Para520615">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1991bb4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -141,13 +144,12 @@
         <term id="Para520617">View All Transactions</term>
 
         <listitem id="listitemN0x180ac00N0x1991c20">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para565907">To view details on Issue, Sold, Scrap, or Adjustment

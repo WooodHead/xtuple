@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section605037">
-    <title><anchor id="Anchor605036" role="Index"
-    xreflabel="sales orders:list open " /> <indexterm significance="normal"
-        zone="Anchor605036">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section605037">
+    <title>
+      <anchor id="Anchor605036" role="Index" xreflabel="sales orders:list open "/> 
+      <indexterm significance="normal">
         <primary>sales orders</primary>
 
         <secondary>list open</secondary>
@@ -17,16 +17,17 @@
     is selected for billing. To display open Sales Orders by Warehouse, select
     the "Open Sales Orders" option. The following screen will appear:</para>
 
-    <para id="Para519185"><screenshot>
+    <para id="Para519185">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Ord_listOpenSO.png"
-                       id="Graphic523353" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Ord_listOpenSO.png" id="Graphic523353"/>
+            </imageobject>
 
-          <caption id="Caption519186">Open Sales Orders Master List</caption>
+            <caption id="Caption519186">Open Sales Orders Master List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519187">When displaying open Sales Orders, you are presented
     with the following options:</para>
@@ -36,7 +37,7 @@
         <term id="Para519188">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18be1f8">
-          <para>Select to display a list of open Sales Orders for all
+            <para>Select to display a list of open Sales Orders for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +46,7 @@
         <term id="Para519190">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18be21c">
-          <para>Specify Warehouse whose open Sales Orders you want to
+            <para>Specify Warehouse whose open Sales Orders you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +55,7 @@
         <term id="Para519192">Sales Orders</term>
 
         <listitem id="listitemN0x180ac00N0x18be264">
-          <para>Display lists open Sales Orders.</para>
+            <para>Display lists open Sales Orders.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -67,7 +68,7 @@
         <term id="Para519195">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18be2d0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +77,7 @@
         <term id="Para653631">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18be318">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -84,7 +85,7 @@
         <term id="Para539977">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x18be360">
-          <para>Opens screen for creating a new Sales Order.</para>
+            <para>Opens screen for creating a new Sales Order.</para>
         </listitem>
       </varlistentry>
 
@@ -92,7 +93,7 @@
         <term id="Para539978">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x18be3a8">
-          <para>Highlight a Sales Order and then select this button to reach a
+            <para>Highlight a Sales Order and then select this button to reach a
           read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +102,7 @@
         <term id="Para609999">COPY</term>
 
         <listitem id="listitemN0x180ac00N0x18be3f0">
-          <para>Highlight a Sales Order and then select this button to create
+            <para>Highlight a Sales Order and then select this button to create
           a new Sales Order which duplicates the source Sales Order.</para>
         </listitem>
       </varlistentry>
@@ -110,7 +111,7 @@
         <term id="Para539979">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x18be438">
-          <para>Enables you to edit highlighted Sales Order. The edit screen
+            <para>Enables you to edit highlighted Sales Order. The edit screen
           is the same as that for creating a new Sales Order--except that when
           editing, the fields will contain Sales Order information.
           Double-clicking on a Sales Order will also bring you to the editing
@@ -122,7 +123,7 @@
         <term id="Para539980">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x18be480">
-          <para>Highlight a Sales Order and then select this button to remove
+            <para>Highlight a Sales Order and then select this button to remove
           the Sales Order from the master list</para>
         </listitem>
       </varlistentry>
@@ -135,57 +136,47 @@
       <varlistentry>
         <term id="Para519198">Edit</term>
 
-        <xi:include href="../so.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x18be438)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../so.xml"
+                     xpointer="element(listitemN0x180ac00N0x18be438)"/>
       </varlistentry>
 
       <varlistentry>
         <term id="Para519199">View</term>
 
-        <xi:include href="../so.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x18be3a8)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../so.xml"
+                     xpointer="element(listitemN0x180ac00N0x18be3a8)"/>
       </varlistentry>
 
       <varlistentry>
         <term id="Para539985">Copy</term>
 
-        <xi:include href="../so.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x18be3f0)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../so.xml"
+                     xpointer="element(listitemN0x180ac00N0x18be3f0)"/>
       </varlistentry>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/13)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/13)"/>
 
       <varlistentry>
         <term id="Para610012">Delete</term>
 
-        <xi:include href="../so.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(listitemN0x180ac00N0x18be480)" />
+        <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../so.xml"
+                     xpointer="element(listitemN0x180ac00N0x18be480)"/>
       </varlistentry>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/10)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/14)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/14)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/11)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

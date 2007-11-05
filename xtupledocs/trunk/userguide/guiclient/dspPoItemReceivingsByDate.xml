@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section535280">
-    <title><anchor id="Anchor919427" role="Index"
-    xreflabel="receipts:by date;returns:details by date" /> <indexterm
-        significance="normal" zone="Anchor919427">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section535280">
+    <title>
+      <anchor id="Anchor919427" role="Index"
+              xreflabel="receipts:by date;returns:details by date"/> 
+      <indexterm significance="normal">
         <primary>receipts</primary>
 
         <secondary>by date</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919427">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>returns</primary>
 
         <secondary>details by date</secondary>
@@ -19,16 +20,17 @@
     "Receipts and Returns by Date" option. The following screen will
     appear:</para>
 
-    <para id="Para535285"><screenshot>
+    <para id="Para535285">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_rcptsRtnsByDate.png"
-                       id="Graphic535283" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_rcptsRtnsByDate.png" id="Graphic535283"/>
+            </imageobject>
 
-          <caption id="Caption535286">Receipts and Returns by Date</caption>
+            <caption id="Caption535286">Receipts and Returns by Date</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para535287">When displaying Receipts and Returns by date, you
     are presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para535291">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18cf01c">
-          <para>Receipts and Returns entered on and after this date will be
+            <para>Receipts and Returns entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para535296">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18cf064">
-          <para>Receipts and Returns entered on and before this date will be
+            <para>Receipts and Returns entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +58,7 @@
         <term id="Para535298">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18cf088">
-          <para>Select to display Receipts and Returns by date for all
+            <para>Select to display Receipts and Returns by date for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +67,7 @@
         <term id="Para535300">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18cf0ac">
-          <para>Specify Warehouse whose Receipts and Returns by date you want
+            <para>Specify Warehouse whose Receipts and Returns by date you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +76,7 @@
         <term id="Para535302">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18cf0f4">
-          <para>Select to display Receipts and Returns by date for all
+            <para>Select to display Receipts and Returns by date for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -83,10 +85,10 @@
         <term id="Para535303">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18cf13c">
-          <para>Specify Purchasing Agent whose Receipts and Returns by date
+            <para>Specify Purchasing Agent whose Receipts and Returns by date
           you want to display.</para>
 
-          <para id="Para935622">Users may be designated as Purchasing Agents
+            <para id="Para935622">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +97,7 @@
         <term id="Para921133">Show Purchase Price Variances</term>
 
         <listitem id="listitemN0x180ac00N0x18cf184">
-          <para>Select to include purchase Price variances in the
+            <para>Select to include purchase Price variances in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -104,10 +106,10 @@
         <term id="Para535306">P/O Receipts and Returns</term>
 
         <listitem id="listitemN0x180ac00N0x18cf1cc">
-          <para>Display lists Receipts and Returns by date, using the
+            <para>Display lists Receipts and Returns by date, using the
           specified parameters.</para>
 
-          <para id="Para970242">Purchased Cost and Receiving Cost variances
+            <para id="Para970242">Purchased Cost and Receiving Cost variances
           will also display if the "Show Purchase Price Variances" option is
           selected.</para>
         </listitem>
@@ -129,7 +131,7 @@
         <term id="Para535309">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18cf25c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -138,7 +140,7 @@
         <term id="Para934552">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18cf2a4">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -147,7 +149,7 @@
         <term id="Para970037">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18cf2ec">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

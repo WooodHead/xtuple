@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518683">
-    <title><anchor id="Anchor533199" role="Index"
-    xreflabel="bookings:by customer;customers:bookings for" /> <indexterm
-        significance="normal" zone="Anchor533199">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518683">
+    <title>
+      <anchor id="Anchor533199" role="Index"
+              xreflabel="bookings:by customer;customers:bookings for"/> 
+      <indexterm significance="normal">
         <primary>bookings</primary>
 
         <secondary>by customer</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533199">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>bookings for</secondary>
@@ -18,16 +19,17 @@
     <para id="Para518684">To view Bookings by Customer, select the "Bookings
     by Customer" option. The following screen will appear:</para>
 
-    <para id="Para518688"><screenshot>
+    <para id="Para518688">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_bookByCust.png"
-                       id="Graphic521631" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_bookByCust.png" id="Graphic521631"/>
+            </imageobject>
 
-          <caption id="Caption518689">Bookings by Customer</caption>
+            <caption id="Caption518689">Bookings by Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518690">When displaying Bookings by Customer, you are
     presented with the following options:</para>
@@ -37,10 +39,10 @@
         <term id="Para518691">Customer #</term>
 
         <listitem id="listitemN0x180ac00N0x184fcdc">
-          <para>Enter the Customer Number of the Customer whose Bookings you
+            <para>Enter the Customer Number of the Customer whose Bookings you
           want to display.</para>
 
-          <para id="Para518692">The browse button located to the right of the
+            <para id="Para518692">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
           is entered, the Customer name and billing address will display.
@@ -58,7 +60,7 @@
         <term id="Para518693">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x184fd00">
-          <para>Select to display Bookings by Customer for all
+            <para>Select to display Bookings by Customer for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para518695">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x184fd24">
-          <para>Specify Warehouse whose Bookings by Customer you want to
+            <para>Specify Warehouse whose Bookings by Customer you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +78,7 @@
         <term id="Para518707">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x184fd6c">
-          <para>Select to display Bookings by Customer for all Product
+            <para>Select to display Bookings by Customer for all Product
           Categories.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +87,7 @@
         <term id="Para539807">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x184fdb4">
-          <para>Specify Product Category whose Bookings by Customer you want
+            <para>Specify Product Category whose Bookings by Customer you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -94,12 +96,11 @@
         <term id="Para528090">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x184fdfc">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para555579">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555578"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555579">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555578" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -109,7 +110,7 @@
         <term id="Para549662">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x184fe44">
-          <para>Bookings by Customer generated on or after this date will be
+            <para>Bookings by Customer generated on or after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +119,7 @@
         <term id="Para549667">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x184fe8c">
-          <para>Bookings by Customer generated on or before this date will be
+            <para>Bookings by Customer generated on or before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +128,7 @@
         <term id="Para549679">Bookings</term>
 
         <listitem id="listitemN0x180ac00N0x184fed4">
-          <para>Display lists Bookings by Customer, using the specified
+            <para>Display lists Bookings by Customer, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -141,7 +142,7 @@
         <term id="Para518715">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x184ff40">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -150,7 +151,7 @@
         <term id="Para541800">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x184ff88">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -159,7 +160,7 @@
         <term id="Para554975">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x184ffd0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

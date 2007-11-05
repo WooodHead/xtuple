@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-
-  <section id="Section955370">
-    <title><anchor id="Anchor955369" role="Index"
-    xreflabel="purchase requests:by planner code;planner codes:purchase requests for" />
-    <indexterm significance="normal" zone="Anchor955369">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section955370">
+    <title>
+      <anchor id="Anchor955369" role="Index"
+              xreflabel="purchase requests:by planner code;planner codes:purchase requests for"/>
+      <indexterm significance="normal">
         <primary>purchase requests</primary>
 
         <secondary>by planner code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor955369">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>planner codes</primary>
 
         <secondary>purchase requests for</secondary>
@@ -25,17 +25,18 @@
       source of supply by the planning systems.</para>
     </note>
 
-    <para id="Para929020"><screenshot>
+    <para id="Para929020">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_purchReqsByPCode.png"
-                       id="Graphic929018" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_purchReqsByPCode.png" id="Graphic929018"/>
+            </imageobject>
 
-          <caption id="Caption929021">Purchase Requests by Planner
+            <caption id="Caption929021">Purchase Requests by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para971158">Purchase Requests may be created using the
@@ -52,7 +53,7 @@
         <term id="Para929029">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18a2db4">
-          <para>Select to display Purchase Requests by Planner Code for all
+            <para>Select to display Purchase Requests by Planner Code for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +62,7 @@
         <term id="Para929030">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18a2dd8">
-          <para>Specify Warehouse whose Purchase Requests by Planner Code you
+            <para>Specify Warehouse whose Purchase Requests by Planner Code you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +71,7 @@
         <term id="Para929273">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18a2e20">
-          <para>Purchase Requests by Planner Code entered on and after this
+            <para>Purchase Requests by Planner Code entered on and after this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +80,7 @@
         <term id="Para929278">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18a2e68">
-          <para>Purchase Requests by Planner Code entered on and before this
+            <para>Purchase Requests by Planner Code entered on and before this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +89,7 @@
         <term id="Para929305">All Planner Codes</term>
 
         <listitem id="listitemN0x180ac00N0x18a2eb0">
-          <para>Select to display Purchase Requests for all Planner
+            <para>Select to display Purchase Requests for all Planner
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +98,7 @@
         <term id="Para929306">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18a2ef8">
-          <para>Specify Planner Code whose Purchase Requests you want to
+            <para>Specify Planner Code whose Purchase Requests you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -106,12 +107,11 @@
         <term id="Para929167">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18a2f40">
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para971250">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef971249"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para971250">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef971249" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -131,7 +131,7 @@
         <term id="Para929153">Purchase Requests</term>
 
         <listitem id="listitemN0x180ac00N0x18a2fd0">
-          <para>Display lists Purchase Requests for the specified Planner
+            <para>Display lists Purchase Requests for the specified Planner
           Code, using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +155,7 @@
         <term id="Para929035">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18a3060">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +164,7 @@
         <term id="Para934503">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18a30a8">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -173,7 +173,7 @@
         <term id="Para969963">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18a30f0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -183,12 +183,10 @@
     options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/5)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/5)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section574741">
-  <title><anchor id="Anchor574760" role="Index"
-  xreflabel="opportunities:sources for" /> <indexterm significance="normal"
-      zone="Anchor574760">
-      <primary>opportunities</primary>
+  <title>
+      <anchor id="Anchor574760" role="Index" xreflabel="opportunities:sources for"/> 
+      <indexterm significance="normal">
+         <primary>opportunities</primary>
 
-      <secondary>sources for</secondary>
-    </indexterm>List Opportunity Sources</title>
+         <secondary>sources for</secondary>
+      </indexterm>List Opportunity Sources</title>
 
   <para id="Para574898">Opportunity Sources are used by the Opportunity
   Management system to categorize the lead source of an Opportunity. When
@@ -17,7 +17,7 @@
   Opportunities.</para>
 
   <tip>
-    <para id="Para574900">You must manually create Opportunity Sources if you
+      <para id="Para574900">You must manually create Opportunity Sources if you
     want the ability to assign them to Opportunities. If no Opportunity
     Sources are defined, then none will be available when entering
     Opportunities.</para>
@@ -27,16 +27,17 @@
   select the "Opportunity Sources" option. The following screen will
   appear.</para>
 
-  <para id="Para574818"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_MI_optySources.png"
-                     id="Graphic574816" />
-        </imageobject>
+  <para id="Para574818">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_MI_optySources.png" id="Graphic574816"/>
+            </imageobject>
 
-        <caption id="Caption574819">Opportunity Sources Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption574819">Opportunity Sources Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para575062">The "Opportunity Sources" screen displays information
   on all existing Opportunity Sources, including Opportunity Source code and
@@ -46,51 +47,51 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para575064">CLOSE</term>
+      <varlistentry>
+         <term id="Para575064">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x183efe0">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x183efe0">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575066">NEW</term>
+      <varlistentry>
+         <term id="Para575066">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x183f028">
-        <para>Opens screen for creating a new Opportunity Source.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x183f028">
+            <para>Opens screen for creating a new Opportunity Source.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575067">EDIT</term>
+      <varlistentry>
+         <term id="Para575067">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x183f070">
-        <para>Enables you to edit highlighted Opportunity Sources. The edit
+         <listitem id="listitemN0x180ac00N0x183f070">
+            <para>Enables you to edit highlighted Opportunity Sources. The edit
         screen is the same as that for creating a new Opportunity
         Source--except that when editing, the fields will contain Opportunity
         Source information. Double-clicking on an Opportunity Source will also
         bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575068">VIEW</term>
+      <varlistentry>
+         <term id="Para575068">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x183f0b8">
-        <para>Highlight an Opportunity Source and then select this button to
+         <listitem id="listitemN0x180ac00N0x183f0b8">
+            <para>Highlight an Opportunity Source and then select this button to
         reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para575069">DELETE</term>
+      <varlistentry>
+         <term id="Para575069">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x183f100">
-        <para>Highlight an Opportunity Source and then select this button to
+         <listitem id="listitemN0x180ac00N0x183f100">
+            <para>Highlight an Opportunity Source and then select this button to
         remove the Opportunity Source from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section657269">
-    <title><anchor id="Anchor657268" role="Index"
-    xreflabel="backlog:by customer;customers:backlog for" /> <indexterm
-        significance="normal" zone="Anchor657268">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657269">
+    <title>
+      <anchor id="Anchor657268" role="Index"
+              xreflabel="backlog:by customer;customers:backlog for"/> 
+      <indexterm significance="normal">
         <primary>backlog</primary>
 
         <secondary>by customer</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor657268">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>backlog for</secondary>
@@ -18,16 +19,17 @@
     <para id="Para657270">To view Backlog by Customer, select the "Backlog by
     Customer" option. The following screen will appear:</para>
 
-    <para id="Para657274"><screenshot>
+    <para id="Para657274">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_backlogByCust.png"
-                       id="Graphic657272" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_backlogByCust.png" id="Graphic657272"/>
+            </imageobject>
 
-          <caption id="Caption657275">Backlog by Customer</caption>
+            <caption id="Caption657275">Backlog by Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para657276">When displaying Backlog by Customer, you are
     presented with the following options:</para>
@@ -37,10 +39,10 @@
         <term id="Para657277">Customer #</term>
 
         <listitem id="listitemN0x180ac00N0x197e6e4">
-          <para>Enter the Customer Number of the Customer whose Backlog you
+            <para>Enter the Customer Number of the Customer whose Backlog you
           want to display.</para>
 
-          <para id="Para657278">The browse button located to the right of the
+            <para id="Para657278">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
           is entered, the Customer name and billing address will display.
@@ -58,7 +60,7 @@
         <term id="Para657279">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x197e72c">
-          <para>Backlog by Customer entered on and after this date will be
+            <para>Backlog by Customer entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para657280">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x197e774">
-          <para>Backlog by Customer entered on and before this date will be
+            <para>Backlog by Customer entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +78,7 @@
         <term id="Para657281">Show Prices</term>
 
         <listitem id="listitemN0x180ac00N0x197e7bc">
-          <para>Select to include pricing information in the display.</para>
+            <para>Select to include pricing information in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -84,7 +86,7 @@
         <term id="Para657282">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x197e804">
-          <para>Select to display Backlog by Customer for all
+            <para>Select to display Backlog by Customer for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +95,7 @@
         <term id="Para657283">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x197e84c">
-          <para>Specify Warehouse whose Backlog by Customer you want to
+            <para>Specify Warehouse whose Backlog by Customer you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -102,10 +104,10 @@
         <term id="Para657284">Backlog</term>
 
         <listitem id="listitemN0x180ac00N0x197e894">
-          <para>Display lists Backlog by Customer, using the specified
+            <para>Display lists Backlog by Customer, using the specified
           parameters.</para>
 
-          <para id="Para657285">If the "Show Prices" option is selected, an
+            <para id="Para657285">If the "Show Prices" option is selected, an
           additional column showing the amount of the backlog will display.
           The total backlog will also be shown.</para>
         </listitem>
@@ -120,7 +122,7 @@
         <term id="Para657287">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x197e900">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -129,7 +131,7 @@
         <term id="Para657288">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x197e948">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -138,7 +140,7 @@
         <term id="Para657289">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x197e990">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -147,28 +149,22 @@
     Backlog list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/7)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/7)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/6)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/18)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/18)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/10)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section657180">
-    <title><anchor id="Anchor657179" role="Index"
-    xreflabel="bills of materials:summarized view of" /> <indexterm
-        significance="normal" zone="Anchor657179">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657180">
+    <title>
+      <anchor id="Anchor657179" role="Index"
+              xreflabel="bills of materials:summarized view of"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>summarized view of</secondary>
@@ -16,16 +17,17 @@
     excluded. To view a summarized Bill of Materials, select the "Summarized
     Bill of Materials" option. The following screen will appear:</para>
 
-    <para id="Para618425"><screenshot>
+    <para id="Para618425">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_summarizedBOM.png"
-                       id="Graphic618423" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_summarizedBOM.png" id="Graphic618423"/>
+            </imageobject>
 
-          <caption id="Caption618426">Summarized Bill of Materials</caption>
+            <caption id="Caption618426">Summarized Bill of Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para618427">When displaying a summarized Bill of Materials, you
     are presented with the following options:</para>
@@ -35,7 +37,7 @@
         <term id="Para618428">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x193257c">
-          <para>Enter the Item Number of the manufactured Item you would like
+            <para>Enter the Item Number of the manufactured Item you would like
           to view a summarized Bill of Materials for.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +46,7 @@
         <term id="Para663351">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x19325c4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -52,10 +54,10 @@
         <term id="Para618497">Show Expired Components</term>
 
         <listitem id="listitemN0x180ac00N0x193260c">
-          <para>Select to cause expired components to be listed in the "Bill
+            <para>Select to cause expired components to be listed in the "Bill
           of Materials" display.</para>
 
-          <para id="Para644662">Expired components will display in red
+            <para id="Para644662">Expired components will display in red
           font.</para>
         </listitem>
       </varlistentry>
@@ -64,10 +66,10 @@
         <term id="Para618498">Threshold Days</term>
 
         <listitem id="listitemN0x180ac00N0x1932654">
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
 
-          <para id="Para618499">Components that have been expired from the
+            <para id="Para618499">Components that have been expired from the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
         </listitem>
@@ -77,10 +79,10 @@
         <term id="Para618500">Show Future Components</term>
 
         <listitem id="listitemN0x180ac00N0x193269c">
-          <para>Select to cause future components to be listed in the "Bill of
+            <para>Select to cause future components to be listed in the "Bill of
           Materials" display.</para>
 
-          <para id="Para644658">Future components will display in blue
+            <para id="Para644658">Future components will display in blue
           font.</para>
         </listitem>
       </varlistentry>
@@ -89,10 +91,10 @@
         <term id="Para618501">Threshold Days</term>
 
         <listitem id="listitemN0x180ac00N0x19326e4">
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
 
-          <para id="Para618502">Components that will be added in future to the
+            <para id="Para618502">Components that will be added in future to the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
         </listitem>
@@ -102,7 +104,7 @@
         <term id="Para618433">Bill of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x193272c">
-          <para>Display lists summarized Bill of Materials components, using
+            <para>Display lists summarized Bill of Materials components, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -116,7 +118,7 @@
         <term id="Para618436">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1932798">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -125,7 +127,7 @@
         <term id="Para664016">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x19327e0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,89 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Reschedule Purchase Order Item</title>
 
   <section id="Section940909">
-    <title>Reschedule Purchase Order Item</title>
+      <title>Reschedule Purchase Order Item</title>
 
-    <para id="Para940920">To reschedule a Purchase Order Item, select the
+      <para id="Para940920">To reschedule a Purchase Order Item, select the
     "Reschedule Purchase Order Item" option. The following screen will
     appear:</para>
 
-    <para id="Para941975"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_reschedPOItem.png"
-                       id="Graphic941973" />
-          </imageobject>
+      <para id="Para941975">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/PO_PO_reschedPOItem.png" id="Graphic941973"/>
+               </imageobject>
 
-          <caption id="Caption941976">Reschedule Purchase Order Item</caption>
-        </mediaobject>
-      </screenshot></para>
+               <caption id="Caption941976">Reschedule Purchase Order Item</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
 
-    <note>
-      <para id="Para943064">You may reschedule a Purchase Order Line Item
+      <note>
+         <para id="Para943064">You may reschedule a Purchase Order Line Item
       after a Purchase Order has been posted--as long as the Line Item has not
       been closed.</para>
-    </note>
+      </note>
 
-    <para id="Para941964">When rescheduling a Purchase Order Line Item, you
+      <para id="Para941964">When rescheduling a Purchase Order Line Item, you
     are presented with the following options:</para>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para942213">P/O #</term>
+      <variablelist>
+         <varlistentry>
+            <term id="Para942213">P/O #</term>
 
-        <listitem id="listitemN0x180ac00N0x187829c">
-          <para>Enter the Purchase Order Number of the Purchase Order whose
+            <listitem id="listitemN0x180ac00N0x187829c">
+               <para>Enter the Purchase Order Number of the Purchase Order whose
           Line Item you want to reschedule.</para>
-        </listitem>
-      </varlistentry>
+            </listitem>
+         </varlistentry>
 
-      <varlistentry>
-        <term id="Para941965">Line Item</term>
+         <varlistentry>
+            <term id="Para941965">Line Item</term>
 
-        <listitem id="listitemN0x180ac00N0x18782e4">
-          <para>Specify the Purchase Order Line Item you want to
+            <listitem id="listitemN0x180ac00N0x18782e4">
+               <para>Specify the Purchase Order Line Item you want to
           reschedule.</para>
-        </listitem>
-      </varlistentry>
+            </listitem>
+         </varlistentry>
 
-      <varlistentry>
-        <term id="Para942261">Due Date</term>
+         <varlistentry>
+            <term id="Para942261">Due Date</term>
 
-        <listitem id="listitemN0x180ac00N0x187832c">
-          <para>Enter the date you want to reschedule the Purchase Order Line
+            <listitem id="listitemN0x180ac00N0x187832c">
+               <para>Enter the date you want to reschedule the Purchase Order Line
           Item to.</para>
 
-          <para id="Para968688">The original and current scheduled dates will
+               <para id="Para968688">The original and current scheduled dates will
           be displayed.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+            </listitem>
+         </varlistentry>
+      </variablelist>
 
-    <para id="Para942271">To the far right of the screen, the following
+      <para id="Para942271">To the far right of the screen, the following
     buttons are available:</para>
 
-    <variablelist>
-      <varlistentry>
-        <term id="Para942272">CANCEL</term>
+      <variablelist>
+         <varlistentry>
+            <term id="Para942272">CANCEL</term>
 
-        <listitem id="listitemN0x180ac00N0x1878398">
-          <para>Closes the screen, returning you to the application
+            <listitem id="listitemN0x180ac00N0x1878398">
+               <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
-      </varlistentry>
+            </listitem>
+         </varlistentry>
 
-      <varlistentry>
-        <term id="Para942282">RESCHEDULE</term>
+         <varlistentry>
+            <term id="Para942282">RESCHEDULE</term>
 
-        <listitem id="listitemN0x180ac00N0x18783e0">
-          <para>Reschedules the Purchase Order Line Item using the specified
+            <listitem id="listitemN0x180ac00N0x18783e0">
+               <para>Reschedules the Purchase Order Line Item using the specified
           rescheduled date.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+            </listitem>
+         </varlistentry>
+      </variablelist>
   </section>
 </section>

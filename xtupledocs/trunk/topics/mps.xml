@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-
-  <section id="Section555045" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section555045" role="openmfg">
     <title>Topic: MPS Basics</title>
 
     <para id="Para555046">Master Production Scheduling (MPS) is a planning
@@ -84,12 +83,13 @@
     </note>
 
     <section id="Section555062">
-      <title><anchor id="Anchor555061" role="Index"
-      xreflabel="production plans:releasing and updating" /> <indexterm
-          significance="normal" zone="Anchor555061">
-          <primary>production plans</primary>
+      <title>
+         <anchor id="Anchor555061" role="Index"
+                 xreflabel="production plans:releasing and updating"/> 
+         <indexterm significance="normal">
+            <primary>production plans</primary>
 
-          <secondary>releasing and updating</secondary>
+            <secondary>releasing and updating</secondary>
         </indexterm>Updating and Releasing Production Plans</title>
 
       <para id="Para555063">To begin the process of understanding how MPS
@@ -99,25 +99,25 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555064">Pull down the M/S Module menu</para>
+            <para id="Para555064">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555065">Select the Planning submenu</para>
+            <para id="Para555065">Select the Planning submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555066">Select the "List Production Plans"
+            <para id="Para555066">Select the "List Production Plans"
           option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555067">Click on the COLLECTORS-2007 Production
+            <para id="Para555067">Click on the COLLECTORS-2007 Production
           Plan</para>
         </listitem>
 
         <listitem>
-          <para id="Para555068">Then click the EDIT button</para>
+            <para id="Para555068">Then click the EDIT button</para>
         </listitem>
       </itemizedlist>
 
@@ -129,65 +129,66 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555070">Select the first scheduled line item</para>
+            <para id="Para555070">Select the first scheduled line item</para>
         </listitem>
 
         <listitem>
-          <para id="Para555071">Click the EDIT button</para>
+            <para id="Para555071">Click the EDIT button</para>
         </listitem>
 
         <listitem>
-          <para id="Para555072">The following screen will appear:</para>
+            <para id="Para555072">The following screen will appear:</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555076"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F058-ProdPlanItem.png"
-                         id="Graphic555074" />
-            </imageobject>
+      <para id="Para555076">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F058-ProdPlanItem.png" id="Graphic555074"/>
+               </imageobject>
 
-            <caption id="Caption555077">Production Plan Item Screen</caption>
-          </mediaobject>
-        </screenshot></para>
+               <caption id="Caption555077">Production Plan Item Screen</caption>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <itemizedlist>
         <listitem>
-          <para id="Para555078">Enter a "Planned Date" that is +28 days from
+            <para id="Para555078">Enter a "Planned Date" that is +28 days from
           today</para>
         </listitem>
 
         <listitem>
-          <para id="Para555079">Enter "1,000" in the "Qty." field</para>
+            <para id="Para555079">Enter "1,000" in the "Qty." field</para>
         </listitem>
 
         <listitem>
-          <para id="Para555080">Click the SAVE button</para>
+            <para id="Para555080">Click the SAVE button</para>
         </listitem>
 
         <listitem>
-          <para id="Para555081">Repeat the previous step for the other two
+            <para id="Para555081">Repeat the previous step for the other two
           line items on the Production Plan</para>
         </listitem>
 
         <listitem>
-          <para id="Para555082">For the second line, set the date to +58 days
+            <para id="Para555082">For the second line, set the date to +58 days
           from today with a quantity of 2000</para>
         </listitem>
 
         <listitem>
-          <para id="Para555083">For the third line, set the date to +88 days
+            <para id="Para555083">For the third line, set the date to +88 days
           from today with a quantity of 3000</para>
         </listitem>
 
         <listitem>
-          <para id="Para555084">On the Production Plan screen, change the
+            <para id="Para555084">On the Production Plan screen, change the
           "Start Date" field to today's date</para>
         </listitem>
 
         <listitem>
-          <para id="Para555085">Click the SAVE button</para>
+            <para id="Para555085">Click the SAVE button</para>
         </listitem>
       </itemizedlist>
 
@@ -198,38 +199,38 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555087">Open the List Production Plans screen</para>
+            <para id="Para555087">Open the List Production Plans screen</para>
         </listitem>
 
         <listitem>
-          <para id="Para555088">Right-click on the COLLECTORS-2007 Production
+            <para id="Para555088">Right-click on the COLLECTORS-2007 Production
           Plan</para>
         </listitem>
 
         <listitem>
-          <para id="Para555089">Select the "Release" option from the
+            <para id="Para555089">Select the "Release" option from the
           right-click menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555090">Note that the status for the plan has changed
+            <para id="Para555090">Note that the status for the plan has changed
           from "U" (un-released) to "R" (released)</para>
         </listitem>
 
         <listitem>
-          <para id="Para555091">Click the CLOSE button to close the Production
+            <para id="Para555091">Click the CLOSE button to close the Production
           Plans screen</para>
         </listitem>
       </itemizedlist>
     </section>
 
     <section id="Section555093">
-      <title><anchor id="Anchor555092" role="Index"
-      xreflabel="mps:running of" /> <indexterm significance="normal"
-          zone="Anchor555092">
-          <primary>mps</primary>
+      <title>
+         <anchor id="Anchor555092" role="Index" xreflabel="mps:running of"/> 
+         <indexterm significance="normal">
+            <primary>mps</primary>
 
-          <secondary>running of</secondary>
+            <secondary>running of</secondary>
         </indexterm>Running MPS</title>
 
       <para id="Para555094">Because our Production Plan has been released, the
@@ -238,46 +239,48 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555095">Pull down the M/S Module menu</para>
+            <para id="Para555095">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555096">Select the Scheduling submenu</para>
+            <para id="Para555096">Select the Scheduling submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555097">Choose the "Run MPS by Planner Code"
+            <para id="Para555097">Choose the "Run MPS by Planner Code"
           option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555098">Check "All Planner Codes," "All Warehouses,"
+            <para id="Para555098">Check "All Planner Codes," "All Warehouses,"
           and enter a "Cutoff Date" that is 1 year in the future (+365), as
           shown below:</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555102"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F059-MPS-Run.png" id="Graphic555100" />
-            </imageobject>
+      <para id="Para555102">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F059-MPS-Run.png" id="Graphic555100"/>
+               </imageobject>
 
-            <caption id="Caption555103">Run MPS by Planner Code</caption>
-          </mediaobject>
-        </screenshot></para>
+               <caption id="Caption555103">Run MPS by Planner Code</caption>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <itemizedlist>
         <listitem>
-          <para id="Para555104">Click the CREATE button</para>
+            <para id="Para555104">Click the CREATE button</para>
         </listitem>
 
         <listitem>
-          <para id="Para555105">Wait while MPS runs in the background</para>
+            <para id="Para555105">Wait while MPS runs in the background</para>
         </listitem>
 
         <listitem>
-          <para id="Para555106">Screen will close when MPS is finished</para>
+            <para id="Para555106">Screen will close when MPS is finished</para>
         </listitem>
       </itemizedlist>
 
@@ -290,12 +293,12 @@
     </section>
 
     <section id="Section555110">
-      <title><anchor id="Anchor555109" role="Index"
-      xreflabel="mps:displaying results for" /> <indexterm
-          significance="normal" zone="Anchor555109">
-          <primary>mps</primary>
+      <title>
+         <anchor id="Anchor555109" role="Index" xreflabel="mps:displaying results for"/> 
+         <indexterm significance="normal">
+            <primary>mps</primary>
 
-          <secondary>displaying results for</secondary>
+            <secondary>displaying results for</secondary>
         </indexterm>Displaying Results of an MPS Run</title>
 
       <para id="Para555111">Once the MPS run is finished, we can go look at
@@ -304,37 +307,38 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555112">Pull down the M/S Module menu</para>
+            <para id="Para555112">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555113">Select the Displays submenu</para>
+            <para id="Para555113">Select the Displays submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555114">Select the "Planned Orders by Planner Code"
+            <para id="Para555114">Select the "Planned Orders by Planner Code"
           option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555115">Use the default settings and click the QUERY
+            <para id="Para555115">Use the default settings and click the QUERY
           button, to get results as shown below:</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555119"><anchor id="Anchor48125" role="Cross-Ref"
-      xreflabel="48125: Figure: Figure A.3:  Planned Orders by Planner Code Display" />
-      <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F060-MPS-OrdDisplay.png"
-                         id="Graphic555117" />
-            </imageobject>
+      <para id="Para555119">
+         <anchor id="Anchor48125" role="Cross-Ref"
+                 xreflabel="48125: Figure: Figure A.3:  Planned Orders by Planner Code Display"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F060-MPS-OrdDisplay.png" id="Graphic555117"/>
+               </imageobject>
 
-            <caption id="Caption555121">Planned Orders by Planner Code
+               <caption id="Caption555121">Planned Orders by Planner Code
             Display</caption>
-          </mediaobject>
-        </screenshot></para>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <para id="Para555122">The Planned Orders by Planner Code display shows
       us the top-down nature of the Forecast. Notice how the planned
@@ -344,12 +348,12 @@
     </section>
 
     <section id="Section555124">
-      <title><anchor id="Anchor555123" role="Index"
-      xreflabel="mps:detailed information for" /> <indexterm
-          significance="normal" zone="Anchor555123">
-          <primary>mps</primary>
+      <title>
+         <anchor id="Anchor555123" role="Index" xreflabel="mps:detailed information for"/> 
+         <indexterm significance="normal">
+            <primary>mps</primary>
 
-          <secondary>detailed information for</secondary>
+            <secondary>detailed information for</secondary>
         </indexterm>Displaying MPS Detail for an MPS Item</title>
 
       <para id="Para555125">We can understand how our new Planned Orders fit
@@ -358,49 +362,50 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555126">Pull down the M/S Module menu</para>
+            <para id="Para555126">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555127">Select the Displays submenu</para>
+            <para id="Para555127">Select the Displays submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555128">Choose the "MPS Detail" option</para>
+            <para id="Para555128">Choose the "MPS Detail" option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555129">Select an absolute Calendar for the current
+            <para id="Para555129">Select an absolute Calendar for the current
           year. (The M/S module is configured to use the "2007" absolute
           Calendar by default.)</para>
         </listitem>
 
         <listitem>
-          <para id="Para555130">Click on the BTRUCK1 Item in the Item Sites
+            <para id="Para555130">Click on the BTRUCK1 Item in the Item Sites
           display</para>
         </listitem>
 
         <listitem>
-          <para id="Para555131">Information about BTRUCK1 will be displayed,
+            <para id="Para555131">Information about BTRUCK1 will be displayed,
           as shown below:</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555135"><anchor id="Anchor90509" role="Cross-Ref"
-      xreflabel="90509: Figure: Figure A.4:  MPS Detail Display" />
-      <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F061-MPSDetail.png"
-                         id="Graphic555133" />
-            </imageobject>
+      <para id="Para555135">
+         <anchor id="Anchor90509" role="Cross-Ref"
+                 xreflabel="90509: Figure: Figure A.4:  MPS Detail Display"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F061-MPSDetail.png" id="Graphic555133"/>
+               </imageobject>
 
-            <caption id="Caption555137">MPS Detail Display</caption>
-          </mediaobject>
-        </screenshot></para>
+               <caption id="Caption555137">MPS Detail Display</caption>
+            </mediaobject>
+        </screenshot>
+      </para>
 
-      <para id="Para555140"><link endterm="Anchor90509" id="XRef555139"
-      linkend="Anchor90509"> MPS Detail Display</link>Figure 2.14 shows the
+      <para id="Para555140">
+         <link endterm="Anchor90509" id="XRef555139" linkend="Anchor90509"> MPS Detail Display</link>Figure 2.14 shows the
       MPS Detail for the selected Item based on the Calendar selected. In this
       case, the Calendar being used is a special absolute Calendar that shows
       the last three months of 2006 and the first two months of 2007. As you
@@ -417,12 +422,12 @@
     </section>
 
     <section id="Section555144">
-      <title><anchor id="Anchor555143" role="Index"
-      xreflabel="mrp:running of" /> <indexterm significance="normal"
-          zone="Anchor555143">
-          <primary>mrp</primary>
+      <title>
+         <anchor id="Anchor555143" role="Index" xreflabel="mrp:running of"/> 
+         <indexterm significance="normal">
+            <primary>mrp</primary>
 
-          <secondary>running of</secondary>
+            <secondary>running of</secondary>
         </indexterm>Running MRP</title>
 
       <para id="Para555145">To see how MRP will respond to the MPS Orders we
@@ -431,56 +436,58 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555146">Pull down the M/S Module menu</para>
+            <para id="Para555146">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555147">Select the Scheduling submenu</para>
+            <para id="Para555147">Select the Scheduling submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555148">Choose the "Run MRP by Planner Code"
+            <para id="Para555148">Choose the "Run MRP by Planner Code"
           option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555149">Check "All Planner Codes," "All Warehouses,"
+            <para id="Para555149">Check "All Planner Codes," "All Warehouses,"
           and enter a Cutoff Date that is 1 year in the future (+365).</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555153"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F062-MRP-Run.png" id="Graphic555151" />
-            </imageobject>
+      <para id="Para555153">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F062-MRP-Run.png" id="Graphic555151"/>
+               </imageobject>
 
-            <caption id="Caption555154">Run MRP by Planner Code</caption>
-          </mediaobject>
-        </screenshot></para>
+               <caption id="Caption555154">Run MRP by Planner Code</caption>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <itemizedlist>
         <listitem>
-          <para id="Para555155">Click the CREATE button</para>
+            <para id="Para555155">Click the CREATE button</para>
         </listitem>
 
         <listitem>
-          <para id="Para555156">Wait while MRP runs in the background</para>
+            <para id="Para555156">Wait while MRP runs in the background</para>
         </listitem>
 
         <listitem>
-          <para id="Para555157">Screen will close when MRP is finished</para>
+            <para id="Para555157">Screen will close when MRP is finished</para>
         </listitem>
       </itemizedlist>
     </section>
 
     <section id="Section555159">
-      <title><anchor id="Anchor555158" role="Index"
-      xreflabel="mrp:displaying results for" /> <indexterm
-          significance="normal" zone="Anchor555158">
-          <primary>mrp</primary>
+      <title>
+         <anchor id="Anchor555158" role="Index" xreflabel="mrp:displaying results for"/> 
+         <indexterm significance="normal">
+            <primary>mrp</primary>
 
-          <secondary>displaying results for</secondary>
+            <secondary>displaying results for</secondary>
         </indexterm>Displaying Results of MRP after MPS Run</title>
 
       <para id="Para555160">Once the MRP run is finished, we can go look at
@@ -489,20 +496,20 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555161">Pull down the M/S Module menu</para>
+            <para id="Para555161">Pull down the M/S Module menu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555162">Select the Displays submenu</para>
+            <para id="Para555162">Select the Displays submenu</para>
         </listitem>
 
         <listitem>
-          <para id="Para555163">Select the "Planned Orders by Planner Code"
+            <para id="Para555163">Select the "Planned Orders by Planner Code"
           option</para>
         </listitem>
 
         <listitem>
-          <para id="Para555164">Use the default settings and click the QUERY
+            <para id="Para555164">Use the default settings and click the QUERY
           button</para>
         </listitem>
       </itemizedlist>
@@ -521,34 +528,35 @@
 
       <itemizedlist>
         <listitem>
-          <para id="Para555167">Check the "Selected" radio button</para>
+            <para id="Para555167">Check the "Selected" radio button</para>
         </listitem>
 
         <listitem>
-          <para id="Para555168">Select "MRP-MRP Items" or "MPS-MPS
+            <para id="Para555168">Select "MRP-MRP Items" or "MPS-MPS
           Items"</para>
         </listitem>
 
         <listitem>
-          <para id="Para555169">Click the QUERY button</para>
+            <para id="Para555169">Click the QUERY button</para>
         </listitem>
       </itemizedlist>
 
-      <para id="Para555173"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/F063-MRP-Run-Output.png"
-                         id="Graphic555171" />
-            </imageobject>
+      <para id="Para555173">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/F063-MRP-Run-Output.png" id="Graphic555171"/>
+               </imageobject>
 
-            <caption id="Caption555174">Planned Orders by Planner Code
+               <caption id="Caption555174">Planned Orders by Planner Code
             Display</caption>
-          </mediaobject>
-        </screenshot></para>
+            </mediaobject>
+        </screenshot>
+      </para>
 
       <itemizedlist>
         <listitem>
-          <para id="Para555175">Click CLOSE to exit the display.</para>
+            <para id="Para555175">Click CLOSE to exit the display.</para>
         </listitem>
       </itemizedlist>
 

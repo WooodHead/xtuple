@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518970">
-    <title><anchor id="Anchor552140" role="Index"
-    xreflabel="scrap:as inventory transaction;inventory transactions:scrapping" />
-    <indexterm significance="normal" zone="Anchor552140">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518970">
+    <title>
+      <anchor id="Anchor552140" role="Index"
+              xreflabel="scrap:as inventory transaction;inventory transactions:scrapping"/>
+      <indexterm significance="normal">
         <primary>scrap</primary>
 
         <secondary>as inventory transaction</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552140">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>inventory transactions</primary>
 
         <secondary>scrapping</secondary>
@@ -17,15 +19,17 @@
     <para id="Para518971">To Scrap Items from Inventory, select the "Scrap"
     option. The following screen will appear:</para>
 
-    <para id="Para518975"><screenshot>
+    <para id="Para518975">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_IT_scrap.png" id="Graphic525842" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_IT_scrap.png" id="Graphic525842"/>
+            </imageobject>
 
-          <caption id="Caption518976">Enter Scrap Transaction</caption>
+            <caption id="Caption518976">Enter Scrap Transaction</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518982">When entering a Scrap transaction, you are presented
     with the following options:</para>
@@ -35,7 +39,7 @@
         <term id="Para518983">Transaction Date</term>
 
         <listitem id="listitemN0x180ac00N0x1897f34">
-          <para>Displays the current day's date.</para>
+            <para>Displays the current day's date.</para>
         </listitem>
       </varlistentry>
 
@@ -43,7 +47,7 @@
         <term id="Para518985">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1897f7c">
-          <para>Enter the Item Number of the Item you want to enter a Scrap
+            <para>Enter the Item Number of the Item you want to enter a Scrap
           transaction for.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +56,7 @@
         <term id="Para671958">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1897fc4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -60,7 +64,7 @@
         <term id="Para580751">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x189800c">
-          <para>Specify Warehouse where the Item Site for the Scrap
+            <para>Specify Warehouse where the Item Site for the Scrap
           transaction is located.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +73,7 @@
         <term id="Para580756">Scrap Qty.</term>
 
         <listitem id="listitemN0x180ac00N0x1898054">
-          <para>Enter the quantity of Inventory UOM identified as Scrap. The
+            <para>Enter the quantity of Inventory UOM identified as Scrap. The
           number entered will appear as a deduction in the "After" column.
           Non-netable Quantity on Hand is not included in these values.</para>
         </listitem>
@@ -79,7 +83,7 @@
         <term id="Para518999">Document #</term>
 
         <listitem id="listitemN0x180ac00N0x189809c">
-          <para>Creates a user-defined reference for the Scrap transaction.
+            <para>Creates a user-defined reference for the Scrap transaction.
           The Document reference will be posted with the General Ledger (G/L)
           transaction record when the Scrap transaction is generated. This
           field may be used for internal tracking and auditing
@@ -91,7 +95,7 @@
         <term id="Para519004">Comments</term>
 
         <listitem id="listitemN0x180ac00N0x18980e4">
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the Scrap transaction.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +109,7 @@
         <term id="Para519007">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1898150">
-          <para>Closes the screen without posting an Inventory Scrap
+            <para>Closes the screen without posting an Inventory Scrap
           transaction, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -114,13 +118,12 @@
         <term id="Para519008">POST</term>
 
         <listitem id="listitemN0x180ac00N0x1898198">
-          <para>Posts the Scrap transaction.</para>
+            <para>Posts the Scrap transaction.</para>
 
-          <para id="Para519009">Generates an Inventory Scrap transaction and
+            <para id="Para519009">Generates an Inventory Scrap transaction and
           decrements Quantity on Hand. Additional steps will be necessary if
           the specified Item is stored in multiple Locations. For more
-          information, see the <link endterm="Anchor81167" id="XRef538116"
-          linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
+          information, see the <link endterm="Anchor81167" id="XRef538116" linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
           Items</link>"Inter-Warehouse Transfer" section.</para>
         </listitem>
       </varlistentry>

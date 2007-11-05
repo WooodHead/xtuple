@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section545481">
-    <title><anchor id="Anchor545480" role="Index"
-    xreflabel="checks:register for;registers:for a/p checks" /> <indexterm
-        significance="normal" zone="Anchor545480">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section545481">
+    <title>
+      <anchor id="Anchor545480" role="Index"
+              xreflabel="checks:register for;registers:for a/p checks"/> 
+      <indexterm significance="normal">
         <primary>checks</primary>
 
         <secondary>register for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor545480">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>registers</primary>
 
         <secondary>for a/p checks</secondary>
@@ -18,16 +19,17 @@
     <para id="Para546200">To view Check Registers by Bank Account, select the
     "Check Register" option. The following screen will appear:</para>
 
-    <para id="Para545979"><screenshot>
+    <para id="Para545979">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Disp_chkRegister.png"
-                       id="Graphic545977" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Disp_chkRegister.png" id="Graphic545977"/>
+            </imageobject>
 
-          <caption id="Caption545980">Check Register</caption>
+            <caption id="Caption545980">Check Register</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para553756">You can void posted Checks using the right-click
@@ -44,7 +46,7 @@
         <term id="Para546258">Bank Account</term>
 
         <listitem>
-          <para>Specify the Bank Account whose Check Register information you
+            <para>Specify the Bank Account whose Check Register information you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +55,7 @@
         <term id="Para546251">Start Date</term>
 
         <listitem>
-          <para>Checks posted on and after this date will be displayed.</para>
+            <para>Checks posted on and after this date will be displayed.</para>
         </listitem>
       </varlistentry>
 
@@ -61,7 +63,7 @@
         <term id="Para546226">End Date</term>
 
         <listitem>
-          <para>Checks posted on and before this date will be
+            <para>Checks posted on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -70,10 +72,10 @@
         <term id="Para554483">Show Item Detail</term>
 
         <listitem>
-          <para>Select to include Check detail information in the
+            <para>Select to include Check detail information in the
           display.</para>
 
-          <para id="Para554489">If selected, the Vouchers and/or Debit Memos
+            <para id="Para554489">If selected, the Vouchers and/or Debit Memos
           associated with Checks will be displayed in a nested list. Be sure
           to use the QUERY button after selecting this option to ensure detail
           is included in the display.</para>
@@ -84,10 +86,10 @@
         <term id="Para546228">Checks</term>
 
         <listitem>
-          <para>Display lists Checks by Bank Account, using the specified
+            <para>Display lists Checks by Bank Account, using the specified
           parameters.</para>
 
-          <para id="Para565751">This display is a nested list, with a plus
+            <para id="Para565751">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each date.
           By clicking your mouse on a plus sign, you reveal lower levels of
           information related to transactions on that date. The total amount
@@ -104,7 +106,7 @@
         <term id="Para546231">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +115,7 @@
         <term id="Para546232">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -122,7 +124,7 @@
         <term id="Para565663">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -131,12 +133,10 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/9/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/9/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

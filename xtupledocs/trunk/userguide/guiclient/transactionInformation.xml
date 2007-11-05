@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Transaction Information
@@ -37,42 +37,42 @@
          <tbody>
                             <row>
                <entry>
-                  <guilabel>Transaction Type:</guilabel>
+                  <guilabel moreinfo="none">Transaction Type:</guilabel>
                </entry>
                <entry>_transactionTypeLit</entry>
                <entry>QLabel</entry>
             </row>
                             <row>
                <entry>
-                  <guilabel>Transaction Date:</guilabel>
+                  <guilabel moreinfo="none">Transaction Date:</guilabel>
                </entry>
                <entry>_transactionDateLit</entry>
                <entry>QLabel</entry>
             </row>
                             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_transactionType</entry>
                <entry>QLabel</entry>
             </row>
                             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_transactionDate</entry>
                <entry>QLabel</entry>
             </row>
                             <row>
                <entry>
-                  <guilabel>Username:</guilabel>
+                  <guilabel moreinfo="none">Username:</guilabel>
                </entry>
                <entry>_usernameLit</entry>
                <entry>QLabel</entry>
             </row>
                             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_username</entry>
                <entry>QLabel</entry>
@@ -84,7 +84,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -92,7 +92,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -100,7 +100,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>
@@ -112,56 +112,56 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Transaction Qty.:</guilabel>
+                  <guilabel moreinfo="none">Transaction Qty.:</guilabel>
                </entry>
                <entry>_transactionQtyLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>QOH Before:</guilabel>
+                  <guilabel moreinfo="none">QOH Before:</guilabel>
                </entry>
                <entry>_qohBeforeLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>QOH After:</guilabel>
+                  <guilabel moreinfo="none">QOH After:</guilabel>
                </entry>
                <entry>_qohAfterLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_transactionQty</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_qohBefore</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_qohAfter</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>Include in Inventory Analysis</guilabel>
+                  <guilabel moreinfo="none">Include in Inventory Analysis</guilabel>
                </entry>
                <entry>_analyze</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Notes:</guilabel>
+                  <guilabel moreinfo="none">Notes:</guilabel>
                </entry>
                <entry>_notesLit</entry>
                <entry>QLabel</entry>

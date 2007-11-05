@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section965215">
-    <title><anchor id="Anchor965214" role="Index"
-    xreflabel="purchase orders:printing purchasing form;forms:for purchase orders" />
-    <indexterm significance="normal" zone="Anchor965214">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section965215">
+    <title>
+      <anchor id="Anchor965214" role="Index"
+              xreflabel="purchase orders:printing purchasing form;forms:for purchase orders"/>
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>printing purchasing form</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor965214">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>forms</primary>
 
         <secondary>for purchase orders</secondary>
@@ -18,16 +19,17 @@
     <para id="Para965216">To print a Purchase Order Form, select the "Print
     P/O Form" option. The following screen will appear:</para>
 
-    <para id="Para965220"><screenshot>
+    <para id="Para965220">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Rep_printPOForm.png"
-                       id="Graphic965218" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Rep_printPOForm.png" id="Graphic965218"/>
+            </imageobject>
 
-          <caption id="Caption965221">Print Purchase Order Form</caption>
+            <caption id="Caption965221">Print Purchase Order Form</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para965222">When printing a Purchase Order Form, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para965223">P/O #</term>
 
         <listitem id="listitemN0x180ac00N0x18dbe00">
-          <para>Enter the Purchase Order Number of the Purchase Order you want
+            <para>Enter the Purchase Order Number of the Purchase Order you want
           to print.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para965225">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x18dbe48">
-          <para>Specify the Form you want to use for printing the Purchase
+            <para>Specify the Form you want to use for printing the Purchase
           Order.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +62,7 @@
         <term id="Para965231">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18dbeb4">
-          <para>Closes the screen without generating a report, returning you
+            <para>Closes the screen without generating a report, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +71,7 @@
         <term id="Para970101">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18dbefc">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

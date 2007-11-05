@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section518755">
-    <title><anchor id="Anchor533203" role="Index"
-    xreflabel="bookings:by item;items:bookings for" /> <indexterm
-        significance="normal" zone="Anchor533203">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518755">
+    <title>
+      <anchor id="Anchor533203" role="Index" xreflabel="bookings:by item;items:bookings for"/> 
+      <indexterm significance="normal">
         <primary>bookings</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533203">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>bookings for</secondary>
@@ -17,16 +18,17 @@
     <para id="Para545505">To view Bookings by Item, select the "Bookings by
     Item" option. The following screen will appear:</para>
 
-    <para id="Para518760"><screenshot>
+    <para id="Para518760">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_bookByItem.png"
-                       id="Graphic521664" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_bookByItem.png" id="Graphic521664"/>
+            </imageobject>
 
-          <caption id="Caption518761">Bookings by Item</caption>
+            <caption id="Caption518761">Bookings by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518767">When displaying Bookings by Item, you are presented
     with the following options:</para>
@@ -36,7 +38,7 @@
         <term id="Para518768">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1857148">
-          <para>Enter the Item Number of the Item whose Bookings you want to
+            <para>Enter the Item Number of the Item whose Bookings you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -45,7 +47,7 @@
         <term id="Para554893">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1857190">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +55,7 @@
         <term id="Para518772">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18571b4">
-          <para>Select to display Bookings by Item for all Warehouses.</para>
+            <para>Select to display Bookings by Item for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -61,7 +63,7 @@
         <term id="Para518774">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18571d8">
-          <para>Specify Warehouse whose Bookings by Item you want to
+            <para>Specify Warehouse whose Bookings by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +72,7 @@
         <term id="Para549750">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x1857220">
-          <para>Bookings by Item generated on or after this date will be
+            <para>Bookings by Item generated on or after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +81,7 @@
         <term id="Para549755">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1857268">
-          <para>Bookings by Item generated on or before this date will be
+            <para>Bookings by Item generated on or before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +90,7 @@
         <term id="Para518786">Bookings</term>
 
         <listitem id="listitemN0x180ac00N0x18572b0">
-          <para>Display lists Bookings by Item, using the specified
+            <para>Display lists Bookings by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +104,7 @@
         <term id="Para518789">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x185731c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +113,7 @@
         <term id="Para541838">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1857364">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -120,7 +122,7 @@
         <term id="Para554992">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18573ac">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

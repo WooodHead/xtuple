@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519452">
-    <title><anchor id="Anchor552174" role="Index"
-    xreflabel="count slips:purging posted;physical inventory:purging count slips" />
-    <indexterm significance="normal" zone="Anchor552174">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519452">
+    <title>
+      <anchor id="Anchor552174" role="Index"
+              xreflabel="count slips:purging posted;physical inventory:purging count slips"/>
+      <indexterm significance="normal">
         <primary>count slips</primary>
 
         <secondary>purging posted</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552174">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>purging count slips</secondary>
@@ -19,16 +21,17 @@
     system once they have been posted, select the "Purge Posted Count Slips"
     option. The following screen will appear:</para>
 
-    <para id="Para519457"><screenshot>
+    <para id="Para519457">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_purgePostedCount.png"
-                       id="Graphic526136" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_purgePostedCount.png" id="Graphic526136"/>
+            </imageobject>
 
-          <caption id="Caption519458">Purge Posted Count Slips</caption>
+            <caption id="Caption519458">Purge Posted Count Slips</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519459">When purging posted Count Slips, you are presented
     with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para519463">Cutoff Date</term>
 
         <listitem id="listitemN0x180ac00N0x191a480">
-          <para>All posted Count Slips up to and including this date will be
+            <para>All posted Count Slips up to and including this date will be
           purged.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para583355">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x191a4a4">
-          <para>Select to purge posted Count Slips for all Warehouses.</para>
+            <para>Select to purge posted Count Slips for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -55,7 +58,7 @@
         <term id="Para583356">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x191a4c8">
-          <para>Specify Warehouse where posted Count Slips are to be
+            <para>Specify Warehouse where posted Count Slips are to be
           purged.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +72,7 @@
         <term id="Para519470">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x191a534">
-          <para>Closes the screen without purging posted Count Slips,
+            <para>Closes the screen without purging posted Count Slips,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +81,7 @@
         <term id="Para519471">PURGE</term>
 
         <listitem id="listitemN0x180ac00N0x191a57c">
-          <para>Purges posted Count Slips from the system.</para>
+            <para>Purges posted Count Slips from the system.</para>
         </listitem>
       </varlistentry>
     </variablelist>

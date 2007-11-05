@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518928">
-    <title><anchor id="Anchor919433" role="Index"
-    xreflabel="price variances:by item;variances:price by item" /> <indexterm
-        significance="normal" zone="Anchor919433">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518928">
+    <title>
+      <anchor id="Anchor919433" role="Index"
+              xreflabel="price variances:by item;variances:price by item"/> 
+      <indexterm significance="normal">
         <primary>price variances</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919433">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>variances</primary>
 
         <secondary>price by item</secondary>
@@ -18,16 +19,17 @@
     <para id="Para522325">To view purchase Price variances by Item, select the
     "Price Variances by Item" option. The following screen will appear:</para>
 
-    <para id="Para522328"><screenshot>
+    <para id="Para522328">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_priceVarByItem.png"
-                       id="Graphic522327" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_priceVarByItem.png" id="Graphic522327"/>
+            </imageobject>
 
-          <caption id="Caption522329">Price Variances by Item</caption>
+            <caption id="Caption522329">Price Variances by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para522330">When displaying purchase Price variances by Item,
     you are presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para533996">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18cf8b0">
-          <para>Enter the Item Number of the Item whose Price variances you
+            <para>Enter the Item Number of the Item whose Price variances you
           want to view.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para534004">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18cf8d4">
-          <para>Select to display Price variances by Item for all
+            <para>Select to display Price variances by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +57,7 @@
         <term id="Para534006">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18cf8f8">
-          <para>Specify Warehouse whose Price variances by Item you want to
+            <para>Specify Warehouse whose Price variances by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +66,7 @@
         <term id="Para534606">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18cf940">
-          <para>Price variances by Item entered on and after this date will be
+            <para>Price variances by Item entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +75,7 @@
         <term id="Para534611">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18cf988">
-          <para>Price variances by Item entered on and before this date will
+            <para>Price variances by Item entered on and before this date will
           be displayed.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +84,7 @@
         <term id="Para534596">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18cf9d0">
-          <para>Select to display Price variances by Item for all Purchasing
+            <para>Select to display Price variances by Item for all Purchasing
           Agents.</para>
         </listitem>
       </varlistentry>
@@ -91,10 +93,10 @@
         <term id="Para534597">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18cfa18">
-          <para>Specify Purchasing Agent whose Price variances by Item you
+            <para>Specify Purchasing Agent whose Price variances by Item you
           want to display.</para>
 
-          <para id="Para935663">Users may be designated as Purchasing Agents
+            <para id="Para935663">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -103,7 +105,7 @@
         <term id="Para534682">P/O Receipts and Returns</term>
 
         <listitem id="listitemN0x180ac00N0x18cfa60">
-          <para>Display lists Receipts and Returns by date, using the
+            <para>Display lists Receipts and Returns by date, using the
           specified parameters</para>
         </listitem>
       </varlistentry>
@@ -117,7 +119,7 @@
         <term id="Para534015">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18cfacc">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -126,7 +128,7 @@
         <term id="Para970066">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18cfb14">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -135,7 +137,7 @@
         <term id="Para970073">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18cfb5c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section566752">
-    <title><anchor id="Anchor566751" role="Index"
-    xreflabel="sales orders:rescheduling of line items" /> <indexterm
-        significance="normal" zone="Anchor566751">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section566752">
+    <title>
+      <anchor id="Anchor566751" role="Index"
+              xreflabel="sales orders:rescheduling of line items"/> 
+      <indexterm significance="normal">
         <primary>sales orders</primary>
 
         <secondary>rescheduling of line items</secondary>
@@ -14,17 +15,18 @@
     Order, select the "Reschedule all S/O Line Items" option. The following
     screen will appear:</para>
 
-    <para id="Para566757"><screenshot>
+    <para id="Para566757">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Ord_reschedLineItems.png"
-                       id="Graphic566755" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Ord_reschedLineItems.png" id="Graphic566755"/>
+            </imageobject>
 
-          <caption id="Caption566758">Reschedule All Sales Order Line
+            <caption id="Caption566758">Reschedule All Sales Order Line
           Items</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para566759">When rescheduling all Line Items associated with a
     Sales Order, you are presented with the following options:</para>
@@ -34,7 +36,7 @@
         <term id="Para566845">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18be8b8">
-          <para>Enter the Sales Order Number of the Sales Order whose Line
+            <para>Enter the Sales Order Number of the Sales Order whose Line
           Items you want to reschedule.</para>
         </listitem>
       </varlistentry>
@@ -51,7 +53,7 @@
         <term id="Para566878">New Schedule Date</term>
 
         <listitem id="listitemN0x180ac00N0x18be948">
-          <para>Specify the new schedule date for the Line Items.</para>
+            <para>Specify the new schedule date for the Line Items.</para>
         </listitem>
       </varlistentry>
 
@@ -59,7 +61,7 @@
         <term id="Para566889">Cust. Name</term>
 
         <listitem id="listitemN0x180ac00N0x18be990">
-          <para>Displays the name of the Customer associated with the Sales
+            <para>Displays the name of the Customer associated with the Sales
           Order.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +70,7 @@
         <term id="Para566890">Cust. Phone</term>
 
         <listitem id="listitemN0x180ac00N0x18be9d8">
-          <para>Displays the Customer's phone number.</para>
+            <para>Displays the Customer's phone number.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +78,7 @@
         <term id="Para566891">P/O Number</term>
 
         <listitem id="listitemN0x180ac00N0x18bea20">
-          <para>Displays the Customer's Purchase Order Number.</para>
+            <para>Displays the Customer's Purchase Order Number.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -89,7 +91,7 @@
         <term id="Para566766">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18bea8c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +100,7 @@
         <term id="Para566767">RESCHEDULE</term>
 
         <listitem id="listitemN0x180ac00N0x18bead4">
-          <para>Creates the new schedule date for all Line Items associated
+            <para>Creates the new schedule date for all Line Items associated
           with the specified Sales Order.</para>
         </listitem>
       </varlistentry>

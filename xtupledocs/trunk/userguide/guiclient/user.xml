@@ -1,245 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section917430">
-  <title><anchor id="Anchor934445" role="Index"
-  xreflabel="users:creating new;openmfg administrators:new users created by;administrators. See openmfg administrators;system administrators. See openmfg administrators" /><indexterm
-      significance="normal" zone="Anchor934445">
-      <primary>users</primary>
+  <title>
+      <anchor id="Anchor934445" role="Index"
+              xreflabel="users:creating new;openmfg administrators:new users created by;administrators. See openmfg administrators;system administrators. See openmfg administrators"/>
+      <indexterm significance="normal">
+         <primary>users</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm><indexterm significance="normal" zone="Anchor934445">
-      <primary>openmfg administrators</primary>
+         <secondary>creating new</secondary>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>openmfg administrators</primary>
 
-      <secondary>new users created by</secondary>
-    </indexterm><indexterm significance="normal" zone="Anchor934445">
-      <primary>administrators</primary>
+         <secondary>new users created by</secondary>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>administrators</primary>
 
-      <see>openmfg administrators</see>
-    </indexterm><indexterm significance="normal" zone="Anchor934445">
-      <primary>system administrators</primary>
+         <see>openmfg administrators</see>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>system administrators</primary>
 
-      <see>openmfg administrators</see>
-    </indexterm> User</title>
+         <see>openmfg administrators</see>
+      </indexterm> User</title>
 
   <para id="Para530966">To create a new user, select the NEW button. The
   following screen will appear:</para>
 
-  <para id="Para519261"><anchor id="Anchor95444" role="Cross-Ref"
-  xreflabel="95444: Figure: Figure 13.28:  User Information" /> <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_maintUserNew.png" id="Graphic522185" />
-        </imageobject>
+  <para id="Para519261">
+      <anchor id="Anchor95444" role="Cross-Ref"
+              xreflabel="95444: Figure: Figure 13.28:  User Information"/> 
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_maintUserNew.png" id="Graphic522185"/>
+            </imageobject>
 
-        <caption id="Caption519262">User Information</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption519262">User Information</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para917718">When creating a new user, you are presented with the
   following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para917722"><anchor id="Anchor943373" role="Index"
-      xreflabel="usernames:creating for users;users:creating usernames for" />
-      <indexterm significance="normal" zone="Anchor943373">
-          <primary>usernames</primary>
+      <varlistentry>
+         <term id="Para917722">
+            <anchor id="Anchor943373" role="Index"
+                    xreflabel="usernames:creating for users;users:creating usernames for"/>
+            <indexterm significance="normal">
+               <primary>usernames</primary>
 
-          <secondary>creating for users</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor943373">
-          <primary>users</primary>
+               <secondary>creating for users</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>users</primary>
 
-          <secondary>creating usernames for</secondary>
-        </indexterm>Username</term>
+               <secondary>creating usernames for</secondary>
+            </indexterm>Username</term>
 
-      <listitem id="listitemN0x180ac00N0x18c4094">
-        <para>Enter a unique username to clearly distinguish the new user from
+         <listitem id="listitemN0x180ac00N0x18c4094">
+            <para>Enter a unique username to clearly distinguish the new user from
         existing users. The username is case-sensitive. This is a required
         field.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para933567">Active</term>
+      <varlistentry>
+         <term id="Para933567">Active</term>
 
-      <listitem id="listitemN0x180ac00N0x18c40dc">
-        <para>Select to mark the user as Active.</para>
+         <listitem id="listitemN0x180ac00N0x18c40dc">
+            <para>Select to mark the user as Active.</para>
 
-        <para id="Para933568">Not selecting marks the user as Inactive. Users
+            <para id="Para933568">Not selecting marks the user as Inactive. Users
         cannot be deleted from the system, but marking them Inactive prevents
         them from logging into the application.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519273">Proper Name</term>
+      <varlistentry>
+         <term id="Para519273">Proper Name</term>
 
-      <listitem id="listitemN0x180ac00N0x18c4124">
-        <para>Enter the user's first name and last name (e.g., John
+         <listitem id="listitemN0x180ac00N0x18c4124">
+            <para>Enter the user's first name and last name (e.g., John
         Smith).</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519278">Initials</term>
+      <varlistentry>
+         <term id="Para519278">Initials</term>
 
-      <listitem id="listitemN0x180ac00N0x18c416c">
-        <para>Enter the user's initials.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18c416c">
+            <para>Enter the user's initials.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519283"><anchor id="Anchor934460" role="Index"
-      xreflabel="users:passwords for;openmfg administrators:passwords created by;passwords:created by administrators" />
-      <indexterm significance="normal" zone="Anchor934460">
-          <primary>users</primary>
+      <varlistentry>
+         <term id="Para519283">
+            <anchor id="Anchor934460" role="Index"
+                    xreflabel="users:passwords for;openmfg administrators:passwords created by;passwords:created by administrators"/>
+            <indexterm significance="normal">
+               <primary>users</primary>
 
-          <secondary>passwords for</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor934460">
-          <primary>openmfg administrators</primary>
+               <secondary>passwords for</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>openmfg administrators</primary>
 
-          <secondary>passwords created by</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor934460">
-          <primary>passwords</primary>
+               <secondary>passwords created by</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>passwords</primary>
 
-          <secondary>created by administrators</secondary>
-        </indexterm>Password</term>
+               <secondary>created by administrators</secondary>
+            </indexterm>Password</term>
 
-      <listitem id="listitemN0x180ac00N0x18c428c">
-        <para>User passwords are established to ensure application and system
-        security. Passwords are case-sensitive. As you can see in <link
-        endterm="Anchor95444" id="XRef917997" linkend="Anchor95444"> User
+         <listitem id="listitemN0x180ac00N0x18c428c">
+            <para>User passwords are established to ensure application and system
+        security. Passwords are case-sensitive. As you can see in <link endterm="Anchor95444" id="XRef917997" linkend="Anchor95444"> User
         Information</link>Figure System.66, this field does not display the
         values entered on the screen. Instead, individual keystrokes are
         replaced by asterisks (*) to protect the password from being viewed.
         Once the user's password is entered, it can only be reset by an system
         administrator who must overwrite the existing password.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519288">Verify</term>
+      <varlistentry>
+         <term id="Para519288">Verify</term>
 
-      <listitem id="listitemN0x180ac00N0x18c42d4">
-        <para>Verify the accuracy of the user's password by retyping it in
+         <listitem id="listitemN0x180ac00N0x18c42d4">
+            <para>Verify the accuracy of the user's password by retyping it in
         this field. Again, individual keystrokes will be replaced by asterisks
         (*) to protect the password from being viewed.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para967046">Dept.</term>
+      <varlistentry>
+         <term id="Para967046">Dept.</term>
 
-      <listitem id="listitemN0x180ac00N0x18c431c">
-        <para>Select a Department to associate with the specified user.</para>
+         <listitem id="listitemN0x180ac00N0x18c431c">
+            <para>Select a Department to associate with the specified user.</para>
 
-        <para id="Para967062">This is an optional setting.</para>
-      </listitem>
-    </varlistentry>
+            <para id="Para967062">This is an optional setting.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para967067">Shift</term>
+      <varlistentry>
+         <term id="Para967067">Shift</term>
 
-      <listitem id="listitemN0x180ac00N0x18c4364">
-        <para>Select a Shift to associate with the specified user.</para>
+         <listitem id="listitemN0x180ac00N0x18c4364">
+            <para>Select a Shift to associate with the specified user.</para>
 
-        <para id="Para967068">This is an optional setting.</para>
-      </listitem>
-    </varlistentry>
+            <para id="Para967068">This is an optional setting.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519290"><anchor id="Anchor934461" role="Index"
-      xreflabel="locales:user specific;openmfg administrators:user locales established by" />
-      <indexterm significance="normal" zone="Anchor934461">
-          <primary>locales</primary>
+      <varlistentry>
+         <term id="Para519290">
+            <anchor id="Anchor934461" role="Index"
+                    xreflabel="locales:user specific;openmfg administrators:user locales established by"/>
+            <indexterm significance="normal">
+               <primary>locales</primary>
 
-          <secondary>user specific</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor934461">
-          <primary>openmfg administrators</primary>
+               <secondary>user specific</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>openmfg administrators</primary>
 
-          <secondary>user locales established by</secondary>
-        </indexterm>Locale</term>
+               <secondary>user locales established by</secondary>
+            </indexterm>Locale</term>
 
-      <listitem id="listitemN0x180ac00N0x18c443c">
-        <para>Select one of the available Locales.</para>
+         <listitem id="listitemN0x180ac00N0x18c443c">
+            <para>Select one of the available Locales.</para>
 
-        <para id="Para519291">Locale settings affect how information is
+            <para id="Para519291">Locale settings affect how information is
         formatted and displayed on a user's screen. The default Locale is
         "USEnglish", but multinational companies may have multiple Locales
         defined. Only users who have been granted the "MaintainLocales"
         privilege can define and maintain Locale settings. For more
-        information on Locales and Locale settings, see the <link
-        endterm="Anchor54109" id="XRef918037" linkend="Anchor54109">
+        information on Locales and Locale settings, see the <link endterm="Anchor54109" id="XRef918037" linkend="Anchor54109">
         Locales</link>"Locales" section earlier in this chapter.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519294"><anchor id="Anchor934462" role="Index"
-      xreflabel="users:privileges for;openmfg administrators:user privileges defined by;privileges:for users" />
-      <indexterm significance="normal" zone="Anchor934462">
-          <primary>users</primary>
+      <varlistentry>
+         <term id="Para519294">
+            <anchor id="Anchor934462" role="Index"
+                    xreflabel="users:privileges for;openmfg administrators:user privileges defined by;privileges:for users"/>
+            <indexterm significance="normal">
+               <primary>users</primary>
 
-          <secondary>privileges for</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor934462">
-          <primary>openmfg administrators</primary>
+               <secondary>privileges for</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>openmfg administrators</primary>
 
-          <secondary>user privileges defined by</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor934462">
-          <primary>privileges</primary>
+               <secondary>user privileges defined by</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>privileges</primary>
 
-          <secondary>for users</secondary>
-        </indexterm>Purchasing Agent</term>
+               <secondary>for users</secondary>
+            </indexterm>Purchasing Agent</term>
 
-      <listitem id="listitemN0x180ac00N0x18c455c">
-        <para>Select if the users is authorized to make purchases.</para>
+         <listitem id="listitemN0x180ac00N0x18c455c">
+            <para>Select if the users is authorized to make purchases.</para>
 
-        <para id="Para918150">Not selecting means the user is not authorized
+            <para id="Para918150">Not selecting means the user is not authorized
         to make purchases.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para918132">Can Create System Users</term>
+      <varlistentry>
+         <term id="Para918132">Can Create System Users</term>
 
-      <listitem id="listitemN0x180ac00N0x18c45a4">
-        <para>Select if the user is authorized to create new users.</para>
+         <listitem id="listitemN0x180ac00N0x18c45a4">
+            <para>Select if the user is authorized to create new users.</para>
 
-        <para id="Para918156">Not selecting means the user is not authorized
+            <para id="Para918156">Not selecting means the user is not authorized
         to create new users.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para918433">System administrators are able to assign and/or
+      <para id="Para918433">System administrators are able to assign and/or
     revoke privileges on a module-by-module basis. The application provides
     granular security settings for each module, down to the submenu
     level.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para957994">Disable Export Display Contents</term>
+      <varlistentry>
+         <term id="Para957994">Disable Export Display Contents</term>
 
-      <listitem id="listitemN0x180ac00N0x18cbe24">
-        <para>Select to prevent user from exporting display contents.</para>
+         <listitem id="listitemN0x180ac00N0x18cbe24">
+            <para>Select to prevent user from exporting display contents.</para>
 
-        <para id="Para958003">The "Export Contents" option can be found on
+            <para id="Para958003">The "Export Contents" option can be found on
         right-click menus throughout the application. If selected, the user
         will be blocked from using the "Export Contents" option.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para958660">Use Enhanced Authentication</term>
+      <varlistentry>
+         <term id="Para958660">Use Enhanced Authentication</term>
 
-      <listitem id="listitemN0x180ac00N0x18cbe6c">
-        <para>Select to require users to use enhanced authentication when they
+         <listitem id="listitemN0x180ac00N0x18cbe6c">
+            <para>Select to require users to use enhanced authentication when they
         log in to the application.</para>
 
-        <para id="Para958696">Enhanced authentication adds a layer to the
+            <para id="Para958696">Enhanced authentication adds a layer to the
         authentication process used to log in to the system. When this feature
         is turned on, user passwords are stored in the database in a modified
         form. The end result is that users may only log in to the database
@@ -252,12 +267,12 @@
         enhanced authentication is not specified, users will be permitted to
         log in to the database using database tools other than the xTuple
         Client.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para958747">The enhanced authentication option will only affect
+      <para id="Para958747">The enhanced authentication option will only affect
     users whose passwords are created or updated after the option is
     enabled/disabled. Legacy users will not be affected if the option is not
     used. Legacy users may continue logging in as before this feature was
@@ -265,51 +280,51 @@
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para967049">May only use Shop Floor Workbench</term>
+      <varlistentry>
+         <term id="Para967049">May only use Shop Floor Workbench</term>
 
-      <listitem id="listitemN0x180ac00N0x18cbefc">
-        <para>Select if you want the user to have access only to the Shop
+         <listitem id="listitemN0x180ac00N0x18cbefc">
+            <para>Select if you want the user to have access only to the Shop
         Floor Workbench--and to no other screens.</para>
 
-        <para id="Para967078">If selected, the Shop Floor Workbench will be
+            <para id="Para967078">If selected, the Shop Floor Workbench will be
         the only screen the user will have access to when they log in to the
         database. The log in screen for this user will be the same as for all
         users. However, once logged in, the user will only be able to see and
         use the Shop Floor Workbench. This option will override any other
         privileges which may have been assigned previously to the user.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para918434">Module</term>
+      <varlistentry>
+         <term id="Para918434">Module</term>
 
-      <listitem id="listitemN0x180ac00N0x18cbf44">
-        <para>Select an individual module to assign privileges for that
+         <listitem id="listitemN0x180ac00N0x18cbf44">
+            <para>Select an individual module to assign privileges for that
         module.</para>
 
-        <para id="Para519300">Assign privileges to the user on a
+            <para id="Para519300">Assign privileges to the user on a
         module-by-module basis. Select one module, assign the appropriate
         privileges, and then repeat for each subsequent module the user will
         need access to. All application modules are included in the
         list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519301"><anchor id="Anchor945335" role="Index"
-      xreflabel="privileges:list of available" /> <indexterm
-          significance="normal" zone="Anchor945335">
-          <primary>privileges</primary>
+      <varlistentry>
+         <term id="Para519301">
+            <anchor id="Anchor945335" role="Index" xreflabel="privileges:list of available"/> 
+            <indexterm significance="normal">
+               <primary>privileges</primary>
 
-          <secondary>list of available</secondary>
-        </indexterm>Available Privileges</term>
+               <secondary>list of available</secondary>
+            </indexterm>Available Privileges</term>
 
-      <listitem id="listitemN0x180ac00N0x18cbfd4">
-        <para>Select appropriate privileges from list of available
+         <listitem id="listitemN0x180ac00N0x18cbfd4">
+            <para>Select appropriate privileges from list of available
         privileges.</para>
 
-        <para id="Para918528">The privileges listed in this column represent
+            <para id="Para918528">The privileges listed in this column represent
         the full range of privileges available for the specified module. The
         list of available privileges will change as different modules are
         specified. To grant privileges to a user, highlight an available
@@ -318,106 +333,106 @@
         Double-clicking on a privilege will also move it to the granted
         privileges column. You can grant all privileges for a specified module
         by clicking on the ADD ALL button.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519303"><anchor id="Anchor945336" role="Index"
-      xreflabel="privileges:list of granted" /> <indexterm
-          significance="normal" zone="Anchor945336">
-          <primary>privileges</primary>
+      <varlistentry>
+         <term id="Para519303">
+            <anchor id="Anchor945336" role="Index" xreflabel="privileges:list of granted"/> 
+            <indexterm significance="normal">
+               <primary>privileges</primary>
 
-          <secondary>list of granted</secondary>
-        </indexterm>Granted Privileges</term>
+               <secondary>list of granted</secondary>
+            </indexterm>Granted Privileges</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc064">
-        <para>Displays granted privileges for the specified user.</para>
+         <listitem id="listitemN0x180ac00N0x18cc064">
+            <para>Displays granted privileges for the specified user.</para>
 
-        <para id="Para519304">To remove a user's granted privileges for a
+            <para id="Para519304">To remove a user's granted privileges for a
         specified module, highlight a granted privilege and then click the
         REVOKE button. The highlighted privilege will be removed from the
         user's list of granted privileges. Double-clicking on a privilege will
         also remove it from the granted privileges column. You can remove all
         granted privileges for a specified module by clicking on the REVOKE
         ALL button.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para918364">The following buttons are located between the
   Available Privileges and Granted Privileges columns:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para918365">ADD-\&gt;</term>
+      <varlistentry>
+         <term id="Para918365">ADD-\&gt;</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc0d0">
-        <para>Highlight a specific privilege in the available privileges
+         <listitem id="listitemN0x180ac00N0x18cc0d0">
+            <para>Highlight a specific privilege in the available privileges
         column, then select this button to transfer the privilege to the
         granted privileges column.</para>
 
-        <para id="Para918356">Double-clicking on an available privilege will
+            <para id="Para918356">Double-clicking on an available privilege will
         also transfer it to the granted privileges column.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519307">ADD ALL-\&gt;\&gt;</term>
+      <varlistentry>
+         <term id="Para519307">ADD ALL-\&gt;\&gt;</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc118">
-        <para>Select this button to automatically transfer all available
+         <listitem id="listitemN0x180ac00N0x18cc118">
+            <para>Select this button to automatically transfer all available
         privileges to the granted privileges column.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519308">&lt;-REVOKE</term>
+      <varlistentry>
+         <term id="Para519308">&lt;-REVOKE</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc160">
-        <para>Highlight a specific privilege in the granted privileges column,
+         <listitem id="listitemN0x180ac00N0x18cc160">
+            <para>Highlight a specific privilege in the granted privileges column,
         then select this button to remove the privilege from the granted
         privileges column.</para>
 
-        <para id="Para918406">Double-clicking on a granted privilege will also
+            <para id="Para918406">Double-clicking on a granted privilege will also
         remove it from the granted privileges column.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519309">&lt;&lt;-REVOKE ALL</term>
+      <varlistentry>
+         <term id="Para519309">&lt;&lt;-REVOKE ALL</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc1a8">
-        <para>Select this button to automatically remove all granted
+         <listitem id="listitemN0x180ac00N0x18cc1a8">
+            <para>Select this button to automatically remove all granted
         privileges from the granted privileges column.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para519312">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para519313">SAVE</term>
+      <varlistentry>
+         <term id="Para519313">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc214">
-        <para>Saves the specified user's information and adds it to the list
+         <listitem id="listitemN0x180ac00N0x18cc214">
+            <para>Saves the specified user's information and adds it to the list
         of registered users.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para519314">CLOSE</term>
+      <varlistentry>
+         <term id="Para519314">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x18cc25c">
-        <para>Closes the screen without saving any changes, returning you to
+         <listitem id="listitemN0x180ac00N0x18cc25c">
+            <para>Closes the screen without saving any changes, returning you to
         the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <tip>
-    <para id="Para520470">Remember to select the ADD button when you have
+      <para id="Para520470">Remember to select the ADD button when you have
     finished entering a user's information.</para>
   </tip>
 </section>

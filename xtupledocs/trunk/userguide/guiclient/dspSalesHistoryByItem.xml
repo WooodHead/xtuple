@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518578">
-    <title><anchor id="Anchor533187" role="Index"
-    xreflabel="sales history:by item;items:sales history for" /> <indexterm
-        significance="normal" zone="Anchor533187">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518578">
+    <title>
+      <anchor id="Anchor533187" role="Index"
+              xreflabel="sales history:by item;items:sales history for"/> 
+      <indexterm significance="normal">
         <primary>sales history</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533187">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>sales history for</secondary>
@@ -18,16 +19,17 @@
     <para id="Para518579">To view Sales history by Item, select the "Sales
     History by Item" option. The following screen will appear:</para>
 
-    <para id="Para518583"><screenshot>
+    <para id="Para518583">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_salesHistByItem.png"
-                       id="Graphic521594" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_salesHistByItem.png" id="Graphic521594"/>
+            </imageobject>
 
-          <caption id="Caption518584">Sales History by Item</caption>
+            <caption id="Caption518584">Sales History by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518590">When displaying Sales history by Item, you are
     presented with the following options:</para>
@@ -37,7 +39,7 @@
         <term id="Para518591">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x182db98">
-          <para>Enter the Item Number of the Item whose Sales history you want
+            <para>Enter the Item Number of the Item whose Sales history you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +48,7 @@
         <term id="Para554881">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x182dbe0">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -54,7 +56,7 @@
         <term id="Para549456">All Customer Types</term>
 
         <listitem id="listitemN0x180ac00N0x182dc28">
-          <para>Select to display Sales history by Item for all Customer
+            <para>Select to display Sales history by Item for all Customer
           Types.</para>
         </listitem>
       </varlistentry>
@@ -63,7 +65,7 @@
         <term id="Para549457">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x182dc70">
-          <para>Specify Customer Type whose Sales history Item you want to
+            <para>Specify Customer Type whose Sales history Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -72,12 +74,11 @@
         <term id="Para549458">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x182dcb8">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para555496">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555495"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555496">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555495" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -87,7 +88,7 @@
         <term id="Para518595">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x182dcdc">
-          <para>Select to display Sales history by Item for all
+            <para>Select to display Sales history by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +97,7 @@
         <term id="Para518597">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x182dd00">
-          <para>Specify Warehouse whose Sales history by Item you want to
+            <para>Specify Warehouse whose Sales history by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +106,7 @@
         <term id="Para518602">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x182dd48">
-          <para>Sales history by Item generated on or after this date will be
+            <para>Sales history by Item generated on or after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +115,7 @@
         <term id="Para518607">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x182dd90">
-          <para>Sales history by Item generated on or before this date will be
+            <para>Sales history by Item generated on or before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -123,7 +124,7 @@
         <term id="Para540652">Show Costs</term>
 
         <listitem id="listitemN0x180ac00N0x182ddd8">
-          <para>Select to include Costs in the display.</para>
+            <para>Select to include Costs in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -131,7 +132,7 @@
         <term id="Para540653">Show Prices</term>
 
         <listitem id="listitemN0x180ac00N0x182de20">
-          <para>Select to include Prices in the display.</para>
+            <para>Select to include Prices in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -139,7 +140,7 @@
         <term id="Para518609">Sales History</term>
 
         <listitem id="listitemN0x180ac00N0x182de68">
-          <para>Display lists Sales history by Item, using the specified
+            <para>Display lists Sales history by Item, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -153,7 +154,7 @@
         <term id="Para518612">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x182ded4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -162,7 +163,7 @@
         <term id="Para541752">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x182df1c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -171,7 +172,7 @@
         <term id="Para554925">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x182df64">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -180,16 +181,13 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

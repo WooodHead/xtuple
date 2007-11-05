@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section531394">
-    <title><anchor id="Anchor532820" role="Index"
-    xreflabel="general ledger:viewing transaction series in;series:viewing g/l transactions in;transactions:viewing in general ledger" />
-    <indexterm significance="normal" zone="Anchor532820">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section531394">
+    <title>
+      <anchor id="Anchor532820" role="Index"
+              xreflabel="general ledger:viewing transaction series in;series:viewing g/l transactions in;transactions:viewing in general ledger"/>
+      <indexterm significance="normal">
         <primary>general ledger</primary>
 
         <secondary>viewing transaction series in</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532820">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>series</primary>
 
         <secondary>viewing g/l transactions in</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532820">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>transactions</primary>
 
         <secondary>viewing in general ledger</secondary>
@@ -22,16 +24,17 @@
     <para id="Para531395">To view series of General Ledger transactions,
     select the "G/L Series" option. The following screen will appear:</para>
 
-    <para id="Para525496"><screenshot>
+    <para id="Para525496">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/GL_Disp_glSeries.png"
-                       id="Graphic525495" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/GL_Disp_glSeries.png" id="Graphic525495"/>
+            </imageobject>
 
-          <caption id="Caption525497">G/L Series</caption>
+            <caption id="Caption525497">G/L Series</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para530165">When displaying series of General Ledger
     transactions, you are presented with the following options:</para>
@@ -41,7 +44,7 @@
         <term id="Para530166">All Sources</term>
 
         <listitem id="listitemN0x180ac00N0x191c890">
-          <para>Select to display serial G/L transactions from all source
+            <para>Select to display serial G/L transactions from all source
           modules.</para>
         </listitem>
       </varlistentry>
@@ -50,10 +53,10 @@
         <term id="Para530167">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x191c8d8">
-          <para>Specify source module whose serial G/L transactions you want
+            <para>Specify source module whose serial G/L transactions you want
           to display.</para>
 
-          <para id="Para530617">Menu includes modules whose transactions
+            <para id="Para530617">Menu includes modules whose transactions
           generate G/L records.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +65,7 @@
         <term id="Para530171">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x191c920">
-          <para>Serial G/L transactions posted on and after this date will be
+            <para>Serial G/L transactions posted on and after this date will be
           displayed. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +74,7 @@
         <term id="Para530176">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x191c968">
-          <para>Serial G/L transactions posted on and before this date will be
+            <para>Serial G/L transactions posted on and before this date will be
           displayed. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -80,10 +83,10 @@
         <term id="Para530178">G/L Transactions</term>
 
         <listitem id="listitemN0x180ac00N0x191c9b0">
-          <para>Display lists serial G/L transactions based on the specified
+            <para>Display lists serial G/L transactions based on the specified
           parameters.</para>
 
-          <para id="Para610889">This display is a nested list, with a plus
+            <para id="Para610889">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each
           transaction that may be expanded to lower levels. By clicking your
           mouse on a plus sign, you reveal lower levels of information related
@@ -100,7 +103,7 @@
         <term id="Para530181">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x191ca1c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -109,10 +112,10 @@
         <term id="Para533820">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x191ca64">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para530183">Start date and end date must be entered for
+            <para id="Para530183">Start date and end date must be entered for
           request to proceed. Results will be displayed in the "G/L
           Transactions" list.</para>
         </listitem>
@@ -122,7 +125,7 @@
         <term id="Para530184">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x191caac">
-          <para>Prints a copy of the contents displayed on the screen.</para>
+            <para>Prints a copy of the contents displayed on the screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -132,13 +135,11 @@
     options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/9/2/3)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/9/2/3)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para583730">You may only reverse transactions which result from

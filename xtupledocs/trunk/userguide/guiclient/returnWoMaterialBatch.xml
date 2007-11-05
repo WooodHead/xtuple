@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518968">
-    <title><anchor id="Anchor533193" role="Index"
-    xreflabel="work order material requirements:returning in batch mode;batch mode:return w/o materials using;work orders:return material batch from" />
-    <indexterm significance="normal" zone="Anchor533193">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518968">
+    <title>
+      <anchor id="Anchor533193" role="Index"
+              xreflabel="work order material requirements:returning in batch mode;batch mode:return w/o materials using;work orders:return material batch from"/>
+      <indexterm significance="normal">
         <primary>work order material requirements</primary>
 
         <secondary>returning in batch mode</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533193">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>batch mode</primary>
 
         <secondary>return w/o materials using</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533193">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>return material batch from</secondary>
@@ -22,17 +25,18 @@
     simultaneously in a batch, select the "Return W/O Material Batch" option.
     The following screen will appear:</para>
 
-    <para id="Para518973"><screenshot>
+    <para id="Para518973">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_returnMatBatch.png"
-                       id="Graphic523646" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_returnMatBatch.png" id="Graphic523646"/>
+            </imageobject>
 
-          <caption id="Caption518974">Return Work Order Material
+            <caption id="Caption518974">Return Work Order Material
           Batch</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518975">When returning Work Order materials to Inventory
     simultaneously in a batch, you are presented with the following
@@ -43,7 +47,7 @@
         <term id="Para518976">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose materials
+            <para>Enter the Work Order Number of the Work Order whose materials
           you want to return to Inventory simultaneously in a batch.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +56,7 @@
         <term id="Para518978">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +65,7 @@
         <term id="Para518980">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +74,7 @@
         <term id="Para568687">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -78,7 +82,7 @@
         <term id="Para518984">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +96,7 @@
         <term id="Para518987">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without returning Work Order materials to
+            <para>Closes the screen without returning Work Order materials to
           Inventory, bringing you back to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +105,7 @@
         <term id="Para518988">RETURN MATERIALS</term>
 
         <listitem>
-          <para>Returns the Work Order's materials to Inventory simultaneously
+            <para>Returns the Work Order's materials to Inventory simultaneously
           in a batch.</para>
         </listitem>
       </varlistentry>

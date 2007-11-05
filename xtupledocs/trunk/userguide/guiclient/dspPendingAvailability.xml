@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519778">
-    <title><anchor id="Anchor533235" role="Index"
-    xreflabel="work orders:pending material availability for;materials:pending w/o availability" />
-    <indexterm significance="normal" zone="Anchor533235">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519778">
+    <title>
+      <anchor id="Anchor533235" role="Index"
+              xreflabel="work orders:pending material availability for;materials:pending w/o availability"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>pending material availability for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533235">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>materials</primary>
 
         <secondary>pending w/o availability</secondary>
@@ -19,17 +21,18 @@
     W/O Material Availability" option. The following screen will
     appear:</para>
 
-    <para id="Para519783"><screenshot>
+    <para id="Para519783">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_pendingMatAvail.png"
-                       id="Graphic524034" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_pendingMatAvail.png" id="Graphic524034"/>
+            </imageobject>
 
-          <caption id="Caption519784">Pending Work Order Material
+            <caption id="Caption519784">Pending Work Order Material
           Availability</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para551403">This display shows Pending Availability for Work
@@ -45,7 +48,7 @@
         <term id="Para519791">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item whose pending material
+            <para>Enter the Item Number of the Item whose pending material
           Availability you want to view.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +57,7 @@
         <term id="Para568808">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -62,7 +65,7 @@
         <term id="Para519795">Warehouse</term>
 
         <listitem>
-          <para>Specify Warehouse whose pending Work Order Material
+            <para>Specify Warehouse whose pending Work Order Material
           Availability you want to display.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +74,7 @@
         <term id="Para519800">Qty. to Build</term>
 
         <listitem>
-          <para>Enter the quantity ordered for the hypothetical Work Order
+            <para>Enter the quantity ordered for the hypothetical Work Order
           Item. The Pending Availability for Material Requirements will vary
           depending on the quantity entered.</para>
         </listitem>
@@ -81,7 +84,7 @@
         <term id="Para519805">Effective</term>
 
         <listitem>
-          <para>Pending Work Order Material Availability on or after this date
+            <para>Pending Work Order Material Availability on or after this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -90,7 +93,7 @@
         <term id="Para519810">Build Date</term>
 
         <listitem>
-          <para>Enter the date you need to begin building the Item.</para>
+            <para>Enter the date you need to begin building the Item.</para>
         </listitem>
       </varlistentry>
 
@@ -98,7 +101,7 @@
         <term id="Para519812">Only Show Shortages</term>
 
         <listitem>
-          <para>Select to only show shortages in the display.</para>
+            <para>Select to only show shortages in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -106,10 +109,10 @@
         <term id="Para531101">Material Requirements</term>
 
         <listitem>
-          <para>Display lists pending Work Order Material Availability, using
+            <para>Display lists pending Work Order Material Availability, using
           the specified parameters.</para>
 
-          <para id="Para569342">The display is color-coded for ease of use.
+            <para id="Para569342">The display is color-coded for ease of use.
           Orange text indicates the Item has fallen below its Reorder Level.
           Red text indicates the Quantity on Hand or Availability has fallen
           below 0.</para>
@@ -125,7 +128,7 @@
         <term id="Para519815">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -134,7 +137,7 @@
         <term id="Para545156">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -143,7 +146,7 @@
         <term id="Para519817">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

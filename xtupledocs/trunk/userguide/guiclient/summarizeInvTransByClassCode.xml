@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section521523">
-    <title><anchor id="Anchor552344" role="Index"
-    xreflabel="class codes:summarize transaction history for " /> <indexterm
-        significance="normal" zone="Anchor552344">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section521523">
+    <title>
+      <anchor id="Anchor552344" role="Index"
+              xreflabel="class codes:summarize transaction history for "/> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>summarize transaction history for</secondary>
@@ -20,17 +21,18 @@
     "Summarize Transaction History by Class Code" option. The following screen
     will appear:</para>
 
-    <para id="Para521528"><screenshot>
+    <para id="Para521528">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Utilities_summarizeTrans.png"
-                       id="Graphic527328" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Utilities_summarizeTrans.png" id="Graphic527328"/>
+            </imageobject>
 
-          <caption id="Caption521529">Summarize Transaction History by Class
+            <caption id="Caption521529">Summarize Transaction History by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para521530">When summarizing transaction history by Class Code,
     you are presented with the following options:</para>
@@ -40,7 +42,7 @@
         <term id="Para521531">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x19bddf0">
-          <para>Select to summarize Inventory transactions by Class Code for
+            <para>Select to summarize Inventory transactions by Class Code for
           all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -49,7 +51,7 @@
         <term id="Para521533">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19bde14">
-          <para>Specify Warehouse whose Inventory transactions by Class Code
+            <para>Specify Warehouse whose Inventory transactions by Class Code
           you want to summarize.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +60,7 @@
         <term id="Para521535">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x19bde5c">
-          <para>Select to summarize Inventory transactions for all Class
+            <para>Select to summarize Inventory transactions for all Class
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -67,7 +69,7 @@
         <term id="Para521536">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x19bdea4">
-          <para>Specify Class Code whose Inventory transactions you want to
+            <para>Specify Class Code whose Inventory transactions you want to
           summarize.</para>
         </listitem>
       </varlistentry>
@@ -76,12 +78,11 @@
         <term id="Para547898">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x19bdeec">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677249">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677248"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677249">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677248" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -91,7 +92,7 @@
         <term id="Para521543">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x19bdf34">
-          <para>Transactions entered on and after this date will be
+            <para>Transactions entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -100,7 +101,7 @@
         <term id="Para521548">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x19bdf7c">
-          <para>Transactions entered on and before this date will be
+            <para>Transactions entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +115,7 @@
         <term id="Para521551">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x19bdfe8">
-          <para>Closes the screen without summarizing Inventory transactions
+            <para>Closes the screen without summarizing Inventory transactions
           by Class Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -123,7 +124,7 @@
         <term id="Para564215">SUMMARIZE</term>
 
         <listitem id="listitemN0x180ac00N0x19be030">
-          <para>Summarizes Inventory transactions by Class Code based on
+            <para>Summarizes Inventory transactions by Class Code based on
           entries specified in the screen.</para>
         </listitem>
       </varlistentry>

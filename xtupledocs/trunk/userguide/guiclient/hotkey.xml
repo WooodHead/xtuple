@@ -1,74 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section941111">
-  <title><anchor id="Anchor957508" role="Index"
-  xreflabel="hot keys:creating new" /> <indexterm significance="normal"
-      zone="Anchor957508">
-      <primary>hot keys</primary>
+  <title>
+      <anchor id="Anchor957508" role="Index" xreflabel="hot keys:creating new"/> 
+      <indexterm significance="normal">
+         <primary>hot keys</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm>Hot Key</title>
+         <secondary>creating new</secondary>
+      </indexterm>Hot Key</title>
 
   <para id="Para957509">To create a new Hot Key, select the NEW button. The
   following screen will appear:</para>
 
-  <para id="Para957496"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_hotKeysNew.png" id="Graphic957494" />
-        </imageobject>
+  <para id="Para957496">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_hotKeysNew.png" id="Graphic957494"/>
+            </imageobject>
 
-        <caption id="Caption957497">Create New Hot Key</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption957497">Create New Hot Key</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para957491">When creating a new Hot Key, you are presented with
   the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para957595">Keystroke</term>
+      <varlistentry>
+         <term id="Para957595">Keystroke</term>
 
-      <listitem id="listitemN0x180ac00N0x18d8e3c">
-        <para>Select a keyboard keystroke from the list of available
+         <listitem id="listitemN0x180ac00N0x18d8e3c">
+            <para>Select a keyboard keystroke from the list of available
         keystrokes.</para>
 
-        <para id="Para957610">The list will include all keystrokes which may
+            <para id="Para957610">The list will include all keystrokes which may
         linked to a specific action. Only one action at a time may be assigned
         to a single keystroke. For multiple actions, multiple keystrokes must
         be used.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para957614">Actions</term>
+      <varlistentry>
+         <term id="Para957614">Actions</term>
 
-      <listitem id="listitemN0x180ac00N0x18d8e84">
-        <para>Display lists actions you may associate with keystrokes.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18d8e84">
+            <para>Display lists actions you may associate with keystrokes.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para957656">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para957630">CLOSE</term>
+      <varlistentry>
+         <term id="Para957630">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x18d8ef0">
-        <para>Closes the screen without creating a Hot Key, returning you to
+         <listitem id="listitemN0x180ac00N0x18d8ef0">
+            <para>Closes the screen without creating a Hot Key, returning you to
         the application desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para957631">SAVE</term>
+      <varlistentry>
+         <term id="Para957631">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x18d8f38">
-        <para>Creates the Hot Key and adds it to the list of Hot Keys.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18d8f38">
+            <para>Creates the Hot Key and adds it to the list of Hot Keys.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

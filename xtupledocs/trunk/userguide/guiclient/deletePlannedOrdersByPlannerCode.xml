@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section518665" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518665" role="openmfg">
     <title>Delete Planned Orders by Planner Code</title>
 
     <para id="Para518666">To delete Planned Orders by Planner Code, select the
     "Delete Planned Orders by Planner Code" option. The following screen will
     appear:</para>
 
-    <para id="Para518670"><screenshot>
+    <para id="Para518670">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Sched_delPOrdByPCode.png"
-                       id="Graphic520484" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Sched_delPOrdByPCode.png" id="Graphic520484"/>
+            </imageobject>
 
-          <caption id="Caption518671">Delete Planned Orders by Planner
+            <caption id="Caption518671">Delete Planned Orders by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para534562">Planned Orders that have been firmed in the system
@@ -33,7 +34,7 @@
         <term id="Para531722">All Planner Codes</term>
 
         <listitem>
-          <para>Select to delete Planned Orders for all Planner Codes.</para>
+            <para>Select to delete Planned Orders for all Planner Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -41,7 +42,7 @@
         <term id="Para518673">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose Planned Orders you want to
+            <para>Specify Planner Code whose Planned Orders you want to
           delete.</para>
         </listitem>
       </varlistentry>
@@ -50,12 +51,11 @@
         <term id="Para526328">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554608">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554607"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554608">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554607" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -65,7 +65,7 @@
         <term id="Para540767">All Warehouses</term>
 
         <listitem>
-          <para>Select to delete Planned Orders by Planner Code for all
+            <para>Select to delete Planned Orders by Planner Code for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +74,7 @@
         <term id="Para540768">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose Planned Orders by Planner Code you
+            <para>Specify Warehouse whose Planned Orders by Planner Code you
           want to delete.</para>
         </listitem>
       </varlistentry>
@@ -83,24 +83,24 @@
         <term id="Para518680">Cutoff Date</term>
 
         <listitem>
-          <para>Any Planned Orders created on or before the cutoff date will
+            <para>Any Planned Orders created on or before the cutoff date will
           be deleted.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para537484"><anchor id="Anchor537483" role="Index"
-        xreflabel="firmed orders:deletion of" /> <indexterm
-            significance="normal" zone="Anchor537483">
-            <primary>firmed orders</primary>
+        <term id="Para537484">
+            <anchor id="Anchor537483" role="Index" xreflabel="firmed orders:deletion of"/> 
+            <indexterm significance="normal">
+               <primary>firmed orders</primary>
 
-            <secondary>deletion of</secondary>
-          </indexterm>Delete Firmed Orders</term>
+               <secondary>deletion of</secondary>
+            </indexterm>Delete Firmed Orders</term>
 
         <listitem>
-          <para>Firmed Orders: Select to delete existing Firmed Orders.</para>
+            <para>Firmed Orders: Select to delete existing Firmed Orders.</para>
 
-          <para id="Para537485">A firm Planned Order is a Planned Order that
+            <para id="Para537485">A firm Planned Order is a Planned Order that
           has been solidified in the schedule. Firm Planned Orders will not be
           deleted unless this option is selected.</para>
         </listitem>
@@ -110,10 +110,10 @@
         <term id="Para537486">Delete Child Orders</term>
 
         <listitem>
-          <para>Select to simultaneously delete child Orders for the parent
+            <para>Select to simultaneously delete child Orders for the parent
           Planned Order.</para>
 
-          <para id="Para535144">Child Planned Orders having a clearly defined
+            <para id="Para535144">Child Planned Orders having a clearly defined
           relationship to their parent Planned Order will be deleted.</para>
         </listitem>
       </varlistentry>
@@ -132,16 +132,16 @@
         <term id="Para540775">Planning System</term>
 
         <listitem>
-          <para>Specify the planning system(s) whose Planned Orders you want
+            <para>Specify the planning system(s) whose Planned Orders you want
           to delete:</para>
 
-          <para id="Para540786">MPS and MRP: Select to delete Planned Orders
+            <para id="Para540786">MPS and MRP: Select to delete Planned Orders
           from both the MPS and MRP planning systems.</para>
 
-          <para id="Para540793">MPS: Select to delete Planned Orders from the
+            <para id="Para540793">MPS: Select to delete Planned Orders from the
           MPS planning system only.</para>
 
-          <para id="Para540794">MRP: Select to delete Planned Orders from the
+            <para id="Para540794">MRP: Select to delete Planned Orders from the
           MRP planning system only.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +155,7 @@
         <term id="Para518690">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without deleting the Planned Orders by
+            <para>Closes the screen without deleting the Planned Orders by
           Planner Code, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +164,7 @@
         <term id="Para518691">DELETE</term>
 
         <listitem>
-          <para>Deletes Planned Orders by Planner Code, using the specified
+            <para>Deletes Planned Orders by Planner Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>

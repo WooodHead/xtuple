@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Unit of Measure
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel> Per </guilabel>
+                  <guilabel moreinfo="none"> Per </guilabel>
                </entry>
                <entry>_perLit</entry>
                <entry>QLabel</entry>
@@ -54,28 +54,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>1.0</guilabel>
+                  <guilabel moreinfo="none">1.0</guilabel>
                </entry>
                <entry>_toValue</entry>
                <entry>XLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>1.0</guilabel>
+                  <guilabel moreinfo="none">1.0</guilabel>
                </entry>
                <entry>_fromValue</entry>
                <entry>XLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Fractional</guilabel>
+                  <guilabel moreinfo="none">Fractional</guilabel>
                </entry>
                <entry>_fractional</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -83,7 +83,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -96,7 +96,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Available Types</guilabel>
+                  <guilabel moreinfo="none">Available Types</guilabel>
                </entry>
                <entry>label</entry>
                <entry>QLabel</entry>
@@ -108,28 +108,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_filler</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Add &gt;</guilabel>
+                  <guilabel moreinfo="none">Add &gt;</guilabel>
                </entry>
                <entry>_add</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>&lt; Remove</guilabel>
+                  <guilabel moreinfo="none">&lt; Remove</guilabel>
                </entry>
                <entry>_remove</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Selected Types</guilabel>
+                  <guilabel moreinfo="none">Selected Types</guilabel>
                </entry>
                <entry>label_2</entry>
                <entry>QLabel</entry>

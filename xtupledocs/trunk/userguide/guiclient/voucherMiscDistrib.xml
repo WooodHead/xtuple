@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Miscellaneous Voucher Distribution
@@ -47,7 +47,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Expense Category:</guilabel>
+                  <guilabel moreinfo="none">Expense Category:</guilabel>
                </entry>
                <entry>_expcatSelected</entry>
                <entry>QRadioButton</entry>
@@ -59,14 +59,14 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Account:</guilabel>
+                  <guilabel moreinfo="none">Account:</guilabel>
                </entry>
                <entry>_accountSelected</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Amount to Distribute:</guilabel>
+                  <guilabel moreinfo="none">Amount to Distribute:</guilabel>
                </entry>
                <entry>_amountLit</entry>
                <entry>QLabel</entry>
@@ -78,7 +78,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -86,7 +86,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519328">
-    <title><anchor id="Anchor548972" role="Index"
-    xreflabel="billing:edit list for;billing edit list" /> <indexterm
-        significance="normal" zone="Anchor548972">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519328">
+    <title>
+      <anchor id="Anchor548972" role="Index"
+              xreflabel="billing:edit list for;billing edit list"/> 
+      <indexterm significance="normal">
         <primary>billing</primary>
 
         <secondary>edit list for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor548972">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>billing edit list</primary>
       </indexterm>Billing Edit List</title>
 
@@ -16,16 +18,17 @@
     detailed information about selected Orders, choose the "Billing Edit List"
     option. The following screen will appear:</para>
 
-    <para id="Para519333"><screenshot>
+    <para id="Para519333">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_billEditList.png"
-                       id="Graphic523460" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_billEditList.png" id="Graphic523460"/>
+            </imageobject>
 
-          <caption id="Caption519334">Billing Edit List</caption>
+            <caption id="Caption519334">Billing Edit List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para600501">In cases where a large number of Orders have been
@@ -57,7 +60,7 @@
         <term id="Para519339">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x190b2ac">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -66,7 +69,7 @@
         <term id="Para653660">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x190b2f4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -75,16 +78,13 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/4)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

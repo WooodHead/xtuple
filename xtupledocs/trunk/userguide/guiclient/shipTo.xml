@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Ship-To
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Customer #:</guilabel>
+                  <guilabel moreinfo="none">Customer #:</guilabel>
                </entry>
                <entry>_custNumberLit</entry>
                <entry>QLabel</entry>
@@ -54,7 +54,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -62,7 +62,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -70,14 +70,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Ship-<accel>T</accel>o #:</guilabel>
+                  <guilabel moreinfo="none">Ship-<accel>T</accel>o #:</guilabel>
                </entry>
                <entry>_shipToNumberLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>N</accel>ame:</guilabel>
                </entry>
                <entry>_nameLit</entry>
@@ -95,14 +95,14 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Active</guilabel>
+                  <guilabel moreinfo="none">Active</guilabel>
                </entry>
                <entry>_active</entry>
                <entry>QCheckBox</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Default</guilabel>
+                  <guilabel moreinfo="none">Default</guilabel>
                </entry>
                <entry>_default</entry>
                <entry>QCheckBox</entry>
@@ -119,28 +119,28 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Sales Rep.:</guilabel>
+                  <guilabel moreinfo="none">Sales Rep.:</guilabel>
                </entry>
                <entry>_salesRepLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Comm<accel>i</accel>ssion:</guilabel>
+                  <guilabel moreinfo="none">Comm<accel>i</accel>ssion:</guilabel>
                </entry>
                <entry>_commissionLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Zone:</guilabel>
+                  <guilabel moreinfo="none">Zone:</guilabel>
                </entry>
                <entry>_zoneLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Tax Authority:</guilabel>
+                  <guilabel moreinfo="none">Tax Authority:</guilabel>
                </entry>
                <entry>_taxAuthLit</entry>
                <entry>QLabel</entry>
@@ -172,21 +172,21 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Ship Via:</guilabel>
+                  <guilabel moreinfo="none">Ship Via:</guilabel>
                </entry>
                <entry>_shipviaLlit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Shipping Form:</guilabel>
+                  <guilabel moreinfo="none">Shipping Form:</guilabel>
                </entry>
                <entry>_shippingFormLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Shipping Charges:</guilabel>
+                  <guilabel moreinfo="none">Shipping Charges:</guilabel>
                </entry>
                <entry>_shippingChargesLit</entry>
                <entry>QLabel</entry>
@@ -208,7 +208,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>EDI Profile:</guilabel>
+                  <guilabel moreinfo="none">EDI Profile:</guilabel>
                </entry>
                <entry>_ediProfileLit</entry>
                <entry>QLabel</entry>

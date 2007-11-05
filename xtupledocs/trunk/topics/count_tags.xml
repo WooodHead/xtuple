@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672209">
-  <title><anchor id="Anchor672208" role="Index"
-  xreflabel="topics:count tag basics;count tags:explained;count slips:explained" />
-  <indexterm significance="normal" zone="Anchor672208">
-      <primary>topics</primary>
-      <secondary>count tag basics</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor672208">
-      <primary>count tags</primary>
-      <secondary>explained</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor672208">
-      <primary>count slips</primary>
-      <secondary>explained</secondary>
-    </indexterm>Topic: Count Tag Basics</title>
+  <title>
+      <anchor id="Anchor672208" role="Index"
+              xreflabel="topics:count tag basics;count tags:explained;count slips:explained"/>
+      <indexterm significance="normal">
+         <primary>topics</primary>
+         <secondary>count tag basics</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>count tags</primary>
+         <secondary>explained</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>count slips</primary>
+         <secondary>explained</secondary>
+      </indexterm>Topic: Count Tag Basics</title>
   <para id="Para672210">Count Tags are used to spearhead Inventory counts. If
   you are involved with Inventory counting, then you need to understand how
   Count Tags work. In this section, we cover Count Tag basics--from creating,
   to entering, to posting Count Tags.</para>
   <note>
-    <para id="Para672212">The difference between Count Tags and Cycle Count
+      <para id="Para672212">The difference between Count Tags and Cycle Count
     Tags relates to the manner in which each is created. Count Tags, which are
     the subject of this section, are created manually. Cycle Count Tags, on
     the other hand, are created as the result of a Cycle Count request. To
@@ -27,149 +30,154 @@
     topic.</para>
   </note>
   <section id="Section672214">
-    <title><anchor id="Anchor672213" role="Index"
-    xreflabel="count tags:mechanics of" /> <indexterm significance="normal"
-        zone="Anchor672213">
-        <primary>count tags</primary>
-        <secondary>mechanics of</secondary>
-      </indexterm>Creating Count Tags</title>
-    <para id="Para672215">For this exercise, let's imagine we want to count
+      <title>
+         <anchor id="Anchor672213" role="Index" xreflabel="count tags:mechanics of"/> 
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>mechanics of</secondary>
+         </indexterm>Creating Count Tags</title>
+      <para id="Para672215">For this exercise, let's imagine we want to count
     Item B1, which is located in Warehouse WEST. To begin, we need to create a
     Count Tag for this Item/Warehouse combination, as shown in the following
     screen:</para>
-    <para id="Para672219"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_createCTbyItem.png"
-                       id="Graphic672217" />
-          </imageobject>
-          <caption id="Caption672220">Create Count Tag by Item</caption>
-        </mediaobject>
-      </screenshot></para>
-    <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18ed568">
-        <para id="Para672221">Item Number: Enter the Item Number of the Item
+      <para id="Para672219">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_createCTbyItem.png" id="Graphic672217"/>
+               </imageobject>
+               <caption id="Caption672220">Create Count Tag by Item</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <itemizedlist>
+         <listitem id="listitemN0x180ac00N0x18ed568">
+            <para id="Para672221">Item Number: Enter the Item Number of the Item
         we want to create a Count Tag for--namely, Item B1.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed58c">
-        <para id="Para672222">Warehouse: Selected WEST.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5b0">
-        <para id="Para672223">Mark Created Count Tag as Priority: Selected.
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18ed58c">
+            <para id="Para672222">Warehouse: Selected WEST.</para>
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18ed5b0">
+            <para id="Para672223">Mark Created Count Tag as Priority: Selected.
         Count Tags marked as having priority status are listed first in any
         prioritized lists. For example, priority Count Tags will appear at the
         top of the Count Tag Edit List; whereas, non-priority Count Tags will
         appear at the bottom of the list.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5d4">
-        <para id="Para672224">Freeze Inventory: Selected. We are specifying
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18ed5d4">
+            <para id="Para672224">Freeze Inventory: Selected. We are specifying
         that Inventory be frozen while we are counting Item B1. Freezing
         Inventory during the Inventory counting process helps preserve the
         integrity of Quantity on Hand (QOH) values. For more information on
         freezing and thawing, see the section devoted to freezing and
         thawing.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5f8">
-        <para id="Para672225">Comments: This is a scrolling text field with
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18ed5f8">
+            <para id="Para672225">Comments: This is a scrolling text field with
         word-wrapping for entering comments related to the Count Tag. Use the
         Comments field to enter any instructions or other comments that need
         to reach and be read by Inventory counters.</para>
-      </listitem>
-    </itemizedlist>
-    <para id="Para672226">Once our parameters have been entered, we are ready
+         </listitem>
+      </itemizedlist>
+      <para id="Para672226">Once our parameters have been entered, we are ready
     to select the CREATE TAG button. Doing so will create our Count Tag. To
     verify the Count Tag has been created, we open the Count Tag Edit List.
     Sure enough, the Count Tag does appear on the list, as shown in the
     following screenshot:</para>
-    <para id="Para672230"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-1.png"
-                       id="Graphic672228" />
-          </imageobject>
-          <caption id="Caption672231">Count Tag Edit List Showing Count
+      <para id="Para672230">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntTagEditList-1.png" id="Graphic672228"/>
+               </imageobject>
+               <caption id="Caption672231">Count Tag Edit List Showing Count
           Tag</caption>
-        </mediaobject>
-      </screenshot></para>
-    <note>
-      <para id="Para672233">Count Tag Numbers are generated automatically by
+            </mediaobject>
+         </screenshot>
+      </para>
+      <note>
+         <para id="Para672233">Count Tag Numbers are generated automatically by
       the system in a sequential pattern, using specifications entered on the
       Warehouse master. Within the Warehouse master you can specify both the
       prefix to be used by Count Tags created in the given Warehouse (e.g.,
       WEST) and also the starting point for the numeric sequence.</para>
-    </note>
+      </note>
   </section>
   <section id="Section672235">
-    <title><anchor id="Anchor672234" role="Index"
-    xreflabel="count tags:mechanics of" /> <indexterm significance="normal"
-        zone="Anchor672234">
-        <primary>count tags</primary>
-        <secondary>mechanics of</secondary>
-      </indexterm>Entering Count Quantities</title>
-    <para id="Para672236">Okay, let's assume we have now physically gone into
+      <title>
+         <anchor id="Anchor672234" role="Index" xreflabel="count tags:mechanics of"/> 
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>mechanics of</secondary>
+         </indexterm>Entering Count Quantities</title>
+      <para id="Para672236">Okay, let's assume we have now physically gone into
     Warehouse WEST and counted Item B1. Our count discovered 635 units on
     hand. We are now ready to open the Count Tag and enter our Inventory count
     total. To open the Count Tag, either double-click on it or highlight it
     and then select the EDIT button. The Count Tag entry screen opens up, as
     shown in the following screenshot:</para>
-    <para id="Para672240"><anchor id="Anchor21825" role="Cross-Ref"
-    xreflabel="21825: Figure: Figure 4.3:  Enter Count Tag Details" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_enterCntTag-1.png"
-                       id="Graphic672238" />
-          </imageobject>
-          <caption id="Caption672242">Enter Count Tag Details</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672243">In the "Count Qty." field we enter 635. This is the
+      <para id="Para672240">
+         <anchor id="Anchor21825" role="Cross-Ref"
+                 xreflabel="21825: Figure: Figure 4.3:  Enter Count Tag Details"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_enterCntTag-1.png" id="Graphic672238"/>
+               </imageobject>
+               <caption id="Caption672242">Enter Count Tag Details</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672243">In the "Count Qty." field we enter 635. This is the
     Quantity on Hand (QOH) we discovered during our Inventory count.
     Interestingly, the system is showing a different QOH for Item B1 in
-    Warehouse WEST. If you look closely at <link endterm="Anchor21825"
-    id="XRef672245" linkend="Anchor21825"> Enter Count Tag
+    Warehouse WEST. If you look closely at <link endterm="Anchor21825" id="XRef672245" linkend="Anchor21825"> Enter Count Tag
     Details</link>Figure 6.90, you can see the system believes there are 640
     units on hand. Inventory discrepancies such as this can arise from a
     number of different causes--from undocumented Scrap transactions, to
     pilferage, etc. The important point is that by entering and posting a
     Count Tag with current physical Inventory information, you can update the
     system and revise QOH totals.</para>
-    <note>
-      <para id="Para672248">Count Tags may also be entered by selecting the
+      <note>
+         <para id="Para672248">Count Tags may also be entered by selecting the
       "Enter Count Tag" option from the Physical Inventory submenu.</para>
-    </note>
-    <para id="Para672249">Continuing on, we go ahead and enter a comment to
+      </note>
+      <para id="Para672249">Continuing on, we go ahead and enter a comment to
     associate with the Count Tag. This comment, which is optional, may contain
     any information you want to associate with the Count Tag. We are now ready
     to select the SAVE button. As you can see in the following screenshot, the
     count total is now registered on the Count Tag Edit List:</para>
-    <para id="Para672253"><anchor id="Anchor86804" role="Cross-Ref"
-    xreflabel="86804: Figure: Figure 4.4:  Count Tag Details in Edit List" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-2.png"
-                       id="Graphic672251" />
-          </imageobject>
-          <caption id="Caption672255">Count Tag Details in Edit List</caption>
-        </mediaobject>
-      </screenshot></para>
+      <para id="Para672253">
+         <anchor id="Anchor86804" role="Cross-Ref"
+                 xreflabel="86804: Figure: Figure 4.4:  Count Tag Details in Edit List"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntTagEditList-2.png" id="Graphic672251"/>
+               </imageobject>
+               <caption id="Caption672255">Count Tag Details in Edit List</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
   </section>
   <section id="Section672257">
-    <title><anchor id="Anchor672256" role="Index"
-    xreflabel="inventory:variances identified;count tags:variances and;cycle counts:variances and" />
-    <indexterm significance="normal" zone="Anchor672256">
-        <primary>inventory</primary>
-        <secondary>variances identified</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor672256">
-        <primary>count tags</primary>
-        <secondary>variances and</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor672256">
-        <primary>cycle counts</primary>
-        <secondary>variances and</secondary>
-      </indexterm>Inventory Variances Identified</title>
-    <para id="Para672260">Looking at <link endterm="Anchor86804"
-    id="XRef672259" linkend="Anchor86804"> Count Tag Details in Edit
+      <title>
+         <anchor id="Anchor672256" role="Index"
+                 xreflabel="inventory:variances identified;count tags:variances and;cycle counts:variances and"/>
+         <indexterm significance="normal">
+            <primary>inventory</primary>
+            <secondary>variances identified</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>variances and</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>cycle counts</primary>
+            <secondary>variances and</secondary>
+         </indexterm>Inventory Variances Identified</title>
+      <para id="Para672260">Looking at <link endterm="Anchor86804" id="XRef672259" linkend="Anchor86804"> Count Tag Details in Edit
     List</link>Figure 6.91, you see that the QOH discrepancy has created a
     negative Inventory Asset variance. The Count Tag Edit List is a good
     starting point for identifying and tracking these discrepancies. Note that
@@ -179,52 +187,54 @@
     type. Inventory Asset variances--if they exist--will also post to the
     General Ledger when Count Tags are posted, providing yet another starting
     point for investigating discrepancies.</para>
-    <tip>
-      <para id="Para672263">If you want to change the count quantity for a
+      <tip>
+         <para id="Para672263">If you want to change the count quantity for a
       Count Tag prior to posting it, simply open the Count Tag for
       editing.</para>
-    </tip>
-    <para id="Para672264">Before we post this Count Tag, let's take a quick
+      </tip>
+      <para id="Para672264">Before we post this Count Tag, let's take a quick
     look at the I/M Module display Quantities on Hand by Item to verify the
     QOH total we"re seeing on the Count Tag Edit List. As expected, the
     following screen shows us a QOH of 640 for Item B1 in Warehouse
     WEST:</para>
-    <para id="Para672268"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_qohBeforeCntTag-1.png"
-                       id="Graphic672266" />
-          </imageobject>
-          <caption id="Caption672269">QOH Before Count Tag Posted</caption>
-        </mediaobject>
-      </screenshot></para>
+      <para id="Para672268">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_qohBeforeCntTag-1.png" id="Graphic672266"/>
+               </imageobject>
+               <caption id="Caption672269">QOH Before Count Tag Posted</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
   </section>
   <section id="Section672271">
-    <title><anchor id="Anchor672270" role="Index"
-    xreflabel="count tags:posting of explained" /> <indexterm
-        significance="normal" zone="Anchor672270">
-        <primary>count tags</primary>
-        <secondary>posting of explained</secondary>
-      </indexterm>Posting Count Tags</title>
-    <para id="Para672272">We are now ready to post our Count Tag and update
+      <title>
+         <anchor id="Anchor672270" role="Index" xreflabel="count tags:posting of explained"/> 
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>posting of explained</secondary>
+         </indexterm>Posting Count Tags</title>
+      <para id="Para672272">We are now ready to post our Count Tag and update
     the system record. After highlighting our Count Tag on the Count Tag Edit
     List, we select the POST button. The following screen appears:</para>
-    <para id="Para672276"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_postCntTag-1.png"
-                       id="Graphic672274" />
-          </imageobject>
-          <caption id="Caption672277">Post Count Tag</caption>
-        </mediaobject>
-      </screenshot></para>
-    <note>
-      <para id="Para672279">Count Tags can be posted in several ways. You can
+      <para id="Para672276">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_postCntTag-1.png" id="Graphic672274"/>
+               </imageobject>
+               <caption id="Caption672277">Post Count Tag</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <note>
+         <para id="Para672279">Count Tags can be posted in several ways. You can
       post them individually from the Count Tag Edit List. Or you can post
       them in batches, using the Post Count Tags utility found on the Physical
       Inventory submenu.</para>
-    </note>
-    <para id="Para672280">Looking at the Post Count Tag screen, we see our
+      </note>
+      <para id="Para672280">Looking at the Post Count Tag screen, we see our
     count total and the comment we associated with the Count Tag. If we need
     to include an additional comment--for whatever reason--we may do so at
     this point. Notice that the option "Thaw Inventory" is selected. If you
@@ -232,345 +242,359 @@
     Tag. Now that our count is complete, we want to be sure to thaw Inventory
     so QOH for the Item will be updated appropriately. For more information on
     freezing and thawing, see the section dedicated to that topic.</para>
-    <para id="Para672281">The final step is to post the Count Tag. To do so,
+      <para id="Para672281">The final step is to post the Count Tag. To do so,
     we select the POST COUNT button. Posting a Count Tag removes the Tag from
     the Count Tag Edit List. And, as you can see from the following screen
     shot, Quantity on Hand for the Item is also updated to reflect the Count
     Tag total:</para>
-    <para id="Para672285"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_qohAfterCntTag-1.png"
-                       id="Graphic672283" />
-          </imageobject>
-          <caption id="Caption672286">QOH After Count Tag Posted</caption>
-        </mediaobject>
-      </screenshot></para>
+      <para id="Para672285">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_qohAfterCntTag-1.png" id="Graphic672283"/>
+               </imageobject>
+               <caption id="Caption672286">QOH After Count Tag Posted</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
   </section>
   <section id="Section672288">
-    <title><anchor id="Anchor672287" role="Index"
-    xreflabel="count slips:mechanics of" /> <indexterm significance="normal"
-        zone="Anchor672287">
-        <primary>count slips</primary>
-        <secondary>mechanics of</secondary>
-      </indexterm>Entering Count Slips</title>
-    <para id="Para672289">We have seen how to post an Inventory count total
+      <title>
+         <anchor id="Anchor672287" role="Index" xreflabel="count slips:mechanics of"/> 
+         <indexterm significance="normal">
+            <primary>count slips</primary>
+            <secondary>mechanics of</secondary>
+         </indexterm>Entering Count Slips</title>
+      <para id="Para672289">We have seen how to post an Inventory count total
     using a Count Tag. Now let's repeat the same process, but add Count Slips
     into the mix. If Count Tags are the parents, then Count Slips are the
     children. Count Slips are used to contribute Inventory count totals to a
     Count Tag.</para>
-    <para id="Para672290">To begin, we will create another Count Tag, using
+      <para id="Para672290">To begin, we will create another Count Tag, using
     the same Item/Warehouse combination used in the previous example. The
     following screenshot of the Count Tag Edit List shows both the
     newly-created Count Tag and also the "Enter Count Slip" option selected
     from the right-click menu:</para>
-    <para id="Para672294"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_enterCntSlip-1.png"
-                       id="Graphic672292" />
-          </imageobject>
-          <caption id="Caption672295">Count Slip Option on Count Tag Edit
+      <para id="Para672294">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_enterCntSlip-1.png" id="Graphic672292"/>
+               </imageobject>
+               <caption id="Caption672295">Count Slip Option on Count Tag Edit
           List</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672296">As this next scenario will show, having the ability
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672296">As this next scenario will show, having the ability
     to contribute count subtotals from various sources can be extremely
     useful. Selecting the "Enter Count Slip" option brings up the Count Slip
     interface, as shown in the following screen:</para>
-    <para id="Para672300"><anchor id="Anchor71986" role="Cross-Ref"
-    xreflabel="71986: Figure: Figure 4.9:  Enter Count Slip Details" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_enterCntSlip-2.png"
-                       id="Graphic672298" />
-          </imageobject>
-          <caption id="Caption672302">Enter Count Slip Details</caption>
-        </mediaobject>
-      </screenshot></para>
-    <note>
-      <para id="Para672304">Unlike Count Tags, Count Slips do not have to be
+      <para id="Para672300">
+         <anchor id="Anchor71986" role="Cross-Ref"
+                 xreflabel="71986: Figure: Figure 4.9:  Enter Count Slip Details"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_enterCntSlip-2.png" id="Graphic672298"/>
+               </imageobject>
+               <caption id="Caption672302">Enter Count Slip Details</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <note>
+         <para id="Para672304">Unlike Count Tags, Count Slips do not have to be
       created before they can be entered.</para>
-    </note>
-    <para id="Para672307">As you can see in <link endterm="Anchor71986"
-    id="XRef672306" linkend="Anchor71986"> Enter Count Slip
+      </note>
+      <para id="Para672307">As you can see in <link endterm="Anchor71986" id="XRef672306" linkend="Anchor71986"> Enter Count Slip
     Details</link>Figure 6.96, the Enter Count Slip screen presents us with a
     range of information and options. For the purpose of this exercise, we
     will enter the following:</para>
-    <variablelist>
-      <varlistentry>
-        <term id="Para672309">Count Tag #</term>
-        <listitem id="listitemN0x180ac00N0x18edcb8">
-          <para id="Para">Displays the Count Tag Number (WEST65) of the parent
+      <variablelist>
+         <varlistentry>
+            <term id="Para672309">Count Tag #</term>
+            <listitem id="listitemN0x180ac00N0x18edcb8">
+               <para id="Para">Displays the Count Tag Number (WEST65) of the parent
           Count Tag.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672310">Item Number</term>
-        <listitem id="listitemN0x180ac00N0x18edd00">
-          <para id="Para">Displays the Item Number (B1) of the Item being
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672310">Item Number</term>
+            <listitem id="listitemN0x180ac00N0x18edd00">
+               <para id="Para">Displays the Item Number (B1) of the Item being
           counted.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672311">Warehouse</term>
-        <listitem id="listitemN0x180ac00N0x18edd48">
-          <para id="Para">Displays the Warehouse (WEST) where the count is
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672311">Warehouse</term>
+            <listitem id="listitemN0x180ac00N0x18edd48">
+               <para id="Para">Displays the Warehouse (WEST) where the count is
           being conducted.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672312">Counted Qty. TD</term>
-        <listitem id="listitemN0x180ac00N0x18edd90">
-          <para id="Para">No count quantities have been entered to-date for
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672312">Counted Qty. TD</term>
+            <listitem id="listitemN0x180ac00N0x18edd90">
+               <para id="Para">No count quantities have been entered to-date for
           this Count Tag. But if any had been entered previously, the count
           quantity total would display here.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672313">Slip #</term>
-        <listitem id="listitemN0x180ac00N0x18eddd8">
-          <para id="Para">Entered 100 to identify this first Count Slip. As we
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672313">Slip #</term>
+            <listitem id="listitemN0x180ac00N0x18eddd8">
+               <para id="Para">Entered 100 to identify this first Count Slip. As we
           will see below, restrictions may apply to Count Slip Numbers.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672314">Slip Qty</term>
-        <listitem id="listitemN0x180ac00N0x18ede20">
-          <para id="Para">Entered 250. This is the count total discovered in
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672314">Slip Qty</term>
+            <listitem id="listitemN0x180ac00N0x18ede20">
+               <para id="Para">Entered 250. This is the count total discovered in
           Location RACK01. Our next step will be to enter a Slip quantity for
           the other Location in Warehouse WEST.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672315">Location</term>
-        <listitem id="listitemN0x180ac00N0x18ede68">
-          <para id="Para">Specified Location RACK01. Because Item B1 is a
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672315">Location</term>
+            <listitem id="listitemN0x180ac00N0x18ede68">
+               <para id="Para">Specified Location RACK01. Because Item B1 is a
           Multiple Location Control (MLC) Item, we will be entering a separate
           Count Slip for each of the two Locations where the Item is
           stored.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672316">Lot/Serial #</term>
-        <listitem id="listitemN0x180ac00N0x18edeb0">
-          <para id="Para">Nothing displayed. If Item B1 were a Lot/Serial
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672316">Lot/Serial #</term>
+            <listitem id="listitemN0x180ac00N0x18edeb0">
+               <para id="Para">Nothing displayed. If Item B1 were a Lot/Serial
           Item, Lot/Serial Numbers associated with the specified Location
           would display here.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672317">Comments</term>
-        <listitem id="listitemN0x180ac00N0x18edef8">
-          <para id="Para">Entered comment related to the Count Slip. In this
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672317">Comments</term>
+            <listitem id="listitemN0x180ac00N0x18edef8">
+               <para id="Para">Entered comment related to the Count Slip. In this
           case, the person who performed the count on Location RACK01 (i.e.,
           Bob), entered a comment and also identified himself.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para id="Para672318">Once all the required information has been entered,
+            </listitem>
+         </varlistentry>
+      </variablelist>
+      <para id="Para672318">Once all the required information has been entered,
     we select the SAVE button to add the Count Slip total to the parent Count
     Tag.</para>
-    <note>
-      <para id="Para672320">Count Slips may also be entered by selecting the
+      <note>
+         <para id="Para672320">Count Slips may also be entered by selecting the
       "Enter Count Slip" option from the Physical Inventory submenu.</para>
-    </note>
+      </note>
   </section>
   <section id="Section672322">
-    <title><anchor id="Anchor672321" role="Index"
-    xreflabel="count tags:configuration options for;count slips:configuration options for;configuration:for inventory counts;inventory:cycle count configuration" />
-    <indexterm significance="normal" zone="Anchor672321">
-        <primary>count tags</primary>
-        <secondary>configuration options for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor672321">
-        <primary>count slips</primary>
-        <secondary>configuration options for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor672321">
-        <primary>configuration</primary>
-        <secondary>for inventory counts</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor672321">
-        <primary>inventory</primary>
-        <secondary>cycle count configuration</secondary>
-      </indexterm>Configuration Options</title>
-    <para id="Para672323">So far, we have only counted one Location: RACK01.
+      <title>
+         <anchor id="Anchor672321" role="Index"
+                 xreflabel="count tags:configuration options for;count slips:configuration options for;configuration:for inventory counts;inventory:cycle count configuration"/>
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>configuration options for</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>count slips</primary>
+            <secondary>configuration options for</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>configuration</primary>
+            <secondary>for inventory counts</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>inventory</primary>
+            <secondary>cycle count configuration</secondary>
+         </indexterm>Configuration Options</title>
+      <para id="Para672323">So far, we have only counted one Location: RACK01.
     Item B1 is also stored in Location RACK02. Counting Inventory at that
     Location falls to another employee (i.e., Sandra). As before, the employee
     enters the required information on the Count Slip. However, when she
     attempts to save the Count Slip quantity to the Count Tag total, she
     encounters the following error message:</para>
-    <para id="Para672327"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntSlipError.png"
-                       id="Graphic672325" />
-          </imageobject>
-          <caption id="Caption672328">Duplicate Count Slip Error
+      <para id="Para672327">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntSlipError.png" id="Graphic672325"/>
+               </imageobject>
+               <caption id="Caption672328">Duplicate Count Slip Error
           Message</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672329">As the message indicates, the system has been
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672329">As the message indicates, the system has been
     configured to disallow duplicate Count Slip Numbers. To correct the
     problem, the employee must return to the Enter Count Slip screen and enter
     a unique Count Slip Number.</para>
-    <note>
-      <para id="Para672331">By default, OpenMFG allows only one unposted Count
+      <note>
+         <para id="Para672331">By default, OpenMFG allows only one unposted Count
       Tag per Item Site. If an unposted Count Tag already exists for an Item
       Site, then an additional duplicate Count Tag may not be added.</para>
-    </note>
-    <para id="Para672332">OpenMFG provides a range of possible configurations
+      </note>
+      <para id="Para672332">OpenMFG provides a range of possible configurations
     for the I/M Module, many of which have an impact on Count Tag processing.
     The following screen shows the Configure I/M options found within the
     System Module:</para>
-    <para id="Para672336"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_configIM.png" id="Graphic672334" />
-          </imageobject>
-          <caption id="Caption672337">I/M Module Configuration
+      <para id="Para672336">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_configIM.png" id="Graphic672334"/>
+               </imageobject>
+               <caption id="Caption672337">I/M Module Configuration
           Options</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672338">For our purposes, we are only going to concern
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672338">For our purposes, we are only going to concern
     ourselves with the configuration options related to Count Tags and Count
     Slips. You or your OpenMFG administrator may select from the following
     options to establish the default behavior for your site:</para>
-    <variablelist>
-      <varlistentry>
-        <term id="Para672340"><anchor id="Anchor672339" role="Index"
-        xreflabel="count tags:count slip discrepancies and;count slips:count tag discrepancies and" />
-        <indexterm significance="normal" zone="Anchor672339">
-            <primary>count tags</primary>
-            <secondary>count slip discrepancies and</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor672339">
-            <primary>count slips</primary>
-            <secondary>count tag discrepancies and</secondary>
-          </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
-        <listitem id="listitemN0x180ac00N0x18fa048">
-          <para id="Para">Select one of the following options for handling
+      <variablelist>
+         <varlistentry>
+            <term id="Para672340">
+               <anchor id="Anchor672339" role="Index"
+                       xreflabel="count tags:count slip discrepancies and;count slips:count tag discrepancies and"/>
+               <indexterm significance="normal">
+                  <primary>count tags</primary>
+                  <secondary>count slip discrepancies and</secondary>
+               </indexterm> 
+               <indexterm significance="normal">
+                  <primary>count slips</primary>
+                  <secondary>count tag discrepancies and</secondary>
+               </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
+            <listitem id="listitemN0x180ac00N0x18fa048">
+               <para id="Para">Select one of the following options for handling
           discrepancies in count quantities:</para>
-          <para id="Para672341">Post Difference to Default Location, if any -
+               <para id="Para672341">Post Difference to Default Location, if any -
           Select to post excess Count Tag quantity to an Item's default
           location if the Item's Count Tag quantity exceeds its Count Slip
           quantity. Applies only if a default location has been defined for
           the Item. Default locations are defined for an Item in the Item Site
           section of the I/M Module.</para>
-          <para id="Para672342">Do Not Post Count Tag - Select to prevent
+               <para id="Para672342">Do Not Post Count Tag - Select to prevent
           Count Tag quantity from being posted if it exceeds the Item's Count
           Slip quantity.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term id="Para672344"><anchor id="Anchor672343" role="Index"
-        xreflabel="count slips:auditing of" /> <indexterm
-            significance="normal" zone="Anchor672343">
-            <primary>count slips</primary>
-            <secondary>auditing of</secondary>
-          </indexterm>Count Slip # Auditing</term>
-        <listitem id="listitemN0x180ac00N0x18fa0d8">
-          <para id="Para">Select one of the following Count Slip number
+            </listitem>
+         </varlistentry>
+         <varlistentry>
+            <term id="Para672344">
+               <anchor id="Anchor672343" role="Index" xreflabel="count slips:auditing of"/> 
+               <indexterm significance="normal">
+                  <primary>count slips</primary>
+                  <secondary>auditing of</secondary>
+               </indexterm>Count Slip # Auditing</term>
+            <listitem id="listitemN0x180ac00N0x18fa0d8">
+               <para id="Para">Select one of the following Count Slip number
           auditing methods:</para>
-          <para id="Para672345">No Slip # Checks, allow Duplications - Allows
+               <para id="Para672345">No Slip # Checks, allow Duplications - Allows
           any Count Slip numbers to be used. Duplicate Count Slip numbers will
           also be allowed.</para>
-          <para id="Para672346">Disallow Unposted Slip # Duplications within a
+               <para id="Para672346">Disallow Unposted Slip # Duplications within a
           Warehouse - Prevents duplicate "Unposted" Count Slip numbers from
           existing within a given Warehouse. However, duplicate "Unposted"
           Count Slip numbers may exist within multiple Warehouses.</para>
-          <para id="Para672347">Disallow All Unposted Slip # Duplications -
+               <para id="Para672347">Disallow All Unposted Slip # Duplications -
           Prevents duplicate "Unposted" Count Slip numbers from existing
           within multiple Warehouses.</para>
-          <para id="Para672348">Disallow All Slip # Duplications within a
+               <para id="Para672348">Disallow All Slip # Duplications within a
           Warehouse - Prevents duplicate Count Slip numbers from existing
           within a given Warehouse. However, duplicate Count Slip numbers may
           exist within multiple Warehouses.</para>
-          <para id="Para672349">Disallow All Slip # Duplications - Prevents
+               <para id="Para672349">Disallow All Slip # Duplications - Prevents
           duplicate Count Slip Numbers from existing within multiple
           Warehouses.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para id="Para672350">Getting back to our scenario, the employee corrects
+            </listitem>
+         </varlistentry>
+      </variablelist>
+      <para id="Para672350">Getting back to our scenario, the employee corrects
     the Count Slip Number problem and successfully saves the Count Slip
     quantity to the Count Tag total. In the next screen, you can see the Count
     Tag Edit List with both Count Slips displayed:</para>
-    <para id="Para672354"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntSlipEditList-1.png"
-                       id="Graphic672352" />
-          </imageobject>
-          <caption id="Caption672355">Count Tag Edit List with Unposted Count
+      <para id="Para672354">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntSlipEditList-1.png" id="Graphic672352"/>
+               </imageobject>
+               <caption id="Caption672355">Count Tag Edit List with Unposted Count
           Slips</caption>
-        </mediaobject>
-      </screenshot></para>
-    <tip>
-      <para id="Para672357">To display Count Slips associated with a Count Tag
+            </mediaobject>
+         </screenshot>
+      </para>
+      <tip>
+         <para id="Para672357">To display Count Slips associated with a Count Tag
       record, select the "Show Count Slips" option on the Count Tag Edit List.
       If the Count Slips do not appear at first, be sure to select the QUERY
       button.</para>
-    </tip>
+      </tip>
   </section>
   <section id="Section672359">
-    <title><anchor id="Anchor672358" role="Index"
-    xreflabel="count slips:edit list for" /> <indexterm significance="normal"
-        zone="Anchor672358">
-        <primary>count slips</primary>
-        <secondary>edit list for</secondary>
-      </indexterm>Count Slip Edit List</title>
-    <para id="Para672360">Just as Count Tags have their own edit list, Count
+      <title>
+         <anchor id="Anchor672358" role="Index" xreflabel="count slips:edit list for"/> 
+         <indexterm significance="normal">
+            <primary>count slips</primary>
+            <secondary>edit list for</secondary>
+         </indexterm>Count Slip Edit List</title>
+      <para id="Para672360">Just as Count Tags have their own edit list, Count
     Slips also have an edit list. To access the Count Slip Edit List,
     highlight a Count Tag record and open the right-click menu. The following
     screenshot shows the Count Slip Edit List:</para>
-    <para id="Para672364"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntSlipEditList-2.png"
-                       id="Graphic672362" />
-          </imageobject>
-          <caption id="Caption672365">Count Slip Edit List</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672366">From the Count Slip Edit List, you can edit, post,
+      <para id="Para672364">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntSlipEditList-2.png" id="Graphic672362"/>
+               </imageobject>
+               <caption id="Caption672365">Count Slip Edit List</caption>
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672366">From the Count Slip Edit List, you can edit, post,
     and delete Count Slips--or create new ones. As you can see, the list
     provides detailed information about each Count Slip record. For this
     exercise, we will be posting both of our Count Slips from this
     screen.</para>
-    <para id="Para672367">To verify that the Count Slips are showing as posted
+      <para id="Para672367">To verify that the Count Slips are showing as posted
     on the Count Tag Edit List, we return to that screen. Sure enough, the
     Count Slips are showing as posted:</para>
-    <para id="Para672371"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-3.png"
-                       id="Graphic672369" />
-          </imageobject>
-          <caption id="Caption672372">Count Tag Edit List with Posted Count
+      <para id="Para672371">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntTagEditList-3.png" id="Graphic672369"/>
+               </imageobject>
+               <caption id="Caption672372">Count Tag Edit List with Posted Count
           Slips</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672373">To review, then, we have used Count Slips to collect
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672373">To review, then, we have used Count Slips to collect
     Inventory quantities from a variety of different Locations using different
     employees. As we have shown, Count Slips enable you to divide up the task
     of Inventory counting. You can use multiple employees and multiple Count
     Slips, yet have all count quantities applied to a single Count Tag.</para>
-    <para id="Para672374">Now that all Count Slip quantities have been
+      <para id="Para672374">Now that all Count Slip quantities have been
     collected, we are ready to post our Count Tag, as shown in the following
     screenshot:</para>
-    <para id="Para672378"><anchor id="Anchor71186" role="Cross-Ref"
-    xreflabel="71186: Figure: Figure 4.15:  Post Count Tag with Count Slip Comments" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_postCntTag-2.png"
-                       id="Graphic672376" />
-          </imageobject>
-          <caption id="Caption672380">Post Count Tag with Count Slip
+      <para id="Para672378">
+         <anchor id="Anchor71186" role="Cross-Ref"
+                 xreflabel="71186: Figure: Figure 4.15:  Post Count Tag with Count Slip Comments"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_postCntTag-2.png" id="Graphic672376"/>
+               </imageobject>
+               <caption id="Caption672380">Post Count Tag with Count Slip
           Comments</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672383">As <link endterm="Anchor71186" id="XRef672382"
-    linkend="Anchor71186"> Post Count Tag with Count Slip
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672383">As <link endterm="Anchor71186" id="XRef672382" linkend="Anchor71186"> Post Count Tag with Count Slip
     Comments</link>Figure 6.102 shows, the cumulative count quantity is
     displaying as expected. In the Current Comments field we see the Count
     Slip comments posted by each of our employees. Again, we want to be sure
@@ -579,45 +603,46 @@
     information for Item B1 in Warehouse WEST.</para>
   </section>
   <section id="Section672386">
-    <title><anchor id="Anchor672385" role="Index"
-    xreflabel="count tags:mechanics of" /> <indexterm significance="normal"
-        zone="Anchor672385">
-        <primary>count tags</primary>
-        <secondary>mechanics of</secondary>
-      </indexterm>Creating Multiple Count Tags</title>
-    <para id="Para672387">Throughout this example, we have focused on the
+      <title>
+         <anchor id="Anchor672385" role="Index" xreflabel="count tags:mechanics of"/> 
+         <indexterm significance="normal">
+            <primary>count tags</primary>
+            <secondary>mechanics of</secondary>
+         </indexterm>Creating Multiple Count Tags</title>
+      <para id="Para672387">Throughout this example, we have focused on the
     creation of single Count Tags. But OpenMFG also enables you to create
     manual Count Tags in batches. To see how this is done, we open the Create
     Count Tags by Class Code utility, as shown in the following screen:</para>
-    <para id="Para672391"><screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_createCTbyClass.png"
-                       id="Graphic672389" />
-          </imageobject>
-          <caption id="Caption672392">Create Count Tags by Class
+      <para id="Para672391">
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_createCTbyClass.png" id="Graphic672389"/>
+               </imageobject>
+               <caption id="Caption672392">Create Count Tags by Class
           Code</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672393">For this scenario, we will be creating Count Tags
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672393">For this scenario, we will be creating Count Tags
     for all Items belonging to Class Code Books located in Warehouse WEST. A
     comment is entered, and then we then select the CREATE TAGS option. To see
     the resulting Count Tags, we once again open the Count Tag Edit
     List:</para>
-    <para id="Para672397"><anchor id="Anchor70270" role="Cross-Ref"
-    xreflabel="70270: Figure: Figure 4.17:  Count Tags Created by Class Code" />
-    <screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-4.png"
-                       id="Graphic672395" />
-          </imageobject>
-          <caption id="Caption672399">Count Tags Created by Class
+      <para id="Para672397">
+         <anchor id="Anchor70270" role="Cross-Ref"
+                 xreflabel="70270: Figure: Figure 4.17:  Count Tags Created by Class Code"/>
+         <screenshot>
+            <mediaobject>
+               <imageobject>
+                  <imagedata fileref="images/Topic_cntTagEditList-4.png" id="Graphic672395"/>
+               </imageobject>
+               <caption id="Caption672399">Count Tags Created by Class
           Code</caption>
-        </mediaobject>
-      </screenshot></para>
-    <para id="Para672402">As you can see in <link endterm="Anchor70270"
-    id="XRef672401" linkend="Anchor70270"> Count Tags Created by Class
+            </mediaobject>
+         </screenshot>
+      </para>
+      <para id="Para672402">As you can see in <link endterm="Anchor70270" id="XRef672401" linkend="Anchor70270"> Count Tags Created by Class
     Code</link>Figure 6.104, multiple Count Tags have been created--one for
     each of the Items fitting our criteria. These Count Tags can now be
     processed using the basic techniques described throughout this

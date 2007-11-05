@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518641">
-    <title><anchor id="Anchor529433" role="Index"
-    xreflabel="bills of lading:printing of;shipping forms:printing of" />
-    <indexterm significance="normal" zone="Anchor529433">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518641">
+    <title>
+      <anchor id="Anchor529433" role="Index"
+              xreflabel="bills of lading:printing of;shipping forms:printing of"/>
+      <indexterm significance="normal">
         <primary>bills of lading</primary>
 
         <secondary>printing of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor529433">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>shipping forms</primary>
 
         <secondary>printing of</secondary>
@@ -18,16 +20,17 @@
     To print a Shipping Form, select the "Shipping Form" option. The following
     screen will appear:</para>
 
-    <para id="Para518646"><screenshot>
+    <para id="Para518646">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Forms_printShpForm.png"
-                       id="Graphic520052" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Forms_printShpForm.png" id="Graphic520052"/>
+            </imageobject>
 
-          <caption id="Caption518647">Print Shipping Form</caption>
+            <caption id="Caption518647">Print Shipping Form</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518648">When printing a Shipping Form, you are presented
     with the following options:</para>
@@ -37,10 +40,10 @@
         <term id="Para518649">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x1861d6c">
-          <para>: Enter the Sales Order Number of the Sales Order whose
+            <para>: Enter the Sales Order Number of the Sales Order whose
           Shipping Form you want to print.</para>
 
-          <para id="Para518650">The browse button located to the right of the
+            <para id="Para518650">The browse button located to the right of the
           field leads to a searchable list of Sales Orders with quantities at
           Shipping. Only Sales Orders with quantities at Shipping will appear
           in the list.</para>
@@ -59,7 +62,7 @@
         <term id="Para518652">Ship To</term>
 
         <listitem id="listitemN0x180ac00N0x1861dfc">
-          <para>Displays the Ship-To Address for the specified Sales
+            <para>Displays the Ship-To Address for the specified Sales
           Order.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +71,7 @@
         <term id="Para518653">Shipping Form</term>
 
         <listitem id="listitemN0x180ac00N0x1861e44">
-          <para>Specify the name of the Shipping Form you want to
+            <para>Specify the name of the Shipping Form you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -77,10 +80,10 @@
         <term id="Para538493">Shipping Form Copies</term>
 
         <listitem id="listitemN0x180ac00N0x1861e8c">
-          <para>Specify details for the Shipping Form copies you want to
+            <para>Specify details for the Shipping Form copies you want to
           print.</para>
 
-          <para id="Para538494"># of Copies: Indicate the number of copies you
+            <para id="Para538494"># of Copies: Indicate the number of copies you
           want to print using the arrow buttons. Information about the
           specified copies will display below.</para>
         </listitem>
@@ -95,7 +98,7 @@
         <term id="Para538528">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1861ef8">
-          <para>Closes the screen without printing a Shipping Form, returning
+            <para>Closes the screen without printing a Shipping Form, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +107,7 @@
         <term id="Para538529">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1861f40">
-          <para>Prints specified number of copies of the Shipping Form for the
+            <para>Prints specified number of copies of the Shipping Form for the
           specified Sales Order.</para>
         </listitem>
       </varlistentry>
@@ -113,17 +116,19 @@
     <para id="Para538498">To add a Watermark to a Shipping Form, double-click
     on a copy line. The following screen will appear:</para>
 
-    <para id="Para538502"><anchor id="Anchor58193" role="Cross-Ref"
-    xreflabel="58193: Figure: Figure 2.57:  Add Watermark" /> <screenshot>
+    <para id="Para538502">
+      <anchor id="Anchor58193" role="Cross-Ref"
+              xreflabel="58193: Figure: Figure 2.57:  Add Watermark"/> 
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_addWatermark.png"
-                       id="Graphic538500" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_addWatermark.png" id="Graphic538500"/>
+            </imageobject>
 
-          <caption id="Caption538504">Add Watermark</caption>
+            <caption id="Caption538504">Add Watermark</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para538505">When adding a Watermark to a Shipping Form copy, you
     are presented with the following options:</para>
@@ -133,7 +138,7 @@
         <term id="Para538509">Watermark</term>
 
         <listitem id="listitemN0x180ac00N0x1862018">
-          <para>Specify the name of the Watermark to be used for the selected
+            <para>Specify the name of the Watermark to be used for the selected
           copy.</para>
         </listitem>
       </varlistentry>
@@ -142,7 +147,7 @@
         <term id="Para538511">Show Prices</term>
 
         <listitem id="listitemN0x180ac00N0x1862060">
-          <para>Select to show Prices in the selected copy.</para>
+            <para>Select to show Prices in the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -155,7 +160,7 @@
         <term id="Para538513">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18620cc">
-          <para>Closes the screen without adding a Watermark, returning you to
+            <para>Closes the screen without adding a Watermark, returning you to
           the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +169,7 @@
         <term id="Para538514">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1862114">
-          <para>Saves the Watermark definition to the selected copy.</para>
+            <para>Saves the Watermark definition to the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section921353">
-    <title><anchor id="Anchor919421" role="Index"
-    xreflabel="buy cards:relation to vendors;buy cards:part numbers and" />
-    <indexterm significance="normal" zone="Anchor919421">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section921353">
+    <title>
+      <anchor id="Anchor919421" role="Index"
+              xreflabel="buy cards:relation to vendors;buy cards:part numbers and"/>
+      <indexterm significance="normal">
         <primary>buy cards</primary>
 
         <secondary>relation to vendors</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919421">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>buy cards</primary>
 
         <secondary>part numbers and</secondary>
@@ -20,15 +21,17 @@
     view purchasing history by Vendor Part Number, select the "Buy Card"
     option. The following screen will appear:</para>
 
-    <para id="Para522250"><screenshot>
+    <para id="Para522250">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_buyCard.png" id="Graphic522249" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_buyCard.png" id="Graphic522249"/>
+            </imageobject>
 
-          <caption id="Caption522251">Buy Card</caption>
+            <caption id="Caption522251">Buy Card</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para522252">When viewing purchasing history by Vendor Part
     Number, you are presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para917957">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18c71d4">
-          <para>Enter the Vendor Number of the Vendor whose purchasing history
+            <para>Enter the Vendor Number of the Vendor whose purchasing history
           by Part Number you want to view.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para918032">Vendor Part Number</term>
 
         <listitem id="listitemN0x180ac00N0x18c721c">
-          <para>Specify the Vendor Part Number whose purchasing history you
+            <para>Specify the Vendor Part Number whose purchasing history you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +59,7 @@
         <term id="Para923379">Vendor Description</term>
 
         <listitem id="listitemN0x180ac00N0x18c7264">
-          <para>Enter the description used by the Vendor to identify the
+            <para>Enter the description used by the Vendor to identify the
           Vendor Part Number.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +68,7 @@
         <term id="Para917890">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18c72ac">
-          <para>Displays internal Item Number associated with Vendor Part
+            <para>Displays internal Item Number associated with Vendor Part
           Number.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +77,7 @@
         <term id="Para968958">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18c72f4">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -82,7 +85,7 @@
         <term id="Para535324">Purchase History</term>
 
         <listitem id="listitemN0x180ac00N0x18c733c">
-          <para>Display lists purchasing history for specified Vendor Part
+            <para>Display lists purchasing history for specified Vendor Part
           Number.</para>
         </listitem>
       </varlistentry>
@@ -91,7 +94,7 @@
         <term id="Para917897">Notes</term>
 
         <listitem id="listitemN0x180ac00N0x18c7384">
-          <para>Displays any Notes which may be associated with the Item
+            <para>Displays any Notes which may be associated with the Item
           Source on the Item Source master.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +108,7 @@
         <term id="Para917900">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18c73f0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +117,7 @@
         <term id="Para970016">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18c7438">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

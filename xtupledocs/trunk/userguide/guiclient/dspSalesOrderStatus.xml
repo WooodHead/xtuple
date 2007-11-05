@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section574993">
-    <title><anchor id="Anchor574992" role="Index"
-    xreflabel="sales orders:status of" /> <indexterm significance="normal"
-        zone="Anchor574992">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section574993">
+    <title>
+      <anchor id="Anchor574992" role="Index" xreflabel="sales orders:status of"/> 
+      <indexterm significance="normal">
         <primary>sales orders</primary>
 
         <secondary>status of</secondary>
@@ -15,16 +14,17 @@
     "Status by Sales Order" option from the "Displays" menu. The following
     screen will appear:</para>
 
-    <para id="Para520028"><screenshot>
+    <para id="Para520028">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_salesOrderStatus.png"
-                       id="Graphic524106" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_salesOrderStatus.png" id="Graphic524106"/>
+            </imageobject>
 
-          <caption id="Caption520029">Sales Order Status</caption>
+            <caption id="Caption520029">Sales Order Status</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520030">When displaying Sales Order shipment Status, you are
     presented with the following options:</para>
@@ -34,7 +34,7 @@
         <term id="Para520031">Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x19772c0">
-          <para>Enter the Sales Order Number of the Sales Order whose shipment
+            <para>Enter the Sales Order Number of the Sales Order whose shipment
           Status you want to view.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +43,7 @@
         <term id="Para520033">Order Date</term>
 
         <listitem id="listitemN0x180ac00N0x1977308">
-          <para>Displays the date the Sales Order was created.</para>
+            <para>Displays the date the Sales Order was created.</para>
         </listitem>
       </varlistentry>
 
@@ -51,7 +51,7 @@
         <term id="Para520035">Cust. Name</term>
 
         <listitem id="listitemN0x180ac00N0x1977350">
-          <para>Displays Customer name.</para>
+            <para>Displays Customer name.</para>
         </listitem>
       </varlistentry>
 
@@ -59,7 +59,7 @@
         <term id="Para520036">Cust. Phone</term>
 
         <listitem id="listitemN0x180ac00N0x1977398">
-          <para>Phone: Displays Customer phone number.</para>
+            <para>Phone: Displays Customer phone number.</para>
         </listitem>
       </varlistentry>
 
@@ -67,7 +67,7 @@
         <term id="Para520037">P/O Number</term>
 
         <listitem id="listitemN0x180ac00N0x19773e0">
-          <para>Displays Purchase Order Number.</para>
+            <para>Displays Purchase Order Number.</para>
         </listitem>
       </varlistentry>
 
@@ -75,10 +75,10 @@
         <term id="Para615949">Last Updated</term>
 
         <listitem id="listitemN0x180ac00N0x1977428">
-          <para>Displays the date when the Sales Order was last
+            <para>Displays the date when the Sales Order was last
           updated.\\</para>
 
-          <para id="Para615970">Sales Order updates can include modifications
+            <para id="Para615970">Sales Order updates can include modifications
           to the original Order or shipping and billing activity.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +87,7 @@
         <term id="Para520038">Shipment Status</term>
 
         <listitem id="listitemN0x180ac00N0x1977470">
-          <para>Display lists Sales Order shipment Status for the specified
+            <para>Display lists Sales Order shipment Status for the specified
           Sales Order.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +101,7 @@
         <term id="Para520041">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x19774dc">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -110,7 +110,7 @@
         <term id="Para653764">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1977524">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,520 +1,925 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE appendix
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <appendix id="Appendix461495">
-  <title><anchor id="Anchor80421" role="Cross-Ref"
-  xreflabel="80421: AppendixTitle: Appendix A" />Appendix A</title>
+  <title>
+      <anchor id="Anchor80421" role="Cross-Ref" xreflabel="80421: AppendixTitle: Appendix A"/>Appendix A</title>
   <para id="Para462356">This Appendix contains reference information that
   applies to many of the modules found within OpenMFG. The following topics
   are referenced in this Appendix:</para>
   <itemizedlist>
-    <listitem>
-      <para id="Para462837">Inventory Transaction Types</para>
-    </listitem>
-    <listitem>
-      <para id="Para462840">General Ledger Transaction Types</para>
-    </listitem>
-    <listitem>
-      <para id="Para462383">Commonly Used Data Entry Formats</para>
-    </listitem>
-    <listitem>
-      <para id="Para462384">System-Defined Events</para>
-    </listitem>
+      <listitem>
+         <para id="Para462837">Inventory Transaction Types</para>
+      </listitem>
+      <listitem>
+         <para id="Para462840">General Ledger Transaction Types</para>
+      </listitem>
+      <listitem>
+         <para id="Para462383">Commonly Used Data Entry Formats</para>
+      </listitem>
+      <listitem>
+         <para id="Para462384">System-Defined Events</para>
+      </listitem>
   </itemizedlist>
   <section id="Section461282">
-    <title><anchor id="Anchor_Toc16496693" role="Cross-Ref"
-    xreflabel="_Toc16496693" /> <anchor id="Anchor_Toc16496694"
-    role="Cross-Ref" xreflabel="_Toc16496694" /> <anchor id="Anchor461857"
-    role="Index"
-    xreflabel="inventory:transaction types listed;transactions:listing of inventory types" />
-    <indexterm significance="normal" zone="Anchor461857">
-        <primary>inventory</primary>
-        <secondary>transaction types listed</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor461857">
-        <primary>transactions</primary>
-        <secondary>listing of inventory types</secondary>
-      </indexterm>Inventory Transaction Types</title>
-    <para id="Para462842">Inventory transactions are associated with Inventory
+      <title>
+         <anchor id="Anchor_Toc16496693" role="Cross-Ref" xreflabel="_Toc16496693"/> 
+         <anchor id="Anchor_Toc16496694" role="Cross-Ref" xreflabel="_Toc16496694"/> 
+         <anchor id="Anchor461857" role="Index"
+                 xreflabel="inventory:transaction types listed;transactions:listing of inventory types"/>
+         <indexterm significance="normal">
+            <primary>inventory</primary>
+            <secondary>transaction types listed</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>transactions</primary>
+            <secondary>listing of inventory types</secondary>
+         </indexterm>Inventory Transaction Types</title>
+      <para id="Para462842">Inventory transactions are associated with Inventory
     transaction types. These transaction types appear in various displays
     throughout the application--most notably in the Inventory Management (I/M)
     Module. The following table identifies the Inventory transaction types and
     provides additional information about the relationship between these types
     and their corresponding <anchor id="Anchor462843" role="Index"
-    xreflabel="general ledger:inventory transaction types and" /> <indexterm
-        significance="normal" zone="Anchor462843">
-        <primary>general ledger</primary>
-        <secondary>inventory transaction types and</secondary>
-      </indexterm>General Ledger (G/L) transactions.</para>
-    <table id="Table462844">
-      <title>Inventory Transaction Types</title>
-      <tgroup cols="3">
-        <thead>
-          <row>
-            <entry><para id="Para462855">Transaction Type Code</para></entry>
-            <entry><para id="Para462857">Description</para></entry>
-            <entry><para id="Para462859">G/L Transaction</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para id="Para462861">AD</para></entry>
-            <entry><para id="Para462863">Miscellaneous
-            Adjustment</para></entry>
-            <entry><para id="Para462865">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462867">CC</para></entry>
-            <entry><para id="Para462869">Cycle Count</para></entry>
-            <entry><para id="Para462871">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462873">EX</para></entry>
-            <entry><para id="Para462875">Material Expense</para></entry>
-            <entry><para id="Para462877">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462879">IB</para></entry>
-            <entry><para id="Para462881">Issue Inventory to Breeder
-            Manufacturing</para></entry>
-            <entry><para id="Para462883">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462885">IM</para></entry>
-            <entry><para id="Para462887">Issue Inventory to
-            Manufacturing</para></entry>
-            <entry><para id="Para462889">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462891">IT</para></entry>
-            <entry><para id="Para462893">Issue Item
-            Transformation</para></entry>
-            <entry><para id="Para462895">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462897">NN</para></entry>
-            <entry><para id="Para462899">Change to Non-Netable
-            Quantity</para></entry>
-            <entry><para id="Para462901">No</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462903">RB</para></entry>
-            <entry><para id="Para462905">Receive Inventory from Breeder
-            Manufacturing</para></entry>
-            <entry><para id="Para462907">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462909">RL</para></entry>
-            <entry><para id="Para462911">Relocate Inventory
-            Items</para></entry>
-            <entry><para id="Para462913">No</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462915">RM</para></entry>
-            <entry><para id="Para462917">Receive Inventory from
-            Manufacturing</para></entry>
-            <entry><para id="Para462919">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462921">RP</para></entry>
-            <entry><para id="Para462923">Receive Inventory from
-            Purchasing</para></entry>
-            <entry><para id="Para462925">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462927">RS</para></entry>
-            <entry><para id="Para462929">Return Inventory to
-            Stock</para></entry>
-            <entry><para id="Para462931">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462933">RT</para></entry>
-            <entry><para id="Para462935">Receive Item
-            Transformation</para></entry>
-            <entry><para id="Para462937">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462939">RX</para></entry>
-            <entry><para id="Para462941">Miscellaneous Inventory
-            Receipt</para></entry>
-            <entry><para id="Para462943">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462945">SH</para></entry>
-            <entry><para id="Para462947">Ship Inventory to
-            Customer</para></entry>
-            <entry><para id="Para462949">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462951">SI</para></entry>
-            <entry><para id="Para462953">Scrap Inventory</para></entry>
-            <entry><para id="Para462955">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462957">SV</para></entry>
-            <entry><para id="Para462959">Ship Inventory to
-            Vendor</para></entry>
-            <entry><para id="Para462961">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463937">TR</para></entry>
-            <entry><para id="Para463939">Transfer Order Receipt</para></entry>
-            <entry><para id="Para463941">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463931">TS</para></entry>
-            <entry><para id="Para463933">Transfer Order
-            Shipment</para></entry>
-            <entry><para id="Para463935">Yes</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462963">TW</para></entry>
-            <entry><para id="Para462965">Inter-Warehouse
-            Transfer</para></entry>
-            <entry><para id="Para462967">Yes</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
+                 xreflabel="general ledger:inventory transaction types and"/> 
+         <indexterm significance="normal">
+            <primary>general ledger</primary>
+            <secondary>inventory transaction types and</secondary>
+         </indexterm>General Ledger (G/L) transactions.</para>
+      <table id="Table462844">
+         <title>Inventory Transaction Types</title>
+         <tgroup cols="3">
+            <thead>
+               <row>
+                  <entry>
+                     <para id="Para462855">Transaction Type Code</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462857">Description</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462859">G/L Transaction</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para462861">AD</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462863">Miscellaneous
+            Adjustment</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462865">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462867">CC</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462869">Cycle Count</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462871">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462873">EX</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462875">Material Expense</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462877">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462879">IB</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462881">Issue Inventory to Breeder
+            Manufacturing</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462883">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462885">IM</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462887">Issue Inventory to
+            Manufacturing</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462889">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462891">IT</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462893">Issue Item
+            Transformation</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462895">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462897">NN</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462899">Change to Non-Netable
+            Quantity</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462901">No</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462903">RB</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462905">Receive Inventory from Breeder
+            Manufacturing</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462907">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462909">RL</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462911">Relocate Inventory
+            Items</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462913">No</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462915">RM</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462917">Receive Inventory from
+            Manufacturing</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462919">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462921">RP</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462923">Receive Inventory from
+            Purchasing</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462925">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462927">RS</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462929">Return Inventory to
+            Stock</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462931">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462933">RT</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462935">Receive Item
+            Transformation</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462937">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462939">RX</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462941">Miscellaneous Inventory
+            Receipt</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462943">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462945">SH</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462947">Ship Inventory to
+            Customer</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462949">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462951">SI</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462953">Scrap Inventory</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462955">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462957">SV</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462959">Ship Inventory to
+            Vendor</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462961">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463937">TR</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463939">Transfer Order Receipt</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463941">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463931">TS</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463933">Transfer Order
+            Shipment</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463935">Yes</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462963">TW</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462965">Inter-Warehouse
+            Transfer</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462967">Yes</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
   </section>
   <section id="Section463202">
-    <title><anchor id="Anchor463201" role="Index"
-    xreflabel="general ledger:transaction types listed;transactions:listing of g/l types" />
-    <indexterm significance="normal" zone="Anchor463201">
-        <primary>general ledger</primary>
-        <secondary>transaction types listed</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor463201">
-        <primary>transactions</primary>
-        <secondary>listing of g/l types</secondary>
-      </indexterm>General Ledger Transactions</title>
-    <para id="Para463203">Many of the transactions which hit the General
+      <title>
+         <anchor id="Anchor463201" role="Index"
+                 xreflabel="general ledger:transaction types listed;transactions:listing of g/l types"/>
+         <indexterm significance="normal">
+            <primary>general ledger</primary>
+            <secondary>transaction types listed</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>transactions</primary>
+            <secondary>listing of g/l types</secondary>
+         </indexterm>General Ledger Transactions</title>
+      <para id="Para463203">Many of the transactions which hit the General
     Ledger (G/L) are assigned a system-defined DocType. The following list
     details the various DocTypes used by the system to identify G/L
     transactions.</para>
-    <table id="Table462982">
-      <title>General Ledger Transactions</title>
-      <tgroup cols="2">
-        <thead>
-          <row>
-            <entry><para id="Para463119">DocType</para></entry>
-            <entry><para id="Para463121">Description</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para id="Para463123">AD</para></entry>
-            <entry><para id="Para463125">Bank Adjustment</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463127">CK</para></entry>
-            <entry><para id="Para463129">Check posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463131">CM</para></entry>
-            <entry><para id="Para463133">Credit Memo posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463135">CR</para></entry>
-            <entry><para id="Para463137">Cash Receipt posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463139">CT</para></entry>
-            <entry><para id="Para463141">Count Tag posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463143">DM</para></entry>
-            <entry><para id="Para463145">Debit Memo posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463904">DS</para></entry>
-            <entry><para id="Para463906">A/P Discount posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463147">IN</para></entry>
-            <entry><para id="Para463149">Invoice posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463151">JE</para></entry>
-            <entry><para id="Para463153">Journal Entry posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463155">PO</para></entry>
-            <entry><para id="Para463157">Purchase Order Receipt
-            posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463163">SO</para></entry>
-            <entry><para id="Para463165">Issue Stock to Shipping posted; Ship
-            Order posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463167">ST</para></entry>
-            <entry><para id="Para463169">Standard Journal
-            posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463171">VO</para></entry>
-            <entry><para id="Para463173">Voucher posted</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463175">WO</para></entry>
-            <entry><para id="Para463177">Work Order posted</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
+      <table id="Table462982">
+         <title>General Ledger Transactions</title>
+         <tgroup cols="2">
+            <thead>
+               <row>
+                  <entry>
+                     <para id="Para463119">DocType</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463121">Description</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para463123">AD</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463125">Bank Adjustment</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463127">CK</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463129">Check posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463131">CM</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463133">Credit Memo posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463135">CR</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463137">Cash Receipt posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463139">CT</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463141">Count Tag posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463143">DM</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463145">Debit Memo posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463904">DS</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463906">A/P Discount posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463147">IN</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463149">Invoice posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463151">JE</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463153">Journal Entry posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463155">PO</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463157">Purchase Order Receipt
+            posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463163">SO</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463165">Issue Stock to Shipping posted; Ship
+            Order posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463167">ST</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463169">Standard Journal
+            posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463171">VO</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463173">Voucher posted</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463175">WO</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463177">Work Order posted</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
   </section>
   <section id="Section461939">
-    <title><anchor id="Anchor461938" role="Index"
-    xreflabel="events:system-defined;events:complete list of" /> <indexterm
-        significance="normal" zone="Anchor461938">
-        <primary>events</primary>
-        <secondary>system-defined</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor461938">
-        <primary>events</primary>
-        <secondary>complete list of</secondary>
-      </indexterm>System-Defined Events</title>
-    <para id="Para462187">The following table identifies the complete list of
+      <title>
+         <anchor id="Anchor461938" role="Index"
+                 xreflabel="events:system-defined;events:complete list of"/> 
+         <indexterm significance="normal">
+            <primary>events</primary>
+            <secondary>system-defined</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>events</primary>
+            <secondary>complete list of</secondary>
+         </indexterm>System-Defined Events</title>
+      <para id="Para462187">The following table identifies the complete list of
     system-defined Events. The table includes the name that OpenMFG assigns to
     the Event, a brief description of the Event, and the name of the Module
     where the Event originates.</para>
-    <table id="Table462070">
-      <title>System-Defined Events</title>
-      <tgroup cols="3">
-        <thead>
-          <row>
-            <entry><para id="Para462197">Event Name</para></entry>
-            <entry><para id="Para462199">Event Description</para></entry>
-            <entry><para id="Para462201">Module</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para id="Para463750">ClosedIncident</para></entry>
-            <entry><para id="Para463752">Incident Closed</para></entry>
-            <entry><para id="Para463754">CRM</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463756">NewIncident</para></entry>
-            <entry><para id="Para463758">New Incident Created</para></entry>
-            <entry><para id="Para463760">CRM</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463762">ReopenedIncident</para></entry>
-            <entry><para id="Para463764">Incident which had been closed
-            previously is being reopened</para></entry>
-            <entry><para id="Para463766">CRM</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463768">UpdatedIncident</para></entry>
-            <entry><para id="Para463770">Incident Modified</para></entry>
-            <entry><para id="Para463772">CRM</para></entry>
-          </row>
-          <row>
-            <entry><para
-            id="Para462203">CannotDistributeTransToGL</para></entry>
-            <entry><para id="Para462205">Cannot Distribute an Inventory
-            Transaction to the G/L</para></entry>
-            <entry><para id="Para462207">G/L</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462209">QOHBelowZero</para></entry>
-            <entry><para id="Para462211">QOH Dropped to a Negative
-            Value</para></entry>
-            <entry><para id="Para462213">I/M</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463813">CannotConvertQuote</para></entry>
-            <entry><para id="Para463815">Cannot Convert a Quote to a Sales
-            Order</para></entry>
-            <entry><para id="Para463817">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463819">DetachCCPayFromSO</para></entry>
-            <entry><para id="Para463821">Detach Credit Card payment from
-            S/O</para></entry>
-            <entry><para id="Para463823">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462215">SoCommentsChanged</para></entry>
-            <entry><para id="Para462217">Sales Order Comments
-            Changed</para></entry>
-            <entry><para id="Para462219">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462221">SoitemCancelled</para></entry>
-            <entry><para id="Para462223">Sales Order Item
-            Canceled</para></entry>
-            <entry><para id="Para462225">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462227">SoitemCreated</para></entry>
-            <entry><para id="Para462229">Sales Order Item Added</para></entry>
-            <entry><para id="Para462231">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462233">SoitemQtyChanged</para></entry>
-            <entry><para id="Para462235">Sales Order Qty.
-            Changed</para></entry>
-            <entry><para id="Para462237">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462239">SoitemSchedDateChanged</para></entry>
-            <entry><para id="Para462241">Sales Order Item Ship Date
-            Changed</para></entry>
-            <entry><para id="Para462243">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462245">SoReleased</para></entry>
-            <entry><para id="Para462247">Sales Order Released</para></entry>
-            <entry><para id="Para462249">S/O</para></entry>
-          </row>
-          <row>
-            <entry><para
-            id="Para462251">RWoDueDateRequestChange</para></entry>
-            <entry><para id="Para462253">Request to Change Released Due
-            Date</para></entry>
-            <entry><para id="Para462255">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462257">RWoQtyRequestChange</para></entry>
-            <entry><para id="Para462259">Request to Change Released W/O
-            Qty.</para></entry>
-            <entry><para id="Para462261">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462263">RWoRequestCancel</para></entry>
-            <entry><para id="Para462265">Request to Cancel Released
-            W/O</para></entry>
-            <entry><para id="Para462267">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462269">WoCancelled</para></entry>
-            <entry><para id="Para462271">Work Order Canceled</para></entry>
-            <entry><para id="Para462273">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463842">WOClockInOnClosedJob</para></entry>
-            <entry><para id="Para463844">User clocked in to a closed Work
-            Order</para></entry>
-            <entry><para id="Para463846">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463848">WOClockOutWNoClockIn</para></entry>
-            <entry><para id="Para463850">User clocked out of a Work Order on
-            which s/he was not clocked in</para></entry>
-            <entry><para id="Para463852">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462275">WoCreated</para></entry>
-            <entry><para id="Para462277">Work Order Created</para></entry>
-            <entry><para id="Para462279">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463866">WODoubleClockIn</para></entry>
-            <entry><para id="Para463868">User clocked in to a Work Order
-            without having previously clocked out</para></entry>
-            <entry><para id="Para463870">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463872">WODoubleClockOut</para></entry>
-            <entry><para id="Para463874">User clocked out of a Work Order
-            without having previously clocked in</para></entry>
-            <entry><para id="Para463876">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462281">WoDueDateChanged</para></entry>
-            <entry><para id="Para462283">Work Order Due Date
-            Changed</para></entry>
-            <entry><para id="Para462285">W/O</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para462287">WoQtyChanged</para></entry>
-            <entry><para id="Para462289">Work Order Qty.
-            Changed</para></entry>
-            <entry><para id="Para462291">W/O</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
+      <table id="Table462070">
+         <title>System-Defined Events</title>
+         <tgroup cols="3">
+            <thead>
+               <row>
+                  <entry>
+                     <para id="Para462197">Event Name</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462199">Event Description</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462201">Module</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para463750">ClosedIncident</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463752">Incident Closed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463754">CRM</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463756">NewIncident</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463758">New Incident Created</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463760">CRM</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463762">ReopenedIncident</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463764">Incident which had been closed
+            previously is being reopened</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463766">CRM</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463768">UpdatedIncident</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463770">Incident Modified</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463772">CRM</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462203">CannotDistributeTransToGL</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462205">Cannot Distribute an Inventory
+            Transaction to the G/L</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462207">G/L</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462209">QOHBelowZero</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462211">QOH Dropped to a Negative
+            Value</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462213">I/M</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463813">CannotConvertQuote</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463815">Cannot Convert a Quote to a Sales
+            Order</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463817">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463819">DetachCCPayFromSO</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463821">Detach Credit Card payment from
+            S/O</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463823">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462215">SoCommentsChanged</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462217">Sales Order Comments
+            Changed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462219">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462221">SoitemCancelled</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462223">Sales Order Item
+            Canceled</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462225">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462227">SoitemCreated</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462229">Sales Order Item Added</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462231">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462233">SoitemQtyChanged</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462235">Sales Order Qty.
+            Changed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462237">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462239">SoitemSchedDateChanged</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462241">Sales Order Item Ship Date
+            Changed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462243">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462245">SoReleased</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462247">Sales Order Released</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462249">S/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462251">RWoDueDateRequestChange</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462253">Request to Change Released Due
+            Date</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462255">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462257">RWoQtyRequestChange</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462259">Request to Change Released W/O
+            Qty.</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462261">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462263">RWoRequestCancel</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462265">Request to Cancel Released
+            W/O</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462267">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462269">WoCancelled</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462271">Work Order Canceled</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462273">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463842">WOClockInOnClosedJob</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463844">User clocked in to a closed Work
+            Order</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463846">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463848">WOClockOutWNoClockIn</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463850">User clocked out of a Work Order on
+            which s/he was not clocked in</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463852">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462275">WoCreated</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462277">Work Order Created</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462279">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463866">WODoubleClockIn</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463868">User clocked in to a Work Order
+            without having previously clocked out</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463870">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463872">WODoubleClockOut</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463874">User clocked out of a Work Order
+            without having previously clocked in</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463876">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462281">WoDueDateChanged</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462283">Work Order Due Date
+            Changed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462285">W/O</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para462287">WoQtyChanged</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462289">Work Order Qty.
+            Changed</para>
+                  </entry>
+                  <entry>
+                     <para id="Para462291">W/O</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
   </section>
   <section id="Section463309">
-    <title><anchor id="Anchor463308" role="Index"
-    xreflabel="comments:source types for" /> <indexterm significance="normal"
-        zone="Anchor463308">
-        <primary>comments</primary>
-        <secondary>source types for</secondary>
-      </indexterm>Comment Sources</title>
-    <para id="Para463310">Comments may be added manually or automatically from
+      <title>
+         <anchor id="Anchor463308" role="Index" xreflabel="comments:source types for"/> 
+         <indexterm significance="normal">
+            <primary>comments</primary>
+            <secondary>source types for</secondary>
+         </indexterm>Comment Sources</title>
+      <para id="Para463310">Comments may be added manually or automatically from
     several modules throughout the application. Once entered, these Comments
     are stored in the comments table of the OpenMFG Database.</para>
-    <table id="Table463311">
-      <title>Comment Source Types</title>
-      <tgroup cols="2">
-        <thead>
-          <row>
-            <entry><para id="Para463614">Comment Source</para></entry>
-            <entry><para id="Para463616">Description</para></entry>
-          </row>
-        </thead>
-        <tbody>
-          <row>
-            <entry><para id="Para463618">BMI</para></entry>
-            <entry><para id="Para463620">Bill of Materials Item</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463622">C</para></entry>
-            <entry><para id="Para463624">Customer Master</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463626">I</para></entry>
-            <entry><para id="Para463628">Item Master</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463630">IS</para></entry>
-            <entry><para id="Para463632">Item Source Master</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463634">O</para></entry>
-            <entry><para id="Para463636">Lot/Serial Comment</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463638">P</para></entry>
-            <entry><para id="Para463640">Purchase Order Header</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463642">PI</para></entry>
-            <entry><para id="Para463644">Purchase Order Item</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463646">Q</para></entry>
-            <entry><para id="Para463648">Quote Header</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463650">QI</para></entry>
-            <entry><para id="Para463652">Quote Item</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463654">S</para></entry>
-            <entry><para id="Para463656">Sales Order Header</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463658">SI</para></entry>
-            <entry><para id="Para463660">Sales Order Item</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463662">V</para></entry>
-            <entry><para id="Para463664">Vendor Master</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463666">W</para></entry>
-            <entry><para id="Para463668">Work Order</para></entry>
-          </row>
-          <row>
-            <entry><para id="Para463670">WH</para></entry>
-            <entry><para id="Para463672">Warehouse Master</para></entry>
-          </row>
-        </tbody>
-      </tgroup>
-    </table>
+      <table id="Table463311">
+         <title>Comment Source Types</title>
+         <tgroup cols="2">
+            <thead>
+               <row>
+                  <entry>
+                     <para id="Para463614">Comment Source</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463616">Description</para>
+                  </entry>
+               </row>
+            </thead>
+            <tbody>
+               <row>
+                  <entry>
+                     <para id="Para463618">BMI</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463620">Bill of Materials Item</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463622">C</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463624">Customer Master</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463626">I</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463628">Item Master</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463630">IS</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463632">Item Source Master</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463634">O</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463636">Lot/Serial Comment</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463638">P</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463640">Purchase Order Header</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463642">PI</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463644">Purchase Order Item</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463646">Q</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463648">Quote Header</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463650">QI</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463652">Quote Item</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463654">S</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463656">Sales Order Header</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463658">SI</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463660">Sales Order Item</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463662">V</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463664">Vendor Master</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463666">W</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463668">Work Order</para>
+                  </entry>
+               </row>
+               <row>
+                  <entry>
+                     <para id="Para463670">WH</para>
+                  </entry>
+                  <entry>
+                     <para id="Para463672">Warehouse Master</para>
+                  </entry>
+               </row>
+            </tbody>
+         </tgroup>
+      </table>
   </section>
 </appendix>

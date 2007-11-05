@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Print Credit Memo
@@ -37,21 +37,21 @@
          <tbody>
                     <row>
                <entry>
-                  <guilabel>Credit Memo #:</guilabel>
+                  <guilabel moreinfo="none">Credit Memo #:</guilabel>
                </entry>
                <entry>_numberLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_number</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>Post Credit Memo after Printing</guilabel>
+                  <guilabel moreinfo="none">Post Credit Memo after Printing</guilabel>
                </entry>
                <entry>_post</entry>
                <entry>QCheckBox</entry>
@@ -68,7 +68,7 @@
             </row>
                           <row>
                <entry>
-                  <guilabel># of Copies:</guilabel>
+                  <guilabel moreinfo="none"># of Copies:</guilabel>
                </entry>
                <entry>_numberOfCopiesLit</entry>
                <entry>QLabel</entry>
@@ -85,7 +85,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -93,7 +93,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>

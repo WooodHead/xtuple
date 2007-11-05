@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519111">
-    <title><anchor id="Anchor932284" role="Index"
-    xreflabel="configuration:of p/d module" /> <indexterm
-        significance="normal" zone="Anchor932284">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519111">
+    <title>
+      <anchor id="Anchor932284" role="Index" xreflabel="configuration:of p/d module"/> 
+      <indexterm significance="normal">
         <primary>configuration</primary>
 
         <secondary>of p/d module</secondary>
@@ -14,15 +14,17 @@
     select the "Configure P/D" option. The following screen will
     appear:</para>
 
-    <para id="Para519116"><screenshot>
+    <para id="Para519116">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configPD.png" id="Graphic522106" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configPD.png" id="Graphic522106"/>
+            </imageobject>
 
-          <caption id="Caption519117">Configure P/D Module</caption>
+            <caption id="Caption519117">Configure P/D Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519118">When configuring the P/D module, you are presented
     with the following options:</para>
@@ -32,10 +34,10 @@
         <term id="Para976550">Enable Work Center Routings</term>
 
         <listitem id="listitemN0x180ac00N0x189a798">
-          <para>Select to enable the system's Work Center Routings
+            <para>Select to enable the system's Work Center Routings
           capability.</para>
 
-          <para id="Para977385">If not selected, users will be prevented from
+            <para id="Para977385">If not selected, users will be prevented from
           creating Work Centers, entering Bills of Operations (BOOs), or
           performing any tasks related to Operations posting, etc. If your
           system has Work Center Routings defined, this option will be
@@ -47,16 +49,16 @@
         <term id="Para977390">Track Machine Overhead</term>
 
         <listitem id="listitemN0x180ac00N0x189a7bc">
-          <para>Machine Overhead: If Work Center Routings are enabled, select
+            <para>Machine Overhead: If Work Center Routings are enabled, select
           one of the following methods for tracking machine overhead:</para>
 
-          <para id="Para519120">as Machine Overhead - Select to track machine
+            <para id="Para519120">as Machine Overhead - Select to track machine
           overhead separately from other overhead Costs, using the machine
           overhead rate specified in a Work Center master. Any associated
           Costs will display in the system-defined "Machine Overhead" Costing
           Element.</para>
 
-          <para id="Para913847">with General Overhead - Select to track
+            <para id="Para913847">with General Overhead - Select to track
           machine overhead in the same category as other overhead Costs. Any
           associated Costs will display in the system-defined "Overhead"
           Costing Element. (This is the default setting.)</para>
@@ -67,10 +69,10 @@
         <term id="Para976612">Enable Breeder Bills of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x189a7e0">
-          <para>Select to enable the system's Breeder Bill of Materials
+            <para>Select to enable the system's Breeder Bill of Materials
           capability.</para>
 
-          <para id="Para976613">If not selected, users will be prevented from
+            <para id="Para976613">If not selected, users will be prevented from
           entering Breeder Bills of Materials (BOMs) or performing any tasks
           related to posting production for Breeder BOMs, etc.</para>
         </listitem>
@@ -80,10 +82,10 @@
         <term id="Para976601">Enable Transforms</term>
 
         <listitem id="listitemN0x180ac00N0x189a804">
-          <para>Select to enable the system's Item Transformation
+            <para>Select to enable the system's Item Transformation
           capability.</para>
 
-          <para id="Para976602">If not selected, users will be prevented from
+            <para id="Para976602">If not selected, users will be prevented from
           performing tasks related to Item Transformations.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +94,7 @@
         <term id="Para948637">Post Item Changes to the Change Log</term>
 
         <listitem id="listitemN0x180ac00N0x189a84c">
-          <para>Select to post to the Change Log any changes made to Item
+            <para>Select to post to the Change Log any changes made to Item
           masters.</para>
         </listitem>
       </varlistentry>
@@ -101,7 +103,7 @@
         <term id="Para958121">Allow Inactive Items to be Added to BOMs</term>
 
         <listitem id="listitemN0x180ac00N0x189a894">
-          <para>Select to allow inactive Items to be added to Bills of
+            <para>Select to allow inactive Items to be added to Bills of
           Materials.</para>
         </listitem>
       </varlistentry>
@@ -110,18 +112,17 @@
         <term id="Para934156">Defaults</term>
 
         <listitem id="listitemN0x180ac00N0x189a8dc">
-          <para>Specify preferences for the following defaults:</para>
+            <para>Specify preferences for the following defaults:</para>
 
-          <para id="Para519122">Set Sold Items as <anchor id="Anchor961559"
-          role="Index" xreflabel="exclusive:as default configuration" />
-          <indexterm significance="normal" zone="Anchor961559">
-              <primary>exclusive</primary>
+            <para id="Para519122">Set Sold Items as <anchor id="Anchor961559" role="Index" xreflabel="exclusive:as default configuration"/>
+               <indexterm significance="normal">
+                  <primary>exclusive</primary>
 
-              <secondary>as default configuration</secondary>
-            </indexterm>Exclusive: Select to mark all sold Items as
+                  <secondary>as default configuration</secondary>
+               </indexterm>Exclusive: Select to mark all sold Items as
           "Exclusive" by default whenever a new Item is created.</para>
 
-          <para id="Para913867">W/O Material Issue Method: Select one of the
+            <para id="Para913867">W/O Material Issue Method: Select one of the
           available default issue methods. Push: Select to issue materials to
           a Work Order by a specific material issue transaction. Pull: Select
           to issue materials to a Work Order by a material backflush. Mixed:
@@ -146,7 +147,7 @@
         <term id="Para913734">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x189a9b4">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +156,7 @@
         <term id="Para913735">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x189a9fc">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

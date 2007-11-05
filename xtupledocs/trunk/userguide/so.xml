@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter645668">
-  <title><anchor id="Anchor31811" role="Cross-Ref"
-  xreflabel="31811: ChapterTitle: Sales Order (S/O) Module" />Sales Order
+  <title>
+      <anchor id="Anchor31811" role="Cross-Ref"
+              xreflabel="31811: ChapterTitle: Sales Order (S/O) Module"/>Sales Order
   (S/O) Module</title>
 
   <para id="Para566511">In this chapter, we describe the Sales module. This
@@ -11,358 +12,326 @@
   and customer relationship components:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x1819e48">
-      <para id="Para536776">Sales Orders</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e48">
+         <para id="Para536776">Sales Orders</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e6c">
-      <para id="Para536777">Item Pricing</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e6c">
+         <para id="Para536777">Item Pricing</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819e90">
-      <para id="Para536778">Billing</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819e90">
+         <para id="Para536778">Billing</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819eb4">
-      <para id="Para518494">Billing Terms</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819eb4">
+         <para id="Para518494">Billing Terms</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819ed8">
-      <para id="Para518495">Customer Information</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819ed8">
+         <para id="Para518495">Customer Information</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x1819efc">
-      <para id="Para518496">Sales Commissions</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x1819efc">
+         <para id="Para518496">Sales Commissions</para>
+      </listitem>
   </itemizedlist>
 
   <section id="Section518497">
-    <title><anchor id="Anchor73499" role="Cross-Ref"
-    xreflabel="73499: Heading1: Master Information" /> <anchor
-    id="Anchor548918" role="Index"
-    xreflabel="master information:for s/o module" /> <indexterm
-        significance="normal" zone="Anchor548918">
-        <primary>master information</primary>
+      <title>
+         <anchor id="Anchor73499" role="Cross-Ref"
+                 xreflabel="73499: Heading1: Master Information"/> 
+         <anchor id="Anchor548918" role="Index" xreflabel="master information:for s/o module"/> 
+         <indexterm significance="normal">
+            <primary>master information</primary>
 
-        <secondary>for s/o module</secondary>
-      </indexterm>Master Information</title>
+            <secondary>for s/o module</secondary>
+         </indexterm>Master Information</title>
 
-    <para id="Para518504">Each Master Information category gives you the
+      <para id="Para518504">Each Master Information category gives you the
     ability to define and maintain essential data that support not only the
     Sales module, but also other modules throughout the system.</para>
 
-    <xi:include href="guiclient/customer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/searchForCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/searchForCustomer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customers.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customers.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customerGroups.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customerGroups.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customerGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/customerGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/prospect.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/prospect.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/searchForProspect.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/searchForProspect.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/prospects.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/prospects.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesReps.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesReps.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesRep.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesRep.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingZones.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shippingZones.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingZone.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shippingZone.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shipVias.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shipVias.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shipVia.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shipVia.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingChargeTypes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/shippingChargeTypes.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingChargeType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/shippingChargeType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingForms.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shippingForms.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/shippingForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/shippingForm.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesCategories.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesAccounts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesAccounts.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/salesAccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesAccount.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/arAccountAssignments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/arAccountAssignments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/arAccountAssignment.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/arAccountAssignment.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customerFormAssignments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/customerFormAssignments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/customerFormAssignment.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/customerFormAssignment.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section604404">
-    <title><anchor id="Anchor604403" role="Index"
-    xreflabel="sales orders:customer relations and" /> <indexterm
-        significance="normal" zone="Anchor604403">
-        <primary>sales orders</primary>
+      <title>
+         <anchor id="Anchor604403" role="Index" xreflabel="sales orders:customer relations and"/> 
+         <indexterm significance="normal">
+            <primary>sales orders</primary>
 
-        <secondary>customer relations and</secondary>
-      </indexterm>Orders</title>
+            <secondary>customer relations and</secondary>
+         </indexterm>Orders</title>
 
-    <para id="Para519021">Sales Orders are orders placed by Customers for the
+      <para id="Para519021">Sales Orders are orders placed by Customers for the
     purchase of sold Items.</para>
 
-    <xi:include href="guiclient/salesOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/salesOrder.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/openSalesOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/openSalesOrders.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/rescheduleSoLineItems.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/rescheduleSoLineItems.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCustomerInformation.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCustomerInformation.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/packingListBatch.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/packingListBatch.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printPackingList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printPackingList.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/deliverSalesOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/deliverSalesOrder.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/quote.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/quote.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/quotes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/quotes.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section528858">
-    <title>Billing</title>
+      <title>Billing</title>
 
-    <para id="Para519202">The Billing information for the module is stored in
+      <para id="Para519202">The Billing information for the module is stored in
     this section.</para>
 
-    <section id="Section568790">
-      <title><anchor id="Anchor569150" role="Index"
-      xreflabel="invoices:as billing tool" /> <indexterm significance="normal"
-          zone="Anchor569150">
-          <primary>invoices</primary>
+      <section id="Section568790">
+         <title>
+            <anchor id="Anchor569150" role="Index" xreflabel="invoices:as billing tool"/> 
+            <indexterm significance="normal">
+               <primary>invoices</primary>
 
-          <secondary>as billing tool</secondary>
-        </indexterm>Invoices</title>
+               <secondary>as billing tool</secondary>
+            </indexterm>Invoices</title>
 
-      <para id="Para569004">Invoices are described in this section.</para>
-    </section>
+         <para id="Para569004">Invoices are described in this section.</para>
+      </section>
 
-    <xi:include href="guiclient/uninvoicedShipments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/uninvoicedShipments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/selectShippedOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/selectShippedOrders.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/selectOrderForBilling.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/selectOrderForBilling.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/billingEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/billingEditList.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBillingSelections.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBillingSelections.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postBillingSelections.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/postBillingSelections.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/unpostedInvoices.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/unpostedInvoices.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printInvoices.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printInvoices.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printInvoicesByShipvia.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/printInvoicesByShipvia.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/reprintInvoices.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reprintInvoices.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/deliverInvoice.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/deliverInvoice.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postInvoices.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postInvoices.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/purgeInvoices.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/purgeInvoices.xml"
+                  xpointer="element(/1)"/>
 
-    <section id="Section655862">
-      <title>Credit Memos</title>
+      <section id="Section655862">
+         <title>Credit Memos</title>
 
-      <para id="Para571196">Sales Order Credit Memos are used to issue credit
+         <para id="Para571196">Sales Order Credit Memos are used to issue credit
       for sold Inventory. They differ from Accounts Receivable (A/R) Credit
       Memos, which are issued for non-Inventory purposes.</para>
-    </section>
+      </section>
 
-    <section id="Section590528">
-      <title><anchor id="Anchor590527" role="Index"
-      xreflabel="credit memos: creating new" /> <indexterm
-          significance="normal" zone="Anchor590527">
-          <primary>credit memos</primary>
+      <section id="Section590528">
+         <title>
+            <anchor id="Anchor590527" role="Index" xreflabel="credit memos: creating new"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>creating new</secondary>
-        </indexterm> <anchor id="Anchor94106" role="Cross-Ref"
-      xreflabel="94106: Heading2: New Credit Memo" />New Credit Memo</title>
+               <secondary>creating new</secondary>
+            </indexterm> 
+            <anchor id="Anchor94106" role="Cross-Ref" xreflabel="94106: Heading2: New Credit Memo"/>New Credit Memo</title>
 
-      <para id="Para590529">To create a Credit Memo, select the "New Credit
+         <para id="Para590529">To create a Credit Memo, select the "New Credit
       Memo" option. The following screen will appear:</para>
 
-      <para id="Para519388"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_creditMemoNew.png"
-                         id="Graphic523497" />
-            </imageobject>
+         <para id="Para519388">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_creditMemoNew.png" id="Graphic523497"/>
+                  </imageobject>
 
-            <caption id="Caption519389">Create New Credit Memo</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption519389">Create New Credit Memo</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para554398">Memo #</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para554398">Memo #</term>
 
-          <listitem id="listitemN0x180ac00N0x1926024">
-            <para>Next available Credit Memo Number will automatically
+               <listitem id="listitemN0x180ac00N0x1926024">
+                  <para>Next available Credit Memo Number will automatically
             display, unless your system requires you to enter Credit Memo
             Numbers manually.</para>
 
-            <para id="Para631236">Default values and input parameters for
+                  <para id="Para631236">Default values and input parameters for
             Credit Memo Numbers are configurable at the system level.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para631246">Memo Date</term>
+            <varlistentry>
+               <term id="Para631246">Memo Date</term>
 
-          <listitem id="listitemN0x180ac00N0x192606c">
-            <para>Enter a date representing the date when you want the Credit
+               <listitem id="listitemN0x180ac00N0x192606c">
+                  <para>Enter a date representing the date when you want the Credit
             Memo to be distributed. When a Credit Memo is posted, it is posted
             effective as of the Memo date.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para519394">Status</term>
+            <varlistentry>
+               <term id="Para519394">Status</term>
 
-          <listitem id="listitemN0x180ac00N0x19260b4">
-            <para>Indicates whether Credit Memo is posted or unposted.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               <listitem id="listitemN0x180ac00N0x19260b4">
+                  <para>Indicates whether Credit Memo is posted or unposted.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para558479">The quickest way to fill in the Credit Memo
+         <tip>
+            <para id="Para558479">The quickest way to fill in the Credit Memo
         screen may be to select the Invoice you intend to credit using the
         "Apply To" feature. If you use this feature, most of the fields in the
         Credit Memo screen will automatically populate with the needed
         Customer information.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para519396"><anchor id="Anchor556476" role="Index"
-          xreflabel="credit memos:customers associated with" /> <indexterm
-              significance="normal" zone="Anchor556476">
-              <primary>credit memos</primary>
+         <variablelist>
+            <varlistentry>
+               <term id="Para519396">
+                  <anchor id="Anchor556476" role="Index"
+                          xreflabel="credit memos:customers associated with"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>customers associated with</secondary>
-            </indexterm>Customer #</term>
+                     <secondary>customers associated with</secondary>
+                  </indexterm>Customer #</term>
 
-          <listitem id="listitemN0x180ac00N0x192618c">
-            <para>Enter the Customer Number of the Customer you want to issue
+               <listitem id="listitemN0x180ac00N0x192618c">
+                  <para>Enter the Customer Number of the Customer you want to issue
             the Credit Memo to.</para>
 
-            <para id="Para519397">The browse button located to the right of
+                  <para id="Para519397">The browse button located to the right of
             the field leads to a searchable Customers list. You may also
             access this list using the keyboard shortcut "CTRL + L". Once a
             Customer Number is entered, the Customer name and billing address
@@ -373,542 +342,544 @@
             dollar sign ("$"), the Customer's credit Status is "On Credit
             Warning." A red dollar sign ("$") indicates the Customer's credit
             Status is "On Credit Hold."</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para601810">Credit Memos may be entered for inactive
+         <note>
+            <para id="Para601810">Credit Memos may be entered for inactive
         Customers. The same does not hold true for Sales Orders.</para>
-      </note>
+         </note>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para639833"><anchor id="Anchor639832" role="Index"
-          xreflabel="credit memos:billing information for" /> <indexterm
-              significance="normal" zone="Anchor639832">
-              <primary>credit memos</primary>
+         <variablelist>
+            <varlistentry>
+               <term id="Para639833">
+                  <anchor id="Anchor639832" role="Index" xreflabel="credit memos:billing information for"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>billing information for</secondary>
-            </indexterm>Bill-To Name</term>
+                     <secondary>billing information for</secondary>
+                  </indexterm>Bill-To Name</term>
 
-          <listitem id="listitemN0x180ac00N0x1926264">
-            <para>Displays the Customer's Bill-To name.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1926264">
+                  <para>Displays the Customer's Bill-To name.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639834">Bill-To Phone</term>
+            <varlistentry>
+               <term id="Para639834">Bill-To Phone</term>
 
-          <listitem id="listitemN0x180ac00N0x19262ac">
-            <para>Displays the Customer's Bill-To phone number.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x19262ac">
+                  <para>Displays the Customer's Bill-To phone number.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639835">Address</term>
+            <varlistentry>
+               <term id="Para639835">Address</term>
 
-          <listitem id="listitemN0x180ac00N0x19262f4">
-            <para>Displays the Customer's Bill-To Address. You may manually
+               <listitem id="listitemN0x180ac00N0x19262f4">
+                  <para>Displays the Customer's Bill-To Address. You may manually
             override the displayed Address information in the fields below--or
             use the browse button to select another Address.</para>
 
-            <para id="Para639836">Street Address: The Customer's Bill-To
+                  <para id="Para639836">Street Address: The Customer's Bill-To
             street Address.</para>
 
-            <para id="Para639837">City: The Customer's Bill-To city.</para>
+                  <para id="Para639837">City: The Customer's Bill-To city.</para>
 
-            <para id="Para639838">State: The Customer's Bill-To state.</para>
+                  <para id="Para639838">State: The Customer's Bill-To state.</para>
 
-            <para id="Para639839">Postal Code: The Customer's Bill-To Postal
+                  <para id="Para639839">Postal Code: The Customer's Bill-To Postal
             Code.</para>
 
-            <para id="Para639840">Country: The Customer's Bill-To
+                  <para id="Para639840">Country: The Customer's Bill-To
             country.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639841">Copy to Ship-to -\&gt;</term>
+            <varlistentry>
+               <term id="Para639841">Copy to Ship-to -\&gt;</term>
 
-          <listitem id="listitemN0x180ac00N0x192633c">
-            <para>Select to copy contents of billing address into Ship-To
+               <listitem id="listitemN0x180ac00N0x192633c">
+                  <para>Select to copy contents of billing address into Ship-To
             address field.</para>
 
-            <para id="Para639842">This option is enabled if the Customer
+                  <para id="Para639842">This option is enabled if the Customer
             master for the specified Customer indicates that free-form
             Ship-To's are allowed.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639843">Ship-To #</term>
+            <varlistentry>
+               <term id="Para639843">Ship-To #</term>
 
-          <listitem id="listitemN0x180ac00N0x1926384">
-            <para>Enter the number of the preferred Ship-To Address.</para>
+               <listitem id="listitemN0x180ac00N0x1926384">
+                  <para>Enter the number of the preferred Ship-To Address.</para>
 
-            <para id="Para639844">Customers may maintain multiple Ship-To
+                  <para id="Para639844">Customers may maintain multiple Ship-To
             Addresses. If the Customer master for the specified Customer
             indicates that free-form Ship-To's are allowed, then any address
             may be entered. If free-form Ship-To's are not allowed, then the
             Ship-To Address must be entered using the browse button located to
             the right of the field. The browse button leads to a searchable
             Ship-To Addresses list.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639846"><anchor id="Anchor639845" role="Index"
-          xreflabel="credit memos:ship-to details for" /> <indexterm
-              significance="normal" zone="Anchor639845">
-              <primary>credit memos</primary>
+            <varlistentry>
+               <term id="Para639846">
+                  <anchor id="Anchor639845" role="Index" xreflabel="credit memos:ship-to details for"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>ship-to details for</secondary>
-            </indexterm>Ship-To Name</term>
+                     <secondary>ship-to details for</secondary>
+                  </indexterm>Ship-To Name</term>
 
-          <listitem id="listitemN0x180ac00N0x1926414">
-            <para>Displays the name for the specified Ship-To.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1926414">
+                  <para>Displays the name for the specified Ship-To.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639847">Ship-To Phone</term>
+            <varlistentry>
+               <term id="Para639847">Ship-To Phone</term>
 
-          <listitem id="listitemN0x180ac00N0x192645c">
-            <para>Displays the phone number for the specified Ship-To.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x192645c">
+                  <para>Displays the phone number for the specified Ship-To.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639848">Address</term>
+            <varlistentry>
+               <term id="Para639848">Address</term>
 
-          <listitem id="listitemN0x180ac00N0x19264a4">
-            <para>Displays the specified Ship-To Address. You may manually
+               <listitem id="listitemN0x180ac00N0x19264a4">
+                  <para>Displays the specified Ship-To Address. You may manually
             override the displayed Address information in the fields below--or
             use the browse button to select another Address.</para>
 
-            <para id="Para639849">Street Address: The specified Ship-To street
+                  <para id="Para639849">Street Address: The specified Ship-To street
             Address.</para>
 
-            <para id="Para639850">City: The specified Ship-To city.</para>
+                  <para id="Para639850">City: The specified Ship-To city.</para>
 
-            <para id="Para639851">State: The specified Ship-To state.</para>
+                  <para id="Para639851">State: The specified Ship-To state.</para>
 
-            <para id="Para639852">Postal Code: The specified Ship-To Postal
+                  <para id="Para639852">Postal Code: The specified Ship-To Postal
             Code.</para>
 
-            <para id="Para639853">Country: The specified Ship-To
+                  <para id="Para639853">Country: The specified Ship-To
             country.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para558500">Apply To</term>
+            <varlistentry>
+               <term id="Para558500">Apply To</term>
 
-          <listitem id="listitemN0x180ac00N0x19264ec">
-            <para>Specify the Invoice Number of the Invoice you want to apply
+               <listitem id="listitemN0x180ac00N0x19264ec">
+                  <para>Specify the Invoice Number of the Invoice you want to apply
             the Credit Memo to, using the browse button located to the right
             of the field.</para>
 
-            <para id="Para558465">The list will include Invoices for the
+                  <para id="Para558465">The list will include Invoices for the
             specified Customer. If a Credit Memo is applied to a specific
             Invoice, the Credit Memo may only credit Items which appeared on
             the chosen Invoice. If for some reason the Credit Memo is applied
             to a closed Invoice, the Credit Memo will be listed as an
             unapplied Credit Memo.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para590450">You are not required to apply a Credit Memo to a
+         <note>
+            <para id="Para590450">You are not required to apply a Credit Memo to a
         specific Invoice. If a Credit Memo is applied to an Invoice, any
         Credit Memo Items will be returned to Inventory when the Credit Memo
         is posted.</para>
-      </note>
+         </note>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para558472">Sales Rep.</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para558472">Sales Rep.</term>
 
-          <listitem id="listitemN0x180ac00N0x192657c">
-            <para>Specify the Sales Representative associated with the
+               <listitem id="listitemN0x180ac00N0x192657c">
+                  <para>Specify the Sales Representative associated with the
             Order.</para>
 
-            <para id="Para519406">By default, the Customer's designated Sales
+                  <para id="Para519406">By default, the Customer's designated Sales
             Representative will appear in the field--except if you have
             selected an Invoice to apply the Credit Memo to. In that case, the
             Sales Representative credited with the Invoice will be
             selected.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para604474">Commission</term>
+            <varlistentry>
+               <term id="Para604474">Commission</term>
 
-          <listitem id="listitemN0x180ac00N0x19265c4">
-            <para>By default, the commission percentage recorded on the
+               <listitem id="listitemN0x180ac00N0x19265c4">
+                  <para>By default, the commission percentage recorded on the
             Customer master will be automatically entered in this field. If
             for some reason you select a non-default Sales Representative at
             Credit Memo entry, the commission rate will not change. To adjust
             the commission rate, you must make the change manually.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639892"><anchor id="Anchor639891" role="Index"
-          xreflabel="tax authorities:for quotes" /> <indexterm
-              significance="normal" zone="Anchor639891">
-              <primary>tax authorities</primary>
+            <varlistentry>
+               <term id="Para639892">
+                  <anchor id="Anchor639891" role="Index" xreflabel="tax authorities:for quotes"/> 
+                  <indexterm significance="normal">
+                     <primary>tax authorities</primary>
 
-              <secondary>for quotes</secondary>
-            </indexterm>Tax Authority</term>
+                     <secondary>for quotes</secondary>
+                  </indexterm>Tax Authority</term>
 
-          <listitem id="listitemN0x180ac00N0x1926654">
-            <para>Specify the Tax Authority associated with the Quote.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1926654">
+                  <para>Specify the Tax Authority associated with the Quote.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639893"></term>
+            <varlistentry>
+               <term id="Para639893"/>
 
-          <listitem id="listitemN0x180ac00N0x192669c">
-            <para>The Tax Authority for the specified Ship-To Address will be
+               <listitem id="listitemN0x180ac00N0x192669c">
+                  <para>The Tax Authority for the specified Ship-To Address will be
             entered here by default. Otherwise, the primary Tax Authority for
             the Customer will be entered. Ultimately, Tax is applied at the
             Line Item level--so the Tax Authority associated with an Item's
             Tax Type will be used.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para519409">Ship-To #</term>
+            <varlistentry>
+               <term id="Para519409">Ship-To #</term>
 
-          <listitem id="listitemN0x180ac00N0x19266e4">
-            <para>Enter the number of the preferred Ship-To Address.</para>
+               <listitem id="listitemN0x180ac00N0x19266e4">
+                  <para>Enter the number of the preferred Ship-To Address.</para>
 
-            <para id="Para519410">Customers may maintain multiple Ship-To
+                  <para id="Para519410">Customers may maintain multiple Ship-To
             Addresses. If Pricing Schedules by Ship-To are maintained for the
             Customer, the Ship-To Address must match the Pricing Schedule to
             successfully issue credit for Items linked exclusively to the
             Pricing Schedule. The browse button located to the right of the
             field leads to a searchable Ship-To Addresses list.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para622110">Make sure the Ship-To Address on the Credit Memo
+         <tip>
+            <para id="Para622110">Make sure the Ship-To Address on the Credit Memo
         matches the Ship-To Address on the Customer's Pricing Schedule. If
         they don"t match, you won"t be able to issue credit for exclusively
         sold Items.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para590372">Cust. PO #</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para590372">Cust. PO #</term>
 
-          <listitem id="listitemN0x180ac00N0x1926774">
-            <para>By default, the Customer Purchase Order Number associated
+               <listitem id="listitemN0x180ac00N0x1926774">
+                  <para>By default, the Customer Purchase Order Number associated
             with the Invoice being credited will display here. If no Customer
             Purchase Order Number was entered at the time of the original
             Sales Order--or if the Credit Memo is not being applied to a
             specific Invoice--the field will remain blank. Enter or edit a
             Customer Purchase Order Number as necessary.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para616452">Reason Code</term>
+            <varlistentry>
+               <term id="Para616452">Reason Code</term>
 
-          <listitem id="listitemN0x180ac00N0x19267bc">
-            <para>Specify the reason why an adjustment is being made to a
+               <listitem id="listitemN0x180ac00N0x19267bc">
+                  <para>Specify the reason why an adjustment is being made to a
             Customer's account.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552611"><anchor id="Anchor556479" role="Index"
-          xreflabel="credit memos:hold options for" /> <indexterm
-              significance="normal" zone="Anchor556479">
-              <primary>credit memos</primary>
+            <varlistentry>
+               <term id="Para552611">
+                  <anchor id="Anchor556479" role="Index" xreflabel="credit memos:hold options for"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>hold options for</secondary>
-            </indexterm>Place on Hold</term>
+                     <secondary>hold options for</secondary>
+                  </indexterm>Place on Hold</term>
 
-          <listitem id="listitemN0x180ac00N0x192684c">
-            <para>Select to place Credit Memo on hold.</para>
+               <listitem id="listitemN0x180ac00N0x192684c">
+                  <para>Select to place Credit Memo on hold.</para>
 
-            <para id="Para593367">If a Credit Memo is placed on hold, it
+                  <para id="Para593367">If a Credit Memo is placed on hold, it
             cannot be posted. You would place a Credit Memo on hold, for
             example, to allow time for producing and processing a Return
             Material Authorization (RMA) document. To remove a hold and allow
             posting of a Credit Memo, de-select this option.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para554459">To the far right of the screen, the following
+         <para id="Para554459">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para554468">SAVE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para554468">SAVE</term>
 
-          <listitem id="listitemN0x180ac00N0x19268b8">
-            <para>Creates the new Credit Memo and saves the Credit Memo
+               <listitem id="listitemN0x180ac00N0x19268b8">
+                  <para>Creates the new Credit Memo and saves the Credit Memo
             information.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552612">CANCEL</term>
+            <varlistentry>
+               <term id="Para552612">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x1926900">
-            <para>Closes the screen without creating a new Credit Memo,
+               <listitem id="listitemN0x180ac00N0x1926900">
+                  <para>Closes the screen without creating a new Credit Memo,
             returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551631"><anchor id="Anchor556492" role="Index"
-      xreflabel="credit memos:adding line items to" /> <indexterm
-          significance="normal" zone="Anchor556492">
-          <primary>credit memos</primary>
+         <para id="Para551631">
+            <anchor id="Anchor556492" role="Index" xreflabel="credit memos:adding line items to"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>adding line items to</secondary>
-        </indexterm>To create or modify Credit Memo Line Items, select the
+               <secondary>adding line items to</secondary>
+            </indexterm>To create or modify Credit Memo Line Items, select the
       "Line Items" tab at the top of the "Credit Memo" screen. The following
       screen will appear:</para>
 
-      <para id="Para551635"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_credMemLineItems.png"
-                         id="Graphic551633" />
-            </imageobject>
+         <para id="Para551635">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_credMemLineItems.png" id="Graphic551633"/>
+                  </imageobject>
 
-            <caption id="Caption551636">Credit Memo Line Items</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption551636">Credit Memo Line Items</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para551637">When creating or modifying Credit Memo Line Items,
+         <para id="Para551637">When creating or modifying Credit Memo Line Items,
       you are presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para551626">Line Items</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551626">Line Items</term>
 
-          <listitem id="listitemN0x180ac00N0x1926a20">
-            <para>Display lists Sales Order Line Item quantities that have
+               <listitem id="listitemN0x180ac00N0x1926a20">
+                  <para>Display lists Sales Order Line Item quantities that have
             been returned and selected for credit.</para>
 
-            <para id="Para654304">Line Items are added to a Credit Memo using
+                  <para id="Para654304">Line Items are added to a Credit Memo using
             the NEW ITEM button.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para571683">Before creating a new Credit Memo Line Item, be
+         <tip>
+            <para id="Para571683">Before creating a new Credit Memo Line Item, be
         sure to specify an Invoice to apply the Credit Memo to. The "Apply To"
         feature is found on the Credit Memo header screen.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para552000">Subtotal</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para552000">Subtotal</term>
 
-          <listitem id="listitemN0x180ac00N0x1926ab0">
-            <para>Displays the subtotal for the Credit Memo Line Items.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1926ab0">
+                  <para>Displays the subtotal for the Credit Memo Line Items.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para554486"><anchor id="Anchor556557" role="Index"
-          xreflabel="credit memos:charges related to" /> <indexterm
-              significance="normal" zone="Anchor556557">
-              <primary>credit memos</primary>
+            <varlistentry>
+               <term id="Para554486">
+                  <anchor id="Anchor556557" role="Index" xreflabel="credit memos:charges related to"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>charges related to</secondary>
-            </indexterm>Misc. Charge Amount</term>
+                     <secondary>charges related to</secondary>
+                  </indexterm>Misc. Charge Amount</term>
 
-          <listitem id="listitemN0x180ac00N0x1926b40">
-            <para>Enter the amount of the miscellaneous charge. Before
+               <listitem id="listitemN0x180ac00N0x1926b40">
+                  <para>Enter the amount of the miscellaneous charge. Before
             entering a miscellaneous charge amount, you must first assign the
             charge to a Sales Account and also enter a description of the
             charge.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552006">Misc. Charge Description</term>
+            <varlistentry>
+               <term id="Para552006">Misc. Charge Description</term>
 
-          <listitem id="listitemN0x180ac00N0x1926b88">
-            <para>Enter a description to identify the miscellaneous
+               <listitem id="listitemN0x180ac00N0x1926b88">
+                  <para>Enter a description to identify the miscellaneous
             charge.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552009">Misc. Charge Credit Account</term>
+            <varlistentry>
+               <term id="Para552009">Misc. Charge Credit Account</term>
 
-          <listitem id="listitemN0x180ac00N0x1926bd0">
-            <para>Enter a Credit Account to assign the miscellaneous charge
+               <listitem id="listitemN0x180ac00N0x1926bd0">
+                  <para>Enter a Credit Account to assign the miscellaneous charge
             to.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552025">Freight</term>
+            <varlistentry>
+               <term id="Para552025">Freight</term>
 
-          <listitem id="listitemN0x180ac00N0x1926c18">
-            <para>Enter the amount of freight charge to be added to the
+               <listitem id="listitemN0x180ac00N0x1926c18">
+                  <para>Enter the amount of freight charge to be added to the
             specified Order. The freight charge may be entered during the
             creation or modification of a Credit Memo--or at the time of
             shipment.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639761">Tax</term>
+            <varlistentry>
+               <term id="Para639761">Tax</term>
 
-          <listitem id="listitemN0x180ac00N0x1926c60">
-            <para>Displays the total amount of Tax to be charged on the Credit
+               <listitem id="listitemN0x180ac00N0x1926c60">
+                  <para>Displays the total amount of Tax to be charged on the Credit
             Memo.</para>
 
-            <para id="Para639762">Sales Tax is calculated at the Credit Memo
+                  <para id="Para639762">Sales Tax is calculated at the Credit Memo
             Line Item level. The Tax amount displayed here represents the
             total for all Line Item Tax amounts. To get a detailed view of the
             Tax calculation, click on the Tax link using your mouse.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para552027">Total</term>
+            <varlistentry>
+               <term id="Para552027">Total</term>
 
-          <listitem id="listitemN0x180ac00N0x1926ca8">
-            <para>Displays the total amount of the Credit Memo.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               <listitem id="listitemN0x180ac00N0x1926ca8">
+                  <para>Displays the total amount of the Credit Memo.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551861">To the far right of the screen, the following
+         <para id="Para551861">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para554495">SAVE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para554495">SAVE</term>
 
-          <listitem id="listitemN0x180ac00N0x1926d14">
-            <para>Saves new Credit Memo Line Items and updates any changes
+               <listitem id="listitemN0x180ac00N0x1926d14">
+                  <para>Saves new Credit Memo Line Items and updates any changes
             made to existing Line Items.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551862">CANCEL</term>
+            <varlistentry>
+               <term id="Para551862">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x1926d5c">
-            <para>Closes the screen without creating a new Credit Memo Line
+               <listitem id="listitemN0x180ac00N0x1926d5c">
+                  <para>Closes the screen without creating a new Credit Memo Line
             Item or saving any changes, returning you to the application
             desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551864">NEW ITEM</term>
+            <varlistentry>
+               <term id="Para551864">NEW ITEM</term>
 
-          <listitem id="listitemN0x180ac00N0x1926da4">
-            <para>Opens screen for creating a new Credit Memo Line
+               <listitem id="listitemN0x180ac00N0x1926da4">
+                  <para>Opens screen for creating a new Credit Memo Line
             Item.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551865">EDIT ITEM</term>
+            <varlistentry>
+               <term id="Para551865">EDIT ITEM</term>
 
-          <listitem id="listitemN0x180ac00N0x1926dec">
-            <para>Enables you to edit highlighted Credit Memo Line Item. The
+               <listitem id="listitemN0x180ac00N0x1926dec">
+                  <para>Enables you to edit highlighted Credit Memo Line Item. The
             edit screen is the same as that for creating a new Credit Memo
             Line Item--except that when editing, the fields will contain Line
             Item information. Double-clicking on a Line Item will also bring
             you to the editing screen.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551866">DELETE ITEM</term>
+            <varlistentry>
+               <term id="Para551866">DELETE ITEM</term>
 
-          <listitem id="listitemN0x180ac00N0x1930c24">
-            <para>Highlight a Credit Memo Line Item and then select this
+               <listitem id="listitemN0x180ac00N0x1930c24">
+                  <para>Highlight a Credit Memo Line Item and then select this
             button to remove the Line Item from the Credit Memo list.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551867"><anchor id="Anchor556614" role="Index"
-      xreflabel="credit memos:adding line items to" /> <indexterm
-          significance="normal" zone="Anchor556614">
-          <primary>credit memos</primary>
+         <para id="Para551867">
+            <anchor id="Anchor556614" role="Index" xreflabel="credit memos:adding line items to"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>adding line items to</secondary>
-        </indexterm>To create a new Credit Memo Line Item, select the NEW
+               <secondary>adding line items to</secondary>
+            </indexterm>To create a new Credit Memo Line Item, select the NEW
       button. The following screen will appear:</para>
 
-      <para id="Para551871"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_creditMemoItem.png"
-                         id="Graphic551869" />
-            </imageobject>
+         <para id="Para551871">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_creditMemoItem.png" id="Graphic551869"/>
+                  </imageobject>
 
-            <caption id="Caption551872">Create New Credit Memo Line
+                  <caption id="Caption551872">Create New Credit Memo Line
             Item</caption>
-          </mediaobject>
-        </screenshot></para>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para571704">When creating a new Credit Memo Line Item, you are
+         <para id="Para571704">When creating a new Credit Memo Line Item, you are
       presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para571705">Order #</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para571705">Order #</term>
 
-          <listitem id="listitemN0x180ac00N0x1930d44">
-            <para>Displays the Credit Memo number for the current Credit
+               <listitem id="listitemN0x180ac00N0x1930d44">
+                  <para>Displays the Credit Memo number for the current Credit
             Memo.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para571706">Line #</term>
+            <varlistentry>
+               <term id="Para571706">Line #</term>
 
-          <listitem id="listitemN0x180ac00N0x1930d8c">
-            <para>Displays the line number assigned to the Credit Memo
+               <listitem id="listitemN0x180ac00N0x1930d8c">
+                  <para>Displays the line number assigned to the Credit Memo
             Item.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551878">Item Number</term>
+            <varlistentry>
+               <term id="Para551878">Item Number</term>
 
-          <listitem id="listitemN0x180ac00N0x1930dd4">
-            <para>Enter the Item Number of the Item you want to add to the
+               <listitem id="listitemN0x180ac00N0x1930dd4">
+                  <para>Enter the Item Number of the Item you want to add to the
             Credit Memo.</para>
 
-            <para id="Para558729">If the Credit Memo is being applied to an
+                  <para id="Para558729">If the Credit Memo is being applied to an
             Invoice, only those Line Items which appeared on the Invoice will
             be available for selection--that is, if the appropriate setting is
             selected at the system level. Invoices are selected for
             application by a Credit Memo using the "Apply To" feature on the
             Credit Memo header screen.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para595604">The system-level configuration which determines
+         <tip>
+            <para id="Para595604">The system-level configuration which determines
         whether Credit Memo Items will be restricted to relevant Invoice Items
         is the setting "Restrict Credit Memos to Items that appear on their
         Apply-To Document." Selecting this option narrows the Credit Memo Item
@@ -917,424 +888,426 @@
         master list will appear instead when selecting Credit Memo Items for
         Credit Memos applied to a specific Invoice. This setting has no
         bearing on unapplied Credit Memos.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para652601">UOM</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para652601">UOM</term>
 
-          <listitem id="listitemN0x180ac00N0x1930e64">
-            <para>Inventory Unit of Measure.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1930e64">
+                  <para>Inventory Unit of Measure.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551888">Qty. Shipped</term>
+            <varlistentry>
+               <term id="Para551888">Qty. Shipped</term>
 
-          <listitem id="listitemN0x180ac00N0x1930eac">
-            <para>Displays the quantity of the Item shipped to date.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1930eac">
+                  <para>Displays the quantity of the Item shipped to date.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551892">Qty. Returned</term>
+            <varlistentry>
+               <term id="Para551892">Qty. Returned</term>
 
-          <listitem id="listitemN0x180ac00N0x1930ef4">
-            <para>Enter the quantity of the Item returned for credit.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1930ef4">
+                  <para>Enter the quantity of the Item returned for credit.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551897">Qty. To Credit</term>
+            <varlistentry>
+               <term id="Para551897">Qty. To Credit</term>
 
-          <listitem id="listitemN0x180ac00N0x1930f3c">
-            <para>Enter the quantity of the Item you plan to give the Customer
+               <listitem id="listitemN0x180ac00N0x1930f3c">
+                  <para>Enter the quantity of the Item you plan to give the Customer
             credit for. The quantity entered here may equal the quantity
             returned. However, you have the flexibility to credit the Customer
             for a quantity different from the returned quantity. The quantity
             credited is multiplied by the Net Unit Price to determine the
             amount of the credit.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para590340"><anchor id="Anchor590336" role="Index"
-          xreflabel="credit memos:pricing of" /> <indexterm
-              significance="normal" zone="Anchor590336">
-              <primary>credit memos</primary>
+            <varlistentry>
+               <term id="Para590340">
+                  <anchor id="Anchor590336" role="Index" xreflabel="credit memos:pricing of"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>pricing of</secondary>
-            </indexterm>Net Unit Price</term>
+                     <secondary>pricing of</secondary>
+                  </indexterm>Net Unit Price</term>
 
-          <listitem id="listitemN0x180ac00N0x1930fcc">
-            <para>Specify the Net Unit Price to assign the quantity being
+               <listitem id="listitemN0x180ac00N0x1930fcc">
+                  <para>Specify the Net Unit Price to assign the quantity being
             credited.</para>
 
-            <para id="Para635362">If the Credit Memo is being applied to a
+                  <para id="Para635362">If the Credit Memo is being applied to a
             specific Invoice, then the system will automatically enter the
             Item's Net Unit Price as it appeared on the referring Invoice. If
             no Invoice is being applied-to, then select the appropriate Net
             Unit Price from the Price list, using the browse button located to
             the right of the field.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para639748">If there is only one Unit Price available for
+         <tip>
+            <para id="Para639748">If there is only one Unit Price available for
         the Item, then that Price will be entered automatically when you
         select the browse button located to the right of the field.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para635363">Extended Price</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para635363">Extended Price</term>
 
-          <listitem id="listitemN0x180ac00N0x193105c">
-            <para>Displays the Extended Price.</para>
+               <listitem id="listitemN0x180ac00N0x193105c">
+                  <para>Displays the Extended Price.</para>
 
-            <para id="Para571766">The Extended Price for a Credit Memo Item is
+                  <para id="Para571766">The Extended Price for a Credit Memo Item is
             based on the quantity credited multiplied by the Price.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639679">Tax Type</term>
+            <varlistentry>
+               <term id="Para639679">Tax Type</term>
 
-          <listitem id="listitemN0x180ac00N0x19310a4">
-            <para>Specify the Tax Type for the Credit Memo Item.</para>
+               <listitem id="listitemN0x180ac00N0x19310a4">
+                  <para>Specify the Tax Type for the Credit Memo Item.</para>
 
-            <para id="Para639680">By default, the Item's Tax Type
+                  <para id="Para639680">By default, the Item's Tax Type
             corresponding to the Credit Memo's Tax Authority will be presented
             here. The link between Tax Types and Tax Authorities is made on
             the Item master. If the Item master does not have a Tax Type for
             the Credit Memo's Tax Authority, then no Tax will be
             charged.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639681">Tax Code</term>
+            <varlistentry>
+               <term id="Para639681">Tax Code</term>
 
-          <listitem id="listitemN0x180ac00N0x19310ec">
-            <para>Specify the Tax Code to be applied to the Credit Memo
+               <listitem id="listitemN0x180ac00N0x19310ec">
+                  <para>Specify the Tax Code to be applied to the Credit Memo
             Item.</para>
 
-            <para id="Para639682">By default, the Tax Code specified in the
+                  <para id="Para639682">By default, the Tax Code specified in the
             Tax Selection matrix will be displayed here. For a Tax Code to be
             used, the matrix must have an entry which matches both the Item's
             Tax Type definition and the Tax Authority specified on the Credit
             Memo header. If no Tax Selection match exists, then no Tax Code
             will be used--meaning no Tax will be charged.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <tip>
-        <para id="Para639684">The relationship between Tax Authorities, Tax
+         <tip>
+            <para id="Para639684">The relationship between Tax Authorities, Tax
         Types, and Tax Codes is established in the Tax Selection
         matrix.</para>
-      </tip>
+         </tip>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para639685">Tax</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para639685">Tax</term>
 
-          <listitem id="listitemN0x180ac00N0x193117c">
-            <para>Displays the amount of Tax to be charged for the Credit Memo
+               <listitem id="listitemN0x180ac00N0x193117c">
+                  <para>Displays the amount of Tax to be charged for the Credit Memo
             Line Item quantity.</para>
 
-            <para id="Para639686">Sales Tax is calculated at the Credit Memo
+                  <para id="Para639686">Sales Tax is calculated at the Credit Memo
             Line Item level. To get a detailed view of the Tax calculation,
             click on the Tax link using your mouse.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para616641">Reason Code</term>
+            <varlistentry>
+               <term id="Para616641">Reason Code</term>
 
-          <listitem id="listitemN0x180ac00N0x19311c4">
-            <para>Specify the reason why an adjustment is being made to a
+               <listitem id="listitemN0x180ac00N0x19311c4">
+                  <para>Specify the reason why an adjustment is being made to a
             Customer's account.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para616670">By default, the Reason Code on the Credit Memo
+         <note>
+            <para id="Para616670">By default, the Reason Code on the Credit Memo
         header will be used at the Line Item level. However, you may change
         the Reason Code for individual Line Items.</para>
-      </note>
+         </note>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para571775">Pricing UOM</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para571775">Pricing UOM</term>
 
-          <listitem id="listitemN0x180ac00N0x1931254">
-            <para>Displays the Item's Price UOM.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x1931254">
+                  <para>Displays the Item's Price UOM.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para571776">Ratio</term>
+            <varlistentry>
+               <term id="Para571776">Ratio</term>
 
-          <listitem id="listitemN0x180ac00N0x193129c">
-            <para>Displays the Item's Price/Inventory UOM ratio.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x193129c">
+                  <para>Displays the Item's Price/Inventory UOM ratio.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551914">Unit Cost</term>
+            <varlistentry>
+               <term id="Para551914">Unit Cost</term>
 
-          <listitem id="listitemN0x180ac00N0x19312e4">
-            <para>Displays the Standard Cost per unit.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x19312e4">
+                  <para>Displays the Standard Cost per unit.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551916">List Price</term>
+            <varlistentry>
+               <term id="Para551916">List Price</term>
 
-          <listitem id="listitemN0x180ac00N0x193132c">
-            <para>Displays the Item's List Price per unit displays.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x193132c">
+                  <para>Displays the Item's List Price per unit displays.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para554520">Sale Price</term>
+            <varlistentry>
+               <term id="Para554520">Sale Price</term>
 
-          <listitem id="listitemN0x180ac00N0x1931374">
-            <para>Displays the sold Price for the Item at the time of
+               <listitem id="listitemN0x180ac00N0x1931374">
+                  <para>Displays the sold Price for the Item at the time of
             sale.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551920"><anchor id="Anchor556619" role="Index"
-          xreflabel="credit memos:discount pricing for" /> <indexterm
-              significance="normal" zone="Anchor556619">
-              <primary>credit memos</primary>
+            <varlistentry>
+               <term id="Para551920">
+                  <anchor id="Anchor556619" role="Index" xreflabel="credit memos:discount pricing for"/> 
+                  <indexterm significance="normal">
+                     <primary>credit memos</primary>
 
-              <secondary>discount pricing for</secondary>
-            </indexterm>Discount % from List</term>
+                     <secondary>discount pricing for</secondary>
+                  </indexterm>Discount % from List</term>
 
-          <listitem id="listitemN0x180ac00N0x1931404">
-            <para>The default Customer discount (if any) will display
+               <listitem id="listitemN0x180ac00N0x1931404">
+                  <para>The default Customer discount (if any) will display
             here.</para>
 
-            <para id="Para590296">Default Customer discount percentages are
+                  <para id="Para590296">Default Customer discount percentages are
             defined in the Customer master.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551925">Discount % from Sale</term>
+            <varlistentry>
+               <term id="Para551925">Discount % from Sale</term>
 
-          <listitem id="listitemN0x180ac00N0x193144c">
-            <para>Specify a percentage to reduce the credited amount by. The
+               <listitem id="listitemN0x180ac00N0x193144c">
+                  <para>Specify a percentage to reduce the credited amount by. The
             discount will be deducted from the sale Price, thereby reducing
             the amount of the credit by the specified percentage.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639668">Receiving Whse</term>
+            <varlistentry>
+               <term id="Para639668">Receiving Whse</term>
 
-          <listitem id="listitemN0x180ac00N0x1931494">
-            <para>Specify the Warehouse returned Inventory will be received
+               <listitem id="listitemN0x180ac00N0x1931494">
+                  <para>Specify the Warehouse returned Inventory will be received
             into.</para>
 
-            <para id="Para639669">Items designated as Multiple Location
+                  <para id="Para639669">Items designated as Multiple Location
             Control Items may be received into multiple Warehouses. If this is
             the case, be sure to specify the correct receiving Warehouse when
             entering a Credit Memo Line Item. The receiving Warehouse will not
             necessarily be the same Warehouse as the Warehouse the Item was
             shipped from.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551930">Notes</term>
+            <varlistentry>
+               <term id="Para551930">Notes</term>
 
-          <listitem id="listitemN0x180ac00N0x19314dc">
-            <para>This is a scrolling text field with word-wrapping for
+               <listitem id="listitemN0x180ac00N0x19314dc">
+                  <para>This is a scrolling text field with word-wrapping for
             entering Notes related to the Credit Memo Item.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551932">To the far right of the screen, the following
+         <para id="Para551932">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para551933">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551933">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x1931548">
-            <para>Closes the screen without creating a new Credit Memo Item,
+               <listitem id="listitemN0x180ac00N0x1931548">
+                  <para>Closes the screen without creating a new Credit Memo Item,
             returning you to the previous screen.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551934">SAVE</term>
+            <varlistentry>
+               <term id="Para551934">SAVE</term>
 
-          <listitem id="listitemN0x180ac00N0x1931590">
-            <para>Creates the new Credit Memo Item and adds it to the list of
+               <listitem id="listitemN0x180ac00N0x1931590">
+                  <para>Creates the new Credit Memo Item and adds it to the list of
             Credit Memo Line Items.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551696">To add Notes to a Credit Memo, select the "Notes"
+         <para id="Para551696">To add Notes to a Credit Memo, select the "Notes"
       tab at the top of the "Credit Memo" screen. The following screen will
       appear:</para>
 
-      <para id="Para551700"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_credMemNotes.png"
-                         id="Graphic551698" />
-            </imageobject>
+         <para id="Para551700">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_credMemNotes.png" id="Graphic551698"/>
+                  </imageobject>
 
-            <caption id="Caption551701">Credit Memo Notes</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption551701">Credit Memo Notes</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para551702">When adding Notes to a Credit Memo, you are
+         <para id="Para551702">When adding Notes to a Credit Memo, you are
       presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para551769">Notes</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para551769">Notes</term>
 
-          <listitem id="listitemN0x180ac00N0x1931668">
-            <para>This is a scrolling text field with word-wrapping for
+               <listitem id="listitemN0x180ac00N0x1931668">
+                  <para>This is a scrolling text field with word-wrapping for
             entering Notes related to the Credit Memo. Notes entered on this
             screen will follow the Credit Memo through the billing process.
             For example, you may view notes associated with a posted Credit
             Memo within the Customer History report.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para551708">To the far right of the screen, the following
+         <para id="Para551708">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para554551">SAVE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para554551">SAVE</term>
 
-          <listitem id="listitemN0x180ac00N0x19316d4">
-            <para>Saves the Credit Memo Notes.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x19316d4">
+                  <para>Saves the Credit Memo Notes.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para551709">CANCEL</term>
+            <varlistentry>
+               <term id="Para551709">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x193171c">
-            <para>Closes the screen without creating a Credit Memo Notes,
+               <listitem id="listitemN0x180ac00N0x193171c">
+                  <para>Closes the screen without creating a Credit Memo Notes,
             returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
 
-    <section id="Section519482">
-      <title><anchor id="Anchor548980" role="Index"
-      xreflabel="credit memos:list of unposted " /> <indexterm
-          significance="normal" zone="Anchor548980">
-          <primary>credit memos</primary>
+      <section id="Section519482">
+         <title>
+            <anchor id="Anchor548980" role="Index" xreflabel="credit memos:list of unposted "/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>list of unposted</secondary>
-        </indexterm>List Unposted Credit Memos</title>
+               <secondary>list of unposted</secondary>
+            </indexterm>List Unposted Credit Memos</title>
 
-      <para id="Para519483">To view a list of unposted Credit Memos, select
+         <para id="Para519483">To view a list of unposted Credit Memos, select
       the "List Unposted Credit Memos" option. The following screen will
       appear:</para>
 
-      <para id="Para519487"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_creditMemoUnposted.png"
-                         id="Graphic523551" />
-            </imageobject>
+         <para id="Para519487">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_creditMemoUnposted.png" id="Graphic523551"/>
+                  </imageobject>
 
-            <caption id="Caption531871">Unposted Credit Memos Master
+                  <caption id="Caption531871">Unposted Credit Memos Master
             List</caption>
-          </mediaobject>
-        </screenshot></para>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <tip>
-        <para id="Para639508">You may select multiple Credit Memos for posting
+         <tip>
+            <para id="Para639508">You may select multiple Credit Memos for posting
         by highlighting them using your mouse--or a combination of your mouse
         and either the SHIFT or CTRL keys.</para>
-      </tip>
+         </tip>
 
-      <para id="Para519489">The unposted Credit Memos master list displays all
+         <para id="Para519489">The unposted Credit Memos master list displays all
       existing Credit Memo numbers, associated Customer names, accounting date
       of Credit Memo, and hold status. Users with the appropriate privilege
       will also see the G/L distribution date column.</para>
 
-      <para id="Para519490">To the far right of the screen, the following
+         <para id="Para519490">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para519491">CLOSE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para519491">CLOSE</term>
 
-          <listitem id="listitemN0x180ac00N0x1931884">
-            <para>Closes the screen, returning you to the application
+               <listitem id="listitemN0x180ac00N0x1931884">
+                  <para>Closes the screen, returning you to the application
             desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para541468">NEW</term>
+            <varlistentry>
+               <term id="Para541468">NEW</term>
 
-          <listitem id="listitemN0x180ac00N0x19318cc">
-            <para>Opens screen for creating a new Credit Memo.</para>
-          </listitem>
-        </varlistentry>
+               <listitem id="listitemN0x180ac00N0x19318cc">
+                  <para>Opens screen for creating a new Credit Memo.</para>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para541507">EDIT</term>
+            <varlistentry>
+               <term id="Para541507">EDIT</term>
 
-          <listitem id="listitemN0x180ac00N0x1931914">
-            <para>Enables you to edit highlighted Credit Memo. The edit screen
+               <listitem id="listitemN0x180ac00N0x1931914">
+                  <para>Enables you to edit highlighted Credit Memo. The edit screen
             is the same as that for creating a new Credit Memo--except that
             when editing, the fields will contain Credit Memo information.
             Double-clicking on a Credit Memo will also bring you to the
             editing screen.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para541469">VIEW</term>
+            <varlistentry>
+               <term id="Para541469">VIEW</term>
 
-          <listitem id="listitemN0x180ac00N0x193195c">
-            <para>Highlight a Credit Memo and then select this button to reach
+               <listitem id="listitemN0x180ac00N0x193195c">
+                  <para>Highlight a Credit Memo and then select this button to reach
             a read-only view of the "Edit" screen.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639540">PRINT</term>
+            <varlistentry>
+               <term id="Para639540">PRINT</term>
 
-          <listitem id="listitemN0x180ac00N0x19319a4">
-            <para>Highlight one--or multiple--Credit Memos, then select this
+               <listitem id="listitemN0x180ac00N0x19319a4">
+                  <para>Highlight one--or multiple--Credit Memos, then select this
             button to print the selected Credit Memo(s).</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para639548">POST</term>
+            <varlistentry>
+               <term id="Para639548">POST</term>
 
-          <listitem id="listitemN0x180ac00N0x19319ec">
-            <para>Highlight one--or multiple--Credit Memos, then select this
+               <listitem id="listitemN0x180ac00N0x19319ec">
+                  <para>Highlight one--or multiple--Credit Memos, then select this
             button to post the selected Credit Memo(s).</para>
 
-            <para id="Para639549">By default, Credit Memos post to the General
+                  <para id="Para639549">By default, Credit Memos post to the General
             Ledger (G/L) on their memo date. However, users with the
             appropriate privilege may change the G/L distribution date to an
             alternate date during the Credit Memo posting process. If used,
@@ -1342,303 +1315,305 @@
             privileged users have to change the distribution date applies to
             the posting of both individual and also batches of Credit Memos
             from this screen.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para639557">If the Credit Memo has been applied to an
+         <note>
+            <para id="Para639557">If the Credit Memo has been applied to an
         Invoice, any Credit Memo Items will be returned to Inventory when the
         Credit Memo is posted.</para>
-      </note>
+         </note>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para595004">DELETE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para595004">DELETE</term>
 
-          <listitem id="listitemN0x180ac00N0x193a46c">
-            <para>Highlight a Credit Memo and then select this button to
+               <listitem id="listitemN0x180ac00N0x193a46c">
+                  <para>Highlight a Credit Memo and then select this button to
             remove the Credit Memo from the master list.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para558848">Right-clicking on a Credit Memo enables you to
+         <para id="Para558848">Right-clicking on a Credit Memo enables you to
       select from the following menu options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para558849">Edit</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para558849">Edit</term>
 
-          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xpointer="element(listitemN0x180ac00N0x1931914)" />
-        </varlistentry>
+               <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
+                           xpointer="element(listitemN0x180ac00N0x1931914)"/>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para558850">View</term>
+            <varlistentry>
+               <term id="Para558850">View</term>
 
-          <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                      xpointer="element(listitemN0x180ac00N0x193195c)" />
-        </varlistentry>
+               <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
+                           xpointer="element(listitemN0x180ac00N0x193195c)"/>
+            </varlistentry>
 
-        <xi:include href="widgets/xtreewidget.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-    </section>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="widgets/xtreewidget.xml"
+                        xpointer="element(xtreewidget.menu.exportcontents)"/>
+         </variablelist>
+      </section>
 
-    <section id="Section602221">
-      <title><anchor id="Anchor602309" role="Index"
-      xreflabel="credit memos:edit list for" /> <indexterm
-          significance="normal" zone="Anchor602309">
-          <primary>credit memos</primary>
+      <section id="Section602221">
+         <title>
+            <anchor id="Anchor602309" role="Index" xreflabel="credit memos:edit list for"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>edit list for</secondary>
-        </indexterm>Credit Memo Edit List</title>
+               <secondary>edit list for</secondary>
+            </indexterm>Credit Memo Edit List</title>
 
-      <para id="Para607023">To edit an unposted Credit Memo, or to view
+         <para id="Para607023">To edit an unposted Credit Memo, or to view
       detailed information about unposted Credit Memos, choose the "Credit
       Memo Edit List" option. The following screen will appear:</para>
 
-      <para id="Para606950"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_credMemEdList.png"
-                         id="Graphic606948" />
-            </imageobject>
+         <para id="Para606950">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_credMemEdList.png" id="Graphic606948"/>
+                  </imageobject>
 
-            <caption id="Caption606951">Credit Memo Edit List</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption606951">Credit Memo Edit List</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para606954">The Credit Memo Edit List displays details on all
+         <para id="Para606954">The Credit Memo Edit List displays details on all
       unposted Credit Memos. The display is a nested list, with a plus ("+")
       sign located to the far left of the screen next to each line that may be
       expanded to lower levels. By clicking your mouse on a plus sign, you
       reveal lower levels of information related to the Order.</para>
 
-      <tip>
-        <para id="Para606956">If a Billing record displays in red type, this
+         <tip>
+            <para id="Para606956">If a Billing record displays in red type, this
         means an Account Assignment is missing for the Customer Type in
         question. To correct the problem, check your Sales Account and
         Accounts Receivable Assignments. Once the Assignments are in place,
         the record will display in black type.</para>
-      </tip>
+         </tip>
 
-      <para id="Para607046">To the far right of the screen, the following
+         <para id="Para607046">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para653697">CLOSE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para653697">CLOSE</term>
 
-          <listitem id="listitemN0x180ac00N0x193a6d0">
-            <para>Closes the screen, returning you to the application
+               <listitem id="listitemN0x180ac00N0x193a6d0">
+                  <para>Closes the screen, returning you to the application
             desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para653711">PRINT</term>
+            <varlistentry>
+               <term id="Para653711">PRINT</term>
 
-          <listitem id="listitemN0x180ac00N0x193a718">
-            <para>Runs the report associated with this screen.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               <listitem id="listitemN0x180ac00N0x193a718">
+                  <para>Runs the report associated with this screen.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para653700">Right-clicking on an Credit Memo in the Billing
+         <para id="Para653700">Right-clicking on an Credit Memo in the Billing
       list enables you to select from the following menu options:</para>
 
-      <variablelist>
-        <xi:include href="supportfiles/rightclick.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(/1/7/2/5)" />
+         <variablelist>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supportfiles/rightclick.xml"
+                        xpointer="element(/1/7/2/5)"/>
 
-        <xi:include href="widgets/xtreewidget.xml"
-                    xmlns:xi="http://www.w3.org/2001/XInclude"
-                    xpointer="element(xtreewidget.menu.exportcontents)" />
-      </variablelist>
-    </section>
+            <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="widgets/xtreewidget.xml"
+                        xpointer="element(xtreewidget.menu.exportcontents)"/>
+         </variablelist>
+      </section>
 
-    <section id="Section569463">
-      <title><anchor id="Anchor569498" role="Index"
-      xreflabel="credit memos:printing of" /> <indexterm significance="normal"
-          zone="Anchor569498">
-          <primary>credit memos</primary>
+      <section id="Section569463">
+         <title>
+            <anchor id="Anchor569498" role="Index" xreflabel="credit memos:printing of"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>printing of</secondary>
-        </indexterm>Print Credit Memos</title>
+               <secondary>printing of</secondary>
+            </indexterm>Print Credit Memos</title>
 
-      <para id="Para570026">Printing a Credit Memo is a required step in the
+         <para id="Para570026">Printing a Credit Memo is a required step in the
       process of posting a Credit Memo. To print a Credit Memo, select the
       "Print Credit Memos" option. The following screen will appear:</para>
 
-      <para id="Para570030"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_printCredMems.png"
-                         id="Graphic570028" />
-            </imageobject>
+         <para id="Para570030">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_printCredMems.png" id="Graphic570028"/>
+                  </imageobject>
 
-            <caption id="Caption570031">Print Credit Memos</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption570031">Print Credit Memos</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para569968">When printing Credit Memos, you are presented with
+         <para id="Para569968">When printing Credit Memos, you are presented with
       the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570304">Post Credit Memos after Printing</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570304">Post Credit Memos after Printing</term>
 
-          <listitem id="listitemN0x180ac00N0x193a910">
-            <para>Select to automatically post Credit Memos after they have
+               <listitem id="listitemN0x180ac00N0x193a910">
+                  <para>Select to automatically post Credit Memos after they have
             been printed.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para595533">Credit Memos are posted effective on the date
+         <note>
+            <para id="Para595533">Credit Memos are posted effective on the date
         they are distributed, not on the date they are posted--as might be
         assumed.</para>
-      </note>
+         </note>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para569973">Credit Memo Copies</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para569973">Credit Memo Copies</term>
 
-          <listitem id="listitemN0x180ac00N0x193a9a0">
-            <para>Specify details for the Credit Memo copies you want to
+               <listitem id="listitemN0x180ac00N0x193a9a0">
+                  <para>Specify details for the Credit Memo copies you want to
             print.</para>
 
-            <para id="Para569974"># of Copies: Indicate the number of copies
+                  <para id="Para569974"># of Copies: Indicate the number of copies
             you want to print using the arrow buttons. Information about the
             specified copies will display below. To add a Watermark,
             double-click on a copy line.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para570323">To the far right of the screen, the following
+         <para id="Para570323">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570324">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570324">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x193aa0c">
-            <para>Closes the screen without printing Credit Memos, returning
+               <listitem id="listitemN0x180ac00N0x193aa0c">
+                  <para>Closes the screen without printing Credit Memos, returning
             you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para570325">PRINT</term>
+            <varlistentry>
+               <term id="Para570325">PRINT</term>
 
-          <listitem id="listitemN0x180ac00N0x193aa54">
-            <para>Prints all Credit Memos available for printing, using the
+               <listitem id="listitemN0x180ac00N0x193aa54">
+                  <para>Prints all Credit Memos available for printing, using the
             specified parameters.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para570109">To add a Watermark to a Credit Memo, double-click
+         <para id="Para570109">To add a Watermark to a Credit Memo, double-click
       on a copy line. The following screen will appear:</para>
 
-      <para id="Para570113"><anchor id="Anchor57653" role="Cross-Ref"
-      xreflabel="57653: Figure: Figure 7.69:  Add Watermark" /> <screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_addWatermark.png"
-                         id="Graphic570111" />
-            </imageobject>
+         <para id="Para570113">
+            <anchor id="Anchor57653" role="Cross-Ref"
+                    xreflabel="57653: Figure: Figure 7.69:  Add Watermark"/> 
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_addWatermark.png" id="Graphic570111"/>
+                  </imageobject>
 
-            <caption id="Caption570115">Add Watermark</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption570115">Add Watermark</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para570116">When adding a Watermark to a Credit Memo copy, you
+         <para id="Para570116">When adding a Watermark to a Credit Memo copy, you
       are presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570120">Watermark</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570120">Watermark</term>
 
-          <listitem id="listitemN0x180ac00N0x193ab2c">
-            <para>Specify the name of the Watermark to be used for the
+               <listitem id="listitemN0x180ac00N0x193ab2c">
+                  <para>Specify the name of the Watermark to be used for the
             selected copy.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para570122">Show Prices</term>
+            <varlistentry>
+               <term id="Para570122">Show Prices</term>
 
-          <listitem id="listitemN0x180ac00N0x193ab74">
-            <para>Select to show Prices in the selected copy.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               <listitem id="listitemN0x180ac00N0x193ab74">
+                  <para>Select to show Prices in the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para570123">To the far right of the screen, the following
+         <para id="Para570123">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570124">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570124">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x193abe0">
-            <para>Closes the screen without adding a Watermark, returning you
+               <listitem id="listitemN0x180ac00N0x193abe0">
+                  <para>Closes the screen without adding a Watermark, returning you
             to the previous screen.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para570125">SAVE</term>
+            <varlistentry>
+               <term id="Para570125">SAVE</term>
 
-          <listitem id="listitemN0x180ac00N0x193ac28">
-            <para>Saves the Watermark definition to the selected copy.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               <listitem id="listitemN0x180ac00N0x193ac28">
+                  <para>Saves the Watermark definition to the selected copy.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
 
-    <section id="Section519497">
-      <title><anchor id="Anchor548982" role="Index"
-      xreflabel="credit memos:re-printing of " /> <indexterm
-          significance="normal" zone="Anchor548982">
-          <primary>credit memos</primary>
+      <section id="Section519497">
+         <title>
+            <anchor id="Anchor548982" role="Index" xreflabel="credit memos:re-printing of "/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>re-printing of</secondary>
-        </indexterm>Re-Print Credit Memos</title>
+               <secondary>re-printing of</secondary>
+            </indexterm>Re-Print Credit Memos</title>
 
-      <para id="Para570247">To print a Credit Memo that was previously
+         <para id="Para570247">To print a Credit Memo that was previously
       printed, select the "Re-Print Credit Memos" option. The following screen
       will appear:</para>
 
-      <para id="Para570251"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_re-PrintCredMems.png"
-                         id="Graphic570249" />
-            </imageobject>
+         <para id="Para570251">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_re-PrintCredMems.png" id="Graphic570249"/>
+                  </imageobject>
 
-            <caption id="Caption570252">Re-Print Credit Memos</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption570252">Re-Print Credit Memos</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <para id="Para570253">When re-printing a Credit Memo, you are presented
+         <para id="Para570253">When re-printing a Credit Memo, you are presented
       with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570254">Invoices</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570254">Invoices</term>
 
-          <listitem id="listitemN0x180ac00N0x193ad6c">
-            <para>Display lists previously printed Credit Memos.</para>
+               <listitem id="listitemN0x180ac00N0x193ad6c">
+                  <para>Display lists previously printed Credit Memos.</para>
 
-            <para id="Para654054">To select a sequence of Credit Memos,
+                  <para id="Para654054">To select a sequence of Credit Memos,
             highlight the first in the sequence using your mouse button. Then,
             holding down the SHIFT key on your keyboard, highlight the last
             Credit Memo in the sequence. The entire sequence is now selected.
@@ -1648,470 +1623,468 @@
             Continue highlighting Credit Memos with the CTRL key depressed
             until all desired Credit Memos are selected. The entire group is
             now ready for re-printing.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para570256">Invoice Copies</term>
+            <varlistentry>
+               <term id="Para570256">Invoice Copies</term>
 
-          <listitem id="listitemN0x180ac00N0x193adb4">
-            <para>Specify details for the Credit Memo copies you want to
+               <listitem id="listitemN0x180ac00N0x193adb4">
+                  <para>Specify details for the Credit Memo copies you want to
             print.</para>
 
-            <para id="Para570257"># of Copies: Indicate the number of copies
+                  <para id="Para570257"># of Copies: Indicate the number of copies
             you want to re-print using the arrow buttons. Information about
             the specified copies will display below. To add a Watermark,
-            double-click on a copy line, as shown in <link
-            endterm="Anchor57653" id="XRef570259" linkend="Anchor57653"> Add
+            double-click on a copy line, as shown in <link endterm="Anchor57653" id="XRef570259" linkend="Anchor57653"> Add
             Watermark</link>Figure 10.111.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para570261">To the far right of the screen, the following
+         <para id="Para570261">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para570262">CLOSE</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para570262">CLOSE</term>
 
-          <listitem id="listitemN0x180ac00N0x193ae20">
-            <para>Closes the screen without re-printing Credit Memos,
+               <listitem id="listitemN0x180ac00N0x193ae20">
+                  <para>Closes the screen without re-printing Credit Memos,
             returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para570263">PRINT</term>
+            <varlistentry>
+               <term id="Para570263">PRINT</term>
 
-          <listitem id="listitemN0x180ac00N0x193ae68">
-            <para>Prints the highlighted Credit Memos, using the specified
+               <listitem id="listitemN0x180ac00N0x193ae68">
+                  <para>Prints the highlighted Credit Memos, using the specified
             parameters.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
 
-    <section id="Section602279">
-      <title><anchor id="Anchor602287" role="Index"
-      xreflabel="credit memos:posting of" /> <indexterm significance="normal"
-          zone="Anchor602287">
-          <primary>credit memos</primary>
+      <section id="Section602279">
+         <title>
+            <anchor id="Anchor602287" role="Index" xreflabel="credit memos:posting of"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>posting of</secondary>
-        </indexterm>Post Credit Memos</title>
+               <secondary>posting of</secondary>
+            </indexterm>Post Credit Memos</title>
 
-      <para id="Para602343">To post Credit Memos in batch mode, select the
+         <para id="Para602343">To post Credit Memos in batch mode, select the
       "Post Credit Memos" option. The following screen will appear:</para>
 
-      <para id="Para602347"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_postCredMems.png"
-                         id="Graphic602345" />
-            </imageobject>
+         <para id="Para602347">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_postCredMems.png" id="Graphic602345"/>
+                  </imageobject>
 
-            <caption id="Caption602348">Post Credit Memos</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption602348">Post Credit Memos</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <note>
-        <para id="Para603503">Credit Memos are posted effective on the date
+         <note>
+            <para id="Para603503">Credit Memos are posted effective on the date
         they are distributed, not on the date they are posted--as might be
         assumed.</para>
-      </note>
+         </note>
 
-      <para id="Para602349">When posting Credit Memos, you are presented with
+         <para id="Para602349">When posting Credit Memos, you are presented with
       the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para602350">Post Unprinted Credit Memos</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para602350">Post Unprinted Credit Memos</term>
 
-          <listitem id="listitemN0x180ac00N0x193afd0">
-            <para>Select to include unprinted Credit Memos in the list of
+               <listitem id="listitemN0x180ac00N0x193afd0">
+                  <para>Select to include unprinted Credit Memos in the list of
             Credit Memos to be posted.</para>
 
-            <para id="Para602351">If not selected--and if there are unprinted
+                  <para id="Para602351">If not selected--and if there are unprinted
             Credit Memos waiting to be posted--you will be prompted to print
             the unprinted Credit Memos before posting may occur.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para602352">Print Credit Memo Journal</term>
+            <varlistentry>
+               <term id="Para602352">Print Credit Memo Journal</term>
 
-          <listitem id="listitemN0x180ac00N0x193b018">
-            <para>Select to print the Credit Memo Journal in addition to
+               <listitem id="listitemN0x180ac00N0x193b018">
+                  <para>Select to print the Credit Memo Journal in addition to
             posting the Credit Memos.</para>
 
-            <para id="Para602353">Credit Memo Journals are assigned a unique
+                  <para id="Para602353">Credit Memo Journals are assigned a unique
             identification number, which corresponds to the Credit Memo batch
             and the date the batch was posted.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <note>
-        <para id="Para602355">A Credit Memo Journal will also be created for
+         <note>
+            <para id="Para602355">A Credit Memo Journal will also be created for
         Credit Memos that are posted individually--that is, not in batch mode,
         but one at a time. As with batch postings, the Credit Memo Journals
         for individually-posted Credit Memos are assigned a unique
         identification number.</para>
-      </note>
+         </note>
 
-      <para id="Para602356">To the far right of the screen, the following
+         <para id="Para602356">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para602357">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para602357">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x193b0a8">
-            <para>Closes the screen without posting any Credit Memos,
+               <listitem id="listitemN0x180ac00N0x193b0a8">
+                  <para>Closes the screen without posting any Credit Memos,
             returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para602358">POST</term>
+            <varlistentry>
+               <term id="Para602358">POST</term>
 
-          <listitem id="listitemN0x180ac00N0x193b0f0">
-            <para>Posts the Credit Memos, using the specified
+               <listitem id="listitemN0x180ac00N0x193b0f0">
+                  <para>Posts the Credit Memos, using the specified
             parameters.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
 
-    <section id="Section569538">
-      <title><anchor id="Anchor569537" role="Index"
-      xreflabel="credit memos:purging records for" /> <indexterm
-          significance="normal" zone="Anchor569537">
-          <primary>credit memos</primary>
+      <section id="Section569538">
+         <title>
+            <anchor id="Anchor569537" role="Index" xreflabel="credit memos:purging records for"/> 
+            <indexterm significance="normal">
+               <primary>credit memos</primary>
 
-          <secondary>purging records for</secondary>
-        </indexterm>Purge Credit Memos</title>
+               <secondary>purging records for</secondary>
+            </indexterm>Purge Credit Memos</title>
 
-      <para id="Para569539">Purging Credit Memo records is one method for
+         <para id="Para569539">Purging Credit Memo records is one method for
       freeing up disk storage space--without losing important sales history.
       To purge Credit Memo records, select the "Credit Memo Records" option.
       The following screen will appear:</para>
 
-      <para id="Para569543"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_Bill_purgeCredMemos.png"
-                         id="Graphic569541" />
-            </imageobject>
+         <para id="Para569543">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_Bill_purgeCredMemos.png" id="Graphic569541"/>
+                  </imageobject>
 
-            <caption id="Caption569544">Purge Credit Memo Records</caption>
-          </mediaobject>
-        </screenshot></para>
+                  <caption id="Caption569544">Purge Credit Memo Records</caption>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <note>
-        <para id="Para589418">The consequence of purging Credit Memo records
+         <note>
+            <para id="Para589418">The consequence of purging Credit Memo records
         is that any purged Credit Memo records can no longer be
         re-printed.</para>
-      </note>
+         </note>
 
-      <para id="Para569545">When purging Credit Memo records, you are
+         <para id="Para569545">When purging Credit Memo records, you are
       presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para569549">Cut Off Date</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para569549">Cut Off Date</term>
 
-          <listitem id="listitemN0x180ac00N0x1942a48">
-            <para>Credit Memo records created before and including this date
+               <listitem id="listitemN0x180ac00N0x1942a48">
+                  <para>Credit Memo records created before and including this date
             will be purged.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para569551">To the far right of the screen, the following
+         <para id="Para569551">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para569552">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para569552">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x1942ab4">
-            <para>Closes the screen without purging any Credit Memo records,
+               <listitem id="listitemN0x180ac00N0x1942ab4">
+                  <para>Closes the screen without purging any Credit Memo records,
             returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para569553">PURGE</term>
+            <varlistentry>
+               <term id="Para569553">PURGE</term>
 
-          <listitem id="listitemN0x180ac00N0x1942afc">
-            <para>Purges the Credit Memo records.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               <listitem id="listitemN0x180ac00N0x1942afc">
+                  <para>Purges the Credit Memo records.</para>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
   </section>
 
   <section id="Section519563">
-    <title><anchor id="Anchor548992" role="Index"
-    xreflabel="items:pricing for" /> <indexterm significance="normal"
-        zone="Anchor548992">
-        <primary>items</primary>
+      <title>
+         <anchor id="Anchor548992" role="Index" xreflabel="items:pricing for"/> 
+         <indexterm significance="normal">
+            <primary>items</primary>
 
-        <secondary>pricing for</secondary>
-      </indexterm>Item Pricing</title>
+            <secondary>pricing for</secondary>
+         </indexterm>Item Pricing</title>
 
-    <para id="Para519564">Item Pricing is handled in this section.</para>
+      <para id="Para519564">Item Pricing is handled in this section.</para>
 
-    <xi:include href="guiclient/itemListPrice.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/itemListPrice.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updatePricesByProductCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updatePricesByProductCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/itemPricingSchedules.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/itemPricingSchedules.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/pricingScheduleAssignments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/pricingScheduleAssignments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/sales.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/sales.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/sale.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/sale.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updatePricesByProductCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updatePricesByProductCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <section id="Section519759">
-      <title><anchor id="Anchor549006" role="Index"
-      xreflabel="update prices;pricing:updating by pricing schedule;pricing schedules:updating prices for" />
-      <indexterm significance="normal" zone="Anchor549006">
-          <primary>update prices</primary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549006">
-          <primary>pricing</primary>
+      <section id="Section519759">
+         <title>
+            <anchor id="Anchor549006" role="Index"
+                    xreflabel="update prices;pricing:updating by pricing schedule;pricing schedules:updating prices for"/>
+            <indexterm significance="normal">
+               <primary>update prices</primary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>pricing</primary>
 
-          <secondary>updating by pricing schedule</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549006">
-          <primary>pricing schedules</primary>
+               <secondary>updating by pricing schedule</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>pricing schedules</primary>
 
-          <secondary>updating prices for</secondary>
-        </indexterm>Update Prices by Pricing Schedule</title>
+               <secondary>updating prices for</secondary>
+            </indexterm>Update Prices by Pricing Schedule</title>
 
-      <para id="Para519760">To update Item Prices by Pricing Schedule, select
+         <para id="Para519760">To update Item Prices by Pricing Schedule, select
       the "Update Prices by Pricing Schedule" option. The following screen
       will appear:</para>
 
-      <para id="Para519764"><screenshot>
-          <mediaobject>
-            <imageobject>
-              <imagedata fileref="images/SO_IP_updatePricesPrSched.png"
-                         id="Graphic523736" />
-            </imageobject>
+         <para id="Para519764">
+            <screenshot>
+               <mediaobject>
+                  <imageobject>
+                     <imagedata fileref="images/SO_IP_updatePricesPrSched.png" id="Graphic523736"/>
+                  </imageobject>
 
-            <caption id="Caption519765">Update Prices by Pricing
+                  <caption id="Caption519765">Update Prices by Pricing
             Schedule</caption>
-          </mediaobject>
-        </screenshot></para>
+               </mediaobject>
+            </screenshot>
+         </para>
 
-      <note>
-        <para id="Para633663">This utility updates Item Prices found on
+         <note>
+            <para id="Para633663">This utility updates Item Prices found on
         Pricing Schedules only. It will not update discount percentages, nor
         List Prices.</para>
-      </note>
+         </note>
 
-      <para id="Para519766">When updating Prices by Pricing Schedule, you are
+         <para id="Para519766">When updating Prices by Pricing Schedule, you are
       presented with the following options:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para519767">Pricing Schedule</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para519767">Pricing Schedule</term>
 
-          <listitem id="listitemN0x180ac00N0x1952cf0">
-            <para>Specify the Pricing Schedule whose Prices you want to
+               <listitem id="listitemN0x180ac00N0x1952cf0">
+                  <para>Specify the Pricing Schedule whose Prices you want to
             update.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para519772">Update Prices by</term>
+            <varlistentry>
+               <term id="Para519772">Update Prices by</term>
 
-          <listitem id="listitemN0x180ac00N0x1952d38">
-            <para>Update Prices by a specified percentage for the selected
+               <listitem id="listitemN0x180ac00N0x1952d38">
+                  <para>Update Prices by a specified percentage for the selected
             Pricing Schedule.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
+               </listitem>
+            </varlistentry>
+         </variablelist>
 
-      <para id="Para519774">To the far right of the screen, the following
+         <para id="Para519774">To the far right of the screen, the following
       buttons are available:</para>
 
-      <variablelist>
-        <varlistentry>
-          <term id="Para519775">CANCEL</term>
+         <variablelist>
+            <varlistentry>
+               <term id="Para519775">CANCEL</term>
 
-          <listitem id="listitemN0x180ac00N0x1952da4">
-            <para>Closes the screen without updating Item Prices by Pricing
+               <listitem id="listitemN0x180ac00N0x1952da4">
+                  <para>Closes the screen without updating Item Prices by Pricing
             Schedule, returning you to the application desktop.</para>
-          </listitem>
-        </varlistentry>
+               </listitem>
+            </varlistentry>
 
-        <varlistentry>
-          <term id="Para519776">UPDATE</term>
+            <varlistentry>
+               <term id="Para519776">UPDATE</term>
 
-          <listitem id="listitemN0x180ac00N0x1952dec">
-            <para>Updates Item Prices by Pricing Schedule, using the specified
+               <listitem id="listitemN0x180ac00N0x1952dec">
+                  <para>Updates Item Prices by Pricing Schedule, using the specified
             parameters.</para>
-          </listitem>
-        </varlistentry>
-      </variablelist>
-    </section>
+               </listitem>
+            </varlistentry>
+         </variablelist>
+      </section>
 
-    <section id="Section519777">
-      <title>Item Pricing Reports</title>
+      <section id="Section519777">
+         <title>Item Pricing Reports</title>
 
-      <para id="Para519778">The Item Pricing functionality is described in
+         <para id="Para519778">The Item Pricing functionality is described in
       this section.</para>
-    </section>
+      </section>
 
-    <xi:include href="guiclient/dspPricesByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPricesByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspPricesByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspPricesByCustomer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspPricesByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspPricesByCustomerType.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section519901">
-    <title>S/O Reports</title>
+      <title>S/O Reports</title>
 
-    <para id="Para519902">The module offers a number of reports for viewing
+      <para id="Para519902">The module offers a number of reports for viewing
     information related to Sales Orders.</para>
 
-    <xi:include href="guiclient/dspSalesOrdersByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSalesOrdersByCustomer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSalesOrdersByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSalesOrdersByCustomerType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSalesOrdersByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSalesOrdersByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSalesOrdersByCustomerPO.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSalesOrdersByCustomerPO.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQuotesByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspQuotesByCustomer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspQuotesByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspQuotesByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCustomersByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCustomersByCustomerType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspCustomersByCharacteristic.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCustomersByCharacteristic.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspInventoryAvailabilityBySalesOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspInventoryAvailabilityBySalesOrder.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSalesOrderStatus.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSalesOrderStatus.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspBacklogByItem.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogBySalesOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBacklogBySalesOrder.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBacklogByCustomer.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBacklogByCustomerType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogByCustomerGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBacklogByCustomerGroup.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBacklogByProductCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBacklogByProductCategory.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSummarizedBacklogByWarehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSummarizedBacklogByWarehouse.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspPartiallyShippedOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspPartiallyShippedOrders.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspEarnedCommissions.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspEarnedCommissions.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspBriefEarnedCommissions.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspBriefEarnedCommissions.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspSummarizedTaxableSales.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspSummarizedTaxableSales.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printSoForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printSoForm.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section520435">
-    <title><anchor id="Anchor549090" role="Index"
-    xreflabel="utilities:in s/o module" /> <indexterm significance="normal"
-        zone="Anchor549090">
-        <primary>utilities</primary>
+      <title>
+         <anchor id="Anchor549090" role="Index" xreflabel="utilities:in s/o module"/> 
+         <indexterm significance="normal">
+            <primary>utilities</primary>
 
-        <secondary>in s/o module</secondary>
-      </indexterm>Utilities</title>
+            <secondary>in s/o module</secondary>
+         </indexterm>Utilities</title>
 
-    <para id="Para520436">Utilities for the module are handled here.</para>
+      <para id="Para520436">Utilities for the module are handled here.</para>
 
-    <xi:include href="guiclient/dspCustomerInformationExport.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspCustomerInformationExport.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/reassignCustomerTypeByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/reassignCustomerTypeByCustomerType.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/updateCreditStatusByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/updateCreditStatusByCustomer.xml"
+                  xpointer="element(/1)"/>
   </section>
 </chapter>

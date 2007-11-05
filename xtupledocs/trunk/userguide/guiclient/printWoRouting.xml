@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section568924" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section568924" role="openmfg">
     <title>Print Routing</title>
 
     <para id="Para518685">A Routing is a list showing the Work Order
@@ -9,16 +9,17 @@
     select the "Print Routing" option. The following screen will
     appear:</para>
 
-    <para id="Para518689"><screenshot>
+    <para id="Para518689">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_printRouter.png"
-                       id="Graphic523512" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_printRouter.png" id="Graphic523512"/>
+            </imageobject>
 
-          <caption id="Caption518690">Print Work Order Routing</caption>
+            <caption id="Caption518690">Print Work Order Routing</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518691">When printing a Work Order Routing, you are
     presented with the following options:</para>
@@ -28,7 +29,7 @@
         <term id="Para518692">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose Routing
+            <para>Enter the Work Order Number of the Work Order whose Routing
           you want to print.</para>
         </listitem>
       </varlistentry>
@@ -37,7 +38,7 @@
         <term id="Para518694">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +47,7 @@
         <term id="Para518696">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +56,7 @@
         <term id="Para568621">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -63,7 +64,7 @@
         <term id="Para518700">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -72,10 +73,10 @@
         <term id="Para518702">Copies</term>
 
         <listitem>
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 99.</para>
 
-          <para id="Para518703">Specify the number of copies of the Work Order
+            <para id="Para518703">Specify the number of copies of the Work Order
           Routing you want to print.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +90,7 @@
         <term id="Para518705">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without printing a Routing for the selected
+            <para>Closes the screen without printing a Routing for the selected
           Work Order, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +99,7 @@
         <term id="Para518706">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

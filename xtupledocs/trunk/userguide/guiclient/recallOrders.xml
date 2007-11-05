@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518587">
-    <title><anchor id="Anchor529419" role="Index"
-    xreflabel="shipping:recalling orders to " /> <indexterm
-        significance="normal" zone="Anchor529419">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518587">
+    <title>
+      <anchor id="Anchor529419" role="Index" xreflabel="shipping:recalling orders to "/> 
+      <indexterm significance="normal">
         <primary>shipping</primary>
 
         <secondary>recalling orders to</secondary>
@@ -15,16 +15,17 @@
     Order to Shipping. To recall Orders to Shipping, select the "Recall Orders
     to Shipping" option. The following screen will appear:</para>
 
-    <para id="Para518592"><screenshot>
+    <para id="Para518592">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Ship_recallOrdsShip.png"
-                       id="Graphic519998" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Ship_recallOrdsShip.png" id="Graphic519998"/>
+            </imageobject>
 
-          <caption id="Caption518593">Recall Orders to Shipping</caption>
+            <caption id="Caption518593">Recall Orders to Shipping</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518594">When recalling an Order to Shipping, you are
     presented with the following options:</para>
@@ -34,9 +35,9 @@
         <term id="Para544807">Show Invoiced Orders</term>
 
         <listitem id="listitemN0x180ac00N0x184e05c">
-          <para>Select to include Invoiced Orders in the display.</para>
+            <para>Select to include Invoiced Orders in the display.</para>
 
-          <para id="Para544814">This option is only enabled for users assigned
+            <para id="Para544814">This option is only enabled for users assigned
           the "RecallInvoicedShipment" privilege. Users with that privilege
           have the ability to recall to Shipping Orders which have already
           been invoiced. Non-privileged users may not recall invoiced Orders
@@ -52,7 +53,7 @@
         <term id="Para518595">Shipped Orders</term>
 
         <listitem id="listitemN0x180ac00N0x184e0a4">
-          <para>Display lists shipped Sales Orders available for
+            <para>Display lists shipped Sales Orders available for
           recall.</para>
         </listitem>
       </varlistentry>
@@ -66,7 +67,7 @@
         <term id="Para518598">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x184e110">
-          <para>Closes the screen without recalling the Order, returning you
+            <para>Closes the screen without recalling the Order, returning you
           to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -75,7 +76,7 @@
         <term id="Para518599">RECALL</term>
 
         <listitem id="listitemN0x180ac00N0x184e158">
-          <para>Highlight a Sales Order then select this button to recall the
+            <para>Highlight a Sales Order then select this button to recall the
           Order to Shipping. The Order will now display on the "Ship Orders"
           screen.</para>
         </listitem>

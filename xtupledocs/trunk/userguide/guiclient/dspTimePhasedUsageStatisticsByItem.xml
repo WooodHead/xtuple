@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520685">
-    <title><anchor id="Anchor552264" role="Index"
-    xreflabel="item usage statistics:time-phased by item;items:time-phased usage statistics for" />
-    <indexterm significance="normal" zone="Anchor552264">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520685">
+    <title>
+      <anchor id="Anchor552264" role="Index"
+              xreflabel="item usage statistics:time-phased by item;items:time-phased usage statistics for"/>
+      <indexterm significance="normal">
         <primary>item usage statistics</primary>
 
         <secondary>time-phased by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552264">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>time-phased usage statistics for</secondary>
@@ -18,17 +20,18 @@
     select the "Time-Phased Item Usage Statistics by Item" option. The
     following screen will appear:</para>
 
-    <para id="Para520690"><screenshot>
+    <para id="Para520690">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_Disp_timephasedStats.png"
-                       id="Graphic526919" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_Disp_timephasedStats.png" id="Graphic526919"/>
+            </imageobject>
 
-          <caption id="Caption520691">Time-Phased Item Usage Statistics by
+            <caption id="Caption520691">Time-Phased Item Usage Statistics by
           Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520697">When displaying time-phased Item usage statistics by
     Item, you are presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para520698">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1998fd0">
-          <para>Enter the Item Number of the Item whose usage statistics you
+            <para>Enter the Item Number of the Item whose usage statistics you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para672093">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1999018">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -55,7 +58,7 @@
         <term id="Para520702">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x199903c">
-          <para>Select to display time-phased Item usage statistics for all
+            <para>Select to display time-phased Item usage statistics for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +67,7 @@
         <term id="Para520704">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1999060">
-          <para>Specify Warehouse whose time-phased Item usage statistics you
+            <para>Specify Warehouse whose time-phased Item usage statistics you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -73,9 +76,9 @@
         <term id="Para669323">Calendar</term>
 
         <listitem id="listitemN0x180ac00N0x19990a8">
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para669324">Associated Calendar periods will be
+            <para id="Para669324">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -84,11 +87,11 @@
         <term id="Para540503">Name/Selected Periods</term>
 
         <listitem id="listitemN0x180ac00N0x19990f0">
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para548800">Select individual periods or groups of periods
+            <para id="Para548800">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -107,10 +110,10 @@
         <term id="Para520710">Usage</term>
 
         <listitem id="listitemN0x180ac00N0x1999138">
-          <para>Display lists time-phased Item usage statistics by Item, using
+            <para>Display lists time-phased Item usage statistics by Item, using
           the specified parameters.</para>
 
-          <para id="Para676156">The transaction types include the following:
+            <para id="Para676156">The transaction types include the following:
           received, issued, sold, Scrap percentage, and adjustments. If
           multiple Warehouses are involved, statistics for each will be
           displayed.</para>
@@ -126,7 +129,7 @@
         <term id="Para520713">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x19991a4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -135,10 +138,10 @@
         <term id="Para578745">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19991ec">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para520715">Start dates and end dates must be entered for
+            <para id="Para520715">Start dates and end dates must be entered for
           calculation to proceed. Results will be displayed in the "Usage"
           display.</para>
         </listitem>
@@ -148,7 +151,7 @@
         <term id="Para520716">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x19a0824">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -156,9 +159,8 @@
         <term id="Para665161">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x19a0848">
-          <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef665163"
-          linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+            <para>Select to submit report to the Batch Manager. For additional
+          information, see the <link endterm="Anchor61009" id="XRef665163" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
         </listitem>
@@ -173,12 +175,11 @@
         <term id="Para520718">View Transactions</term>
 
         <listitem id="listitemN0x180ac00N0x19a08b4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

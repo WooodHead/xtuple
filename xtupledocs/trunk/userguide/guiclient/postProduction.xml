@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519069">
-    <title><anchor id="Anchor533199" role="Index"
-    xreflabel="production:posting of" /> <indexterm significance="normal"
-        zone="Anchor533199">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519069">
+    <title>
+      <anchor id="Anchor533199" role="Index" xreflabel="production:posting of"/> 
+      <indexterm significance="normal">
         <primary>production</primary>
 
         <secondary>posting of</secondary>
@@ -16,16 +16,18 @@
     production for a Work Order, select the "Post Production" option. The
     following screen will appear:</para>
 
-    <para id="Para519074"><screenshot>
+    <para id="Para519074">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_postProd.png" id="Graphic523685" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_postProd.png" id="Graphic523685"/>
+            </imageobject>
 
-          <caption id="Caption519075">Post Production for a Work
+            <caption id="Caption519075">Post Production for a Work
           Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519076">When posting production for a Work Order, you are
     presented with the following options:</para>
@@ -35,7 +37,7 @@
         <term id="Para519077">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order whose production
+            <para>Enter the Work Order Number of the Work Order whose production
           you want to post.</para>
         </listitem>
       </varlistentry>
@@ -44,7 +46,7 @@
         <term id="Para519079">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +55,7 @@
         <term id="Para519081">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +64,7 @@
         <term id="Para568728">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -70,7 +72,7 @@
         <term id="Para519085">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +81,7 @@
         <term id="Para540587">Qty. Ordered</term>
 
         <listitem>
-          <para>Display the quantity of the component Item required per parent
+            <para>Display the quantity of the component Item required per parent
           Item.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +90,7 @@
         <term id="Para540588">Qty. Received</term>
 
         <listitem>
-          <para>Received: Displays the quantity required to fulfill the
+            <para>Received: Displays the quantity required to fulfill the
           specified Work Order.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +99,7 @@
         <term id="Para519091">Balance Due</term>
 
         <listitem>
-          <para>Displays the quantity issued in fulfillment of the specified
+            <para>Displays the quantity issued in fulfillment of the specified
           Work Order.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +108,7 @@
         <term id="Para519096">Qty. to Post</term>
 
         <listitem>
-          <para>to Post: Enter the quantity of the component Items you want to
+            <para>to Post: Enter the quantity of the component Items you want to
           post.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +117,7 @@
         <term id="Para519098">Backflush Materials</term>
 
         <listitem>
-          <para>Select to indicate that the amount of materials indicated by
+            <para>Select to indicate that the amount of materials indicated by
           the associated Work Order Material Requirement record will be issued
           to the selected Work Order for all "Pull" or "Mixed" component
           Items.</para>
@@ -126,7 +128,7 @@
         <term id="Para519099">Issue Items not on Pick List</term>
 
         <listitem>
-          <para>Select to indicate that non-Pick List Items should be
+            <para>Select to indicate that non-Pick List Items should be
           backflushed as well.</para>
         </listitem>
       </varlistentry>
@@ -135,7 +137,7 @@
         <term id="Para519100">Backflush Operations</term>
 
         <listitem>
-          <para>Select to indicate that the amount of time and labor indicated
+            <para>Select to indicate that the amount of time and labor indicated
           by the associated Work Order Operation record will be issued to the
           selected Work Order.</para>
         </listitem>
@@ -145,7 +147,7 @@
         <term>Setup By</term>
 
         <listitem>
-          <para>Enter the name of the user who performed the set up.</para>
+            <para>Enter the name of the user who performed the set up.</para>
         </listitem>
       </varlistentry>
 
@@ -153,7 +155,7 @@
         <term>Run By</term>
 
         <listitem>
-          <para>Enter the name of the user who performed the production
+            <para>Enter the name of the user who performed the production
           run.</para>
         </listitem>
       </varlistentry>
@@ -169,9 +171,9 @@
         <term id="Para519101">Close W/O after Posting</term>
 
         <listitem>
-          <para>Select to close the Work Order after posting.</para>
+            <para>Select to close the Work Order after posting.</para>
 
-          <para id="Para519102">If you are posting partial production and want
+            <para id="Para519102">If you are posting partial production and want
           to keep the Work Order open, you should not select this
           option.</para>
         </listitem>
@@ -181,7 +183,7 @@
         <term id="Para530375">Production Notes</term>
 
         <listitem>
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           production posting Notes related to the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -190,7 +192,7 @@
         <term id="Para543753">Immediate Transfer to Warehouse</term>
 
         <listitem>
-          <para>Select to transfer Work Order production to specified
+            <para>Select to transfer Work Order production to specified
           Warehouse. Specify the Warehouse you want to transfer production
           to.</para>
         </listitem>
@@ -205,7 +207,7 @@
         <term id="Para519104">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without posting production for the Work
+            <para>Closes the screen without posting production for the Work
           Order, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -214,7 +216,7 @@
         <term id="Para519105">POST PRODUCTION</term>
 
         <listitem>
-          <para>Posts production for the Work Order in the amount
+            <para>Posts production for the Work Order in the amount
           specified.</para>
         </listitem>
       </varlistentry>
@@ -223,7 +225,7 @@
         <term id="Para557989">SCRAP</term>
 
         <listitem>
-          <para>Select to open the "Scrap Work Order Material from W/O"
+            <para>Select to open the "Scrap Work Order Material from W/O"
           screen.</para>
         </listitem>
       </varlistentry>

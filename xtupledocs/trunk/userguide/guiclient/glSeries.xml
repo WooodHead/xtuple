@@ -1,118 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524372">
-  <title><anchor id="Anchor532794" role="Index"
-  xreflabel="series:creating new;general ledger:creating new series in;transactions:creating g/l series" />
-  <indexterm significance="normal" zone="Anchor532794">
-      <primary>series</primary>
+  <title>
+      <anchor id="Anchor532794" role="Index"
+              xreflabel="series:creating new;general ledger:creating new series in;transactions:creating g/l series"/>
+      <indexterm significance="normal">
+         <primary>series</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor532794">
-      <primary>general ledger</primary>
+         <secondary>creating new</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>general ledger</primary>
 
-      <secondary>creating new series in</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor532794">
-      <primary>transactions</primary>
+         <secondary>creating new series in</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>transactions</primary>
 
-      <secondary>creating g/l series</secondary>
-    </indexterm>Series Journal Entry</title>
+         <secondary>creating g/l series</secondary>
+      </indexterm>Series Journal Entry</title>
 
   <para id="Para526839">To create a series of G/L transactions, select the
   "Series Entry" option. The following screen will appear:</para>
 
-  <para id="Para524949"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/GL_Ent_seriesEntry.png"
-                     id="Graphic524947" />
-        </imageobject>
+  <para id="Para524949">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/GL_Ent_seriesEntry.png" id="Graphic524947"/>
+            </imageobject>
 
-        <caption id="Caption524950">Create Series G/L Journal Entry</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption524950">Create Series G/L Journal Entry</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para526873">When creating a series of G/L transactions, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para605957">Source</term>
+      <varlistentry>
+         <term id="Para605957">Source</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7a3c">
-        <para>Displays the source module for the transaction.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18b7a3c">
+            <para>Displays the source module for the transaction.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para605961">Document Type</term>
+      <varlistentry>
+         <term id="Para605961">Document Type</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7a84">
-        <para>Specify a General Ledger Transaction Type for classifying the
+         <listitem id="listitemN0x180ac00N0x18b7a84">
+            <para>Specify a General Ledger Transaction Type for classifying the
         series entry.</para>
 
-        <para id="Para606015">By default, the Journal Entry (JE) Transaction
-        Type will be used. However, you may select a different type. See <link
-        endterm="Anchor80421" id="XRef606019" linkend="Anchor80421"> Appendix
+            <para id="Para606015">By default, the Journal Entry (JE) Transaction
+        Type will be used. However, you may select a different type. See <link endterm="Anchor80421" id="XRef606019" linkend="Anchor80421"> Appendix
         A</link>Appendix A for a complete list of General Ledger Transaction
         Types.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para605962">Document #</term>
+      <varlistentry>
+         <term id="Para605962">Document #</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7acc">
-        <para>Enter a Document Number to identify the transaction.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18b7acc">
+            <para>Enter a Document Number to identify the transaction.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526874">Transaction Series</term>
+      <varlistentry>
+         <term id="Para526874">Transaction Series</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7b14">
-        <para>Display lists transactions in the transaction series.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18b7b14">
+            <para>Display lists transactions in the transaction series.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para524575">Totals</term>
+      <varlistentry>
+         <term id="Para524575">Totals</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7b5c">
-        <para>Displays the following information:</para>
+         <listitem id="listitemN0x180ac00N0x18b7b5c">
+            <para>Displays the following information:</para>
 
-        <para id="Para526899">Debits: Displays total Debits associated with
+            <para id="Para526899">Debits: Displays total Debits associated with
         the series. Totals will display in red if Debits and Credits do not
         balance.</para>
 
-        <para id="Para526890">Credits: Displays total Credits associated with
+            <para id="Para526890">Credits: Displays total Credits associated with
         the series. Totals will display in red if Debits and Credits do not
         balance.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para564448">Dist. Date</term>
+      <varlistentry>
+         <term id="Para564448">Dist. Date</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7ba4">
-        <para>Specify the date when you want the series journal entry to be
+         <listitem id="listitemN0x180ac00N0x18b7ba4">
+            <para>Specify the date when you want the series journal entry to be
         posted to the General Ledger.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para527008">Notes</term>
+      <varlistentry>
+         <term id="Para527008">Notes</term>
 
-      <listitem id="listitemN0x180ac00N0x18b7bec">
-        <para>This is a scrolling text field with word-wrapping for entering
+         <listitem id="listitemN0x180ac00N0x18b7bec">
+            <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the transaction. This may be a required field,
         depending on your system configuration.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para563905">Your system may be configured to require Notes
+      <para id="Para563905">Your system may be configured to require Notes
     whenever manual journal entries are posted.</para>
   </note>
 
@@ -120,95 +123,97 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para526968">NEW</term>
+      <varlistentry>
+         <term id="Para526968">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18bde6c">
-        <para>Opens screen for creating a new transaction.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18bde6c">
+            <para>Opens screen for creating a new transaction.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526969">EDIT</term>
+      <varlistentry>
+         <term id="Para526969">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x18bdeb4">
-        <para>Enables you to edit highlighted transaction. The edit screen is
+         <listitem id="listitemN0x180ac00N0x18bdeb4">
+            <para>Enables you to edit highlighted transaction. The edit screen is
         the same as that for creating a new transaction--except that when
         editing, the fields will contain transaction information.
         Double-clicking on a transaction will also bring you to the editing
         screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526970">VIEW</term>
+      <varlistentry>
+         <term id="Para526970">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18bdefc">
-        <para>Highlight a transaction and then select this button to reach a
+         <listitem id="listitemN0x180ac00N0x18bdefc">
+            <para>Highlight a transaction and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526971">DELETE</term>
+      <varlistentry>
+         <term id="Para526971">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x18bdf44">
-        <para>Highlight a transaction and then select this button to remove
+         <listitem id="listitemN0x180ac00N0x18bdf44">
+            <para>Highlight a transaction and then select this button to remove
         the transaction from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526984">CANCEL</term>
+      <varlistentry>
+         <term id="Para526984">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x18bdf8c">
-        <para>Closes the screen without creating a transaction series,
+         <listitem id="listitemN0x180ac00N0x18bdf8c">
+            <para>Closes the screen without creating a transaction series,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para526985"><anchor id="Anchor533351" role="Index"
-      xreflabel="series:posting of;general ledger:posting series in;transactions:posting g/l series" />
-      <indexterm significance="normal" zone="Anchor533351">
-          <primary>series</primary>
+      <varlistentry>
+         <term id="Para526985">
+            <anchor id="Anchor533351" role="Index"
+                    xreflabel="series:posting of;general ledger:posting series in;transactions:posting g/l series"/>
+            <indexterm significance="normal">
+               <primary>series</primary>
 
-          <secondary>posting of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor533351">
-          <primary>general ledger</primary>
+               <secondary>posting of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>general ledger</primary>
 
-          <secondary>posting series in</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor533351">
-          <primary>transactions</primary>
+               <secondary>posting series in</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>transactions</primary>
 
-          <secondary>posting g/l series</secondary>
-        </indexterm>POST</term>
+               <secondary>posting g/l series</secondary>
+            </indexterm>POST</term>
 
-      <listitem id="listitemN0x180ac00N0x18be0ac">
-        <para>Posts the transaction series to the General Ledger.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18be0ac">
+            <para>Posts the transaction series to the General Ledger.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para539290">Series entries are always summary posted. In other
+      <para id="Para539290">Series entries are always summary posted. In other
     words, if multiple entries are made for the same Account Number, the
     balance or summary of these entries will be posted--not each individual
     entry.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para605976">SAVE</term>
+      <varlistentry>
+         <term id="Para605976">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x18be13c">
-        <para>Select if you want to save the series transaction for posting at
+         <listitem id="listitemN0x180ac00N0x18be13c">
+            <para>Select if you want to save the series transaction for posting at
         a later time.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
-  <xi:include href="glSeriesItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="glSeriesItem.xml"
+               xpointer="element(/1)"/>
 </section>

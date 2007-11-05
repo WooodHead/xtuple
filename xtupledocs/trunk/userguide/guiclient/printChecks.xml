@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section524365">
-    <title><anchor id="Anchor532580" role="Index"
-    xreflabel="check runs:printing of;checks:printing multiple;accounts payable:printing checks for" />
-    <indexterm significance="normal" zone="Anchor532580">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section524365">
+    <title>
+      <anchor id="Anchor532580" role="Index"
+              xreflabel="check runs:printing of;checks:printing multiple;accounts payable:printing checks for"/>
+      <indexterm significance="normal">
         <primary>check runs</primary>
 
         <secondary>printing of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532580">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>checks</primary>
 
         <secondary>printing multiple</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor532580">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>accounts payable</primary>
 
         <secondary>printing checks for</secondary>
-      </indexterm> <anchor id="Anchor26666" role="Cross-Ref"
-    xreflabel="26666: Heading2: Print Check Run" />Print Check Run</title>
+      </indexterm> 
+      <anchor id="Anchor26666" role="Cross-Ref" xreflabel="26666: Heading2: Print Check Run"/>Print Check Run</title>
 
     <para id="Para529382">To print a Check Run, select the "Print Check Run"
     option. The following screen will appear:</para>
 
-    <para id="Para529386"><screenshot>
+    <para id="Para529386">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_printChkRun.png"
-                       id="Graphic529384" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_printChkRun.png" id="Graphic529384"/>
+            </imageobject>
 
-          <caption id="Caption529387">Print Check Run</caption>
+            <caption id="Caption529387">Print Check Run</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para529388">When printing a Check Run, you are presented with
     the following options:</para>
@@ -41,7 +45,7 @@
         <term id="Para529389">Bank Account</term>
 
         <listitem>
-          <para>Specify the Bank Account associated with the Check Run you
+            <para>Specify the Bank Account associated with the Check Run you
           want to print.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +54,7 @@
         <term id="Para529391">First Check #</term>
 
         <listitem>
-          <para>Displays the first available Check Number in the Check Run for
+            <para>Displays the first available Check Number in the Check Run for
           the specified Bank Account.</para>
         </listitem>
       </varlistentry>
@@ -59,10 +63,10 @@
         <term id="Para529478"># of Checks to Print</term>
 
         <listitem>
-          <para>Specify how many Checks should be printed in the Check
+            <para>Specify how many Checks should be printed in the Check
           Run.</para>
 
-          <para id="Para563962">Check Numbers increment in intervals of one
+            <para id="Para563962">Check Numbers increment in intervals of one
           (1) beginning with the first Check Number displayed above. The
           maximum possible selection indicates the maximum number of Checks in
           the Check Run. Selecting a number less than the maximum will cause
@@ -80,7 +84,7 @@
         <term id="Para529394">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without printing the Check Run, returning
+            <para>Closes the screen without printing the Check Run, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -89,14 +93,14 @@
         <term id="Para545628">PRINT</term>
 
         <listitem>
-          <para>Prints the Check Run, using the specified parameters.</para>
+            <para>Prints the Check Run, using the specified parameters.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para545629"><anchor id="Anchor545703" role="Index"
-    xreflabel="check runs:problems when printing" /> <indexterm
-        significance="normal" zone="Anchor545703">
+    <para id="Para545629">
+      <anchor id="Anchor545703" role="Index" xreflabel="check runs:problems when printing"/> 
+      <indexterm significance="normal">
         <primary>check runs</primary>
 
         <secondary>problems when printing</secondary>
@@ -104,30 +108,32 @@
     printing a Check Run, select the NO button from the following
     screen:</para>
 
-    <para id="Para545614"><screenshot>
+    <para id="Para545614">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_chkPrtSuccess.png"
-                       id="Graphic545612" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_chkPrtSuccess.png" id="Graphic545612"/>
+            </imageobject>
 
-          <caption id="Caption545615">Print Message</caption>
+            <caption id="Caption545615">Print Message</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para545609">If you select the NO button at the end of printing a
     Check Run, the following screen will appear:</para>
 
-    <para id="Para545656"><screenshot>
+    <para id="Para545656">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AP_Pay_reviewPrtChks.png"
-                       id="Graphic545654" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_reviewPrtChks.png" id="Graphic545654"/>
+            </imageobject>
 
-          <caption id="Caption545657">Review List of Printed Checks</caption>
+            <caption id="Caption545657">Review List of Printed Checks</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para545751">The Review Printed Checks screen lists all the
     Checks which were included in the Check Run.</para>
@@ -147,10 +153,10 @@
         <term id="Para545588">COMPLETE</term>
 
         <listitem>
-          <para>Select to perform the specified action associated with each of
+            <para>Select to perform the specified action associated with each of
           the listed Checks.</para>
 
-          <para id="Para545794">This should be the last option selected at the
+            <para id="Para545794">This should be the last option selected at the
           conclusion of your Check Run review. Selecting this option
           terminates the review process. If no action is specified for a
           Check, the status of the Check will remain as it was prior to
@@ -162,10 +168,10 @@
         <term id="Para545671">UNMARK</term>
 
         <listitem>
-          <para>Highlight a Check Number and then select this option to remove
+            <para>Highlight a Check Number and then select this option to remove
           any action associated with the Check.</para>
 
-          <para id="Para545809">If no action is specified for a Check, the
+            <para id="Para545809">If no action is specified for a Check, the
           status of the Check will remain as it was prior to printing the
           Check Run.</para>
         </listitem>
@@ -182,10 +188,10 @@
         <term id="Para545672">MARK AS PRINTED</term>
 
         <listitem>
-          <para>Highlight a Check Number and then select this option to mark
+            <para>Highlight a Check Number and then select this option to mark
           the Check as printed.</para>
 
-          <para id="Para545865">By default, all Checks in a Check Run are
+            <para id="Para545865">By default, all Checks in a Check Run are
           marked as printed.</para>
         </listitem>
       </varlistentry>
@@ -194,10 +200,10 @@
         <term id="Para545673">VOID</term>
 
         <listitem>
-          <para>Highlight a Check Number and then select this option to mark
+            <para>Highlight a Check Number and then select this option to mark
           the Check as voided.</para>
 
-          <para id="Para545861">Before a Check can be replaced, it must first
+            <para id="Para545861">Before a Check can be replaced, it must first
           be voided.</para>
         </listitem>
       </varlistentry>
@@ -206,11 +212,11 @@
         <term id="Para545876">VOID &amp; REPLACE</term>
 
         <listitem>
-          <para>Highlight a Check Number and then select this option to mark
+            <para>Highlight a Check Number and then select this option to mark
           the Check as voided and then replace the Check with a new
           Check.</para>
 
-          <para id="Para545674">Using this option, you can both void and
+            <para id="Para545674">Using this option, you can both void and
           replace a Check in one step.</para>
         </listitem>
       </varlistentry>
@@ -219,7 +225,7 @@
         <term id="Para545894">SELECT ALL</term>
 
         <listitem>
-          <para>Use this option to automatically select all Checks for
+            <para>Use this option to automatically select all Checks for
           marking, or unmarking.</para>
         </listitem>
       </varlistentry>

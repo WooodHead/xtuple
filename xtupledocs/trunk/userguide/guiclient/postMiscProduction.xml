@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519141">
-    <title><anchor id="Anchor533203" role="Index"
-    xreflabel="production:posting miscellaneous;miscellaneous production:posting of" />
-    <indexterm significance="normal" zone="Anchor533203">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519141">
+    <title>
+      <anchor id="Anchor533203" role="Index"
+              xreflabel="production:posting miscellaneous;miscellaneous production:posting of"/>
+      <indexterm significance="normal">
         <primary>production</primary>
 
         <secondary>posting miscellaneous</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533203">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>miscellaneous production</primary>
 
         <secondary>posting of</secondary>
@@ -21,17 +23,18 @@
     production, select the "Post Miscellaneous Production" option. The
     following screen will appear:</para>
 
-    <para id="Para519146"><screenshot>
+    <para id="Para519146">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_postMiscProd.png"
-                       id="Graphic523709" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_postMiscProd.png" id="Graphic523709"/>
+            </imageobject>
 
-          <caption id="Caption519147">Post Miscellaneous Work Order
+            <caption id="Caption519147">Post Miscellaneous Work Order
           Production</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para551262">If you want to disassemble a manufactured Item and
@@ -48,7 +51,7 @@
         <term id="Para519154">Item Number</term>
 
         <listitem>
-          <para>Enter the Item Number of the Item you want to post
+            <para>Enter the Item Number of the Item you want to post
           miscellaneous production for.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +60,7 @@
         <term id="Para568742">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -65,7 +68,7 @@
         <term id="Para519158">Warehouse</term>
 
         <listitem>
-          <para>Specify Warehouse Location for selected Item.</para>
+            <para>Specify Warehouse Location for selected Item.</para>
         </listitem>
       </varlistentry>
 
@@ -73,7 +76,7 @@
         <term id="Para519163">Qty. to Post</term>
 
         <listitem>
-          <para>to Post: Enter the quantity of production you want to post.
+            <para>to Post: Enter the quantity of production you want to post.
           This field will accept negative numbers for disassembly
           purposes.</para>
         </listitem>
@@ -83,7 +86,7 @@
         <term id="Para530423">Document #</term>
 
         <listitem>
-          <para>Creates a user-defined reference for the miscellaneous
+            <para>Creates a user-defined reference for the miscellaneous
           production. The document number will be posted with the General
           Ledger (G/L) transaction record when the miscellaneous production is
           generated. This field may be used for internal tracking and auditing
@@ -95,7 +98,7 @@
         <term id="Para530409">Backflush</term>
 
         <listitem>
-          <para>Select to indicate that the material requirements indicated by
+            <para>Select to indicate that the material requirements indicated by
           the associated Work Order Material Requirement record should be
           issued to the selected Work Order regardless of the issue method
           associated with these requirements.</para>
@@ -106,7 +109,7 @@
         <term id="Para519166">Issue Items not on Pick List</term>
 
         <listitem>
-          <para>Select to indicate that non-Pick List Items should be
+            <para>Select to indicate that non-Pick List Items should be
           backflushed as well.</para>
         </listitem>
       </varlistentry>
@@ -115,7 +118,7 @@
         <term id="Para519167">Comments</term>
 
         <listitem>
-          <para>This is a scrolling text field with word-wrapping for entering
+            <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the miscellaneous production posting.</para>
         </listitem>
       </varlistentry>
@@ -124,10 +127,10 @@
         <term id="Para543809">Immediate Transfer to Warehouse</term>
 
         <listitem>
-          <para>Select to transfer miscellaneous production to specified
+            <para>Select to transfer miscellaneous production to specified
           Warehouse.</para>
 
-          <para id="Para543810">Specify the Warehouse you want to transfer
+            <para id="Para543810">Specify the Warehouse you want to transfer
           production to.</para>
         </listitem>
       </varlistentry>
@@ -146,7 +149,7 @@
         <term id="Para519170">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without posting the miscellaneous
+            <para>Closes the screen without posting the miscellaneous
           production, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +158,7 @@
         <term id="Para519171">POST</term>
 
         <listitem>
-          <para>Posts the production for the selected Item in the specified
+            <para>Posts the production for the selected Item in the specified
           quantity.</para>
         </listitem>
       </varlistentry>

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section955035">
-    <title><anchor id="Anchor955034" role="Index"
-    xreflabel="purchase orders:copying of" /> <indexterm significance="normal"
-        zone="Anchor955034">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section955035">
+    <title>
+      <anchor id="Anchor955034" role="Index" xreflabel="purchase orders:copying of"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>copying of</secondary>
@@ -15,28 +14,30 @@
     the "Purchase Order History" display screen. The following screen will
     appear:</para>
 
-    <para id="Para954998"><screenshot>
+    <para id="Para954998">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_copyPO.png" id="Graphic954996" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_copyPO.png" id="Graphic954996"/>
+            </imageobject>
 
-          <caption id="Caption954999">Copy Purchase Order</caption>
+            <caption id="Caption954999">Copy Purchase Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
-      <para id="Para955021">The copy functionality can be used as a <anchor
-      id="Anchor955020" role="Index"
-      xreflabel="purchase orders:templates for;purchase orders:handling repetitive" />
-      <indexterm significance="normal" zone="Anchor955020">
-          <primary>purchase orders</primary>
+      <para id="Para955021">The copy functionality can be used as a <anchor id="Anchor955020" role="Index"
+                 xreflabel="purchase orders:templates for;purchase orders:handling repetitive"/>
+         <indexterm significance="normal">
+            <primary>purchase orders</primary>
 
-          <secondary>templates for</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor955020">
-          <primary>purchase orders</primary>
+            <secondary>templates for</secondary>
+        </indexterm> 
+         <indexterm significance="normal">
+            <primary>purchase orders</primary>
 
-          <secondary>handling repetitive</secondary>
+            <secondary>handling repetitive</secondary>
         </indexterm>templating mechanism for repetitive Purchase Orders.
       Consider creating a template P/O and then simply copy it whenever you
       need to send out a new one.</para>
@@ -50,7 +51,7 @@
         <term id="Para955045">Purchase Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18c085c">
-          <para>Displays the Purchase Order Number for the Purchase Order you
+            <para>Displays the Purchase Order Number for the Purchase Order you
           are copying.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +60,7 @@
         <term id="Para955113">Order Date</term>
 
         <listitem id="listitemN0x180ac00N0x18c08a4">
-          <para>Displays the original Order date for the Purchase Order you
+            <para>Displays the original Order date for the Purchase Order you
           are copying.</para>
         </listitem>
       </varlistentry>
@@ -68,10 +69,10 @@
         <term id="Para955114">Vendor #</term>
 
         <listitem id="listitemN0x180ac00N0x18c08ec">
-          <para>Displays the Vendor Number for the Purchase Order you are
+            <para>Displays the Vendor Number for the Purchase Order you are
           copying.</para>
 
-          <para id="Para955151">The Vendor name and phone number will also
+            <para id="Para955151">The Vendor name and phone number will also
           display.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +81,7 @@
         <term id="Para955283">Original Line Items</term>
 
         <listitem id="listitemN0x180ac00N0x18c0934">
-          <para>Display lists the Line Items which originally appeared on the
+            <para>Display lists the Line Items which originally appeared on the
           Purchase Order.</para>
         </listitem>
       </varlistentry>
@@ -89,10 +90,10 @@
         <term id="Para955285">Use Today's Date</term>
 
         <listitem id="listitemN0x180ac00N0x18c097c">
-          <para>Select to use today's date as the Order date for the Purchase
+            <para>Select to use today's date as the Order date for the Purchase
           Order copy.</para>
 
-          <para id="Para955306">Due dates for Purchase Order Line Items will
+            <para id="Para955306">Due dates for Purchase Order Line Items will
           be adjusted automatically from today's date using Item Source Lead
           Times, if any.</para>
         </listitem>
@@ -102,10 +103,10 @@
         <term id="Para955330">Schedule Purchase Order for</term>
 
         <listitem id="listitemN0x180ac00N0x18c09c4">
-          <para>Specify a date to use as the Order date for the Purchase Order
+            <para>Specify a date to use as the Order date for the Purchase Order
           copy.</para>
 
-          <para id="Para955286">Due dates for Purchase Order Line Items will
+            <para id="Para955286">Due dates for Purchase Order Line Items will
           be adjusted automatically from the specified date using Item Source
           Lead Times, if any.</para>
         </listitem>
@@ -115,10 +116,10 @@
         <term id="Para955059">Use latest Item Sources and Prices</term>
 
         <listitem id="listitemN0x180ac00N0x18c0a0c">
-          <para>Select to use the most current Item Source information,
+            <para>Select to use the most current Item Source information,
           including up-to-date Item Source Prices.</para>
 
-          <para id="Para955343">If not selected, the Purchase Order copy will
+            <para id="Para955343">If not selected, the Purchase Order copy will
           use the Item Source information, including Item Source Prices, in
           effect at the time of the original Purchase Order.</para>
         </listitem>
@@ -133,7 +134,7 @@
         <term id="Para955076">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18c0a78">
-          <para>Closes the screen without copying the Purchase Order,
+            <para>Closes the screen without copying the Purchase Order,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -142,7 +143,7 @@
         <term id="Para955064">COPY</term>
 
         <listitem id="listitemN0x180ac00N0x18c0ac0">
-          <para>Creates a copy of the Purchase Order and places the copy--with
+            <para>Creates a copy of the Purchase Order and places the copy--with
           a new Purchase Order Number--on the List Unposted Purchase Orders
           screen.</para>
         </listitem>

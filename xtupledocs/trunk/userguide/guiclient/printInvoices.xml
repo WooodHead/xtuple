@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section657104">
-    <title><anchor id="Anchor657103" role="Index"
-    xreflabel="invoices:printing of" /> <indexterm significance="normal"
-        zone="Anchor657103">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657104">
+    <title>
+      <anchor id="Anchor657103" role="Index" xreflabel="invoices:printing of"/> 
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>printing of</secondary>
@@ -16,16 +16,17 @@
     unposted Invoices, select the "Print Invoices" option. The following
     screen will appear:</para>
 
-    <para id="Para657109"><screenshot>
+    <para id="Para657109">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_printInvoices.png"
-                       id="Graphic657107" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_printInvoices.png" id="Graphic657107"/>
+            </imageobject>
 
-          <caption id="Caption657110">Print Invoices</caption>
+            <caption id="Caption657110">Print Invoices</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para657111">When printing Invoices, you are presented with the
     following options:</para>
@@ -35,10 +36,10 @@
         <term id="Para657112">First Invoice #</term>
 
         <listitem id="listitemN0x180ac00N0x19147cc">
-          <para>The next Invoice Number in the automatic sequence of Invoice
+            <para>The next Invoice Number in the automatic sequence of Invoice
           Numbers will display here.</para>
 
-          <para id="Para657113">Once this Invoice Number has been printed, the
+            <para id="Para657113">Once this Invoice Number has been printed, the
           next Invoice Number will appear. Default values for Invoice Numbers
           are configurable at the system level.</para>
         </listitem>
@@ -48,7 +49,7 @@
         <term id="Para657114">Post Invoices after Printing</term>
 
         <listitem id="listitemN0x180ac00N0x1914814">
-          <para>Select to automatically post Invoices after they have been
+            <para>Select to automatically post Invoices after they have been
           printed.</para>
         </listitem>
       </varlistentry>
@@ -65,10 +66,10 @@
         <term id="Para657117">Invoice Copies</term>
 
         <listitem id="listitemN0x180ac00N0x19148a4">
-          <para>Specify details for the Invoice copies you want to
+            <para>Specify details for the Invoice copies you want to
           print:</para>
 
-          <para id="Para657118"># of Copies: Indicate the number of copies you
+            <para id="Para657118"># of Copies: Indicate the number of copies you
           want to print. Information about the specified copies will display
           below. To add a Watermark, double-click on a copy line.</para>
         </listitem>
@@ -83,7 +84,7 @@
         <term id="Para657120">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1914910">
-          <para>Closes the screen without printing Invoices, returning you to
+            <para>Closes the screen without printing Invoices, returning you to
           the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -92,7 +93,7 @@
         <term id="Para657121">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1914958">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -106,17 +107,19 @@
     <para id="Para657124">To add a Watermark to an Invoice, double-click on a
     copy line. The following screen will appear:</para>
 
-    <para id="Para657128"><anchor id="Anchor58193" role="Cross-Ref"
-    xreflabel="58193: Figure: Figure 2.57:  Add Watermark" /> <screenshot>
+    <para id="Para657128">
+      <anchor id="Anchor58193" role="Cross-Ref"
+              xreflabel="58193: Figure: Figure 2.57:  Add Watermark"/> 
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_addWatermark.png"
-                       id="Graphic657126" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_addWatermark.png" id="Graphic657126"/>
+            </imageobject>
 
-          <caption id="Caption657130">Add Watermark</caption>
+            <caption id="Caption657130">Add Watermark</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para657131">When adding a Watermark to an Invoice copy, you are
     presented with the following options:</para>
@@ -126,7 +129,7 @@
         <term id="Para657132">Watermark</term>
 
         <listitem id="listitemN0x180ac00N0x1914a54">
-          <para>Specify the name of the Watermark to be used for the selected
+            <para>Specify the name of the Watermark to be used for the selected
           copy.</para>
         </listitem>
       </varlistentry>
@@ -135,7 +138,7 @@
         <term id="Para657133">Show Prices</term>
 
         <listitem id="listitemN0x180ac00N0x1914a9c">
-          <para>Select to show Prices in the selected copy.</para>
+            <para>Select to show Prices in the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -148,7 +151,7 @@
         <term id="Para657135">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1914b08">
-          <para>Closes the screen without adding a Watermark, returning you to
+            <para>Closes the screen without adding a Watermark, returning you to
           the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -157,7 +160,7 @@
         <term id="Para657136">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1914b50">
-          <para>Saves the Watermark definition to the selected copy.</para>
+            <para>Saves the Watermark definition to the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>

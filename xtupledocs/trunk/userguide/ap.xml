@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE chapter
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter559718">
   <title>Accounts Payable (A/P) Module</title>
 
@@ -8,163 +8,147 @@
   following topics will be covered:</para>
 
   <itemizedlist>
-    <listitem>
-      <para id="Para523502">Purchase Orders</para>
-    </listitem>
+      <listitem>
+         <para id="Para523502">Purchase Orders</para>
+      </listitem>
 
-    <listitem>
-      <para id="Para548679">Vouchers</para>
-    </listitem>
+      <listitem>
+         <para id="Para548679">Vouchers</para>
+      </listitem>
 
-    <listitem>
-      <para id="Para525509">Check Processing</para>
-    </listitem>
+      <listitem>
+         <para id="Para525509">Check Processing</para>
+      </listitem>
 
-    <listitem>
-      <para id="Para533752">Vendors</para>
-    </listitem>
+      <listitem>
+         <para id="Para533752">Vendors</para>
+      </listitem>
 
-    <listitem>
-      <para id="Para525510">Bank Accounts</para>
-    </listitem>
+      <listitem>
+         <para id="Para525510">Bank Accounts</para>
+      </listitem>
   </itemizedlist>
 
   <section id="Section564034">
-    <title><anchor id="Anchor564033" role="Index"
-    xreflabel="master information:for a/p module" /> <indexterm
-        significance="normal" zone="Anchor564033">
-        <primary>master information</primary>
+      <title>
+         <anchor id="Anchor564033" role="Index" xreflabel="master information:for a/p module"/> 
+         <indexterm significance="normal">
+            <primary>master information</primary>
 
-        <secondary>for a/p module</secondary>
-      </indexterm>Master Information</title>
+            <secondary>for a/p module</secondary>
+         </indexterm>Master Information</title>
 
-    <para id="Para564035">Master Information for the module is stored
+      <para id="Para564035">Master Information for the module is stored
     here.</para>
 
-    <xi:include href="guiclient/bankAccounts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/bankAccounts.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/bankAccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/bankAccount.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/checkFormats.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/checkFormats.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/checkFormat.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/checkFormat.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section565829">
-    <title>Payments</title>
+      <title>Payments</title>
 
-    <para id="Para528087"><anchor id="Anchor534043" role="Index"
-    xreflabel="payments:making to vendors;vendors:making payments to" />
-    <indexterm significance="normal" zone="Anchor534043">
-        <primary>payments</primary>
+      <para id="Para528087">
+         <anchor id="Anchor534043" role="Index"
+                 xreflabel="payments:making to vendors;vendors:making payments to"/>
+         <indexterm significance="normal">
+            <primary>payments</primary>
 
-        <secondary>making to vendors</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor534043">
-        <primary>vendors</primary>
+            <secondary>making to vendors</secondary>
+         </indexterm> 
+         <indexterm significance="normal">
+            <primary>vendors</primary>
 
-        <secondary>making payments to</secondary>
-      </indexterm>Managing payments to Vendors is a central focus of the
+            <secondary>making payments to</secondary>
+         </indexterm>Managing payments to Vendors is a central focus of the
     module.</para>
 
-    <xi:include href="guiclient/selectPayments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/selectPayments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/selectedPayments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/selectedPayments.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/prepareCheckRun.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/prepareCheckRun.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/miscCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/miscCheck.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/viewCheckRun.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/viewCheckRun.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printCheck.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printChecks.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/voidChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/voidChecks.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postCheck.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/postChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postChecks.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section539646">
-    <title>Debit and Credit Memos</title>
+      <title>Debit and Credit Memos</title>
 
-    <para id="Para539652">Credit and Debit Memos are described in this
+      <para id="Para539652">Credit and Debit Memos are described in this
     section.</para>
 
-    <xi:include href="guiclient/apOpenItemCredit.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/apOpenItemCredit.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/unappliedAPCreditMemos.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/unappliedAPCreditMemos.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/apOpenItemDebit.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/apOpenItemDebit.xml"
+                  xpointer="element(/1)"/>
   </section>
 
   <section id="Section524292">
-    <title>A/P Reports</title>
+      <title>A/P Reports</title>
 
-    <para id="Para564727">The module offers a number of reports.</para>
+      <para id="Para564727">The module offers a number of reports.</para>
 
-    <xi:include href="guiclient/dspVendorAPHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section564729)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspVendorAPHistory.xml"
+                  xpointer="element(Section564729)"/>
 
-    <xi:include href="guiclient/dspCheckRegister.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspCheckRegister.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/dspVoucherRegister.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section550404)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspVoucherRegister.xml"
+                  xpointer="element(Section550404)"/>
 
-    <xi:include href="guiclient/dspAPOpenItemsByVendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section531012)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspAPOpenItemsByVendor.xml"
+                  xpointer="element(Section531012)"/>
 
-    <xi:include href="guiclient/dspTimePhasedOpenAPItems.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section549958)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/dspTimePhasedOpenAPItems.xml"
+                  xpointer="element(Section549958)"/>
 
-    <xi:include href="guiclient/printPayablesJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  href="guiclient/printPayablesJournal.xml"
+                  xpointer="element(/1)"/>
 
-    <xi:include href="guiclient/printCheckJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printCheckJournal.xml"
+                  xpointer="element(/1)"/>
   </section>
 </chapter>

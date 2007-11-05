@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518827" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518827" role="openmfg">
     <title>Rough Cut Capacity Plan by Work Center</title>
 
     <para id="Para518828">A Rough Cut Capacity Plan takes into account both
@@ -12,17 +11,18 @@
     cut Capacity Plan by Work Center, select the "Rough Cut Capacity Plan by
     Work Center" option. The following screen will appear:</para>
 
-    <para id="Para518832"><screenshot>
+    <para id="Para518832">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_roughCutByWCenter.png"
-                       id="Graphic520740" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Disp_roughCutByWCenter.png" id="Graphic520740"/>
+            </imageobject>
 
-          <caption id="Caption518833">Rough Cut Capacity Plan by Work
+            <caption id="Caption518833">Rough Cut Capacity Plan by Work
           Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518834">When displaying a rough cut Capacity Plan by Work
     Center, you are presented with the following options:</para>
@@ -32,7 +32,7 @@
         <term id="Para518835">All Work Centers</term>
 
         <listitem>
-          <para>Select to display rough cut Capacity Plan by Work Center for
+            <para>Select to display rough cut Capacity Plan by Work Center for
           all Work Centers.</para>
         </listitem>
       </varlistentry>
@@ -41,7 +41,7 @@
         <term id="Para518836">Selected</term>
 
         <listitem>
-          <para>Specify Work Center whose rough cut Capacity Plan you want to
+            <para>Specify Work Center whose rough cut Capacity Plan you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +50,7 @@
         <term id="Para518838">All Warehouses</term>
 
         <listitem>
-          <para>Select to display rough cut Capacity Plan by Work Center for
+            <para>Select to display rough cut Capacity Plan by Work Center for
           all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +59,7 @@
         <term id="Para518840">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose rough cut Capacity Plan by Work Center
+            <para>Specify Warehouse whose rough cut Capacity Plan by Work Center
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +68,7 @@
         <term id="Para518845">Start Order Date</term>
 
         <listitem>
-          <para>Planned and Actual Orders started on or after this date will
+            <para>Planned and Actual Orders started on or after this date will
           be displayed. Start date and end date must be entered for
           calculation to proceed.</para>
         </listitem>
@@ -78,7 +78,7 @@
         <term id="Para518850">End Order Date</term>
 
         <listitem>
-          <para>Planned and Actual Orders ending on or before this date will
+            <para>Planned and Actual Orders ending on or before this date will
           be displayed. Start date and end date must be entered for
           calculation to proceed.</para>
         </listitem>
@@ -88,7 +88,7 @@
         <term id="Para518852">Rough Cut Capacity Load</term>
 
         <listitem>
-          <para>Display lists rough cut Capacity Plan by Work Center, using
+            <para>Display lists rough cut Capacity Plan by Work Center, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +102,7 @@
         <term id="Para518855">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -111,10 +111,10 @@
         <term id="Para531394">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para518857">Start date and end date must be entered for
+            <para id="Para518857">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the "Rough Cut
           Capacity Load" display.</para>
         </listitem>
@@ -124,7 +124,7 @@
         <term id="Para553779">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

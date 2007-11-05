@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Tax Breakdown
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Tax Breakdown for Document:</guilabel>
+                  <guilabel moreinfo="none">Tax Breakdown for Document:</guilabel>
                </entry>
                <entry>_header</entry>
                <entry>QLabel</entry>
@@ -49,28 +49,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Cancel</guilabel>
+                  <guilabel moreinfo="none">Cancel</guilabel>
                </entry>
                <entry>_close</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Save</guilabel>
+                  <guilabel moreinfo="none">Save</guilabel>
                </entry>
                <entry>_save</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Freight Tax:</guilabel>
+                  <guilabel moreinfo="none">Freight Tax:</guilabel>
                </entry>
                <entry>_freightTaxLit</entry>
                <entry>XURLLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Freight Value:</guilabel>
+                  <guilabel moreinfo="none">Freight Value:</guilabel>
                </entry>
                <entry>label_2</entry>
                <entry>QLabel</entry>
@@ -87,21 +87,21 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Line Item Tax:</guilabel>
+                  <guilabel moreinfo="none">Line Item Tax:</guilabel>
                </entry>
                <entry>_lineTaxLit</entry>
                <entry>XURLLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Total Tax:</guilabel>
+                  <guilabel moreinfo="none">Total Tax:</guilabel>
                </entry>
                <entry>_totalTaxLit</entry>
                <entry>XURLLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Document Currency:</guilabel>
+                  <guilabel moreinfo="none">Document Currency:</guilabel>
                </entry>
                <entry>_currencyLit</entry>
                <entry>QLabel</entry>
@@ -123,7 +123,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Pre-Tax Total Value:</guilabel>
+                  <guilabel moreinfo="none">Pre-Tax Total Value:</guilabel>
                </entry>
                <entry>_pretaxLit</entry>
                <entry>QLabel</entry>
@@ -150,21 +150,21 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Misc. Tax Adjustment:</guilabel>
+                  <guilabel moreinfo="none">Misc. Tax Adjustment:</guilabel>
                </entry>
                <entry>_adjTaxLit</entry>
                <entry>XURLLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Tax Authority:</guilabel>
+                  <guilabel moreinfo="none">Tax Authority:</guilabel>
                </entry>
                <entry>_taxauthLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Taxable Line Item Value:</guilabel>
+                  <guilabel moreinfo="none">Taxable Line Item Value:</guilabel>
                </entry>
                <entry>label</entry>
                <entry>QLabel</entry>
@@ -176,7 +176,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Tax Currency:</guilabel>
+                  <guilabel moreinfo="none">Tax Currency:</guilabel>
                </entry>
                <entry>_taxcurrencyLit</entry>
                <entry>QLabel</entry>
@@ -193,7 +193,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Order Total:</guilabel>
+                  <guilabel moreinfo="none">Order Total:</guilabel>
                </entry>
                <entry>_totalLit</entry>
                <entry>QLabel</entry>

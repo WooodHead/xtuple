@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section542136">
-    <title><anchor id="Anchor542135" role="Index"
-    xreflabel="bookings:by customer group;customer groups:bookings for" />
-    <indexterm significance="normal" zone="Anchor542135">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section542136">
+    <title>
+      <anchor id="Anchor542135" role="Index"
+              xreflabel="bookings:by customer group;customer groups:bookings for"/>
+      <indexterm significance="normal">
         <primary>bookings</primary>
 
         <secondary>by customer group</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor542135">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customer groups</primary>
 
         <secondary>bookings for</secondary>
@@ -19,16 +20,17 @@
     "Bookings by Customer Group" option. The following screen will
     appear:</para>
 
-    <para id="Para542141"><screenshot>
+    <para id="Para542141">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_bookByCustGrp.png"
-                       id="Graphic542139" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_bookByCustGrp.png" id="Graphic542139"/>
+            </imageobject>
 
-          <caption id="Caption542142">Bookings by Customer Group</caption>
+            <caption id="Caption542142">Bookings by Customer Group</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para542143">When displaying Bookings by Customer Group, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para542640">All Customer Groups</term>
 
         <listitem id="listitemN0x180ac00N0x185015c">
-          <para>Select to display Bookings for all Customer Groups.</para>
+            <para>Select to display Bookings for all Customer Groups.</para>
         </listitem>
       </varlistentry>
 
@@ -46,7 +48,7 @@
         <term id="Para542641">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18501a4">
-          <para>Specify Customer Group whose Bookings you want to
+            <para>Specify Customer Group whose Bookings you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -55,12 +57,11 @@
         <term id="Para542643">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18501ec">
-          <para>Enter a Customer Group pattern to select a range of Customer
+            <para>Enter a Customer Group pattern to select a range of Customer
           Groups.</para>
 
-          <para id="Para555589">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555588"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555589">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555588" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -70,7 +71,7 @@
         <term id="Para542585">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1856800">
-          <para>Select to display Bookings by Customer Group for all
+            <para>Select to display Bookings by Customer Group for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +80,7 @@
         <term id="Para542586">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1856824">
-          <para>Specify Warehouse whose Bookings by Customer Group you want to
+            <para>Specify Warehouse whose Bookings by Customer Group you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +89,7 @@
         <term id="Para549699">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x185686c">
-          <para>Bookings by Customer Group generated on or after this date
+            <para>Bookings by Customer Group generated on or after this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +98,7 @@
         <term id="Para549712">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18568b4">
-          <para>Bookings by Customer Group generated on or before this date
+            <para>Bookings by Customer Group generated on or before this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +107,7 @@
         <term id="Para549691">Bookings</term>
 
         <listitem id="listitemN0x180ac00N0x18568fc">
-          <para>Display lists Bookings by Customer Group, using the specified
+            <para>Display lists Bookings by Customer Group, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -120,7 +121,7 @@
         <term id="Para542611">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1856968">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -129,7 +130,7 @@
         <term id="Para542612">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18569b0">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -138,7 +139,7 @@
         <term id="Para554980">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18569f8">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -147,16 +148,13 @@
     list enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

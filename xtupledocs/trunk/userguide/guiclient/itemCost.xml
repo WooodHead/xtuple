@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Item Cost
@@ -42,7 +42,7 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -50,7 +50,7 @@
             </row>
                         <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -58,14 +58,14 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>Costing Element:</guilabel>
+                  <guilabel moreinfo="none">Costing Element:</guilabel>
                </entry>
                <entry>_costingElementLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Lower Level:</guilabel>
+                  <guilabel moreinfo="none">Lower Level:</guilabel>
                </entry>
                <entry>_lowerLevelLit</entry>
                <entry>QLabel</entry>
@@ -82,7 +82,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Actual Cost:</guilabel>
+                  <guilabel moreinfo="none">Actual Cost:</guilabel>
                </entry>
                <entry>_actualCostLit</entry>
                <entry>QLabel</entry>
@@ -94,7 +94,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>ost Cost to Standard</guilabel>
                </entry>
                <entry>_postCost</entry>

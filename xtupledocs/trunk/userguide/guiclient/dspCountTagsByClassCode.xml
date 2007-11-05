@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519688">
-    <title><anchor id="Anchor552192" role="Index"
-    xreflabel="count tags:by class code;class codes:count tags for" />
-    <indexterm significance="normal" zone="Anchor552192">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519688">
+    <title>
+      <anchor id="Anchor552192" role="Index"
+              xreflabel="count tags:by class code;class codes:count tags for"/>
+      <indexterm significance="normal">
         <primary>count tags</primary>
 
         <secondary>by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552192">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>count tags for</secondary>
@@ -18,16 +20,17 @@
     select the "Count Tags by Class Code" option. The following screen will
     appear:</para>
 
-    <para id="Para519693"><screenshot>
+    <para id="Para519693">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_dispCountTagsByClass.png"
-                       id="Graphic526402" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_dispCountTagsByClass.png" id="Graphic526402"/>
+            </imageobject>
 
-          <caption id="Caption519694">Count Tags by Class Code</caption>
+            <caption id="Caption519694">Count Tags by Class Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519695">When displaying Count Tags by Class Code, you are
     presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para519696">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x192b03c">
-          <para>Select to display Count Tags for all Class Codes.</para>
+            <para>Select to display Count Tags for all Class Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +48,7 @@
         <term id="Para580882">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x192b084">
-          <para>Specify Class Code whose Count Tags you want to
+            <para>Specify Class Code whose Count Tags you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -54,12 +57,11 @@
         <term id="Para547818">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x192b0cc">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para677063">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677062"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para677063">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef677062" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -69,7 +71,7 @@
         <term id="Para620514">Show Unposted Count Tags</term>
 
         <listitem id="listitemN0x180ac00N0x192b114">
-          <para>Select to display unposted Count Tags.</para>
+            <para>Select to display unposted Count Tags.</para>
         </listitem>
       </varlistentry>
 
@@ -77,7 +79,7 @@
         <term id="Para519700">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x192b138">
-          <para>Select to display Count Tags for all Warehouses.</para>
+            <para>Select to display Count Tags for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -85,7 +87,7 @@
         <term id="Para519702">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x192b15c">
-          <para>Specify Warehouse whose Count Tags you want to display.</para>
+            <para>Specify Warehouse whose Count Tags you want to display.</para>
         </listitem>
       </varlistentry>
 
@@ -93,7 +95,7 @@
         <term id="Para519707">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x192b1a4">
-          <para>Count Tags entered on and after this date will be
+            <para>Count Tags entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +104,7 @@
         <term id="Para519712">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x192b1ec">
-          <para>Count Tags entered on and before this date will be
+            <para>Count Tags entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +113,7 @@
         <term id="Para519715">Count Tags</term>
 
         <listitem id="listitemN0x180ac00N0x1932624">
-          <para>Display lists Count Tags by Class Code, using the specified
+            <para>Display lists Count Tags by Class Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -125,7 +127,7 @@
         <term id="Para519718">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1932690">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -134,7 +136,7 @@
         <term id="Para585067">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19326d8">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -143,7 +145,7 @@
         <term id="Para675635">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1932720">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -156,12 +158,11 @@
         <term id="Para519721">View Count Tag</term>
 
         <listitem id="listitemN0x180ac00N0x193278c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

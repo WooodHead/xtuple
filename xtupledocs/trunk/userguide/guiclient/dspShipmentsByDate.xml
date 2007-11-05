@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section536461">
-    <title><anchor id="Anchor536523" role="Index"
-    xreflabel="shipping:shipments by date" /> <indexterm significance="normal"
-        zone="Anchor536523">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section536461">
+    <title>
+      <anchor id="Anchor536523" role="Index" xreflabel="shipping:shipments by date"/> 
+      <indexterm significance="normal">
         <primary>shipping</primary>
 
         <secondary>shipments by date</secondary>
@@ -14,16 +13,17 @@
     <para id="Para536611">To view shipments by date, select the "Shipments by
     Date" option. The following screen will appear:</para>
 
-    <para id="Para536614"><screenshot>
+    <para id="Para536614">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Disp_shipByDate.png"
-                       id="Graphic536613" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Disp_shipByDate.png" id="Graphic536613"/>
+            </imageobject>
 
-          <caption id="Caption536615">Shipments by Date</caption>
+            <caption id="Caption536615">Shipments by Date</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para541958">Get the most up-to-date tracking information
@@ -39,7 +39,7 @@
         <term id="Para536979">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18282ac">
-          <para>Shipments occurring on or after this date will be included in
+            <para>Shipments occurring on or after this date will be included in
           the display.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +48,7 @@
         <term id="Para536984">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18282f4">
-          <para>Shipments occurring on or before this date will be included in
+            <para>Shipments occurring on or before this date will be included in
           the display.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +57,7 @@
         <term id="Para536645">Shipments</term>
 
         <listitem id="listitemN0x180ac00N0x182833c">
-          <para>Display lists shipments by date, using the specified
+            <para>Display lists shipments by date, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +71,7 @@
         <term id="Para537010">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18283a8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -80,7 +80,7 @@
         <term id="Para537017">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18283f0">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +89,7 @@
         <term id="Para550927">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1828438">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

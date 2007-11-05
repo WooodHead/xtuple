@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519657">
-    <title><anchor id="Anchor552190" role="Index"
-    xreflabel="count tags:by warehouse;warehouses:count tags in" /> <indexterm
-        significance="normal" zone="Anchor552190">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519657">
+    <title>
+      <anchor id="Anchor552190" role="Index"
+              xreflabel="count tags:by warehouse;warehouses:count tags in"/> 
+      <indexterm significance="normal">
         <primary>count tags</primary>
 
         <secondary>by warehouse</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552190">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>warehouses</primary>
 
         <secondary>count tags in</secondary>
@@ -18,16 +20,17 @@
     the "Count Tags by Warehouse" option. The following screen will
     appear:</para>
 
-    <para id="Para519662"><screenshot>
+    <para id="Para519662">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_dispCountTagsByWare.png"
-                       id="Graphic526377" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_dispCountTagsByWare.png" id="Graphic526377"/>
+            </imageobject>
 
-          <caption id="Caption519663">Count Tags by Warehouse</caption>
+            <caption id="Caption519663">Count Tags by Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519664">When displaying Count Tags by Warehouse, you are
     presented with the following options:</para>
@@ -37,7 +40,7 @@
         <term id="Para620490">Show Unposted Count Tags</term>
 
         <listitem id="listitemN0x180ac00N0x192abe0">
-          <para>Select to display unposted Count Tags.</para>
+            <para>Select to display unposted Count Tags.</para>
         </listitem>
       </varlistentry>
 
@@ -45,7 +48,7 @@
         <term id="Para519665">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x192ac04">
-          <para>Select to display Count Tags for all Warehouses.</para>
+            <para>Select to display Count Tags for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -53,7 +56,7 @@
         <term id="Para519667">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x192ac28">
-          <para>Specify Warehouse whose Count Tags you want to display.</para>
+            <para>Specify Warehouse whose Count Tags you want to display.</para>
         </listitem>
       </varlistentry>
 
@@ -61,7 +64,7 @@
         <term id="Para519672">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x192ac70">
-          <para>Count Tags entered on and after this date will be
+            <para>Count Tags entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +73,7 @@
         <term id="Para519677">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x192acb8">
-          <para>Count Tags entered on and before this date will be
+            <para>Count Tags entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -79,7 +82,7 @@
         <term id="Para519680">Count Tags</term>
 
         <listitem id="listitemN0x180ac00N0x192ad00">
-          <para>Display lists Count Tags by Warehouse, using the specified
+            <para>Display lists Count Tags by Warehouse, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +96,7 @@
         <term id="Para594680">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x192ad6c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +105,7 @@
         <term id="Para675623">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x192adb4">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +114,7 @@
         <term id="Para675630">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x192adfc">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -124,12 +127,11 @@
         <term id="Para519686">View Count Tag</term>
 
         <listitem id="listitemN0x180ac00N0x192ae68">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

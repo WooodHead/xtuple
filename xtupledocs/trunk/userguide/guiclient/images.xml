@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518556">
-  <title><anchor id="Anchor932264" role="Index"
-  xreflabel="images:master list of" /> <indexterm significance="normal"
-      zone="Anchor932264">
-      <primary>images</primary>
+  <title>
+      <anchor id="Anchor932264" role="Index" xreflabel="images:master list of"/> 
+      <indexterm significance="normal">
+         <primary>images</primary>
 
-      <secondary>master list of</secondary>
-    </indexterm>List Images</title>
+         <secondary>master list of</secondary>
+      </indexterm>List Images</title>
 
   <para id="Para518557">You can store various types of Images in an database
   for later reference. For example, you may want to store an Image of your
@@ -17,45 +17,49 @@
   Images. The following list shows the supported Image formats:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x181a844">
-      <para id="Para518558"><anchor id="Anchor933906" role="Index"
-      xreflabel="graphics:supported formats;images:supported formats" />
-      <indexterm significance="normal" zone="Anchor933906">
-          <primary>graphics</primary>
+      <listitem id="listitemN0x180ac00N0x181a844">
+         <para id="Para518558">
+            <anchor id="Anchor933906" role="Index"
+                    xreflabel="graphics:supported formats;images:supported formats"/>
+            <indexterm significance="normal">
+               <primary>graphics</primary>
 
-          <secondary>supported formats</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor933906">
-          <primary>images</primary>
+               <secondary>supported formats</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>images</primary>
 
-          <secondary>supported formats</secondary>
-        </indexterm>Graphics Interchange Format (.gif)</para>
-    </listitem>
+               <secondary>supported formats</secondary>
+            </indexterm>Graphics Interchange Format (.gif)</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x181a8f8">
-      <para id="Para518559">Joint Photographic Experts Group (.jpg)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x181a8f8">
+         <para id="Para518559">Joint Photographic Experts Group (.jpg)</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x181a91c">
-      <para id="Para518560">Portable Network Graphics (.png)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x181a91c">
+         <para id="Para518560">Portable Network Graphics (.png)</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x181a940">
-      <para id="Para518561">XPixMap (.xpm)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x181a940">
+         <para id="Para518561">XPixMap (.xpm)</para>
+      </listitem>
   </itemizedlist>
 
   <para id="Para518562">To access the master list of stored Images, select the
   "Images" option. The following screen will appear:</para>
 
-  <para id="Para518566"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_imageList.png" id="Graphic521854" />
-        </imageobject>
+  <para id="Para518566">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_imageList.png" id="Graphic521854"/>
+            </imageobject>
 
-        <caption id="Caption518567">Images Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption518567">Images Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para923204">The Images master list displays information on all
   stored Images, including Image name, Image description, and Image file
@@ -65,52 +69,52 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para923206">CLOSE</term>
+      <varlistentry>
+         <term id="Para923206">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x181aa18">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x181aa18">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para923208">NEW</term>
+      <varlistentry>
+         <term id="Para923208">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x181aa60">
-        <para>Opens screen for adding a new Image to the master list of stored
+         <listitem id="listitemN0x180ac00N0x181aa60">
+            <para>Opens screen for adding a new Image to the master list of stored
         Images.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para925338">EDIT</term>
+      <varlistentry>
+         <term id="Para925338">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x181aaa8">
-        <para>Enables you to edit highlighted Image definitions. The edit
+         <listitem id="listitemN0x180ac00N0x181aaa8">
+            <para>Enables you to edit highlighted Image definitions. The edit
         screen is the same as that for creating a new Image definition--except
         that when editing, the fields will contain Image information.
         Double-clicking on an Image definition will also bring you to the
         editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para925208">VIEW</term>
+      <varlistentry>
+         <term id="Para925208">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x181aaf0">
-        <para>Highlight an Image definition and then select this button to
+         <listitem id="listitemN0x180ac00N0x181aaf0">
+            <para>Highlight an Image definition and then select this button to
         reach a read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para925345">DELETE</term>
+      <varlistentry>
+         <term id="Para925345">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x181ab38">
-        <para>Highlight an Image definition and then select this button to
+         <listitem id="listitemN0x180ac00N0x181ab38">
+            <para>Highlight an Image definition and then select this button to
         remove the Image from the master list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-  <section id="Section594739">
-    <title><anchor id="Anchor595450" role="Index"
-    xreflabel="components:mass expiration of;mass expiration:of component items;expiration:of component items" />
-    <indexterm significance="normal" zone="Anchor595450">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section594739">
+    <title>
+      <anchor id="Anchor595450" role="Index"
+              xreflabel="components:mass expiration of;mass expiration:of component items;expiration:of component items"/>
+      <indexterm significance="normal">
         <primary>components</primary>
 
         <secondary>mass expiration of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595450">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>mass expiration</primary>
 
         <secondary>of component items</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595450">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>expiration</primary>
 
         <secondary>of component items</secondary>
@@ -24,16 +27,17 @@
     select the "Mass Expire Component Item" option. The following screen will
     appear:</para>
 
-    <para id="Para594752"><screenshot>
+    <para id="Para594752">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_BOM_massExpire.png"
-                       id="Graphic594750" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_BOM_massExpire.png" id="Graphic594750"/>
+            </imageobject>
 
-          <caption id="Caption594753">Mass Expire Component Item</caption>
+            <caption id="Caption594753">Mass Expire Component Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para594754">When performing a mass expiration of a component
     Item, you are presented with the following options:</para>
@@ -43,7 +47,7 @@
         <term id="Para594755">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18a9bf4">
-          <para>Enter the Item Number of the component Item you want to mass
+            <para>Enter the Item Number of the component Item you want to mass
           expire.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +56,7 @@
         <term id="Para663214">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18a9c3c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -60,30 +64,33 @@
         <term id="Para594778">Expire as of</term>
 
         <listitem id="listitemN0x180ac00N0x18a9c84">
-          <para>The specified component Item will be expired from existing
+            <para>The specified component Item will be expired from existing
           Bills of Materials as of the specified expiration date.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para594782"><anchor id="Anchor600524" role="Index"
-        xreflabel="engineering change notices:for mass expiration;mass expiration:of component items;expiration:of component items" />
-        <indexterm significance="normal" zone="Anchor600524">
-            <primary>engineering change notices</primary>
+        <term id="Para594782">
+            <anchor id="Anchor600524" role="Index"
+                    xreflabel="engineering change notices:for mass expiration;mass expiration:of component items;expiration:of component items"/>
+            <indexterm significance="normal">
+               <primary>engineering change notices</primary>
 
-            <secondary>for mass expiration</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor600524">
-            <primary>mass expiration</primary>
+               <secondary>for mass expiration</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>mass expiration</primary>
 
-            <secondary>of component items</secondary>
-          </indexterm> <indexterm significance="normal" zone="Anchor600524">
-            <primary>expiration</primary>
+               <secondary>of component items</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>expiration</primary>
 
-            <secondary>of component items</secondary>
-          </indexterm>ECN #</term>
+               <secondary>of component items</secondary>
+            </indexterm>ECN #</term>
 
         <listitem id="listitemN0x180ac00N0x18a9da4">
-          <para>Enter the Engineering Change Notice Number--if applicable--for
+            <para>Enter the Engineering Change Notice Number--if applicable--for
           the specified component Item.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +104,7 @@
         <term id="Para594785">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18b1c00">
-          <para>Closes the screen without executing the expire command,
+            <para>Closes the screen without executing the expire command,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -106,7 +113,7 @@
         <term id="Para594786">EXPIRE</term>
 
         <listitem id="listitemN0x180ac00N0x18b1c48">
-          <para>Select to expire the specified component Item from all
+            <para>Select to expire the specified component Item from all
           existing Bills of Materials.</para>
         </listitem>
       </varlistentry>

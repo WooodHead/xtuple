@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520838">
-    <title><anchor id="Anchor595562" role="Index"
-    xreflabel="bills of materials:without component item sites;bills of materials:invalid" />
-    <indexterm significance="normal" zone="Anchor595562">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520838">
+    <title>
+      <anchor id="Anchor595562" role="Index"
+              xreflabel="bills of materials:without component item sites;bills of materials:invalid"/>
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>without component item sites</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595562">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>invalid</secondary>
@@ -21,17 +23,18 @@
     Materials Without Component Item Sites" option. The following screen will
     appear:</para>
 
-    <para id="Para520843"><screenshot>
+    <para id="Para520843">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Utils_BOMNoCompItem.png"
-                       id="Graphic564063" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Utils_BOMNoCompItem.png" id="Graphic564063"/>
+            </imageobject>
 
-          <caption id="Caption520844">Bills of Materials Without Component
+            <caption id="Caption520844">Bills of Materials Without Component
           Item Sites</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para557108">This utility may run for a long period of time. We
@@ -46,7 +49,7 @@
         <term id="Para658446">All Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x1946be8">
-          <para>Select to display Bills of Materials without component Item
+            <para>Select to display Bills of Materials without component Item
           Sites from all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +58,7 @@
         <term id="Para617893">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1946c0c">
-          <para>Specify Warehouse whose Bills of Materials without component
+            <para>Specify Warehouse whose Bills of Materials without component
           Items Sites you want to display.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +68,7 @@
         Changed</term>
 
         <listitem id="listitemN0x180ac00N0x1946c54">
-          <para>Select to update the display when changes are made to Items or
+            <para>Select to update the display when changes are made to Items or
           Item Sites.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +77,7 @@
         <term id="Para520851">Invalid Bill of Material Items</term>
 
         <listitem id="listitemN0x180ac00N0x1946c9c">
-          <para>Display lists invalid Bill of Materials Items sorted according
+            <para>Display lists invalid Bill of Materials Items sorted according
           to the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +91,7 @@
         <term id="Para520854">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1946d08">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +100,7 @@
         <term id="Para520855">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1946d50">
-          <para>Select to identify Bills of Materials without component Item
+            <para>Select to identify Bills of Materials without component Item
           Sites, using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +114,7 @@
         <term id="Para520857">Edit Parent Item</term>
 
         <listitem id="listitemN0x180ac00N0x1946dbc">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -119,7 +122,7 @@
         <term id="Para520858">Edit Parent Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x1946e04">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -127,12 +130,11 @@
         <term id="Para520859">Create Component Item Site</term>
 
         <listitem id="listitemN0x180ac00N0x1946e4c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section959762" role="openmfg">
   <title>List EDI Profiles</title>
 
   <para id="Para959763">The Electronic Data Interchange (EDI) system supports
-  the export of documents and files using either of the following two <anchor
-  id="Anchor959764" role="Index"
-  xreflabel="electronic data interchange:delivery methods for" /> <indexterm
-      significance="normal" zone="Anchor959764">
-      <primary>electronic data interchange</primary>
+  the export of documents and files using either of the following two <anchor id="Anchor959764" role="Index"
+              xreflabel="electronic data interchange:delivery methods for"/> 
+      <indexterm significance="normal">
+         <primary>electronic data interchange</primary>
 
-      <secondary>delivery methods for</secondary>
-    </indexterm>delivery methods:</para>
+         <secondary>delivery methods for</secondary>
+      </indexterm>delivery methods:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x187a150">
-      <para id="Para959499">Email</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x187a150">
+         <para id="Para959499">Email</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x187a174">
-      <para id="Para960504">FTP</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x187a174">
+         <para id="Para960504">FTP</para>
+      </listitem>
   </itemizedlist>
 
   <para id="Para960505">EDI Profiles are the master records which contain
@@ -29,27 +28,26 @@
   Suppliers, or intermediaries such as VANs (Value-Added Networks).</para>
 
   <para id="Para960497">When creating an EDI Profile, you specify recipient
-  details, delivery method, and output format. The following <anchor
-  id="Anchor959630" role="Index"
-  xreflabel="electronic data interchange:supported formats" /> <indexterm
-      significance="normal" zone="Anchor959630">
-      <primary>electronic data interchange</primary>
+  details, delivery method, and output format. The following <anchor id="Anchor959630" role="Index"
+              xreflabel="electronic data interchange:supported formats"/> 
+      <indexterm significance="normal">
+         <primary>electronic data interchange</primary>
 
-      <secondary>supported formats</secondary>
-    </indexterm>output formats are available:</para>
+         <secondary>supported formats</secondary>
+      </indexterm>output formats are available:</para>
 
   <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x187a204">
-      <para id="Para959532">xTuple Report (.PDF)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x187a204">
+         <para id="Para959532">xTuple Report (.PDF)</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x187a228">
-      <para id="Para959538">Comma Delimited (.TXT)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x187a228">
+         <para id="Para959538">Comma Delimited (.TXT)</para>
+      </listitem>
 
-    <listitem id="listitemN0x180ac00N0x187a24c">
-      <para id="Para959563">Tab Delimited (.TXT)</para>
-    </listitem>
+      <listitem id="listitemN0x180ac00N0x187a24c">
+         <para id="Para959563">Tab Delimited (.TXT)</para>
+      </listitem>
   </itemizedlist>
 
   <para id="Para960486">Using different combinations of delivery methods and
@@ -57,79 +55,81 @@
   EDI Profiles.</para>
 
   <tip>
-    <para id="Para959548">The EDI system exports files using the Batch
+      <para id="Para959548">The EDI system exports files using the Batch
     Manager. The Batch Manager must be installed and running at your site for
     EDI exports to be successful.</para>
   </tip>
 
-  <para id="Para959435"><anchor id="Anchor959631" role="Index"
-  xreflabel="profiles:master list of" /> <indexterm significance="normal"
-      zone="Anchor959631">
-      <primary>profiles</primary>
+  <para id="Para959435">
+      <anchor id="Anchor959631" role="Index" xreflabel="profiles:master list of"/> 
+      <indexterm significance="normal">
+         <primary>profiles</primary>
 
-      <secondary>master list of</secondary>
-    </indexterm>To access the master list of EDI Profiles, select the "EDI
+         <secondary>master list of</secondary>
+      </indexterm>To access the master list of EDI Profiles, select the "EDI
   Profiles" option. The following screen will appear:</para>
 
-  <para id="Para959274"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_ediProfList.png" id="Graphic959272" />
-        </imageobject>
+  <para id="Para959274">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_ediProfList.png" id="Graphic959272"/>
+            </imageobject>
 
-        <caption id="Caption959275">EDI Profiles Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption959275">EDI Profiles Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para959276">The "EDI Profiles" screen displays information on all
   existing EDI Profiles. To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para959278">CLOSE</term>
+      <varlistentry>
+         <term id="Para959278">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x187a390">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x187a390">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para979402">PRINT</term>
+      <varlistentry>
+         <term id="Para979402">PRINT</term>
 
-      <listitem id="listitemN0x180ac00N0x187a3d8">
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x187a3d8">
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para959280">NEW</term>
+      <varlistentry>
+         <term id="Para959280">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x187a420">
-        <para>Opens screen for creating a new EDI Profile.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x187a420">
+            <para>Opens screen for creating a new EDI Profile.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para959284">EDIT</term>
+      <varlistentry>
+         <term id="Para959284">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x187a468">
-        <para>Enables you to edit highlighted EDI Profile definitions. The
+         <listitem id="listitemN0x180ac00N0x187a468">
+            <para>Enables you to edit highlighted EDI Profile definitions. The
         edit screen is the same as that for creating a new EDI Profile
         definition--except that when editing, the fields will contain EDI
         Profile information. Double-clicking on an EDI Profile definition will
         also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para959769">DELETE</term>
+      <varlistentry>
+         <term id="Para959769">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x187a4b0">
-        <para>Highlight an EDI Profile definition and then select this button
+         <listitem id="listitemN0x180ac00N0x187a4b0">
+            <para>Highlight an EDI Profile definition and then select this button
         to remove the EDI Profile from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

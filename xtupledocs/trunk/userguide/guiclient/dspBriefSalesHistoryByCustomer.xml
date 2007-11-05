@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section530288">
-    <title><anchor id="Anchor533195" role="Index"
-    xreflabel="sales history:brief by customer;customers:brief sales history for" />
-    <indexterm significance="normal" zone="Anchor533195">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section530288">
+    <title>
+      <anchor id="Anchor533195" role="Index"
+              xreflabel="sales history:brief by customer;customers:brief sales history for"/>
+      <indexterm significance="normal">
         <primary>sales history</primary>
 
         <secondary>brief by customer</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533195">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>brief sales history for</secondary>
@@ -19,17 +20,18 @@
     "Brief Sales History by Customer" option. The following screen will
     appear:</para>
 
-    <para id="Para530612"><screenshot>
+    <para id="Para530612">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SA_Disp_briefHistByCust.png"
-                       id="Graphic531249" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SA_Disp_briefHistByCust.png" id="Graphic531249"/>
+            </imageobject>
 
-          <caption id="Caption530613">Brief Sales History by
+            <caption id="Caption530613">Brief Sales History by
           Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para530614">When displaying brief Sales history by Customer, you
     are presented with the following options:</para>
@@ -39,10 +41,10 @@
         <term id="Para531206">Customer #</term>
 
         <listitem id="listitemN0x180ac00N0x1847d24">
-          <para>Enter the Customer Number of the Customer whose brief Sales
+            <para>Enter the Customer Number of the Customer whose brief Sales
           history you want to display.</para>
 
-          <para id="Para531207">The browse button located to the right of the
+            <para id="Para531207">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
           is entered, the Customer name and billing address will display.
@@ -60,7 +62,7 @@
         <term id="Para531214">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x1847d48">
-          <para>Select to display brief Sales history by Customer for all
+            <para>Select to display brief Sales history by Customer for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +71,7 @@
         <term id="Para531216">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1847d6c">
-          <para>Specify Warehouse whose brief Sales history by Customer you
+            <para>Specify Warehouse whose brief Sales history by Customer you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +80,7 @@
         <term id="Para534412">All Product Categories</term>
 
         <listitem id="listitemN0x180ac00N0x1847db4">
-          <para>Select to display brief Sales history by Customer for all
+            <para>Select to display brief Sales history by Customer for all
           Product Categories.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +89,7 @@
         <term id="Para539796">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1847dfc">
-          <para>Specify Product Category whose Sales history by Customer you
+            <para>Specify Product Category whose Sales history by Customer you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -96,12 +98,11 @@
         <term id="Para534415">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1847e44">
-          <para>Enter a Product Category pattern to select a range of Product
+            <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
 
-          <para id="Para555546">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555545"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para555546">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef555545" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -111,7 +112,7 @@
         <term id="Para531221">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x1847e8c">
-          <para>Brief Sales history by Customer generated on or after this
+            <para>Brief Sales history by Customer generated on or after this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -120,7 +121,7 @@
         <term id="Para531226">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x1847ed4">
-          <para>Brief Sales history by Customer generated on or before this
+            <para>Brief Sales history by Customer generated on or before this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -129,7 +130,7 @@
         <term id="Para531239">Sales History</term>
 
         <listitem id="listitemN0x180ac00N0x1847f1c">
-          <para>Display lists brief Sales history by Customer, using the
+            <para>Display lists brief Sales history by Customer, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -143,7 +144,7 @@
         <term id="Para531242">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1847f88">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -152,7 +153,7 @@
         <term id="Para541784">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1847fd0">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -161,7 +162,7 @@
         <term id="Para554951">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1848018">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

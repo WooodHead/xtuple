@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Get G/L Distribution Date
@@ -37,21 +37,21 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Distribute to the G/L using the following date:</guilabel>
+                  <guilabel moreinfo="none">Distribute to the G/L using the following date:</guilabel>
                </entry>
                <entry>label</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Default</guilabel>
+                  <guilabel moreinfo="none">Default</guilabel>
                </entry>
                <entry>_default</entry>
                <entry>QRadioButton</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Alternate Date:</guilabel>
+                  <guilabel moreinfo="none">Alternate Date:</guilabel>
                </entry>
                <entry>_particular</entry>
                <entry>QRadioButton</entry>
@@ -63,14 +63,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Cancel</guilabel>
+                  <guilabel moreinfo="none">Cancel</guilabel>
                </entry>
                <entry>_cancel</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Continue</guilabel>
+                  <guilabel moreinfo="none">Continue</guilabel>
                </entry>
                <entry>_continue</entry>
                <entry>QPushButton</entry>

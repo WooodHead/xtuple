@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section572294">
-    <title><anchor id="Anchor607946" role="Index"
-    xreflabel="budgets:creating new" /> <indexterm significance="normal"
-        zone="Anchor607946">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section572294">
+    <title>
+      <anchor id="Anchor607946" role="Index" xreflabel="budgets:creating new"/> 
+      <indexterm significance="normal">
         <primary>budgets</primary>
 
         <secondary>creating new</secondary>
@@ -13,23 +13,23 @@
     <para id="Para573349">The Budget utility is designed to store budgetary
     information, by Account Number, in a table format. Once stored, this
     information may then be accessed and viewed using the Financial Report
-    engine. As we saw in the <link endterm="Anchor14666" id="XRef573379"
-    linkend="Anchor14666"> Create Financial Report</link>"Create Financial
+    engine. As we saw in the <link endterm="Anchor14666" id="XRef573379" linkend="Anchor14666"> Create Financial Report</link>"Create Financial
     Report" section, the Financial Reporting Engine specifically includes
     options for generating reports showing Budget information. To access the
     Budget utility, select the "New Budget" option. The following screen will
     appear:</para>
 
-    <para id="Para573210"><screenshot>
+    <para id="Para573210">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/GL_Budg_maintBudget.png"
-                       id="Graphic573208" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/GL_Budg_maintBudget.png" id="Graphic573208"/>
+            </imageobject>
 
-          <caption id="Caption573211">Maintain Budget</caption>
+            <caption id="Caption573211">Maintain Budget</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para573713">While all Budget amounts entered in the generated
@@ -47,14 +47,14 @@
         <term id="Para573373">Table Parameters</term>
 
         <listitem id="listitemN0x180ac00N0x1908bd0">
-          <para>Select from the following options to determine which Accounts
+            <para>Select from the following options to determine which Accounts
           and Accounting Periods you want to enter budgetary information
           for:</para>
 
-          <para id="Para573523">Accounts: Select one or multiple Accounts to
+            <para id="Para573523">Accounts: Select one or multiple Accounts to
           include when generating a Budget table.</para>
 
-          <para id="Para573405">ADD: Select to add Accounts from your Chart of
+            <para id="Para573405">ADD: Select to add Accounts from your Chart of
           Account.</para>
         </listitem>
       </varlistentry>
@@ -120,7 +120,7 @@
         <term id="Para573501">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1908cf0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -129,10 +129,10 @@
         <term id="Para573502">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1908d38">
-          <para>Saves the budgetary information entered in the Budget
+            <para>Saves the budgetary information entered in the Budget
           table.</para>
 
-          <para id="Para573513">Any information saved in the table will be
+            <para id="Para573513">Any information saved in the table will be
           available for future revision using the Budget utility. You may view
           Budget information using the Financial Reporting Engine.</para>
         </listitem>
@@ -142,7 +142,7 @@
         <term id="Para607962">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1908d80">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

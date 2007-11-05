@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Item File
@@ -37,14 +37,14 @@
          <tbody>
                     <row>
                <entry>
-                  <guilabel>Title:</guilabel>
+                  <guilabel moreinfo="none">Title:</guilabel>
                </entry>
                <entry>_titleLit</entry>
                <entry>QLabel</entry>
             </row>
                     <row>
                <entry>
-                  <guilabel>URL:</guilabel>
+                  <guilabel moreinfo="none">URL:</guilabel>
                </entry>
                <entry>_urlLit</entry>
                <entry>QLabel</entry>
@@ -61,7 +61,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_cancel</entry>
@@ -69,7 +69,7 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>

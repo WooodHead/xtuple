@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section527589">
-    <title><anchor id="Anchor529437" role="Index"
-    xreflabel="shipping labels:printing by invoice;invoices:printing shipping labels for" />
-    <indexterm significance="normal" zone="Anchor529437">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section527589">
+    <title>
+      <anchor id="Anchor529437" role="Index"
+              xreflabel="shipping labels:printing by invoice;invoices:printing shipping labels for"/>
+      <indexterm significance="normal">
         <primary>shipping labels</primary>
 
         <secondary>printing by invoice</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor529437">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>printing shipping labels for</secondary>
@@ -18,17 +20,18 @@
     "Print Shipping Labels by Invoice" option. The following screen will
     appear:</para>
 
-    <para id="Para527607"><screenshot>
+    <para id="Para527607">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SR_Forms_printLabByInv.png"
-                       id="Graphic527606" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Forms_printLabByInv.png" id="Graphic527606"/>
+            </imageobject>
 
-          <caption id="Caption527608">Print Shipping Labels by
+            <caption id="Caption527608">Print Shipping Labels by
           Invoice</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para527609">When printing Shipping labels by Invoice, you are
     presented with the following options:</para>
@@ -38,7 +41,7 @@
         <term id="Para527820">Invoice #</term>
 
         <listitem id="listitemN0x180ac00N0x1867fbc">
-          <para>: Enter the Invoice Number of the Invoice whose Shipping label
+            <para>: Enter the Invoice Number of the Invoice whose Shipping label
           you want to print.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +50,7 @@
         <term id="Para527828">Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x1868004">
-          <para>Specify the name of the Shipping Label Form you want to
+            <para>Specify the name of the Shipping Label Form you want to
           print.</para>
         </listitem>
       </varlistentry>
@@ -56,7 +59,7 @@
         <term id="Para529936">Labels</term>
 
         <listitem id="listitemN0x180ac00N0x186804c">
-          <para>Specify the range of Shipping labels you want to print.</para>
+            <para>Specify the range of Shipping labels you want to print.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -69,7 +72,7 @@
         <term id="Para533633">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18680b8">
-          <para>Closes the screen without printing any Shipping labels,
+            <para>Closes the screen without printing any Shipping labels,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +81,7 @@
         <term id="Para533634">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1868100">
-          <para>Prints specified number of Shipping label copies for the
+            <para>Prints specified number of Shipping label copies for the
           specified Invoice.</para>
         </listitem>
       </varlistentry>

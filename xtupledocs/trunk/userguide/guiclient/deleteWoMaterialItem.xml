@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518843">
-    <title><anchor id="Anchor533185" role="Index"
-    xreflabel="work orders:deleting material requirements from" /> <indexterm
-        significance="normal" zone="Anchor533185">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518843">
+    <title>
+      <anchor id="Anchor533185" role="Index"
+              xreflabel="work orders:deleting material requirements from"/> 
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>deleting material requirements from</secondary>
@@ -14,17 +15,18 @@
     the "Delete Work Order Material Requirement" option. The following screen
     will appear:</para>
 
-    <para id="Para518848"><screenshot>
+    <para id="Para518848">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Mat_deleteWOMatReq.png"
-                       id="Graphic523590" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Mat_deleteWOMatReq.png" id="Graphic523590"/>
+            </imageobject>
 
-          <caption id="Caption518849">Delete Work Order Material
+            <caption id="Caption518849">Delete Work Order Material
           Requirement</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518850">When deleting a Work Order Material Requirement, you
     are presented with the following options:</para>
@@ -34,7 +36,7 @@
         <term id="Para518851">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           delete a Material Requirement from.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +45,7 @@
         <term id="Para518853">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -52,7 +54,7 @@
         <term id="Para518855">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +63,7 @@
         <term id="Para568656">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -69,7 +71,7 @@
         <term id="Para518859">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +80,7 @@
         <term id="Para518861">Component Item Number</term>
 
         <listitem>
-          <para>Select one of the component Items from the parent Item's Bill
+            <para>Select one of the component Items from the parent Item's Bill
           of Materials.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +89,7 @@
         <term id="Para568661">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -95,7 +97,7 @@
         <term id="Para518865">Qty. Per</term>
 
         <listitem>
-          <para>Per: Displays the quantity per each specified on the Item's
+            <para>Per: Displays the quantity per each specified on the Item's
           Bill of Materials.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +106,7 @@
         <term id="Para518867">Scrap %</term>
 
         <listitem>
-          <para>Displays the Scrap percentage specified on the Item's Bill of
+            <para>Displays the Scrap percentage specified on the Item's Bill of
           Materials.</para>
         </listitem>
       </varlistentry>
@@ -113,7 +115,7 @@
         <term id="Para518869">Qty. Required</term>
 
         <listitem>
-          <para>Required: Displays quantity required to fulfill the Work Order
+            <para>Required: Displays quantity required to fulfill the Work Order
           Material Requirement.</para>
         </listitem>
       </varlistentry>
@@ -122,7 +124,7 @@
         <term id="Para518871">Qty. Issued</term>
 
         <listitem>
-          <para>Issued: Displays quantity issued toward fulfillment of the
+            <para>Issued: Displays quantity issued toward fulfillment of the
           Work Order Material Requirement.</para>
         </listitem>
       </varlistentry>
@@ -136,7 +138,7 @@
         <term id="Para518874">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen without deleting the selected Work Order
+            <para>Closes the screen without deleting the selected Work Order
           Material Requirement, returning you to the application
           desktop.</para>
         </listitem>
@@ -146,7 +148,7 @@
         <term id="Para518875">DELETE</term>
 
         <listitem>
-          <para>Highlight a component Item and then select this button to
+            <para>Highlight a component Item and then select this button to
           delete the selected Work Order Material Requirement.</para>
         </listitem>
       </varlistentry>

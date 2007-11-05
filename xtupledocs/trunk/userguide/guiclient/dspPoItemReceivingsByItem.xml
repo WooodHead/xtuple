@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518924">
-    <title><anchor id="Anchor919425" role="Index"
-    xreflabel="receipts:by item;returns:details by item;items:receipts for;items:returns of" />
-    <indexterm significance="normal" zone="Anchor919425">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518924">
+    <title>
+      <anchor id="Anchor919425" role="Index"
+              xreflabel="receipts:by item;returns:details by item;items:receipts for;items:returns of"/>
+      <indexterm significance="normal">
         <primary>receipts</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>returns</primary>
 
         <secondary>details by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>receipts for</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919425">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>returns of</secondary>
@@ -27,16 +30,17 @@
     "Receipts and Returns by Item" option. The following screen will
     appear:</para>
 
-    <para id="Para522284"><screenshot>
+    <para id="Para522284">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_rcptsRtnsByItem.png"
-                       id="Graphic522283" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_rcptsRtnsByItem.png" id="Graphic522283"/>
+            </imageobject>
 
-          <caption id="Caption522285">Receipts and Returns by Item</caption>
+            <caption id="Caption522285">Receipts and Returns by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para522286">When displaying Receipts and Returns by Item, you
     are presented with the following options:</para>
@@ -46,7 +50,7 @@
         <term id="Para523449">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18c7b88">
-          <para>Enter the Item Number of the Item whose Receipts and Returns
+            <para>Enter the Item Number of the Item whose Receipts and Returns
           you want to view.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +59,7 @@
         <term id="Para921090">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18c7bd0">
-          <para>Receipts and Returns by Item entered on and after this date
+            <para>Receipts and Returns by Item entered on and after this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +68,7 @@
         <term id="Para921095">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18c7c18">
-          <para>Receipts and Returns by Item entered on and before this date
+            <para>Receipts and Returns by Item entered on and before this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +77,7 @@
         <term id="Para523400">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18c7c3c">
-          <para>Select to display Receipts and Returns by Item for all
+            <para>Select to display Receipts and Returns by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +86,7 @@
         <term id="Para523402">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18c7c60">
-          <para>Specify Warehouse whose Receipts and Returns by Item you want
+            <para>Specify Warehouse whose Receipts and Returns by Item you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -91,7 +95,7 @@
         <term id="Para523404">All Purchasing Agents</term>
 
         <listitem id="listitemN0x180ac00N0x18c7ca8">
-          <para>Select to display Receipts and Returns by Item for all
+            <para>Select to display Receipts and Returns by Item for all
           Purchasing Agents.</para>
         </listitem>
       </varlistentry>
@@ -100,10 +104,10 @@
         <term id="Para523405">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18c7cf0">
-          <para>Specify Purchasing Agent whose Receipts and Returns by Item
+            <para>Specify Purchasing Agent whose Receipts and Returns by Item
           you want to display.</para>
 
-          <para id="Para935609">Users may be designated as Purchasing Agents
+            <para id="Para935609">Users may be designated as Purchasing Agents
           at the system level.</para>
         </listitem>
       </varlistentry>
@@ -112,7 +116,7 @@
         <term id="Para921104">Show Purchase Price Variances</term>
 
         <listitem id="listitemN0x180ac00N0x18c7d38">
-          <para>Select to include purchase Price variances in the
+            <para>Select to include purchase Price variances in the
           display.</para>
         </listitem>
       </varlistentry>
@@ -121,10 +125,10 @@
         <term id="Para535213">P/O Receipts/Returns</term>
 
         <listitem id="listitemN0x180ac00N0x18c7d80">
-          <para>Display lists Receipts and Returns by Item, using the
+            <para>Display lists Receipts and Returns by Item, using the
           specified parameters.</para>
 
-          <para id="Para970232">Purchased Cost and Receiving Cost variances
+            <para id="Para970232">Purchased Cost and Receiving Cost variances
           will also display if the "Show Purchase Price Variances" option is
           selected.</para>
         </listitem>
@@ -146,7 +150,7 @@
         <term id="Para523411">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18cee00">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -155,7 +159,7 @@
         <term id="Para934544">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18cee48">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -164,7 +168,7 @@
         <term id="Para970032">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18cee90">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

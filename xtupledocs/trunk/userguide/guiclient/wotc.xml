@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
       Adjust Work Order Time Clock Entry
@@ -47,7 +47,7 @@
             </row>
                     <row>
                <entry>
-                  <guilabel>Operation:</guilabel>
+                  <guilabel moreinfo="none">Operation:</guilabel>
                </entry>
                <entry>_wooperLit</entry>
                <entry>QLabel</entry>
@@ -59,28 +59,28 @@
             </row>
                 <row>
                <entry>
-                  <guilabel>Cancel</guilabel>
+                  <guilabel moreinfo="none">Cancel</guilabel>
                </entry>
                <entry>_close</entry>
                <entry>QPushButton</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Save</guilabel>
+                  <guilabel moreinfo="none">Save</guilabel>
                </entry>
                <entry>_save</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Clocked In:</guilabel>
+                  <guilabel moreinfo="none">Clocked In:</guilabel>
                </entry>
                <entry>_dateTimeInLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Clocked Out:</guilabel>
+                  <guilabel moreinfo="none">Clocked Out:</guilabel>
                </entry>
                <entry>_dateTimeOutLit</entry>
                <entry>QLabel</entry>

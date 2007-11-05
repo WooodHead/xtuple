@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518527">
-    <title><anchor id="Anchor595564" role="Index"
-    xreflabel="class codes:reassignment of;reassignment:of class codes" />
-    <indexterm significance="normal" zone="Anchor595564">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518527">
+    <title>
+      <anchor id="Anchor595564" role="Index"
+              xreflabel="class codes:reassignment of;reassignment:of class codes"/>
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>reassignment of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595564">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>reassignment</primary>
 
         <secondary>of class codes</secondary>
@@ -19,17 +20,18 @@
     "Reassign Class Code by Class Code" option. The following screen will
     appear:</para>
 
-    <para id="Para593102"><screenshot>
+    <para id="Para593102">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Utils_reassignClassByCla.png"
-                       id="Graphic592988" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Utils_reassignClassByCla.png" id="Graphic592988"/>
+            </imageobject>
 
-          <caption id="Caption593105">Reassign Class Code by Class
+            <caption id="Caption593105">Reassign Class Code by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para592967">When reassigning Class Codes by Class Code, you are
     presented with the following options:</para>
@@ -39,7 +41,7 @@
         <term id="Para593005">Selected Class Code</term>
 
         <listitem id="listitemN0x180ac00N0x1947020">
-          <para>Specify the Class Code you want to change.</para>
+            <para>Specify the Class Code you want to change.</para>
         </listitem>
       </varlistentry>
 
@@ -47,12 +49,11 @@
         <term id="Para593307">Class Code Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1947068">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para664870">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664869"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664870">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664869" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -62,7 +63,7 @@
         <term id="Para593024">New Class Code</term>
 
         <listitem id="listitemN0x180ac00N0x19470b0">
-          <para>Specify the new Class Code you want to assign the old Class
+            <para>Specify the new Class Code you want to assign the old Class
           Code(s) to.</para>
         </listitem>
       </varlistentry>
@@ -76,7 +77,7 @@
         <term id="Para593034">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x194711c">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +86,7 @@
         <term id="Para593035">REASSIGN</term>
 
         <listitem id="listitemN0x180ac00N0x1947164">
-          <para>Select to reassign the specified Class Code(s), using the
+            <para>Select to reassign the specified Class Code(s), using the
           specified parameters.</para>
         </listitem>
       </varlistentry>

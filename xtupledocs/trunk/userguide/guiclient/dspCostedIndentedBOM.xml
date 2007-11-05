@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520014">
-    <title><anchor id="Anchor595482" role="Index"
-    xreflabel="costing:for indented BOMs;bills of materials:costed indented view of" />
-    <indexterm significance="normal" zone="Anchor595482">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520014">
+    <title>
+      <anchor id="Anchor595482" role="Index"
+              xreflabel="costing:for indented BOMs;bills of materials:costed indented view of"/>
+      <indexterm significance="normal">
         <primary>costing</primary>
 
         <secondary>for indented BOMs</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595482">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>costed indented view of</secondary>
@@ -22,17 +23,18 @@
     Materials, select the "Costed Indented BOM" option. The following screen
     will appear:</para>
 
-    <para id="Para520019"><screenshot>
+    <para id="Para520019">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_dispIndentedBOM.png"
-                       id="Graphic563436" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_dispIndentedBOM.png" id="Graphic563436"/>
+            </imageobject>
 
-          <caption id="Caption520020">Costed Indented Bill of
+            <caption id="Caption520020">Costed Indented Bill of
           Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520026">When displaying Costs for an indented Bill of
     Materials, you are presented with the following options:</para>
@@ -42,7 +44,7 @@
         <term id="Para520027">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x191b024">
-          <para>Enter the Item Number of the manufactured Item whose
+            <para>Enter the Item Number of the manufactured Item whose
           associated Costs you would like to view using an indented Bill of
           Materials.</para>
         </listitem>
@@ -52,7 +54,7 @@
         <term id="Para663300">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x191b06c">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -60,10 +62,10 @@
         <term id="Para520031">Use Standard Costs</term>
 
         <listitem id="listitemN0x180ac00N0x191b0b4">
-          <para>Select to display Standard Costs for component Items in the
+            <para>Select to display Standard Costs for component Items in the
           specified Item's Bill of Materials.</para>
 
-          <para id="Para626495">Both the Unit Cost and Extended Cost for each
+            <para id="Para626495">Both the Unit Cost and Extended Cost for each
           component Item, expressed in terms of Standard Cost, will
           display--assuming Standard Costs have been defined for each
           component Item.</para>
@@ -87,10 +89,10 @@
         <term id="Para520032">Use Actual Costs</term>
 
         <listitem id="listitemN0x180ac00N0x191b144">
-          <para>Select to display Actual Costs for component Items in the
+            <para>Select to display Actual Costs for component Items in the
           specified Item's Bill of Materials.</para>
 
-          <para id="Para626510">Both the Unit Cost and Extended Cost for each
+            <para id="Para626510">Both the Unit Cost and Extended Cost for each
           component Item, expressed in terms of Actual Cost, will
           display--assuming Actual Costs have been defined for each component
           Item.</para>
@@ -119,10 +121,10 @@
         <term id="Para520033">Costed Bill of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x191b1d4">
-          <para>Display lists Costed Indented Bill of Materials components,
+            <para>Display lists Costed Indented Bill of Materials components,
           using the specified parameters.</para>
 
-          <para id="Para664256">The difference between the indented view and
+            <para id="Para664256">The difference between the indented view and
           the single level view is that the indented view displays all
           subcomponents if there is a manufactured component listed on the
           Bill of Materials. The Total Cost, Actual Cost, and Standard Cost
@@ -140,7 +142,7 @@
         <term id="Para520042">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x191b240">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -149,7 +151,7 @@
         <term id="Para663949">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x191b288">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -163,7 +165,7 @@
         <term id="Para520045">Maintain Item Costs</term>
 
         <listitem id="listitemN0x180ac00N0x191b2f4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -171,12 +173,11 @@
         <term id="Para592092">View Item Costing</term>
 
         <listitem id="listitemN0x180ac00N0x191b33c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

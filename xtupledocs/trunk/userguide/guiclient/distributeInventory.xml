@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Distribute Stock To/From Warehouse Locations
@@ -42,14 +42,14 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Lot/Serial #:</guilabel>
+                  <guilabel moreinfo="none">Lot/Serial #:</guilabel>
                </entry>
                <entry>_lotSerialLit</entry>
                <entry>QLabel</entry>
@@ -61,56 +61,56 @@
             </row>
               <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_lotSerial</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Qty. to Distribute:</guilabel>
+                  <guilabel moreinfo="none">Qty. to Distribute:</guilabel>
                </entry>
                <entry>_toDistributeLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Qty. Tagged:</guilabel>
+                  <guilabel moreinfo="none">Qty. Tagged:</guilabel>
                </entry>
                <entry>_taggedLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Qty. Remaining:</guilabel>
+                  <guilabel moreinfo="none">Qty. Remaining:</guilabel>
                </entry>
                <entry>_remainingLit</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_qtyToDistribute</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_qtyTagged</entry>
                <entry>QLabel</entry>
             </row>
               <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_qtyRemaining</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>ost</guilabel>
                </entry>
                <entry>_post</entry>
@@ -118,7 +118,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>D</accel>efault</guilabel>
                </entry>
                <entry>_default</entry>
@@ -126,14 +126,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>De<accel>f</accel>ault and Post</guilabel>
+                  <guilabel moreinfo="none">De<accel>f</accel>ault and Post</guilabel>
                </entry>
                <entry>_defaultAndPost</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Valid Locations:</guilabel>
+                  <guilabel moreinfo="none">Valid Locations:</guilabel>
                </entry>
                <entry>_validLocationsLit</entry>
                <entry>QLabel</entry>

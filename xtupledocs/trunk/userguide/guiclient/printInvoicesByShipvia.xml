@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section655826">
-    <title><anchor id="Anchor615412" role="Index"
-    xreflabel="invoices:printing by ship via;ship vias:printing invoices by" />
-    <indexterm significance="normal" zone="Anchor615412">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section655826">
+    <title>
+      <anchor id="Anchor615412" role="Index"
+              xreflabel="invoices:printing by ship via;ship vias:printing invoices by"/>
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>printing by ship via</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor615412">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>ship vias</primary>
 
         <secondary>printing invoices by</secondary>
@@ -17,16 +19,17 @@
     <para id="Para615236">To print Invoices by Ship Via, select the "Print
     Invoices by Ship Via" option. The following screen will appear:</para>
 
-    <para id="Para615240"><screenshot>
+    <para id="Para615240">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_printInvShipVia.png"
-                       id="Graphic615238" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_printInvShipVia.png" id="Graphic615238"/>
+            </imageobject>
 
-          <caption id="Caption615241">Print Invoices by Ship Via</caption>
+            <caption id="Caption615241">Print Invoices by Ship Via</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para615270">If you don"t see any Ship Vias appearing in the
@@ -44,7 +47,7 @@
         <term id="Para615397">Ship Via</term>
 
         <listitem id="listitemN0x180ac00N0x1914d00">
-          <para>Specify the Ship Via whose Invoices you want to print.</para>
+            <para>Specify the Ship Via whose Invoices you want to print.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -60,10 +63,10 @@
         <term id="Para615339">First Invoice #</term>
 
         <listitem id="listitemN0x180ac00N0x1914d90">
-          <para>The next Invoice Number in the automatic sequence of Invoice
+            <para>The next Invoice Number in the automatic sequence of Invoice
           Numbers will display here.</para>
 
-          <para id="Para615340">Once this Invoice Number has been printed, the
+            <para id="Para615340">Once this Invoice Number has been printed, the
           next Invoice Number will appear. Default values for Invoice Numbers
           are configurable at the system level.</para>
         </listitem>
@@ -73,7 +76,7 @@
         <term id="Para615341">Post Invoices after Printing</term>
 
         <listitem id="listitemN0x180ac00N0x1914dd8">
-          <para>Select to automatically post Invoices after they have been
+            <para>Select to automatically post Invoices after they have been
           printed.</para>
         </listitem>
       </varlistentry>
@@ -90,10 +93,10 @@
         <term id="Para615344">Invoice Copies</term>
 
         <listitem id="listitemN0x180ac00N0x1914e68">
-          <para>Specify details for the Invoice copies you want to
+            <para>Specify details for the Invoice copies you want to
           print.</para>
 
-          <para id="Para615345"># of Copies: Indicate the number of copies you
+            <para id="Para615345"># of Copies: Indicate the number of copies you
           want to print using the arrow buttons. Information about the
           specified copies will display below. To add a Watermark,
           double-click on a copy line.</para>
@@ -109,7 +112,7 @@
         <term id="Para615347">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1914ed4">
-          <para>Closes the screen without printing Invoices, returning you to
+            <para>Closes the screen without printing Invoices, returning you to
           the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +121,7 @@
         <term id="Para615348">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1914f1c">
-          <para>Prints all Invoices available for printing, using the
+            <para>Prints all Invoices available for printing, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -133,16 +136,17 @@
     <para id="Para615349">To add a Watermark to an Invoice, double-click on a
     copy line. The following screen will appear:</para>
 
-    <para id="Para615353"><screenshot>
+    <para id="Para615353">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_addWatermark.png"
-                       id="Graphic615351" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_addWatermark.png" id="Graphic615351"/>
+            </imageobject>
 
-          <caption id="Caption615355">Add Watermark</caption>
+            <caption id="Caption615355">Add Watermark</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para615356">When adding a Watermark to an Invoice copy, you are
     presented with the following options:</para>
@@ -152,7 +156,7 @@
         <term id="Para615360">Watermark</term>
 
         <listitem id="listitemN0x180ac00N0x1915018">
-          <para>Specify the name of the Watermark to be used for the selected
+            <para>Specify the name of the Watermark to be used for the selected
           copy.</para>
         </listitem>
       </varlistentry>
@@ -161,7 +165,7 @@
         <term id="Para615362">Show Prices</term>
 
         <listitem id="listitemN0x180ac00N0x1915060">
-          <para>Select to show Prices in the selected copy.</para>
+            <para>Select to show Prices in the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -174,7 +178,7 @@
         <term id="Para615364">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x19150cc">
-          <para>Closes the screen without adding a Watermark, returning you to
+            <para>Closes the screen without adding a Watermark, returning you to
           the previous screen.</para>
         </listitem>
       </varlistentry>
@@ -183,7 +187,7 @@
         <term id="Para615365">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x1915114">
-          <para>Saves the Watermark definition to the selected copy.</para>
+            <para>Saves the Watermark definition to the selected copy.</para>
         </listitem>
       </varlistentry>
     </variablelist>

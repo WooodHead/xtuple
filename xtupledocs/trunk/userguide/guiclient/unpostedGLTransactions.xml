@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Unposted G/L Transactions
@@ -37,7 +37,7 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>Period Name:</guilabel>
+                  <guilabel moreinfo="none">Period Name:</guilabel>
                </entry>
                <entry>_periodLit</entry>
                <entry>QLabel</entry>
@@ -54,7 +54,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_cancel</entry>
@@ -62,14 +62,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Open Period</guilabel>
+                  <guilabel moreinfo="none">Open Period</guilabel>
                </entry>
                <entry>_ok</entry>
                <entry>QPushButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -77,7 +77,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>The following G/L Transactions will be posted to the Trial Balance if you open this period:</guilabel>
+                  <guilabel moreinfo="none">The following G/L Transactions will be posted to the Trial Balance if you open this period:</guilabel>
                </entry>
                <entry>_gltransLit</entry>
                <entry>QLabel</entry>

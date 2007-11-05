@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519420">
-    <title><anchor id="Anchor552170" role="Index"
-    xreflabel="count slips:posting by warehouse;warehouses:posting count slips in;physical inventory:posting count slips" />
-    <indexterm significance="normal" zone="Anchor552170">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519420">
+    <title>
+      <anchor id="Anchor552170" role="Index"
+              xreflabel="count slips:posting by warehouse;warehouses:posting count slips in;physical inventory:posting count slips"/>
+      <indexterm significance="normal">
         <primary>count slips</primary>
 
         <secondary>posting by warehouse</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552170">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>warehouses</primary>
 
         <secondary>posting count slips in</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor552170">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>physical inventory</primary>
 
         <secondary>posting count slips</secondary>
@@ -22,16 +25,17 @@
     Tag totals by Warehouse, select the "Post Count Slips" option. The
     following screen will appear:</para>
 
-    <para id="Para596923"><screenshot>
+    <para id="Para596923">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/IM_PI_postCountSlipsByWare.png"
-                       id="Graphic596921" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/IM_PI_postCountSlipsByWare.png" id="Graphic596921"/>
+            </imageobject>
 
-          <caption id="Caption596924">Post Count Slips by Warehouse</caption>
+            <caption id="Caption596924">Post Count Slips by Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519427">When posting Count Slips by Warehouse, you are
     presented with the following options:</para>
@@ -41,7 +45,7 @@
         <term id="Para519428">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x191383c">
-          <para>Select to post Count Slips for all Warehouses.</para>
+            <para>Select to post Count Slips for all Warehouses.</para>
         </listitem>
       </varlistentry>
 
@@ -49,7 +53,7 @@
         <term id="Para519430">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1913860">
-          <para>Specify Warehouse where Count Slips are to be posted.</para>
+            <para>Specify Warehouse where Count Slips are to be posted.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -62,7 +66,7 @@
         <term id="Para519433">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x19138cc">
-          <para>Closes the screen without posting Count Slip totals, returning
+            <para>Closes the screen without posting Count Slip totals, returning
           you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +75,7 @@
         <term id="Para519434">POST</term>
 
         <listitem id="listitemN0x180ac00N0x1913914">
-          <para>Posts Count Slip totals to their respective Count Tag
+            <para>Posts Count Slip totals to their respective Count Tag
           totals.</para>
         </listitem>
       </varlistentry>

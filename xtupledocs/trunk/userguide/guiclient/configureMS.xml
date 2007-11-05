@@ -1,38 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519130" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519130" role="openmfg">
     <title>Configure M/S</title>
 
     <para id="Para930875">To configure the Manufacturing Scheduling (M/S)
     module, select the "Configure M/S" option. The following screen will
     appear:</para>
 
-    <para id="Para927328"><screenshot>
+    <para id="Para927328">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configMS.png" id="Graphic930889" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configMS.png" id="Graphic930889"/>
+            </imageobject>
 
-          <caption id="Caption930886">Configure M/S Module</caption>
+            <caption id="Caption930886">Configure M/S Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para932103">When configuring the M/S module, you are presented
     with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para932107"><anchor id="Anchor934269" role="Index"
-        xreflabel="planned orders:numbering of" /> <indexterm
-            significance="normal" zone="Anchor934269">
-            <primary>planned orders</primary>
+        <term id="Para932107">
+            <anchor id="Anchor934269" role="Index" xreflabel="planned orders:numbering of"/> 
+            <indexterm significance="normal">
+               <primary>planned orders</primary>
 
-            <secondary>numbering of</secondary>
-          </indexterm>Next Planned Order #</term>
+               <secondary>numbering of</secondary>
+            </indexterm>Next Planned Order #</term>
 
         <listitem id="listitemN0x180ac00N0x189ab40">
-          <para>Enter a number to establish the basis for the next Planned
+            <para>Enter a number to establish the basis for the next Planned
           Order Number. Any changes made here will be reflected the next time
           a new Planned Order is created.</para>
         </listitem>
@@ -42,7 +44,7 @@
         <term id="Para977480">Default Calendar</term>
 
         <listitem id="listitemN0x180ac00N0x189ab88">
-          <para>Specify a default Calendar to be used when running the "MPS
+            <para>Specify a default Calendar to be used when running the "MPS
           Detail" report.</para>
         </listitem>
       </varlistentry>
@@ -51,7 +53,7 @@
         <term id="Para977481">Enable Buffer Management</term>
 
         <listitem id="listitemN0x180ac00N0x189abd0">
-          <para>Select to enable the Buffer Management system. If not
+            <para>Select to enable the Buffer Management system. If not
           selected, the system will be hidden from view.</para>
         </listitem>
       </varlistentry>
@@ -65,7 +67,7 @@
         <term id="Para932116">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x189ac3c">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -74,7 +76,7 @@
         <term id="Para932117">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x189ac84">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

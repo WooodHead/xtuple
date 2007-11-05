@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section534241">
-    <title><anchor id="Anchor549052" role="Index"
-    xreflabel="commissions:earned " /> <indexterm significance="normal"
-        zone="Anchor549052">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section534241">
+    <title>
+      <anchor id="Anchor549052" role="Index" xreflabel="commissions:earned "/> 
+      <indexterm significance="normal">
         <primary>commissions</primary>
 
         <secondary>earned</secondary>
@@ -15,16 +14,17 @@
     Commissions" option from the "Displays" menu. The following screen will
     appear:</para>
 
-    <para id="Para520187"><screenshot>
+    <para id="Para520187">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_earnedCommissions.png"
-                       id="Graphic524170" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_earnedCommissions.png" id="Graphic524170"/>
+            </imageobject>
 
-          <caption id="Caption520188">Earned Commissions</caption>
+            <caption id="Caption520188">Earned Commissions</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para633129">To mark a commission as having been paid, use the
@@ -59,7 +59,7 @@
         <term id="Para520190">All Sales Reps</term>
 
         <listitem id="listitemN0x180ac00N0x19927f8">
-          <para>Select to display Earned Commissions for all Sales
+            <para>Select to display Earned Commissions for all Sales
           Representatives.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +68,7 @@
         <term id="Para520191">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1992840">
-          <para>Specify Sales Representative whose Earned Commissions you want
+            <para>Specify Sales Representative whose Earned Commissions you want
           to display.</para>
         </listitem>
       </varlistentry>
@@ -77,7 +77,7 @@
         <term id="Para520196">Start Ship Date</term>
 
         <listitem id="listitemN0x180ac00N0x1992888">
-          <para>Earned Commissions occurring on or after this date will
+            <para>Earned Commissions occurring on or after this date will
           display.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +86,7 @@
         <term id="Para520201">End Ship Date</term>
 
         <listitem id="listitemN0x180ac00N0x19928d0">
-          <para>Earned Commissions occurring on or before this date will
+            <para>Earned Commissions occurring on or before this date will
           display.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +95,7 @@
         <term id="Para520203">Earned Commissions</term>
 
         <listitem id="listitemN0x180ac00N0x1992918">
-          <para>Display lists Earned Commissions for the specified Sales
+            <para>Display lists Earned Commissions for the specified Sales
           Representative(s) using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -109,7 +109,7 @@
         <term id="Para520206">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1992984">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +118,7 @@
         <term id="Para573882">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x19929cc">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +127,7 @@
         <term id="Para653795">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1992a14">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

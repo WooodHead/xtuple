@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520111" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520111" role="openmfg">
     <title>Labor Variance by Work Center</title>
 
     <para id="Para523227">To view labor variances by Work Center, select the
     "Labor Variance by Work Center" option. The following screen will
     appear:</para>
 
-    <para id="Para523237"><screenshot>
+    <para id="Para523237">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_labVarWCenter.png"
-                       id="Graphic524158" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_labVarWCenter.png" id="Graphic524158"/>
+            </imageobject>
 
-          <caption id="Caption523238">Labor Variance by Work Center</caption>
+            <caption id="Caption523238">Labor Variance by Work Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520118">When viewing labor variances by Work Center, you are
     presented with the following options:</para>
@@ -28,7 +28,7 @@
         <term id="Para520119">Work Center</term>
 
         <listitem>
-          <para>Specify Work Center whose labor variances you want to
+            <para>Specify Work Center whose labor variances you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -37,7 +37,7 @@
         <term id="Para520124">Start Date</term>
 
         <listitem>
-          <para>Labor variances by Work Center generated on or after this date
+            <para>Labor variances by Work Center generated on or after this date
           will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -46,7 +46,7 @@
         <term id="Para520129">End Date</term>
 
         <listitem>
-          <para>Labor variances by Work Center generated on or before this
+            <para>Labor variances by Work Center generated on or before this
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -55,7 +55,7 @@
         <term id="Para520131">Labor Variance</term>
 
         <listitem>
-          <para>Display lists labor variances by Work Center, using the
+            <para>Display lists labor variances by Work Center, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +69,7 @@
         <term id="Para549078">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +78,7 @@
         <term id="Para549090">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -87,7 +87,7 @@
         <term id="Para549080">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

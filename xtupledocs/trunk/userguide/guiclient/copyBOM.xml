@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section519431">
-    <title><anchor id="Anchor595446" role="Index"
-    xreflabel="bills of materials:copying of" /> <indexterm
-        significance="normal" zone="Anchor595446">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519431">
+    <title>
+      <anchor id="Anchor595446" role="Index" xreflabel="bills of materials:copying of"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>copying of</secondary>
@@ -14,15 +13,17 @@
     <para id="Para519432">To make a copy of a Bill of Materials, select the
     "Copy Bill of Materials" option. The following screen will appear:</para>
 
-    <para id="Para519436"><screenshot>
+    <para id="Para519436">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_BOM_BOMcopy.png" id="Graphic563045" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_BOM_BOMcopy.png" id="Graphic563045"/>
+            </imageobject>
 
-          <caption id="Caption519437">Copy Bill of Materials</caption>
+            <caption id="Caption519437">Copy Bill of Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519438">When copying a Bill of Materials, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para519439">Item Number (Source Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18a93cc">
-          <para>Enter the Item Number of the manufactured Item whose Bill of
+            <para>Enter the Item Number of the manufactured Item whose Bill of
           Materials you want to copy.</para>
         </listitem>
       </varlistentry>
@@ -41,7 +42,7 @@
         <term id="Para519441">UOM (Source Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18a9414">
-          <para>Displays Inventory UOM automatically when Item Number is
+            <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
         </listitem>
@@ -51,7 +52,7 @@
         <term id="Para519443">Item Number (Target Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18a945c">
-          <para>Enter the Item Number of the manufactured Item whose Bill of
+            <para>Enter the Item Number of the manufactured Item whose Bill of
           Materials you wish to create by this copy.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +61,7 @@
         <term id="Para607993">UOM (Target Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18a94a4">
-          <para>Displays Inventory UOM automatically when Item Number is
+            <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
         </listitem>
@@ -75,7 +76,7 @@
         <term id="Para519448">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18a9510">
-          <para>Closes the screen without executing the copy command,
+            <para>Closes the screen without executing the copy command,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +85,7 @@
         <term id="Para519449">COPY</term>
 
         <listitem id="listitemN0x180ac00N0x18a9558">
-          <para>Executes the copy command.</para>
+            <para>Executes the copy command.</para>
         </listitem>
       </varlistentry>
     </variablelist>

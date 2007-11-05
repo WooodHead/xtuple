@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section542567">
-    <title><anchor id="Anchor549030" role="Index"
-    xreflabel="customers:by customer type" /> <indexterm significance="normal"
-        zone="Anchor549030">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section542567">
+    <title>
+      <anchor id="Anchor549030" role="Index" xreflabel="customers:by customer type"/> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>by customer type</secondary>
@@ -15,16 +14,17 @@
     "Customers by Customer Type" option from the "Displays" menu. The
     following screen will appear:</para>
 
-    <para id="Para542573"><screenshot>
+    <para id="Para542573">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_custByCustType.png"
-                       id="Graphic542927" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_custByCustType.png" id="Graphic542927"/>
+            </imageobject>
 
-          <caption id="Caption542907">Customers by Customer Type</caption>
+            <caption id="Caption542907">Customers by Customer Type</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para543180">When displaying Customers by Customer Type, you are
     presented with the following options:</para>
@@ -34,7 +34,7 @@
         <term id="Para574340">All Customer Types</term>
 
         <listitem id="listitemN0x180ac00N0x196a388">
-          <para>Select to display Customers for all Customer Types.</para>
+            <para>Select to display Customers for all Customer Types.</para>
         </listitem>
       </varlistentry>
 
@@ -42,7 +42,7 @@
         <term id="Para543113">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x196a3d0">
-          <para>Specify Customer Type whose Customers you want to
+            <para>Specify Customer Type whose Customers you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -51,12 +51,11 @@
         <term id="Para543115">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x196a418">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para656122">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef656121"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para656122">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef656121" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -66,7 +65,7 @@
         <term id="Para554929">Show Inactive Customers</term>
 
         <listitem id="listitemN0x180ac00N0x196a460">
-          <para>Select to show inactive Customers in the display.</para>
+            <para>Select to show inactive Customers in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -74,7 +73,7 @@
         <term id="Para543011">Customers</term>
 
         <listitem id="listitemN0x180ac00N0x196a4a8">
-          <para>Display lists Customers for specified Customer Type(s).</para>
+            <para>Display lists Customers for specified Customer Type(s).</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -87,7 +86,7 @@
         <term id="Para543014">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x196a514">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +95,7 @@
         <term id="Para574939">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x196a55c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +104,7 @@
         <term id="Para653748">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x196a5a4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -114,20 +113,16 @@
     enables you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/12)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/12)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

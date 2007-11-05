@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section959762" role="openmfg">
   <title>EDI Form Detail</title>
 
@@ -8,91 +8,91 @@
   generating CSV file output, select the NEW button. The following screen will
   appear:</para>
 
-  <para id="Para961220"><anchor id="Anchor39340" role="Cross-Ref"
-  xreflabel="39340: Figure: Figure System.27:  Create New EDI Form Detail Query" />
-  <screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_ediFormDetail.png" id="Graphic961218" />
-        </imageobject>
+  <para id="Para961220">
+      <anchor id="Anchor39340" role="Cross-Ref"
+              xreflabel="39340: Figure: Figure System.27:  Create New EDI Form Detail Query"/>
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_ediFormDetail.png" id="Graphic961218"/>
+            </imageobject>
 
-        <caption id="Caption961221">Create New EDI Form Detail Query</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption961221">Create New EDI Form Detail Query</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para961213">When creating a new Form Detail query, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para961308">Name</term>
+      <varlistentry>
+         <term id="Para961308">Name</term>
 
-      <listitem id="listitemN0x180ac00N0x1888a40">
-        <para>Enter a name to identify the Form Detail query. In the example
-        shown in <link endterm="Anchor39340" id="XRef961329"
-        linkend="Anchor39340"> Create New EDI Form Detail Query</link>Figure
+         <listitem id="listitemN0x180ac00N0x1888a40">
+            <para>Enter a name to identify the Form Detail query. In the example
+        shown in <link endterm="Anchor39340" id="XRef961329" linkend="Anchor39340"> Create New EDI Form Detail Query</link>Figure
         System.41, the name indicates the query will return information to be
         used in the header of the CSV file output.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961365">Order</term>
+      <varlistentry>
+         <term id="Para961365">Order</term>
 
-      <listitem id="listitemN0x180ac00N0x1888a88">
-        <para>Select a value between 1 and 99 using the arrow buttons located
+         <listitem id="listitemN0x180ac00N0x1888a88">
+            <para>Select a value between 1 and 99 using the arrow buttons located
         to the right of the field.</para>
 
-        <para id="Para961380">The value entered specifies the order in which a
+            <para id="Para961380">The value entered specifies the order in which a
         query will be executed.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961350">Query</term>
+      <varlistentry>
+         <term id="Para961350">Query</term>
 
-      <listitem id="listitemN0x180ac00N0x1888ad0">
-        <para>Enter a SQL query to identify the information you want to
-        populate your CSV file with. As you can see in <link
-        endterm="Anchor39340" id="XRef961358" linkend="Anchor39340"> Create
+         <listitem id="listitemN0x180ac00N0x1888ad0">
+            <para>Enter a SQL query to identify the information you want to
+        populate your CSV file with. As you can see in <link endterm="Anchor39340" id="XRef961358" linkend="Anchor39340"> Create
         New EDI Form Detail Query</link>Figure System.41, the query selects
         invoice header information from the "invchead" table. You will note in
         the WHERE clause that MetaSQL is used to dynamically capture the
         specific Invoice number. For more information on writing queries using
         MetaSQL, please see the Report Writer User Guide.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961393">Notes</term>
+      <varlistentry>
+         <term id="Para961393">Notes</term>
 
-      <listitem id="listitemN0x180ac00N0x1888b18">
-        <para>This is a scrolling text field with word-wrapping for entering
+         <listitem id="listitemN0x180ac00N0x1888b18">
+            <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the EDI Detail query.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para961457">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para961510">CANCEL</term>
+      <varlistentry>
+         <term id="Para961510">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x1888b84">
-        <para>Closes the screen without adding a new query to the Form Details
+         <listitem id="listitemN0x180ac00N0x1888b84">
+            <para>Closes the screen without adding a new query to the Form Details
         list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para961511">OK</term>
+      <varlistentry>
+         <term id="Para961511">OK</term>
 
-      <listitem id="listitemN0x180ac00N0x1888bcc">
-        <para>Creates the query and adds it to the master list of Form
+         <listitem id="listitemN0x180ac00N0x1888bcc">
+            <para>Creates the query and adds it to the master list of Form
         Details.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section594369">
-    <title><anchor id="Anchor595438" role="Index"
-    xreflabel="item images:viewing of;images:items associated with;items:images associated with" />
-    <indexterm significance="normal" zone="Anchor595438">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section594369">
+    <title>
+      <anchor id="Anchor595438" role="Index"
+              xreflabel="item images:viewing of;images:items associated with;items:images associated with"/>
+      <indexterm significance="normal">
         <primary>item images</primary>
 
         <secondary>viewing of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595438">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>images</primary>
 
         <secondary>items associated with</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595438">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>images associated with</secondary>
@@ -23,16 +25,17 @@
     master. To view Images associated with an Item, select the "Item Images"
     option. The following screen will appear:</para>
 
-    <para id="Para594507"><screenshot>
+    <para id="Para594507">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Items_itemImages.png"
-                       id="Graphic594505" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Items_itemImages.png" id="Graphic594505"/>
+            </imageobject>
 
-          <caption id="Caption594508">Item Images</caption>
+            <caption id="Caption594508">Item Images</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para594509">When viewing Item Images, you are presented with the
     following options:</para>
@@ -42,7 +45,7 @@
         <term id="Para594510">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x189012c">
-          <para>Enter the Item Number of the Item whose associated Images you
+            <para>Enter the Item Number of the Item whose associated Images you
           want to view.</para>
         </listitem>
       </varlistentry>
@@ -60,7 +63,7 @@
         <term id="Para663177">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18901bc">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -68,9 +71,9 @@
         <term id="Para594520">Image Description</term>
 
         <listitem id="listitemN0x180ac00N0x1890204">
-          <para>A preview of the first Item Image will appear here.</para>
+            <para>A preview of the first Item Image will appear here.</para>
 
-          <para id="Para664191">To view the next Image associated with the
+            <para id="Para664191">To view the next Image associated with the
           Item, select the forward arrow "\&gt;\&gt;" button. To view previous
           images, select the back arrow "&lt;&lt;" button.</para>
         </listitem>
@@ -85,7 +88,7 @@
         <term id="Para594523">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1890270">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>

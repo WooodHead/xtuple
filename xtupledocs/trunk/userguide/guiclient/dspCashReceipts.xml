@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section553315">
-    <title><anchor id="Anchor553314" role="Index"
-    xreflabel="cash receipts:history of;customers:cash received from" />
-    <indexterm significance="normal" zone="Anchor553314">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section553315">
+    <title>
+      <anchor id="Anchor553314" role="Index"
+              xreflabel="cash receipts:history of;customers:cash received from"/>
+      <indexterm significance="normal">
         <primary>cash receipts</primary>
 
         <secondary>history of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor553314">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>customers</primary>
 
         <secondary>cash received from</secondary>
@@ -19,16 +20,17 @@
     applications by Customer, select the "Cash Receipts by Customer" option.
     The following screen will appear:</para>
 
-    <para id="Para553402"><screenshot>
+    <para id="Para553402">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_cashRecpts.png"
-                       id="Graphic553400" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_cashRecpts.png" id="Graphic553400"/>
+            </imageobject>
 
-          <caption id="Caption553520">Cash Receipts by Customer</caption>
+            <caption id="Caption553520">Cash Receipts by Customer</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para553589">The display will include unposted as well as
@@ -44,7 +46,7 @@
         <term id="Para553522">All Customers</term>
 
         <listitem id="listitemN0x180ac00N0x18afbac">
-          <para>Select to display Cash Receipt details for all
+            <para>Select to display Cash Receipt details for all
           Customers.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +55,7 @@
         <term id="Para553406">Selected Customer</term>
 
         <listitem id="listitemN0x180ac00N0x18afbf4">
-          <para>Select to display Cash Receipt details for a selected
+            <para>Select to display Cash Receipt details for a selected
           Customer.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +64,7 @@
         <term id="Para553408">Selected Customer Type</term>
 
         <listitem id="listitemN0x180ac00N0x18afc3c">
-          <para>Specify Customer Type whose Cash Receipt details you want to
+            <para>Specify Customer Type whose Cash Receipt details you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -71,12 +73,11 @@
         <term id="Para553410">Customer Type Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x18afc84">
-          <para>Enter a Customer Type pattern to select a range of Customer
+            <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
 
-          <para id="Para573177">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef573176"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para573177">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef573176" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -86,7 +87,7 @@
         <term id="Para553421">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18afccc">
-          <para>Cash Receipts entered on and after this date will be
+            <para>Cash Receipts entered on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +96,7 @@
         <term id="Para553426">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18afd14">
-          <para>Cash Receipts entered on and before this date will be
+            <para>Cash Receipts entered on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +105,7 @@
         <term id="Para553430">A/R Applications</term>
 
         <listitem id="listitemN0x180ac00N0x18afd5c">
-          <para>Display lists Cash Receipt details, using the specified
+            <para>Display lists Cash Receipt details, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +119,7 @@
         <term id="Para553433">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18afdc8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +128,7 @@
         <term id="Para553434">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18b6c00">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -136,7 +137,7 @@
         <term id="Para572303">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18b6c48">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section520261">
-    <title><anchor id="Anchor595506" role="Index"
-    xreflabel="items:by class code;class codes:item details for" /> <indexterm
-        significance="normal" zone="Anchor595506">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520261">
+    <title>
+      <anchor id="Anchor595506" role="Index"
+              xreflabel="items:by class code;class codes:item details for"/> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595506">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>item details for</secondary>
@@ -17,16 +19,17 @@
     <para id="Para520262">To view Items by Class Code, select the "Items by
     Class Code" option. The following screen will appear:</para>
 
-    <para id="Para520266"><screenshot>
+    <para id="Para520266">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_itemsClassCode.png"
-                       id="Graphic563623" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_itemsClassCode.png" id="Graphic563623"/>
+            </imageobject>
 
-          <caption id="Caption520267">Items by Class Code</caption>
+            <caption id="Caption520267">Items by Class Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520268">When displaying Items by Class Code, you are
     presented with the following options:</para>
@@ -36,7 +39,7 @@
         <term id="Para617038">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x1923d38">
-          <para>Select to display Items for all Class Codes.</para>
+            <para>Select to display Items for all Class Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -44,7 +47,7 @@
         <term id="Para520269">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x1923d80">
-          <para>Specify Class Code whose Items you want to display.</para>
+            <para>Specify Class Code whose Items you want to display.</para>
         </listitem>
       </varlistentry>
 
@@ -52,12 +55,11 @@
         <term id="Para593272">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x1923dc8">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para664823">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664822"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664823">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664822" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -67,7 +69,7 @@
         <term id="Para520273">Show Inactive Items</term>
 
         <listitem id="listitemN0x180ac00N0x192ba00">
-          <para>Select to show Inactive Items in the display.</para>
+            <para>Select to show Inactive Items in the display.</para>
         </listitem>
       </varlistentry>
 
@@ -75,7 +77,7 @@
         <term id="Para520274">Items</term>
 
         <listitem id="listitemN0x180ac00N0x192ba48">
-          <para>Display lists Items by Class Code, using the specified
+            <para>Display lists Items by Class Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -89,7 +91,7 @@
         <term id="Para618188">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x192bab4">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +100,7 @@
         <term id="Para618197">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x192bafc">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -107,7 +109,7 @@
         <term id="Para663984">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x192bb44">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -120,12 +122,11 @@
         <term id="Para520285">Edit Item Master</term>
 
         <listitem id="listitemN0x180ac00N0x192bbb0">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

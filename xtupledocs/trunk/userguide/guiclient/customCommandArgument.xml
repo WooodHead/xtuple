@@ -1,80 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section967998">
   <title>Custom Command Argument</title>
 
-  <para id="Para968493"><anchor id="Anchor968492" role="Index"
-  xreflabel="arguments:creating new" /> <indexterm significance="normal"
-      zone="Anchor968492">
-      <primary>arguments</primary>
+  <para id="Para968493">
+      <anchor id="Anchor968492" role="Index" xreflabel="arguments:creating new"/> 
+      <indexterm significance="normal">
+         <primary>arguments</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm>To create a new argument for the system to pass to the
+         <secondary>creating new</secondary>
+      </indexterm>To create a new argument for the system to pass to the
   specified executable program, select the NEW button. The following screen
   will appear:</para>
 
-  <para id="Para967875"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/Sys_custCommArgNew.png"
-                     id="Graphic967873" />
-        </imageobject>
+  <para id="Para967875">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_custCommArgNew.png" id="Graphic967873"/>
+            </imageobject>
 
-        <caption id="Caption967876">Enter Custom Command Argument</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption967876">Enter Custom Command Argument</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para967868">When creating a new argument, you are presented with
   the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para968541">Order</term>
+      <varlistentry>
+         <term id="Para968541">Order</term>
 
-      <listitem id="listitemN0x180ac00N0x18915ec">
-        <para>Specify the order in which the argument should be passed to the
+         <listitem id="listitemN0x180ac00N0x18915ec">
+            <para>Specify the order in which the argument should be passed to the
         specified executable program.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <tip>
-    <para id="Para968575">You can change the position of an argument as it
+      <para id="Para968575">You can change the position of an argument as it
     appears on the list by editing the argument and changing its order
     number.</para>
   </tip>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para968545">Argument</term>
+      <varlistentry>
+         <term id="Para968545">Argument</term>
 
-      <listitem id="listitemN0x180ac00N0x189a06c">
-        <para>Enter the argument you want the system to pass to the specified
+         <listitem id="listitemN0x180ac00N0x189a06c">
+            <para>Enter the argument you want the system to pass to the specified
         executable program.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para968550">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para968551">CANCEL</term>
+      <varlistentry>
+         <term id="Para968551">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x189a0d8">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x189a0d8">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para968552">OK</term>
+      <varlistentry>
+         <term id="Para968552">OK</term>
 
-      <listitem id="listitemN0x180ac00N0x189a120">
-        <para>Saves the argument information.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x189a120">
+            <para>Saves the argument information.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,224 +1,238 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section533006">
-  <title><anchor id="Anchor533005" role="Index"
-  xreflabel="general ledger:account numbers in;account numbers:master list of;G/L. See general ledger" />
-  <indexterm significance="normal" zone="Anchor533022">
-      <primary>general ledger</primary>
+  <title>
+      <anchor id="Anchor533005" role="Index"
+              xreflabel="general ledger:account numbers in;account numbers:master list of;G/L. See general ledger"/>
+      <indexterm significance="normal">
+         <primary>general ledger</primary>
 
-      <secondary>adding new accounts to</secondary>
-    </indexterm><indexterm significance="normal" zone="Anchor533022">
-      <primary>account numbers</primary>
+         <secondary>adding new accounts to</secondary>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>account numbers</primary>
 
-      <secondary>adding new to g/l</secondary>
-    </indexterm> <anchor id="Anchor70374" role="Cross-Ref"
-  xreflabel="70374: Heading2: Account Numbers" />Account Number</title>
+         <secondary>adding new to g/l</secondary>
+      </indexterm> 
+      <anchor id="Anchor70374" role="Cross-Ref" xreflabel="70374: Heading2: Account Numbers"/>Account Number</title>
 
   <para id="Para533023">To add a new G/L Account Number, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para533027"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/GL_MI_acctNumNew.png" id="Graphic533025" />
-        </imageobject>
+  <para id="Para533027">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/GL_MI_acctNumNew.png" id="Graphic533025"/>
+            </imageobject>
 
-        <caption id="Caption533028">Create New G/L Account Number</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption533028">Create New G/L Account Number</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para533029">When creating a new G/L Account Number, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para533033">Number</term>
+      <varlistentry>
+         <term id="Para533033">Number</term>
 
-      <listitem id="listitemN0x180ac00N0x182b844">
-        <para>Enter an Account Number for the Account.</para>
+         <listitem id="listitemN0x180ac00N0x182b844">
+            <para>Enter an Account Number for the Account.</para>
 
-        <para id="Para579257">Depending on how your system is configured, you
+            <para id="Para579257">Depending on how your system is configured, you
         may add the following segments to an Account Number in the following
         order: Company segment (optional), Profit Center segment (optional),
         main segment (required), and Subaccount Number (optional). Once a main
         segment number has been entered and saved, it may not be
         edited.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para533038">Description</term>
+      <varlistentry>
+         <term id="Para533038">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x182b88c">
-        <para>Enter a brief description of the Account.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x182b88c">
+            <para>Enter a brief description of the Account.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para610304">Ext. Reference</term>
+      <varlistentry>
+         <term id="Para610304">Ext. Reference</term>
 
-      <listitem id="listitemN0x180ac00N0x182b8d4">
-        <para>Enter an optional external reference to associate with the
+         <listitem id="listitemN0x180ac00N0x182b8d4">
+            <para>Enter an optional external reference to associate with the
         Account Number. Typically this field is left blank. However, this
         field is useful during a data conversion when the Account Number is
         reformatted.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para610306"><anchor id="Anchor610305" role="Index"
-      xreflabel="account types:assignment of;account numbers:assigning types to" />
-      <indexterm significance="normal" zone="Anchor610305">
-          <primary>account types</primary>
+      <varlistentry>
+         <term id="Para610306">
+            <anchor id="Anchor610305" role="Index"
+                    xreflabel="account types:assignment of;account numbers:assigning types to"/>
+            <indexterm significance="normal">
+               <primary>account types</primary>
 
-          <secondary>assignment of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor610305">
-          <primary>account numbers</primary>
+               <secondary>assignment of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>account numbers</primary>
 
-          <secondary>assigning types to</secondary>
-        </indexterm>Type</term>
+               <secondary>assigning types to</secondary>
+            </indexterm>Type</term>
 
-      <listitem id="listitemN0x180ac00N0x182b9ac">
-        <para>Specify the Account Type you want to assign the Account Number
+         <listitem id="listitemN0x180ac00N0x182b9ac">
+            <para>Specify the Account Type you want to assign the Account Number
         to.</para>
 
-        <para id="Para533041">The following selections are available: Asset,
+            <para id="Para533041">The following selections are available: Asset,
         Liability, Expense, Revenue, and Equity.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para549375"><anchor id="Anchor549374" role="Index"
-      xreflabel="subaccount types:assignment of;account numbers:subaccount types and" />
-      <indexterm significance="normal" zone="Anchor549374">
-          <primary>subaccount types</primary>
+      <varlistentry>
+         <term id="Para549375">
+            <anchor id="Anchor549374" role="Index"
+                    xreflabel="subaccount types:assignment of;account numbers:subaccount types and"/>
+            <indexterm significance="normal">
+               <primary>subaccount types</primary>
 
-          <secondary>assignment of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549374">
-          <primary>account numbers</primary>
+               <secondary>assignment of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>account numbers</primary>
 
-          <secondary>subaccount types and</secondary>
-        </indexterm>Sub Type</term>
+               <secondary>subaccount types and</secondary>
+            </indexterm>Sub Type</term>
 
-      <listitem id="listitemN0x180ac00N0x182ba84">
-        <para>Specify the Subaccount Type you want to assign the Account
+         <listitem id="listitemN0x180ac00N0x182ba84">
+            <para>Specify the Subaccount Type you want to assign the Account
         Number to.</para>
 
-        <para id="Para549376">This is an optional selection.</para>
-      </listitem>
-    </varlistentry>
+            <para id="Para549376">This is an optional selection.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para549565"><anchor id="Anchor549564" role="Index"
-      xreflabel="general ledger:options for posting to;account numbers:posting options for" />
-      <indexterm significance="normal" zone="Anchor549564">
-          <primary>general ledger</primary>
+      <varlistentry>
+         <term id="Para549565">
+            <anchor id="Anchor549564" role="Index"
+                    xreflabel="general ledger:options for posting to;account numbers:posting options for"/>
+            <indexterm significance="normal">
+               <primary>general ledger</primary>
 
-          <secondary>options for posting to</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549564">
-          <primary>account numbers</primary>
+               <secondary>options for posting to</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>account numbers</primary>
 
-          <secondary>posting options for</secondary>
-        </indexterm>Allow Posting into Closed Periods</term>
+               <secondary>posting options for</secondary>
+            </indexterm>Allow Posting into Closed Periods</term>
 
-      <listitem id="listitemN0x180ac00N0x182bb5c">
-        <para>Select to allow transactions involving the Account to update the
+         <listitem id="listitemN0x180ac00N0x182bb5c">
+            <para>Select to allow transactions involving the Account to update the
         Account's Trial Balance even if the transactions are posted into
         closed Accounting Periods.</para>
 
-        <para id="Para585693">Not selecting this option means users will be
+            <para id="Para585693">Not selecting this option means users will be
         prevented from posting transactions into closed Accounting Periods
         when the Account is used. To correct a situation where transaction
         posting is being prevented for this reason, either open the Accounting
         Period in question or change the distribution date of the
         transaction.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para549608">The "Allow Posting into Closed Periods" option
+      <para id="Para549608">The "Allow Posting into Closed Periods" option
     applies only to Trial Balances. Account activity is always posted to the
     General Ledger (G/L) regardless of whether Accounting Periods are open or
     closed.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para549610"><anchor id="Anchor549609" role="Index"
-      xreflabel="general ledger:trial balances and;trial balances:forward-updating of;account numbers:forward-updating and;forward-updating:performed automatically" />
-      <indexterm significance="normal" zone="Anchor549609">
-          <primary>general ledger</primary>
+      <varlistentry>
+         <term id="Para549610">
+            <anchor id="Anchor549609" role="Index"
+                    xreflabel="general ledger:trial balances and;trial balances:forward-updating of;account numbers:forward-updating and;forward-updating:performed automatically"/>
+            <indexterm significance="normal">
+               <primary>general ledger</primary>
 
-          <secondary>trial balances and</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549609">
-          <primary>trial balances</primary>
+               <secondary>trial balances and</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>trial balances</primary>
 
-          <secondary>forward-updating of</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549609">
-          <primary>account numbers</primary>
+               <secondary>forward-updating of</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>account numbers</primary>
 
-          <secondary>forward-updating and</secondary>
-        </indexterm> <indexterm significance="normal" zone="Anchor549609">
-          <primary>forward-updating</primary>
+               <secondary>forward-updating and</secondary>
+            </indexterm> 
+            <indexterm significance="normal">
+               <primary>forward-updating</primary>
 
-          <secondary>performed automatically</secondary>
-        </indexterm>Automatically Forward Update Trial Balances</term>
+               <secondary>performed automatically</secondary>
+            </indexterm>Automatically Forward Update Trial Balances</term>
 
-      <listitem id="listitemN0x180ac00N0x183e4fc">
-        <para>Select to automatically forward-update Trial Balances for the
+         <listitem id="listitemN0x180ac00N0x183e4fc">
+            <para>Select to automatically forward-update Trial Balances for the
         Account whenever transaction activity is posted into an Accounting
         Period.</para>
 
-        <para id="Para550224">Forward-updating carries the ending balance for
+            <para id="Para550224">Forward-updating carries the ending balance for
         an Accounting Period forward through to the current Accounting Period.
         Balances cannot be forward-updated into future Periods. Selecting this
         option causes forward-updating to occur automatically. If not
         selected, Trial Balances for the Account will have to be
         forward-updated either manually or when the Account Period is
         closed.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <note>
-    <para id="Para550238">The Trial Balances for an Accounting Period will
+      <para id="Para550238">The Trial Balances for an Accounting Period will
     automatically forward-update at the moment when the Accounting Period is
     closed.</para>
   </note>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para550230">Comments</term>
+      <varlistentry>
+         <term id="Para550230">Comments</term>
 
-      <listitem id="listitemN0x180ac00N0x183e58c">
-        <para>This is a scrolling text field with word-wrapping for entering
+         <listitem id="listitemN0x180ac00N0x183e58c">
+            <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Account Number.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para533051">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para533052">CANCEL</term>
+      <varlistentry>
+         <term id="Para533052">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x183e5f8">
-        <para>Closes the screen without creating an Account Number, returning
+         <listitem id="listitemN0x180ac00N0x183e5f8">
+            <para>Closes the screen without creating an Account Number, returning
         you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para533053">SAVE</term>
+      <varlistentry>
+         <term id="Para533053">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x183e640">
-        <para>Creates the Account Number and adds it to the master list of
+         <listitem id="listitemN0x180ac00N0x183e640">
+            <para>Creates the Account Number and adds it to the master list of
         Account Numbers.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

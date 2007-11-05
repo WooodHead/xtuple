@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Submit Report to Batch Manager
@@ -42,14 +42,14 @@
             </row>
            <row>
                <entry>
-                  <guilabel>ASAP</guilabel>
+                  <guilabel moreinfo="none">ASAP</guilabel>
                </entry>
                <entry>_asap</entry>
                <entry>QRadioButton</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Scheduled:</guilabel>
+                  <guilabel moreinfo="none">Scheduled:</guilabel>
                </entry>
                <entry>_scheduled</entry>
                <entry>QRadioButton</entry>
@@ -66,7 +66,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -74,7 +74,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ubmit</guilabel>
                </entry>
                <entry>_submit</entry>
@@ -82,14 +82,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_documentName</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Response Email To:</guilabel>
+                  <guilabel moreinfo="none">Response Email To:</guilabel>
                </entry>
                <entry>_responseEmailLit</entry>
                <entry>QLabel</entry>
@@ -101,14 +101,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Document Name:</guilabel>
+                  <guilabel moreinfo="none">Document Name:</guilabel>
                </entry>
                <entry>_documentNameLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Email From:</guilabel>
+                  <guilabel moreinfo="none">Email From:</guilabel>
                </entry>
                <entry>_fromEmailLit</entry>
                <entry>QLabel</entry>
@@ -120,7 +120,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Response Body:</guilabel>
+                  <guilabel moreinfo="none">Response Body:</guilabel>
                </entry>
                <entry>_responseBodyLit</entry>
                <entry>QLabel</entry>

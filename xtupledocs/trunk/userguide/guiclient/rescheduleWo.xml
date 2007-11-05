@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section518707">
-    <title><anchor id="Anchor533175" role="Index"
-    xreflabel="work orders:rescheduling of" /> <indexterm
-        significance="normal" zone="Anchor533175">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518707">
+    <title>
+      <anchor id="Anchor533175" role="Index" xreflabel="work orders:rescheduling of"/> 
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>rescheduling of</secondary>
@@ -16,16 +16,17 @@
     Work Order, select the "Reschedule Work Order" option. The following
     screen will appear:</para>
 
-    <para id="Para543529"><screenshot>
+    <para id="Para543529">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Con_reschedWO.png"
-                       id="Graphic543527" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Con_reschedWO.png" id="Graphic543527"/>
+            </imageobject>
 
-          <caption id="Caption543530">Reschedule Work Order</caption>
+            <caption id="Caption543530">Reschedule Work Order</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para560368">To edit a Work Order after it has been created,
@@ -41,7 +42,7 @@
         <term id="Para518715">Work Order #</term>
 
         <listitem>
-          <para>Enter the Work Order Number of the Work Order you want to
+            <para>Enter the Work Order Number of the Work Order you want to
           reschedule.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +51,7 @@
         <term id="Para518717">Whs.</term>
 
         <listitem>
-          <para>Displays Warehouse code automatically when Work Order Number
+            <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +60,7 @@
         <term id="Para518719">Item Number</term>
 
         <listitem>
-          <para>Displays Item Number automatically when Work Order Number is
+            <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -68,7 +69,7 @@
         <term id="Para568636">UOM</term>
 
         <listitem>
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -76,7 +77,7 @@
         <term id="Para518723">Status</term>
 
         <listitem>
-          <para>Displays Work Order Status automatically when Work Order
+            <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +86,7 @@
         <term id="Para518728">Start Date</term>
 
         <listitem>
-          <para>Indicate the rescheduled Work Order start date. The current
+            <para>Indicate the rescheduled Work Order start date. The current
           start date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -94,7 +95,7 @@
         <term id="Para518733">Due Date</term>
 
         <listitem>
-          <para>Indicate the rescheduled Work Order due date. The current due
+            <para>Indicate the rescheduled Work Order due date. The current due
           date will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -103,7 +104,7 @@
         <term id="Para518735">Reschedule Child Work Orders (if any)</term>
 
         <listitem>
-          <para>Select to reschedule child Work Orders to meet the demands of
+            <para>Select to reschedule child Work Orders to meet the demands of
           the rescheduled parent Work Order.</para>
         </listitem>
       </varlistentry>
@@ -112,9 +113,9 @@
         <term id="Para550719">Post Comment</term>
 
         <listitem>
-          <para>Select to attach a Comment to the Work Order.</para>
+            <para>Select to attach a Comment to the Work Order.</para>
 
-          <para id="Para550720">This option must be selected if you want to
+            <para id="Para550720">This option must be selected if you want to
           add a Comment to the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -123,10 +124,10 @@
         <term id="Para550410">Comment Type</term>
 
         <listitem>
-          <para>Specify one of the following Comment Types from the drop-down
+            <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
 
-          <para id="Para550411">Comment Types are used to categorize Comments.
+            <para id="Para550411">Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
@@ -142,7 +143,7 @@
         <term id="Para518737">CANCEL</term>
 
         <listitem>
-          <para>Closes the screen without rescheduling the selected Work
+            <para>Closes the screen without rescheduling the selected Work
           Order, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -151,7 +152,7 @@
         <term id="Para518738">RESCHEDULE</term>
 
         <listitem>
-          <para>Reschedules the selected Work Order according to the new start
+            <para>Reschedules the selected Work Order according to the new start
           and due dates entered in the screen.</para>
         </listitem>
       </varlistentry>

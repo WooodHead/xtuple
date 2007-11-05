@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520413">
-    <title><anchor id="Anchor595518" role="Index"
-    xreflabel="bills of materials:indented where used view of" /> <indexterm
-        significance="normal" zone="Anchor595518">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520413">
+    <title>
+      <anchor id="Anchor595518" role="Index"
+              xreflabel="bills of materials:indented where used view of"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>indented where used view of</secondary>
@@ -19,16 +19,17 @@
     Items which use a specified component Item, select the "Indented Where
     Used" option. The following screen will appear:</para>
 
-    <para id="Para520418"><screenshot>
+    <para id="Para520418">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_indentedWhere.png"
-                       id="Graphic563711" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_indentedWhere.png" id="Graphic563711"/>
+            </imageobject>
 
-          <caption id="Caption520419">Indented Where Used</caption>
+            <caption id="Caption520419">Indented Where Used</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520425">When displaying an indented view of parent Items
     which use a specified component Item, you are presented with the following
@@ -39,7 +40,7 @@
         <term id="Para520426">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1939a88">
-          <para>Enter the Item Number of the component Item whose parent Items
+            <para>Enter the Item Number of the component Item whose parent Items
           you would like to display.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +49,7 @@
         <term id="Para663372">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1939ad0">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -56,7 +57,7 @@
         <term id="Para520430">Show Expired Components</term>
 
         <listitem id="listitemN0x180ac00N0x1939b18">
-          <para>Select to show expired components.</para>
+            <para>Select to show expired components.</para>
         </listitem>
       </varlistentry>
 
@@ -64,7 +65,7 @@
         <term id="Para520431">Show Future Components</term>
 
         <listitem id="listitemN0x180ac00N0x1939b60">
-          <para>Select to show future components.</para>
+            <para>Select to show future components.</para>
         </listitem>
       </varlistentry>
 
@@ -72,7 +73,7 @@
         <term id="Para520432">Bill of Materials Items</term>
 
         <listitem id="listitemN0x180ac00N0x1939ba8">
-          <para>Display lists an indented view of parent Items whose Bill of
+            <para>Display lists an indented view of parent Items whose Bill of
           Materials includes the specified component Item, using the specified
           parameters.</para>
         </listitem>
@@ -87,7 +88,7 @@
         <term id="Para520435">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1939c14">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -96,7 +97,7 @@
         <term id="Para626409">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x1939c5c">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -105,7 +106,7 @@
         <term id="Para664034">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x1939ca4">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -118,12 +119,11 @@
         <term id="Para592600">View Item Inventory History</term>
 
         <listitem id="listitemN0x180ac00N0x1939d10">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

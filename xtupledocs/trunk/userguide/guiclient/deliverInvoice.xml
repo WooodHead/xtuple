@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section657140">
-    <title><anchor id="Anchor657139" role="Index"
-    xreflabel="invoices:email delivery of;electronic data interchange:invoice delivery using;EDI. See electronic data interchange" />
-    <indexterm significance="normal" zone="Anchor657139">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section657140">
+    <title>
+      <anchor id="Anchor657139" role="Index"
+              xreflabel="invoices:email delivery of;electronic data interchange:invoice delivery using;EDI. See electronic data interchange"/>
+      <indexterm significance="normal">
         <primary>invoices</primary>
 
         <secondary>email delivery of</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor657139">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>electronic data interchange</primary>
 
         <secondary>invoice delivery using</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor657139">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>EDI</primary>
 
         <see>electronic data interchange</see>
@@ -22,17 +25,18 @@
     the "Schedule Invoice for Email Delivery" option. The following screen
     will appear:</para>
 
-    <para id="Para657145"><screenshot>
+    <para id="Para657145">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_schedInvEmail.png"
-                       id="Graphic657143" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Bill_schedInvEmail.png" id="Graphic657143"/>
+            </imageobject>
 
-          <caption id="Caption657146">Schedule Invoice for Email
+            <caption id="Caption657146">Schedule Invoice for Email
           Delivery</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para657147">When scheduling an Invoice for email delivery, you
     are presented with the following options:</para>
@@ -42,10 +46,10 @@
         <term id="Para657148">Invoices</term>
 
         <listitem id="listitemN0x180ac00N0x191caa4">
-          <para>Display lists all Invoices available for email
+            <para>Display lists all Invoices available for email
           delivery.</para>
 
-          <para id="Para657149">Highlight the Invoice you want to schedule for
+            <para id="Para657149">Highlight the Invoice you want to schedule for
           email delivery using your mouse button.</para>
         </listitem>
       </varlistentry>
@@ -62,7 +66,7 @@
         <term id="Para657152">From</term>
 
         <listitem id="listitemN0x180ac00N0x191cb34">
-          <para>The default address appearing in the "From" field will belong
+            <para>The default address appearing in the "From" field will belong
           to the user who is currently logged in to the application. This
           address may be edited or changed. User email addresses are stored
           with user records at the system level.</para>
@@ -73,7 +77,7 @@
         <term id="Para657153">Send To</term>
 
         <listitem id="listitemN0x180ac00N0x191cb7c">
-          <para>If the Customer associated with the selected Invoice has been
+            <para>If the Customer associated with the selected Invoice has been
           set up to receive email, then the default email address for that
           Customer will be automatically pre-populated here. Because this is
           an editable field, you may change the email address.</para>
@@ -84,7 +88,7 @@
         <term id="Para657154">Subject</term>
 
         <listitem id="listitemN0x180ac00N0x191cbc4">
-          <para>If EDI is set up for the Customer, then the default subject
+            <para>If EDI is set up for the Customer, then the default subject
           line found on the Customer master will be automatically
           pre-populated here. Because this is an editable field, you may
           modify the subject line.</para>
@@ -95,7 +99,7 @@
         <term id="Para657155">Filename</term>
 
         <listitem id="listitemN0x180ac00N0x191cc0c">
-          <para>If EDI is set up for the Customer, then the default filename
+            <para>If EDI is set up for the Customer, then the default filename
           found on the Customer master will be automatically pre-populated
           here. Because this is an editable field, you may modify the filename
           line. XML tags may be used in this field to dynamically generate
@@ -109,7 +113,7 @@
         <term id="Para657156">Email Body</term>
 
         <listitem id="listitemN0x180ac00N0x191cc54">
-          <para>If EDI is set up for the Customer, then the default email body
+            <para>If EDI is set up for the Customer, then the default email body
           found on the Customer master will be automatically pre-populated
           here. This is a scrolling text field with word-wrapping. You may
           edit the default email body.</para>
@@ -120,7 +124,7 @@
         <term id="Para657157">Mark Invoice as having been Printed</term>
 
         <listitem id="listitemN0x180ac00N0x191cc9c">
-          <para>Select to mark highlighted Invoice as having been
+            <para>Select to mark highlighted Invoice as having been
           printed.</para>
         </listitem>
       </varlistentry>
@@ -134,7 +138,7 @@
         <term id="Para657159">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x191cd08">
-          <para>Closes the screen without scheduling an Invoice for email
+            <para>Closes the screen without scheduling an Invoice for email
           delivery, returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -143,7 +147,7 @@
         <term id="Para657160">SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x191cd50">
-          <para>Select to submit requested action to the Batch Manager for
+            <para>Select to submit requested action to the Batch Manager for
           processing.</para>
         </listitem>
       </varlistentry>

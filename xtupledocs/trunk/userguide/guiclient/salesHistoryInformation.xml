@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Sales History Information
@@ -37,42 +37,42 @@
          <tbody>
                 <row>
                <entry>
-                  <guilabel>Order Number:</guilabel>
+                  <guilabel moreinfo="none">Order Number:</guilabel>
                </entry>
                <entry>_orderNumberLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Invoice Number:</guilabel>
+                  <guilabel moreinfo="none">Invoice Number:</guilabel>
                </entry>
                <entry>_invoiceNumberLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_orderNumber</entry>
                <entry>XLineEdit</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_invoiceNumber</entry>
                <entry>XLineEdit</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Order Date:</guilabel>
+                  <guilabel moreinfo="none">Order Date:</guilabel>
                </entry>
                <entry>_orderDateLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Invoice Date:</guilabel>
+                  <guilabel moreinfo="none">Invoice Date:</guilabel>
                </entry>
                <entry>_invoiceDateLit</entry>
                <entry>QLabel</entry>
@@ -89,7 +89,7 @@
             </row>
               <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -97,7 +97,7 @@
             </row>
               <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -110,49 +110,49 @@
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoName</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoAddress1</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoAddress2</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoAddress3</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoCity</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoState</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_billtoZip</entry>
                <entry>XLineEdit</entry>
@@ -164,49 +164,49 @@
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoName</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoAddress1</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoAddress2</entry>
                <entry>XLineEdit</entry>
             </row>
            <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoAddress3</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoCity</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoState</entry>
                <entry>XLineEdit</entry>
             </row>
              <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shiptoZip</entry>
                <entry>XLineEdit</entry>
@@ -218,7 +218,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Warehouse:</guilabel>
+                  <guilabel moreinfo="none">Warehouse:</guilabel>
                </entry>
                <entry>_warehouseLit</entry>
                <entry>QLabel</entry>
@@ -230,84 +230,84 @@
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_unitPrice</entry>
                <entry>XLineEdit</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_shipped</entry>
                <entry>XLineEdit</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_extendedPrice</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Shipped:</guilabel>
+                  <guilabel moreinfo="none">Shipped:</guilabel>
                </entry>
                <entry>_shippedLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Extended Price:</guilabel>
+                  <guilabel moreinfo="none">Extended Price:</guilabel>
                </entry>
                <entry>_extPriceLit</entry>
                <entry>QLabel</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Unit Price:</guilabel>
+                  <guilabel moreinfo="none">Unit Price:</guilabel>
                </entry>
                <entry>_unitPriceLit</entry>
                <entry>QLabel</entry>
             </row>
                   <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_extendedCost</entry>
                <entry>QLabel</entry>
             </row>
                   <row>
                <entry>
-                  <guilabel>Extended Cost:</guilabel>
+                  <guilabel moreinfo="none">Extended Cost:</guilabel>
                </entry>
                <entry>_extCostLit</entry>
                <entry>QLabel</entry>
             </row>
                   <row>
                <entry>
-                  <guilabel>Unit Cost:</guilabel>
+                  <guilabel moreinfo="none">Unit Cost:</guilabel>
                </entry>
                <entry>_unitCostLit</entry>
                <entry>QLabel</entry>
             </row>
                   <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_unitCost</entry>
                <entry>XLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Sales Rep.:</guilabel>
+                  <guilabel moreinfo="none">Sales Rep.:</guilabel>
                </entry>
                <entry>_salesRepLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Commission:</guilabel>
+                  <guilabel moreinfo="none">Commission:</guilabel>
                </entry>
                <entry>_commissionLit</entry>
                <entry>QLabel</entry>
@@ -319,14 +319,14 @@
             </row>
                 <row>
                <entry>
-                  <guilabel/>
+                  <guilabel moreinfo="none"/>
                </entry>
                <entry>_commission</entry>
                <entry>XLineEdit</entry>
             </row>
                 <row>
                <entry>
-                  <guilabel>Paid</guilabel>
+                  <guilabel moreinfo="none">Paid</guilabel>
                </entry>
                <entry>_commissionPaid</entry>
                <entry>QCheckBox</entry>

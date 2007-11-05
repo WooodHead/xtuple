@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520490" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520490" role="openmfg">
     <title>Standard Operations by Work Center</title>
 
     <para id="Para520491">To view a list of Standard Operations performed at a
     Work Center, select the "Standard Operations by Work Center" option. The
     following screen will appear:</para>
 
-    <para id="Para589795"><screenshot>
+    <para id="Para589795">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_standOpsWC.png"
-                       id="Graphic589793" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_standOpsWC.png" id="Graphic589793"/>
+            </imageobject>
 
-          <caption id="Caption589796">Standard Operations by Work
+            <caption id="Caption589796">Standard Operations by Work
           Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para589797">When displaying Standard Operations by Work Center,
     you are presented with the following options:</para>
@@ -29,7 +29,7 @@
         <term id="Para520498">Work Center</term>
 
         <listitem id="listitemN0x180ac00N0x193a5ec">
-          <para>Specify Work Center whose Standard Operations you want to
+            <para>Specify Work Center whose Standard Operations you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +38,7 @@
         <term id="Para520500">Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x193f624">
-          <para>The Warehouse code for the Warehouse where the Work Center is
+            <para>The Warehouse code for the Warehouse where the Work Center is
           located will display once a Work Center has been selected.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +47,7 @@
         <term id="Para520502">Standard Operations</term>
 
         <listitem id="listitemN0x180ac00N0x193f66c">
-          <para>Display lists Standard Operations by Work Center, using the
+            <para>Display lists Standard Operations by Work Center, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -61,7 +61,7 @@
         <term id="Para520505">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193f6d8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +70,7 @@
         <term id="Para664053">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193f720">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -83,7 +83,7 @@
         <term id="Para520508">View Standard Operation</term>
 
         <listitem id="listitemN0x180ac00N0x193f78c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -91,12 +91,11 @@
         <term id="Para520509">Edit Standard Operation</term>
 
         <listitem id="listitemN0x180ac00N0x193f7d4">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

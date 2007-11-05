@@ -1,119 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677901">
-  <title><anchor id="Anchor677900" role="Index"
-  xreflabel="expense categories:master list of" /> <indexterm
-      significance="normal" zone="Anchor677922">
-      <primary>expense categories</primary>
+  <title>
+      <anchor id="Anchor677900" role="Index" xreflabel="expense categories:master list of"/> 
+      <indexterm significance="normal">
+         <primary>expense categories</primary>
 
-      <secondary>creating new</secondary>
-    </indexterm>Expense Category</title>
+         <secondary>creating new</secondary>
+      </indexterm>Expense Category</title>
 
   <para id="Para677923">To create a new Expense Category, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para677927"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/IM_MI_expCatNew.png" id="Graphic677925" />
-        </imageobject>
+  <para id="Para677927">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/IM_MI_expCatNew.png" id="Graphic677925"/>
+            </imageobject>
 
-        <caption id="Caption677928">Create New Expense Category</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption677928">Create New Expense Category</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para677929">When creating a new Expense Category, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para677930">Category</term>
+      <varlistentry>
+         <term id="Para677930">Category</term>
 
-      <listitem id="listitemN0x180ac00N0x184e174">
-        <para>Enter the Expense Category name.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x184e174">
+            <para>Enter the Expense Category name.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677931">Description</term>
+      <varlistentry>
+         <term id="Para677931">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x184e1bc">
-        <para>Enter a brief description of the Expense Category.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x184e1bc">
+            <para>Enter a brief description of the Expense Category.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677932">Active</term>
+      <varlistentry>
+         <term id="Para677932">Active</term>
 
-      <listitem id="listitemN0x180ac00N0x184e204">
-        <para>Select to show the Expense Category as active.</para>
+         <listitem id="listitemN0x180ac00N0x184e204">
+            <para>Select to show the Expense Category as active.</para>
 
-        <para id="Para677933">Not selecting means the Expense Category will be
+            <para id="Para677933">Not selecting means the Expense Category will be
         considered inactive. To re-activate an Expense Category, simply select
         this option.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677934">Expense</term>
+      <varlistentry>
+         <term id="Para677934">Expense</term>
 
-      <listitem id="listitemN0x180ac00N0x184e24c">
-        <para>Identify a General Ledger (G/L) Account to distribute Purchasing
+         <listitem id="listitemN0x180ac00N0x184e24c">
+            <para>Identify a General Ledger (G/L) Account to distribute Purchasing
         Expenses to.</para>
 
-        <para id="Para677935">This is an Expense Account. It will be debited
+            <para id="Para677935">This is an Expense Account. It will be debited
         when transactions using Expense Categories are posted.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677936">Purchase Price Variance</term>
+      <varlistentry>
+         <term id="Para677936">Purchase Price Variance</term>
 
-      <listitem id="listitemN0x180ac00N0x184e294">
-        <para>Identify a General Ledger (G/L) Account to distribute purchase
+         <listitem id="listitemN0x180ac00N0x184e294">
+            <para>Identify a General Ledger (G/L) Account to distribute purchase
         Price variances to.</para>
 
-        <para id="Para677937">This is an Asset Account. It will be credited or
+            <para id="Para677937">This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
         is posted for non-Inventory Items.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677938">P/O Liability Clearing</term>
+      <varlistentry>
+         <term id="Para677938">P/O Liability Clearing</term>
 
-      <listitem id="listitemN0x180ac00N0x184e2dc">
-        <para>Identify a General Ledger (G/L) Account to distribute Purchase
+         <listitem id="listitemN0x180ac00N0x184e2dc">
+            <para>Identify a General Ledger (G/L) Account to distribute Purchase
         Order liability clearing to.</para>
 
-        <para id="Para677939">This is a Liability Account. It will be credited
+            <para id="Para677939">This is a Liability Account. It will be credited
         when non-Inventory Items are received, and debited when a Voucher for
         these Items is posted.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para677940">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para677941">CANCEL</term>
+      <varlistentry>
+         <term id="Para677941">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x184e348">
-        <para>Closes the screen without creating an Expense Category,
+         <listitem id="listitemN0x180ac00N0x184e348">
+            <para>Closes the screen without creating an Expense Category,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para677942">SAVE</term>
+      <varlistentry>
+         <term id="Para677942">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x184e390">
-        <para>Creates the Expense Category and adds it to the master list of
+         <listitem id="listitemN0x180ac00N0x184e390">
+            <para>Creates the Expense Category and adds it to the master list of
         Expense Categories.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

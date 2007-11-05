@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Summarized Sales by Customer by Item
@@ -62,28 +62,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Item Number</guilabel>
+                  <guilabel moreinfo="none">Item Number</guilabel>
                </entry>
                <entry>_orderByItemNumber</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Quantity Volume</guilabel>
+                  <guilabel moreinfo="none">Quantity Volume</guilabel>
                </entry>
                <entry>_orderByQtyVolume</entry>
                <entry>QRadioButton</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Sales Volume</guilabel>
+                  <guilabel moreinfo="none">Sales Volume</guilabel>
                </entry>
                <entry>_orderBySalesVolume</entry>
                <entry>QRadioButton</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -91,7 +91,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uery</guilabel>
                </entry>
                <entry>_query</entry>
@@ -99,7 +99,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -107,7 +107,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Sales History:</guilabel>
+                  <guilabel moreinfo="none">Sales History:</guilabel>
                </entry>
                <entry>_salesHistoryLit</entry>
                <entry>QLabel</entry>

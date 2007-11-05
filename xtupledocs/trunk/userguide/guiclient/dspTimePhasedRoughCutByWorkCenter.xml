@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518859" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518859" role="openmfg">
     <title>Time-Phased Rough Cut Capacity Plan by Work Center</title>
 
     <para id="Para518860">To view a rough cut Capacity Plan by Work Center
@@ -10,17 +9,18 @@
     Rough Cut Capacity Plan by Work Center" option. The following screen will
     appear:</para>
 
-    <para id="Para518864"><screenshot>
+    <para id="Para518864">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_tpPlanRoughByWCente.png"
-                       id="Graphic520795" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Disp_tpPlanRoughByWCente.png" id="Graphic520795"/>
+            </imageobject>
 
-          <caption id="Caption518865">Time-Phased Rough Cut Capacity Plan by
+            <caption id="Caption518865">Time-Phased Rough Cut Capacity Plan by
           Work Center</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518866">When displaying a time-phased rough cut Capacity
     Plan by Work Center, you are presented with the following options:</para>
@@ -30,7 +30,7 @@
         <term id="Para518867">All Work Centers</term>
 
         <listitem>
-          <para>Select to display time-phased rough cut Capacity Plan by Work
+            <para>Select to display time-phased rough cut Capacity Plan by Work
           Center for all Work Centers.</para>
         </listitem>
       </varlistentry>
@@ -39,7 +39,7 @@
         <term id="Para518868">Selected</term>
 
         <listitem>
-          <para>Specify Work Center whose time-phased rough cut Capacity Plan
+            <para>Specify Work Center whose time-phased rough cut Capacity Plan
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -48,7 +48,7 @@
         <term id="Para518870">All Warehouses</term>
 
         <listitem>
-          <para>Select to display time-phased rough cut Capacity Plan by Work
+            <para>Select to display time-phased rough cut Capacity Plan by Work
           Center for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +57,7 @@
         <term id="Para518872">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose time-phased rough cut Capacity Plan by
+            <para>Specify Warehouse whose time-phased rough cut Capacity Plan by
           Work Center you want to display.</para>
         </listitem>
       </varlistentry>
@@ -66,9 +66,9 @@
         <term id="Para552733">Calendar</term>
 
         <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para552734">Associated Calendar periods will be
+            <para id="Para552734">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -77,11 +77,11 @@
         <term id="Para523266">Name/Selected Periods</term>
 
         <listitem>
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para526675">Select individual periods or groups of periods
+            <para id="Para526675">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -100,7 +100,7 @@
         <term id="Para518878">Rough Cut</term>
 
         <listitem>
-          <para>Display lists time-phased rough cut Capacity Plan by Work
+            <para>Display lists time-phased rough cut Capacity Plan by Work
           Center, using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -114,7 +114,7 @@
         <term id="Para518881">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -123,10 +123,10 @@
         <term id="Para531402">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para518883">Start date and end date must be entered for
+            <para id="Para518883">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the "Rough Cut"
           display.</para>
         </listitem>
@@ -136,7 +136,7 @@
         <term id="Para553785">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

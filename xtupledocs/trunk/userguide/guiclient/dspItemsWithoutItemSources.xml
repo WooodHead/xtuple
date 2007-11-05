@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section940988">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section940988">
     <title>Items Without Item Sources</title>
 
     <para id="Para940995">To identify Items without Item Sources, select the
     "Items Without Item Sources" option. The following screen will
     appear:</para>
 
-    <para id="Para942488"><screenshot>
+    <para id="Para942488">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Utils_itemNoItemSrc.png"
-                       id="Graphic942486" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Utils_itemNoItemSrc.png" id="Graphic942486"/>
+            </imageobject>
 
-          <caption id="Caption942489">Items Without Item Sources</caption>
+            <caption id="Caption942489">Items Without Item Sources</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para942490">When identifying Items without Item Sources, you are
     presented with the following options:</para>
@@ -28,7 +28,7 @@
         <term id="Para942491">Items without Item Sources</term>
 
         <listitem id="listitemN0x180ac00N0x18dc334">
-          <para>Display lists all Items without Item Sources.</para>
+            <para>Display lists all Items without Item Sources.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -41,7 +41,7 @@
         <term id="Para942498">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18dc3a0">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +50,7 @@
         <term id="Para942517">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18dc3e8">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Backlog by Parameter List
@@ -52,7 +52,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Show Prices</guilabel>
+                  <guilabel moreinfo="none">Show Prices</guilabel>
                </entry>
                <entry>_showPrices</entry>
                <entry>XCheckBox</entry>
@@ -64,7 +64,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -72,7 +72,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>Q</accel>uery</guilabel>
                </entry>
                <entry>_query</entry>
@@ -80,7 +80,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -88,7 +88,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Backlog:</guilabel>
+                  <guilabel moreinfo="none">Backlog:</guilabel>
                </entry>
                <entry>_backlogLit</entry>
                <entry>QLabel</entry>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Voucher Item
@@ -37,14 +37,14 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>P/O Number:</guilabel>
+                  <guilabel moreinfo="none">P/O Number:</guilabel>
                </entry>
                <entry>_poNumberLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Line #:</guilabel>
+                  <guilabel moreinfo="none">Line #:</guilabel>
                </entry>
                <entry>_lineNumberLit</entry>
                <entry>QLabel</entry>
@@ -71,49 +71,49 @@
             </row>
              <row>
                <entry>
-                  <guilabel>0.00</guilabel>
+                  <guilabel moreinfo="none">0.00</guilabel>
                </entry>
                <entry>_lineFreight</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>0.00</guilabel>
+                  <guilabel moreinfo="none">0.00</guilabel>
                </entry>
                <entry>_extPrice</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>0.00</guilabel>
+                  <guilabel moreinfo="none">0.00</guilabel>
                </entry>
                <entry>_unitPrice</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Line Item Freight:</guilabel>
+                  <guilabel moreinfo="none">Line Item Freight:</guilabel>
                </entry>
                <entry>_lineFreightLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Ext. Price:</guilabel>
+                  <guilabel moreinfo="none">Ext. Price:</guilabel>
                </entry>
                <entry>_extPriceLit</entry>
                <entry>QLabel</entry>
             </row>
              <row>
                <entry>
-                  <guilabel>Unit Price:</guilabel>
+                  <guilabel moreinfo="none">Unit Price:</guilabel>
                </entry>
                <entry>_unitPriceLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -121,7 +121,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>S</accel>ave</guilabel>
                </entry>
                <entry>_save</entry>
@@ -129,7 +129,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Vend. Item Number:</guilabel>
+                  <guilabel moreinfo="none">Vend. Item Number:</guilabel>
                </entry>
                <entry>_vendItemNumberLit</entry>
                <entry>QLabel</entry>
@@ -141,7 +141,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>UOM:</guilabel>
+                  <guilabel moreinfo="none">UOM:</guilabel>
                </entry>
                <entry>_vendUOMLit</entry>
                <entry>QLabel</entry>
@@ -153,7 +153,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Vend. Item Descrip.:</guilabel>
+                  <guilabel moreinfo="none">Vend. Item Descrip.:</guilabel>
                </entry>
                <entry>_vendItemDescripLit</entry>
                <entry>QLabel</entry>
@@ -170,7 +170,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Uninvoiced Receipts and Returns</guilabel>
+                  <guilabel moreinfo="none">Uninvoiced Receipts and Returns</guilabel>
                </entry>
                <entry>_uninvoiceReceivingsLit</entry>
                <entry>QLabel</entry>
@@ -182,7 +182,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Due Date:</guilabel>
+                  <guilabel moreinfo="none">Due Date:</guilabel>
                </entry>
                <entry>_dueDateLit</entry>
                <entry>QLabel</entry>
@@ -204,21 +204,21 @@
             </row>
             <row>
                <entry>
-                  <guilabel>0</guilabel>
+                  <guilabel moreinfo="none">0</guilabel>
                </entry>
                <entry>_qtyToVoucher</entry>
                <entry>XLineEdit</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Uninvoiced Qty. Received:</guilabel>
+                  <guilabel moreinfo="none">Uninvoiced Qty. Received:</guilabel>
                </entry>
                <entry>_uninvoicedReceivedLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Uninvoiced Qty. Rejected:</guilabel>
+                  <guilabel moreinfo="none">Uninvoiced Qty. Rejected:</guilabel>
                </entry>
                <entry>_uninvoicedRejectedLit</entry>
                <entry>QLabel</entry>
@@ -235,21 +235,21 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Total Quantity Ordered:</guilabel>
+                  <guilabel moreinfo="none">Total Quantity Ordered:</guilabel>
                </entry>
                <entry>_orderedLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Total Quantity Received:</guilabel>
+                  <guilabel moreinfo="none">Total Quantity Received:</guilabel>
                </entry>
                <entry>_receivedLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Total Quantity Rejected:</guilabel>
+                  <guilabel moreinfo="none">Total Quantity Rejected:</guilabel>
                </entry>
                <entry>_rejectedLit</entry>
                <entry>QLabel</entry>
@@ -261,7 +261,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>PO Line Freight to Voucher:</guilabel>
+                  <guilabel moreinfo="none">PO Line Freight to Voucher:</guilabel>
                </entry>
                <entry>_freightToVoucherLit</entry>
                <entry>QLabel</entry>
@@ -273,14 +273,14 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Close P/O Item</guilabel>
+                  <guilabel moreinfo="none">Close P/O Item</guilabel>
                </entry>
                <entry>_closePoitem</entry>
                <entry>QCheckBox</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Qty. to Voucher:</guilabel>
+                  <guilabel moreinfo="none">Qty. to Voucher:</guilabel>
                </entry>
                <entry>_toVoucherLit</entry>
                <entry>QLabel</entry>
@@ -292,7 +292,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Distribution List:</guilabel>
+                  <guilabel moreinfo="none">Distribution List:</guilabel>
                </entry>
                <entry>_distributionListLit</entry>
                <entry>QLabel</entry>
@@ -304,7 +304,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>Total Distributed:</guilabel>
+                  <guilabel moreinfo="none">Total Distributed:</guilabel>
                </entry>
                <entry>_totalDistributedLit</entry>
                <entry>QLabel</entry>
@@ -316,7 +316,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>N</accel>ew</guilabel>
                </entry>
                <entry>_new</entry>
@@ -324,7 +324,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>E</accel>dit</guilabel>
                </entry>
                <entry>_edit</entry>
@@ -332,7 +332,7 @@
             </row>
              <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>D</accel>elete</guilabel>
                </entry>
                <entry>_delete</entry>

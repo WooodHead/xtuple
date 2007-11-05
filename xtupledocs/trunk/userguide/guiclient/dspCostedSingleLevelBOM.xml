@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section519987">
-    <title><anchor id="Anchor595480" role="Index"
-    xreflabel="costing:for single level BOMs;bills of materials:costed single level view of" />
-    <indexterm significance="normal" zone="Anchor595480">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519987">
+    <title>
+      <anchor id="Anchor595480" role="Index"
+              xreflabel="costing:for single level BOMs;bills of materials:costed single level view of"/>
+      <indexterm significance="normal">
         <primary>costing</primary>
 
         <secondary>for single level BOMs</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595480">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>costed single level view of</secondary>
@@ -19,17 +20,18 @@
     select the "Costed Single Level BOM" option. The following screen will
     appear:</para>
 
-    <para id="Para519992"><screenshot>
+    <para id="Para519992">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Cost_dispSingleBOM.png"
-                       id="Graphic563420" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Cost_dispSingleBOM.png" id="Graphic563420"/>
+            </imageobject>
 
-          <caption id="Caption519993">Costed Single Level Bill of
+            <caption id="Caption519993">Costed Single Level Bill of
           Materials</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519999">When displaying Costs for a single level Bill of
     Materials, you are presented with the following options:</para>
@@ -39,7 +41,7 @@
         <term id="Para520000">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x1911548">
-          <para>Enter the Item Number of the manufactured Item whose
+            <para>Enter the Item Number of the manufactured Item whose
           associated Costs you would like to view using a single level Bill of
           Materials.</para>
         </listitem>
@@ -49,7 +51,7 @@
         <term id="Para663294">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x1911590">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -57,10 +59,10 @@
         <term id="Para520004">Use Standard Costs</term>
 
         <listitem id="listitemN0x180ac00N0x19115d8">
-          <para>Select to display Standard Costs for the specified
+            <para>Select to display Standard Costs for the specified
           Item.</para>
 
-          <para id="Para654726">Both the Unit Cost and Extended Cost for each
+            <para id="Para654726">Both the Unit Cost and Extended Cost for each
           component Item, expressed in terms of Standard Cost, will
           display--assuming Standard Costs have been defined for each
           component Item.</para>
@@ -84,9 +86,9 @@
         <term id="Para520005">Use Actual Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1911668">
-          <para>Select to display Actual Costs for the specified Item.</para>
+            <para>Select to display Actual Costs for the specified Item.</para>
 
-          <para id="Para654730">Both the Unit Cost and Extended Cost for each
+            <para id="Para654730">Both the Unit Cost and Extended Cost for each
           component Item, expressed in terms of Actual Cost, will
           display--assuming Actual Costs have been defined for each component
           Item.</para>
@@ -115,10 +117,10 @@
         <term id="Para520006">Costed Bill of Materials</term>
 
         <listitem id="listitemN0x180ac00N0x19116f8">
-          <para>Display lists Costed Bill of Materials components, using the
+            <para>Display lists Costed Bill of Materials components, using the
           specified parameters.</para>
 
-          <para id="Para664249">The Total Cost, Actual Cost, and Standard Cost
+            <para id="Para664249">The Total Cost, Actual Cost, and Standard Cost
           will be calculated automatically at the bottom of the
           display.</para>
         </listitem>
@@ -133,7 +135,7 @@
         <term id="Para520009">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x1911764">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -142,7 +144,7 @@
         <term id="Para663944">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x19117ac">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -156,7 +158,7 @@
         <term id="Para520012">Maintain Item Costs</term>
 
         <listitem id="listitemN0x180ac00N0x1911818">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -164,12 +166,11 @@
         <term id="Para592041">View Item Costing</term>
 
         <listitem id="listitemN0x180ac00N0x1911860">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

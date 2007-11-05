@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section953714">
-    <title><anchor id="Anchor953713" role="Index"
-    xreflabel="configuration:of a/p module" /> <indexterm
-        significance="normal" zone="Anchor953713">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section953714">
+    <title>
+      <anchor id="Anchor953713" role="Index" xreflabel="configuration:of a/p module"/> 
+      <indexterm significance="normal">
         <primary>configuration</primary>
 
         <secondary>of a/p module</secondary>
@@ -14,15 +14,17 @@
     select the "Configure A/P" option. The following screen will
     appear:</para>
 
-    <para id="Para953746"><screenshot>
+    <para id="Para953746">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/Sys_configAP.png" id="Graphic953744" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/Sys_configAP.png" id="Graphic953744"/>
+            </imageobject>
 
-          <caption id="Caption953747">Configure A/P Module</caption>
+            <caption id="Caption953747">Configure A/P Module</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para953748">When configuring the A/P module, you are presented
     with the following options:</para>
@@ -32,7 +34,7 @@
         <term id="Para953739">Next A/P Memo #</term>
 
         <listitem id="listitemN0x180ac00N0x18ba734">
-          <para>The next sequentially available Accounts Payable Memo Number
+            <para>The next sequentially available Accounts Payable Memo Number
           will display here. You may change the number--creating a new basis
           for the next A/P Memo Number--by typing the new number into this
           field.</para>
@@ -48,7 +50,7 @@
         <term id="Para953798">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18ba7a0">
-          <para>Cancels any configuration settings, returning you to the
+            <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>
@@ -57,7 +59,7 @@
         <term id="Para953799">SAVE</term>
 
         <listitem id="listitemN0x180ac00N0x18ba7e8">
-          <para>Saves the configuration settings, returning you to the
+            <para>Saves the configuration settings, returning you to the
           application desktop.</para>
         </listitem>
       </varlistentry>

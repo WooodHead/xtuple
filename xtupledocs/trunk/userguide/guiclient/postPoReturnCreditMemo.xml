@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Post PO Return Credit Memo
@@ -37,21 +37,21 @@
          <tbody>
             <row>
                <entry>
-                  <guilabel>The selected P/O Return will create a Credit Memo for the following amount. You may change this value if necessary before posting.</guilabel>
+                  <guilabel moreinfo="none">The selected P/O Return will create a Credit Memo for the following amount. You may change this value if necessary before posting.</guilabel>
                </entry>
                <entry>_infoLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Amount:</guilabel>
+                  <guilabel moreinfo="none">Amount:</guilabel>
                </entry>
                <entry>_amountLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>Line Item:</guilabel>
+                  <guilabel moreinfo="none">Line Item:</guilabel>
                </entry>
                <entry>_itemLit</entry>
                <entry>QLabel</entry>
@@ -63,28 +63,28 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Reject Qty.:</guilabel>
+                  <guilabel moreinfo="none">Reject Qty.:</guilabel>
                </entry>
                <entry>_qtyLit</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>n/a</guilabel>
+                  <guilabel moreinfo="none">n/a</guilabel>
                </entry>
                <entry>_item</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>n/a</guilabel>
+                  <guilabel moreinfo="none">n/a</guilabel>
                </entry>
                <entry>_qty</entry>
                <entry>QLabel</entry>
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>ancel</guilabel>
                </entry>
                <entry>_close</entry>
@@ -92,7 +92,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>ost</guilabel>
                </entry>
                <entry>_post</entry>

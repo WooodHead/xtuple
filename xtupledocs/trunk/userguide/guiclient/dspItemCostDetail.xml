@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="ascii"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN" "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
    <title>
    Detailed Item Costs
@@ -47,7 +47,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>Cost Type:</guilabel>
+                  <guilabel moreinfo="none">Cost Type:</guilabel>
                </entry>
                <entry>_costTypeLit</entry>
                <entry>QLabel</entry>
@@ -64,21 +64,21 @@
             </row>
               <row>
                <entry>
-                  <guilabel>Show Standard Costs</guilabel>
+                  <guilabel moreinfo="none">Show Standard Costs</guilabel>
                </entry>
                <entry>_standardCosts</entry>
                <entry>QRadioButton</entry>
             </row>
               <row>
                <entry>
-                  <guilabel>Show Actual Costs</guilabel>
+                  <guilabel moreinfo="none">Show Actual Costs</guilabel>
                </entry>
                <entry>_actualCosts</entry>
                <entry>QRadioButton</entry>
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>C</accel>lose</guilabel>
                </entry>
                <entry>_close</entry>
@@ -86,7 +86,7 @@
             </row>
            <row>
                <entry>
-                  <guilabel>
+                  <guilabel moreinfo="none">
                      <accel>P</accel>rint</guilabel>
                </entry>
                <entry>_print</entry>
@@ -94,7 +94,7 @@
             </row>
             <row>
                <entry>
-                  <guilabel>Costing Detail:</guilabel>
+                  <guilabel moreinfo="none">Costing Detail:</guilabel>
                </entry>
                <entry>_costingDetailLit</entry>
                <entry>QLabel</entry>

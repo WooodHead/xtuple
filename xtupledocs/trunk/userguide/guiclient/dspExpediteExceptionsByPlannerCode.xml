@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section525675" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section525675" role="openmfg">
     <title>Expedite Exceptions by Planner Code</title>
 
     <para id="Para519056">An Expedite Exception is an indication that an Order
@@ -12,17 +11,18 @@
     late Orders requiring action, select the "Expedite Exceptions by Planner
     Code" option. The following screen will appear:</para>
 
-    <para id="Para519060"><screenshot>
+    <para id="Para519060">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_expExceptsByPCode.png"
-                       id="Graphic520891" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Disp_expExceptsByPCode.png" id="Graphic520891"/>
+            </imageobject>
 
-          <caption id="Caption519061">Expedite Exceptions by Planner
+            <caption id="Caption519061">Expedite Exceptions by Planner
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519062">When displaying Expedite Exceptions by Planner Code,
     you are presented with the following options:</para>
@@ -32,7 +32,7 @@
         <term id="Para519063">All Planner Codes</term>
 
         <listitem>
-          <para>Select to display Expedite Exceptions for all Planner
+            <para>Select to display Expedite Exceptions for all Planner
           Codes.</para>
         </listitem>
       </varlistentry>
@@ -41,7 +41,7 @@
         <term id="Para519064">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose Expedite Exceptions you want to
+            <para>Specify Planner Code whose Expedite Exceptions you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -50,12 +50,11 @@
         <term id="Para526382">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554679">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554678"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554679">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554678" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -65,10 +64,10 @@
         <term id="Para528292">Look Ahead Days</term>
 
         <listitem>
-          <para>Select a number using the arrow buttons, or manually enter a
+            <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 1000.</para>
 
-          <para id="Para528293">Expedite Exceptions by Planner Code will be
+            <para id="Para528293">Expedite Exceptions by Planner Code will be
           displayed based on the value entered here.</para>
         </listitem>
       </varlistentry>
@@ -77,7 +76,7 @@
         <term id="Para519068">All Warehouses</term>
 
         <listitem>
-          <para>Select to display Expedite Exceptions by Planner Code for all
+            <para>Select to display Expedite Exceptions by Planner Code for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +85,7 @@
         <term id="Para519070">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose Expedite Exceptions by Planner Code
+            <para>Specify Warehouse whose Expedite Exceptions by Planner Code
           you want to display.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +94,7 @@
         <term id="Para519074">Expedite Exceptions</term>
 
         <listitem>
-          <para>Display lists Expedite Exceptions by Planner Code, using the
+            <para>Display lists Expedite Exceptions by Planner Code, using the
           specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -109,7 +108,7 @@
         <term id="Para519077">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +117,7 @@
         <term id="Para531436">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +126,7 @@
         <term id="Para553827">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

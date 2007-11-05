@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
- <section id="Section537713" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section537713" role="openmfg">
     <title>List Production Plans</title>
 
     <para id="Para539655">Production Plans are used for loading sales
@@ -11,16 +11,19 @@
     run. To access the master list of Production Plans, select the "List
     Production Plans" option. The following screen will appear:</para>
 
-    <para id="Para538351"><screenshot id="Figure538349">
+    <para id="Para538351">
+      <screenshot id="Figure538349">
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Plan_listProdPlans.png"
-                       id="Graphic538349" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Plan_listProdPlans.png" id="Graphic538349"/>
+            </imageobject>
 
-          <caption><para>Production Plans Master List</para></caption>
+            <caption>
+               <para>Production Plans Master List</para>
+            </caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para538353">The "Production Plans" screen displays information
     on all existing Production Plans, including start date, end date,
@@ -34,7 +37,7 @@
         <term id="Para538355">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -43,7 +46,7 @@
         <term id="Para553755">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -51,7 +54,7 @@
         <term id="Para538357">NEW</term>
 
         <listitem>
-          <para>Opens screen for creating a new Production Plan.</para>
+            <para>Opens screen for creating a new Production Plan.</para>
         </listitem>
       </varlistentry>
 
@@ -59,7 +62,7 @@
         <term id="Para538358">EDIT</term>
 
         <listitem>
-          <para>Enables you to edit highlighted Production Plans. The edit
+            <para>Enables you to edit highlighted Production Plans. The edit
           screen is the same as that for creating a new Production
           Plan--except that when editing, the fields will contain Production
           Plan information. Double-clicking on a Production Plan will also
@@ -71,7 +74,7 @@
         <term id="Para538443">COPY</term>
 
         <listitem>
-          <para>Highlight a Production Plan and then select this button to
+            <para>Highlight a Production Plan and then select this button to
           reach a screen for copying the Production Plan master.</para>
         </listitem>
       </varlistentry>

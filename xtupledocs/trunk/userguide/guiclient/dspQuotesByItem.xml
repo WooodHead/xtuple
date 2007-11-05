@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section618729">
-    <title><anchor id="Anchor618728" role="Index"
-    xreflabel="quotes:looking up by item;items:looking up by quote" />
-    <indexterm significance="normal" zone="Anchor618728">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section618729">
+    <title>
+      <anchor id="Anchor618728" role="Index"
+              xreflabel="quotes:looking up by item;items:looking up by quote"/>
+      <indexterm significance="normal">
         <primary>quotes</primary>
 
         <secondary>looking up by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor618728">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>looking up by quote</secondary>
@@ -19,16 +20,17 @@
     Item" option from the "Displays" menu. The following screen will
     appear:</para>
 
-    <para id="Para618734"><screenshot>
+    <para id="Para618734">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Disp_quoteLookItem.png"
-                       id="Graphic618732" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/SO_Disp_quoteLookItem.png" id="Graphic618732"/>
+            </imageobject>
 
-          <caption id="Caption618735">Quote Lookup by Item</caption>
+            <caption id="Caption618735">Quote Lookup by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para618736">When displaying Quotes by Item, you are presented
     with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para618737">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x196a04c">
-          <para>Enter the Item Number of the Item whose Quotes you want to
+            <para>Enter the Item Number of the Item whose Quotes you want to
           view.</para>
         </listitem>
       </varlistentry>
@@ -47,7 +49,7 @@
         <term id="Para652640">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x196a094">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
 
@@ -55,7 +57,7 @@
         <term id="Para618740">Quotes</term>
 
         <listitem id="listitemN0x180ac00N0x196a0dc">
-          <para>Display lists Quotes for the specified Item.</para>
+            <para>Display lists Quotes for the specified Item.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -68,7 +70,7 @@
         <term id="Para618743">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x196a148">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,16 +80,13 @@
     you to select from the following menu options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/1)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/3/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/3/2/2)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

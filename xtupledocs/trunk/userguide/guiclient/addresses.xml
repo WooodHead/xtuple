@@ -1,33 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563659">
-  <title><anchor id="Anchor563887" role="Index"
-  xreflabel="addresses:crm master list of;customer relationship management:addresses and" />
-  <indexterm significance="normal" zone="Anchor563887">
-      <primary>addresses</primary>
+  <title>
+      <anchor id="Anchor563887" role="Index"
+              xreflabel="addresses:crm master list of;customer relationship management:addresses and"/>
+      <indexterm significance="normal">
+         <primary>addresses</primary>
 
-      <secondary>crm master list of</secondary>
-    </indexterm> <indexterm significance="normal" zone="Anchor563887">
-      <primary>customer relationship management</primary>
+         <secondary>crm master list of</secondary>
+      </indexterm> 
+      <indexterm significance="normal">
+         <primary>customer relationship management</primary>
 
-      <secondary>addresses and</secondary>
-    </indexterm>List Addresses</title>
+         <secondary>addresses and</secondary>
+      </indexterm>List Addresses</title>
 
   <para id="Para563737">Addresses may be associated with and shared by
   Contacts, Warehouses, Ship-to Addresses, Vendors, and Vendor Addresses. To
   access the master list of Contacts, select the "List Contacts" option. The
   following screen will appear:</para>
 
-  <para id="Para563741"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_AB_addrList.png" id="Graphic563739" />
-        </imageobject>
+  <para id="Para563741">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_AB_addrList.png" id="Graphic563739"/>
+            </imageobject>
 
-        <caption id="Caption563742">Addresses Master List</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption563742">Addresses Master List</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para563743">The "List Addresses" screen displays information on
   all existing Addresses, including Address line 1, Address line 2, Address
@@ -37,88 +41,87 @@
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para563745">CLOSE</term>
+      <varlistentry>
+         <term id="Para563745">CLOSE</term>
 
-      <listitem id="listitemN0x180ac00N0x187996c">
-        <para>Closes the screen, returning you to the application
+         <listitem id="listitemN0x180ac00N0x187996c">
+            <para>Closes the screen, returning you to the application
         desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para577420">PRINT</term>
+      <varlistentry>
+         <term id="Para577420">PRINT</term>
 
-      <listitem id="listitemN0x180ac00N0x18799b4">
-        <para>Runs the report associated with this screen.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18799b4">
+            <para>Runs the report associated with this screen.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563747">NEW</term>
+      <varlistentry>
+         <term id="Para563747">NEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18799fc">
-        <para>Opens screen for creating a new Address.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18799fc">
+            <para>Opens screen for creating a new Address.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563748">EDIT</term>
+      <varlistentry>
+         <term id="Para563748">EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x1879a44">
-        <para>Enables you to edit highlighted Addresses. The edit screen is
+         <listitem id="listitemN0x180ac00N0x1879a44">
+            <para>Enables you to edit highlighted Addresses. The edit screen is
         the same as that for creating a new Address--except that when editing,
         the fields will contain Address information. Double-clicking on an
         Address will also bring you to the editing screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563749">VIEW</term>
+      <varlistentry>
+         <term id="Para563749">VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x1879a8c">
-        <para>Highlight an Address and then select this button to reach a
+         <listitem id="listitemN0x180ac00N0x1879a8c">
+            <para>Highlight an Address and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563750">DELETE</term>
+      <varlistentry>
+         <term id="Para563750">DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x1879ad4">
-        <para>Highlight an Address and then select this button to remove the
+         <listitem id="listitemN0x180ac00N0x1879ad4">
+            <para>Highlight an Address and then select this button to remove the
         Address from the list.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para563752">Right-clicking on an Address in the Addresses list
   enables you to select from the following menu options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para563753">Edit</term>
+      <varlistentry>
+         <term id="Para563753">Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1879a44)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x1879a44)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563754">View</term>
+      <varlistentry>
+         <term id="Para563754">View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1879a8c)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x1879a8c)"/>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para563755">Delete</term>
+      <varlistentry>
+         <term id="Para563755">Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1879ad4)" />
-    </varlistentry>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                     xpointer="element(listitemN0x180ac00N0x1879ad4)"/>
+      </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

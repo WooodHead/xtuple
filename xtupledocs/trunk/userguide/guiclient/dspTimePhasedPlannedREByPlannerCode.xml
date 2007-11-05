@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section518925" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section518925" role="openmfg">
     <title>Time-Phased Planned Revenue/Expenses by Planner Code</title>
 
     <para id="Para518926">To view time-phased planned Revenue/Expenses by
     Planner Code, select the "Time-Phased Planned Revenue/Expenses by Planner
     Code" option. The following screen will appear:</para>
 
-    <para id="Para518930"><screenshot>
+    <para id="Para518930">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/MS_Disp_tpPlanRevByPCode.png"
-                       id="Graphic520818" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/MS_Disp_tpPlanRevByPCode.png" id="Graphic520818"/>
+            </imageobject>
 
-          <caption id="Caption518931">Time-Phased Planned Revenue/Expenses by
+            <caption id="Caption518931">Time-Phased Planned Revenue/Expenses by
           Planner Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para518932">When displaying time-phased planned Revenue/Expenses
     by Planner Code, you are presented with the following options:</para>
@@ -29,7 +29,7 @@
         <term id="Para518933">All Planner Codes</term>
 
         <listitem>
-          <para>Select to display time-phased planned Revenue/Expenses for all
+            <para>Select to display time-phased planned Revenue/Expenses for all
           Planner Codes.</para>
         </listitem>
       </varlistentry>
@@ -38,7 +38,7 @@
         <term id="Para518934">Selected</term>
 
         <listitem>
-          <para>Specify Planner Code whose time-phased planned
+            <para>Specify Planner Code whose time-phased planned
           Revenue/Expenses you want to display.</para>
         </listitem>
       </varlistentry>
@@ -47,12 +47,11 @@
         <term id="Para526364">Pattern</term>
 
         <listitem>
-          <para>Enter a Planner Code pattern to select a range of Planner
+            <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
 
-          <para id="Para554654">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef554653"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para554654">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef554653" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -62,7 +61,7 @@
         <term id="Para518938">All Warehouses</term>
 
         <listitem>
-          <para>Select to display time-phased planned Revenue/Expenses by
+            <para>Select to display time-phased planned Revenue/Expenses by
           Planner Code for all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +70,7 @@
         <term id="Para518940">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose time-phased planned Revenue/Expenses
+            <para>Specify Warehouse whose time-phased planned Revenue/Expenses
           by Planner Code you want to display.</para>
         </listitem>
       </varlistentry>
@@ -80,13 +79,13 @@
         <term id="Para529009">Costs</term>
 
         <listitem>
-          <para>Sort the information using one of the following costing
+            <para>Sort the information using one of the following costing
           parameters:</para>
 
-          <para id="Para529010">Use Standard Cost: Select to display Standard
+            <para id="Para529010">Use Standard Cost: Select to display Standard
           Cost.</para>
 
-          <para id="Para529011">Use Actual Cost: Select to display Actual
+            <para id="Para529011">Use Actual Cost: Select to display Actual
           Cost.</para>
         </listitem>
       </varlistentry>
@@ -95,20 +94,20 @@
         <term id="Para529012">Sales Price</term>
 
         <listitem>
-          <para>Sort the information using one of the following pricing
+            <para>Sort the information using one of the following pricing
           parameters:</para>
 
-          <para id="Para529300">Use List Price: Select to display the List
+            <para id="Para529300">Use List Price: Select to display the List
           Price.</para>
 
-          <para id="Para529014">Use Average Price: Select to display Average
+            <para id="Para529014">Use Average Price: Select to display Average
           Price. Average Price is based on the Item's average selling
           Price.</para>
 
-          <para id="Para529018">Start Evaluation Date: Specify date to start
+            <para id="Para529018">Start Evaluation Date: Specify date to start
           evaluating average Price. This is a required field.</para>
 
-          <para id="Para529022">End Evaluation Date: Specify date to stop
+            <para id="Para529022">End Evaluation Date: Specify date to stop
           evaluating average Price. This is a required field.</para>
         </listitem>
       </varlistentry>
@@ -117,9 +116,9 @@
         <term id="Para552752">Calendar</term>
 
         <listitem>
-          <para>Select the Calendar you want to use for the report.</para>
+            <para>Select the Calendar you want to use for the report.</para>
 
-          <para id="Para552753">Associated Calendar periods will be
+            <para id="Para552753">Associated Calendar periods will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -128,11 +127,11 @@
         <term id="Para523272">Name/Selected Periods</term>
 
         <listitem>
-          <para>Select as many periods as you want to display. Selected
+            <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
 
-          <para id="Para526680">Select individual periods or groups of periods
+            <para id="Para526680">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
           of periods, highlight the first in the sequence using your mouse
@@ -151,7 +150,7 @@
         <term id="Para553909">Planned Revenue and Expenses</term>
 
         <listitem>
-          <para>Display lists time-phased planned Revenue/Expenses by Planner
+            <para>Display lists time-phased planned Revenue/Expenses by Planner
           Code, using the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -165,7 +164,7 @@
         <term id="Para518955">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -174,10 +173,10 @@
         <term id="Para531422">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
 
-          <para id="Para518957">Start date and end date must be entered for
+            <para id="Para518957">Start date and end date must be entered for
           calculation to proceed. Results will be displayed in the "Planned
           Orders" display.</para>
         </listitem>
@@ -187,7 +186,7 @@
         <term id="Para553803">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>

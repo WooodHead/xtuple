@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section942284">
-    <title><anchor id="Anchor944175" role="Index"
-    xreflabel="purchase orders:change line item qty. for" /> <indexterm
-        significance="normal" zone="Anchor944175">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section942284">
+    <title>
+      <anchor id="Anchor944175" role="Index"
+              xreflabel="purchase orders:change line item qty. for"/> 
+      <indexterm significance="normal">
         <primary>purchase orders</primary>
 
         <secondary>change line item qty. for</secondary>
@@ -15,17 +15,18 @@
     Item, select the "Change Purchase Order Item Qty." option. The following
     screen will appear:</para>
 
-    <para id="Para942000"><screenshot>
+    <para id="Para942000">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_PO_chgPOItemQty.png"
-                       id="Graphic941998" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_PO_chgPOItemQty.png" id="Graphic941998"/>
+            </imageobject>
 
-          <caption id="Caption942001">Change Purchase Order Item
+            <caption id="Caption942001">Change Purchase Order Item
           Quantity</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <note>
       <para id="Para942376">You may only change the quantity of Purchase Order
@@ -41,7 +42,7 @@
         <term id="Para942299">P/O #</term>
 
         <listitem id="listitemN0x180ac00N0x1878548">
-          <para>Enter the Purchase Order Number of the Purchase Order whose
+            <para>Enter the Purchase Order Number of the Purchase Order whose
           Line Item quantity you want to change.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +51,7 @@
         <term id="Para942301">Line Item</term>
 
         <listitem id="listitemN0x180ac00N0x1878590">
-          <para>Specify the Purchase Order Line Item whose quantity you want
+            <para>Specify the Purchase Order Line Item whose quantity you want
           to change.</para>
         </listitem>
       </varlistentry>
@@ -59,7 +60,7 @@
         <term id="Para942308">Qty. Ordered</term>
 
         <listitem id="listitemN0x180ac00N0x18785d8">
-          <para>Enter the quantity you would like to change the Line Item
+            <para>Enter the quantity you would like to change the Line Item
           quantity to. The current Line Item quantity will be
           displayed.</para>
         </listitem>
@@ -69,7 +70,7 @@
         <term id="Para942377">Qty. Received</term>
 
         <listitem id="listitemN0x180ac00N0x1878620">
-          <para>If any of the Purchase Order Item quantity has been received,
+            <para>If any of the Purchase Order Item quantity has been received,
           the quantity received will be displayed.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +79,7 @@
         <term id="Para942381">Qty. Balance</term>
 
         <listitem id="listitemN0x180ac00N0x1878668">
-          <para>Displays the difference between the quantity ordered and the
+            <para>Displays the difference between the quantity ordered and the
           quantity received for both the current balance and the balance after
           the quantity change.</para>
         </listitem>
@@ -88,9 +89,9 @@
         <term id="Para944187">Post Comment</term>
 
         <listitem id="listitemN0x180ac00N0x18786b0">
-          <para>Select to attach a Comment to the Line Item.</para>
+            <para>Select to attach a Comment to the Line Item.</para>
 
-          <para id="Para944188">This option must be selected if you want to
+            <para id="Para944188">This option must be selected if you want to
           add a Comment to the Line Item.</para>
         </listitem>
       </varlistentry>
@@ -99,10 +100,10 @@
         <term id="Para944189">Comment Type</term>
 
         <listitem id="listitemN0x180ac00N0x18786f8">
-          <para>Specify one of the following Comment Types from the drop-down
+            <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
 
-          <para id="Para944190">Comment Types are used to categorize Comments.
+            <para id="Para944190">Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
@@ -118,7 +119,7 @@
         <term id="Para942309">CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x1878764">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +128,7 @@
         <term id="Para942310">CHANGE QTY.</term>
 
         <listitem id="listitemN0x180ac00N0x18787ac">
-          <para>Changes the Purchase Order Line Item quantity using the
+            <para>Changes the Purchase Order Line Item quantity using the
           specified quantity.</para>
         </listitem>
       </varlistentry>

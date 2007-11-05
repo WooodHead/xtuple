@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519491">
-    <title><anchor id="Anchor533219" role="Index"
-    xreflabel="work orders:scheduling by item group;item groups:work order schedule details for" />
-    <indexterm significance="normal" zone="Anchor533219">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519491">
+    <title>
+      <anchor id="Anchor533219" role="Index"
+              xreflabel="work orders:scheduling by item group;item groups:work order schedule details for"/>
+      <indexterm significance="normal">
         <primary>work orders</primary>
 
         <secondary>scheduling by item group</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor533219">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>item groups</primary>
 
         <secondary>work order schedule details for</secondary>
@@ -18,17 +20,18 @@
     the "Work Order Schedule by Item Group" option. The following screen will
     appear:</para>
 
-    <para id="Para532693"><screenshot>
+    <para id="Para532693">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/WO_Disp_schedByItemGrp.png"
-                       id="Graphic532691" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/WO_Disp_schedByItemGrp.png" id="Graphic532691"/>
+            </imageobject>
 
-          <caption id="Caption532694">Work Order Schedule by Item
+            <caption id="Caption532694">Work Order Schedule by Item
           Group</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para560500">To edit a Work Order after it has been created,
@@ -44,7 +47,7 @@
         <term id="Para545562">All Item Groups</term>
 
         <listitem>
-          <para>Select to display Work Order schedules for all Item
+            <para>Select to display Work Order schedules for all Item
           Groups.</para>
         </listitem>
       </varlistentry>
@@ -53,7 +56,7 @@
         <term id="Para533569">Selected</term>
 
         <listitem>
-          <para>Specify Item Group whose Work Order schedule you want to
+            <para>Specify Item Group whose Work Order schedule you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -62,12 +65,11 @@
         <term id="Para533571">Pattern</term>
 
         <listitem>
-          <para>Enter an Item Group pattern to select a range of Item
+            <para>Enter an Item Group pattern to select a range of Item
           Groups.</para>
 
-          <para id="Para569477">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef569476"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para569477">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef569476" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -77,7 +79,7 @@
         <term id="Para532786">All Warehouses</term>
 
         <listitem>
-          <para>Select to display the Work Order schedule by Item Group for
+            <para>Select to display the Work Order schedule by Item Group for
           all Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -86,7 +88,7 @@
         <term id="Para532708">Selected</term>
 
         <listitem>
-          <para>Specify Warehouse whose Work Order schedule by Item Group you
+            <para>Specify Warehouse whose Work Order schedule by Item Group you
           want to display.</para>
         </listitem>
       </varlistentry>
@@ -95,7 +97,7 @@
         <term id="Para532713">Start W/O Start Date</term>
 
         <listitem>
-          <para>Work Orders scheduled on and after this date will be
+            <para>Work Orders scheduled on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -104,7 +106,7 @@
         <term id="Para532718">End W/O Start Date</term>
 
         <listitem>
-          <para>Work Orders scheduled on and before this date will be
+            <para>Work Orders scheduled on and before this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -113,10 +115,10 @@
         <term id="Para532720">Only Show Released and In-Process W/O"s</term>
 
         <listitem>
-          <para>Select to display only released and in-process Work Order
+            <para>Select to display only released and in-process Work Order
           schedules.</para>
 
-          <para id="Para532721">Selecting this option means only Work Orders
+            <para id="Para532721">Selecting this option means only Work Orders
           whose Status is released ("R") or in-process ("I") will be
           displayed.</para>
         </listitem>
@@ -126,9 +128,9 @@
         <term id="Para532722">Only Show Top Level Work Orders</term>
 
         <listitem>
-          <para>Select to display only top level Work Orders.</para>
+            <para>Select to display only top level Work Orders.</para>
 
-          <para id="Para532723">Top level Work Orders are Work Orders that
+            <para id="Para532723">Top level Work Orders are Work Orders that
           have not been created to meet the component demands of a parent Work
           Order.</para>
         </listitem>
@@ -138,10 +140,10 @@
         <term id="Para532724">Work Orders</term>
 
         <listitem>
-          <para>Display lists Work Order schedules by Item Group, using the
+            <para>Display lists Work Order schedules by Item Group, using the
           specified parameters.</para>
 
-          <para id="Para569290">The start dates and end dates are color-coded
+            <para id="Para569290">The start dates and end dates are color-coded
           for ease of use. Both dates will display in red type if the Work
           Order is not yet in-process and is also past due. Once a Work
           Order's Status is changed to in-process ("I"), the start date will
@@ -153,7 +155,7 @@
         <term id="Para533391">Automatically Update</term>
 
         <listitem>
-          <para>Select to automatically update the display every five
+            <para>Select to automatically update the display every five
           minutes.</para>
         </listitem>
       </varlistentry>
@@ -167,7 +169,7 @@
         <term id="Para554528">CLOSE</term>
 
         <listitem>
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -176,7 +178,7 @@
         <term id="Para554529">QUERY</term>
 
         <listitem>
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -185,7 +187,7 @@
         <term id="Para554530">PRINT</term>
 
         <listitem>
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -201,7 +203,7 @@
         <term id="Para554533">POST PRODUCTION</term>
 
         <listitem>
-          <para>Highlight a Work Order and then select this button to post
+            <para>Highlight a Work Order and then select this button to post
           Production for the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -210,7 +212,7 @@
         <term id="Para554534">POST OPERATIONS</term>
 
         <listitem>
-          <para>Highlight a Work Order and then select this button to post
+            <para>Highlight a Work Order and then select this button to post
           Production for the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -219,7 +221,7 @@
         <term id="Para554535">PRINT TRAVELER</term>
 
         <listitem>
-          <para>Highlight a Work Order and then select this button to post
+            <para>Highlight a Work Order and then select this button to post
           Production for the Work Order.</para>
         </listitem>
       </varlistentry>
@@ -231,37 +233,29 @@
     when you right-click on the Work Order:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/6)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/17)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/17)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/7)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/7)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/5)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/5)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/15)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/15)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/16)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/16)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/1)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para554031">If the Work Order's Status is exploded "E," the
@@ -269,57 +263,44 @@
     Order:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/6)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/17)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/17)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/14)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/14)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/10)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/11)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/8)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/5)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/5)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/9)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/9)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/15)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/15)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/16)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/16)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/1)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para554046">If the Work Order's Status is released "R", the
@@ -327,49 +308,38 @@
     Order:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/6)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/17)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/17)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/13)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/13)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/10)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/4)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/11)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/3)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/3)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/2)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/9)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/9)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
     <para id="Para554059">If the Work Order's Status is in-process "I," the
@@ -377,44 +347,34 @@
     Order:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/6)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/6)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/17)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/17)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/10)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/4)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/11)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/11)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/3)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/3)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/2)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/19)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/19)"/>
 
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/4/2/18)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/4/2/18)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

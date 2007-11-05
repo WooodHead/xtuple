@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section519652" role="openmfg">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519652" role="openmfg">
     <title>Copy Bill of Operations</title>
 
     <para id="Para519653">To make a copy of a Bill of Operations, select the
     "Copy Bill of Operations" option. The following screen will appear:</para>
 
-    <para id="Para519657"><screenshot>
+    <para id="Para519657">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_BOO_copyBoo.png" id="Graphic563159" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_BOO_copyBoo.png" id="Graphic563159"/>
+            </imageobject>
 
-          <caption id="Caption519658">Copy Bill of Operations</caption>
+            <caption id="Caption519658">Copy Bill of Operations</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para519659">When copying a Bill of Operations, you are presented
     with the following options:</para>
@@ -26,7 +27,7 @@
         <term id="Para519660">Item Number (Source Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18c0b5c">
-          <para>Enter the Item Number of the manufactured Item whose Bill of
+            <para>Enter the Item Number of the manufactured Item whose Bill of
           Operations you want to copy.</para>
         </listitem>
       </varlistentry>
@@ -35,7 +36,7 @@
         <term id="Para519662">UOM (Source Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18c0ba4">
-          <para>Displays Inventory UOM automatically when Item Number is
+            <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
         </listitem>
@@ -45,7 +46,7 @@
         <term id="Para519664">Item Number (Target Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18c0bec">
-          <para>Enter the Item Number of the manufactured Item whose Bill of
+            <para>Enter the Item Number of the manufactured Item whose Bill of
           Materials you wish to create by this copy.</para>
         </listitem>
       </varlistentry>
@@ -54,7 +55,7 @@
         <term id="Para519666">UOM (Target Item)</term>
 
         <listitem id="listitemN0x180ac00N0x18c9824">
-          <para>Displays Inventory UOM automatically when Item Number is
+            <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
         </listitem>
@@ -69,7 +70,7 @@
         <term id="Para519669">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18c9890">
-          <para>Closes the screen without executing the copy command,
+            <para>Closes the screen without executing the copy command,
           returning you to the application desktop.</para>
         </listitem>
       </varlistentry>
@@ -78,7 +79,7 @@
         <term id="Para519670">COPY</term>
 
         <listitem id="listitemN0x180ac00N0x18c98d8">
-          <para>Executes the copy command.</para>
+            <para>Executes the copy command.</para>
         </listitem>
       </varlistentry>
     </variablelist>

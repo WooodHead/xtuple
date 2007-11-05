@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560608">
-  <title><anchor id="Anchor561143" role="Index"
-  xreflabel="crm:incident priorities and;incidents:priorities for" />
-  <indexterm significance="normal" zone="Anchor561248">
-      <primary>incidents</primary>
+  <title>
+      <anchor id="Anchor561143" role="Index"
+              xreflabel="crm:incident priorities and;incidents:priorities for"/>
+      <indexterm significance="normal">
+         <primary>incidents</primary>
 
-      <secondary>creating new priorities for</secondary>
-    </indexterm>Incident Priority</title>
+         <secondary>creating new priorities for</secondary>
+      </indexterm>Incident Priority</title>
 
   <para id="Para561249">To create a new Incident Priority, select the NEW
   button. The following screen will appear:</para>
 
-  <para id="Para561898"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/CRM_MI_incidPriNew.png"
-                     id="Graphic561897" />
-        </imageobject>
+  <para id="Para561898">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/CRM_MI_incidPriNew.png" id="Graphic561897"/>
+            </imageobject>
 
-        <caption id="Caption561899">Create New Incident Priority</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption561899">Create New Incident Priority</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para561900">When creating a new Incident Priority, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para561256">Incident Priority</term>
+      <varlistentry>
+         <term id="Para561256">Incident Priority</term>
 
-      <listitem id="listitemN0x180ac00N0x182b880">
-        <para>Enter a name to define the Priority (e.g., High, Medium, Low,
+         <listitem id="listitemN0x180ac00N0x182b880">
+            <para>Enter a name to define the Priority (e.g., High, Medium, Low,
         etc.).</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para561257">Order</term>
+      <varlistentry>
+         <term id="Para561257">Order</term>
 
-      <listitem id="listitemN0x180ac00N0x182b8c8">
-        <para>Specify the order in which the Priority should appear when using
+         <listitem id="listitemN0x180ac00N0x182b8c8">
+            <para>Specify the order in which the Priority should appear when using
         the drop-down list on the Incident screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para561258">Description</term>
+      <varlistentry>
+         <term id="Para561258">Description</term>
 
-      <listitem id="listitemN0x180ac00N0x182b910">
-        <para>Enter a brief description of the Incident Priority.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x182b910">
+            <para>Enter a brief description of the Incident Priority.</para>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para561259">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para561260">CANCEL</term>
+      <varlistentry>
+         <term id="Para561260">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x182b97c">
-        <para>Closes the screen without creating an Incident Priority,
+         <listitem id="listitemN0x180ac00N0x182b97c">
+            <para>Closes the screen without creating an Incident Priority,
         returning you to the previous screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para561261">SAVE</term>
+      <varlistentry>
+         <term id="Para561261">SAVE</term>
 
-      <listitem id="listitemN0x180ac00N0x182b9c4">
-        <para>Creates the Incident Priority and adds it to the master list of
+         <listitem id="listitemN0x180ac00N0x182b9c4">
+            <para>Creates the Incident Priority and adds it to the master list of
         Incident Priorities.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,143 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section529534">
-  <title><anchor id="Anchor529533" role="Index"
-  xreflabel="shipping:issuing stock to" /> <indexterm significance="normal"
-      zone="Anchor535320">
-      <primary>shipping</primary>
+  <title>
+      <anchor id="Anchor529533" role="Index" xreflabel="shipping:issuing stock to"/> 
+      <indexterm significance="normal">
+         <primary>shipping</primary>
 
-      <secondary>issue line item to</secondary>
-    </indexterm>Issue Line to Shipping</title>
+         <secondary>issue line item to</secondary>
+      </indexterm>Issue Line to Shipping</title>
 
   <para id="Para518512">To issue a Line Item to Shipping, highlight the Line
   Item, then select the ISSUE STOCK button. You may also double-click on the
   Line Item. The following screen will appear:</para>
 
-  <para id="Para518516"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/SR_Ship_issueLineToShip.png"
-                     id="Graphic519950" />
-        </imageobject>
+  <para id="Para518516">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/SR_Ship_issueLineToShip.png" id="Graphic519950"/>
+            </imageobject>
 
-        <caption id="Caption518517">Issue Line Item to Shipping</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption518517">Issue Line Item to Shipping</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para518518">When issuing a Line Item to Shipping, you are
   presented with the following options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518519">Sales Order #</term>
+      <varlistentry>
+         <term id="Para518519">Sales Order #</term>
 
-      <listitem id="listitemN0x180ac00N0x18305d4">
-        <para>Displays Sales Order Number for specified Line Item.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18305d4">
+            <para>Displays Sales Order Number for specified Line Item.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518521">Item Number</term>
+      <varlistentry>
+         <term id="Para518521">Item Number</term>
 
-      <listitem id="listitemN0x180ac00N0x183061c">
-        <para>Displays Item Number for specified Line Item.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x183061c">
+            <para>Displays Item Number for specified Line Item.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para550780">UOM</term>
+      <varlistentry>
+         <term id="Para550780">UOM</term>
 
-      <listitem id="listitemN0x180ac00N0x1830664">
-        <para>Inventory Unit of Measure.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x1830664">
+            <para>Inventory Unit of Measure.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518525">Warehouse</term>
+      <varlistentry>
+         <term id="Para518525">Warehouse</term>
 
-      <listitem id="listitemN0x180ac00N0x18306ac">
-        <para>Displays Warehouse identified on Sales Order Line Item.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18306ac">
+            <para>Displays Warehouse identified on Sales Order Line Item.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518526">Qty. Ordered</term>
+      <varlistentry>
+         <term id="Para518526">Qty. Ordered</term>
 
-      <listitem id="listitemN0x180ac00N0x18306f4">
-        <para>Displays quantity of Item ordered.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x18306f4">
+            <para>Displays quantity of Item ordered.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518527">Qty. Shipped</term>
+      <varlistentry>
+         <term id="Para518527">Qty. Shipped</term>
 
-      <listitem id="listitemN0x180ac00N0x183073c">
-        <para>Displays quantity of Item already shipped for specified
+         <listitem id="listitemN0x180ac00N0x183073c">
+            <para>Displays quantity of Item already shipped for specified
         Order.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518528">Qty. Returned</term>
+      <varlistentry>
+         <term id="Para518528">Qty. Returned</term>
 
-      <listitem id="listitemN0x180ac00N0x1830784">
-        <para>Displays quantity of Item returned for specified Order.</para>
-      </listitem>
-    </varlistentry>
+         <listitem id="listitemN0x180ac00N0x1830784">
+            <para>Displays quantity of Item returned for specified Order.</para>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518529">Balance Due</term>
+      <varlistentry>
+         <term id="Para518529">Balance Due</term>
 
-      <listitem id="listitemN0x180ac00N0x18307cc">
-        <para>Displays balance of Line Item remaining to be shipped for
+         <listitem id="listitemN0x180ac00N0x18307cc">
+            <para>Displays balance of Line Item remaining to be shipped for
         specified Order.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518530">Qty. at Shipping</term>
+      <varlistentry>
+         <term id="Para518530">Qty. at Shipping</term>
 
-      <listitem id="listitemN0x180ac00N0x1830814">
-        <para>Displays quantity of Item at Shipping for specified
+         <listitem id="listitemN0x180ac00N0x1830814">
+            <para>Displays quantity of Item at Shipping for specified
         Order.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term>Qty. to Issue</term>
+      <varlistentry>
+         <term>Qty. to Issue</term>
 
-      <listitem>
-        <para>Enter the quantity of Items you want to issue to Shipping for
+         <listitem>
+            <para>Enter the quantity of Items you want to issue to Shipping for
         specified Order.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para518536">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para518537">CANCEL</term>
+      <varlistentry>
+         <term id="Para518537">CANCEL</term>
 
-      <listitem id="listitemN0x180ac00N0x18308a4">
-        <para>Closes the screen without issuing Stock to Shipping, returning
+         <listitem id="listitemN0x180ac00N0x18308a4">
+            <para>Closes the screen without issuing Stock to Shipping, returning
         you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para518538">ISSUE</term>
+      <varlistentry>
+         <term id="Para518538">ISSUE</term>
 
-      <listitem id="listitemN0x180ac00N0x18308ec">
-        <para>Select to issue the specified Line Item quantity to
+         <listitem id="listitemN0x180ac00N0x18308ec">
+            <para>Select to issue the specified Line Item quantity to
         Shipping.</para>
 
-        <para id="Para518539">If the specified Item is a Multiple Location
+            <para id="Para518539">If the specified Item is a Multiple Location
         Control Item, you will be brought to the "Distribute Stock To/From
         Warehouse Locations" screen.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section519415">
-    <title><anchor id="Anchor595444" role="Index"
-    xreflabel="bills of materials:master list of" /> <indexterm
-        significance="normal" zone="Anchor595444">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section519415">
+    <title>
+      <anchor id="Anchor595444" role="Index" xreflabel="bills of materials:master list of"/> 
+      <indexterm significance="normal">
         <primary>bills of materials</primary>
 
         <secondary>master list of</secondary>
@@ -14,15 +14,17 @@
     select the "List Bills of Materials" option. The following screen will
     appear:</para>
 
-    <para id="Para519420"><screenshot>
+    <para id="Para519420">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_BOM_BOMList.png" id="Graphic563031" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_BOM_BOMList.png" id="Graphic563031"/>
+            </imageobject>
 
-          <caption id="Caption519421">Bills of Materials Master List</caption>
+            <caption id="Caption519421">Bills of Materials Master List</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para598118">At the top of the screen is a "Search For" field. To
     search for an Item, begin typing in the search field. As you type, the
@@ -39,7 +41,7 @@
         <term id="Para519424">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18a90d8">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -48,9 +50,8 @@
         <term id="Para519425">NEW</term>
 
         <listitem id="listitemN0x180ac00N0x18a9120">
-          <para>Brings up the new Bill of Materials screen, described earlier
-          in this chapter. For details, see the <link endterm="Anchor37267"
-          id="XRef576328" linkend="Anchor37267"> Enter New Bill of
+            <para>Brings up the new Bill of Materials screen, described earlier
+          in this chapter. For details, see the <link endterm="Anchor37267" id="XRef576328" linkend="Anchor37267"> Enter New Bill of
           Materials</link>"Enter New Bill of Materials" section. Once a new
           Bill of Materials is created it appears on the master Bills of
           Materials list.</para>
@@ -61,7 +62,7 @@
         <term id="Para519426">EDIT</term>
 
         <listitem id="listitemN0x180ac00N0x18a9168">
-          <para>Enables you to edit a Bill of Materials. Highlight the Item
+            <para>Enables you to edit a Bill of Materials. Highlight the Item
           whose Bill of Materials you want to edit and then hit the EDIT
           button--or double-click on the Item to enter the edit mode. The edit
           screen is the same as that for creating a new Bill of
@@ -74,7 +75,7 @@
         <term id="Para519427">VIEW</term>
 
         <listitem id="listitemN0x180ac00N0x18a91b0">
-          <para>Highlight an Item and then select this button to reach a
+            <para>Highlight an Item and then select this button to reach a
           read-only view of the "Edit" screen.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +84,7 @@
         <term id="Para663916">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18a91f8">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
 
@@ -91,7 +92,7 @@
         <term id="Para519429">COPY</term>
 
         <listitem id="listitemN0x180ac00N0x18a9240">
-          <para>Highlight an Item and then select this button to reach the
+            <para>Highlight an Item and then select this button to reach the
           "Copy" screen.</para>
         </listitem>
       </varlistentry>
@@ -100,7 +101,7 @@
         <term id="Para519430">DELETE</term>
 
         <listitem id="listitemN0x180ac00N0x18a9288">
-          <para>Highlight an Item and then select this button to remove the
+            <para>Highlight an Item and then select this button to remove the
           Item from the list.</para>
         </listitem>
       </varlistentry>

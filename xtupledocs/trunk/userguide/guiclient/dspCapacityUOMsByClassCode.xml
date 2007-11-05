@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
-
-  <section id="Section520511">
-    <title><anchor id="Anchor595526" role="Index"
-    xreflabel="units of measure:capacity by class code;class codes:capacity uom details for" />
-    <indexterm significance="normal" zone="Anchor595526">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section520511">
+    <title>
+      <anchor id="Anchor595526" role="Index"
+              xreflabel="units of measure:capacity by class code;class codes:capacity uom details for"/>
+      <indexterm significance="normal">
         <primary>units of measure</primary>
 
         <secondary>capacity by class code</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor595526">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>class codes</primary>
 
         <secondary>capacity uom details for</secondary>
@@ -19,16 +20,17 @@
     Code, select the "Capacity UOMs by Class Code" option. The following
     screen will appear:</para>
 
-    <para id="Para520516"><screenshot>
+    <para id="Para520516">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PD_Disp_capUOMClass.png"
-                       id="Graphic563757" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PD_Disp_capUOMClass.png" id="Graphic563757"/>
+            </imageobject>
 
-          <caption id="Caption520517">Capacity UOMs by Class Code</caption>
+            <caption id="Caption520517">Capacity UOMs by Class Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para520518">When displaying Capacity UOMs by Class Code, you are
     presented with the following options:</para>
@@ -38,7 +40,7 @@
         <term id="Para617093">All Class Codes</term>
 
         <listitem id="listitemN0x180ac00N0x193f9a8">
-          <para>Select to display Capacity UOMs for all Class Codes.</para>
+            <para>Select to display Capacity UOMs for all Class Codes.</para>
         </listitem>
       </varlistentry>
 
@@ -46,7 +48,7 @@
         <term id="Para520519">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x193f9f0">
-          <para>Specify Class Code whose Capacity UOMs you want to
+            <para>Specify Class Code whose Capacity UOMs you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -55,12 +57,11 @@
         <term id="Para593278">Pattern</term>
 
         <listitem id="listitemN0x180ac00N0x193fa38">
-          <para>Enter a Class Code pattern to select a range of Class
+            <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
 
-          <para id="Para664844">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef664843"
-          linkend="Anchor77806"> Pattern Matching with Regular
+            <para id="Para664844">Refine your search using Regular Expressions,
+          as described in <link endterm="Anchor77806" id="XRef664843" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
         </listitem>
@@ -70,7 +71,7 @@
         <term id="Para520523">Capacity UOMs</term>
 
         <listitem id="listitemN0x180ac00N0x193fa80">
-          <para>Display lists Capacity UOMs by Class Code, using the specified
+            <para>Display lists Capacity UOMs by Class Code, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +85,7 @@
         <term id="Para520526">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x193faec">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +94,7 @@
         <term id="Para618304">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x193fb34">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -102,7 +103,7 @@
         <term id="Para664058">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x193fb7c">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -115,12 +116,11 @@
         <term id="Para520529">Edit Item</term>
 
         <listitem id="listitemN0x180ac00N0x193fbe8">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

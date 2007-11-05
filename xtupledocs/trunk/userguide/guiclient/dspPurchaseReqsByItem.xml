@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section521857">
-    <title><anchor id="Anchor919407" role="Index"
-    xreflabel="purchase requests:by item;items:purchase requests for" />
-    <indexterm significance="normal" zone="Anchor919407">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section521857">
+    <title>
+      <anchor id="Anchor919407" role="Index"
+              xreflabel="purchase requests:by item;items:purchase requests for"/>
+      <indexterm significance="normal">
         <primary>purchase requests</primary>
 
         <secondary>by item</secondary>
-      </indexterm> <indexterm significance="normal" zone="Anchor919407">
+      </indexterm> 
+      <indexterm significance="normal">
         <primary>items</primary>
 
         <secondary>purchase requests for</secondary>
@@ -23,16 +25,17 @@
       source of supply by the planning systems.</para>
     </note>
 
-    <para id="Para521796"><screenshot>
+    <para id="Para521796">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/PO_Disp_purchReqsByItem.png"
-                       id="Graphic521804" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/PO_Disp_purchReqsByItem.png" id="Graphic521804"/>
+            </imageobject>
 
-          <caption id="Caption521811">Purchase Requests by Item</caption>
+            <caption id="Caption521811">Purchase Requests by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <tip>
       <para id="Para925417">Purchase Requests may be created using the
@@ -49,7 +52,7 @@
         <term id="Para521842">Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18a28c8">
-          <para>Enter the Item Number of the Item whose Purchase Requests you
+            <para>Enter the Item Number of the Item whose Purchase Requests you
           want to view.</para>
         </listitem>
       </varlistentry>
@@ -58,7 +61,7 @@
         <term id="Para968936">UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18a2910">
-          <para>Inventory Unit of Measure.</para>
+            <para>Inventory Unit of Measure.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -76,7 +79,7 @@
         <term id="Para521815">All Warehouses</term>
 
         <listitem id="listitemN0x180ac00N0x18a297c">
-          <para>Select to display Purchase Requests by Item for all
+            <para>Select to display Purchase Requests by Item for all
           Warehouses.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +88,7 @@
         <term id="Para521817">Selected</term>
 
         <listitem id="listitemN0x180ac00N0x18a29a0">
-          <para>Specify Warehouse whose Purchase Requests by Item you want to
+            <para>Specify Warehouse whose Purchase Requests by Item you want to
           display.</para>
         </listitem>
       </varlistentry>
@@ -94,7 +97,7 @@
         <term id="Para521822">Purchase Requests</term>
 
         <listitem id="listitemN0x180ac00N0x18a29e8">
-          <para>Display lists Purchase Requests for the specified Item, using
+            <para>Display lists Purchase Requests for the specified Item, using
           the specified parameters.</para>
         </listitem>
       </varlistentry>
@@ -118,7 +121,7 @@
         <term id="Para521823">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18a2a78">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +130,7 @@
         <term id="Para969958">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18a2ac0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -137,12 +140,10 @@
     options:</para>
 
     <variablelist>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/7/2/5)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
+                  xpointer="element(/1/7/2/5)"/>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section556338">
-    <title><anchor id="Anchor556337" role="Index"
-    xreflabel="open items:complete range of" /> <indexterm
-        significance="normal" zone="Anchor556337">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section556338">
+    <title>
+      <anchor id="Anchor556337" role="Index" xreflabel="open items:complete range of"/> 
+      <indexterm significance="normal">
         <primary>open items</primary>
 
         <secondary>complete range of</secondary>
@@ -13,16 +13,17 @@
     <para id="Para557276">To view A/R open items, select the "Open Items"
     option. The following screen will appear:</para>
 
-    <para id="Para557280"><screenshot>
+    <para id="Para557280">
+      <screenshot>
         <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/AR_Disp_openItems.png"
-                       id="Graphic557278" />
-          </imageobject>
+            <imageobject>
+               <imagedata fileref="images/AR_Disp_openItems.png" id="Graphic557278"/>
+            </imageobject>
 
-          <caption id="Caption557281">A/R Open Items</caption>
+            <caption id="Caption557281">A/R Open Items</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+   </para>
 
     <para id="Para557284">When displaying A/R open items, you are presented
     with the following options:</para>
@@ -32,7 +33,7 @@
         <term id="Para557355">Start Date</term>
 
         <listitem id="listitemN0x180ac00N0x18bde54">
-          <para>A/R open items having due dates on and after this date will be
+            <para>A/R open items having due dates on and after this date will be
           displayed.</para>
         </listitem>
       </varlistentry>
@@ -41,7 +42,7 @@
         <term id="Para557360">End Date</term>
 
         <listitem id="listitemN0x180ac00N0x18bde9c">
-          <para>A/R open items having due dates on and before this date will
+            <para>A/R open items having due dates on and before this date will
           be displayed.</para>
         </listitem>
       </varlistentry>
@@ -50,7 +51,7 @@
         <term id="Para557362">A/R Open Items</term>
 
         <listitem id="listitemN0x180ac00N0x18bdee4">
-          <para>Display lists A/R open items, using the specified
+            <para>Display lists A/R open items, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -64,7 +65,7 @@
         <term id="Para557365">CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18bdf50">
-          <para>Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
@@ -73,7 +74,7 @@
         <term id="Para557366">QUERY</term>
 
         <listitem id="listitemN0x180ac00N0x18bdf98">
-          <para>Select to generate the display, using the specified
+            <para>Select to generate the display, using the specified
           parameters.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +83,7 @@
         <term id="Para572330">PRINT</term>
 
         <listitem id="listitemN0x180ac00N0x18bdfe0">
-          <para>Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -95,7 +96,7 @@
         <term id="Para557370">Edit</term>
 
         <listitem id="listitemN0x180ac00N0x18be04c">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
@@ -103,12 +104,11 @@
         <term id="Para557371">View</term>
 
         <listitem id="listitemN0x180ac00N0x18be094">
-          <para></para>
+            <para/>
         </listitem>
       </varlistentry>
 
-      <xi:include href="../widgets/xtreewidget.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(xtreewidget.menu.exportcontents)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
+                  xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
   </section>

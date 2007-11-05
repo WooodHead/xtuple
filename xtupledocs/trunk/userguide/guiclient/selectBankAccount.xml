@@ -1,69 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524360">
-  <title><anchor id="Anchor532570" role="Index"
-  xreflabel="payments:selection of" /> <indexterm significance="normal"
-      zone="Anchor534062">
-      <primary>payments</primary>
+  <title>
+      <anchor id="Anchor532570" role="Index" xreflabel="payments:selection of"/> 
+      <indexterm significance="normal">
+         <primary>payments</primary>
 
-      <secondary>specifying bank account for</secondary>
-    </indexterm><indexterm significance="normal" zone="Anchor534062">
-      <primary>bank accounts</primary>
+         <secondary>specifying bank account for</secondary>
+      </indexterm>
+      <indexterm significance="normal">
+         <primary>bank accounts</primary>
 
-      <secondary>specifying for payments</secondary>
-    </indexterm> Select Bank Account</title>
+         <secondary>specifying for payments</secondary>
+      </indexterm> Select Bank Account</title>
 
   <para id="Para528815">To select for payment all A/P open items whose payment
   date is due or past due, choose the SELECT ALL DUE button. The following
   screen will appear:</para>
 
-  <para id="Para528421"><screenshot>
-      <mediaobject>
-        <imageobject>
-          <imagedata fileref="images/AP_Pay_selectPayAllDue.png"
-                     id="Graphic528419" />
-        </imageobject>
+  <para id="Para528421">
+      <screenshot>
+         <mediaobject>
+            <imageobject>
+               <imagedata fileref="images/AP_Pay_selectPayAllDue.png" id="Graphic528419"/>
+            </imageobject>
 
-        <caption id="Caption528422">Select All Payments Due</caption>
-      </mediaobject>
-    </screenshot></para>
+            <caption id="Caption528422">Select All Payments Due</caption>
+         </mediaobject>
+      </screenshot>
+   </para>
 
   <para id="Para528416">When selecting for payment all A/P open items whose
   payment date is due or past due, you are presented with the following
   options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para528452">Bank Account</term>
+      <varlistentry>
+         <term id="Para528452">Bank Account</term>
 
-      <listitem>
-        <para>Specify the Bank Account to be used for paying all selected
+         <listitem>
+            <para>Specify the Bank Account to be used for paying all selected
         payments due.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 
   <para id="Para528462">To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
-    <varlistentry>
-      <term id="Para528463">CANCEL</term>
+      <varlistentry>
+         <term id="Para528463">CANCEL</term>
 
-      <listitem>
-        <para>Closes the screen without specifying a Bank Account, returning
+         <listitem>
+            <para>Closes the screen without specifying a Bank Account, returning
         you to the application desktop.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
 
-    <varlistentry>
-      <term id="Para528464">SELECT</term>
+      <varlistentry>
+         <term id="Para528464">SELECT</term>
 
-      <listitem>
-        <para>Select this button to use the specified Bank Account for paying
+         <listitem>
+            <para>Select this button to use the specified Bank Account for paying
         payments due.</para>
-      </listitem>
-    </varlistentry>
+         </listitem>
+      </varlistentry>
   </variablelist>
 </section>
