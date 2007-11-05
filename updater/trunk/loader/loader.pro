@@ -71,14 +71,12 @@ macx: LIBS += -lz
 
 DESTDIR = ../bin
 
-#The following line was changed from FORMS to FORMS3 by qt3to4
-FORMS3  += loaderwindow.ui
+FORMS   += loaderwindow.ui
 HEADERS += data.h \
-           loaderwindow.ui.h
+           loaderwindow.h
 SOURCES += data.cpp \
+           loaderwindow.cpp \
            main.cpp
-#The following line was inserted by qt3to4
-QT += xml  sql qt3support 
-#The following line was inserted by qt3to4
-CONFIG += uic3
+
+QT += xml sql
 

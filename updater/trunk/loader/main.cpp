@@ -55,12 +55,12 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-#include <qapplication.h>
-#include <q3mainwindow.h>
-#include <qwindowsstyle.h>
-#include <qsqldatabase.h>
-#include <qstylefactory.h>
-#include <qmessagebox.h>
+#include <QApplication>
+#include <QMainWindow>
+#include <QWindowsStyle>
+#include <QSqlDatabase>
+#include <QStyleFactory>
+#include <QMessageBox>
 
 #ifdef Q_WS_MACX
 #include <qmacstyle_mac.h>
@@ -198,7 +198,6 @@ int main(int argc, char* argv[])
   LoaderWindow * mainwin = new LoaderWindow();
   mainwin->show();
 
-  app.setMainWidget(mainwin);
   return app.exec();
 }
 

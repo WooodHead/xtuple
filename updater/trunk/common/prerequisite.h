@@ -58,9 +58,9 @@
 #ifndef __PREREQUISITE_H__
 #define __PREREQUISITE_H__
 
-#include <qstring.h>
-#include <q3valuelist.h>
-#include <qstringlist.h>
+#include <QString>
+#include <QList>
+#include <QStringList>
 
 class QDomDocument;
 class QDomElement;
@@ -131,7 +131,7 @@ class Prerequisite
 
     QString _query;
     
-    Q3ValueList<PrerequisiteProvider> _providers;
+    QList<PrerequisiteProvider> _providers;
 };
 
 #endif

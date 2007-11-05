@@ -108,7 +108,7 @@ TarFile::TarFile(const QByteArray & bytes)
   while(!fin.atEnd())
   {
     tarHeaderBlock head;
-    fin.readBlock((char*)&head, sizeof(head));
+    fin.read((char*)&head, sizeof(head));
 
     if(head.name[0] == '\0' && head.size[0] == '\0' && head.typeflag == '\0')
       continue;
@@ -133,8 +133,8 @@ TarFile::TarFile(const QByteArray & bytes)
       fout.open(QIODevice::WriteOnly);
       for(int i = 0; i < blocks; i++)
       {
-        fin.readBlock(&block[0], 512);
-        fout.writeBlock(&block[0], qMin(size,512L));
+        fin.read(&block[0], 512);
+        fout.write(&block[0], qMin(size,512L));
         size -= 512;
       }
       fout.close();
@@ -143,7 +143,7 @@ TarFile::TarFile(const QByteArray & bytes)
     else
     {
       for(int i = 0; i < blocks; i++)
-        fin.readBlock(&block[0], 512);
+        fin.read(&block[0], 512);
     }
   }
   _valid = true;

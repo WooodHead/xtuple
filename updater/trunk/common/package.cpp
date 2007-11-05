@@ -57,9 +57,8 @@
 
 #include "package.h"
 
-#include <qdom.h>
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <QDomDocument>
+#include <QList>
 
 Package::Package(const QString & id)
   : _id(id), _majVersion(-1), _minVersion(-1)
@@ -73,7 +72,7 @@ Package::Package(const QDomElement & elem)
   QString version = elem.attribute("version");
   if(!version.isEmpty())
   {
-    int idx = version.find('.');
+    int idx = version.indexOf('.');
     if(idx != -1)
     {
       bool ok = FALSE;
@@ -88,7 +87,7 @@ Package::Package(const QDomElement & elem)
   }
 
   QDomNodeList nList = elem.childNodes();
-  for(unsigned int n = 0; n < nList.count(); ++n)
+  for(int n = 0; n < nList.count(); ++n)
   {
     QDomElement elemThis = nList.item(n).toElement();
     if(elemThis.tagName() == "prerequisite")
@@ -123,16 +122,16 @@ QDomElement Package::createElement(QDomDocument & doc)
   elem.setAttribute("id", _id);
   elem.setAttribute("version", "1.0");
 
-  Q3ValueList<Prerequisite>::iterator pit;
-  for(pit = _prerequisites.begin(); pit != _prerequisites.end(); ++pit)
+  QList<Prerequisite>::iterator pit = _prerequisites.begin();
+  for(; pit != _prerequisites.end(); ++pit)
     elem.appendChild((*pit).createElement(doc));
 
-  Q3ValueList<Script>::iterator sit;
-  for(sit = _scripts.begin(); sit != _scripts.end(); ++sit)
+  QList<Script>::iterator sit = _scripts.begin();
+  for(; sit != _scripts.end(); ++sit)
     elem.appendChild((*sit).createElement(doc));
 
-  Q3ValueList<LoadReport>::iterator rit;
-  for(rit = _reports.begin(); rit != _reports.end(); ++rit)
+  QList<LoadReport>::iterator rit = _reports.begin();
+  for(; rit != _reports.end(); ++rit)
     elem.appendChild((*rit).createElement(doc));
 
   return elem;
@@ -140,8 +139,8 @@ QDomElement Package::createElement(QDomDocument & doc)
 
 bool Package::containsReport(const QString & reportname) const
 {
-  Q3ValueList<LoadReport>::const_iterator it;
-  for(it = _reports.begin(); it != _reports.end(); ++it)
+  QList<LoadReport>::const_iterator it = _reports.begin();
+  for(; it != _reports.end(); ++it)
   {
     if((*it).name() == reportname)
       return true;
@@ -151,8 +150,8 @@ bool Package::containsReport(const QString & reportname) const
 
 bool Package::containsScript(const QString & scriptname) const
 {
-  Q3ValueList<Script>::const_iterator it;
-  for(it = _scripts.begin(); it != _scripts.end(); ++it)
+  QList<Script>::const_iterator it = _scripts.begin();
+  for(; it != _scripts.end(); ++it)
   {
     if((*it).name() == scriptname)
       return true;
@@ -162,8 +161,8 @@ bool Package::containsScript(const QString & scriptname) const
 
 bool Package::containsPrerequisite(const QString & prereqname) const
 {
-  Q3ValueList<Prerequisite>::const_iterator it;
-  for(it = _prerequisites.begin(); it != _prerequisites.end(); ++it)
+  QList<Prerequisite>::const_iterator it = _prerequisites.begin();
+  for(; it != _prerequisites.end(); ++it)
   {
     if((*it).name() == prereqname)
       return true;

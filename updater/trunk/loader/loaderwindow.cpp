@@ -55,20 +55,59 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-//Added by qt3to4:
+#include "loaderwindow.h"
+
+#include <QVariant>
+#include <QApplication>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QSqlDatabase>
+#include <QDomDocument>
+#include <QRegExp>
 #include <QTimerEvent>
-#include <Q3ValueList>
+#include <QList>
 #include <QSqlQuery>
 #include <QSqlError>
-/****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
-**
-** If you wish to add, delete or rename functions or slots use
-** Qt Designer which will update this file, preserving your code. Create an
-** init() function in place of a constructor, and a destroy() function in
-** place of a destructor.
-*****************************************************************************/
+#include <xsqlquery.h>
+#include <tarfile.h>
+#include <gunzip.h>
+#include <package.h>
 
+/*
+ *  Constructs a LoaderWindow as a child of 'parent', with the
+ *  name 'name' and widget flags set to 'f'.
+ *
+ */
+LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
+    : QMainWindow(parent, fl)
+{
+  setupUi(this);
+  setObjectName(name);
+
+  (void)statusBar();
+
+  _package = 0;
+  _files = 0;
+  _dbTimerId = startTimer(60000);
+  fileNew();
+}
+
+/*
+ *  Destroys the object and frees any allocated resources
+ */
+LoaderWindow::~LoaderWindow()
+{
+  // no need to delete child widgets, Qt does it all for us
+}
+
+/*
+ *  Sets the strings of the subwidgets using the current
+ *  language.
+ */
+void LoaderWindow::languageChange()
+{
+  retranslateUi(this);
+}
 
 void LoaderWindow::fileNew()
 {
@@ -92,7 +131,7 @@ void LoaderWindow::fileNew()
   _status->clear();
   _status->setEnabled(false);
 
-  _progress->setProgress(0);
+  _progress->setValue(0);
   _progress->setEnabled(false);
 
   _text->clear();
@@ -106,7 +145,7 @@ void LoaderWindow::fileOpen()
 {
   fileNew();
 
-  QString filename = Q3FileDialog::getOpenFileName(QString::null, QString::null, this);
+  QString filename = QFileDialog::getOpenFileName(this);
   if(filename.isEmpty())
     return;
 
@@ -168,8 +207,8 @@ void LoaderWindow::fileOpen()
   _package = new Package(doc.documentElement());
   _name->setText(tr("Package %1 (%2)").arg(_package->id()).arg(filename));
 
-  _progress->setProgress(0);
-  _progress->setTotalSteps(_files->_list.count() - 1);
+  _progress->setValue(0);
+  _progress->setMaximum(_files->_list.count() - 1);
   _progress->setEnabled(true);
 
   _text->clear();
@@ -180,12 +219,12 @@ void LoaderWindow::fileOpen()
   _text->setText("<p><b>Prerequisites</b>:</p>");
   bool allOk = true;
   // check prereqs
-  Q3ValueList<Prerequisite>::iterator it;
+  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
   QString str;
   QStringList strlist;
   QStringList::Iterator slit;
   QSqlQuery qry;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  for(; it != _package->_prerequisites.end(); ++it)
   {
     Prerequisite p = *it;
     bool passed = false;
@@ -268,15 +307,6 @@ void LoaderWindow::helpAbout()
 }
 
 
-void LoaderWindow::init()
-{
-  _package = 0;
-  _files = 0;
-  _dbTimerId = startTimer(60000);
-  fileNew();
-}
-
-
 void LoaderWindow::timerEvent( QTimerEvent * e )
 {
   if(e->timerId() == _dbTimerId)
@@ -300,9 +330,9 @@ void LoaderWindow::sStart()
   // update scripts here
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
   _text->setText(tr("<p>Applying database change files...</p>"));
-  Q3ValueList<Script>::iterator sit;
+  QList<Script>::iterator sit = _package->_scripts.begin();
   Script script;
-  for(sit = _package->_scripts.begin(); sit != _package->_scripts.end(); ++sit)
+  for(; sit != _package->_scripts.end(); ++sit)
   {
     script = *sit;
 
@@ -366,15 +396,15 @@ void LoaderWindow::sStart()
       }
     }
     qry.exec("commit;");
-    _progress->setProgress(_progress->progress() + 1);
+    _progress->setValue(_progress->value() + 1);
   }
 
   // load reports here
   _status->setText(tr("<p><b>Updating Report Definitions</b></p>"));
   _text->append(tr("<p>Loading new report definitions...</p>"));
-  Q3ValueList<LoadReport>::iterator rit;
+  QList<LoadReport>::iterator rit = _package->_reports.begin();
   LoadReport report;
-  for(rit = _package->_reports.begin(); rit != _package->_reports.end(); ++rit)
+  for(; rit != _package->_reports.end(); ++rit)
   {
     report = *rit;
     QByteArray reportData = _files->_list[prefix + report.name()];
@@ -473,13 +503,12 @@ void LoaderWindow::sStart()
     else
       _text->append(tr("<font color=red>Error parsing file %1: %2 on line %3 column %4</font>")
                     .arg(report.name()).arg(errMsg).arg(errLine).arg(errCol));
-    _progress->setProgress(_progress->progress() + 1);
+    _progress->setValue(_progress->value() + 1);
   }
   _text->append(tr("<p>Completed importing new report definitions.</p>"));
 
-  _progress->setProgress(_progress->progress() + 1);
+  _progress->setValue(_progress->value() + 1);
 
   _text->append(tr("<p>The Update is now complete!</p>"));
 }
-
 

@@ -57,9 +57,8 @@
 
 #include "prerequisite.h"
 
-#include <qdom.h>
-//Added by qt3to4:
-#include <Q3ValueList>
+#include <QDomDocument>
+#include <QList>
 
 PrerequisiteProvider::PrerequisiteProvider(const QString & package, const QString & info)
   : _package(package), _info(info)
@@ -98,7 +97,7 @@ Prerequisite::Prerequisite(const QDomElement & elem)
   _type = nameToType(elem.attribute("type"));
 
   QDomNodeList nList = elem.childNodes();
-  for(unsigned int n = 0; n < nList.count(); ++n)
+  for(int n = 0; n < nList.count(); ++n)
   {
     QDomElement elemThis = nList.item(n).toElement();
     if(elemThis.tagName() == "query")
@@ -144,8 +143,8 @@ QDomElement Prerequisite::createElement(QDomDocument & doc)
     elem.appendChild(elemThis);
   }
 
-  Q3ValueList<PrerequisiteProvider>::iterator it;
-  for(it = _providers.begin(); it != _providers.end(); ++it)
+  QList<PrerequisiteProvider>::iterator it = _providers.begin();
+  for(; it != _providers.end(); ++it)
   {
     if((*it).isValid())
       elem.appendChild((*it).createElement(doc));
@@ -156,7 +155,7 @@ QDomElement Prerequisite::createElement(QDomDocument & doc)
 
 void Prerequisite::setProvider(const PrerequisiteProvider & p)
 {
-  for(unsigned int i = 0; i < _providers.count(); ++i)
+  for(int i = 0; i < _providers.count(); ++i)
   {
     if(_providers[i].package() == p.package())
     {
@@ -169,12 +168,12 @@ void Prerequisite::setProvider(const PrerequisiteProvider & p)
 
 bool Prerequisite::removeProvider(const QString & package)
 {
-  Q3ValueList<PrerequisiteProvider>::iterator it;
-  for(it = _providers.begin(); it != _providers.end(); ++it)
+  QList<PrerequisiteProvider>::iterator it = _providers.begin();
+  for(; it != _providers.end(); ++it)
   {
     if((*it).package() == package)
     {
-      it = _providers.remove(it);
+      it = _providers.erase(it);
       return TRUE;
     }
   }
@@ -183,8 +182,8 @@ bool Prerequisite::removeProvider(const QString & package)
 
 PrerequisiteProvider Prerequisite::provider(const QString & package) const
 {
-  Q3ValueList<PrerequisiteProvider>::const_iterator it;
-  for(it = _providers.begin(); it != _providers.end(); ++it)
+  QList<PrerequisiteProvider>::const_iterator it = _providers.begin();
+  for(; it != _providers.end(); ++it)
   {
     if((*it).package() == package)
       return *it;
@@ -195,8 +194,8 @@ PrerequisiteProvider Prerequisite::provider(const QString & package) const
 QStringList Prerequisite::providerList() const
 {
   QStringList list;
-  Q3ValueList<PrerequisiteProvider>::const_iterator it;
-  for(it = _providers.begin(); it != _providers.end(); ++it)
+  QList<PrerequisiteProvider>::const_iterator it = _providers.begin();
+  for(; it != _providers.end(); ++it)
     list.append((*it).package());
   return list;
 }

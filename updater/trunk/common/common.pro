@@ -80,5 +80,5 @@ SOURCES = package.cpp \
           prerequisite.cpp \
           tarfile.cpp \
           gunzip.cpp
-#The following line was inserted by qt3to4
-QT += xml  qt3support 
+
+QT += xml

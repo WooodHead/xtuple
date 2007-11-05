@@ -55,18 +55,55 @@
  * portions thereof with code not governed by the terms of the CPAL.
  */
 
-//Added by qt3to4:
-#include <Q3ValueList>
-#include <QTextStream>
-/****************************************************************************
-** ui.h extension file, included from the uic-generated form implementation.
-**
-** If you wish to add, delete or rename functions or slots use
-** Qt Designer which will update this file, preserving your code. Create an
-** init() function in place of a constructor, and a destroy() function in
-** place of a destructor.
-*****************************************************************************/
+#include "packagewindow.h"
 
+#include <QList>
+#include <QTextStream>
+#include <QFileDialog>
+
+#include <qvariant.h>
+#include <qmessagebox.h>
+#include <q3filedialog.h>
+#include <qlineedit.h>
+#include <qapplication.h>
+#include <qdom.h>
+#include "texteditdialog.h"
+#include "newprereqdialog.h"
+#include "providerdialog.h"
+#include "queryeditor.h"
+
+/*
+ *  Constructs a PackageWindow as a child of 'parent', with the
+ *  name 'name' and widget flags set to 'f'.
+ *
+ */
+PackageWindow::PackageWindow(QWidget* parent, const char* name, Qt::WindowFlags fl)
+    : Q3MainWindow(parent, name, fl)
+{
+  setupUi(this);
+
+  (void)statusBar();
+
+  _onError->insertStringList(Script::onErrorList());
+  fileNew();
+}
+
+/*
+ *  Destroys the object and frees any allocated resources
+ */
+PackageWindow::~PackageWindow()
+{
+  // no need to delete child widgets, Qt does it all for us
+}
+
+/*
+ *  Sets the strings of the subwidgets using the current
+ *  language.
+ */
+void PackageWindow::languageChange()
+{
+  retranslateUi(this);
+}
 
 void PackageWindow::fileNew()
 {
@@ -89,14 +126,10 @@ void PackageWindow::fileNew()
   sReportSelectionChanged();
 }
 
-
 void PackageWindow::fileOpen()
 {
-  QString filename = Q3FileDialog::getOpenFileName(_filename,
-                                                  tr("XML (*.xml)"),
-                                                  this,
-                                                  "open file dialog",
-                                                  "Choose a file to open");
+  QString filename = QFileDialog::getOpenFileName(this, "Choose a file to open",
+                                                  _filename, tr("XML (*.xml)"));
   if(filename.isEmpty())
     return;
 
@@ -125,23 +158,22 @@ void PackageWindow::fileOpen()
     _reports->clear();
     sReportSelectionChanged();
 
-    Q3ValueList<Prerequisite>::iterator pit;
-    for(pit = _package->_prerequisites.begin(); pit != _package->_prerequisites.end(); ++pit)
+    QList<Prerequisite>::iterator pit = _package->_prerequisites.begin();
+    for(; pit != _package->_prerequisites.end(); ++pit)
       _prereqs->insertItem((*pit).name());
 
-    Q3ValueList<Script>::iterator sit;
-    for(sit = _package->_scripts.begin(); sit != _package->_scripts.end(); ++sit)
+    QList<Script>::iterator sit = _package->_scripts.begin();
+    for(; sit != _package->_scripts.end(); ++sit)
       _scripts->insertItem((*sit).name());
 
-    Q3ValueList<LoadReport>::iterator rit;
-    for(rit = _package->_reports.begin(); rit != _package->_reports.end(); ++rit)
+    QList<LoadReport>::iterator rit = _package->_reports.begin();
+    for(; rit != _package->_reports.end(); ++rit)
       _reports->insertItem((*rit).name());
     _reports->sort();
   }
   else
     QMessageBox::warning(this, tr("Error Loading File"), tr("An error was encountered while trying to load the file %1.\n%2\nLine %3, Column %4").arg(filename).arg(errMsg).arg(errLine).arg(errCol));
 }
-
 
 void PackageWindow::fileSave()
 {
@@ -165,10 +197,9 @@ void PackageWindow::fileSave()
     QMessageBox::warning(this, tr("Error Opening File"), tr("Could not open the file %1 for writing.").arg(_filename));
 }
 
-
 void PackageWindow::fileSaveAs()
 {
-  QString filename = Q3FileDialog::getSaveFileName(_filename, QString::null, this);
+  QString filename = QFileDialog::getSaveFileName(this, QString(), _filename);
   if(filename.isEmpty())
     return;
 
@@ -176,24 +207,20 @@ void PackageWindow::fileSaveAs()
   fileSave();
 }
 
-
 void PackageWindow::fileExit()
 {
   qApp->closeAllWindows();
 }
-
 
 void PackageWindow::helpIndex()
 {
   QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
 }
 
-
 void PackageWindow::helpContents()
 {
   QMessageBox::information(this, tr("Not yet implimented"), tr("This feature has not yet been implimented."));
 }
-
 
 void PackageWindow::helpAbout()
 {
@@ -202,15 +229,14 @@ void PackageWindow::helpAbout()
        "\n\nCopyright (c) 2004 OpenMFG, LLC., All Rights Reserved"));
 }
 
-
 void PackageWindow::sPrereqSelectionChanged()
 {
   if(_prereqs->currentItem() != -1)
   {
     bool found = false;
     QString name = _prereqs->currentText();
-    Q3ValueList<Prerequisite>::iterator it;
-    for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+    QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+    for(; it != _package->_prerequisites.end(); ++it)
     {
       if((*it).name() == name)
       {
@@ -250,7 +276,6 @@ void PackageWindow::sPrereqSelectionChanged()
   }
 }
 
-
 void PackageWindow::sAddPrereq()
 {
   NewPrereqDialog npd(this, "new prereq");
@@ -278,7 +303,6 @@ void PackageWindow::sAddPrereq()
     done = true;
   }
 }
-
 
 void PackageWindow::sRaisePrereq()
 {
@@ -329,23 +353,21 @@ void PackageWindow::sLowerPrereq()
   _prereqs->setCurrentItem(idx+1);
 }
 
-
 void PackageWindow::sRemovePrereq()
 {
   QString name = _prereqs->currentText();
-  Q3ValueList<Prerequisite>::iterator it;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  for(; it != _package->_prerequisites.end(); ++it)
     if((*it).name() == name)
       it = _package->_prerequisites.remove(it);
   _prereqs->removeItem(_prereqs->currentItem());
 }
 
-
 void PackageWindow::sEditConditions()
 {
   QString name = _prereqs->currentText();
-  Q3ValueList<Prerequisite>::iterator it;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  for(; it != _package->_prerequisites.end(); ++it)
   {
     if((*it).name() == name)
     {
@@ -364,16 +386,14 @@ void PackageWindow::sEditConditions()
   }
 }
 
-
 void PackageWindow::sPrereqTextChanged()
 {
   QString name = _prereqs->currentText();
-  Q3ValueList<Prerequisite>::iterator it;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  for(; it != _package->_prerequisites.end(); ++it)
     if((*it).name() == name)
       (*it).setMessage(_prereqMessage->text());
 }
-
 
 void PackageWindow::sEditPrereqMessage()
 {
@@ -383,7 +403,6 @@ void PackageWindow::sEditPrereqMessage()
     _prereqMessage->setText(ted._text->text());
 }
 
-
 void PackageWindow::sProviderSelectionChanged()
 {
   bool selected = (_providers->currentItem() != -1);
@@ -391,7 +410,6 @@ void PackageWindow::sProviderSelectionChanged()
   _editProvider->setEnabled(selected);
   _removeProvider->setEnabled(selected);
 }
-
 
 void PackageWindow::sAddProvider()
 {
@@ -404,8 +422,8 @@ void PackageWindow::sAddProvider()
     {
       PrerequisiteProvider provider;
       QString name = _prereqs->currentText();
-      Q3ValueList<Prerequisite>::iterator it;
-      for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+      QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+      for(; it != _package->_prerequisites.end(); ++it)
       {
         if((*it).name() == name)
         {
@@ -425,12 +443,11 @@ void PackageWindow::sAddProvider()
   }
 }
 
-
 void PackageWindow::sEditProvider()
 {
   QString name = _prereqs->currentText();
-  Q3ValueList<Prerequisite>::iterator it;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  QList<Prerequisite>::iterator it = it = _package->_prerequisites.begin();
+  for(; it != _package->_prerequisites.end(); ++it)
   {
     if((*it).name() == name)
     {
@@ -469,13 +486,12 @@ void PackageWindow::sEditProvider()
   }
 }
 
-
 void PackageWindow::sRemoveProvider()
 {
   QString provider = _providers->currentText();
   QString name = _prereqs->currentText();
-  Q3ValueList<Prerequisite>::iterator it;
-  for(it = _package->_prerequisites.begin(); it != _package->_prerequisites.end(); ++it)
+  QList<Prerequisite>::iterator it = _package->_prerequisites.begin();
+  for(; it != _package->_prerequisites.end(); ++it)
     if((*it).name() == name)
       (*it).removeProvider(provider);
   _providers->removeItem(_providers->currentItem());
@@ -488,8 +504,8 @@ void PackageWindow::sScriptSelectionChanged()
   {
     bool found = false;
     QString name = _scripts->currentText();
-    Q3ValueList<Script>::iterator it;
-    for(it = _package->_scripts.begin(); it != _package->_scripts.end(); ++it)
+    QList<Script>::iterator it = _package->_scripts.begin();
+    for(; it != _package->_scripts.end(); ++it)
     {
       if((*it).name() == name)
       {
@@ -520,15 +536,11 @@ void PackageWindow::sScriptSelectionChanged()
   }
 }
 
-
 void PackageWindow::sAddScript()
 {
   QString scriptfile =
-    Q3FileDialog::getOpenFileName(QString::null,
-                                 tr("Script (*.*)"),
-                                 this,
-                                 "open script file",
-                                 tr("Choose a Script to add") );
+    QFileDialog::getOpenFileName(this, tr("Choose a Script to add"), QString::null,
+                                 tr("Script (*.*)") );
   if(scriptfile.isNull())
     return;
 
@@ -546,7 +558,6 @@ void PackageWindow::sAddScript()
   _scripts->setCurrentItem(item);
   _scripts->ensureCurrentVisible();
 }
-
 
 void PackageWindow::sRaiseScript()
 {
@@ -572,7 +583,6 @@ void PackageWindow::sRaiseScript()
   _scripts->setCurrentItem(idx-1);
 }
 
-
 void PackageWindow::sLowerScript()
 {
   int idx = _scripts->currentItem();
@@ -597,37 +607,33 @@ void PackageWindow::sLowerScript()
   _scripts->setCurrentItem(idx+1);
 }
 
-
 void PackageWindow::sRemoveScript()
 {
   QString name = _scripts->currentText();
-  Q3ValueList<Script>::iterator it;
-  for(it = _package->_scripts.begin(); it != _package->_scripts.end(); ++it)
+  QList<Script>::iterator it = _package->_scripts.begin();
+  for(; it != _package->_scripts.end(); ++it)
     if((*it).name() == name)
       it = _package->_scripts.remove(it);
   _scripts->removeItem(_scripts->currentItem());
 }
 
-
 void PackageWindow::sOnErrorActivated( const QString & string )
 {
   QString name = _scripts->currentText();
-  Q3ValueList<Script>::iterator it;
-  for(it = _package->_scripts.begin(); it != _package->_scripts.end(); ++it)
+  QList<Script>::iterator it = _package->_scripts.begin();
+  for(; it != _package->_scripts.end(); ++it)
     if((*it).name() == name)
       (*it).setOnError(Script::nameToOnError(string));
 }
 
-
 void PackageWindow::sScriptTextChanged()
 {
   QString name = _scripts->currentText();
-  Q3ValueList<Script>::iterator it;
-  for(it = _package->_scripts.begin(); it != _package->_scripts.end(); ++it)
+  QList<Script>::iterator it = _package->_scripts.begin();
+  for(; it != _package->_scripts.end(); ++it)
     if((*it).name() == name)
       (*it).setComment(_scriptMessage->text());
 }
-
 
 void PackageWindow::sEditScriptMessage()
 {
@@ -637,15 +643,14 @@ void PackageWindow::sEditScriptMessage()
     _scriptMessage->setText(ted._text->text());
 }
 
-
 void PackageWindow::sReportSelectionChanged()
 {
   if(_reports->currentItem() != -1)
   {
     bool found = false;
     QString name = _reports->currentText();
-    Q3ValueList<LoadReport>::iterator it;
-    for(it = _package->_reports.begin(); it != _package->_reports.end(); ++it)
+    QList<LoadReport>::iterator it = _package->_reports.begin();
+    for(; it != _package->_reports.end(); ++it)
     {
       if((*it).name() == name)
       {
@@ -672,15 +677,11 @@ void PackageWindow::sReportSelectionChanged()
   }
 }
 
-
 void PackageWindow::sAddReport()
 {
   QString reportfile =
-    Q3FileDialog::getOpenFileName(QString::null,
-                                 tr("Report Definitions (*.xml)"),
-                                 this,
-                                 "open report file",
-                                 tr("Choose a Report Definition to add") );
+    QFileDialog::getOpenFileName(this, tr("Choose a Report Definition to add"), QString::null,
+                                 tr("Report Definitions (*.xml)") );
   if(reportfile.isNull())
     return;
 
@@ -700,37 +701,33 @@ void PackageWindow::sAddReport()
   _reports->ensureCurrentVisible();
 }
 
-
 void PackageWindow::sRemoveReport()
 {
   QString name = _reports->currentText();
-  Q3ValueList<LoadReport>::iterator it;
-  for(it = _package->_reports.begin(); it != _package->_reports.end(); ++it)
+  QList<LoadReport>::iterator it = _package->_reports.begin();
+  for(; it != _package->_reports.end(); ++it)
     if((*it).name() == name)
       it = _package->_reports.remove(it);
   _reports->removeItem(_reports->currentItem());
 }
 
-
 void PackageWindow::sGradeChanged( int value)
 {
   QString name = _reports->currentText();
-  Q3ValueList<LoadReport>::iterator it;
-  for(it = _package->_reports.begin(); it != _package->_reports.end(); ++it)
+  QList<LoadReport>::iterator it = _package->_reports.begin();
+  for(; it != _package->_reports.end(); ++it)
     if((*it).name() == name)
       (*it).setGrade(value);
 }
 
-
 void PackageWindow::sReportTextChanged()
 {
   QString name = _reports->currentText();
-  Q3ValueList<LoadReport>::iterator it;
-  for(it = _package->_reports.begin(); it != _package->_reports.end(); ++it)
+  QList<LoadReport>::iterator it = _package->_reports.begin();
+  for(; it != _package->_reports.end(); ++it)
     if((*it).name() == name)
       (*it).setComment(_reportMessage->text());
 }
-
 
 void PackageWindow::sEditReportMessage()
 {
@@ -738,12 +735,5 @@ void PackageWindow::sEditReportMessage()
   ted._text->setText(_reportMessage->text());
   if(ted.exec() == TextEditDialog::Accepted)
     _reportMessage->setText(ted._text->text());
-}
-
-
-void PackageWindow::init()
-{
-  _onError->insertStringList(Script::onErrorList());
-  fileNew();
 }
 

@@ -58,8 +58,8 @@
 #ifndef __PACKAGE_H__
 #define __PACKAGE_H__
 
-#include <qstring.h>
-#include <q3valuelist.h>
+#include <QString>
+#include <QList>
 
 #include "prerequisite.h"
 #include "script.h"
@@ -84,9 +84,9 @@ class Package
     int versionMajor() const { return _majVersion; }
     int versionMinor() const { return _minVersion; }
 
-    Q3ValueList<Prerequisite> _prerequisites;
-    Q3ValueList<Script> _scripts;
-    Q3ValueList<LoadReport> _reports;
+    QList<Prerequisite> _prerequisites;
+    QList<Script> _scripts;
+    QList<LoadReport> _reports;
 
     bool containsReport(const QString & reportname) const;
     bool containsScript(const QString & scriptname) const;

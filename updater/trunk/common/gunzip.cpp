@@ -64,7 +64,7 @@ QByteArray gunzipFile(const QString & file)
 {
   QByteArray data;
 
-  gzFile fin = gzopen(file.latin1(), "rb");
+  gzFile fin = gzopen(file.toLatin1().data(), "rb");
   if(!fin)
     return data;
 
@@ -84,7 +84,7 @@ QByteArray gunzipFile(const QString & file)
     if(byte_count == -1)
       break;
     if(byte_count > 0)
-      fout.writeBlock(&bytes[0], byte_count);
+      fout.write(&bytes[0], byte_count);
   }
 
   fout.close();

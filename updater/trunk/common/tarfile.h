@@ -58,9 +58,8 @@
 #ifndef __TARFILE_H__
 #define __TARFILE_H__
 
-#include <qstring.h>
-#include <q3cstring.h>
-#include <qmap.h>
+#include <QString>
+#include <QMap>
 
 class TarFile {
   public:
