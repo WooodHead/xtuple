@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="correctPoReceipt">
+  <title><indexterm significance="normal">
+      <primary>receipts</primary>
+      <secondary>correction of</secondary>
+    </indexterm>Correct P/O Receipt</title>
+  <para id="Para972056">To make corrections to a Purchase Order Receipt,
+  select the "Correct Receiving" option from the right-click menu. The
+  following screen will appear:</para>
+  <para id="Para972060"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Vouch_correctRecpt.png"
+                     id="Graphic972058" />
+        </imageobject>
+        <caption id="Caption972061">Correct Purchase Order Receipt</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para972062">When correcting a Purchase Order Receipt, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972063">P/O Number</term>
+      <listitem id="listitemN0x180ac00N0x187b524">
+        <para>Displays the selected Purchase Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972064">Line #</term>
+      <listitem id="listitemN0x180ac00N0x187b56c">
+        <para>Displays the selected Line Item Number from the specified
+        Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972065">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x187b5b4">
+        <para>Displays Item Number associated with the specified Line Item
+        Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972066">UOM</term>
+      <listitem id="listitemN0x180ac00N0x187b5fc">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972067">Vend. Item Number</term>
+      <listitem id="listitemN0x180ac00N0x187b644">
+        <para>Displays the Item Number the Vendor uses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972068">Vendor Item Description</term>
+      <listitem id="listitemN0x180ac00N0x187b68c">
+        <para>Displays the description for the Vendor Item Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972069">Vendor UOM</term>
+      <listitem id="listitemN0x180ac00N0x187b6d4">
+        <para>Displays the Unit of Measure the Vendor uses for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972070">Inventory/Vendor UOM Ratio</term>
+      <listitem id="listitemN0x180ac00N0x187b71c">
+        <para>/Vendor UOM Ratio: Displays the ratio between Inventory and
+        Vendor Units of Measure.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para972072">The Inv./Vendor UOM Ratio specifies the ratio
+    between Inventory and Vendor Units of Measure (UOM). For example, if you
+    store an Item in single units, but a Vendor sells you the Item in cases of
+    12, then the ratio would be 12--or 12:1. When an Inv./Vend. ratio is
+    specified, the system allows you to purchase Items using the Vendor's UOM;
+    however, when the Items are received, the system will automatically
+    convert the Inventory to your Inventory UOM.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972073">Due Date</term>
+      <listitem id="listitemN0x180ac00N0x187b7ac">
+        <para>Displays the date when the Line Item is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972074">Qty. Ordered</term>
+      <listitem id="listitemN0x180ac00N0x187b7f4">
+        <para>Displays the original Line Item quantity ordered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972075">Qty. Received</term>
+      <listitem id="listitemN0x180ac00N0x187b83c">
+        <para>Displays the total Line Item quantity received to date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972076">Correct Qty. to</term>
+      <listitem id="listitemN0x180ac00N0x187b884">
+        <para>Enter the quantity you want to correct the received quantity to.
+        This correction will create adjusting General Ledger entries when the
+        CORRECT button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972078"><indexterm significance="normal">
+          <primary>freight</primary>
+          <secondary>correcting for purchasing</secondary>
+        </indexterm>Correct Freight to</term>
+      <listitem id="listitemN0x180ac00N0x187b914">
+        <para>Enter the amount you want to correct the Line Item freight to.
+        This correction will create adjusting General Ledger entries when the
+        CORRECT button is selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972079">Notes</term>
+      <listitem id="listitemN0x180ac00N0x187b95c">
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the correction.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972080">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972081">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x187b9c8">
+        <para>Closes the screen without entering a correction, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972082">CORRECT</term>
+      <listitem id="listitemN0x180ac00N0x1882000">
+        <para>Select to post the correction. This action will result in
+        adjusting General Ledger transactions.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

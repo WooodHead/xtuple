@@ -1,62 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section960674">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>reject codes</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Reject Code</title>
-   <para id="Para518547">To create a new Reject Code, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="rejectCode">
+  <title><indexterm significance="normal">
+      <primary>reject codes</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Reject Code</title>
+  <para id="Para518547">To create a new Reject Code, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para518551">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_MI_rejectCodeNew.png" id="Graphic520134"/>
-            </imageobject>
-            <caption id="Caption518552">Create New Reject Code</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para519880">Reject Codes are abbreviations used to quickly and
+  <para id="Para518551"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_MI_rejectCodeNew.png"
+                     id="Graphic520134" />
+        </imageobject>
+        <caption id="Caption518552">Create New Reject Code</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para519880">Reject Codes are abbreviations used to quickly and
     easily identify rejected Items. Keep these Codes short and meaningful so
     employees will have an easy time identifying them.</para>
-   </tip>
-   <para id="Para518554">When creating a new Reject Code, you are presented
+  </tip>
+  <para id="Para518554">When creating a new Reject Code, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518558">Code</term>
-         <listitem id="listitemN0x180ac00N0x184a8f0">
-            <para>Enter a code to identify the Reject Code.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518563">Description</term>
-         <listitem id="listitemN0x180ac00N0x184a938">
-            <para>Enter a brief description of the Reject Code.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518565">To the far right of the screen, the following buttons
+  <variablelist>
+    <varlistentry>
+      <term id="Para518558">Code</term>
+      <listitem id="listitemN0x180ac00N0x184a8f0">
+        <para>Enter a code to identify the Reject Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518563">Description</term>
+      <listitem id="listitemN0x180ac00N0x184a938">
+        <para>Enter a brief description of the Reject Code.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518565">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518566">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x184a9a4">
-            <para>Closes the screen without creating a Reject Code, returning you
+  <variablelist>
+    <varlistentry>
+      <term id="Para518566">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x184a9a4">
+        <para>Closes the screen without creating a Reject Code, returning you
         to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para924392">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x184a9ec">
-            <para>Creates the Reject Code and adds it to the master list of Reject
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para924392">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x184a9ec">
+        <para>Creates the Reject Code and adds it to the master list of Reject
         Codes.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

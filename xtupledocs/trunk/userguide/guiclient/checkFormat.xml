@@ -1,64 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section565579">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>check formats</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Check Format</title>
-   <para id="Para527625">To add a new Check format, select the NEW button. The
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="checkFormat">
+  <title><indexterm significance="normal">
+      <primary>check formats</primary>
+
+      <secondary>creating new</secondary>
+    </indexterm>Check Format</title>
+
+  <para id="Para527625">To add a new Check format, select the NEW button. The
   following screen will appear:</para>
-   <para id="Para527629">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/AP_MI_chkFormatNew.png" id="Graphic527627"/>
-            </imageobject>
-            <caption id="Caption527630">Create New Check Format</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para527631">When creating a new Check format, you are presented
+
+  <para id="Para527629"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_MI_chkFormatNew.png"
+                     id="Graphic527627" />
+        </imageobject>
+
+        <caption id="Caption527630">Create New Check Format</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para id="Para527631">When creating a new Check format, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para527737">Name</term>
-         <listitem>
-            <para>Enter a name to describe the Check format.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527742">Description</term>
-         <listitem>
-            <para>Enter a description to further describe the Check format.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527757">Report</term>
-         <listitem>
-            <para>Specify the report definition you want to associate with the
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para527737">Name</term>
+
+      <listitem>
+        <para>Enter a name to describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527742">Description</term>
+
+      <listitem>
+        <para>Enter a description to further describe the Check format.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527757">Report</term>
+
+      <listitem>
+        <para>Specify the report definition you want to associate with the
         Check format.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para527746">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para id="Para527746">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para527645">CANCEL</term>
-         <listitem>
-            <para>Closes the screen without creating a Check format, returning you
+
+  <variablelist>
+    <varlistentry>
+      <term id="Para527645">CANCEL</term>
+
+      <listitem>
+        <para>Closes the screen without creating a Check format, returning you
         to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527646">SAVE</term>
-         <listitem>
-            <para>Creates the Check format and adds it to the master list of Check
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term id="Para527646">SAVE</term>
+
+      <listitem>
+        <para>Creates the Check format and adds it to the master list of Check
         formats.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

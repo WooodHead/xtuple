@@ -1,330 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520355">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>item sources</primary>
-         <secondary>creating new</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>source vendors</primary>
-         <see>item sources</see>
-      </indexterm>Enter New Item Source</title>
-   <para id="Para518844">To enter a new Item Source, select the "Enter New
-    Item Source" option. The following screen will appear:</para>
-   <para id="Para518848">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_IS_itemSourceNew.png" id="Graphic520265"/>
-            </imageobject>
-            <caption id="Caption518849">Enter New Item Source</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518855">When entering a new Item Source, you are presented
-    with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518856">Item Number</term>
-         <listitem id="listitemN0x180ac00N0x18996f4">
-            <para>Enter the Item Number of the manufactured Item you want to
-          create a Work Order for.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para968924">UOM</term>
-         <listitem id="listitemN0x180ac00N0x189973c">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518860">
-             
-            <indexterm significance="normal">
-               <primary>item sources</primary>
-               <secondary>vendors identified as</secondary>
-            </indexterm>Vendor</term>
-         <listitem id="listitemN0x180ac00N0x18997cc">
-            <para>Enter the Vendor Number of the Vendor who is the source for
-          the specified Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518862">Vendor Item Number</term>
-         <listitem id="listitemN0x180ac00N0x1899814">
-            <para>Enter the Item Number the Vendor uses to identify the
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518872">Vendor UOM</term>
-         <listitem id="listitemN0x180ac00N0x189985c">
-            <para>Enter the Unit of Measure the Vendor uses for the specified
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518877">Inventory/Vendor UOM Ratio</term>
-         <listitem id="listitemN0x180ac00N0x18998a4">
-            <para>/Vendor UOM Ratio: Specify the ratio between Inventory and
-          Vendor Units of Measure (UOM). For example, if you store an Item in
-          single units, but a Vendor sells you the Item in cases of 12, then
-          you would enter "12" here to represent the 12:1 Inv./Vend. ratio. If
-          the ratio is 1:1, then enter "1" here. When an Inv./Vend. ratio is
-          specified, the system allows you to purchase Items using the
-          Vendor's UOM; however, when the Items are received, the system will
-          automatically convert the Inventory to your Inventory UOM. This same
-          conversion logic flows throughout the system--whether you are
-          viewing Inventory availability or running Material Requirements
-          Planning (MRP). Your Inventory will always be represented in your
-          Inventory UOM, regardless of the Vendor UOMs specified on any open
-          Purchase Orders.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518879">Minimum Order</term>
-         <listitem id="listitemN0x180ac00N0x18998ec">
-            <para>Indicate the minimum Order allowed for the specified Item. A
-          warning message will be shown if a Purchase Order Line Item falls
-          below the minimum Order value entered here.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para528879">Order Multiple</term>
-         <listitem id="listitemN0x180ac00N0x1899934">
-            <para>Value entered indicates the quantity multiple that Orders for
-          this Item must use. A warning message will be shown if a Purchase
-          Order Line Item does not conform to the Order multiple entered
-          here.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518883">
-            
-            <indexterm significance="normal">
-               <primary>vendor ranking</primary>
-               <secondary>for item sources</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>item sources</primary>
-               <secondary>ranking of</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>vendors</primary>
-               <secondary>ranking of</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>ranking</primary>
-               <secondary>of vendors</secondary>
-            </indexterm>Vendor Ranking</term>
-         <listitem id="listitemN0x180ac00N0x1899a9c">
-            <para>Specify the Vendor's rank using the arrow buttons, or manually
-          enter a value up to a maximum of 9.</para>
-            <para id="Para920034">The ranking of a Vendor is used to identify
-          the relative merits of Item Sources when releasing Purchase
-          Requests. If a purchased Item has multiple Item Sources, you may
-          select from a list of available Item Sources when releasing a
-          Purchase Request. The Item Sources will be listed in descending
-          order by Vendor ranking.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518885">
-             
-            <indexterm significance="normal">
-               <primary>item sources</primary>
-               <secondary>lead times for</secondary>
-            </indexterm>Lead Time</term>
-         <listitem id="listitemN0x180ac00N0x1899b2c">
-            <para>Specify the lead time for the Vendor Item using the arrow
-          buttons, or manually enter a value up to a maximum of 99.</para>
-            <para id="Para518886">Specifies the Lead Time the Vendor requires to
-          supply the specified Item, measured in days.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520386">Notes</term>
-         <listitem id="listitemN0x180ac00N0x1899b74">
-            <para>This is a scrolling text field with word-wrapping for entering
-          Notes related to the Item Source.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520438">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520439">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1899be0">
-            <para>Closes the screen without creating an Item Source, returning
-          you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520440">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1899c28">
-            <para>Saves the Item Source and adds it to the master list of Item
-          Sources.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520395">
-      
-      <indexterm significance="normal">
-         <primary>item sources</primary>
-         <secondary>pricing of items for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>item sources</primary>
-         <secondary>item pricing for</secondary>
-      </indexterm>To add or modify Item Source Prices, select the "Prices" tab
-    at the bottom of the "Item Source" screen. The following screen will
-    appear:</para>
-   <para id="Para518887">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_IS_itemSourcePrices.png" id="Graphic520413"/>
-            </imageobject>
-            <caption id="Caption520424">Item Source Prices</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para520425">When adding or modifying Item Source Prices, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520381">Prices</term>
-         <listitem id="listitemN0x180ac00N0x1899d90">
-            <para>Display lists Item Source Prices for the specified Item
-          Source.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518894">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518897">ADD</term>
-         <listitem id="listitemN0x180ac00N0x1899dfc">
-            <para>Opens screen for creating a new Item Source Price, as shown
-          below.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518898">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x1899e44">
-            <para>Enables you to edit highlighted Item Source Price. The edit
-          screen is the same as that for creating a new Item Source
-          Price--except that when editing, the fields will contain Item Source
-          Price information. Double-clicking on an Item Source Price will also
-          bring you to the editing screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518900">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x1899e8c">
-            <para>Highlight an Item Source Price and then select this button to
-          remove the Item Source Price from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518901">
-       
-      <indexterm significance="normal">
-         <primary>item source prices</primary>
-         <secondary>creating new</secondary>
-      </indexterm>To add an Item Source Price to the list of Prices, select
-    the ADD button. The following screen will appear:</para>
-   <para id="Para518902">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_IS_itemSrcPriceNew.png" id="Graphic520470"/>
-            </imageobject>
-            <caption id="Caption520466">Create New Item Source Price</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para520494">When creating a new Item Source Price, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520495">Qty. Break</term>
-         <listitem id="listitemN0x180ac00N0x1899fac">
-            <para>Specify the minimum quantity of the Item you must order to
-          receive a Price Break.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520496">Price per Unit</term>
-         <listitem id="listitemN0x180ac00N0x1899ff4">
-            <para>Specify the Price per unit if the Quantity Break requirements
-          are met.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520522">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520523">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x189a060">
-            <para>Closes the screen without creating an Item Source Price,
-          returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520524">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x189a0a8">
-            <para>Saves the Item Source Price and adds it to the list of Item
-          Source Prices.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520543">To add or modify a description of the Vendor, select
-    the "Vendor Description" tab at the bottom of the "Item Source" screen.
-    The following screen will appear:</para>
-   <para id="Para520541">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_IS_itemSourceVendor.png" id="Graphic520556"/>
-            </imageobject>
-            <caption id="Caption520550">Item Source Vendor Description</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para520570">When adding or modifying a Vendor description, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520590">Vendor Description</term>
-         <listitem id="listitemN0x180ac00N0x189a180">
-            <para>This is a scrolling text field with word-wrapping for entering
-          Comments related to the Vendor.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520612">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520613">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x189a1ec">
-            <para>Closes the screen without creating an Item Source, returning
-          you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520614">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18a2424">
-            <para>Saves the Vendor description and associates it with the Item
-          Source.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>item sources</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>source vendors</primary>
+      <see>item sources</see>
+    </indexterm>Enter New Item Source</title>
+  <para id="Para518844">To enter a new Item Source, select the "Enter New Item
+  Source" option. The following screen will appear:</para>
+  <para id="Para518848"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_IS_itemSourceNew.png"
+                     id="Graphic520265" />
+        </imageobject>
+        <caption id="Caption518849">Enter New Item Source</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518855">When entering a new Item Source, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518856">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x18996f4">
+        <para>Enter the Item Number of the manufactured Item you want to
+        create a Work Order for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para968924">UOM</term>
+      <listitem id="listitemN0x180ac00N0x189973c">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518860"><indexterm significance="normal">
+          <primary>item sources</primary>
+          <secondary>vendors identified as</secondary>
+        </indexterm>Vendor</term>
+      <listitem id="listitemN0x180ac00N0x18997cc">
+        <para>Enter the Vendor Number of the Vendor who is the source for the
+        specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518862">Vendor Item Number</term>
+      <listitem id="listitemN0x180ac00N0x1899814">
+        <para>Enter the Item Number the Vendor uses to identify the
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518872">Vendor UOM</term>
+      <listitem id="listitemN0x180ac00N0x189985c">
+        <para>Enter the Unit of Measure the Vendor uses for the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518877">Inventory/Vendor UOM Ratio</term>
+      <listitem id="listitemN0x180ac00N0x18998a4">
+        <para>/Vendor UOM Ratio: Specify the ratio between Inventory and
+        Vendor Units of Measure (UOM). For example, if you store an Item in
+        single units, but a Vendor sells you the Item in cases of 12, then you
+        would enter "12" here to represent the 12:1 Inv./Vend. ratio. If the
+        ratio is 1:1, then enter "1" here. When an Inv./Vend. ratio is
+        specified, the system allows you to purchase Items using the Vendor's
+        UOM; however, when the Items are received, the system will
+        automatically convert the Inventory to your Inventory UOM. This same
+        conversion logic flows throughout the system--whether you are viewing
+        Inventory availability or running Material Requirements Planning
+        (MRP). Your Inventory will always be represented in your Inventory
+        UOM, regardless of the Vendor UOMs specified on any open Purchase
+        Orders.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518879">Minimum Order</term>
+      <listitem id="listitemN0x180ac00N0x18998ec">
+        <para>Indicate the minimum Order allowed for the specified Item. A
+        warning message will be shown if a Purchase Order Line Item falls
+        below the minimum Order value entered here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para528879">Order Multiple</term>
+      <listitem id="listitemN0x180ac00N0x1899934">
+        <para>Value entered indicates the quantity multiple that Orders for
+        this Item must use. A warning message will be shown if a Purchase
+        Order Line Item does not conform to the Order multiple entered
+        here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518883"><indexterm significance="normal">
+          <primary>vendor ranking</primary>
+          <secondary>for item sources</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>item sources</primary>
+          <secondary>ranking of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>vendors</primary>
+          <secondary>ranking of</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>ranking</primary>
+          <secondary>of vendors</secondary>
+        </indexterm>Vendor Ranking</term>
+      <listitem id="listitemN0x180ac00N0x1899a9c">
+        <para>Specify the Vendor's rank using the arrow buttons, or manually
+        enter a value up to a maximum of 9.</para>
+        <para id="Para920034">The ranking of a Vendor is used to identify the
+        relative merits of Item Sources when releasing Purchase Requests. If a
+        purchased Item has multiple Item Sources, you may select from a list
+        of available Item Sources when releasing a Purchase Request. The Item
+        Sources will be listed in descending order by Vendor ranking.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518885"><indexterm significance="normal">
+          <primary>item sources</primary>
+          <secondary>lead times for</secondary>
+        </indexterm>Lead Time</term>
+      <listitem id="listitemN0x180ac00N0x1899b2c">
+        <para>Specify the lead time for the Vendor Item using the arrow
+        buttons, or manually enter a value up to a maximum of 99.</para>
+        <para id="Para518886">Specifies the Lead Time the Vendor requires to
+        supply the specified Item, measured in days.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520386">Notes</term>
+      <listitem id="listitemN0x180ac00N0x1899b74">
+        <para>This is a scrolling text field with word-wrapping for entering
+        Notes related to the Item Source.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520438">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520439">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1899be0">
+        <para>Closes the screen without creating an Item Source, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520440">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1899c28">
+        <para>Saves the Item Source and adds it to the master list of Item
+        Sources.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520395"><indexterm significance="normal">
+      <primary>item sources</primary>
+      <secondary>pricing of items for</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>item sources</primary>
+      <secondary>item pricing for</secondary>
+    </indexterm>To add or modify Item Source Prices, select the "Prices" tab
+  at the bottom of the "Item Source" screen. The following screen will
+  appear:</para>
+  <para id="Para518887"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_IS_itemSourcePrices.png"
+                     id="Graphic520413" />
+        </imageobject>
+        <caption id="Caption520424">Item Source Prices</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para520425">When adding or modifying Item Source Prices, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520381">Prices</term>
+      <listitem id="listitemN0x180ac00N0x1899d90">
+        <para>Display lists Item Source Prices for the specified Item
+        Source.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518894">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518897">ADD</term>
+      <listitem id="listitemN0x180ac00N0x1899dfc">
+        <para>Opens screen for creating a new Item Source Price, as shown
+        below.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518898">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1899e44">
+        <para>Enables you to edit highlighted Item Source Price. The edit
+        screen is the same as that for creating a new Item Source
+        Price--except that when editing, the fields will contain Item Source
+        Price information. Double-clicking on an Item Source Price will also
+        bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518900">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x1899e8c">
+        <para>Highlight an Item Source Price and then select this button to
+        remove the Item Source Price from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520543">To add or modify a description of the Vendor, select
+  the "Vendor Description" tab at the bottom of the "Item Source" screen. The
+  following screen will appear:</para>
+  <para id="Para520541"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_IS_itemSourceVendor.png"
+                     id="Graphic520556" />
+        </imageobject>
+        <caption id="Caption520550">Item Source Vendor Description</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para520570">When adding or modifying a Vendor description, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520590">Vendor Description</term>
+      <listitem id="listitemN0x180ac00N0x189a180">
+        <para>This is a scrolling text field with word-wrapping for entering
+        Comments related to the Vendor.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520612">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520613">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x189a1ec">
+        <para>Closes the screen without creating an Item Source, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520614">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18a2424">
+        <para>Saves the Vendor description and associates it with the Item
+        Source.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="itemSourcePrice.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

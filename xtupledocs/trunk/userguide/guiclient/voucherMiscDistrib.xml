@@ -1,98 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-   <title>
-   Miscellaneous Voucher Distribution
-  </title>
-   <subtitle>voucherMiscDistrib : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/voucherMiscDistrib.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Miscellaneous Voucher Distribution
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry/>
-               <entry>buttonGroup1</entry>
-               <entry>QGroupBox</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_expcat</entry>
-               <entry>ExpenseCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Expense Category:</guilabel>
-               </entry>
-               <entry>_expcatSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_account</entry>
-               <entry>GLCluster</entry>
-            </row>
-           <row>
-               <entry>
-                  <guilabel moreinfo="none">Account:</guilabel>
-               </entry>
-               <entry>_accountSelected</entry>
-               <entry>QRadioButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Amount to Distribute:</guilabel>
-               </entry>
-               <entry>_amountLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_amount</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="voucherMiscDistrib">
+  <title><indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>miscellaneous distributions for</secondary>
+    </indexterm>Voucher Misc. Distribution</title>
+  <para id="Para972188">In addition to Line Item specific distributions, you
+  may also enter miscellaneous distributions to affect the Voucher as a whole.
+  To enter a miscellaneous distribution, select the NEW button from the main
+  Voucher screen. The following screen will appear:</para>
+  <para id="Para972192"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Vouch_miscVouchDistr.png"
+                     id="Graphic972190" />
+        </imageobject>
+        <caption id="Caption972193">Miscellaneous Voucher
+        Distribution</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para972194">When entering a miscellaneous Voucher distribution,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972195">Distribution Options</term>
+      <listitem id="listitemN0x180ac00N0x18897bc">
+        <para>Select one of the following distribution options:</para>
+        <para id="Para972196">Account: Select a General Ledger Account to use
+        for the distribution.</para>
+        <para id="Para972197">Expense Category: Select an Expense Category to
+        use for the distribution.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972198">Amount to Distribute</term>
+      <listitem id="listitemN0x180ac00N0x1889804">
+        <para>Specify the amount of the miscellaneous distribution.</para>
+        <para id="Para972199">If there is a balance still to be distributed
+        once all Voucher Items have been distributed, then that remaining
+        amount will be entered here by default.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972200">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972201">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1889870">
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972202">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18898b8">
+        <para>Saves the information and adds it to the list of miscellaneous
+        distributions, simultaneously adjusting both the Voucher amount
+        distributed and the balance distributed.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

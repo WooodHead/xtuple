@@ -1,344 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-   <title>
-   Voucher Item
-  </title>
-   <subtitle>voucherItem : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/voucherItem.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Voucher Item
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">P/O Number:</guilabel>
-               </entry>
-               <entry>_poNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Line #:</guilabel>
-               </entry>
-               <entry>_lineNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_poNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_lineNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_item</entry>
-               <entry>ItemCluster</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>groupBox</entry>
-               <entry>QGroupBox</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">0.00</guilabel>
-               </entry>
-               <entry>_lineFreight</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">0.00</guilabel>
-               </entry>
-               <entry>_extPrice</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">0.00</guilabel>
-               </entry>
-               <entry>_unitPrice</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">Line Item Freight:</guilabel>
-               </entry>
-               <entry>_lineFreightLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">Ext. Price:</guilabel>
-               </entry>
-               <entry>_extPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">Unit Price:</guilabel>
-               </entry>
-               <entry>_unitPriceLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Vend. Item Number:</guilabel>
-               </entry>
-               <entry>_vendItemNumberLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendItemNumber</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">UOM:</guilabel>
-               </entry>
-               <entry>_vendUOMLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendUOM</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Vend. Item Descrip.:</guilabel>
-               </entry>
-               <entry>_vendItemDescripLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_vendDescription</entry>
-               <entry>QTextEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame_2</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Uninvoiced Receipts and Returns</guilabel>
-               </entry>
-               <entry>_uninvoiceReceivingsLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_uninvoiced</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Due Date:</guilabel>
-               </entry>
-               <entry>_dueDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_ordered</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_received</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_rejected</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">0</guilabel>
-               </entry>
-               <entry>_qtyToVoucher</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Uninvoiced Qty. Received:</guilabel>
-               </entry>
-               <entry>_uninvoicedReceivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Uninvoiced Qty. Rejected:</guilabel>
-               </entry>
-               <entry>_uninvoicedRejectedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_uninvoicedReceived</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_uninvoicedRejected</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Total Quantity Ordered:</guilabel>
-               </entry>
-               <entry>_orderedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Total Quantity Received:</guilabel>
-               </entry>
-               <entry>_receivedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Total Quantity Rejected:</guilabel>
-               </entry>
-               <entry>_rejectedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_dueDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">PO Line Freight to Voucher:</guilabel>
-               </entry>
-               <entry>_freightToVoucherLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_freightToVoucher</entry>
-               <entry>CurrCluster</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Close P/O Item</guilabel>
-               </entry>
-               <entry>_closePoitem</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Qty. to Voucher:</guilabel>
-               </entry>
-               <entry>_toVoucherLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>frame</entry>
-               <entry>QFrame</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Distribution List:</guilabel>
-               </entry>
-               <entry>_distributionListLit</entry>
-               <entry>QLabel</entry>
-            </row>
-           <row>
-               <entry/>
-               <entry>_vodist</entry>
-               <entry>XTreeWidget</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">Total Distributed:</guilabel>
-               </entry>
-               <entry>_totalDistributedLit</entry>
-               <entry>QLabel</entry>
-            </row>
-             <row>
-               <entry/>
-               <entry>_totalDistributed</entry>
-               <entry>CurrDisplay</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>N</accel>ew</guilabel>
-               </entry>
-               <entry>_new</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>E</accel>dit</guilabel>
-               </entry>
-               <entry>_edit</entry>
-               <entry>QPushButton</entry>
-            </row>
-             <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>D</accel>elete</guilabel>
-               </entry>
-               <entry>_delete</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="voucherItem">
+  <title><indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>distributing quantities to</secondary>
+    </indexterm>Voucher Item</title>
+  <para id="Para972128">To distribute quantities from Purchase Order Line
+  Items to the Voucher, highlight a Line Item and then select the
+  DISTRIBUTIONS button. The following screen will appear:</para>
+  <para id="Para972132"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Vouch_voucherItem.png"
+                     id="Graphic972130" />
+        </imageobject>
+        <caption id="Caption972133">Voucher Item Distribution</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para972135">An Item's per unit Actual Cost will be automatically
+    updated after a Voucher is posted if the vouchered Cost differs from the
+    Item's current Actual Cost. The vouchered Cost for an Item is determined
+    by dividing the amount to distribute by the quantity to voucher.</para>
+  </note>
+  <para id="Para972136">When distributing quantities from a Purchase Order
+  Line Item to the Voucher, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972137">P/O Number</term>
+      <listitem id="listitemN0x180ac00N0x1882a68">
+        <para>Displays Purchase Order Number specified on previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972138">Line #</term>
+      <listitem id="listitemN0x180ac00N0x1882ab0">
+        <para>Displays Line Item selected for distribution on previous
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972139">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x1882af8">
+        <para>Displays Item Number associated with specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972140">UOM</term>
+      <listitem id="listitemN0x180ac00N0x1882b40">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972141">P/O Item Price Info</term>
+      <listitem id="listitemN0x180ac00N0x1882b88">
+        <para>Displays the Unit Price, Extended Price, and Line Item Freight
+        for the Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972142">Vend. Item Number</term>
+      <listitem id="listitemN0x180ac00N0x1882bd0">
+        <para>Displays Item number the Vendor assigns to the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972143">UOM</term>
+      <listitem id="listitemN0x180ac00N0x1882c18">
+        <para>Displays the Unit of Measure used by the Vendor for specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972144">Vend. Item Descrip.</term>
+      <listitem id="listitemN0x180ac00N0x1882c60">
+        <para>Displays description the Vendor uses to describe the specified
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972145">Due Date</term>
+      <listitem id="listitemN0x180ac00N0x1882ca8">
+        <para>Displays the date Line Item was expected to be received.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972146">Total Quantity Ordered</term>
+      <listitem id="listitemN0x180ac00N0x1882cf0">
+        <para>Displays the quantity ordered in the specified Purchase Order
+        Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972147">Total Quantity Received</term>
+      <listitem id="listitemN0x180ac00N0x1882d38">
+        <para>Displays the quantity received to date of the specified Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972148">Total Quantity Rejected</term>
+      <listitem id="listitemN0x180ac00N0x1882d80">
+        <para>Displays the quantity rejected to date of the specified Line
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972149">Uninvoiced Qty. Received</term>
+      <listitem id="listitemN0x180ac00N0x1882dc8">
+        <para>Displays the uninvoiced quantity received to date of the
+        specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972150">Uninvoiced Qty. Rejected</term>
+      <listitem id="listitemN0x180ac00N0x1889000">
+        <para>Displays the uninvoiced quantity rejected to date of the
+        specified Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972152"><indexterm significance="normal">
+          <primary>vouchers</primary>
+          <secondary>distributing quantities to</secondary>
+        </indexterm>Qty. to Voucher</term>
+      <listitem id="listitemN0x180ac00N0x1889090">
+        <para>This is a read-only field displaying the Purchase Order Line
+        Item quantity tagged to be vouchered for the given Voucher
+        Item.</para>
+        <para id="Para972153">The quantity displayed equals the tagged
+        received qty. minus any returned qty. which may also have been tagged.
+        The quantity to voucher is a divisor applied to the distribution
+        amount. The resulting amount--that is, the Voucher Item distribution
+        amount divided by the quantity vouchered--determines the per unit
+        Actual Cost for an Item. The system will automatically handle any
+        differences between the Inventory and Vendor UOMs--if any differences
+        exist.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para972155">If you want to partially pay for a Receipt--but find
+    you cannot edit the value in the "Qty. to Voucher" field--you should first
+    correct the quantity on the original Receipt to be the amount you want to
+    pay for, then enter a second Receipt for the balance. To correct Receipt
+    quantities, use the right-click menu on the "Uninvoiced Receipts and
+    Returns" screen.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972156">PO Line Freight to Voucher</term>
+      <listitem id="listitemN0x180ac00N0x1889120">
+        <para>Enter the amount of any Purchase Order Line Item freight
+        charges.</para>
+        <para id="Para972157">The freight amount entered in this field will be
+        added to the total amount for the Voucher Item. If you are vouchering
+        for less than the original quantity ordered--and if Line Item freight
+        was entered when the Purchase Order was created--then you should
+        consider adjusting the Line Item freight amount accordingly. To make
+        this adjustment, multiply the quantity you are vouchering by the per
+        unit freight charge. The per unit freight charge is determined by
+        dividing the original Line Item freight amount by the original Line
+        Item quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972158">Close P/O Item</term>
+      <listitem id="listitemN0x180ac00N0x1889168">
+        <para>Select to close specified Line Item.</para>
+        <para id="Para972159">This flag will be selected automatically if the
+        received quantity tagged for vouchering is equal to or greater than
+        the Order quantity.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972160">Uninvoiced Receipts and Returns</term>
+      <listitem id="listitemN0x180ac00N0x18891b0">
+        <para>Display lists uninvoiced Receipts and Returns for the specified
+        Line Item. To change the tagged status for a Line Item, double-click
+        on the quantity in the Uninvoiced Receipts and Returns display. If a
+        received (or returned) quantity has been tagged "Yes," this means the
+        quantity will be marked as invoiced when the Voucher is posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972161">Distribution List</term>
+      <listitem id="listitemN0x180ac00N0x18891f8">
+        <para>Display lists Costing Elements used for distributing Voucher
+        Costs. At the bottom of the display the total amount distributed will
+        display. This total includes Costing Element distributions and any
+        Purchase Order Line Item freight charges.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972162">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972163">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1889264">
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972164">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18892ac">
+        <para>Saves the Line Item information and adds it to the
+        Voucher.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972165">NEW</term>
+      <listitem id="listitemN0x180ac00N0x18892f4">
+        <para>Opens screen for adding a new Costing Element to the
+        distribution list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972166">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x188933c">
+        <para>Enables you to edit highlighted Costing Element. The edit screen
+        is the same as that for adding a new Costing Element--except that when
+        editing, the fields will contain Costing Element information.
+        Double-clicking on a Costing Element will also bring you to the
+        editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972167">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x1889384">
+        <para>Highlight a Costing Element and then select this button to
+        remove the Costing Element from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="voucherItemDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -1,639 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972085">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>vouchers</primary>
-         <secondary>creating new</secondary>
-      </indexterm> 
-      Enter New Voucher</title>
-   <para id="Para972086">To enter a new Voucher, select the "Enter New
-    Voucher" option. The following screen will appear:</para>
-   <para id="Para972090">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Vouch_voucherNew.png" id="Graphic972088"/>
-            </imageobject>
-            <caption id="Caption972091">Enter New Voucher</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para972092">When entering a new Voucher, you are presented with
-    the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972093">Voucher #</term>
-         <listitem id="listitemN0x180ac00N0x1882144">
-            <para>Next available Voucher Number will automatically display,
-          unless your system requires you to enter Voucher Numbers
-          manually.</para>
-            <para id="Para972094">Default values and input parameters for
-          Voucher Numbers are configurable at the system level.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972095">PO Number</term>
-         <listitem id="listitemN0x180ac00N0x188218c">
-            <para>Enter the Purchase Order Number of the Purchase Order you want
-          to create a Voucher for.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972097">
-             
-            <indexterm significance="normal">
-               <primary>vouchers</primary>
-               <secondary>distributing quantities to</secondary>
-            </indexterm>Amount to Distribute</term>
-         <listitem id="listitemN0x180ac00N0x188221c">
-            <para>Specify the dollar amount you intend to distribute to the
-          Vendor for the specified Purchase Order. You may enter an amount
-          greater than the amount due on the Purchase Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972098">Amount Distributed</term>
-         <listitem id="listitemN0x180ac00N0x1882264">
-            <para>Displays sum of all Line Item distributions for specified
-          Purchase Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972099">Balance</term>
-         <listitem id="listitemN0x180ac00N0x18822ac">
-            <para>Displays the difference between amount to distribute and
-          amount distributed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972100">Flag for 1099</term>
-         <listitem id="listitemN0x180ac00N0x18822f4">
-            <para>Select to flag transaction for Form 1099 Tax reporting.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972101">Vendor</term>
-         <listitem id="listitemN0x180ac00N0x188233c">
-            <para>The name and address of the Vendor associated with the
-          specified Purchase Order will display here.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972102">Invoice Date</term>
-         <listitem id="listitemN0x180ac00N0x1882384">
-            <para>Enter an Invoice date for the Voucher. The Invoice date is
-          used for determining the due date, based on the specified
-          Terms.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972103">Distribution Date</term>
-         <listitem id="listitemN0x180ac00N0x18823cc">
-            <para>Enter the date of the current distribution. When the Voucher
-          is posted, this is the date when the posting will be recorded in the
-          General Ledger.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972104">Due Date</term>
-         <listitem id="listitemN0x180ac00N0x1882414">
-            <para>Enter the date payment is due to the Vendor. The due date is
-          derived when the specified Terms are added to the Invoice
-          date.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972105">Terms</term>
-         <listitem id="listitemN0x180ac00N0x188245c">
-            <para>Specify the billing Terms for the Voucher.</para>
-            <para id="Para972106">By default, the billing Terms will be
-          transferred from the original Purchase Order. You may select
-          alternate Terms on the Voucher header.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para972108">You are given the opportunity to apply any billing
-      Terms Discounts when selecting a posted Voucher for payment.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972109">Vendor Invoice #</term>
-         <listitem id="listitemN0x180ac00N0x18824ec">
-            <para>Enter the Vendor Invoice Number associated with the specified
-          Purchase Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972110">Reference</term>
-         <listitem id="listitemN0x180ac00N0x1882534">
-            <para>Use this field to enter any notation or reference required for
-          further identification.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972111">P/O Items</term>
-         <listitem id="listitemN0x180ac00N0x188257c">
-            <para>Display lists Line Items associated with the specified
-          Purchase Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972112">Miscellaneous Distributions</term>
-         <listitem id="listitemN0x180ac00N0x18825c4">
-            <para>Display lists miscellaneous Cost distributions related to the
-          specified Order.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972113">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972114">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1882630">
-            <para>Closes the screen without entering a new Voucher, returning
-          you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972115">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1882678">
-            <para>Creates the new Voucher.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para972117">You may select multiple Purchase Order Line Items
-      for distribution or clearing by highlighting them using your mouse--or a
-      combination of your mouse and either the SHIFT or CTRL keys.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972118">DISTRIBUTIONS</term>
-         <listitem id="listitemN0x180ac00N0x1882708">
-            <para>Highlight a Purchase Order Line Item and then select this
-          button to reach the Voucher Item distribution screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972119">DISTRIBUTE LINE</term>
-         <listitem id="listitemN0x180ac00N0x1882750">
-            <para>Highlight a Purchase Order Line Item(s) and then select this
-          button to automatically distribute all quantities and amounts for
-          the selected Voucher Item(s).</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972120">CLEAR</term>
-         <listitem id="listitemN0x180ac00N0x1882798">
-            <para>Highlight a Purchase Order Line Item(s) and then select this
-          button to automatically clear any distributions.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972121">DISTRIBUTE ALL</term>
-         <listitem id="listitemN0x180ac00N0x18827e0">
-            <para>Select to distribute quantities and amounts for all Voucher
-          Items.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972122">NEW</term>
-         <listitem id="listitemN0x180ac00N0x1882828">
-            <para>Select to enter a new miscellaneous distribution.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972123">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x1882870">
-            <para>Enables you to edit highlighted miscellaneous distributions.
-          The edit screen is the same as that for creating a new miscellaneous
-          distribution--except that when editing, the fields will contain
-          miscellaneous distribution information. Double-clicking on a
-          miscellaneous distribution will also bring you to the editing
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972124">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x18828b8">
-            <para>Highlight a miscellaneous distribution and then select this
-          button to remove the miscellaneous distribution from the
-          list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972125">Right-clicking on a Purchase Order Item in the list
-    of Purchase Order Items enables you to select the following menu
-    option:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972126">View P/O Item</term>
-         <listitem id="listitemN0x180ac00N0x1882924">
-            <para/>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972128">
-       
-      <indexterm significance="normal">
-         <primary>vouchers</primary>
-         <secondary>distributing quantities to</secondary>
-      </indexterm>To distribute quantities from Purchase Order Line Items to
-    the Voucher, highlight a Line Item and then select the DISTRIBUTIONS
-    button. The following screen will appear:</para>
-   <para id="Para972132">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Vouch_voucherItem.png" id="Graphic972130"/>
-            </imageobject>
-            <caption id="Caption972133">Voucher Item Distribution</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para id="Para972135">An Item's per unit Actual Cost will be
-      automatically updated after a Voucher is posted if the vouchered Cost
-      differs from the Item's current Actual Cost. The vouchered Cost for an
-      Item is determined by dividing the amount to distribute by the quantity
-      to voucher.</para>
-   </note>
-   <para id="Para972136">When distributing quantities from a Purchase Order
-    Line Item to the Voucher, you are presented with the following
-    options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972137">P/O Number</term>
-         <listitem id="listitemN0x180ac00N0x1882a68">
-            <para>Displays Purchase Order Number specified on previous
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972138">Line #</term>
-         <listitem id="listitemN0x180ac00N0x1882ab0">
-            <para>Displays Line Item selected for distribution on previous
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972139">Item Number</term>
-         <listitem id="listitemN0x180ac00N0x1882af8">
-            <para>Displays Item Number associated with specified Line
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972140">UOM</term>
-         <listitem id="listitemN0x180ac00N0x1882b40">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972141">P/O Item Price Info</term>
-         <listitem id="listitemN0x180ac00N0x1882b88">
-            <para>Displays the Unit Price, Extended Price, and Line Item Freight
-          for the Line Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972142">Vend. Item Number</term>
-         <listitem id="listitemN0x180ac00N0x1882bd0">
-            <para>Displays Item number the Vendor assigns to the specified
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972143">UOM</term>
-         <listitem id="listitemN0x180ac00N0x1882c18">
-            <para>Displays the Unit of Measure used by the Vendor for specified
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972144">Vend. Item Descrip.</term>
-         <listitem id="listitemN0x180ac00N0x1882c60">
-            <para>Displays description the Vendor uses to describe the specified
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972145">Due Date</term>
-         <listitem id="listitemN0x180ac00N0x1882ca8">
-            <para>Displays the date Line Item was expected to be
-          received.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972146">Total Quantity Ordered</term>
-         <listitem id="listitemN0x180ac00N0x1882cf0">
-            <para>Displays the quantity ordered in the specified Purchase Order
-          Line Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972147">Total Quantity Received</term>
-         <listitem id="listitemN0x180ac00N0x1882d38">
-            <para>Displays the quantity received to date of the specified Line
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972148">Total Quantity Rejected</term>
-         <listitem id="listitemN0x180ac00N0x1882d80">
-            <para>Displays the quantity rejected to date of the specified Line
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972149">Uninvoiced Qty. Received</term>
-         <listitem id="listitemN0x180ac00N0x1882dc8">
-            <para>Displays the uninvoiced quantity received to date of the
-          specified Line Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972150">Uninvoiced Qty. Rejected</term>
-         <listitem id="listitemN0x180ac00N0x1889000">
-            <para>Displays the uninvoiced quantity rejected to date of the
-          specified Line Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972152">
-             
-            <indexterm significance="normal">
-               <primary>vouchers</primary>
-               <secondary>distributing quantities to</secondary>
-            </indexterm>Qty. to Voucher</term>
-         <listitem id="listitemN0x180ac00N0x1889090">
-            <para>This is a read-only field displaying the Purchase Order Line
-          Item quantity tagged to be vouchered for the given Voucher
-          Item.</para>
-            <para id="Para972153">The quantity displayed equals the tagged
-          received qty. minus any returned qty. which may also have been
-          tagged. The quantity to voucher is a divisor applied to the
-          distribution amount. The resulting amount--that is, the Voucher Item
-          distribution amount divided by the quantity vouchered--determines
-          the per unit Actual Cost for an Item. The system will automatically
-          handle any differences between the Inventory and Vendor UOMs--if any
-          differences exist.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para972155">If you want to partially pay for a Receipt--but
-      find you cannot edit the value in the "Qty. to Voucher" field--you
-      should first correct the quantity on the original Receipt to be the
-      amount you want to pay for, then enter a second Receipt for the balance.
-      To correct Receipt quantities, use the right-click menu on the
-      "Uninvoiced Receipts and Returns" screen.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972156">PO Line Freight to Voucher</term>
-         <listitem id="listitemN0x180ac00N0x1889120">
-            <para>Enter the amount of any Purchase Order Line Item freight
-          charges.</para>
-            <para id="Para972157">The freight amount entered in this field will
-          be added to the total amount for the Voucher Item. If you are
-          vouchering for less than the original quantity ordered--and if Line
-          Item freight was entered when the Purchase Order was created--then
-          you should consider adjusting the Line Item freight amount
-          accordingly. To make this adjustment, multiply the quantity you are
-          vouchering by the per unit freight charge. The per unit freight
-          charge is determined by dividing the original Line Item freight
-          amount by the original Line Item quantity.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972158">Close P/O Item</term>
-         <listitem id="listitemN0x180ac00N0x1889168">
-            <para>Select to close specified Line Item.</para>
-            <para id="Para972159">This flag will be selected automatically if
-          the received quantity tagged for vouchering is equal to or greater
-          than the Order quantity.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972160">Uninvoiced Receipts and Returns</term>
-         <listitem id="listitemN0x180ac00N0x18891b0">
-            <para>Display lists uninvoiced Receipts and Returns for the
-          specified Line Item. To change the tagged status for a Line Item,
-          double-click on the quantity in the Uninvoiced Receipts and Returns
-          display. If a received (or returned) quantity has been tagged "Yes,"
-          this means the quantity will be marked as invoiced when the Voucher
-          is posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972161">Distribution List</term>
-         <listitem id="listitemN0x180ac00N0x18891f8">
-            <para>Display lists Costing Elements used for distributing Voucher
-          Costs. At the bottom of the display the total amount distributed
-          will display. This total includes Costing Element distributions and
-          any Purchase Order Line Item freight charges.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972162">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972163">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1889264">
-            <para>Closes the screen, returning you to the previous
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972164">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18892ac">
-            <para>Saves the Line Item information and adds it to the
-          Voucher.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972165">NEW</term>
-         <listitem id="listitemN0x180ac00N0x18892f4">
-            <para>Opens screen for adding a new Costing Element to the
-          distribution list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972166">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x188933c">
-            <para>Enables you to edit highlighted Costing Element. The edit
-          screen is the same as that for adding a new Costing Element--except
-          that when editing, the fields will contain Costing Element
-          information. Double-clicking on a Costing Element will also bring
-          you to the editing screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972167">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x1889384">
-            <para>Highlight a Costing Element and then select this button to
-          remove the Costing Element from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972169">
-      
-      <indexterm significance="normal">
-         <primary>vouchers</primary>
-         <secondary>costing elements associated with</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>vouchers</primary>
-         <secondary>automatic updating of actual costs</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>actual costs</primary>
-         <secondary>automatic updating of at vouchering</secondary>
-      </indexterm>To distribute purchasing Costs to specific Costing Elements
-    for the Item quantity being vouchered, select the NEW button. The
-    following screen will appear:</para>
-   <para id="Para972173">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Vouch_voucherItemDistr.png" id="Graphic972171"/>
-            </imageobject>
-            <caption id="Caption972174">Distributing Costs to Costing
-          Element</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para id="Para972176">An Item's per unit Actual Cost will be
-      automatically updated after a Voucher is posted if the vouchered Cost
-      differs from the Item's current Actual Cost. The vouchered Cost for an
-      Item is determined by dividing the amount to distribute by the quantity
-      to voucher.</para>
-   </note>
-   <para id="Para972177">When distributing purchasing Costs to a specific
-    Costing Element, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972178">Costing Element</term>
-         <listitem id="listitemN0x180ac00N0x1889558">
-            <para>Specify the Costing Element you want to distribute purchasing
-          Costs to.</para>
-            <para id="Para972179">The "Material" Costing Element will be
-          selected by default once Line Item quantity has been tagged. You may
-          distribute Costs to more than one Costing Element per Voucher Item.
-          The list of available Costing Elements includes the system-defined
-          "Material" Costing Element, as well as any user-defined Costing
-          Elements designated as available to accept Purchase Order
-          distributions.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para972181">Be sure to specify the amount to distribute based
-      on the pricing found on the Purchase Order. The system will
-      automatically handle any calculations required to accommodate
-      Inventory/Vendor Unit of Measure (UOM) ratios which are not 1:1.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972182">Amount to Distribute</term>
-         <listitem id="listitemN0x180ac00N0x18895e8">
-            <para>Specify the purchasing amount to distribute to the specified
-          Costing Element. By default, the extended Price for the Purchase
-          Order Line Item will be entered here once Line Item quantity has
-          been tagged.</para>
-            <para id="Para972183">Any difference between the distribution amount
-          and the current Actual Cost amount for the Costing Element will
-          result in the posting of automatic updates to the current Actual
-          Cost when the Voucher is posted.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972184">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972185">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1889654">
-            <para>Closes the screen, returning you to the previous
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972186">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x188969c">
-            <para>Saves the distribution information and adds it to the
-          distribution list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972188">
-       
-      <indexterm significance="normal">
-         <primary>vouchers</primary>
-         <secondary>miscellaneous distributions for</secondary>
-      </indexterm>In addition to Line Item specific distributions, you may
-    also enter miscellaneous distributions to affect the Voucher as a whole.
-    To enter a miscellaneous distribution, select the NEW button from the main
-    Voucher screen. The following screen will appear:</para>
-   <para id="Para972192">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Vouch_miscVouchDistr.png" id="Graphic972190"/>
-            </imageobject>
-            <caption id="Caption972193">Miscellaneous Voucher
-          Distribution</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para972194">When entering a miscellaneous Voucher distribution,
-    you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972195">Distribution Options</term>
-         <listitem id="listitemN0x180ac00N0x18897bc">
-            <para>Select one of the following distribution options:</para>
-            <para id="Para972196">Account: Select a General Ledger Account to
-          use for the distribution.</para>
-            <para id="Para972197">Expense Category: Select an Expense Category
-          to use for the distribution.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972198">Amount to Distribute</term>
-         <listitem id="listitemN0x180ac00N0x1889804">
-            <para>Specify the amount of the miscellaneous distribution.</para>
-            <para id="Para972199">If there is a balance still to be distributed
-          once all Voucher Items have been distributed, then that remaining
-          amount will be entered here by default.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972200">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972201">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1889870">
-            <para>Closes the screen, returning you to the previous
-          screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972202">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18898b8">
-            <para>Saves the information and adds it to the list of miscellaneous
-          distributions, simultaneously adjusting both the Voucher amount
-          distributed and the balance distributed.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>vouchers</primary>
+      <secondary>creating new</secondary>
+    </indexterm> Enter New Voucher</title>
+  <para id="Para972086">To enter a new Voucher, select the "Enter New Voucher"
+  option. The following screen will appear:</para>
+  <para id="Para972090"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Vouch_voucherNew.png"
+                     id="Graphic972088" />
+        </imageobject>
+        <caption id="Caption972091">Enter New Voucher</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para972092">When entering a new Voucher, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972093">Voucher #</term>
+      <listitem id="listitemN0x180ac00N0x1882144">
+        <para>Next available Voucher Number will automatically display, unless
+        your system requires you to enter Voucher Numbers manually.</para>
+        <para id="Para972094">Default values and input parameters for Voucher
+        Numbers are configurable at the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972095">PO Number</term>
+      <listitem id="listitemN0x180ac00N0x188218c">
+        <para>Enter the Purchase Order Number of the Purchase Order you want
+        to create a Voucher for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972097"><indexterm significance="normal">
+          <primary>vouchers</primary>
+          <secondary>distributing quantities to</secondary>
+        </indexterm>Amount to Distribute</term>
+      <listitem id="listitemN0x180ac00N0x188221c">
+        <para>Specify the dollar amount you intend to distribute to the Vendor
+        for the specified Purchase Order. You may enter an amount greater than
+        the amount due on the Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972098">Amount Distributed</term>
+      <listitem id="listitemN0x180ac00N0x1882264">
+        <para>Displays sum of all Line Item distributions for specified
+        Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972099">Balance</term>
+      <listitem id="listitemN0x180ac00N0x18822ac">
+        <para>Displays the difference between amount to distribute and amount
+        distributed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972100">Flag for 1099</term>
+      <listitem id="listitemN0x180ac00N0x18822f4">
+        <para>Select to flag transaction for Form 1099 Tax reporting.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972101">Vendor</term>
+      <listitem id="listitemN0x180ac00N0x188233c">
+        <para>The name and address of the Vendor associated with the specified
+        Purchase Order will display here.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972102">Invoice Date</term>
+      <listitem id="listitemN0x180ac00N0x1882384">
+        <para>Enter an Invoice date for the Voucher. The Invoice date is used
+        for determining the due date, based on the specified Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972103">Distribution Date</term>
+      <listitem id="listitemN0x180ac00N0x18823cc">
+        <para>Enter the date of the current distribution. When the Voucher is
+        posted, this is the date when the posting will be recorded in the
+        General Ledger.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972104">Due Date</term>
+      <listitem id="listitemN0x180ac00N0x1882414">
+        <para>Enter the date payment is due to the Vendor. The due date is
+        derived when the specified Terms are added to the Invoice date.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972105">Terms</term>
+      <listitem id="listitemN0x180ac00N0x188245c">
+        <para>Specify the billing Terms for the Voucher.</para>
+        <para id="Para972106">By default, the billing Terms will be
+        transferred from the original Purchase Order. You may select alternate
+        Terms on the Voucher header.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para972108">You are given the opportunity to apply any billing
+    Terms Discounts when selecting a posted Voucher for payment.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972109">Vendor Invoice #</term>
+      <listitem id="listitemN0x180ac00N0x18824ec">
+        <para>Enter the Vendor Invoice Number associated with the specified
+        Purchase Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972110">Reference</term>
+      <listitem id="listitemN0x180ac00N0x1882534">
+        <para>Use this field to enter any notation or reference required for
+        further identification.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972111">P/O Items</term>
+      <listitem id="listitemN0x180ac00N0x188257c">
+        <para>Display lists Line Items associated with the specified Purchase
+        Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972112">Miscellaneous Distributions</term>
+      <listitem id="listitemN0x180ac00N0x18825c4">
+        <para>Display lists miscellaneous Cost distributions related to the
+        specified Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972113">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972114">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1882630">
+        <para>Closes the screen without entering a new Voucher, returning you
+        to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972115">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1882678">
+        <para>Creates the new Voucher.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para972117">You may select multiple Purchase Order Line Items
+    for distribution or clearing by highlighting them using your mouse--or a
+    combination of your mouse and either the SHIFT or CTRL keys.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972118">DISTRIBUTIONS</term>
+      <listitem id="listitemN0x180ac00N0x1882708">
+        <para>Highlight a Purchase Order Line Item and then select this button
+        to reach the Voucher Item distribution screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972119">DISTRIBUTE LINE</term>
+      <listitem id="listitemN0x180ac00N0x1882750">
+        <para>Highlight a Purchase Order Line Item(s) and then select this
+        button to automatically distribute all quantities and amounts for the
+        selected Voucher Item(s).</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972120">CLEAR</term>
+      <listitem id="listitemN0x180ac00N0x1882798">
+        <para>Highlight a Purchase Order Line Item(s) and then select this
+        button to automatically clear any distributions.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972121">DISTRIBUTE ALL</term>
+      <listitem id="listitemN0x180ac00N0x18827e0">
+        <para>Select to distribute quantities and amounts for all Voucher
+        Items.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972122">NEW</term>
+      <listitem id="listitemN0x180ac00N0x1882828">
+        <para>Select to enter a new miscellaneous distribution.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972123">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1882870">
+        <para>Enables you to edit highlighted miscellaneous distributions. The
+        edit screen is the same as that for creating a new miscellaneous
+        distribution--except that when editing, the fields will contain
+        miscellaneous distribution information. Double-clicking on a
+        miscellaneous distribution will also bring you to the editing
+        screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972124">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x18828b8">
+        <para>Highlight a miscellaneous distribution and then select this
+        button to remove the miscellaneous distribution from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972125">Right-clicking on a Purchase Order Item in the list of
+  Purchase Order Items enables you to select the following menu option:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/10/2/14)" />
+  </variablelist>
+  <xi:include href="voucherItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="voucherMiscDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
