@@ -1,59 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section535127">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>profit centers</primary>
-         <secondary>adding new numbers for</secondary>
-      </indexterm>Profit Center Number</title>
-   <para id="Para535696">
-       To add a new Profit
-  Center Number, select the NEW button. The following screen will
-  appear:</para>
-   <para id="Para535340">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_MI_profCentNew.png" id="Graphic535338"/>
-            </imageobject>
-            <caption id="Caption535341">Create New Profit Center Number</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para535700">When creating a new Profit Center Number, you are
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="profitCenter">
+  <title><indexterm significance="normal">
+      <primary>profit centers</primary>
+      <secondary>adding new numbers for</secondary>
+    </indexterm>Profit Center Number</title>
+  <para id="Para535696">To add a new Profit Center Number, select the NEW
+  button. The following screen will appear:</para>
+  <para id="Para535340"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_profCentNew.png" id="Graphic535338" />
+        </imageobject>
+        <caption id="Caption535341">Create New Profit Center Number</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para535700">When creating a new Profit Center Number, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para535704">Number</term>
-         <listitem id="listitemN0x180ac00N0x181aa84">
-            <para>Enter a number to identify the Profit Center.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535709">Description</term>
-         <listitem id="listitemN0x180ac00N0x181aacc">
-            <para>Enter a brief description of the Profit Center.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para535713">To the far right of the screen, the following buttons
+  <variablelist>
+    <varlistentry>
+      <term id="Para535704">Number</term>
+      <listitem id="listitemN0x180ac00N0x181aa84">
+        <para>Enter a number to identify the Profit Center.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535709">Description</term>
+      <listitem id="listitemN0x180ac00N0x181aacc">
+        <para>Enter a brief description of the Profit Center.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para535713">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para535714">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x181ab38">
-            <para>Closes the screen without creating a Profit Center Number,
+  <variablelist>
+    <varlistentry>
+      <term id="Para535714">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x181ab38">
+        <para>Closes the screen without creating a Profit Center Number,
         returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535715">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x181ab80">
-            <para>Creates the Profit Center Number and adds it to the master list
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535715">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x181ab80">
+        <para>Creates the Profit Center Number and adds it to the master list
         of Profit Center Numbers.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

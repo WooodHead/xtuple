@@ -1,48 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section574190">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>invoices</primary>
-         <secondary>adding line items to</secondary>
-      </indexterm>
-      Invoice Item</title>
-   <para id="Para574264">To add a new Invoice Line Item, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="invoiceItem">
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>adding line items to</secondary>
+    </indexterm> Invoice Item</title>
+  <para id="Para574264">To add a new Invoice Line Item, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para574268">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/AR_Inv_InvoiceItem.png" id="Graphic574266"/>
-            </imageobject>
-            <caption id="Caption574269">Create Invoice Line Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para574270">When creating a new Invoice Line Item, you are
+  <para id="Para574268"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AR_Inv_InvoiceItem.png"
+                     id="Graphic574266" />
+        </imageobject>
+        <caption id="Caption574269">Create Invoice Line Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para574270">When creating a new Invoice Line Item, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para574271">Invoice #</term>
-         <listitem id="listitemN0x180ac00N0x1878a44">
-            <para>Displays the Invoice Number specified in the "Invoice"
+  <variablelist>
+    <varlistentry>
+      <term id="Para574271">Invoice #</term>
+      <listitem id="listitemN0x180ac00N0x1878a44">
+        <para>Displays the Invoice Number specified in the "Invoice"
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574272">Line #</term>
-         <listitem id="listitemN0x180ac00N0x1878a8c">
-            <para>Displays the Line Item Number for the current Line Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574273">Item Type</term>
-         <listitem id="listitemN0x180ac00N0x1878ad4">
-            <para>Indicate the Item Type for the Invoice Line Item, by selecting
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574272">Line #</term>
+      <listitem id="listitemN0x180ac00N0x1878a8c">
+        <para>Displays the Line Item Number for the current Line Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574273">Item Type</term>
+      <listitem id="listitemN0x180ac00N0x1878ad4">
+        <para>Indicate the Item Type for the Invoice Line Item, by selecting
         one of the following options:</para>
-            <para id="Para574274">Item: The browse button located to the right of
+        <para id="Para574274">Item: The browse button located to the right of
         the field leads to a searchable list of Inventory Items. The list will
         contain sold Items available for purchase by the specified Customer.
         The list of available Items may vary from Customer to Customer,
@@ -57,21 +53,21 @@
         Item Site share a Ranking of "1", the default supplying Warehouse will
         be selected in alphabetical order. Item Sites are ranked using the
         Ranking mechanism on the Item Site master.</para>
-            <para id="Para574275">Miscellaneous: Enter a name and description for
+        <para id="Para574275">Miscellaneous: Enter a name and description for
         the miscellaneous, non-Inventory Item you are billing the Customer
         for. The name and description fields are free-form, meaning they
         accept unlimited alphanumeric characters. You must also select a Sales
         Category. Sales Categories are used to identify the General Ledger
         (G/L) Accounts to be used when non-Inventory Sales transactions take
         place.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574276">Customer P/N</term>
-         <listitem id="listitemN0x180ac00N0x1878b1c">
-            <para>If applicable, enter a Customer Part Number to further identify
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574276">Customer P/N</term>
+      <listitem id="listitemN0x180ac00N0x1878b1c">
+        <para>If applicable, enter a Customer Part Number to further identify
         the Item you are billing the Customer for.</para>
-            <para id="Para574277">In the case of Inventory Items, the Customer
+        <para id="Para574277">In the case of Inventory Items, the Customer
         Part Number will display automatically if you enter an Item Alias in
         the Item Number field. To enter an Item Alias, place the cursor in the
         Item Number field and then use the keyboard shortcut "CTRL + A". After
@@ -80,100 +76,98 @@
         desired Item from the list. The Item Alias will display as the
         Customer Part Number. Item Aliases are defined on the Item
         master.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574278">Qty. Ordered</term>
-         <listitem id="listitemN0x180ac00N0x1878b64">
-            <para>Enter the quantity of the Item you are billing for. The quantity
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574278">Qty. Ordered</term>
+      <listitem id="listitemN0x180ac00N0x1878b64">
+        <para>Enter the quantity of the Item you are billing for. The quantity
         ordered for Inventory Items is measured in the Item's Inventory
         UOM.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para574280">The Quantity Ordered for Inventory Items is based on
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para574280">The Quantity Ordered for Inventory Items is based on
     the Inventory UOM. But the Price is based on the Price UOM. Whenever these
     two UOMs are not identical, the Extended Price for a Line Item will be
     based on the following formula:</para>
-      <para id="Para574281">(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit
+    <para id="Para574281">(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit
     Price)</para>
-      <para id="Para574282">If for some reason the Prices don"t look correct,
+    <para id="Para574282">If for some reason the Prices don"t look correct,
     check the Item master for the Line Item in question. It may be that the
     Inventory and Price UOMs do not exist in a 1:1 relationship.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para574283">Qty. Billed</term>
-         <listitem id="listitemN0x180ac00N0x1878bf4">
-            <para>Specify the quantity of ordered Items you are billing
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para574283">Qty. Billed</term>
+      <listitem id="listitemN0x180ac00N0x1878bf4">
+        <para>Specify the quantity of ordered Items you are billing
         for.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574285">
-             
-            <indexterm significance="normal">
-               <primary>invoices</primary>
-               <secondary>line item pricing for</secondary>
-            </indexterm>Net Unit Price</term>
-         <listitem id="listitemN0x180ac00N0x1878c84">
-            <para>For Inventory Items having assigned Pricing Schedules, the Net
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574285"><indexterm significance="normal">
+          <primary>invoices</primary>
+          <secondary>line item pricing for</secondary>
+        </indexterm>Net Unit Price</term>
+      <listitem id="listitemN0x180ac00N0x1878c84">
+        <para>For Inventory Items having assigned Pricing Schedules, the Net
         Unit Price will be automatically calculated. For miscellaneous Items,
         the Net Unit Price must be entered manually.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574286">Extended Price</term>
-         <listitem id="listitemN0x180ac00N0x1878ccc">
-            <para>Displays the Extended Price.</para>
-            <para id="Para574287">The Extended Price for a Line Item is based on
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574286">Extended Price</term>
+      <listitem id="listitemN0x180ac00N0x1878ccc">
+        <para>Displays the Extended Price.</para>
+        <para id="Para574287">The Extended Price for a Line Item is based on
         the quantity ordered multiplied by the Net Unit Price.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574288">Pricing UOM</term>
-         <listitem id="listitemN0x180ac00N0x1878d14">
-            <para>Displays the Price UOM for an Inventory Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574289">Ratio</term>
-         <listitem id="listitemN0x180ac00N0x1878d5c">
-            <para>The ratio displayed here is the Price/Inventory UOM ratio, which
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574288">Pricing UOM</term>
+      <listitem id="listitemN0x180ac00N0x1878d14">
+        <para>Displays the Price UOM for an Inventory Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574289">Ratio</term>
+      <listitem id="listitemN0x180ac00N0x1878d5c">
+        <para>The ratio displayed here is the Price/Inventory UOM ratio, which
         is defined in the Item master for an Inventory Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574290">Unit Cost</term>
-         <listitem id="listitemN0x180ac00N0x1878da4">
-            <para>Displays the Standard Cost per unit for an Inventory
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574290">Unit Cost</term>
+      <listitem id="listitemN0x180ac00N0x1878da4">
+        <para>Displays the Standard Cost per unit for an Inventory
         Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574291">List Price</term>
-         <listitem id="listitemN0x180ac00N0x1878dec">
-            <para>Displays the sales List Price per unit for an Inventory
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574291">List Price</term>
+      <listitem id="listitemN0x180ac00N0x1878dec">
+        <para>Displays the sales List Price per unit for an Inventory
         Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574292">Customer Price</term>
-         <listitem id="listitemN0x180ac00N0x187e824">
-            <para>Displays the Price given to the specified Customer for an
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574292">Customer Price</term>
+      <listitem id="listitemN0x180ac00N0x187e824">
+        <para>Displays the Price given to the specified Customer for an
         Inventory Item.</para>
-            <para id="Para574293">Special Customer Prices can be set for
+        <para id="Para574293">Special Customer Prices can be set for
         individual Customers or Customer Groups by using a Pricing
         Schedule.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para574294">Notes</term>
-         <listitem id="listitemN0x180ac00N0x187e86c">
-            <para>This is a scrolling text field with word-wrapping for entering
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para574294">Notes</term>
+      <listitem id="listitemN0x180ac00N0x187e86c">
+        <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Invoice Item.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

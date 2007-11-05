@@ -1,55 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section559969">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>fiscal years</primary>
-         <secondary>creating new</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>accounting periods</primary>
-         <secondary>creating new fiscal year</secondary>
-      </indexterm>Fiscal Year</title>
-   <para id="Para560212">To create a new Fiscal Year, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="accountingYearPeriod">
+  <title><indexterm significance="normal">
+      <primary>fiscal years</primary>
+      <secondary>creating new</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>accounting periods</primary>
+      <secondary>creating new fiscal year</secondary>
+    </indexterm>Fiscal Year</title>
+  <para id="Para560212">To create a new Fiscal Year, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para559991">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_MI_fiscalYearNew.png" id="Graphic559989"/>
-            </imageobject>
-            <caption id="Caption559992">Create New Fiscal Year</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para559993">When creating a new Fiscal Year, you are presented
+  <para id="Para559991"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_fiscalYearNew.png"
+                     id="Graphic559989" />
+        </imageobject>
+        <caption id="Caption559992">Create New Fiscal Year</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para559993">When creating a new Fiscal Year, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para560151">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x188c6b8">
-            <para>Specify the start date for the Fiscal Year.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para560156">End Date</term>
-         <listitem id="listitemN0x180ac00N0x188c700">
-            <para>Specify the end date for the Fiscal Year.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para560158">Closed</term>
-         <listitem id="listitemN0x180ac00N0x188c748">
-            <para>Indicates whether a Fiscal Year is closed or not.</para>
-            <para id="Para570042">This option may also be used to close a Fiscal
+  <variablelist>
+    <varlistentry>
+      <term id="Para560151">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x188c6b8">
+        <para>Specify the start date for the Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para560156">End Date</term>
+      <listitem id="listitemN0x180ac00N0x188c700">
+        <para>Specify the end date for the Fiscal Year.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para560158">Closed</term>
+      <listitem id="listitemN0x180ac00N0x188c748">
+        <para>Indicates whether a Fiscal Year is closed or not.</para>
+        <para id="Para570042">This option may also be used to close a Fiscal
         Year. The act of closing a Fiscal Year prompts the system to calculate
         retained earnings for the year--and then transfer that balance to the
         Year End Equity Account specified at the system level. You should be
         careful not to close a Fiscal Year until you are certain you are ready
         to do so.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

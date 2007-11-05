@@ -1,109 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section548989">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>accounting periods</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Accounting Period</title>
-   <para id="Para524847">To create a new Accounting Period, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="accountingPeriod">
+  <title><indexterm significance="normal">
+      <primary>accounting periods</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Accounting Period</title>
+  <para id="Para524847">To create a new Accounting Period, select the NEW
   button. The following screen will appear:</para>
-   <para id="Para524812">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_MI_acctPeriodNew.png" id="Graphic524810"/>
-            </imageobject>
-            <caption id="Caption526332">Create New Accounting Period</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para526333">When creating a new Accounting Period, you are
+  <para id="Para524812"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_acctPeriodNew.png"
+                     id="Graphic524810" />
+        </imageobject>
+        <caption id="Caption526332">Create New Accounting Period</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para526333">When creating a new Accounting Period, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para575152">Name</term>
-         <listitem id="listitemN0x180ac00N0x1877bf4">
-            <para>Enter a name to describe the Accounting Period. This name will
+  <variablelist>
+    <varlistentry>
+      <term id="Para575152">Name</term>
+      <listitem id="listitemN0x180ac00N0x1877bf4">
+        <para>Enter a name to describe the Accounting Period. This name will
         be used as the Period's column header text when a Financial Report is
         generated. If not specified, then the Period's start and end dates
         will be used as the column header text.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para526346">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x1877c3c">
-            <para>Specify the start date for the Accounting Period.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para526351">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1877c84">
-            <para>Specify the end date for the Accounting Period.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para526341">Closed</term>
-         <listitem id="listitemN0x180ac00N0x1877ccc">
-            <para>Select to indicate the Accounting Period is closed.</para>
-            <para id="Para550091">You may not close an Accounting Period until a
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para526346">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x1877c3c">
+        <para>Specify the start date for the Accounting Period.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para526351">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1877c84">
+        <para>Specify the end date for the Accounting Period.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para526341">Closed</term>
+      <listitem id="listitemN0x180ac00N0x1877ccc">
+        <para>Select to indicate the Accounting Period is closed.</para>
+        <para id="Para550091">You may not close an Accounting Period until a
         subsequent Period has been created. If an Accounting Period is closed,
         Trial Balances for the Period may not be updated--except for Accounts
         which specifically allow posting into closed Periods. Reopening a
         closed Accounting Period will cause any pending Account activity to be
         posted into the Period. For more information on posting into closed
-        Periods, see the <link endterm="Anchor70374" id="XRef550161" linkend="Anchor70374"> Account Numbers</link>"Chart of Accounts"
+        Periods, see the <link endterm="Anchor70374" id="XRef550161"
+        linkend="Anchor70374"> Account Numbers</link>"Chart of Accounts"
         section. If this option is not selected, the Accounting Period is
         considered open.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para550098">The Trial Balances for an Accounting Period will
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para550098">The Trial Balances for an Accounting Period will
     automatically forward-update at the moment when the Accounting Period is
     closed. Also, the system will automatically reset the beginning balances
     for Revenue and Expense Accounts to $0 at the start of a new Fiscal
     Year.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para534804">Frozen</term>
-         <listitem id="listitemN0x180ac00N0x1877d5c">
-            <para>Select to indicate the Accounting Period is frozen.</para>
-            <para id="Para549791">You may not freeze an Accounting Period unless
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para534804">Frozen</term>
+      <listitem id="listitemN0x180ac00N0x1877d5c">
+        <para>Select to indicate the Accounting Period is frozen.</para>
+        <para id="Para549791">You may not freeze an Accounting Period unless
         the Period is already closed. Trial Balances may not be updated for
         Accounting Periods which are frozen. This restriction applies to all
         Accounts, even those Accounts which may be posted into closed
         Accounting Periods. Trial Balances may only be updated for Accounting
         Periods which are not frozen. If this option is not selected, the
         Accounting Period is considered not frozen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para550072">The "Closed" and "Frozen" options apply only to
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para550072">The "Closed" and "Frozen" options apply only to
     Trial Balances. Account activity is always posted to the General Ledger
     (G/L) regardless of whether Accounting Periods are closed or
     frozen.</para>
-   </note>
-   <para id="Para550062">To the far right of the screen, the following buttons
+  </note>
+  <para id="Para550062">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para526489">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1877dec">
-            <para>Closes the screen without creating an Accounting Period,
+  <variablelist>
+    <varlistentry>
+      <term id="Para526489">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1877dec">
+        <para>Closes the screen without creating an Accounting Period,
         returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para526490">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x187ae24">
-            <para>Creates the Accounting Period and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para526490">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x187ae24">
+        <para>Creates the Accounting Period and adds it to the master list of
         Accounting Periods.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

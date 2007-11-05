@@ -1,63 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section586878">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>tax registrations</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Tax Registration</title>
-   <para id="Para587116">To create a new Tax Registration, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="taxRegistration">
+  <title><indexterm significance="normal">
+      <primary>tax registrations</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Tax Registration</title>
+  <para id="Para587116">To create a new Tax Registration, select the NEW
   button. The following screen will appear:</para>
-   <para id="Para587491">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_MI_taxRegNew.png" id="Graphic587489"/>
-            </imageobject>
-            <caption id="Caption587492">Create New Tax Registration</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para587493">When creating a new Tax Registration, you are
+  <para id="Para587491"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_MI_taxRegNew.png" id="Graphic587489" />
+        </imageobject>
+        <caption id="Caption587492">Create New Tax Registration</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para587493">When creating a new Tax Registration, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para587539">Tax Authority</term>
-         <listitem id="listitemN0x180ac00N0x18aea3c">
-            <para>Specify the Tax Authority associated with the Tax Registration
+  <variablelist>
+    <varlistentry>
+      <term id="Para587539">Tax Authority</term>
+      <listitem id="listitemN0x180ac00N0x18aea3c">
+        <para>Specify the Tax Authority associated with the Tax Registration
         Number.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para587547">Registration Number</term>
-         <listitem id="listitemN0x180ac00N0x18aea84">
-            <para>Enter the appropriate Tax Registration Number for the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para587547">Registration Number</term>
+      <listitem id="listitemN0x180ac00N0x18aea84">
+        <para>Enter the appropriate Tax Registration Number for the specified
         Tax Authority.</para>
-            <para id="Para587548">The registration number is used by Tax
+        <para id="Para587548">The registration number is used by Tax
         Authorities to identify businesses and/or individuals. An Employer
         Identification Numbers (EIN) is an example of a Tax Registration
         Number.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para587501">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para587501">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para587502">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x18aeaf0">
-            <para>Closes the screen without creating a Tax Registration, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para587502">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18aeaf0">
+        <para>Closes the screen without creating a Tax Registration, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para587503">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18aeb38">
-            <para>Creates the Tax Registration and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para587503">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18aeb38">
+        <para>Creates the Tax Registration and adds it to the master list of
         Tax Registrations.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
