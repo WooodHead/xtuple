@@ -2,78 +2,62 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519656">
-  <title>
-      <anchor id="Anchor644807" role="Index" xreflabel="pricing:assigning schedules for"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>pricing</primary>
-
          <secondary>assigning schedules for</secondary>
       </indexterm>Pricing Schedule Assignments</title>
-
-  <para id="Para596076">In order for Pricing Schedules to take effect at Sales
+   <para id="Para596076">In order for Pricing Schedules to take effect at Sales
   Order entry, the Pricing Schedules must be linked--or assigned--to specific
   Customers or Customer Types. To assign Pricing Schedules to Customers,
   select the "Pricing Schedule Assignments" option. The following screen will
   appear:</para>
-
-  <para id="Para598039">
+   <para id="Para598039">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_IP_priceSchedAssign.png" id="Graphic598037"/>
             </imageobject>
-
             <caption id="Caption598040">Pricing Schedule Assignments</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para598194">When assigning Pricing Schedules to Customers, you are
+   <para id="Para598194">When assigning Pricing Schedules to Customers, you are
   presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para598195">Pricing Schedule Assignments</term>
-
          <listitem id="listitemN0x180ac00N0x194ae18">
             <para>Display lists any and all Pricing Schedule Assignments.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para598197">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para598197">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para598198">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x194ae84">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para653720">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x194aecc">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598199">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x194af14">
             <para>Opens screen for creating a new Pricing Schedule
         assignment.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598200">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x194af5c">
             <para>Enables you to edit highlighted Pricing Schedule assignment. The
         edit screen is the same as that for creating a new Pricing Schedule
@@ -82,18 +66,15 @@
         assignment will also bring you to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598201">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x194afa4">
             <para>Highlight a Pricing Schedule assignment and then select this
         button to remove the Pricing Schedule assignment from the list of
         Pricing Schedule assignments.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pricingScheduleAssignment.xml"
+   </variablelist>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pricingScheduleAssignment.xml"
                xpointer="element(/1)"/>
 </section>

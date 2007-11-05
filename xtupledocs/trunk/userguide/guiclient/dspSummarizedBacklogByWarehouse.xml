@@ -2,257 +2,198 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657335">
-    <title>
-      <anchor id="Anchor657334" role="Index"
-              xreflabel="backlog:summarized by warehouse;warehouses:backlog summarized by"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>backlog</primary>
-
-        <secondary>summarized by warehouse</secondary>
+         <primary>backlog</primary>
+         <secondary>summarized by warehouse</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>warehouses</primary>
-
-        <secondary>backlog summarized by</secondary>
+         <primary>warehouses</primary>
+         <secondary>backlog summarized by</secondary>
       </indexterm>Summarized Backlog by Warehouse</title>
-
-    <para id="Para657336">To view summarized Backlog by Warehouse, select the
+   <para id="Para657336">To view summarized Backlog by Warehouse, select the
     "Summarized Backlog by Warehouse" option. The following screen will
     appear:</para>
-
-    <para id="Para657340">
+   <para id="Para657340">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Disp_summBackByWare.png" id="Graphic657338"/>
             </imageobject>
-
             <caption id="Caption657341">Summarized Backlog by
           Warehouse</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para657342">When displaying summarized Backlog by Warehouse, you
+   <para id="Para657342">When displaying summarized Backlog by Warehouse, you
     are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657343">All Customer Types</term>
-
-        <listitem id="listitemN0x180ac00N0x198c33c">
+         <term id="Para657343">All Customer Types</term>
+         <listitem id="listitemN0x180ac00N0x198c33c">
             <para>Select to display summarized Backlog by Warehouse for all
           Customer Types.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657344">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x198c384">
+         <term id="Para657344">Selected</term>
+         <listitem id="listitemN0x180ac00N0x198c384">
             <para>Specify Customer Type whose Backlog by Warehouse you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657345">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x198c3cc">
+         <term id="Para657345">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x198c3cc">
             <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
-
             <para id="Para657348">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef657347" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657350">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x198c414">
+         <term id="Para657350">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x198c414">
             <para>Summarized Backlog by Warehouse entered on and after this date
           will be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657351">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x198c45c">
+         <term id="Para657351">End Date</term>
+         <listitem id="listitemN0x180ac00N0x198c45c">
             <para>Summarized Backlog by Warehouse entered on and before this
           date will be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657352">Show Prices and Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x198c4a4">
+         <term id="Para657352">Show Prices and Costs</term>
+         <listitem id="listitemN0x180ac00N0x198c4a4">
             <para>Select to include pricing and Cost information in the
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657353">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x198c4ec">
+         <term id="Para657353">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x198c4ec">
             <para>Select to display summarized Backlog for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657354">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x198c534">
+         <term id="Para657354">Selected</term>
+         <listitem id="listitemN0x180ac00N0x198c534">
             <para>Specify Warehouse whose summarized Backlog you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657355">Order By</term>
-
-        <listitem id="listitemN0x180ac00N0x198c57c">
+         <term id="Para657355">Order By</term>
+         <listitem id="listitemN0x180ac00N0x198c57c">
             <para>Select one of the following options to indicate how you want
           the results to be organized:</para>
-
             <para id="Para657356">Ship Date: Select to order the display by Ship
           Date.</para>
-
             <para id="Para657357">Pack Date: Select to order the display by Pack
           Date.</para>
-
             <para id="Para657358">S/O Number: Select to order the display by
           Sales Order Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657359">Backlog</term>
-
-        <listitem id="listitemN0x180ac00N0x198c5c4">
+         <term id="Para657359">Backlog</term>
+         <listitem id="listitemN0x180ac00N0x198c5c4">
             <para>Display lists summarized Backlog by Warehouse, using the
           specified parameters.</para>
-
             <para id="Para657360">The display is a nested list, with a plus
           ("+") sign located to the far left of the screen next to each line
           that may be expanded to lower levels. By clicking your mouse on a
           plus sign, you reveal lower levels of information related to the
           Order. If the "Show Prices and Costs" option is selected, additional
           columns showing sales Price, Cost, and margin will display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para657362">The Summarized Backlog by Warehouse display is
       color-coded for ease of use. The following colors are used to describe
       the backlog status of Sales Order Line Items:</para>
-
       <para id="Para657363">Blue: Order is at Shipping but is not yet
       shipped</para>
-
       <para id="Para657364">Green: Order has been shipped but is not yet
       invoiced</para>
-
       <para id="Para657365">Red: Part of the Order has been shipped and
       invoiced, but Backorder Items still need to be shipped and
       invoiced</para>
-
       <para id="Para657366">Order has remaining uninvoiced Line Items remain
       on Backorder</para>
-
       <para id="Para657367">Black: None of the above conditions is
       true.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para657368">Total Sales Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x198c654">
+         <term id="Para657368">Total Sales Orders</term>
+         <listitem id="listitemN0x180ac00N0x198c654">
             <para>Displays the total number of Sales Orders on Backlog.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657369">Total Line Items</term>
-
-        <listitem id="listitemN0x180ac00N0x198c69c">
+         <term id="Para657369">Total Line Items</term>
+         <listitem id="listitemN0x180ac00N0x198c69c">
             <para>Displays the total number of Sales Order Line Items on
           Backlog.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657370">Total Qty (Shipping UOM)</term>
-
-        <listitem id="listitemN0x180ac00N0x198c6e4">
+         <term id="Para657370">Total Qty (Shipping UOM)</term>
+         <listitem id="listitemN0x180ac00N0x198c6e4">
             <para>Displays the total number of unshipped Sales Order Line Items
           on Backlog.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para657371">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para657371">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657372">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x198c750">
+         <term id="Para657372">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x198c750">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657373">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x198c798">
+         <term id="Para657373">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x198c798">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657374">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x198c7e0">
+         <term id="Para657374">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x198c7e0">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para657375">Right-clicking on a Sales Order in the Backlog list
+   </variablelist>
+   <para id="Para657375">Right-clicking on a Sales Order in the Backlog list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/8)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/13)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/4)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/10)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

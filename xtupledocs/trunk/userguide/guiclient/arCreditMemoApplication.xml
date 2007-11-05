@@ -2,148 +2,117 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524414">
-  <title>
-      <anchor id="Anchor533935" role="Index" xreflabel="credit memos:list of unapplied"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>credit memos</primary>
-
          <secondary>applying unapplied</secondary>
       </indexterm>
       <indexterm significance="normal">
          <primary>debit memos</primary>
-
          <secondary>applying unapplied</secondary>
       </indexterm> 
       <anchor id="Anchor30541" role="Cross-Ref"
               xreflabel="30541: Heading2: List Unapplied Credit Memos"/>Apply Credit Memo
   Amount</title>
-
-  <para id="Para529228">To apply a Credit Memo amount to an open A/R Item,
+   <para id="Para529228">To apply a Credit Memo amount to an open A/R Item,
   select the APPLY button. The following screen will appear:</para>
-
-  <para id="Para529791">
+   <para id="Para529791">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_DCMems_applyCrItem.png" id="Graphic529789"/>
             </imageobject>
-
             <caption id="Caption529792">Apply Credit Memo Amount to Open A/R
         Item</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para529793">When applying a Credit Memo amount to an open A/R
+   <para id="Para529793">When applying a Credit Memo amount to an open A/R
   Item, you are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para529235">Customer #</term>
-
          <listitem id="listitemN0x180ac00N0x18a8100">
             <para>Displays the Customer Number of the Customer whose open A/R Item
         the amount is being applied to. The Customer name and billing address
         will also display.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529237">Doc. Number</term>
-
          <listitem id="listitemN0x180ac00N0x18a8148">
             <para>Displays the Document Number associated with the open A/R
         Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529238">Doc. Type</term>
-
          <listitem id="listitemN0x180ac00N0x18a8190">
             <para>Displays the Document Type of the Document.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529239">Doc. Date</term>
-
          <listitem id="listitemN0x180ac00N0x18a81d8">
             <para>Displays the Document's origination date.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529241">Due Date</term>
-
          <listitem id="listitemN0x180ac00N0x18a8220">
             <para>Displays the date the Document is due.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544556">Amount</term>
-
          <listitem id="listitemN0x180ac00N0x18a8268">
             <para>Displays the original amount due for the selected
         Document.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544557">Paid</term>
-
          <listitem id="listitemN0x180ac00N0x18a82b0">
             <para>Displays the amount paid to date toward the original Document
         amount.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544584">Balance</term>
-
          <listitem id="listitemN0x180ac00N0x18a82f8">
             <para>Displays the remaining balance due.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544594">Amount Available to Apply</term>
-
          <listitem id="listitemN0x180ac00N0x18a8340">
             <para>Displays the amount of the referring Credit Memo available to be
         applied.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544589">Amount to Apply</term>
-
          <listitem id="listitemN0x180ac00N0x18a8388">
             <para>Specify the amount to apply to the open A/R Item.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para529249">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para529249">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para529250">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x18a83f4">
             <para>Closes the screen without applying an amount to the Item,
         returning you to the application desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529251">SAVE</term>
-
          <listitem id="listitemN0x180ac00N0x18a843c">
             <para>Applies the amount to the Item.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

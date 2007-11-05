@@ -2,144 +2,114 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519450">
-    <title>
-      <anchor id="Anchor595448" role="Index"
-              xreflabel="components:mass replacement of;mass replacement:of component items;replacement:of component items"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>components</primary>
-
-        <secondary>mass replacement of</secondary>
+         <primary>components</primary>
+         <secondary>mass replacement of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>mass replacement</primary>
-
-        <secondary>of component items</secondary>
+         <primary>mass replacement</primary>
+         <secondary>of component items</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>replacement</primary>
-
-        <secondary>of component items</secondary>
+         <primary>replacement</primary>
+         <secondary>of component items</secondary>
       </indexterm>Mass Replace Component Item</title>
-
-    <para id="Para519451">The Mass Replace Component Item feature will save
+   <para id="Para519451">The Mass Replace Component Item feature will save
     you time whenever you need to replace components that are used in multiple
     Bills of Materials. To perform a mass replacement of a component Item,
     select the "Mass Replace Component Item" option. The following screen will
     appear:</para>
-
-    <para id="Para519455">
+   <para id="Para519455">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_BOM_massRepl.png" id="Graphic563056"/>
             </imageobject>
-
             <caption id="Caption519456">Mass Replace Component Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519457">When performing a mass replacement of a component
+   <para id="Para519457">When performing a mass replacement of a component
     Item, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519458">Item Number (Original Item)</term>
-
-        <listitem id="listitemN0x180ac00N0x18a972c">
+         <term id="Para519458">Item Number (Original Item)</term>
+         <listitem id="listitemN0x180ac00N0x18a972c">
             <para>Enter the Item Number of the component Item you want to
           replace.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519460">UOM (Original Item)</term>
-
-        <listitem id="listitemN0x180ac00N0x18a9774">
+         <term id="Para519460">UOM (Original Item)</term>
+         <listitem id="listitemN0x180ac00N0x18a9774">
             <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519462">Item Number (Replacement Item)</term>
-
-        <listitem id="listitemN0x180ac00N0x18a97bc">
+         <term id="Para519462">Item Number (Replacement Item)</term>
+         <listitem id="listitemN0x180ac00N0x18a97bc">
             <para>Enter the Item Number of the replacement Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519464">UOM (Original Item)</term>
-
-        <listitem id="listitemN0x180ac00N0x18a9804">
+         <term id="Para519464">UOM (Original Item)</term>
+         <listitem id="listitemN0x180ac00N0x18a9804">
             <para>Displays Inventory UOM automatically when Item Number is
           entered into "Item Number" field. The Item description will also
           appear.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519469">Effective</term>
-
-        <listitem id="listitemN0x180ac00N0x18a984c">
+         <term id="Para519469">Effective</term>
+         <listitem id="listitemN0x180ac00N0x18a984c">
             <para>Specify the effective date for the replacement</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519473">
-            <anchor id="Anchor600514" role="Index"
-                    xreflabel="engineering change notices:for mass replacement;mass replacement:of component items;replacement:of component items"/>
+         <term id="Para519473">
+            
             <indexterm significance="normal">
                <primary>engineering change notices</primary>
-
                <secondary>for mass replacement</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>mass replacement</primary>
-
                <secondary>of component items</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>replacement</primary>
-
                <secondary>of component items</secondary>
             </indexterm>ECN #</term>
-
-        <listitem id="listitemN0x180ac00N0x18a996c">
+         <listitem id="listitemN0x180ac00N0x18a996c">
             <para>Enter the Engineering Change Notice Number--if applicable--for
           the specified component Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519475">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519475">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519476">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18a99d8">
+         <term id="Para519476">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18a99d8">
             <para>Closes the screen without executing the replace command,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519477">REPLACE</term>
-
-        <listitem id="listitemN0x180ac00N0x18a9a20">
+         <term id="Para519477">REPLACE</term>
+         <listitem id="listitemN0x180ac00N0x18a9a20">
             <para>Executes the replace command.</para>
-
             <para id="Para519478">Every occurrence of the original Item in a
           Bill of Materials will be replaced by the replacement Item. The
           expiration and effective dates for the newly-created and replaced
           Bill of Materials Items will be set to the indicated effective
           date.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

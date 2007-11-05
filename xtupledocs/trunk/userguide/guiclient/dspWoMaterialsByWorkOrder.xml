@@ -2,133 +2,104 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519721">
-    <title>
-      <anchor id="Anchor533231" role="Index"
-              xreflabel="work orders:material requirements by;materials:w/o requirements and"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>material requirements by</secondary>
+         <primary>work orders</primary>
+         <secondary>material requirements by</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>materials</primary>
-
-        <secondary>w/o requirements and</secondary>
+         <primary>materials</primary>
+         <secondary>w/o requirements and</secondary>
       </indexterm>W/O Material Requirements by Work Order</title>
-
-    <para id="Para519722">To view Work Order Material Requirements by Work
+   <para id="Para519722">To view Work Order Material Requirements by Work
     Order, select the "W/O Material Requirements by Work Order" option. The
     following screen will appear:</para>
-
-    <para id="Para519726">
+   <para id="Para519726">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Disp_matReqsByWO.png" id="Graphic523999"/>
             </imageobject>
-
             <caption id="Caption519727">Work Order Material Requirements by Work
           Order</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519728">When displaying Work Order Material Requirements by
+   <para id="Para519728">When displaying Work Order Material Requirements by
     Work Order, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519729">Work Order #</term>
-
-        <listitem>
+         <term id="Para519729">Work Order #</term>
+         <listitem>
             <para>Enter the Work Order Number of the Work Order whose Material
           Requirements you want to view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519731">Whs.</term>
-
-        <listitem>
+         <term id="Para519731">Whs.</term>
+         <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519733">Item Number</term>
-
-        <listitem>
+         <term id="Para519733">Item Number</term>
+         <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568794">UOM</term>
-
-        <listitem>
+         <term id="Para568794">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519737">Status</term>
-
-        <listitem>
+         <term id="Para519737">Status</term>
+         <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519739">Material Requirements</term>
-
-        <listitem>
+         <term id="Para519739">Material Requirements</term>
+         <listitem>
             <para>Display lists Work Order Material Requirements by Work Order,
           using the specified parameters.</para>
-
             <para id="Para569330">The "Due Date" column is color-coded for ease
           of use. If the due date is past due, the date will display in
           red.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519741">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519741">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para548734">CLOSE</term>
-
-        <listitem>
+         <term id="Para548734">CLOSE</term>
+         <listitem>
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548735">PRINT</term>
-
-        <listitem>
+         <term id="Para548735">PRINT</term>
+         <listitem>
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para522911">Right-clicking on a component Item in the Material
+   </variablelist>
+   <para id="Para522911">Right-clicking on a component Item in the Material
     Requirements list enables you to select from the following menu
     options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/22)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para534595">The "Delete Requirement" option is only available if
+   </variablelist>
+   <para id="Para534595">The "Delete Requirement" option is only available if
     the component Item is not required by the Work Order.</para>
-  </section>
+</section>

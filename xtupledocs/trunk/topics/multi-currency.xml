@@ -2,21 +2,17 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section980069">
-    <title>
-      <anchor id="Anchor980068" role="Index"
-              xreflabel="topics:multi-currency basics;multi-currency:explained"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>topics</primary>
-
-        <secondary>multi-currency basics</secondary>
+         <primary>topics</primary>
+         <secondary>multi-currency basics</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>multi-currency</primary>
-
-        <secondary>explained</secondary>
+         <primary>multi-currency</primary>
+         <secondary>explained</secondary>
       </indexterm>Topic: Multi-Currency Basics</title>
-
-    <note>
+   <note>
       <para id="Para980071">The scenarios described in this section refer to
       Items and other data found in the OpenMFG Demo Database. The Demo
       Database is available for download from the OpenMFG website. The demo
@@ -26,308 +22,240 @@
       of the following exercise, you will set up a new Exchange Rate for
       British Pounds to simulate the normal fluctuations that take place in
       the Currency markets on a daily basis.</para>
-    </note>
-
-    <para id="Para980072">To illustrate OpenMFG's multi-currency integration,
+   </note>
+   <para id="Para980072">To illustrate OpenMFG's multi-currency integration,
     we will enter a Miscellaneous Invoice using a foreign Currency (in this
     case, British Pounds) and post it with today's date. We will then set up a
     new Exchange Rate having tomorrow's date. Next, we will enter a Cash
     Receipt and assign it tomorrow's date, as well. Finally, we will post the
     Cash Receipt and observe the resulting G/L transactions.</para>
-
-    <section id="Section980074">
+   <section id="Section980074">
       <title>
-         <anchor id="Anchor980073" role="Index"
-                 xreflabel="multi-currency:invoices and;invoices:foreign currencies and;currency:invoices and"/>
+         
          <indexterm significance="normal">
             <primary>multi-currency</primary>
-
             <secondary>invoices and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>invoices</primary>
-
             <secondary>foreign currencies and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>currency</primary>
-
             <secondary>invoices and</secondary>
-        </indexterm>Foreign Currency Invoices</title>
-
+         </indexterm>Foreign Currency Invoices</title>
       <para id="Para980075">We will begin by entering a Miscellaneous Invoice,
       indicating as we go that the Customer does business in British Pounds.
       To begin entering the Invoice, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856024">
+         <listitem id="listitemN0x180ac00N0x1856024">
             <para id="Para980076">Pull down the A/R Module menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856048">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856048">
             <para id="Para980077">Select the Invoices submenu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185606c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185606c">
             <para id="Para980078">Choose the "List Unposted Invoices"
           option</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856090">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856090">
             <para id="Para980079">Click the NEW button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18560b4">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18560b4">
             <para id="Para980080">Enter Customer Number "XTRM" in the "Customer
           #" field--or use the browse button to locate and select this
           Customer</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18560d8">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18560d8">
             <para id="Para980081">Click the COPY TO SHIP-TO button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18560fc">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18560fc">
             <para id="Para980082">Move to the Line Items tab</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856120">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856120">
             <para id="Para980083">Click the NEW button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856144">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856144">
             <para id="Para980084">On the new Invoice Item screen, select the
           "Miscellaneous" option</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856168">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856168">
             <para id="Para980085">Enter the following values:</para>
-
             <para id="Para980086">Item: "Product Design Services"</para>
-
             <para id="Para980087">Description: "Design of new product concept
           and delivery of prototype"</para>
-
             <para id="Para980088">Sales Category: NORMAL-SALE</para>
-
             <para id="Para980089">Qty. Ordered: 1</para>
-
             <para id="Para980090">Qty. Billed: 1</para>
-
             <para id="Para980091">Net Unit Price: 10,000 (followed by the TAB
           key)</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <note>
-        <para id="Para980093">The Customer in this scenario is billed in
+         <para id="Para980093">The Customer in this scenario is billed in
         British Pounds. Notice how the Currency conversion takes place
         automatically after you enter the Net Unit Price--and then hit the TAB
         key.</para>
       </note>
-
       <para id="Para980097">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F075-MC-Invioce-Line.png" id="Graphic980095"/>
                </imageobject>
-
                <caption id="Caption980098">New Invoice Line Item</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856240">
+         <listitem id="listitemN0x180ac00N0x1856240">
             <para id="Para980099">Click the SAVE button to return to the Invoice
           screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856264">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856264">
             <para id="Para980100">Click the SAVE button again to return to the
           Unposted Invoices screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856288">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856288">
             <para id="Para980101">You may optionally print your Invoice</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18562ac">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18562ac">
             <para id="Para980102">Right-click on the Invoice you just
           created</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18562d0">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18562d0">
             <para id="Para980103">Select the "Post" option from the right-click
           menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18562f4">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18562f4">
             <para id="Para980104">Click CLOSE exit the Unposted Invoices
           screen</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-    </section>
-
-    <section id="Section980106">
+   </section>
+   <section id="Section980106">
       <title>
-         <anchor id="Anchor980105" role="Index"
-                 xreflabel="multi-currency:exchange rates and;exchange rates:establishment of;currency:exchange rates and"/>
+         
          <indexterm significance="normal">
             <primary>multi-currency</primary>
-
             <secondary>exchange rates and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>exchange rates</primary>
-
             <secondary>establishment of</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>currency</primary>
-
             <secondary>exchange rates and</secondary>
-        </indexterm>Setting New Exchange Rates</title>
-
+         </indexterm>Setting New Exchange Rates</title>
       <para id="Para980107">Our next task is to simulate the effects of a
       fluctuating Exchange Rate. To do so, we will enter a new Exchange Rate
       for British Pounds that is effective as of tomorrow. To access the
       Currency Exchange Rates screen, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856438">
+         <listitem id="listitemN0x180ac00N0x1856438">
             <para id="Para980108">Pull down the System Module menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185645c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185645c">
             <para id="Para980109">Select the Master Information submenu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856480">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856480">
             <para id="Para980110">Choose the "Exchange Rates" option</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980111">First we will set the current Exchange Rate for
       British Pounds to expire as of today. This will ensure that any
       transactions posted after today will not use today's Exchange Rate. To
       expire today's Exchange Rate, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x18564c8">
+         <listitem id="listitemN0x180ac00N0x18564c8">
             <para id="Para980112">Open the Exchange Rates screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18564ec">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18564ec">
             <para id="Para980113">Double-click on the Exchange Rate entry for
           "GBP-<!--Pound-->"</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856510">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856510">
             <para id="Para980114">Change the value in the "End Date" field to
           today's date</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980118">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F076-ExchangeRateChange.png" id="Graphic980116"/>
                </imageobject>
-
                <caption id="Caption980119">Currency Exchange Rate</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x18565c4">
+         <listitem id="listitemN0x180ac00N0x18565c4">
             <para id="Para980120">Click the SAVE button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980121">Now we will create a new Exchange Rate for British
       Pounds that is effective starting tomorrow. To create a new Exchange
       rate, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x185660c">
+         <listitem id="listitemN0x180ac00N0x185660c">
             <para id="Para980122">Open the Exchange Rates screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856630">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856630">
             <para id="Para980123">Click the NEW button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856654">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856654">
             <para id="Para980124">Enter the following information:</para>
-
             <para id="Para980125">Currency: GBP-<!--Pound--></para>
-
             <para id="Para980126">Exchange Rate: 1.788</para>
-
             <para id="Para980127">Start Date: Enter tomorrow's date</para>
-
             <para id="Para980128">End Date: Enter 12/31/2008</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856678">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856678">
             <para id="Para980129">Click the SAVE button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185669c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185669c">
             <para id="Para980130">Return to the Exchange Rates screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18566c0">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18566c0">
             <para id="Para980131">Verify you have a rate for British Pounds that
           expires on the current date, as well as a different rate that is
           effective starting tomorrow</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980135">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F077-MC-ExchRates.png" id="Graphic980133"/>
                </imageobject>
-
                <caption id="Caption980136">Updated Currency Exchange
             Rates</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856774">
+         <listitem id="listitemN0x180ac00N0x1856774">
             <para id="Para980137">Click the CLOSE button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-    </section>
-
-    <section id="Section980139">
+   </section>
+   <section id="Section980139">
       <title>
-         <anchor id="Anchor980138" role="Index"
-                 xreflabel="multi-currency:cash receipts and;cash receipts:foreign currencies and;currency:cash receipts and"/>
+         
          <indexterm significance="normal">
             <primary>multi-currency</primary>
-
             <secondary>cash receipts and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>cash receipts</primary>
-
             <secondary>foreign currencies and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>currency</primary>
-
             <secondary>cash receipts and</secondary>
-        </indexterm>Receiving Cash in Foreign Currencies</title>
-
+         </indexterm>Receiving Cash in Foreign Currencies</title>
       <para id="Para980140">Now, let's suppose our Customer sends us a Check
       in British Pounds to cover the full Invoice amount. To simulate the
       normal time lag that occurs between the date when an Invoice is posted
@@ -336,147 +264,113 @@
       entering a new Exchange Rate with an effective date of tomorrow, the
       posting of the Cash Receipt will result in a Currency gain/loss being
       posted to the General Ledger. So let's get started.</para>
-
       <para id="Para980141">To enter a Cash Receipt with a distribution date
       of tomorrow, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x18568b8">
+         <listitem id="listitemN0x180ac00N0x18568b8">
             <para id="Para980142">Pull down the A/R menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x18568dc">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x18568dc">
             <para id="Para980143">Select the Cash Receipts submenu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856900">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856900">
             <para id="Para980144">Choose the "Cash Receipt Edit List"
           option</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856924">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856924">
             <para id="Para980145">Click the NEW button</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856948">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856948">
             <para id="Para980146">Enter the following information:</para>
-
             <para id="Para980147">Customer #: XTRM (followed by the TAB
           key)</para>
-
             <para id="Para980148">Amount Received: <!--Pound-->10,000 (i.e.,
           British Pounds)</para>
-
             <para id="Para980149">Check/Document#: 12011</para>
-
             <para id="Para980150">Post to: GBank-GBank</para>
-
             <para id="Para980151">Distribution Date: Enter tomorrow's date
           (e.g., +1)</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185696c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185696c">
             <para id="Para980152">Click on the APPLY TO BALANCE button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <note>
-        <para id="Para980154">Selecting the APPLY TO BALANCE button will
+         <para id="Para980154">Selecting the APPLY TO BALANCE button will
         distribute the <!--Pound-->10,000 Cash Receipt to the Invoice you
         previously entered and posted. The Invoice information is displayed in
         the Open Items section of the Cash Receipt screen.</para>
       </note>
-
       <para id="Para980158">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F078-MC-CashRcpt.png" id="Graphic980156"/>
                </imageobject>
-
                <caption id="Caption980159">Cash Receipt Screen Application in
             Foreign Currency</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856a44">
+         <listitem id="listitemN0x180ac00N0x1856a44">
             <para id="Para980160">Click the SAVE button on the Cash Receipt
           screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856a68">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856a68">
             <para id="Para980161">Return to the Cash Receipts Edit List
           screen</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856a8c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856a8c">
             <para id="Para980162">Right-click on your Cash Receipt</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856ab0">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856ab0">
             <para id="Para980163">Select the "Post" option from the right-click
           menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856ad4">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856ad4">
             <para id="Para980164">Click the CLOSE button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980165">Now let's look at the General Ledger postings that
       resulted from these transactions--and the impact that the fluctuating
       Exchange Rates had on them.</para>
-    </section>
-
-    <section id="Section980167">
+   </section>
+   <section id="Section980167">
       <title>
-         <anchor id="Anchor980166" role="Index"
-                 xreflabel="multi-currency:g/l traffic and;general ledger:multi-currency transactions and"/>
+         
          <indexterm significance="normal">
             <primary>multi-currency</primary>
-
             <secondary>g/l traffic and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>general ledger</primary>
-
             <secondary>multi-currency transactions and</secondary>
-        </indexterm>General Ledger Transactions and Multi-currency</title>
-
+         </indexterm>General Ledger Transactions and Multi-currency</title>
       <para id="Para980168">We will need to open one of the G/L Module's
       displays to view our recent G/L transaction activity. To view recent G/L
       activity, follow these steps:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1856bd0">
+         <listitem id="listitemN0x180ac00N0x1856bd0">
             <para id="Para980169">Pull down the G/L menu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856bf4">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856bf4">
             <para id="Para980170">Select the Displays submenu</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856c18">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856c18">
             <para id="Para980171">Choose the "G/L Transactions" option</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856c3c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856c3c">
             <para id="Para980172">Enter the following information:</para>
-
             <para id="Para980173">Start Date: Enter today's date (i.e.,
           0)</para>
-
             <para id="Para980174">End Date: Enter tomorrow's date (i.e.,
           +1)</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x1856c60">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1856c60">
             <para id="Para980175">Click the QUERY button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para980179">
          <anchor id="Anchor60395" role="Cross-Ref"
                  xreflabel="60395: Figure: Figure C.5:  G/L Transactions Screen Showing Result of Multi-currency Transactions"/>
@@ -485,18 +379,15 @@
                <imageobject>
                   <imagedata fileref="images/F079-MC-GL-Trans.png" id="Graphic980177"/>
                </imageobject>
-
                <caption id="Caption980181">G/L Transactions Screen Showing Result
             of Multi-currency Transactions</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <tip>
-        <para id="Para980183">You may want to adjust the width of the Account
+         <para id="Para980183">You may want to adjust the width of the Account
         column so you can view the entire Account Name.</para>
       </tip>
-
       <para id="Para980186">As you can see in <link endterm="Anchor60395" id="XRef980185" linkend="Anchor60395"> G/L Transactions Screen Showing
       Result of Multi-currency Transactions</link>Figure System.23, the
       Invoice (Doc. Type = "IN"), which was entered as 10,000 British Pounds,
@@ -508,5 +399,5 @@
       was applied is reflected in the entry in the Currency gain/loss account.
       In our example, the Exchange Rate has worked against us, as the British
       Pound weakened relative to the base Currency.</para>
-    </section>
-  </section>
+   </section>
+</section>

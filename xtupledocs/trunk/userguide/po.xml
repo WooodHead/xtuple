@@ -2,100 +2,75 @@
 <!DOCTYPE chapter
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter963475">
-  <title>
-      <anchor id="Anchor19238" role="Cross-Ref"
-              xreflabel="19238: ChapterTitle: Purchase Order (P/O) Module"/>Purchase
+   <title>
+      Purchase
   Order (P/O) Module</title>
-
-  <para id="Para519464">In this chapter, we describe the Purchase module. This
+   <para id="Para519464">In this chapter, we describe the Purchase module. This
   module is responsible for the following key functions:</para>
-
-  <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1819e48">
          <para id="Para518519">Purchase Orders</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819e6c">
          <para id="Para518521">Vouchers</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819e90">
          <para id="Para522158">Item Sourcing</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819eb4">
          <para id="Para518522">Vendor Information</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819ed8">
          <para id="Para519911">Receipts/Returns</para>
       </listitem>
-  </itemizedlist>
-
-  <section id="Section518524">
+   </itemizedlist>
+   <section id="Section518524">
       <title>
-         <anchor id="Anchor42191" role="Cross-Ref"
-                 xreflabel="42191: Heading1: Master Information"/> 
-         <anchor id="Anchor919357" role="Index" xreflabel="master information:for p/o module"/> 
+          
+          
          <indexterm significance="normal">
             <primary>master information</primary>
-
             <secondary>for p/o module</secondary>
          </indexterm>Master Information</title>
-
       <para id="Para518531">Each Master Information category gives you the
     ability to define and maintain essential data that support not only this
     module, but also other modules throughout the system.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/vendor.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/searchForVendor.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/vendors.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/vendorTypes.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/vendorType.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/rejectCodes.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/rejectCode.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/apAccountAssignments.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/apAccountAssignment.xml"
                   xpointer="element(/1)"/>
-  </section>
-
-  <section id="Section971640">
+   </section>
+   <section id="Section971640">
       <title>
-         <anchor id="Anchor924393" role="Index" xreflabel="purchase orders:vendor relations and"/> 
+          
          <indexterm significance="normal">
             <primary>purchase orders</primary>
-
             <secondary>vendor relations and</secondary>
          </indexterm>Purchase Orders</title>
-
       <para id="Para924395">
-         <anchor id="Anchor961882" role="Index" xreflabel="purchase orders:statuses of"/> 
+          
          <indexterm significance="normal">
             <primary>purchase orders</primary>
-
             <secondary>statuses of</secondary>
          </indexterm>A Purchase Order is a written authorization used to
     formalize purchase transactions with Vendors. Purchase Orders and/or
     Purchase Order Line Items can have the following statuses:</para>
-
       <orderedlist continuation="restarts" inheritnum="ignore">
          <listitem id="listitemN0x180ac00N0x185c824">
             <para id="Para932958">Unposted ("U"): This is the initial state a
@@ -104,160 +79,125 @@
         Items added to it. The List Unposted Purchase Orders screen will
         display all unposted Purchase Orders.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x185c848">
             <para id="Para932467">Open ("O"): The status of a Purchase Order after
         it has been posted. Line Items may no longer be added to a posted
         Purchase Order.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x185c86c">
             <para id="Para961863">Received: The status of an open Purchase Order
         Line Item when the full quantity has been received.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x185c890">
             <para id="Para961864">Partial: The status of an open Purchase Order
         Line Item when only part of the full quantity has been
         received.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x185c8b4">
             <para id="Para932470">Closed ("C"): The final state of a Purchase
         Order after it has been closed.</para>
          </listitem>
       </orderedlist>
-
       <tip>
          <para id="Para952604">A Purchase Order will remain open if at least one
       of its Line Items is open. Once all Line Items are closed, the Purchase
       Order will also be closed. To reopen a closed Purchase Order, simply
       open one of its closed Line Items.</para>
       </tip>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/purchaseOrder.xml"
                   xpointer="element(Section972320)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/unpostedPurchaseOrders.xml"
                   xpointer="element(Section972514)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/printPurchaseOrder.xml"
                   xpointer="element(Section972547)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/printPurchaseOrdersByAgent.xml"
                   xpointer="element(Section969550)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/deliverPurchaseOrder.xml"
                   xpointer="element(Section932714)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postPurchaseOrder.xml"
                   xpointer="element(Section972566)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/postPurchaseOrdersByAgent.xml"
                   xpointer="element(Section518750)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/closePurchaseOrder.xml"
                   xpointer="element(Section518763)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reschedulePoitem.xml"
                   xpointer="element(Section940909)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/changePoitemQty.xml"
                   xpointer="element(Section942284)"/>
-
       <section id="Section940919">
          <title>Add Comment to Purchase Order</title>
-
          <para id="Para940924">To add a Comment to a Purchase Order, select the
       "Add Comment to Purchase Order" option. The following screen will
       appear:</para>
-
          <para id="Para942023">
             <screenshot>
                <mediaobject>
                   <imageobject>
                      <imagedata fileref="images/PO_PO_addPOComm.png" id="Graphic942021"/>
                   </imageobject>
-
                   <caption id="Caption942024">Purchase Order Comments</caption>
                </mediaobject>
             </screenshot>
          </para>
-
          <para id="Para942065">When adding Comments related to a Purchase Order,
       you are presented with the following options:</para>
-
          <variablelist>
             <varlistentry>
                <term id="Para942066">Comments</term>
-
                <listitem id="listitemN0x180ac00N0x18788a8">
                   <para>Display lists Comments for the specified Purchase
             Order.</para>
                </listitem>
             </varlistentry>
          </variablelist>
-
          <para id="Para942068">To the far right of the screen, the following
       buttons are available:</para>
-
          <variablelist>
             <varlistentry>
                <term id="Para942188">CLOSE</term>
-
                <listitem id="listitemN0x180ac00N0x1878914">
                   <para>Closes the screen, returning you to the application
             desktop.</para>
                </listitem>
             </varlistentry>
-
             <varlistentry>
                <term id="Para942069">NEW</term>
-
                <listitem id="listitemN0x180ac00N0x187895c">
                   <para>Opens screen for creating a new Comment.</para>
                </listitem>
             </varlistentry>
-
             <varlistentry>
                <term id="Para942070">VIEW</term>
-
                <listitem id="listitemN0x180ac00N0x18789a4">
                   <para>Highlight a Comment and then select this button to reach a
             read-only view of the Comment.</para>
                </listitem>
             </varlistentry>
          </variablelist>
-
          <para id="Para942072">To create a new Purchase Order Comment, select the
       NEW button. The following screen will appear:</para>
-
          <para id="Para942076">
             <screenshot>
                <mediaobject>
                   <imageobject>
                      <imagedata fileref="images/CommentNew.png" id="Graphic942074"/>
                   </imageobject>
-
                   <caption id="Caption942077">Create New Comment</caption>
                </mediaobject>
             </screenshot>
          </para>
-
          <variablelist>
             <varlistentry>
                <term id="Para942078">Comment Type</term>
-
                <listitem id="listitemN0x180ac00N0x187ac6c">
                   <para>Specify one of the following Comment Types from the
             drop-down list: ChangeLog or General.</para>
-
                   <para id="Para942079">Comment Types are used to categorize
             Comments. Once you have specified a Comment Type, you may type
             your Comment in the main text area. The text area features
@@ -265,23 +205,18 @@
                </listitem>
             </varlistentry>
          </variablelist>
-
          <para id="Para942080">To the far right of the screen, the following
       buttons are available:</para>
-
          <variablelist>
             <varlistentry>
                <term id="Para942081">CANCEL</term>
-
                <listitem id="listitemN0x180ac00N0x187acd8">
                   <para>Closes the screen without creating a new Comment, returning
             you to the previous screen.</para>
                </listitem>
             </varlistentry>
-
             <varlistentry>
                <term id="Para959107">SAVE</term>
-
                <listitem id="listitemN0x180ac00N0x187ad20">
                   <para>Creates the Comment and adds it to the list of Purchase
             Order Comments.</para>
@@ -289,163 +224,120 @@
             </varlistentry>
          </variablelist>
       </section>
-  </section>
-
-  <section id="Section972014">
+   </section>
+   <section id="Section972014">
       <title>
-         <anchor id="Anchor972013" role="Index" xreflabel="vouchers:vendor relations and"/> 
+          
          <indexterm significance="normal">
             <primary>vouchers</primary>
-
             <secondary>vendor relations and</secondary>
          </indexterm>Vouchers</title>
-
       <para id="Para972015">Vouchers are documents authorizing payment to
     Vendors who have either performed services or supplied goods. A voucher
     "vouches for" the fact that these goods or services have been
     provided.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspUninvoicedReceivings.xml"
                   xpointer="element(Section972017)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/voucher.xml"
                   xpointer="element(Section972085)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/miscVoucher.xml"
                   xpointer="element(Section972204)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/openVouchers.xml"
                   xpointer="element(Section972251)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/voucheringEditList.xml"
                   xpointer="element(Section972283)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postVouchers.xml"
                   xpointer="element(Section972299)"/>
-  </section>
-
-  <section id="Section959109">
+   </section>
+   <section id="Section959109">
       <title>Item Sources</title>
-
       <para id="Para959110">Item Sources identify the relationship between Items
     and the Vendors who supply them.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/itemSource.xml"
                   xpointer="element(Section520355)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/itemSourceList.xml"
                   xpointer="element(Section520610)"/>
-  </section>
-
-  <section id="Section518907">
+   </section>
+   <section id="Section518907">
       <title>P/O Reports</title>
-
       <para id="Para930471">This module offers a number of reports.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPurchaseReqsByItem.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPurchaseReqsByPlannerCode.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspItemSitesByPlannerCode.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPOsByDate.xml"
                   xpointer="element(Section955950)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPOsByVendor.xml"
                   xpointer="element(Section958417)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoItemsByVendor.xml"
                   xpointer="element(Section518917)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPoItemsByItem.xml"
                   xpointer="element(Section518919)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPoItemsByDate.xml"
                   xpointer="element(Section920970)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspPoHistory.xml"
                   xpointer="element(Section971614)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspItemSourcesByVendor.xml"
                   xpointer="element(Section954960)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspItemSourcesByItem.xml"
                   xpointer="element(Section518921)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/buyCard.xml"
                   xpointer="element(Section921353)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoItemReceivingsByVendor.xml"
                   xpointer="element(Section535325)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoItemReceivingsByItem.xml"
                   xpointer="element(Section518924)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoItemReceivingsByDate.xml"
                   xpointer="element(Section535280)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoPriceVariancesByVendor.xml"
                   xpointer="element(Section518926)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoPriceVariancesByItem.xml"
                   xpointer="element(Section518928)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoDeliveryDateVariancesByVendor.xml"
                   xpointer="element(Section970069)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoDeliveryDateVariancesByItem.xml"
                   xpointer="element(Section914385)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspPoReturnsByVendor.xml"
                   xpointer="element(Section518930)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printPoForm.xml"
                   xpointer="element(Section965215)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printVendorForm.xml"
                   xpointer="element(Section965234)"/>
-  </section>
-
-  <section id="Section951811">
+   </section>
+   <section id="Section951811">
       <title>
-         <anchor id="Anchor951810" role="Index" xreflabel="utilities:in p/o module"/> 
+          
          <indexterm significance="normal">
             <primary>utilities</primary>
-
             <secondary>in p/o module</secondary>
          </indexterm>Utilities</title>
-
       <para id="Para951812">Utilities for the module are handled here.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspItemsWithoutItemSources.xml"
                   xpointer="element(Section940988)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/assignItemToPlannerCode.xml"
                   xpointer="element(Section518989)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/assignClassCodeToPlannerCode.xml"
                   xpointer="element(Section518990)"/>
-  </section>
+   </section>
 </chapter>

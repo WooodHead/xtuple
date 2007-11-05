@@ -2,194 +2,157 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section942568">
-    <title>
-      <anchor id="Anchor942567" role="Index" xreflabel="configuration:of g/l module"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>configuration</primary>
-
-        <secondary>of g/l module</secondary>
+         <primary>configuration</primary>
+         <secondary>of g/l module</secondary>
       </indexterm>Configure G/L</title>
-
-    <para id="Para964155">The system uses a multi-segment approach to defining
+   <para id="Para964155">The system uses a multi-segment approach to defining
     General Ledger accounts. The various segments include the
     following:</para>
-
-    <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x18bab6c">
-        <para id="Para964156">Base Account Segment</para>
+         <para id="Para964156">Base Account Segment</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18bab90">
-        <para id="Para964157">Company Segment</para>
+         <para id="Para964157">Company Segment</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18babb4">
-        <para id="Para964158">Profit Center</para>
+         <para id="Para964158">Profit Center</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18babd8">
-        <para id="Para964159">Subaccount</para>
+         <para id="Para964159">Subaccount</para>
       </listitem>
-    </itemizedlist>
-
-    <para id="Para964183">Depending on the parameters selected, the system
+   </itemizedlist>
+   <para id="Para964183">Depending on the parameters selected, the system
     will display General Ledger Account Numbers in the Profit Center-Account
     Number-Subaccount sequence. An example of this sequence would be
     001-11111-001.</para>
-
-    <tip>
+   <tip>
       <para id="Para964198">It is important to realize that the system does
       not utilize sub-Accounts in the same manner that some other packaged
       software does. It does not roll-up into the base account, but allows you
       to define "related" Accounts.</para>
-    </tip>
-
-    <para id="Para964166"/>
-
-    <para id="Para942569">To configure the General Ledger (G/L) module, select
+   </tip>
+   <para id="Para964166"/>
+   <para id="Para942569">To configure the General Ledger (G/L) module, select
     the "Configure G/L" option. The following screen will appear:</para>
-
-    <para id="Para942573">
+   <para id="Para942573">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/Sys_configGL.png" id="Graphic942571"/>
             </imageobject>
-
             <caption id="Caption942574">Configure G/L Module</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para942575">When configuring the G/L module, you are presented
+   <para id="Para942575">When configuring the G/L module, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para942868">Main Segment Size</term>
-
-        <listitem id="listitemN0x180ac00N0x18bacd4">
+         <term id="Para942868">Main Segment Size</term>
+         <listitem id="listitemN0x180ac00N0x18bacd4">
             <para>Specify a main Segment size value between 3 and 10.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para964201"/>
-
-    <itemizedlist>
+   </variablelist>
+   <para id="Para964201"/>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x18bad1c">
-        <para id="Para964212">This setting defines how large the base Account
+         <para id="Para964212">This setting defines how large the base Account
         Number portion should be. For example, if you specify "4" here, then
         your Account Numbers would probably range from 1000 through 9999.
         Similarly, if you specify "5" then your Account Number range would be
         from 10000 though 99999.</para>
-
-        <para id="Para964215">Use Company Segment: Select to utilize a Company
+         <para id="Para964215">Use Company Segment: Select to utilize a Company
         Segment by default. This is an optional setting.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18bad40">
-        <para id="Para948929">Company Segment Size: If a Company Segment is
+         <para id="Para948929">Company Segment Size: If a Company Segment is
         being utilized, specify a Company Segment size value between 1 and
         10.</para>
-
-        <para id="Para942743">Use Profit Centers: Select to utilize Profit
+         <para id="Para942743">Use Profit Centers: Select to utilize Profit
         Centers by default. This is an optional setting.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18bad64">
-        <para id="Para964240">Profit Center Segment Size: If Profit Centers
+         <para id="Para964240">Profit Center Segment Size: If Profit Centers
         are being utilized, specify a Profit Center Segment size value between
         1 and 10. This segment is placed at the front end of the Account
         Number. Profit Centers are typically used to identify activity for
         different Warehouses.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18bad88">
-        <para id="Para948946">Allow Free-Form Profit Centers: Select to allow
+         <para id="Para948946">Allow Free-Form Profit Centers: Select to allow
         free-form Profit Centers. Free-form means the values may be edited on
         the Account Number master. In other words, you will not be required to
         select a predetermined Profit Center value from the list. Using
         free-form Profit Centers can lead to inconsistent Account Numbers if
         not handled correctly.</para>
-
-        <para id="Para942745">Use Subaccounts: Select to utilize Subaccounts
+         <para id="Para942745">Use Subaccounts: Select to utilize Subaccounts
         by default. This is an optional setting.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18badac">
-        <para id="Para942746">Subaccount Segment Size: If Subaccounts are
+         <para id="Para942746">Subaccount Segment Size: If Subaccounts are
         being utilized, specify a Subaccount Segment size value between 1 and
         10. This segment is placed at the back end of the Account Number.
         Subaccounts are typically used to identify activity for similar types
         of accounts where detail is important.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18badd0">
-        <para id="Para948955">Allow Free-Form Subaccounts: Select to allow
+         <para id="Para948955">Allow Free-Form Subaccounts: Select to allow
         free-form Subaccounts. Free-form means the values may be edited on the
         Account Number master. In other words, you will not be required to
         select a predetermined Subaccount value from the list. Using free-form
         Subaccounts can lead to inconsistent Account Numbers if not handled
         correctly.</para>
-
-        <para id="Para958769">Enforce mandatory notes for Manual G/L Entries:
+         <para id="Para958769">Enforce mandatory notes for Manual G/L Entries:
         Select if you want to require users to be required to enter Notes when
         posting simple or series manual Journal entries.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18badf4">
-        <para id="Para958781">If this option is not selected, users will not
+         <para id="Para958781">If this option is not selected, users will not
         be required to enter Notes when posting simple or series manual
         Journal entries.</para>
       </listitem>
-    </itemizedlist>
-
-    <tip>
+   </itemizedlist>
+   <tip>
       <para id="Para961607">Try to avoid changing your Year End Equity Account
       if you have already used it to close a Fiscal Year. If you do change
       this Account after a fiscal year has been closed, be sure to consult
       your system administrator. The trial balance for the new Account will
       need to be manually updated.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para973515">Allow manual entry of G/L Account Numbers</term>
-
-        <listitem id="listitemN0x180ac00N0x18bae84">
+         <term id="Para973515">Allow manual entry of G/L Account Numbers</term>
+         <listitem id="listitemN0x180ac00N0x18bae84">
             <para>Select to enable users to manually enter G/L Account Numbers
           wherever G/L Account Numbers may be entered.</para>
-
             <para id="Para973590">If not selected, users will be required to use
           a browse button to select G/L Account Numbers from a list.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para973597">If Account Numbers have multiple segments
       separated by dashes, the dashes must be included when manually entering
       G/L Account Numbers. If the dashes are not included, the manual entry
       will not work.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para973523">Default Tax Authority</term>
-
-        <listitem id="listitemN0x180ac00N0x18baf14">
+         <term id="Para973523">Default Tax Authority</term>
+         <listitem id="listitemN0x180ac00N0x18baf14">
             <para>Specify the default Tax Authority to be used when setting up
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para958569">Retained Earnings, Year End Account</term>
-
-        <listitem id="listitemN0x180ac00N0x18baf5c">
+         <term id="Para958569">Retained Earnings, Year End Account</term>
+         <listitem id="listitemN0x180ac00N0x18baf5c">
             <para>Select a valid General Ledger Account.</para>
-
             <para id="Para967578">This is an Equity Account. It will be credited
           if retained earnings are positive--and debited if retained earnings
           are negative. The retained earnings calculation occurs when a Fiscal
@@ -198,24 +161,19 @@
           Equity Account. The system then automatically resets the beginning
           balances for Revenue and Expense Accounts to $0 for the start of the
           new Fiscal Year.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <title>Note</title>
-
       <para id="Para967562">The Currency Gain/Loss Account is needed only for
       databases where multiple Currencies are used.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para967539">Currency Gain/Loss Account</term>
-
-        <listitem id="listitemN0x180ac00N0x18c3800">
+         <term id="Para967539">Currency Gain/Loss Account</term>
+         <listitem id="listitemN0x180ac00N0x18c3800">
             <para>Select a valid General Ledger Account.</para>
-
             <para id="Para967540">This is an Expense Account. It will debited
           for Currency gains and credited for Currency losses arising from
           fluctuating Exchange Rates. Currency gains/losses may be recognized
@@ -226,59 +184,47 @@
           gain or loss arises when the Exchange Rate used for the Apply-To
           document differs from the Exchange Rate used for the
           application.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para967115">G/L Series Discrepancy Account</term>
-
-        <listitem id="listitemN0x180ac00N0x18c3848">
+         <term id="Para967115">G/L Series Discrepancy Account</term>
+         <listitem id="listitemN0x180ac00N0x18c3848">
             <para>Select a valid General Ledger Account.</para>
-
             <para id="Para967116">This is an Expense Account. It will be debited
           or credited if rounding errors cause discrepancies when multiple
           line item (i.e., series) transactions are posted to the General
           Ledger. If used, the amounts posted to this Account will be
           miniscule, as rounding errors are fractional by nature.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para967123">Meaning of Currency Exchange Rates</term>
-
-        <listitem id="listitemN0x180ac00N0x18c3890">
+         <term id="Para967123">Meaning of Currency Exchange Rates</term>
+         <listitem id="listitemN0x180ac00N0x18c3890">
             <para>Specify how you want Exchange Rates to be implemented and also
           displayed on the Exchange Rates master list:</para>
-
             <para id="Para967127">Base x Exchange Rate = Foreign: If selected,
           this equation will be used.</para>
-
             <para id="Para967131">Foreign x Exchange Rate = Base: If selected,
           this equation will be used.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para967435">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para967435">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para942749">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18c38fc">
+         <term id="Para942749">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18c38fc">
             <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para942750">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18c3944">
+         <term id="Para942750">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18c3944">
             <para>Saves the configuration settings, returning you to the
           application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

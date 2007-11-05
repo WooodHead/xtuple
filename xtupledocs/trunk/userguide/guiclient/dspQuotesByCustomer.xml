@@ -2,47 +2,37 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section618696">
-    <title>
-      <anchor id="Anchor618695" role="Index"
-              xreflabel="quotes:looking up by customer;customers:looking up by quote"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>quotes</primary>
-
-        <secondary>looking up by customer</secondary>
+         <primary>quotes</primary>
+         <secondary>looking up by customer</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>customers</primary>
-
-        <secondary>looking up by quote</secondary>
+         <primary>customers</primary>
+         <secondary>looking up by quote</secondary>
       </indexterm>Quote Lookup by Customer</title>
-
-    <para id="Para618697">To view Quotes by Customer, select the "Quote Lookup
+   <para id="Para618697">To view Quotes by Customer, select the "Quote Lookup
     by Customer" option from the "Displays" menu. The following screen will
     appear:</para>
-
-    <para id="Para618701">
+   <para id="Para618701">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Disp_quoteLookCust.png" id="Graphic618699"/>
             </imageobject>
-
             <caption id="Caption618702">Quote Lookup by Customer</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para618703">When displaying Quotes by Customer, you are
+   <para id="Para618703">When displaying Quotes by Customer, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para618704">Customer #</term>
-
-        <listitem id="listitemN0x180ac00N0x1969ba8">
+         <term id="Para618704">Customer #</term>
+         <listitem id="listitemN0x180ac00N0x1969ba8">
             <para>Enter the Customer Number of the Customer whose Quotes you
           want to view.</para>
-
             <para id="Para618705">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
@@ -54,82 +44,64 @@
           ("$"), the Customer's credit Status is "On Credit Warning." A red
           dollar sign ("$") indicates the Customer's credit Status is "On
           Credit Hold."</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618706">All P/O #s</term>
-
-        <listitem id="listitemN0x180ac00N0x1969bf0">
+         <term id="Para618706">All P/O #s</term>
+         <listitem id="listitemN0x180ac00N0x1969bf0">
             <para>Select to display all Purchase Order Numbers for the specified
           Customer.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618707">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1969c38">
+         <term id="Para618707">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1969c38">
             <para>Specify the Customer Purchase Order Number you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618711">Starting Order Date</term>
-
-        <listitem id="listitemN0x180ac00N0x1969c80">
+         <term id="Para618711">Starting Order Date</term>
+         <listitem id="listitemN0x180ac00N0x1969c80">
             <para>Quotes entered on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618716">Ending Order Date</term>
-
-        <listitem id="listitemN0x180ac00N0x1969cc8">
+         <term id="Para618716">Ending Order Date</term>
+         <listitem id="listitemN0x180ac00N0x1969cc8">
             <para>Quotes entered on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618819">Quotes</term>
-
-        <listitem id="listitemN0x180ac00N0x1969d10">
+         <term id="Para618819">Quotes</term>
+         <listitem id="listitemN0x180ac00N0x1969d10">
             <para>Display lists Quotes for the specified Customer.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para618720">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para618720">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para618721">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1969d7c">
+         <term id="Para618721">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1969d7c">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para618723">Right-clicking on a Quote in the Quotes list enables
+   </variablelist>
+   <para id="Para618723">Right-clicking on a Quote in the Quotes list enables
     you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/3)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

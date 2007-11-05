@@ -2,121 +2,95 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section621694">
-    <title>
-      <anchor id="Anchor621693" role="Index"
-              xreflabel="sales orders:linked to purchase orders;purchase orders:linked to sales orders"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>sales orders</primary>
-
-        <secondary>linked to purchase orders</secondary>
+         <primary>sales orders</primary>
+         <secondary>linked to purchase orders</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>purchase orders</primary>
-
-        <secondary>linked to sales orders</secondary>
+         <primary>purchase orders</primary>
+         <secondary>linked to sales orders</secondary>
       </indexterm>Sales Order Lookup by Customer PO</title>
-
-    <para id="Para621695">To view Sales Orders by Customer Purchase Order,
+   <para id="Para621695">To view Sales Orders by Customer Purchase Order,
     select the "Sales Order Lookup by Customer PO" option from the "Displays"
     menu. The following screen will appear:</para>
-
-    <para id="Para621699">
+   <para id="Para621699">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Disp_soLookByPO.png" id="Graphic621697"/>
             </imageobject>
-
             <caption id="Caption621700">Sales Order Lookup by Customer
           PO</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para621701">When displaying Sales Orders by Customer Purchase
+   <para id="Para621701">When displaying Sales Orders by Customer Purchase
     Order, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para621778">PO Number</term>
-
-        <listitem id="listitemN0x180ac00N0x1963514">
+         <term id="Para621778">PO Number</term>
+         <listitem id="listitemN0x180ac00N0x1963514">
             <para>Enter an Order Number or Regular Expression.</para>
-
             <para id="Para621779">The display will show Sales Orders associated
           with the specified Purchase Order Number(s).</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para621781">The "PO Number" field supports pattern matching
       with Regular Expressions. For more information on matching patterns
       using Regular Expressions, see <link endterm="Anchor77806" id="XRef640058" linkend="Anchor77806"> Pattern Matching with Regular
       Expressions</link>"Topic: Pattern Matching with Regular Expressions"
       section of the <link endterm="Anchor23250" id="XRef621786" linkend="Anchor23250"> Introduction</link>Introduction.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para621708">Starting Order Date</term>
-
-        <listitem id="listitemN0x180ac00N0x19635a4">
+         <term id="Para621708">Starting Order Date</term>
+         <listitem id="listitemN0x180ac00N0x19635a4">
             <para>Sales Orders entered on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para621713">Ending Order Date</term>
-
-        <listitem id="listitemN0x180ac00N0x19635ec">
+         <term id="Para621713">Ending Order Date</term>
+         <listitem id="listitemN0x180ac00N0x19635ec">
             <para>Sales Orders entered on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para621715">Sales Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x1969824">
+         <term id="Para621715">Sales Orders</term>
+         <listitem id="listitemN0x180ac00N0x1969824">
             <para>Display lists Sales Orders associated with the specified
           Purchase Order Number(s).</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para621717">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para621717">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para621718">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1969890">
+         <term id="Para621718">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1969890">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para621720">Right-clicking on a Sales Order in the Sales Order
+   </variablelist>
+   <para id="Para621720">Right-clicking on a Sales Order in the Sales Order
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/17)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/16)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

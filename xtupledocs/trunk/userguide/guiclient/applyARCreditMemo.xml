@@ -2,98 +2,78 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524414">
-  <title>
-      <anchor id="Anchor533935" role="Index" xreflabel="credit memos:list of unapplied"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>credit memos</primary>
-
          <secondary>applying unapplied</secondary>
       </indexterm>
       <anchor id="Anchor30541" role="Cross-Ref"
               xreflabel="30541: Heading2: List Unapplied Credit Memos"/>Apply A/R Credit
   Memo</title>
-
-  <para id="Para524424">To apply a Credit Memo amount, select the APPLY
+   <para id="Para524424">To apply a Credit Memo amount, select the APPLY
   button. The following screen will appear:</para>
-
-  <para id="Para529306">
+   <para id="Para529306">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_DCMems_applyCrMemo.png" id="Graphic529304"/>
             </imageobject>
-
             <caption id="Caption529307">Apply A/R Credit Memo</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <note>
+   <note>
       <para id="Para544328">Credit Memo amounts may be applied to either open
     Invoices or open miscellaneous Debit Memos.</para>
-  </note>
-
-  <para id="Para544322">When applying a Credit Memo amount, you are presented
+   </note>
+   <para id="Para544322">When applying a Credit Memo amount, you are presented
   with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para529630">Customer #</term>
-
          <listitem id="listitemN0x180ac00N0x18a7c14">
             <para>Displays the Customer Number of the Customer associated with the
         unapplied Credit Memo amount. The Customer name and billing address
         will also display.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para544542">Available to Apply</term>
-
          <listitem id="listitemN0x180ac00N0x18a7c5c">
             <para>Displays the Credit Memo amount which is available to be
         applied.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529196">Applied</term>
-
          <listitem id="listitemN0x180ac00N0x18a7ca4">
             <para>Displays the amount of the Credit Memo applied to the specified
         Document.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529198">Balance</term>
-
          <listitem id="listitemN0x180ac00N0x18a7cec">
             <para>Displays the amount of the Credit Memo remaining to be applied,
         if any.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529199">Document #</term>
-
          <listitem id="listitemN0x180ac00N0x18a7d34">
             <para>Displays the Credit Memo Number.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529208">Distribution Date</term>
-
          <listitem id="listitemN0x180ac00N0x18a7d7c">
             <para>Displays the date the Credit Memo applied amount was
         applied.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para559516">Find Document</term>
-
          <listitem id="listitemN0x180ac00N0x18a7dc4">
             <para>To search for an Invoice in the Open Items display, begin typing
         an Invoice Number into this field. As you type, the list will
@@ -102,66 +82,52 @@
         list.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529210">Items</term>
-
          <listitem id="listitemN0x180ac00N0x18a7e0c">
             <para>Display lists A/R open items for the specified Customer.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para529219">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para529219">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para529220">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x18a7e78">
             <para>Closes the screen without applying an amount to the Debit/Credit
         Memo, returning you to the application desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529221">POST</term>
-
          <listitem id="listitemN0x180ac00N0x18a7ec0">
             <para>Posts the applied amount to the General Ledger.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529222">APPLY TO BALANCE</term>
-
          <listitem id="listitemN0x180ac00N0x18a7f08">
             <para>Select to apply the available balance to the A/R open items. If
         the applied balance exceeds the amount due on an open Item, the
         remaining balance will be applied to the next open amount.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529223">APPLY</term>
-
          <listitem id="listitemN0x180ac00N0x18a7f50">
             <para>Highlight an Item and then select this button to apply an amount
         to the Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para529224">CLEAR APPLICATTION</term>
-
          <listitem id="listitemN0x180ac00N0x18a7f98">
             <para>Highlight an Item and then select this button to remove any
         amount applied toward the Item.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="arCreditMemoApplication.xml"
+   </variablelist>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="arCreditMemoApplication.xml"
                xpointer="element(/1)"/>
 </section>

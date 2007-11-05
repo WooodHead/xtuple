@@ -2,171 +2,132 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520050">
-    <title>
-      <anchor id="Anchor552224" role="Index"
-              xreflabel="quantity on hand:by class code;class codes:quantity on hand for;QOH. See quantity on hand"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>quantity on hand</primary>
-
-        <secondary>by class code</secondary>
+         <primary>quantity on hand</primary>
+         <secondary>by class code</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>class codes</primary>
-
-        <secondary>quantity on hand for</secondary>
+         <primary>class codes</primary>
+         <secondary>quantity on hand for</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>QOH</primary>
-
-        <see>quantity on hand</see>
+         <primary>QOH</primary>
+         <see>quantity on hand</see>
       </indexterm>Quantities on Hand by Class Code</title>
-
-    <para id="Para520051">To view Quantities on Hand by Class Code, select the
+   <para id="Para520051">To view Quantities on Hand by Class Code, select the
     "Quantities on Hand by Class Code" option. The following screen will
     appear:</para>
-
-    <para id="Para520055">
+   <para id="Para520055">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_Disp_QOHClassCode.png" id="Graphic526639"/>
             </imageobject>
-
             <caption id="Caption520056">Quantities on Hand by Class
           Code</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520057">When displaying Quantities on Hand by Class Code,
+   <para id="Para520057">When displaying Quantities on Hand by Class Code,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520058">All Class Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x194100c">
+         <term id="Para520058">All Class Codes</term>
+         <listitem id="listitemN0x180ac00N0x194100c">
             <para>Select to display Quantities on Hand for all Class
           Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520059">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1941054">
+         <term id="Para520059">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1941054">
             <para>Specify Class Code whose Quantities on Hand you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para547830">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x194109c">
+         <term id="Para547830">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x194109c">
             <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
-
             <para id="Para677095">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef677094" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para520063">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x19410c0">
+         <term id="Para520063">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x19410c0">
             <para>Select to display Quantities on Hand by Class Code for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para520065">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x19410e4">
+         <term id="Para520065">Selected</term>
+         <listitem id="listitemN0x180ac00N0x19410e4">
             <para>Specify Warehouse whose Quantities on Hand by Class Code you
           want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para564723">Order By</term>
-
-        <listitem id="listitemN0x180ac00N0x194112c">
+         <term id="Para564723">Order By</term>
+         <listitem id="listitemN0x180ac00N0x194112c">
             <para>Order the output by one of the following methods:</para>
-
             <para id="Para564724">Item Number: Select to order the display by
           Item Number.</para>
-
             <para id="Para564726">Value: Select to order the display by
           value.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para544890">Show All Quantities</term>
-
-        <listitem id="listitemN0x180ac00N0x1941174">
+         <term id="Para544890">Show All Quantities</term>
+         <listitem id="listitemN0x180ac00N0x1941174">
             <para>Select to show all Quantities on Hand in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para544900">Only Show Positive QOHs</term>
-
-        <listitem id="listitemN0x180ac00N0x19411bc">
+         <term id="Para544900">Only Show Positive QOHs</term>
+         <listitem id="listitemN0x180ac00N0x19411bc">
             <para>Select to show only Inventory with a positive Quantity on Hand
           in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para544896">Only Show Negative QOHs</term>
-
-        <listitem id="listitemN0x180ac00N0x1941204">
+         <term id="Para544896">Only Show Negative QOHs</term>
+         <listitem id="listitemN0x180ac00N0x1941204">
             <para>Select to show only Inventory with a negative Quantity on Hand
           in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572309">Show Inventory Value</term>
-
-        <listitem id="listitemN0x180ac00N0x194124c">
+         <term id="Para572309">Show Inventory Value</term>
+         <listitem id="listitemN0x180ac00N0x194124c">
             <para>Select to include the Inventory value of Quantities on Hand by
           Class Code in the display.</para>
-
             <para id="Para572310">Specify whether to display Inventory value
           using Standard Costs or Actual Costs.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para544879">Use Standard Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x1941294">
+         <term id="Para544879">Use Standard Costs</term>
+         <listitem id="listitemN0x180ac00N0x1941294">
             <para>Select to show Inventory value based on Standard Costs.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para544880">Use Actual Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x19412dc">
+         <term id="Para544880">Use Actual Costs</term>
+         <listitem id="listitemN0x180ac00N0x19412dc">
             <para>Select to show Inventory value based on Actual Costs.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520073">Quantities on Hand</term>
-
-        <listitem id="listitemN0x180ac00N0x1941324">
+         <term id="Para520073">Quantities on Hand</term>
+         <listitem id="listitemN0x180ac00N0x1941324">
             <para>Display lists Quantities on Hand by Class Code, using the
           specified parameters.</para>
-
             <para id="Para675968">If the "Show Inventory Value" box is selected,
           the display will also show unit Cost, value, and non-netable value.
           Totals for each column will be calculated at the bottom of the
@@ -174,61 +135,47 @@
           this means the actual or projected Quantity on Hand is at or below
           the Reorder Level. If the color is red, the current or projected
           Quantity on Hand is below 0.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520075">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520075">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520076">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1941390">
+         <term id="Para520076">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1941390">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para578621">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x19413d8">
+         <term id="Para578621">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x19413d8">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520078">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1941420">
+         <term id="Para520078">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1941420">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para564689">Right-clicking on an Item in the Quantities on Hand
+   </variablelist>
+   <para id="Para564689">Right-clicking on an Item in the Quantities on Hand
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/8)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/10)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/5)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/6)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

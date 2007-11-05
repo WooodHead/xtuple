@@ -2,107 +2,85 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563164">
-    <title>
+   <title>
       <anchor id="Anchor70925" role="Cross-Ref" xreflabel="70925: Heading2: Enter Adjustment"/>Enter Adjustment</title>
-
-    <para id="Para563166">
-      <anchor id="Anchor563165" role="Index"
-              xreflabel="adjustments:entering for bank accounts;bank adjustments:entering new;bank accounts:adjusting balances for"/>
+   <para id="Para563166">
+      
       <indexterm significance="normal">
-        <primary>adjustments</primary>
-
-        <secondary>entering for bank accounts</secondary>
+         <primary>adjustments</primary>
+         <secondary>entering for bank accounts</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>bank adjustments</primary>
-
-        <secondary>entering new</secondary>
+         <primary>bank adjustments</primary>
+         <secondary>entering new</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>bank accounts</primary>
-
-        <secondary>adjusting balances for</secondary>
+         <primary>bank accounts</primary>
+         <secondary>adjusting balances for</secondary>
       </indexterm>Bank Adjustments may be entered to record Deposits or
     Payments. Use the Bank Adjustment functionality to enter Bank Interest,
     Bank Fees, miscellaneous deposits, etc. To enter a Bank Adjustment, select
     the "Bank Adjustment" option. The following screen will appear:</para>
-
-    <para id="Para563170">
+   <para id="Para563170">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_BR_bankAdjust.png" id="Graphic563168"/>
             </imageobject>
-
             <caption id="Caption563171">Enter Bank Adjustment</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para563172">When entering a Bank Adjustment, you are presented
+   <para id="Para563172">When entering a Bank Adjustment, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para563173">Bank Account</term>
-
-        <listitem id="listitemN0x180ac00N0x18d4774">
+         <term id="Para563173">Bank Account</term>
+         <listitem id="listitemN0x180ac00N0x18d4774">
             <para>Specify the Bank Account you want to enter a Bank Adjustment
           for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para563178">Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18d47bc">
+         <term id="Para563178">Date</term>
+         <listitem id="listitemN0x180ac00N0x18d47bc">
             <para>Specify the effective date of the Bank Adjustment.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para563183">Document #</term>
-
-        <listitem id="listitemN0x180ac00N0x18d4804">
+         <term id="Para563183">Document #</term>
+         <listitem id="listitemN0x180ac00N0x18d4804">
             <para>Creates a user-defined reference for the Bank Adjustment. The
           Document reference will be posted with the General Ledger (G/L)
           transaction record when the Bank Adjustment is generated. This field
           may be used for internal tracking and auditing purposes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para563188">Amount</term>
-
-        <listitem id="listitemN0x180ac00N0x18d484c">
+         <term id="Para563188">Amount</term>
+         <listitem id="listitemN0x180ac00N0x18d484c">
             <para>Specify the monetary value of the Bank Adjustment.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para563190">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para563190">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para563191">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18d48b8">
+         <term id="Para563191">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18d48b8">
             <para>Closes the screen without entering a Bank Adjustment,
           returning you to the previous screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para563192">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18d4900">
+         <term id="Para563192">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18d4900">
             <para>Creates the Bank Adjustment and makes it available for posting
           from the Adjustment Edit List.</para>
-
             <para id="Para563193">Bank Adjustments, when marked as "Cleared,"
           may also be posted when a Bank Account is reconciled.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

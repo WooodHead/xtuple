@@ -2,80 +2,63 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524367">
-    <title>
-      <anchor id="Anchor532584" role="Index"
-              xreflabel="checks:posting individual;accounts payable:posting checks for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>checks</primary>
-
-        <secondary>posting individual</secondary>
+         <primary>checks</primary>
+         <secondary>posting individual</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>accounts payable</primary>
-
-        <secondary>posting checks for</secondary>
+         <primary>accounts payable</primary>
+         <secondary>posting checks for</secondary>
       </indexterm>Post A/P Check</title>
-
-    <para id="Para524401">To post an individual Check, select the "Post A/P
+   <para id="Para524401">To post an individual Check, select the "Post A/P
     Check" option. The following screen will appear:</para>
-
-    <para id="Para529666">
+   <para id="Para529666">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AP_Pay_postChk.png" id="Graphic529664"/>
             </imageobject>
-
             <caption id="Caption529667">Post Individual A/P Check</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para529668">When posting an individual Check, you are presented
+   <para id="Para529668">When posting an individual Check, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529669">Bank Account</term>
-
-        <listitem>
+         <term id="Para529669">Bank Account</term>
+         <listitem>
             <para>Specify the Bank Account for the Check you want to
           post.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529726">Check #</term>
-
-        <listitem>
+         <term id="Para529726">Check #</term>
+         <listitem>
             <para>Specify the number of the Check you want to post.</para>
-
             <para id="Para563986">Only printed Checks from prepared Check Runs
           associated with the specified Bank Account will appear in the
           list.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para529710">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para529710">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529677">CANCEL</term>
-
-        <listitem>
+         <term id="Para529677">CANCEL</term>
+         <listitem>
             <para>Closes the screen without posting a Check, returning you to
           the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529678">POST</term>
-
-        <listitem>
+         <term id="Para529678">POST</term>
+         <listitem>
             <para>Posts the Check, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

@@ -2,18 +2,15 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section559236">
-  <title>
-      <anchor id="Anchor559235" role="Index" xreflabel="pricing schedules:master list of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>pricing schedules</primary>
-
          <secondary>creating new</secondary>
       </indexterm>Pricing Schedule Item</title>
-
-  <para id="Para519623">To create a new Pricing Schedule Item, select the NEW
+   <para id="Para519623">To create a new Pricing Schedule Item, select the NEW
   button. The following screen will appear:</para>
-
-  <para id="Para519627">
+   <para id="Para519627">
       <anchor id="Anchor76796" role="Cross-Ref"
               xreflabel="76796: Figure: Figure 10.108:  Pricing Schedule for Item"/>
       <screenshot>
@@ -21,69 +18,53 @@
             <imageobject>
                <imagedata fileref="images/SO_IP_pricingSchedItem.png" id="Graphic523652"/>
             </imageobject>
-
             <caption id="Caption519628">Pricing Schedule for Item</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para559330">When creating a new Pricing Schedule Item, you are
+   <para id="Para559330">When creating a new Pricing Schedule Item, you are
   presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para629657">Type</term>
-
          <listitem id="listitemN0x180ac00N0x194a5f0">
             <para>Specify which type of Pricing Schedule Item you want to
         create:</para>
-
             <para id="Para629671">Item: Select if the Pricing Schedule is for an
         individual Item. If selected, the options shown in <link endterm="Anchor76796" id="XRef629682" linkend="Anchor76796"> Pricing
         Schedule for Item</link>Figure 10.119 will appear.</para>
-
             <para id="Para629675">Product Category: Select if the Pricing Schedule
         is for a Product Category. If selected, the options shown in <link endterm="Anchor46818" id="XRef629688" linkend="Anchor46818"> Pricing
         Schedule for Product Category</link>Figure 10.120 will appear.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519635">Item Number</term>
-
          <listitem id="listitemN0x180ac00N0x194a638">
             <para>Enter the Item Number of the Item you want to add to the Pricing
         Schedule.</para>
-
             <para id="Para519636">The browse button located to the right of the
         field leads to a searchable sold Items list. Multiple sold Items may
         be assigned to a single Pricing Schedule.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para652617">UOM</term>
-
          <listitem id="listitemN0x180ac00N0x194a680">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519642">
-            <anchor id="Anchor559323" role="Index"
-                    xreflabel="quantity breaks:in pricing schedules;pricing schedules:quantity breaks in"/>
+            
             <indexterm significance="normal">
                <primary>quantity breaks</primary>
-
                <secondary>in pricing schedules</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>pricing schedules</primary>
-
                <secondary>quantity breaks in</secondary>
             </indexterm>Qty. Break (Inventory UOM)</term>
-
          <listitem id="listitemN0x180ac00N0x194a758">
             <para>Enter the lowest quantity of the specified Item that must be
         purchased to receive the specified Price. The Quantity Break is
@@ -91,107 +72,84 @@
         may be assigned to a single Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519647">
-            <anchor id="Anchor556838" role="Index" xreflabel="pricing schedules:pricing detail for"/> 
+             
             <indexterm significance="normal">
                <primary>pricing schedules</primary>
-
                <secondary>pricing detail for</secondary>
             </indexterm>Price (Pricing UOM)</term>
-
          <listitem id="listitemN0x180ac00N0x194a7e8">
             <para>Enter the Price the specified Item may be purchased for if the
         specified Quantity Break is met. The Price is measured in the Price
         Unit of Measure.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para542125">List Price</term>
-
          <listitem id="listitemN0x180ac00N0x194a830">
             <para>Displays the List Price for the specified Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para542127">Price UOM</term>
-
          <listitem id="listitemN0x180ac00N0x194a878">
             <para>Displays the Price Unit of Measure for the specified
         Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para542129">Price/Inv. Ratio</term>
-
          <listitem id="listitemN0x180ac00N0x194a8c0">
             <para>Displays the ratio between the Price and Inventory Units of
         Measure for the specified Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para559196">Cost (Pricing UOM)</term>
-
          <listitem id="listitemN0x180ac00N0x194a908">
             <para>Displays Standard Cost and Actual Cost for the specified
         Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para565455">Margin</term>
-
          <listitem id="listitemN0x180ac00N0x194a950">
             <para>The margin is determined by the following formula: Price - Cost
         / Price.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para519653">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para519653">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para519654">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x194a9bc">
             <para>Closes the screen without creating the Pricing Schedule Item,
         returning you to the previous screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519655">SAVE</term>
-
          <listitem id="listitemN0x180ac00N0x194aa04">
             <para>Creates the Pricing Schedule Item and adds it to the Pricing
         Schedule.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para629608">
-      <anchor id="Anchor629784" role="Index"
-              xreflabel="pricing schedules:by product category;product categories:pricing schedules for"/>
+   </variablelist>
+   <para id="Para629608">
+      
       <indexterm significance="normal">
          <primary>pricing schedules</primary>
-
          <secondary>by product category</secondary>
       </indexterm> 
       <indexterm significance="normal">
          <primary>product categories</primary>
-
          <secondary>pricing schedules for</secondary>
       </indexterm>If you are creating a new Pricing Schedule for a Product
   Category, the following screen will appear:</para>
-
-  <para id="Para629629">
+   <para id="Para629629">
       <anchor id="Anchor46818" role="Cross-Ref"
               xreflabel="46818: Figure: Figure 10.109:  Pricing Schedule for Product Category"/>
       <screenshot>
@@ -199,45 +157,35 @@
             <imageobject>
                <imagedata fileref="images/SO_IP_pricingSchedPCat.png" id="Graphic629627"/>
             </imageobject>
-
             <caption id="Caption629630">Pricing Schedule for Product
         Category</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para629709">When creating a new Pricing Schedule for a Product
+   <para id="Para629709">When creating a new Pricing Schedule for a Product
   Category, you are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para629719">Product Category</term>
-
          <listitem id="listitemN0x180ac00N0x194ab6c">
             <para>Specify the Product Category you want to add to the Pricing
         Schedule.</para>
-
             <para id="Para629720">All Items in the Product Category will be
         subject to the specified Quantity Break and Discount. Multiple Product
         Categories may be assigned to a single Pricing Schedule.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para629726">
-            <anchor id="Anchor629722" role="Index"
-                    xreflabel="quantity breaks:in pricing schedules;pricing schedules:quantity breaks in"/>
+            
             <indexterm significance="normal">
                <primary>quantity breaks</primary>
-
                <secondary>in pricing schedules</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>pricing schedules</primary>
-
                <secondary>quantity breaks in</secondary>
             </indexterm>Qty. Break (Inventory UOM)</term>
-
          <listitem id="listitemN0x180ac00N0x194ac44">
             <para>Enter the lowest quantity that must be purchased to receive the
         specified Discount. The Quantity Break applies to all Items in the
@@ -245,17 +193,13 @@
         to a single Product Category.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para629732">
-            <anchor id="Anchor629728" role="Index"
-                    xreflabel="pricing schedules:discount percentage for"/> 
+             
             <indexterm significance="normal">
                <primary>pricing schedules</primary>
-
                <secondary>discount percentage for</secondary>
             </indexterm>Discount Percent (List Price)</term>
-
          <listitem id="listitemN0x180ac00N0x194acd4">
             <para>Enter the Discount percentage off List Price to be used when the
         specified Quantity Break is reached. The List Prices for all Items in
@@ -263,5 +207,5 @@
         percentage.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

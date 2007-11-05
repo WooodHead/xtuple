@@ -2,175 +2,136 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677869">
-    <title>
-      <anchor id="Anchor677868" role="Index"
-              xreflabel="item sites:by planner code;planner codes:item site details for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>item sites</primary>
-
-        <secondary>by planner code</secondary>
+         <primary>item sites</primary>
+         <secondary>by planner code</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>planner codes</primary>
-
-        <secondary>item site details for</secondary>
+         <primary>planner codes</primary>
+         <secondary>item site details for</secondary>
       </indexterm>Item Sites by Planner Code</title>
-
-    <para id="Para677870">To view Item Sites by Planner Code, select the "Item
+   <para id="Para677870">To view Item Sites by Planner Code, select the "Item
     Sites by Planner Code" option. The following screen will appear:</para>
-
-    <para id="Para677874">
+   <para id="Para677874">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_Disp_itemSitesPlanCode.png" id="Graphic677872"/>
             </imageobject>
-
             <caption id="Caption677875">Item Sites by Planner Code</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para677876">When displaying Item Sites by Planner Code, you are
+   <para id="Para677876">When displaying Item Sites by Planner Code, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para677877">All Planner Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x19332cc">
+         <term id="Para677877">All Planner Codes</term>
+         <listitem id="listitemN0x180ac00N0x19332cc">
             <para>Select to display Item Sites for all Planner Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677878">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1933314">
+         <term id="Para677878">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1933314">
             <para>Specify Planner Code whose Item Sites you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677879">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x193335c">
+         <term id="Para677879">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x193335c">
             <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
-
             <para id="Para677882">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef677881" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677884">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x19333a4">
+         <term id="Para677884">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x19333a4">
             <para>Select to display Item Sites by Planner Code for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677885">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x19333ec">
+         <term id="Para677885">Selected</term>
+         <listitem id="listitemN0x180ac00N0x19333ec">
             <para>Specify Warehouse whose Item Sites by Planner Code you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677886">Show Inactive</term>
-
-        <listitem id="listitemN0x180ac00N0x1939a24">
+         <term id="Para677886">Show Inactive</term>
+         <listitem id="listitemN0x180ac00N0x1939a24">
             <para>Select to display active as well as inactive Item
           Sites.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677887">Item Sites</term>
-
-        <listitem id="listitemN0x180ac00N0x1939a6c">
+         <term id="Para677887">Item Sites</term>
+         <listitem id="listitemN0x180ac00N0x1939a6c">
             <para>Display lists Item Sites by Planner Code, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para677888">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para677888">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para677889">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1939ad8">
+         <term id="Para677889">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1939ad8">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677890">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1939b20">
+         <term id="Para677890">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1939b20">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677891">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1939b68">
+         <term id="Para677891">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1939b68">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para677892">Right-clicking on an Item Site in the Item Sites
+   </variablelist>
+   <para id="Para677892">Right-clicking on an Item Site in the Item Sites
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para677893">View Item Site</term>
-
-        <listitem id="listitemN0x180ac00N0x1939bd4">
+         <term id="Para677893">View Item Site</term>
+         <listitem id="listitemN0x180ac00N0x1939bd4">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677894">Edit Item Site</term>
-
-        <listitem id="listitemN0x180ac00N0x1939c1c">
+         <term id="Para677894">Edit Item Site</term>
+         <listitem id="listitemN0x180ac00N0x1939c1c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677895">View Inventory Availability</term>
-
-        <listitem id="listitemN0x180ac00N0x1939c64">
+         <term id="Para677895">View Inventory Availability</term>
+         <listitem id="listitemN0x180ac00N0x1939c64">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para677896">Issue Count Tag</term>
-
-        <listitem id="listitemN0x180ac00N0x1939cac">
+         <term id="Para677896">Issue Count Tag</term>
+         <listitem id="listitemN0x180ac00N0x1939cac">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

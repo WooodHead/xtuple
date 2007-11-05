@@ -2,150 +2,120 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518563">
-    <title>
-      <anchor id="Anchor533163" role="Index"
-              xreflabel="explosion:of work orders;work orders:explosion of"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>explosion</primary>
-
-        <secondary>of work orders</secondary>
+         <primary>explosion</primary>
+         <secondary>of work orders</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>explosion of</secondary>
+         <primary>work orders</primary>
+         <secondary>explosion of</secondary>
       </indexterm>Explode Work Order</title>
-
-    <para id="Para539663">When a Work Order is exploded, Work Order Material
+   <para id="Para539663">When a Work Order is exploded, Work Order Material
     Requirements and Work Order Operations are created for the Work Order in
     question, using the Bill of Materials and Bill of Operations for the
     parent Item. To manually explode a Work Order, select the "Explode Work
     Order" option. The following screen will appear:</para>
-
-    <para id="Para518568">
+   <para id="Para518568">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Con_explodeWO.png" id="Graphic523438"/>
             </imageobject>
-
             <caption id="Caption518569">Explode Work Order</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para538985">Work Orders can be exploded either manually or
       automatically by default. The default setting is configured at the
       system level.</para>
-    </note>
-
-    <para id="Para538981">When manually exploding a Work Order, you are
+   </note>
+   <para id="Para538981">When manually exploding a Work Order, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518571">Work Order #</term>
-
-        <listitem>
+         <term id="Para518571">Work Order #</term>
+         <listitem>
             <para>Enter the Work Order Number of the Work Order you want to
           explode.</para>
-
             <para id="Para518572">The browse button located to the right of the
           field leads to a searchable Work Order list featuring open Work
           Orders ready for explosion.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518573">Whs.</term>
-
-        <listitem>
+         <term id="Para518573">Whs.</term>
+         <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518575">Item Number</term>
-
-        <listitem>
+         <term id="Para518575">Item Number</term>
+         <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568589">UOM</term>
-
-        <listitem>
+         <term id="Para568589">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518579">Status</term>
-
-        <listitem>
+         <term id="Para518579">Status</term>
+         <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para539740">Default Work Order explosion levels can be
       configured at the system level.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para535736">
-            <anchor id="Anchor535760" role="Index" xreflabel="work orders:explosion levels for"/> 
+         <term id="Para535736">
+             
             <indexterm significance="normal">
                <primary>work orders</primary>
-
                <secondary>explosion levels for</secondary>
             </indexterm>Level</term>
-
-        <listitem>
+         <listitem>
             <para>Select one of the following Work Order explosion
           levels:</para>
-
             <para id="Para539691">Single Level Explosion: During a single-level
           explosion, Work Order Material Requirements and Work Order
           Operations are created for the parent Item--but not for any
           manufactured components of the parent Item. The Work Orders for
           manufactured components must be exploded manually.</para>
-
             <para id="Para539764">Multiple Level Explosion: In a multiple-level
           explosion, any manufactured components of the parent Item are
           identified and Work Orders are created for them. Then, Work Order
           Material Requirements and Work Order Operations are created for both
           the parent Item and the manufactured components.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para524797">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para524797">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518584">CANCEL</term>
-
-        <listitem>
+         <term id="Para518584">CANCEL</term>
+         <listitem>
             <para>Closes the screen without exploding the selected Work Order
           and returns you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518585">EXPLODE</term>
-
-        <listitem>
+         <term id="Para518585">EXPLODE</term>
+         <listitem>
             <para>Explodes the selected Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

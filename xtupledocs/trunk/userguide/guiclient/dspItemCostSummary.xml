@@ -2,103 +2,81 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520069">
-    <title>
-      <anchor id="Anchor595486" role="Index"
-              xreflabel="costing:summary by item;item costs:summary of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>costing</primary>
-
-        <secondary>summary by item</secondary>
+         <primary>costing</primary>
+         <secondary>summary by item</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>item costs</primary>
-
-        <secondary>summary of</secondary>
+         <primary>item costs</primary>
+         <secondary>summary of</secondary>
       </indexterm>Item Costs Summary</title>
-
-    <para id="Para520070">To view a summary of Item Costs, select the "Item
+   <para id="Para520070">To view a summary of Item Costs, select the "Item
     Costs Summary" option. The following screen will appear:</para>
-
-    <para id="Para520074">
+   <para id="Para520074">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Cost_dispItemCostSum.png" id="Graphic563460"/>
             </imageobject>
-
             <caption id="Caption520075">Item Costs Summary</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520081">When displaying a summary of Item Costs, you are
+   <para id="Para520081">When displaying a summary of Item Costs, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520082">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x1923144">
+         <term id="Para520082">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x1923144">
             <para>Enter the Item Number of the Item you would like to view
           summarized Costs for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663312">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x192318c">
+         <term id="Para663312">UOM</term>
+         <listitem id="listitemN0x180ac00N0x192318c">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520086">Costing Elements</term>
-
-        <listitem id="listitemN0x180ac00N0x19231d4">
+         <term id="Para520086">Costing Elements</term>
+         <listitem id="listitemN0x180ac00N0x19231d4">
             <para>Display lists an Item Costs Summary, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520088">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520088">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520089">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1923240">
+         <term id="Para520089">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1923240">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663971">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1923288">
+         <term id="Para663971">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1923288">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para556959">Right-clicking on a Costing Element in the Costing
+   </variablelist>
+   <para id="Para556959">Right-clicking on a Costing Element in the Costing
     Elements list enables you to select from the following menu options. If
     the Costing Element does not contain lower level Costs, you will not be
     given the option to view Costing detail.</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520092">View Costing Detail</term>
-
-        <listitem id="listitemN0x180ac00N0x19232f4">
+         <term id="Para520092">View Costing Detail</term>
+         <listitem id="listitemN0x180ac00N0x19232f4">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

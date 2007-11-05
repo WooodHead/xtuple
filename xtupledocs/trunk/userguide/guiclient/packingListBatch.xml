@@ -2,147 +2,116 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657209">
-    <title>
-      <anchor id="Anchor657208" role="Index"
-              xreflabel="packing lists:batch printing of;batch mode:printing packing lists using"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>packing lists</primary>
-
-        <secondary>batch printing of</secondary>
+         <primary>packing lists</primary>
+         <secondary>batch printing of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>batch mode</primary>
-
-        <secondary>printing packing lists using</secondary>
+         <primary>batch mode</primary>
+         <secondary>printing packing lists using</secondary>
       </indexterm>Packing List Batch</title>
-
-    <para id="Para657210">If you want to print Packing Lists or Sales Order
+   <para id="Para657210">If you want to print Packing Lists or Sales Order
     Pick Lists in batch mode--or to gain greater visibility over your Packing
     and Pick Lists--select the "Packing List Batch" option. The following
     screen will appear:</para>
-
-    <note>
+   <note>
       <para id="Para657212">A Sales Order "Pick List" will be printed if the
       Sales Order does not yet have a Shipment Number associated with it--that
       is, if no Line Item quantity has been issued to shipping. If stock has
       been issued to Shipping, then the "Packing List" report definition will
       be used. The Pick List and Packing List Form assignments are made on the
       Customer Form Assignments screen.</para>
-    </note>
-
-    <para id="Para657216">
+   </note>
+   <para id="Para657216">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Ord_packListBatch.png" id="Graphic657214"/>
             </imageobject>
-
             <caption id="Caption657217">Packing List Batch</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para657219">The system includes two alternate Sales Order Pick
       List report definitions:</para>
-
       <para id="Para657220">"PickingListSOClosedLines.xml"</para>
-
       <para id="Para657221">"PickingListNoClosedLines.xml"</para>
-
       <para id="Para657222">The first includes already closed Sales Order Line
       Items in the report; the other excludes closed Line Items.</para>
-    </tip>
-
-    <para id="Para657223">When printing Packing Lists in batch mode, you are
+   </tip>
+   <para id="Para657223">When printing Packing Lists in batch mode, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657224">Selected Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce268">
+         <term id="Para657224">Selected Orders</term>
+         <listitem id="listitemN0x180ac00N0x18ce268">
             <para>Display lists selected Orders (i.e., Sales Orders and Transfer
           Orders).</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para657225">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para657225">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657226">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce2d4">
+         <term id="Para657226">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18ce2d4">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657227">PRINT EDIT LIST</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce31c">
+         <term id="Para657227">PRINT EDIT LIST</term>
+         <listitem id="listitemN0x180ac00N0x18ce31c">
             <para>Select to print a copy of the contents displayed on the
           screen, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657228">PRINT BATCH</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce364">
+         <term id="Para657228">PRINT BATCH</term>
+         <listitem id="listitemN0x180ac00N0x18ce364">
             <para>Select to print packing lists for all Orders in batch list. A
           Sales Order Pick List will be printed if the Sales Order does not
           yet have a Shipment Number associated with it--that is, if no Line
           Item quantity has been issued to shipping. If stock has been issued
           to Shipping, then the Packing List report definition will be
           used.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657229">DELETE PRINTED</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce3ac">
+         <term id="Para657229">DELETE PRINTED</term>
+         <listitem id="listitemN0x180ac00N0x18ce3ac">
             <para>Select to delete Orders from batch printing list once they
           have been printed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657230">ADD S/O</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce3f4">
+         <term id="Para657230">ADD S/O</term>
+         <listitem id="listitemN0x180ac00N0x18ce3f4">
             <para>Select to add a Sales Order to the list of selected
           Orders.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657231">ADD T/O</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce43c">
+         <term id="Para657231">ADD T/O</term>
+         <listitem id="listitemN0x180ac00N0x18ce43c">
             <para>Select to add a Transfer Order to the list of selected
           Orders.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657232">DELETE ORDER</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce484">
+         <term id="Para657232">DELETE ORDER</term>
+         <listitem id="listitemN0x180ac00N0x18ce484">
             <para>Highlight an Order and then select this button to remove the
           Order from the list.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657233">PRINT PACKING LIST</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce4cc">
+         <term id="Para657233">PRINT PACKING LIST</term>
+         <listitem id="listitemN0x180ac00N0x18ce4cc">
             <para>Highlight an Order, then select this option to print an
           individual Packing List or Sales Order Pick List for the specified
           Order. A Sales Order Pick List will be printed if the Sales Order
@@ -150,19 +119,16 @@
           no Line Item quantity has been issued to shipping. If stock has been
           issued to Shipping, then the Packing List report definition will be
           used.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657234">Automatically Update</term>
-
-        <listitem id="listitemN0x180ac00N0x18ce514">
+         <term id="Para657234">Automatically Update</term>
+         <listitem id="listitemN0x180ac00N0x18ce514">
             <para>Select to automatically update the information displayed in
           the Packing List batch.</para>
-
             <para id="Para657235">The list will automatically update every 60
           seconds if this option is selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

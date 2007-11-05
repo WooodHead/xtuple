@@ -2,107 +2,85 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section566752">
-    <title>
-      <anchor id="Anchor566751" role="Index"
-              xreflabel="sales orders:rescheduling of line items"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>sales orders</primary>
-
-        <secondary>rescheduling of line items</secondary>
+         <primary>sales orders</primary>
+         <secondary>rescheduling of line items</secondary>
       </indexterm>Reschedule all S/O Line Items</title>
-
-    <para id="Para566753">To reschedule all Line Items associated with a Sales
+   <para id="Para566753">To reschedule all Line Items associated with a Sales
     Order, select the "Reschedule all S/O Line Items" option. The following
     screen will appear:</para>
-
-    <para id="Para566757">
+   <para id="Para566757">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Ord_reschedLineItems.png" id="Graphic566755"/>
             </imageobject>
-
             <caption id="Caption566758">Reschedule All Sales Order Line
           Items</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para566759">When rescheduling all Line Items associated with a
+   <para id="Para566759">When rescheduling all Line Items associated with a
     Sales Order, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para566845">Sales Order #</term>
-
-        <listitem id="listitemN0x180ac00N0x18be8b8">
+         <term id="Para566845">Sales Order #</term>
+         <listitem id="listitemN0x180ac00N0x18be8b8">
             <para>Enter the Sales Order Number of the Sales Order whose Line
           Items you want to reschedule.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para566855">This utility reschedules all Line Items associated
       with a Sales Order. You would edit a Sales Order to selectively
       reschedule individual Line Items.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para566878">New Schedule Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18be948">
+         <term id="Para566878">New Schedule Date</term>
+         <listitem id="listitemN0x180ac00N0x18be948">
             <para>Specify the new schedule date for the Line Items.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566889">Cust. Name</term>
-
-        <listitem id="listitemN0x180ac00N0x18be990">
+         <term id="Para566889">Cust. Name</term>
+         <listitem id="listitemN0x180ac00N0x18be990">
             <para>Displays the name of the Customer associated with the Sales
           Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566890">Cust. Phone</term>
-
-        <listitem id="listitemN0x180ac00N0x18be9d8">
+         <term id="Para566890">Cust. Phone</term>
+         <listitem id="listitemN0x180ac00N0x18be9d8">
             <para>Displays the Customer's phone number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566891">P/O Number</term>
-
-        <listitem id="listitemN0x180ac00N0x18bea20">
+         <term id="Para566891">P/O Number</term>
+         <listitem id="listitemN0x180ac00N0x18bea20">
             <para>Displays the Customer's Purchase Order Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para566765">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para566765">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para566766">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18bea8c">
+         <term id="Para566766">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18bea8c">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566767">RESCHEDULE</term>
-
-        <listitem id="listitemN0x180ac00N0x18bead4">
+         <term id="Para566767">RESCHEDULE</term>
+         <listitem id="listitemN0x180ac00N0x18bead4">
             <para>Creates the new schedule date for all Line Items associated
           with the specified Sales Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

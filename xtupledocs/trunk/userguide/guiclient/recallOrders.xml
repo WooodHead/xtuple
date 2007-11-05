@@ -2,41 +2,33 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518587">
-    <title>
-      <anchor id="Anchor529419" role="Index" xreflabel="shipping:recalling orders to "/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>shipping</primary>
-
-        <secondary>recalling orders to</secondary>
+         <primary>shipping</primary>
+         <secondary>recalling orders to</secondary>
       </indexterm>Recall Orders to Shipping</title>
-
-    <para id="Para518588">If a Sales Order has been shipped in error--or if
+   <para id="Para518588">If a Sales Order has been shipped in error--or if
     changes need to be made to an Order prior to shipping--you may recall the
     Order to Shipping. To recall Orders to Shipping, select the "Recall Orders
     to Shipping" option. The following screen will appear:</para>
-
-    <para id="Para518592">
+   <para id="Para518592">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SR_Ship_recallOrdsShip.png" id="Graphic519998"/>
             </imageobject>
-
             <caption id="Caption518593">Recall Orders to Shipping</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para518594">When recalling an Order to Shipping, you are
+   <para id="Para518594">When recalling an Order to Shipping, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para544807">Show Invoiced Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x184e05c">
+         <term id="Para544807">Show Invoiced Orders</term>
+         <listitem id="listitemN0x180ac00N0x184e05c">
             <para>Select to include Invoiced Orders in the display.</para>
-
             <para id="Para544814">This option is only enabled for users assigned
           the "RecallInvoicedShipment" privilege. Users with that privilege
           have the ability to recall to Shipping Orders which have already
@@ -46,40 +38,33 @@
           be desirable to completely back out an Invoice using the following
           steps: 1) Delete Invoice; 2) cancel billing selection; 3) recall
           Order to Shipping; 4) return stock to Inventory.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518595">Shipped Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x184e0a4">
+         <term id="Para518595">Shipped Orders</term>
+         <listitem id="listitemN0x180ac00N0x184e0a4">
             <para>Display lists shipped Sales Orders available for
           recall.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para518597">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para518597">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518598">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x184e110">
+         <term id="Para518598">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x184e110">
             <para>Closes the screen without recalling the Order, returning you
           to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518599">RECALL</term>
-
-        <listitem id="listitemN0x180ac00N0x184e158">
+         <term id="Para518599">RECALL</term>
+         <listitem id="listitemN0x180ac00N0x184e158">
             <para>Highlight a Sales Order then select this button to recall the
           Order to Shipping. The Order will now display on the "Ship Orders"
           screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

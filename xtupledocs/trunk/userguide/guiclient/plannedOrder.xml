@@ -2,131 +2,102 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518552" role="openmfg">
-    <title>Create Planned Order</title>
-
-    <para id="Para518553">To create a Planned Order, select the "Create
+   <title>Create Planned Order</title>
+   <para id="Para518553">To create a Planned Order, select the "Create
     Planned Order" option. The following screen will appear:</para>
-
-    <para id="Para518557">
+   <para id="Para518557">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/MS_Sched_createPlanOrd.png" id="Graphic520435"/>
             </imageobject>
-
             <caption id="Caption518558">Create Planned Order</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para518564">When creating a Planned Order, you are presented
+   <para id="Para518564">When creating a Planned Order, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518565">Planned Order #</term>
-
-        <listitem>
+         <term id="Para518565">Planned Order #</term>
+         <listitem>
             <para>Displays system-defined Planned Order Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518567">Item Number</term>
-
-        <listitem>
+         <term id="Para518567">Item Number</term>
+         <listitem>
             <para>Enter the Item Number of the Item you want to create a Planned
           Order for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para553572">UOM</term>
-
-        <listitem>
+         <term id="Para553572">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532107">Warehouse</term>
-
-        <listitem>
+         <term id="Para532107">Warehouse</term>
+         <listitem>
             <para>Specify Warehouse for Planned Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532111">Qty. Ordered</term>
-
-        <listitem>
+         <term id="Para532111">Qty. Ordered</term>
+         <listitem>
             <para>Enter the quantity of the specified Item required for the
           Planned Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518581">Due Date</term>
-
-        <listitem>
+         <term id="Para518581">Due Date</term>
+         <listitem>
             <para>Enter the date the Planned Order must be completed by.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518583">Start Date</term>
-
-        <listitem>
+         <term id="Para518583">Start Date</term>
+         <listitem>
             <para>This date will be equal to the due date less the Lead Time.
           The start date may be changed by altering the Lead Time
           field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518585">
-            <anchor id="Anchor528671" role="Index"
-                    xreflabel="lead times:in planned orders;planned orders:lead times for"/>
+         <term id="Para518585">
+            
             <indexterm significance="normal">
                <primary>lead times</primary>
-
                <secondary>in planned orders</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>planned orders</primary>
-
                <secondary>lead times for</secondary>
             </indexterm>Lead Time (Days)</term>
-
-        <listitem>
+         <listitem>
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para518586">Value entered specifies the Lead Time required
           between the Due Date and the Start Date.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para518587">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para518587">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518588">CLOSE</term>
-
-        <listitem>
+         <term id="Para518588">CLOSE</term>
+         <listitem>
             <para>Closes the screen without creating the Planned Order,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518589">CREATE</term>
-
-        <listitem>
+         <term id="Para518589">CREATE</term>
+         <listitem>
             <para>Creates the Planned Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

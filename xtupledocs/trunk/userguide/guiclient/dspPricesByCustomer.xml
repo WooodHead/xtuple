@@ -2,46 +2,36 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519808">
-    <title>
-      <anchor id="Anchor549012" role="Index"
-              xreflabel="item pricing:by customer;customers:item pricing for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>item pricing</primary>
-
-        <secondary>by customer</secondary>
+         <primary>item pricing</primary>
+         <secondary>by customer</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>customers</primary>
-
-        <secondary>item pricing for</secondary>
+         <primary>customers</primary>
+         <secondary>item pricing for</secondary>
       </indexterm>Prices by Customer</title>
-
-    <para id="Para519809">To display a list of Prices by Customer, select the
+   <para id="Para519809">To display a list of Prices by Customer, select the
     "Prices by Customer" option. The following screen will appear:</para>
-
-    <para id="Para519813">
+   <para id="Para519813">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_IP_dispPricesByCust.png" id="Graphic523913"/>
             </imageobject>
-
             <caption id="Caption519814">Prices by Customer</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519815">When displaying Prices by Customer, you are
+   <para id="Para519815">When displaying Prices by Customer, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519816">Customer #</term>
-
-        <listitem id="listitemN0x180ac00N0x195a534">
+         <term id="Para519816">Customer #</term>
+         <listitem id="listitemN0x180ac00N0x195a534">
             <para>Enter the Customer Number of the Customer whose Item Prices
           you want to view.</para>
-
             <para id="Para519817">The browse button located to the right of the
           field leads to a searchable Customers list. You may also access this
           list using the keyboard shortcut "CTRL + L". Once a Customer Number
@@ -53,81 +43,63 @@
           ("$"), the Customer's credit Status is "On Credit Warning." A red
           dollar sign ("$") indicates the Customer's credit Status is "On
           Credit Hold."</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519818">Show Expired Prices</term>
-
-        <listitem id="listitemN0x180ac00N0x195a57c">
+         <term id="Para519818">Show Expired Prices</term>
+         <listitem id="listitemN0x180ac00N0x195a57c">
             <para>Select to display expired Prices.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519819">Show Future Prices</term>
-
-        <listitem id="listitemN0x180ac00N0x195a5c4">
+         <term id="Para519819">Show Future Prices</term>
+         <listitem id="listitemN0x180ac00N0x195a5c4">
             <para>Select to display future Prices.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557008">Show Costs and Margins</term>
-
-        <listitem id="listitemN0x180ac00N0x195a60c">
+         <term id="Para557008">Show Costs and Margins</term>
+         <listitem id="listitemN0x180ac00N0x195a60c">
             <para>Select to show Costs and margins using one of the following
           costing parameters:.</para>
-
             <para id="Para557009">Use Standard Costs: Select to show Costs and
           margins using Standard Costs.</para>
-
             <para id="Para557010">Use Actual Costs: Select to show Costs and
           margins using Actual Costs.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para542209">Prices</term>
-
-        <listitem id="listitemN0x180ac00N0x195a654">
+         <term id="Para542209">Prices</term>
+         <listitem id="listitemN0x180ac00N0x195a654">
             <para>Display lists Prices for the specified Customer.</para>
-
             <para id="Para654104">Cost and margin columns will also appear if
           the "Show Costs and Margins" parameter is selected. If the margin is
           negative, the value will display in red type.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519822">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519822">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519823">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x195a6c0">
+         <term id="Para519823">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x195a6c0">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para610510">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x195a708">
+         <term id="Para610510">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x195a708">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para653735">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x195a750">
+         <term id="Para653735">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x195a750">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

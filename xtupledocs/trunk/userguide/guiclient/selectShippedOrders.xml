@@ -2,16 +2,13 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section589749">
-    <title>
-      <anchor id="Anchor589748" role="Index"
-              xreflabel="billing:select all shipped orders for "/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>billing</primary>
-
-        <secondary>select all shipped orders for</secondary>
+         <primary>billing</primary>
+         <secondary>select all shipped orders for</secondary>
       </indexterm>Select All Shipped Orders for Billing</title>
-
-    <para id="Para589750">This utility enables you to select groups of shipped
+   <para id="Para589750">This utility enables you to select groups of shipped
     Orders for billing in one operation. When used, the full Order quantity of
     shipped Orders will be selected for billing. You may later change the
     billing details for individual Line Items using the right-click menu on
@@ -22,98 +19,78 @@
     individual Orders. To select multiple shipped Orders for billing, select
     the "Select All Shipped Orders for Billing" option. The following screen
     will appear:</para>
-
-    <para id="Para519233">
+   <para id="Para519233">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Bill_selectAllOrdForBill.png" id="Graphic523400"/>
             </imageobject>
-
             <caption id="Caption519234">Select all Shipped Orders for
           Billing</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para589689">When you select an Order for billing, you are
       indicating that you wish to create an Invoice for the Order.</para>
-    </note>
-
-    <para id="Para519235">When selecting multiple shipped Orders for billing,
+   </note>
+   <para id="Para519235">When selecting multiple shipped Orders for billing,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para541096">All Customer Types</term>
-
-        <listitem id="listitemN0x180ac00N0x18fc2cc">
+         <term id="Para541096">All Customer Types</term>
+         <listitem id="listitemN0x180ac00N0x18fc2cc">
             <para>Choose to select all Customer Types for billing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para541097">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x18fc314">
+         <term id="Para541097">Selected</term>
+         <listitem id="listitemN0x180ac00N0x18fc314">
             <para>Specify the Customer Type you want to select for
           billing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para541099">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x18fc35c">
+         <term id="Para541099">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x18fc35c">
             <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
-
             <para id="Para656051">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef656050" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para541093">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x18fc380">
+         <term id="Para541093">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x18fc380">
             <para>Choose to select all Shipped Orders for billing for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para519238">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x18fc3a4">
+         <term id="Para519238">Selected</term>
+         <listitem id="listitemN0x180ac00N0x18fc3a4">
             <para>Specify Warehouse whose Shipped Orders you want to select for
           billing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519239">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519239">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519240">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x1903200">
+         <term id="Para519240">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x1903200">
             <para>Closes the screen without selecting Shipped Orders for
           billing, returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519241">SELECT</term>
-
-        <listitem id="listitemN0x180ac00N0x1903248">
+         <term id="Para519241">SELECT</term>
+         <listitem id="listitemN0x180ac00N0x1903248">
             <para>Selects all shipped Orders for billing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

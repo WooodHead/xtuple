@@ -2,120 +2,94 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section604556">
-    <title>
-      <anchor id="Anchor604566" role="Index"
-              xreflabel="characteristics:items having;items:with characteristics"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>characteristics</primary>
-
-        <secondary>items having</secondary>
+         <primary>characteristics</primary>
+         <secondary>items having</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>with characteristics</secondary>
+         <primary>items</primary>
+         <secondary>with characteristics</secondary>
       </indexterm>Items by Characteristic</title>
-
-    <para id="Para604590">To view Items by Characteristic, select the "Items
+   <para id="Para604590">To view Items by Characteristic, select the "Items
     by Characteristic" option. The following screen will appear:</para>
-
-    <para id="Para604594">
+   <para id="Para604594">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Disp_itemsByChar.png" id="Graphic604592"/>
             </imageobject>
-
             <caption id="Caption604595">Items by Characteristic</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para604596">When displaying Items by Characteristic, you are
+   <para id="Para604596">When displaying Items by Characteristic, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para662322">Characteristic</term>
-
-        <listitem id="listitemN0x180ac00N0x192c1e0">
+         <term id="Para662322">Characteristic</term>
+         <listitem id="listitemN0x180ac00N0x192c1e0">
             <para>Select a Characteristic from the list of Characteristics
           designated as being available for use as Item
           Characteristics.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para633071">Value</term>
-
-        <listitem id="listitemN0x180ac00N0x192c228">
+         <term id="Para633071">Value</term>
+         <listitem id="listitemN0x180ac00N0x192c228">
             <para>Enter the Characteristic value whose associated Items you want
           to include in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para604971">Show Inactive Items</term>
-
-        <listitem id="listitemN0x180ac00N0x192c270">
+         <term id="Para604971">Show Inactive Items</term>
+         <listitem id="listitemN0x180ac00N0x192c270">
             <para>Select to include inactive Items in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para604613">Items</term>
-
-        <listitem id="listitemN0x180ac00N0x192c2b8">
+         <term id="Para604613">Items</term>
+         <listitem id="listitemN0x180ac00N0x192c2b8">
             <para>Display lists Items by Characteristic, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para604615">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para604615">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para604616">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x192c324">
+         <term id="Para604616">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x192c324">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618384">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x192c36c">
+         <term id="Para618384">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x192c36c">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663994">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x192c3b4">
+         <term id="Para663994">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x192c3b4">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para609467">Right-clicking on an Item in the Items list enables
+   </variablelist>
+   <para id="Para609467">Right-clicking on an Item in the Items list enables
     you to select from the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para609468">Edit Item Master</term>
-
-        <listitem id="listitemN0x180ac00N0x192c420">
+         <term id="Para609468">Edit Item Master</term>
+         <listitem id="listitemN0x180ac00N0x192c420">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

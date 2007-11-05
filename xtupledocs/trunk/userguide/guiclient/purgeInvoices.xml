@@ -2,69 +2,56 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657192">
-    <title>
-      <anchor id="Anchor657191" role="Index" xreflabel="invoices:purging records for"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>invoices</primary>
-
-        <secondary>purging records for</secondary>
+         <primary>invoices</primary>
+         <secondary>purging records for</secondary>
       </indexterm>Purge Invoices</title>
-
-    <para id="Para657193">Purging Invoice records is one method for freeing up
+   <para id="Para657193">Purging Invoice records is one method for freeing up
     disk storage space--without losing important sales history. To purge
     Invoice records, select the "Purge Invoice Records" option. The following
     screen will appear:</para>
-
-    <para id="Para657197">
+   <para id="Para657197">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Bill_purgeInvRecords.png" id="Graphic657195"/>
             </imageobject>
-
             <caption id="Caption657198">Purge Invoice Records</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para657200">The consequence of purging Invoice records is that
       any purged Invoice records can no longer be re-printed.</para>
-    </note>
-
-    <para id="Para657201">When purging Invoice records, you are presented with
+   </note>
+   <para id="Para657201">When purging Invoice records, you are presented with
     the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657202">Cut Off Date</term>
-
-        <listitem id="listitemN0x180ac00N0x191d218">
+         <term id="Para657202">Cut Off Date</term>
+         <listitem id="listitemN0x180ac00N0x191d218">
             <para>Invoice records created before and including this date will be
           purged.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para657203">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para657203">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para657204">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x191d284">
+         <term id="Para657204">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x191d284">
             <para>Closes the screen without purging any Invoice records,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para657205">PURGE</term>
-
-        <listitem id="listitemN0x180ac00N0x191d2cc">
+         <term id="Para657205">PURGE</term>
+         <listitem id="listitemN0x180ac00N0x191d2cc">
             <para>Purges the Invoice records.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

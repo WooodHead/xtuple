@@ -2,72 +2,57 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548989">
-  <title>
-      <anchor id="Anchor543184" role="Index" xreflabel="accounting periods:master list of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>accounting periods</primary>
-
          <secondary>master list of</secondary>
       </indexterm>List Accounting Periods</title>
-
-  <para id="Para543186">To access the master list of Accounting Periods,
+   <para id="Para543186">To access the master list of Accounting Periods,
   select the "Accounting Periods" option. The following screen will
   appear:</para>
-
-  <para id="Para536371">
+   <para id="Para536371">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_MI_acctPeriodList.png" id="Graphic536369"/>
             </imageobject>
-
             <caption id="Caption536372">Accounting Periods Master List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <note>
+   <note>
       <para id="Para586471">Users will be prevented from posting transactions
     into closed Accounting Periods if Accounts are marked to prevent it.
     Otherwise, users will be allowed to post into closed Periods.</para>
-  </note>
-
-  <para id="Para526140">The "Accounting Periods" screen displays information
+   </note>
+   <para id="Para526140">The "Accounting Periods" screen displays information
   on all existing Accounting Periods, including Period name, Period start
   date, Period end date, and closed status.</para>
-
-  <para id="Para526141">To the far right of the list, the following buttons
+   <para id="Para526141">To the far right of the list, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para526142">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x1877798">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para610689">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x18777e0">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para526144">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x1877828">
             <para>Opens screen for creating a new Accounting Period.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para526145">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x1877870">
             <para>Enables you to edit highlighted Accounting Period. The edit
         screen is the same as that for creating a new Accounting
@@ -76,66 +61,51 @@
         bring you to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para526239">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x18778b8">
             <para>Highlight an Accounting Period and then select this button to
         reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para534774">CLOSE PERIOD</term>
-
          <listitem id="listitemN0x180ac00N0x1877900">
             <para>Highlight an Accounting Period and then select this button to
         close the Period.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para534775">FREEZE PERIOD</term>
-
          <listitem id="listitemN0x180ac00N0x1877948">
             <para>Highlight an Accounting Period and then select this button to
         freeze the Period.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para526146">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x1877990">
             <para>Highlight an Accounting Period and then select this button to
         remove the Accounting Period from the list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para574383">Right-clicking on an Accounting Period enables you to
+   </variablelist>
+   <para id="Para574383">Right-clicking on an Accounting Period enables you to
   select from the following menu options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para574385">View</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                      xpointer="element(listitemN0x180ac00N0x18778b8)"/>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/9/2/2)"/>
-
       <varlistentry>
          <term id="Para574387">Freeze</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                      xpointer="element(listitemN0x180ac00N0x1877948)"/>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
+   </variablelist>
 </section>

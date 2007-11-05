@@ -2,297 +2,234 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972017">
-    <title>
-      <anchor id="Anchor972016" role="Index" xreflabel="receipts:uninvoiced"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>receipts</primary>
-
-        <secondary>uninvoiced</secondary>
+         <primary>receipts</primary>
+         <secondary>uninvoiced</secondary>
       </indexterm>Uninvoiced Receipts and Returns</title>
-
-    <para id="Para972018">To view uninvoiced Receipts and Returns, select the
+   <para id="Para972018">To view uninvoiced Receipts and Returns, select the
     "Uninvoiced Receipts and Returns" option. The following screen will
     appear:</para>
-
-    <para id="Para972022">
+   <para id="Para972022">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Vouch_uninvoicedRecpt.png" id="Graphic972020"/>
             </imageobject>
-
             <caption id="Caption972023">Uninvoiced Receipts and
           Returns</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para972024">When displaying uninvoiced Receipts and Returns, you
+   <para id="Para972024">When displaying uninvoiced Receipts and Returns, you
     are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972025">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x187aed0">
+         <term id="Para972025">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x187aed0">
             <para>Select to display uninvoiced Receipts and Returns for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972026">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x187af18">
+         <term id="Para972026">Selected</term>
+         <listitem id="listitemN0x180ac00N0x187af18">
             <para>Specify Warehouse whose uninvoiced Receipts and Returns you
           want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972027">All Purchasing Agents</term>
-
-        <listitem id="listitemN0x180ac00N0x187af60">
+         <term id="Para972027">All Purchasing Agents</term>
+         <listitem id="listitemN0x180ac00N0x187af60">
             <para>Select to display uninvoiced Receipts and Returns for all
           Purchasing Agents.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972028">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x187afa8">
+         <term id="Para972028">Selected</term>
+         <listitem id="listitemN0x180ac00N0x187afa8">
             <para>Specify Purchasing Agent whose uninvoiced Receipts and Returns
           you want to display.</para>
-
             <para id="Para972029">Users may be designated as Purchasing Agents
           at the system level.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972030">P/O Receipts</term>
-
-        <listitem id="listitemN0x180ac00N0x187aff0">
+         <term id="Para972030">P/O Receipts</term>
+         <listitem id="listitemN0x180ac00N0x187aff0">
             <para>Display lists uninvoiced Receipts and Returns, using the
           specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para972032">The primary path for marking Purchase Order Line
       Items as invoiced is on the Voucher Item screen. If received (or
       returned) quantity is tagged as "Yes" on the Voucher Item screen--and
       the Voucher is then posted--the quantity will no longer appear on the
       "Uninvoiced Receipts and Returns" screen.</para>
-    </tip>
-
-    <para id="Para972033">To the far right of the screen, the following
+   </tip>
+   <para id="Para972033">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972034">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x187b080">
+         <term id="Para972034">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x187b080">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972035">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x187b0c8">
+         <term id="Para972035">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x187b0c8">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para972036">Right-clicking on a Receipt in the P/O Receipts list
+   </variablelist>
+   <para id="Para972036">Right-clicking on a Receipt in the P/O Receipts list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/3)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para972040">If you right-click on a Return, the following option
+   </variablelist>
+   <para id="Para972040">If you right-click on a Return, the following option
     will be available:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/4)"/>
-    </variablelist>
-
-    <para id="Para972042">To mark a Line Item Receipt as invoiced, highlight
+   </variablelist>
+   <para id="Para972042">To mark a Line Item Receipt as invoiced, highlight
     the Receipt and then select the "Mark as Invoiced" option from the
     right-click menu. The following screen will appear:</para>
-
-    <para id="Para972046">
+   <para id="Para972046">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Vouch_markInvoiced.png" id="Graphic972044"/>
             </imageobject>
-
             <caption id="Caption972047">Mark Receipt as Invoiced</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para972048">When marking a Line Item Receipt as invoiced, you
+   <para id="Para972048">When marking a Line Item Receipt as invoiced, you
     are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972049">Account</term>
-
-        <listitem id="listitemN0x180ac00N0x187b308">
+         <term id="Para972049">Account</term>
+         <listitem id="listitemN0x180ac00N0x187b308">
             <para>Select the Account you want to use opposite the P/O Liability
           Clearing Account.</para>
-
             <para id="Para972050">When this transaction is posted, the P/O
           Liability Clearing Account will be debited with the distribution
           amount--and the Account you specify will be credited. In this way,
           you will be sure to clear P/O Liability when marking Receipts as
           invoiced outside of the typical vouchering process flow.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972051">Amount to Distribute</term>
-
-        <listitem id="listitemN0x180ac00N0x187b350">
+         <term id="Para972051">Amount to Distribute</term>
+         <listitem id="listitemN0x180ac00N0x187b350">
             <para>Displays the Line Item Receipt amount to be distributed to the
           General Ledger when the transaction is posted.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para972052">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para972052">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972053">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x187b3bc">
+         <term id="Para972053">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x187b3bc">
             <para>Closes the screen without marking the Receipt as invoiced,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972054">CORRECT</term>
-
-        <listitem id="listitemN0x180ac00N0x187b404">
+         <term id="Para972054">CORRECT</term>
+         <listitem id="listitemN0x180ac00N0x187b404">
             <para>Select to post the distribution, using the specified
           Account.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para972056">
-      <anchor id="Anchor972055" role="Index" xreflabel="receipts:correction of"/> 
+   </variablelist>
+   <para id="Para972056">
+       
       <indexterm significance="normal">
-        <primary>receipts</primary>
-
-        <secondary>correction of</secondary>
+         <primary>receipts</primary>
+         <secondary>correction of</secondary>
       </indexterm>To make corrections to a Purchase Order Receipt, select the
     "Correct Receiving" option from the right-click menu. The following screen
     will appear:</para>
-
-    <para id="Para972060">
+   <para id="Para972060">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Vouch_correctRecpt.png" id="Graphic972058"/>
             </imageobject>
-
             <caption id="Caption972061">Correct Purchase Order Receipt</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para972062">When correcting a Purchase Order Receipt, you are
+   <para id="Para972062">When correcting a Purchase Order Receipt, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972063">P/O Number</term>
-
-        <listitem id="listitemN0x180ac00N0x187b524">
+         <term id="Para972063">P/O Number</term>
+         <listitem id="listitemN0x180ac00N0x187b524">
             <para>Displays the selected Purchase Order Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972064">Line #</term>
-
-        <listitem id="listitemN0x180ac00N0x187b56c">
+         <term id="Para972064">Line #</term>
+         <listitem id="listitemN0x180ac00N0x187b56c">
             <para>Displays the selected Line Item Number from the specified
           Purchase Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972065">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x187b5b4">
+         <term id="Para972065">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x187b5b4">
             <para>Displays Item Number associated with the specified Line Item
           Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972066">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x187b5fc">
+         <term id="Para972066">UOM</term>
+         <listitem id="listitemN0x180ac00N0x187b5fc">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972067">Vend. Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x187b644">
+         <term id="Para972067">Vend. Item Number</term>
+         <listitem id="listitemN0x180ac00N0x187b644">
             <para>Displays the Item Number the Vendor uses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972068">Vendor Item Description</term>
-
-        <listitem id="listitemN0x180ac00N0x187b68c">
+         <term id="Para972068">Vendor Item Description</term>
+         <listitem id="listitemN0x180ac00N0x187b68c">
             <para>Displays the description for the Vendor Item Number.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972069">Vendor UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x187b6d4">
+         <term id="Para972069">Vendor UOM</term>
+         <listitem id="listitemN0x180ac00N0x187b6d4">
             <para>Displays the Unit of Measure the Vendor uses for the specified
           Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972070">Inventory/Vendor UOM Ratio</term>
-
-        <listitem id="listitemN0x180ac00N0x187b71c">
+         <term id="Para972070">Inventory/Vendor UOM Ratio</term>
+         <listitem id="listitemN0x180ac00N0x187b71c">
             <para>/Vendor UOM Ratio: Displays the ratio between Inventory and
           Vendor Units of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para972072">The Inv./Vendor UOM Ratio specifies the ratio
       between Inventory and Vendor Units of Measure (UOM). For example, if you
       store an Item in single units, but a Vendor sells you the Item in cases
@@ -300,89 +237,71 @@
       specified, the system allows you to purchase Items using the Vendor's
       UOM; however, when the Items are received, the system will automatically
       convert the Inventory to your Inventory UOM.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para972073">Due Date</term>
-
-        <listitem id="listitemN0x180ac00N0x187b7ac">
+         <term id="Para972073">Due Date</term>
+         <listitem id="listitemN0x180ac00N0x187b7ac">
             <para>Displays the date when the Line Item is due.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972074">Qty. Ordered</term>
-
-        <listitem id="listitemN0x180ac00N0x187b7f4">
+         <term id="Para972074">Qty. Ordered</term>
+         <listitem id="listitemN0x180ac00N0x187b7f4">
             <para>Displays the original Line Item quantity ordered.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972075">Qty. Received</term>
-
-        <listitem id="listitemN0x180ac00N0x187b83c">
+         <term id="Para972075">Qty. Received</term>
+         <listitem id="listitemN0x180ac00N0x187b83c">
             <para>Displays the total Line Item quantity received to date.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972076">Correct Qty. to</term>
-
-        <listitem id="listitemN0x180ac00N0x187b884">
+         <term id="Para972076">Correct Qty. to</term>
+         <listitem id="listitemN0x180ac00N0x187b884">
             <para>Enter the quantity you want to correct the received quantity
           to. This correction will create adjusting General Ledger entries
           when the CORRECT button is selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972078">
-            <anchor id="Anchor972077" role="Index" xreflabel="freight:correcting for purchasing"/> 
+         <term id="Para972078">
+             
             <indexterm significance="normal">
                <primary>freight</primary>
-
                <secondary>correcting for purchasing</secondary>
             </indexterm>Correct Freight to</term>
-
-        <listitem id="listitemN0x180ac00N0x187b914">
+         <listitem id="listitemN0x180ac00N0x187b914">
             <para>Enter the amount you want to correct the Line Item freight to.
           This correction will create adjusting General Ledger entries when
           the CORRECT button is selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972079">Notes</term>
-
-        <listitem id="listitemN0x180ac00N0x187b95c">
+         <term id="Para972079">Notes</term>
+         <listitem id="listitemN0x180ac00N0x187b95c">
             <para>This is a scrolling text field with word-wrapping for entering
           Notes related to the correction.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para972080">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para972080">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972081">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x187b9c8">
+         <term id="Para972081">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x187b9c8">
             <para>Closes the screen without entering a correction, returning you
           to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972082">CORRECT</term>
-
-        <listitem id="listitemN0x180ac00N0x1882000">
+         <term id="Para972082">CORRECT</term>
+         <listitem id="listitemN0x180ac00N0x1882000">
             <para>Select to post the correction. This action will result in
           adjusting General Ledger transactions.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

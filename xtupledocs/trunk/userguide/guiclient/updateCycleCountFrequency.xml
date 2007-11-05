@@ -2,144 +2,114 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section521475">
-    <title>
-      <anchor id="Anchor552332" role="Index" xreflabel="cycle counts:updating frequency of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>cycle counts</primary>
-
-        <secondary>updating frequency of</secondary>
+         <primary>cycle counts</primary>
+         <secondary>updating frequency of</secondary>
       </indexterm>Update Cycle Count Frequency</title>
-
-    <para id="Para521476">To update the frequency of scheduled Cycle Counts,
+   <para id="Para521476">To update the frequency of scheduled Cycle Counts,
     select the "Cycle Count Frequency" option. The following screen will
     appear:</para>
-
-    <para id="Para521480">
+   <para id="Para521480">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_Utilities_updateCycleCou.png" id="Graphic527305"/>
             </imageobject>
-
             <caption id="Caption521481">Update Cycle Count Frequency</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para521482">When updating Cycle Count frequency, you are
+   <para id="Para521482">When updating Cycle Count frequency, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry role="openmfg">
-        <term id="Para521483">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x19a8688">
+         <term id="Para521483">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x19a8688">
             <para>Select to update Cycle Count frequency for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para521485">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x19a86ac">
+         <term id="Para521485">Selected</term>
+         <listitem id="listitemN0x180ac00N0x19a86ac">
             <para>Specify Warehouse where Cycle Count frequency is to be
           updated.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521487">All Class Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x19a86f4">
+         <term id="Para521487">All Class Codes</term>
+         <listitem id="listitemN0x180ac00N0x19a86f4">
             <para>Select to update Cycle Count frequency for all Class
           Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521488">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x19a873c">
+         <term id="Para521488">Selected</term>
+         <listitem id="listitemN0x180ac00N0x19a873c">
             <para>Specify Class Code whose Cycle Count frequency you want to
           update.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para547886">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x19a8784">
+         <term id="Para547886">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x19a8784">
             <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
-
             <para id="Para677318">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef677317" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521492">Class A Frequency (Days)</term>
-
-        <listitem id="listitemN0x180ac00N0x19a87cc">
+         <term id="Para521492">Class A Frequency (Days)</term>
+         <listitem id="listitemN0x180ac00N0x19a87cc">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para521493">Value entered specifies how frequently you
           want to perform Cycle Counts for the specified Class
           designation.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521494">Class B Frequency (Days)</term>
-
-        <listitem id="listitemN0x180ac00N0x19a8814">
+         <term id="Para521494">Class B Frequency (Days)</term>
+         <listitem id="listitemN0x180ac00N0x19a8814">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para521495">Value entered specifies how frequently you
           want to perform Cycle Counts for the specified Class
           designation.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521496">Class C Frequency (Days)</term>
-
-        <listitem id="listitemN0x180ac00N0x19a885c">
+         <term id="Para521496">Class C Frequency (Days)</term>
+         <listitem id="listitemN0x180ac00N0x19a885c">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para521497">Value entered specifies how frequently you
           want to perform Cycle Counts for the specified Class
           designation.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para521498">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para521498">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para521499">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x19a88c8">
+         <term id="Para521499">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x19a88c8">
             <para>Closes the screen without updating the Cycle Count frequency,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para521500">UPDATE</term>
-
-        <listitem id="listitemN0x180ac00N0x19a8910">
+         <term id="Para521500">UPDATE</term>
+         <listitem id="listitemN0x180ac00N0x19a8910">
             <para>Updates the Cycle Count frequency, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

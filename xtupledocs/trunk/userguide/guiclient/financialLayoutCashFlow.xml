@@ -2,296 +2,230 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590302">
-    <title>
-      <anchor id="Anchor590433" role="Index"
-              xreflabel="financial reports:cash flow type;cash flow reports"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>financial reports</primary>
-
-        <secondary>cash flow type</secondary>
+         <primary>financial reports</primary>
+         <secondary>cash flow type</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>cash flow reports</primary>
+         <primary>cash flow reports</primary>
       </indexterm> 
       <anchor id="Anchor94732" role="Cross-Ref" xreflabel="94732: Heading3: Cash Flow Report"/>Cash Flow Report</title>
-
-    <para id="Para592852">Because Cash Flow statements can vary so widely,
+   <para id="Para592852">Because Cash Flow statements can vary so widely,
     there is no system-defined Cash Flow template. To create your own Cash
     Flow statement, select the "Cash Flow" report type. The following screen
     will appear:</para>
-
-    <para id="Para589074">
+   <para id="Para589074">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_FR_cashFlow.png" id="Graphic589073"/>
             </imageobject>
-
             <caption id="Caption589075">Cash Flow Financial Report</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para594712">To create the row layouts for a Cash Flow report,
+   <para id="Para594712">To create the row layouts for a Cash Flow report,
     you would follow the same basic steps as described in the <link endterm="Anchor69529" id="XRef594730" linkend="Anchor69529"> Ad Hoc
     Report</link>"Ad Hoc Report" section. The only difference is you won"t
     need to specify which balances to calculate (e.g., beginning, ending,
     etc.). Because the Cash Flow report is one of three standard statement
     formats, the system determines which calculations will be done.</para>
-
-    <tip>
+   <tip>
       <para id="Para594739">To build row layouts for the three standard report
       types--Income Statement, Balance Sheet, and Cash Flow--use the same
       techniques as when building Ad Hoc report row layouts. The only
       difference is you won"t need to specify which balances to calculate
       (e.g., beginning, ending, etc.). The system determines which
       calculations will be done for the standard statement formats.</para>
-    </tip>
-
-    <para id="Para595289">In addition to row layouts, you may also define
+   </tip>
+   <para id="Para595289">In addition to row layouts, you may also define
     column layouts for your Cash Flow report. Column layouts are used to
     specify the time buckets financial information will be sorted into. You
     specify a column layout to use when viewing or printing Financial Reports.
     You may define any number of column layouts. Each layout will be linked to
     either a pre-defined report definition or a custom report definition you
     create yourself.</para>
-
-    <para id="Para589069">To create column layouts for a Cash Flow report,
+   <para id="Para589069">To create column layouts for a Cash Flow report,
     select the "Column Layouts" tab. The following screen will appear:</para>
-
-    <para id="Para589087">
+   <para id="Para589087">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_FR_cashFlowCols.png" id="Graphic589086"/>
             </imageobject>
-
             <caption id="Caption589088">Cash Flow Report Column
           Layouts</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para589214">When creating column layouts for a Cash Flow report,
+   <para id="Para589214">When creating column layouts for a Cash Flow report,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para595326">Column Layouts</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd3f4">
+         <term id="Para595326">Column Layouts</term>
+         <listitem id="listitemN0x180ac00N0x18dd3f4">
             <para>Display lists column layouts defined for the Cash Flow
           report.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para595328">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para595328">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para595329">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd460">
+         <term id="Para595329">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18dd460">
             <para>Closes the screen without creating the report, returning you
           to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595330">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd4a8">
+         <term id="Para595330">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18dd4a8">
             <para>Creates the report and adds it to the master list of Financial
           Reports.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595331">ADD</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd4f0">
+         <term id="Para595331">ADD</term>
+         <listitem id="listitemN0x180ac00N0x18dd4f0">
             <para>Select to add a column layout.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595335">EDIT</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd538">
+         <term id="Para595335">EDIT</term>
+         <listitem id="listitemN0x180ac00N0x18dd538">
             <para>Enables you to edit highlighted column layouts. The edit
           screen is the same as that for creating a new column layout--except
           that when editing, the fields will contain column layout
           information. Double-clicking on a column layout will also bring you
           to the editing screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595336">DELETE</term>
-
-        <listitem id="listitemN0x180ac00N0x18dd580">
+         <term id="Para595336">DELETE</term>
+         <listitem id="listitemN0x180ac00N0x18dd580">
             <para>Highlight a column layout and then select this button to
           remove the column layout from the list.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para589083">To create a new column layout, select the ADD
+   </variablelist>
+   <para id="Para589083">To create a new column layout, select the ADD
     button. The following screen will appear:</para>
-
-    <para id="Para589479">
+   <para id="Para589479">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_FR_cashFlowColNew.png" id="Graphic589478"/>
             </imageobject>
-
             <caption id="Caption589480">Add New Column Layout</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para589481">When adding a new column layout, you are presented
+   <para id="Para589481">When adding a new column layout, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para595426">Name</term>
-
-        <listitem id="listitemN0x180ac00N0x18f1048">
+         <term id="Para595426">Name</term>
+         <listitem id="listitemN0x180ac00N0x18f1048">
             <para>Enter a name to identify the column layout.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595427">Description</term>
-
-        <listitem id="listitemN0x180ac00N0x18f1090">
+         <term id="Para595427">Description</term>
+         <listitem id="listitemN0x180ac00N0x18f1090">
             <para>Enter a brief description of the column layout.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595927">Report Template</term>
-
-        <listitem id="listitemN0x180ac00N0x18f10d8">
+         <term id="Para595927">Report Template</term>
+         <listitem id="listitemN0x180ac00N0x18f10d8">
             <para>Specify the report definition you want to associate with the
           column layout.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para595636">When creating a column layout, you can choose from
       the following standard report templates:</para>
-
       <para id="Para595637">FinancialReport (used by all Ad Hoc
       reports)</para>
-
       <para id="Para595641">FinancialReportMonth</para>
-
       <para id="Para595646">FinancialReportMonthBudget</para>
-
       <para id="Para595651">FinancialReportMonthDbCr</para>
-
       <para id="Para595656">FinancialReportMonthPriorMonth</para>
-
       <para id="Para595661">FinancialReportMonthPriorQuarter</para>
-
       <para id="Para595666">FinancialReportMonthPriorYear</para>
-
       <para id="Para595671">FinancialReportMonthQuarter</para>
-
       <para id="Para595676">FinancialReportMonthYear</para>
-
       <para id="Para595681">FinancialReportQuarter</para>
-
       <para id="Para595692">FinancialReportQuarterBudget</para>
-
       <para id="Para595686">FinancialReportQuarterPriorQuarter</para>
-
       <para id="Para595691">FinancialReportYear</para>
-
       <para id="Para595701">FinancialReportYearBudget</para>
-
       <para id="Para595706">FinancialReportYearPriorYear</para>
-
       <para id="Para595711">FinancialTrend (used by non-Ad-Hoc trend
       reports)</para>
-
       <para id="Para595638">If for some reason these templates don"t meet your
       needs, you can always use OpenRPT to a) modify them or b) create your
       own custom report templates.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para595607">Selected Period</term>
-
-        <listitem id="listitemN0x180ac00N0x18f1168">
+         <term id="Para595607">Selected Period</term>
+         <listitem id="listitemN0x180ac00N0x18f1168">
             <para>Select the time period(s) you want to have included in the
           column layout:</para>
-
             <para id="Para595443">Month: Select to have the current month
           included as one of the columns in the layout. The month used as the
           basis for the reporting is specified when the report is run. If
           selected, you will also have the option to include the prior month
           in the layout.</para>
-
             <para id="Para595452">Quarter: Select to have the current Quarter
           included as one of the columns in the layout. The month used as the
           basis for the reporting is specified when the report is run. If
           selected, you will also have the option to include the prior Quarter
           in the layout.</para>
-
             <para id="Para595453">Year: Select to have the current Fiscal
           Year-to-Date included as one of the columns in the layout. The month
           used as the basis for the reporting is specified when the report is
           run. If selected, you will also have the option to include the prior
           Fiscal Year in the layout.</para>
-
             <para id="Para595454">Show Debits and Credits: Select to have Debits
           and Credits included as columns for each of the time periods (month,
           Quarter, Year) specified for the layout.</para>
-
             <para id="Para595455">% of Group Total: Select to have the
           percentage of group total included as a column for each of the time
           periods (month, Quarter, Year) specified for the layout. This
           information will only be shown for groups and Accounts whose row
           definition specifies "Show % of Group Total."</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para596058">There is no relationship between the selected time
       periods in a column layout and the Trend Report options available when
       viewing a Financial Report. Trend Reporting ignores column
       layouts.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para596047">Prior</term>
-
-        <listitem id="listitemN0x180ac00N0x18f11f8">
+         <term id="Para596047">Prior</term>
+         <listitem id="listitemN0x180ac00N0x18f11f8">
             <para>Select to include prior time period information in the column
           layout by selecting from the following options:</para>
-
             <para id="Para595495">Period: Will include information for the
           Accounting Period immediately prior to the Period specified when the
           Financial Report is run. You must also select at least one of the
           time-period check boxes below ("Full Month" or "Full Quarter") for
           prior information to be included.</para>
-
             <para id="Para595499">Year: Will include information for the Fiscal
           Year immediately prior to the current Year specified when the
           Financial Report is run. You must also select at least one of the
           time-period check boxes below ("Full Month," "Full Quarter," etc.)
           for prior information to be included.</para>
-
             <para id="Para595500">Full Month: If selected, a full month's worth
           of information will be included when the report is run--depending on
           the prior time period specified above. If the "Period" option is
@@ -299,7 +233,6 @@
           Accounting Period will be included. If the "Year" option is
           specified, then the selected month in the prior Fiscal Year will be
           included.</para>
-
             <para id="Para595501">Full Quarter: If selected, a full Quarter's
           worth of information will be included when the report is
           run--depending on the prior time period specified above. If the
@@ -307,149 +240,122 @@
           the selected Accounting Period's Quarter will be included. If the
           "Year" option is specified, then the selected Quarter in the prior
           Fiscal Year will be included.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para596417">The "Full Year" and "Year To Date" check boxes are
       not affected by the "Period" or "Year" selections.</para>
-    </tip>
-
-    <itemizedlist>
+   </tip>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x18f1264">
-        <para id="Para595502">Full Year: If selected, the full prior Fiscal
+         <para id="Para595502">Full Year: If selected, the full prior Fiscal
         Year's worth of information will be included when the report is
         run.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f1288">
-        <para id="Para595503">Year To Date: If selected, the current Fiscal
+         <para id="Para595503">Year To Date: If selected, the current Fiscal
         Year to Date's worth of information will be included when the report
         is run.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f12ac">
-        <para id="Para595506">% of Group Total: If selected, the percentage of
+         <para id="Para595506">% of Group Total: If selected, the percentage of
         the group total for the prior time period will be included when the
         report is run. This information will only be shown for groups and
         Accounts whose row definition specifies "Show % of Group
         Total."</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f12d0">
-        <para id="Para595509">Difference: If selected, the amount of
+         <para id="Para595509">Difference: If selected, the amount of
         difference between the selected Accounting Period and the prior time
         period will be included when the report is run.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f12f4">
-        <para id="Para595510">% of Difference: If selected, the percentage
+         <para id="Para595510">% of Difference: If selected, the percentage
         difference between the selected Accounting Period and the prior time
         period will be included when the report is run.</para>
-
-        <para id="Para595539">Budget: Select to include Budget information in
+         <para id="Para595539">Budget: Select to include Budget information in
         the column layout. If selected, the following additional options will
         be available:</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f1318">
-        <para id="Para595546">% of Group Total: If selected, the Budget
+         <para id="Para595546">% of Group Total: If selected, the Budget
         percentage of the group total will be included when the report is run.
         This information will only be shown for groups and Accounts whose row
         definition specifies "Show % of Group Total."</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f133c">
-        <para id="Para595549">Difference: If selected, the amount of
+         <para id="Para595549">Difference: If selected, the amount of
         difference between the selected Accounting Period and the Budget for
         the Period will be included when the report is run.</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18f1360">
-        <para id="Para595550">% of Difference: If selected, the percentage
+         <para id="Para595550">% of Difference: If selected, the percentage
         difference between the selected Accounting Period and the Budget for
         the Period will be included when the report is run.</para>
       </listitem>
-    </itemizedlist>
-
-    <para id="Para595558">To the far right of the screen, the following
+   </itemizedlist>
+   <para id="Para595558">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para595566">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18f13cc">
+         <term id="Para595566">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18f13cc">
             <para>Creates the column layout and adds it to the list of column
           layouts.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para595559">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18f1414">
+         <term id="Para595559">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18f1414">
             <para>Closes the screen without creating the column layout,
           returning you to the previous screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para596659">To specify additional configuration options for the
+   </variablelist>
+   <para id="Para596659">To specify additional configuration options for the
     layout of your Cash Flow report, select the "Options" tab. The following
     screen will appear:</para>
-
-    <para id="Para589109">
+   <para id="Para589109">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_FR_cashFlowOpts.png" id="Graphic589108"/>
             </imageobject>
-
             <caption id="Caption589110">Cash Flow Report Options</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para596729">When specifying additional configuration options for
+   <para id="Para596729">When specifying additional configuration options for
     the layout of your Cash Flow report, you are presented with the following
     options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para596730">Show Grand Total</term>
-
-        <listitem id="listitemN0x180ac00N0x18f14ec">
+         <term id="Para596730">Show Grand Total</term>
+         <listitem id="listitemN0x180ac00N0x18f14ec">
             <para>Select if you want to include a grand total in the Financial
           Report.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para596737">Alternate Labels</term>
-
-        <listitem id="listitemN0x180ac00N0x18f1534">
+         <term id="Para596737">Alternate Labels</term>
+         <listitem id="listitemN0x180ac00N0x18f1534">
             <para>You have the option to substitute alternate text for the
           following column headers or row labels when viewing or printing your
           Financial Report:</para>
-
             <para id="Para596740">Alternate Debits: Specify an alternate label
           to use as the header text for the Debits column. If not specified,
           the default text will be used.</para>
-
             <para id="Para596741">Alternate Credits: Specify an alternate label
           to use as the header text for the Credits column. If not specified,
           the default text will be used.</para>
-
             <para id="Para596742">Alternate Budget: Specify an alternate label
           to use as the header text for the Budget column. If not specified,
           the default text will be used.</para>
-
             <para id="Para596744">Alternate Grand Total: Specify an alternate
           label to use as the text for the Grand Total row. If not specified,
           the default text will be used.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

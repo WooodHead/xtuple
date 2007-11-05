@@ -2,88 +2,70 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520222">
-    <title>
-      <anchor id="Anchor533263" role="Index"
-              xreflabel="work orders:related to sales orders;sales orders:related to work orders"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>related to sales orders</secondary>
+         <primary>work orders</primary>
+         <secondary>related to sales orders</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>sales orders</primary>
-
-        <secondary>related to work orders</secondary>
+         <primary>sales orders</primary>
+         <secondary>related to work orders</secondary>
       </indexterm>Open Work Orders with Closed Parent Sales Orders</title>
-
-    <para id="Para520223">To view open Work Orders whose parent Sales Orders
+   <para id="Para520223">To view open Work Orders whose parent Sales Orders
     are closed, select the "Open Work Orders with Closed Parent Sales Orders"
     option. The following screen will appear:</para>
-
-    <para id="Para520227">
+   <para id="Para520227">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Disp_openWOClosedSO.png" id="Graphic524210"/>
             </imageobject>
-
             <caption id="Caption520228">Open Work Orders with Closed Parent
           Sales Orders</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520229">When displaying open Work Orders whose parent Sales
+   <para id="Para520229">When displaying open Work Orders whose parent Sales
     Orders are closed, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry role="openmfg">
-        <term id="Para520230">All Warehouses</term>
-
-        <listitem>
+         <term id="Para520230">All Warehouses</term>
+         <listitem>
             <para>Select to display open Work Orders with closed parent Sales
           Orders for all Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para520232">Selected</term>
-
-        <listitem>
+         <term id="Para520232">Selected</term>
+         <listitem>
             <para>Specify Warehouse whose open Work Orders with closed parent
           Sales Orders you want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520234">Work Orders</term>
-
-        <listitem>
+         <term id="Para520234">Work Orders</term>
+         <listitem>
             <para>Display lists open Work Orders with closed parent Sales
           Orders, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520236">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520236">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520237">CLOSE</term>
-
-        <listitem>
+         <term id="Para520237">CLOSE</term>
+         <listitem>
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520238">PRINT</term>
-
-        <listitem>
+         <term id="Para520238">PRINT</term>
+         <listitem>
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

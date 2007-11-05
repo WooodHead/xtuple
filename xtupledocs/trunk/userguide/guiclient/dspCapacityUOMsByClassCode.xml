@@ -2,125 +2,98 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520511">
-    <title>
-      <anchor id="Anchor595526" role="Index"
-              xreflabel="units of measure:capacity by class code;class codes:capacity uom details for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>units of measure</primary>
-
-        <secondary>capacity by class code</secondary>
+         <primary>units of measure</primary>
+         <secondary>capacity by class code</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>class codes</primary>
-
-        <secondary>capacity uom details for</secondary>
+         <primary>class codes</primary>
+         <secondary>capacity uom details for</secondary>
       </indexterm>Capacity UOMs by Class Code</title>
-
-    <para id="Para520512">To view a list of Capacity Units of Measure by Class
+   <para id="Para520512">To view a list of Capacity Units of Measure by Class
     Code, select the "Capacity UOMs by Class Code" option. The following
     screen will appear:</para>
-
-    <para id="Para520516">
+   <para id="Para520516">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Disp_capUOMClass.png" id="Graphic563757"/>
             </imageobject>
-
             <caption id="Caption520517">Capacity UOMs by Class Code</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520518">When displaying Capacity UOMs by Class Code, you are
+   <para id="Para520518">When displaying Capacity UOMs by Class Code, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para617093">All Class Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x193f9a8">
+         <term id="Para617093">All Class Codes</term>
+         <listitem id="listitemN0x180ac00N0x193f9a8">
             <para>Select to display Capacity UOMs for all Class Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520519">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x193f9f0">
+         <term id="Para520519">Selected</term>
+         <listitem id="listitemN0x180ac00N0x193f9f0">
             <para>Specify Class Code whose Capacity UOMs you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para593278">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x193fa38">
+         <term id="Para593278">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x193fa38">
             <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
-
             <para id="Para664844">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef664843" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520523">Capacity UOMs</term>
-
-        <listitem id="listitemN0x180ac00N0x193fa80">
+         <term id="Para520523">Capacity UOMs</term>
+         <listitem id="listitemN0x180ac00N0x193fa80">
             <para>Display lists Capacity UOMs by Class Code, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520525">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520525">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520526">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x193faec">
+         <term id="Para520526">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x193faec">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618304">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x193fb34">
+         <term id="Para618304">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x193fb34">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para664058">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x193fb7c">
+         <term id="Para664058">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x193fb7c">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para557059">Right-clicking on an Item in the Capacity UOMs list
+   </variablelist>
+   <para id="Para557059">Right-clicking on an Item in the Capacity UOMs list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520529">Edit Item</term>
-
-        <listitem id="listitemN0x180ac00N0x193fbe8">
+         <term id="Para520529">Edit Item</term>
+         <listitem id="listitemN0x180ac00N0x193fbe8">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

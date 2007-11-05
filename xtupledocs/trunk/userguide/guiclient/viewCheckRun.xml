@@ -2,230 +2,184 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524363">
-    <title>
-      <anchor id="Anchor532576" role="Index" xreflabel="check runs:viewing detailed list of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>check runs</primary>
-
-        <secondary>viewing detailed list of</secondary>
+         <primary>check runs</primary>
+         <secondary>viewing detailed list of</secondary>
       </indexterm>View Check Run</title>
-
-    <para id="Para524389">To view a detailed list of Checks prepared to be
+   <para id="Para524389">To view a detailed list of Checks prepared to be
     run, select the "View Check Run" option. The following screen will
     appear:</para>
-
-    <para id="Para529008">
+   <para id="Para529008">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AP_Pay_viewChkRun.png" id="Graphic529006"/>
             </imageobject>
-
             <caption id="Caption529009">View Check Run</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para529003">When viewing the detailed list of Checks prepared to
+   <para id="Para529003">When viewing the detailed list of Checks prepared to
     be run, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529039">Bank Account</term>
-
-        <listitem>
+         <term id="Para529039">Bank Account</term>
+         <listitem>
             <para>Specify the Bank Account whose Check Run you want to
           view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529037">A/P Checks</term>
-
-        <listitem>
+         <term id="Para529037">A/P Checks</term>
+         <listitem>
             <para>Display lists details for Checks included in the Check
           Run.</para>
-
             <para id="Para565713">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each
           Check. By clicking your mouse on a plus sign, you reveal lower
           levels of information related to the Check.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para529157">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para529157">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529158">CLOSE</term>
-
-        <listitem>
+         <term id="Para529158">CLOSE</term>
+         <listitem>
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529163">PRINT EDIT LIST</term>
-
-        <listitem>
+         <term id="Para529163">PRINT EDIT LIST</term>
+         <listitem>
             <para>Select to print a copy of the list displayed on the
           screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529164">
-            <anchor id="Anchor534172" role="Index"
-                    xreflabel="check runs:printing of;checks:printing multiple"/>
+         <term id="Para529164">
+            
             <indexterm significance="normal">
                <primary>check runs</primary>
-
                <secondary>printing of</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>printing multiple</secondary>
             </indexterm>PRINT CHECK RUN</term>
-
-        <listitem>
+         <listitem>
             <para>Select to print the Check Run, using the specified Bank
           Account. For more information on printing Check Runs, see the <link endterm="Anchor26666" id="XRef545565" linkend="Anchor26666"> Print
           Check Run</link>"Print Check Run" section.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529165">
-            <anchor id="Anchor534170" role="Index" xreflabel="checks:printing individual"/> 
+         <term id="Para529165">
+             
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>printing individual</secondary>
             </indexterm>PRINT CHECK</term>
-
-        <listitem>
+         <listitem>
             <para>Highlight a Check in the list of Checks and then select this
           button to print the Check.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529166">
-            <anchor id="Anchor534173" role="Index" xreflabel="checks:posting individual"/> 
+         <term id="Para529166">
+             
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>posting individual</secondary>
             </indexterm>POST CHECK</term>
-
-        <listitem>
+         <listitem>
             <para>Highlight a Check in the list of Checks and then select this
           button to post the Check. A Check must be printed before it can be
           posted. See the "Printed" column in the display to determine a
           Check's printed status.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529167">
-            <anchor id="Anchor534174" role="Index" xreflabel="checks:voiding of"/> 
+         <term id="Para529167">
+             
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>voiding of</secondary>
             </indexterm>VOID CHECK</term>
-
-        <listitem>
+         <listitem>
             <para>Highlight a Check in the list of Checks and then select this
           button to void the Check. Voided Checks may not be printed or
           posted.</para>
-
             <para id="Para541832">When a Check is voided, the payable amount
           will be reopened on the Select Payments screen. In other words, if a
           Check for $100.00 is voided, that amount will once again be made
           available for payment on the Select Payments screen. The reopened
           amount will again be associated with the referring payable Document
           (i.e., Voucher or Debit Memo).</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para553726">To void a Check after it has been posted, use the
       right-click menu option on the Check Register.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para540966">EDIT CHECK</term>
-
-        <listitem>
+         <term id="Para540966">EDIT CHECK</term>
+         <listitem>
             <para>Highlight a miscellaneous Check and then select this button to
           edit the Check. Only unprinted miscellaneous Checks may be
           edited.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para541961">Only unprinted miscellaneous Checks may be edited.
       Regular Checks may not be edited.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para553659">DELETE</term>
-
-        <listitem>
+         <term id="Para553659">DELETE</term>
+         <listitem>
             <para>Highlight a voided Check in the list of Checks and then select
           this button to delete the Check.</para>
-
             <para id="Para553666">Only voided Checks may be deleted.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para541963">
-            <anchor id="Anchor541962" role="Index"
-                    xreflabel="checks:replacing in check run;check runs:replacing checks in"/>
+         <term id="Para541963">
+            
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>replacing in check run</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>check runs</primary>
-
                <secondary>replacing checks in</secondary>
             </indexterm>REPLACE CHECK</term>
-
-        <listitem>
+         <listitem>
             <para>Highlight a voided Check in the list of Checks and then select
           this button to replace the Check.</para>
-
             <para id="Para541856">Checks must be voided before they can be
           replaced. When a voided Check is replaced, the payable amount
           displayed on the Select Payments screen will be removed. In other
           words, if a voided Check for $500.00 is replaced, that amount will
           no longer be available for payment on the Select Payments
           screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529169">REPLACE ALL</term>
-
-        <listitem>
+         <term id="Para529169">REPLACE ALL</term>
+         <listitem>
             <para>Select this button to replace all Checks shown in the list of
           Checks.</para>
-
             <para id="Para545540">Checks must be voided before they can be
           replaced.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

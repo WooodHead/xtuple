@@ -2,96 +2,75 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518921">
-    <title>
-      <anchor id="Anchor919419" role="Index"
-              xreflabel="item sources:by item;items:item sources for"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>item sources</primary>
-
-        <secondary>by item</secondary>
+         <primary>item sources</primary>
+         <secondary>by item</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>item sources for</secondary>
+         <primary>items</primary>
+         <secondary>item sources for</secondary>
       </indexterm>Item Sources by Item</title>
-
-    <para id="Para522230">To view Item Sources by Item, select the "Item
+   <para id="Para522230">To view Item Sources by Item, select the "Item
     Sources by Item" option. The following screen will appear:</para>
-
-    <para id="Para522233">
+   <para id="Para522233">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Disp_itemSrcByItem.png" id="Graphic522232"/>
             </imageobject>
-
             <caption id="Caption522234">Item Sources by Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para522235">When displaying Item Sources by Item, you are
+   <para id="Para522235">When displaying Item Sources by Item, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para523186">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x18c0fd0">
+         <term id="Para523186">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x18c0fd0">
             <para>Enter the Item Number of the Item whose Item Sources you want
           to view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para968952">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x18c1018">
+         <term id="Para968952">UOM</term>
+         <listitem id="listitemN0x180ac00N0x18c1018">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para523207">Item Sources</term>
-
-        <listitem id="listitemN0x180ac00N0x18c1060">
+         <term id="Para523207">Item Sources</term>
+         <listitem id="listitemN0x180ac00N0x18c1060">
             <para>Display lists Item Sources by Item, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para523209">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para523209">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para523210">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18c10cc">
+         <term id="Para523210">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18c10cc">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para970010">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18c1114">
+         <term id="Para970010">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18c1114">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para526559">Right-clicking on an Item Source in the Item Sources
+   </variablelist>
+   <para id="Para526559">Right-clicking on an Item Source in the Item Sources
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

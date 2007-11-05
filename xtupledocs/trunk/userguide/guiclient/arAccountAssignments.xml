@@ -2,104 +2,81 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657386">
-  <title>
-      <anchor id="Anchor657385" role="Index"
-              xreflabel="accounts receivable:account assignments for"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>accounts receivable</primary>
-
          <secondary>account assignments for</secondary>
       </indexterm>List A/R Account Assignments</title>
-
-  <para id="Para657387">Accounts Receivable (A/R) Account assignments
+   <para id="Para657387">Accounts Receivable (A/R) Account assignments
   represent the default General Ledger (G/L) Accounts used by the system when
   processing the following:</para>
-
-  <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1885598">
          <para id="Para657388">Invoices</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18855bc">
          <para id="Para657389">Cash Receipts</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18855e0">
          <para id="Para657390">S/O Credit Memos</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1885604">
          <para id="Para657391">Miscellaneous A/R Credit Memos</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1885628">
          <para id="Para657392">Miscellaneous A/R Debit Memos</para>
       </listitem>
-  </itemizedlist>
-
-  <para id="Para657393">The Account assignments are made by Customer Type.
+   </itemizedlist>
+   <para id="Para657393">The Account assignments are made by Customer Type.
   This means that transactions involving a Customer will follow the
   assignments established for the Customer Type--unless otherwise specified.
   To access the A/R Account assignments master list, select the "A/R Account
   Assignments" option. The following screen will appear:</para>
-
-  <para id="Para657397">
+   <para id="Para657397">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_MI_arAssignList.png" id="Graphic657395"/>
             </imageobject>
-
             <caption id="Caption657398">A/R Account Assignments Master
         List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para657399">The "A/R Account Assignments" screen displays
+   <para id="Para657399">The "A/R Account Assignments" screen displays
   information on existing A/R Account assignments.</para>
-
-  <para id="Para657400">To the far right of the screen, the following buttons
+   <para id="Para657400">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para657401">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x1885700">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para657402">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x1885748">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para657403">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x1885790">
             <para>Opens screen for creating a new A/R Account assignment.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para657404">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x18857d8">
             <para>Highlight an A/R Account assignment and then select this button
         to reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para657405">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x1885820">
             <para>Enables you to edit highlighted A/R Account assignment. The edit
         screen is the same as that for creating a new A/R Account
@@ -108,14 +85,12 @@
         assignment will also bring you to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para657406">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x1885868">
             <para>Highlight an A/R Account assignment and then select this button
         to remove the A/R Account assignment from the master list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

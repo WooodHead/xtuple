@@ -2,107 +2,85 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519027">
-  <title> 
-      <anchor id="Anchor548952" role="Index" xreflabel="sales orders:creating new "/> 
+   <title> 
+       
       <indexterm significance="normal">
          <primary>sales orders</primary>
-
          <secondary>line item pricing for</secondary>
       </indexterm>
       <anchor id="Anchor23923" role="Cross-Ref" xreflabel="23923: Heading2: New Sales Order"/>Price List</title>
-
-  <para id="Para603256">To enter the net Unit Price for a Sales Order Line
+   <para id="Para603256">To enter the net Unit Price for a Sales Order Line
   Item, select the browse button located to the right of the "Net Unit Price"
   field. The following screen will appear:</para>
-
-  <para id="Para603260">
+   <para id="Para603260">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Ord_priceList.png" id="Graphic603258"/>
             </imageobject>
-
             <caption id="Caption603261">Sales Order Item Price List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para603262">When entering the net Unit Price for a Sales Order
+   <para id="Para603262">When entering the net Unit Price for a Sales Order
   Line Item, you are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para603263">Customer #</term>
-
          <listitem id="listitemN0x180ac00N0x18acf1c">
             <para>Displays the Customer associated with the specified Sales
         Order.</para>
-
             <para id="Para626348">The name of the Customer will also be
         displayed.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para603264">Item Number</term>
-
          <listitem id="listitemN0x180ac00N0x18acf64">
             <para>Displays the Item Number associated with the specified Sales
         Order Line Item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para652577">UOM</term>
-
          <listitem id="listitemN0x180ac00N0x18acfac">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para603266">Quantity</term>
-
          <listitem id="listitemN0x180ac00N0x18acff4">
             <para>Displays Line Item quantity specified on previous screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para603267">Items</term>
-
          <listitem id="listitemN0x180ac00N0x18ad03c">
             <para>Display lists available pricing for the specified Sales Order
         Line Item.</para>
-
             <para id="Para653851">Currency values and conversions Currency will
         also be shown if your system is configured to use multiple
         Currencies.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para603269">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para603269">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para603270">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x18ad0a8">
             <para>Closes the screen without entering a Price, returning you to the
         previous screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para603271">SELECT</term>
-
          <listitem id="listitemN0x180ac00N0x18ad0f0">
             <para>Highlight a Price from the list of Prices, then select this
         button to enter the Price in the "Net Unit Price" field on the
         previous screen.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

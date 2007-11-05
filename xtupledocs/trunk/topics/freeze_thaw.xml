@@ -2,11 +2,10 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672121">
-  <title>
+   <title>
       <anchor id="Anchor80983" role="Cross-Ref"
               xreflabel="80983: Heading2: Topic: Freezing and Thawing"/> 
-      <anchor id="Anchor672120" role="Index"
-              xreflabel="topics:freezing and thawing;freezing:explained;thawing:explained"/>
+      
       <indexterm significance="normal">
          <primary>topics</primary>
          <secondary>freezing and thawing</secondary>
@@ -19,14 +18,13 @@
          <primary>thawing</primary>
          <secondary>explained</secondary>
       </indexterm>Topic: Freezing and Thawing</title>
-  <para id="Para672122">The freezing/thawing mechanism is designed to ensure
+   <para id="Para672122">The freezing/thawing mechanism is designed to ensure
   you get accurate Inventory counts without having to shut down operations.
   All you have to do is follow these simple steps:</para>
-  <orderedlist continuation="restarts" inheritnum="ignore">
+   <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem id="listitemN0x180ac00N0x18e26f4">
          <para id="Para672124">Prior to beginning an Inventory count, freeze your
-      <anchor id="Anchor672123" role="Index"
-                    xreflabel="quantity on hand:freezing and thawing of"/> 
+       
             <indexterm significance="normal">
                <primary>quantity on hand</primary>
                <secondary>freezing and thawing of</secondary>
@@ -42,15 +40,14 @@
       also any Inventory activity that may have occurred during the time your
       count was underway.</para>
       </listitem>
-  </orderedlist>
-  <para id="Para672127">To give you a better feel for how freezing and thawing
+   </orderedlist>
+   <para id="Para672127">To give you a better feel for how freezing and thawing
   works, consider the following hypothetical scenarios. These scenarios
   approach the issue of Inventory accuracy from a number of different
   perspectives.</para>
-  <section id="Section672129">
+   <section id="Section672129">
       <title>
-         <anchor id="Anchor672128" role="Index"
-                 xreflabel="freezing:implications of not using;thawing:implications of not using"/>
+         
          <indexterm significance="normal">
             <primary>freezing</primary>
             <secondary>implications of not using</secondary>
@@ -112,10 +109,10 @@
             </mediaobject>
          </screenshot>
       </para>
-  </section>
-  <section id="Section672147">
+   </section>
+   <section id="Section672147">
       <title>
-         <anchor id="Anchor672146" role="Index" xreflabel="freezing:prior to counting"/> 
+          
          <indexterm significance="normal">
             <primary>freezing</primary>
             <secondary>prior to counting</secondary>
@@ -183,5 +180,5 @@
             </mediaobject>
          </screenshot>
       </para>
-  </section>
+   </section>
 </section>

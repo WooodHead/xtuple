@@ -2,142 +2,114 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section955370">
-    <title>
-      <anchor id="Anchor955369" role="Index"
-              xreflabel="purchase requests:by planner code;planner codes:purchase requests for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>purchase requests</primary>
-
-        <secondary>by planner code</secondary>
+         <primary>purchase requests</primary>
+         <secondary>by planner code</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>planner codes</primary>
-
-        <secondary>purchase requests for</secondary>
+         <primary>planner codes</primary>
+         <secondary>purchase requests for</secondary>
       </indexterm>Purchase Requests by Planner Code</title>
-
-    <para id="Para955371">To view Purchase Requests by Planner Code, select
+   <para id="Para955371">To view Purchase Requests by Planner Code, select
     the "Purchase Requests by Planner Code" option. The following screen will
     appear:</para>
-
-    <note>
+   <note>
       <para id="Para954157">Purchase Requests are considered to be a valid
       source of supply by the planning systems.</para>
-    </note>
-
-    <para id="Para929020">
+   </note>
+   <para id="Para929020">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Disp_purchReqsByPCode.png" id="Graphic929018"/>
             </imageobject>
-
             <caption id="Caption929021">Purchase Requests by Planner
           Code</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para971158">Purchase Requests may be created using the
       right-click menus available in several displays. For example, you can
       generate Purchase Requests from Inventory Availability and also Planned
       Order reports.</para>
-    </tip>
-
-    <para id="Para929025">When displaying Purchase Requests by Planner Code,
+   </tip>
+   <para id="Para929025">When displaying Purchase Requests by Planner Code,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry role="openmfg">
-        <term id="Para929029">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2db4">
+         <term id="Para929029">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x18a2db4">
             <para>Select to display Purchase Requests by Planner Code for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para929030">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2dd8">
+         <term id="Para929030">Selected</term>
+         <listitem id="listitemN0x180ac00N0x18a2dd8">
             <para>Specify Warehouse whose Purchase Requests by Planner Code you
           want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para929273">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2e20">
+         <term id="Para929273">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x18a2e20">
             <para>Purchase Requests by Planner Code entered on and after this
           date will be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para929278">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2e68">
+         <term id="Para929278">End Date</term>
+         <listitem id="listitemN0x180ac00N0x18a2e68">
             <para>Purchase Requests by Planner Code entered on and before this
           date will be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para929305">All Planner Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2eb0">
+         <term id="Para929305">All Planner Codes</term>
+         <listitem id="listitemN0x180ac00N0x18a2eb0">
             <para>Select to display Purchase Requests for all Planner
           Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para929306">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2ef8">
+         <term id="Para929306">Selected</term>
+         <listitem id="listitemN0x180ac00N0x18a2ef8">
             <para>Specify Planner Code whose Purchase Requests you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para929167">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2f40">
+         <term id="Para929167">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x18a2f40">
             <para>Enter a Planner Code pattern to select a range of Planner
           Codes.</para>
-
             <para id="Para971250">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef971249" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para951523">Purchase Request quantities are based on the
       Inventory Unit of Measure (UOM). However, some Vendor Item Sources may
       specify an alternate UOM. If this is the case, the system will
       automatically convert the requirement to the Vendor's UOM when the
       Purchase Request is released.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para929153">Purchase Requests</term>
-
-        <listitem id="listitemN0x180ac00N0x18a2fd0">
+         <term id="Para929153">Purchase Requests</term>
+         <listitem id="listitemN0x180ac00N0x18a2fd0">
             <para>Display lists Purchase Requests for the specified Planner
           Code, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para953500">When a Purchase Request is released, the requested
       Item will automatically populate a Purchase Order Item screen. If Item
       Sources have been defined for the Item, then Item Source Prices will be
@@ -145,48 +117,38 @@
       for Purchase Requests generated from Sales Orders. Project Numbers may
       also be transferred from Sales Orders. In this way, Sales Orders and
       Purchase Order Line Items may be linked to the same Project.</para>
-    </note>
-
-    <para id="Para929034">To the far right of the screen, the following
+   </note>
+   <para id="Para929034">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para929035">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18a3060">
+         <term id="Para929035">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18a3060">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para934503">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18a30a8">
+         <term id="Para934503">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18a30a8">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para969963">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18a30f0">
+         <term id="Para969963">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18a30f0">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para935986">Right-clicking on a Purchase Request in the Purchase
+   </variablelist>
+   <para id="Para935986">Right-clicking on a Purchase Request in the Purchase
     Requests list enables you to select from the following menu
     options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/5)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

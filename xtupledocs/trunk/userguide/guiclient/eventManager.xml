@@ -2,26 +2,22 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section947182">
-  <title>
-      <anchor id="Anchor65576" role="Cross-Ref" xreflabel="65576: Heading2: Event Manager"/> 
-      <anchor id="Anchor947212" role="Index" xreflabel="users:viewing events for"/>
+   <title>
+       
+      
       <indexterm significance="normal">
          <primary>users</primary>
-
          <secondary>viewing events for</secondary>
       </indexterm>
       <indexterm significance="normal">
          <primary>event manager</primary>
-
          <secondary>user accessibility and</secondary>
       </indexterm>
       <indexterm significance="normal">
          <primary>events</primary>
-
          <secondary>management of</secondary>
       </indexterm> Event Manager</title>
-
-  <para id="Para947154">The Event Manager enables users to view and manage
+   <para id="Para947154">The Event Manager enables users to view and manage
   their received Event notifications. Those users granted the System module
   privilege "ViewOtherEvents" may also view Event notifications sent to other
   users. Typically, the "ViewOtherEvents" privilege is assigned to managers
@@ -30,39 +26,31 @@
   with their own account. Additional System module privileges grant the
   ability to delete one's own Event notifications and/or the Event
   notifications assigned to other users.</para>
-
-  <tip>
+   <tip>
       <para id="Para935918">Consider defining a clear relationship between the
     Events assigned to a user and the activities a user participates in. For
     example, if a user is not part of the Sales team, turn off all Sales
     Events for that user.</para>
-  </tip>
-
-  <para id="Para935812">The following screen will appear when you select the
+   </tip>
+   <para id="Para935812">The following screen will appear when you select the
   "Event Manager" option:</para>
-
-  <para id="Para519407">
+   <para id="Para519407">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/Sys_eventMgr.png" id="Graphic522278"/>
             </imageobject>
-
             <caption id="Caption519408">Event Manager</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para519410">When displaying system-generated Events, you are
+   <para id="Para519410">When displaying system-generated Events, you are
   presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para519411">Current User</term>
-
          <listitem id="listitemN0x180ac00N0x18e2454">
             <para>Select to view the Events for the current user.</para>
-
             <para id="Para935937">This is the only option available to users who
         have not been granted the System module privilege called
         "ViewOtherEvents." Use the right-click menu to acknowledge receipt of
@@ -70,13 +58,10 @@
         on assigned privileges.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519412">Selected User</term>
-
          <listitem id="listitemN0x180ac00N0x18e249c">
             <para>Select to view the Events for a selected user.</para>
-
             <para id="Para935945">The ability to view the Events assigned to other
         users is only available to users who have been granted the System
         module privilege called "ViewOtherEvents." Use the right-click menu to
@@ -84,147 +69,114 @@
         available, depending on assigned privileges.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519413">Username</term>
-
          <listitem id="listitemN0x180ac00N0x18e24e4">
             <para>Specify the user whose Events you want to view.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
          <term id="Para976110">All Warehouses</term>
-
          <listitem id="listitemN0x180ac00N0x18e2508">
             <para>Select to display Events for all Warehouses.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
          <term id="Para976111">Selected</term>
-
          <listitem id="listitemN0x180ac00N0x18e252c">
             <para>Specify Warehouse whose Events you want to display.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para945748">
-            <anchor id="Anchor945747" role="Index" xreflabel="events:acknowledgement of"/> 
+             
             <indexterm significance="normal">
                <primary>events</primary>
-
                <secondary>acknowledgement of</secondary>
             </indexterm>Show Acknowledged Events</term>
-
          <listitem id="listitemN0x180ac00N0x18e25bc">
             <para>Select to include previously acknowledged Events in the
         display.</para>
-
             <para id="Para519420">Not selecting this option means previously
         acknowledged Events will not be included in the display.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <note>
+   </variablelist>
+   <note>
       <para id="Para936034">The Event acknowledgement feature provides managers
     with greater visibility into operations. When users acknowledge an Event,
     they assume responsibility for having seen and received it.</para>
-  </note>
-
-  <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
          <term id="Para519421">Events</term>
-
          <listitem id="listitemN0x180ac00N0x18e264c">
             <para>Display lists Events for the specified user, using the specified
         parameters.</para>
-
             <para id="Para979482">To view a complete list of system-defined
         Events, see <link endterm="Anchor80421" id="XRef947459" linkend="Anchor80421"> Appendix A</link>Appendix A.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para932476">Automatically Update</term>
-
          <listitem id="listitemN0x180ac00N0x18e2694">
             <para>Select to automatically update the display every five
         minutes.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para519424">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para519424">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para519425">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x18e2700">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para976724">ACKNOWLEDGE</term>
-
          <listitem id="listitemN0x180ac00N0x18e2748">
             <para>Highlight an Event--or group of Events using the SHIFT and/or
         CTRL keys--and then select this button to Acknowledge the
         Event.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para976742">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x18e2790">
             <para>Highlight an Event--or group of Events using the SHIFT and/or
         CTRL keys--and then select this button to remove the Event from the
         list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para520505">Right-clicking on an Event in the Event list enables
+   </variablelist>
+   <para id="Para520505">Right-clicking on an Event in the Event list enables
   you to select from a variety of menu options. The following example
   illustrates the options available when right-clicking on an Event generated
   as the result of QOH for an Item Site having fallen below 0:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para920113">Acknowledge</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
                      xpointer="element(listitemN0x180ac00N0x18e2748)"/>
       </varlistentry>
-
       <varlistentry>
          <term id="Para920114">Delete</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
                      xpointer="element(listitemN0x180ac00N0x18e2790)"/>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/8/2/8)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/8/2/20)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/8/2/19)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
-
-  <para id="Para937788">The right-click menu options will vary, depending on
+   </variablelist>
+   <para id="Para937788">The right-click menu options will vary, depending on
   the module the Event originates from. User privileges will also affect
   available right-click menu options.</para>
 </section>

@@ -2,15 +2,14 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672485" role="openmfg">
-  <title>Topic: Order Parameters and MRP</title>
-  <para id="Para672486">This section is designed to briefly illustrate the
+   <title>Topic: Order Parameters and MRP</title>
+   <para id="Para672486">This section is designed to briefly illustrate the
   interaction between Order Parameters and Material Requirements Planning
   (MRP). As you will see, Order Parameters play a key role in the execution of
   MRP.</para>
-  <section id="Section672488">
+   <section id="Section672488">
       <title>
-         <anchor id="Anchor672487" role="Index"
-                 xreflabel="material requirements planning:order parameters and;order parameters:for mrp;item sites:order parameter settings"/>
+         
          <indexterm significance="normal">
             <primary>material requirements planning</primary>
             <secondary>order parameters and</secondary>
@@ -91,8 +90,7 @@
          </listitem>
          <listitem id="listitemN0x180ac00N0x1868a3c">
             <para id="Para672508">
-               <anchor id="Anchor672507" role="Index"
-                       xreflabel="planned orders:consolidation of;material requirements planning:consolidation of planned orders and"/>
+               
                <indexterm significance="normal">
                   <primary>planned orders</primary>
                   <secondary>consolidation of</secondary>
@@ -126,8 +124,7 @@
          </listitem>
       </itemizedlist>
       <tip>
-         <para id="Para672516">To enforce <anchor id="Anchor672515" role="Index"
-                    xreflabel="just-in-time:delivery of planned orders;planned orders:just-in-time delivery and;material requirements planning:just-in-time delivery and"/>
+         <para id="Para672516">To enforce 
             <indexterm significance="normal">
                <primary>just-in-time</primary>
                <secondary>delivery of planned orders</secondary>
@@ -170,8 +167,8 @@
          <para id="Para672524">If you do not want to use the Safety Stock
       functionality, set the Safety Stock value to "0".</para>
       </tip>
-  </section>
-  <section id="Section672525">
+   </section>
+   <section id="Section672525">
       <title>Viewing Planned Availability</title>
       <para id="Para672526">Planned Availability--also known as available
     quantity--describes Inventory quantity available for consumption by Work
@@ -241,8 +238,8 @@
         run.</para>
          </listitem>
       </itemizedlist>
-  </section>
-  <section id="Section672546">
+   </section>
+   <section id="Section672546">
       <title>Running MRP</title>
       <para id="Para672547">Now let's run MRP and see what happens. Based on our
     knowledge of the Item Site Order Parameters and the available quantity for
@@ -311,11 +308,10 @@
       Planned Purchase Orders, depending on the availability and Reorder
       Levels of required component Items.</para>
       </note>
-  </section>
-  <section id="Section672573">
+   </section>
+   <section id="Section672573">
       <title>
-         <anchor id="Anchor672572" role="Index"
-                 xreflabel="planned orders:converting to actual orders;material requirements planning:conversion of planned orders"/>
+         
          <indexterm significance="normal">
             <primary>planned orders</primary>
             <secondary>converting to actual orders</secondary>
@@ -405,8 +401,7 @@
     button. Finally we are brought to the Purchase Order header, as shown
     below:</para>
       <para id="Para672608">
-         <anchor id="Anchor80412" role="Cross-Ref"
-                 xreflabel="80412: Figure: Figure 7.9:  Purchase Order Originated by MRP Replenishment"/>
+         
          <screenshot>
             <mediaobject>
                <imageobject>
@@ -421,5 +416,5 @@
     Purchase Order using MRP replenishment functionality. All we have to do
     now is post the Purchase Order, and the replenishment quantity will be
     well on its way.</para>
-  </section>
+   </section>
 </section>

@@ -2,103 +2,83 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972299">
-    <title>
-      <anchor id="Anchor972298" role="Index" xreflabel="vouchers:posting of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>vouchers</primary>
-
-        <secondary>posting of</secondary>
+         <primary>vouchers</primary>
+         <secondary>posting of</secondary>
       </indexterm>Post Vouchers</title>
-
-    <para id="Para972300">To post Vouchers in batch mode, select the "Post
+   <para id="Para972300">To post Vouchers in batch mode, select the "Post
     Vouchers" option. The following screen will appear:</para>
-
-    <para id="Para972304">
+   <para id="Para972304">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Vouch_postVoucher.png" id="Graphic972302"/>
             </imageobject>
-
             <caption id="Caption972305">Post Vouchers</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para972307">Actual Costs for purchased Items will be
       automatically updated when Vouchers are posted if there are differences
       between current Actual Costs and the vouchered Costs for the Items in
       question. Please keep in mind that Actual Costs only will be updated at
       posting. For new Costs to be recognized as Standard Costs, Actual Costs
       must be posted to Standard.</para>
-    </note>
-
-    <para id="Para972308">When posting Vouchers in batch mode, you are
+   </note>
+   <para id="Para972308">When posting Vouchers in batch mode, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972311">
-            <anchor id="Anchor972309" role="Index"
-                    xreflabel="payables journal:relation to vouchers;vouchers:relation to payables journal"/>
+         <term id="Para972311">
+            
             <indexterm significance="normal">
                <primary>payables journal</primary>
-
                <secondary>relation to vouchers</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>vouchers</primary>
-
                <secondary>relation to payables journal</secondary>
             </indexterm> 
-            <anchor id="Anchor972310" role="Index"
-                    xreflabel="payables journal:relation to vouchers;vouchers:relation to payables journal"/>
+            
             <indexterm significance="normal">
                <primary>payables journal</primary>
-
                <secondary>relation to vouchers</secondary>
             </indexterm> 
             <indexterm significance="normal">
                <primary>vouchers</primary>
-
                <secondary>relation to payables journal</secondary>
             </indexterm>Print Payables Journal</term>
-
-        <listitem id="listitemN0x180ac00N0x189946c">
+         <listitem id="listitemN0x180ac00N0x189946c">
             <para>Payables Journal: Select to print your Accounts Payable
           Journal when posting Vouchers.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para972313">If you have a Purchase Order Voucher that was
       corrupted by, for example, a sudden power outage, you can clear the
       record by running the Post Vouchers screen. In most cases, this action
       will remove the corrupted record and allow you to voucher the Purchase
       Order with a fresh Voucher.</para>
-    </tip>
-
-    <para id="Para972314">To the far right of the screen, the following
+   </tip>
+   <para id="Para972314">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para972315">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18994fc">
+         <term id="Para972315">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18994fc">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972316">POST</term>
-
-        <listitem id="listitemN0x180ac00N0x1899544">
+         <term id="Para972316">POST</term>
+         <listitem id="listitemN0x180ac00N0x1899544">
             <para>Posts the specified Voucher.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

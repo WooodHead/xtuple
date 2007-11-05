@@ -2,113 +2,89 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556338">
-    <title>
-      <anchor id="Anchor556337" role="Index" xreflabel="open items:complete range of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>open items</primary>
-
-        <secondary>complete range of</secondary>
+         <primary>open items</primary>
+         <secondary>complete range of</secondary>
       </indexterm>Open Items</title>
-
-    <para id="Para557276">To view A/R open items, select the "Open Items"
+   <para id="Para557276">To view A/R open items, select the "Open Items"
     option. The following screen will appear:</para>
-
-    <para id="Para557280">
+   <para id="Para557280">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_openItems.png" id="Graphic557278"/>
             </imageobject>
-
             <caption id="Caption557281">A/R Open Items</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para557284">When displaying A/R open items, you are presented
+   <para id="Para557284">When displaying A/R open items, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para557355">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18bde54">
+         <term id="Para557355">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x18bde54">
             <para>A/R open items having due dates on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557360">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18bde9c">
+         <term id="Para557360">End Date</term>
+         <listitem id="listitemN0x180ac00N0x18bde9c">
             <para>A/R open items having due dates on and before this date will
           be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557362">A/R Open Items</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdee4">
+         <term id="Para557362">A/R Open Items</term>
+         <listitem id="listitemN0x180ac00N0x18bdee4">
             <para>Display lists A/R open items, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para557364">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para557364">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para557365">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdf50">
+         <term id="Para557365">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18bdf50">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557366">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdf98">
+         <term id="Para557366">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18bdf98">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572330">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdfe0">
+         <term id="Para572330">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18bdfe0">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para557369">Right-clicking on an Item in the A/R open items list
+   </variablelist>
+   <para id="Para557369">Right-clicking on an Item in the A/R open items list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para557370">Edit</term>
-
-        <listitem id="listitemN0x180ac00N0x18be04c">
+         <term id="Para557370">Edit</term>
+         <listitem id="listitemN0x180ac00N0x18be04c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557371">View</term>
-
-        <listitem id="listitemN0x180ac00N0x18be094">
+         <term id="Para557371">View</term>
+         <listitem id="listitemN0x180ac00N0x18be094">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

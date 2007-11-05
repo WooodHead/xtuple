@@ -2,115 +2,91 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section636366">
-    <title>
-      <anchor id="Anchor636365" role="Index"
-              xreflabel="costing:for summarized BOMs;bills of materials:costed summarized view of"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>costing</primary>
-
-        <secondary>for summarized BOMs</secondary>
+         <primary>costing</primary>
+         <secondary>for summarized BOMs</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>bills of materials</primary>
-
-        <secondary>costed summarized view of</secondary>
+         <primary>bills of materials</primary>
+         <secondary>costed summarized view of</secondary>
       </indexterm>Costed Summarized BOM</title>
-
-    <para id="Para636461">A summarized Bill of Materials shows all the
+   <para id="Para636461">A summarized Bill of Materials shows all the
     material requirements for an Item. The components for subassemblies are
     included in this view; however, the top-level subassemblies themselves are
     excluded. To view a Costed summarized Bill of Materials, select the
     "Costed Summarized BOM" option. The following screen will appear:</para>
-
-    <para id="Para636465">
+   <para id="Para636465">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Cost_dispCostSumBOM.png" id="Graphic636463"/>
             </imageobject>
-
             <caption id="Caption636466">Costed Summarized Bill of
           Materials</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para636467">When displaying a Costed summarized Bill of
+   <para id="Para636467">When displaying a Costed summarized Bill of
     Materials, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para636551">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x191b510">
+         <term id="Para636551">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x191b510">
             <para>Enter the Item Number of the manufactured Item you would like
           to view a Costed summarized Bill of Materials for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663306">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x191b558">
+         <term id="Para663306">UOM</term>
+         <listitem id="listitemN0x180ac00N0x191b558">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636554">Show Expired Components</term>
-
-        <listitem id="listitemN0x180ac00N0x191b5a0">
+         <term id="Para636554">Show Expired Components</term>
+         <listitem id="listitemN0x180ac00N0x191b5a0">
             <para>Select to cause expired components to be listed in the "Bill
           of Materials" display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636555">Threshold Days</term>
-
-        <listitem id="listitemN0x180ac00N0x191b5e8">
+         <term id="Para636555">Threshold Days</term>
+         <listitem id="listitemN0x180ac00N0x191b5e8">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para636556">Components that have been expired from the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636557">Show Future Components</term>
-
-        <listitem id="listitemN0x180ac00N0x191b630">
+         <term id="Para636557">Show Future Components</term>
+         <listitem id="listitemN0x180ac00N0x191b630">
             <para>Select to cause future components to be listed in the "Bill of
           Materials" display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636558">Threshold Days</term>
-
-        <listitem id="listitemN0x180ac00N0x191b678">
+         <term id="Para636558">Threshold Days</term>
+         <listitem id="listitemN0x180ac00N0x191b678">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para636559">Components that will be added in future to the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636610">Use Standard Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x191b6c0">
+         <term id="Para636610">Use Standard Costs</term>
+         <listitem id="listitemN0x180ac00N0x191b6c0">
             <para>Select to display Standard Costs for the specified
           Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para654679">When Labor and Overhead are posted to the General
       Ledger, they are posted using their Actual Cost. This is a departure
       from the rule which governs materials--namely, that materials are always
@@ -119,55 +95,44 @@
       Variances when Work Order Production or Operations are posted. You can
       address these variances if and when they occur by posting your Actual
       Costs to Standard.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para636611">Use Actual Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x191b750">
+         <term id="Para636611">Use Actual Costs</term>
+         <listitem id="listitemN0x180ac00N0x191b750">
             <para>Select to display Actual Costs for the specified Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636560">Bill of Materials</term>
-
-        <listitem id="listitemN0x180ac00N0x191b798">
+         <term id="Para636560">Bill of Materials</term>
+         <listitem id="listitemN0x180ac00N0x191b798">
             <para>Display lists summarized Bill of Materials components, using
           the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para636562">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para636562">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para636563">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x191b804">
+         <term id="Para636563">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x191b804">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636619">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x191b84c">
+         <term id="Para636619">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x191b84c">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663955">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x191b894">
+         <term id="Para663955">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x191b894">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

@@ -2,156 +2,114 @@
 <!DOCTYPE chapter
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter566604">
-  <title>
-      <anchor id="Anchor32029" role="Cross-Ref"
-              xreflabel="32029: ChapterTitle: Accounts Receivable (A/R) Module"/>Accounts
+   <title>
+      Accounts
   Receivable (A/R) Module</title>
-
-  <para id="Para523501">In this chapter, we describe Accounts Receivable
+   <para id="Para523501">In this chapter, we describe Accounts Receivable
   (A/R). The following topics will be covered:</para>
-
-  <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1819e48">
          <para id="Para523502">Invoices</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819e6c">
          <para id="Para523503">Cash Receipts</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819e90">
          <para id="Para523514">Debit &amp; Credit Memos</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819eb4">
          <para id="Para525893">Finance Charges</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819ed8">
          <para id="Para525894">Sales Journals</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1819efc">
          <para id="Para559889">A/R Workbench</para>
       </listitem>
-  </itemizedlist>
-
-  <section id="Section525906">
+   </itemizedlist>
+   <section id="Section525906">
       <title>
-         <anchor id="Anchor525905" role="Index" xreflabel="master information:for a/r module"/> 
+          
          <indexterm significance="normal">
             <primary>master information</primary>
-
             <secondary>for a/r module</secondary>
          </indexterm>Master Information</title>
-
       <para id="Para525915">Master Information for the module is described in
     this section.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reasonCodes.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/reasonCode.xml"
                   xpointer="element(/1)"/>
-  </section>
-
-  <section id="Section548009">
+   </section>
+   <section id="Section548009">
       <title>Invoices</title>
-
       <para id="Para548010">A/R Invoices may be created for miscellaneous
     purposes. They are not required to be linked to a Sales Order.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/invoice.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/arWorkBench.xml"
                   xpointer="element(/1)"/>
-  </section>
-
-  <section id="Section572894">
+   </section>
+   <section id="Section572894">
       <title>Cash Receipts</title>
-
       <para id="Para526478">Cash Receipts are described in this section.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/cashReceipt.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/cashReceiptsEditList.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/postCashReceipts.xml"
                   xpointer="element(/1)"/>
-  </section>
-
-  <section id="Section524296">
+   </section>
+   <section id="Section524296">
       <title>Debit and Credit Memos</title>
-
       <para id="Para530226">Debit and Credit Memos are described in this
     section.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/arOpenItemCredit.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/unappliedARCreditMemos.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/arOpenItemDebit.xml"
                   xpointer="element(/1)"/>
-  </section>
-
-  <section id="Section524298">
+   </section>
+   <section id="Section524298">
       <title>A/R Reports</title>
-
       <para id="Para530393">The module offers a number of reports.</para>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspCustomerARHistory.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspCashReceipts.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspARApplications.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspInvoiceInformation.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspInvoiceRegister.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspDepositsRegister.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspAROpenItems.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspAROpenItemsByCustomer.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/dspTimePhasedOpenARItems.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/printStatementByCustomer.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/printStatementsByCustomerType.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/printSalesJournal.xml"
                   xpointer="element(/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                   href="guiclient/printCreditMemoJournal.xml"
                   xpointer="element(/1)"/>
-  </section>
+   </section>
 </chapter>

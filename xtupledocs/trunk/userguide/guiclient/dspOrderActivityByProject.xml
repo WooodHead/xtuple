@@ -2,113 +2,89 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519408">
-    <title>
-      <anchor id="Anchor533217" role="Index"
-              xreflabel="projects:order activity for;sales orders:projects and;work orders:projects and;purchase orders:projects and"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>projects</primary>
-
-        <secondary>order activity for</secondary>
+         <primary>projects</primary>
+         <secondary>order activity for</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>sales orders</primary>
-
-        <secondary>projects and</secondary>
+         <primary>sales orders</primary>
+         <secondary>projects and</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>projects and</secondary>
+         <primary>work orders</primary>
+         <secondary>projects and</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>purchase orders</primary>
-
-        <secondary>projects and</secondary>
+         <primary>purchase orders</primary>
+         <secondary>projects and</secondary>
       </indexterm>Order Activity by Project</title>
-
-    <para id="Para519409">To view Order activity by Project, select the "Order
+   <para id="Para519409">To view Order activity by Project, select the "Order
     Activity by Project" option. The following screen will appear:</para>
-
-    <para id="Para519413">
+   <para id="Para519413">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PM_Disp_orderActivity.png" id="Graphic523849"/>
             </imageobject>
-
             <caption id="Caption519414">Order Activity by Project</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519420">When displaying Order activity by Project, you are
+   <para id="Para519420">When displaying Order activity by Project, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para555721">Project #</term>
-
-        <listitem id="listitemN0x180ac00N0x182fda8">
+         <term id="Para555721">Project #</term>
+         <listitem id="listitemN0x180ac00N0x182fda8">
             <para>Select a Project Number whose Order activity you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para555977">Show Types</term>
-
-        <listitem id="listitemN0x180ac00N0x182fdf0">
+         <term id="Para555977">Show Types</term>
+         <listitem id="listitemN0x180ac00N0x182fdf0">
             <para>Specify which Order type information you want to include in
           the display:</para>
-
             <para id="Para555989">Sales Orders: Select to include details for
           any Sales Orders linked to the Project.</para>
-
             <para id="Para555992">Work Orders: Select to include details for any
           Work Orders linked to the Project.</para>
-
             <para id="Para555993">Purchase Orders: Select to include details for
           any Purchase Orders linked to the Project.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para557219">Some Projects may not allow all Order types to be
       assigned to them. If that is the case, you will not see information
       displayed for all Order types.</para>
-    </tip>
-
-    <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
-        <term id="Para519443">Orders</term>
-
-        <listitem id="listitemN0x180ac00N0x182fe80">
+         <term id="Para519443">Orders</term>
+         <listitem id="listitemN0x180ac00N0x182fe80">
             <para>Display lists Orders associated with the selected Project,
           using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519446">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519446">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519447">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x182feec">
+         <term id="Para519447">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x182feec">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557831">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x182ff34">
+         <term id="Para557831">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x182ff34">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

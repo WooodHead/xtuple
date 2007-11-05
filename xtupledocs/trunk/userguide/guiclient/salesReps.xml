@@ -2,66 +2,52 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518778">
-  <title>
-      <anchor id="Anchor548932" role="Index" xreflabel="sales representatives:master list of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>sales representatives</primary>
-
          <secondary>master list of</secondary>
       </indexterm>List Sales Representatives</title>
-
-  <para id="Para518779">To access the master list of Sales Representatives,
+   <para id="Para518779">To access the master list of Sales Representatives,
   select the "Sales Reps" option. The following screen will appear:</para>
-
-  <para id="Para518783">
+   <para id="Para518783">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_MI_salesRepList.png" id="Graphic522970"/>
             </imageobject>
-
             <caption id="Caption518784">Sales Representatives Master
         List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para518785">The Sales Representatives master list displays the
+   <para id="Para518785">The Sales Representatives master list displays the
   name, identification number, and active status of all existing Sales
   Representatives.</para>
-
-  <para id="Para518786">To the far right of the screen, the following buttons
+   <para id="Para518786">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para518787">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x1868f34">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para653613">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x1868f7c">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518789">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x1868fc4">
             <para>Opens screen for creating a new Sales Representative.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518790">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x186900c">
             <para>Enables you to edit highlighted Sales Representative. The edit
         screen is the same as that for creating a new Sales
@@ -70,50 +56,39 @@
         Representative will also bring you to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518791">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x1869054">
             <para>Highlight a Sales Representative and then select this button to
         reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518792">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x186909c">
             <para>Highlight a Sales Representative and then select this button to
         remove the Sales Representative from the master list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para522152">Right-clicking on a Sales Representative in the Sales
+   </variablelist>
+   <para id="Para522152">Right-clicking on a Sales Representative in the Sales
   Representatives master list enables you to select from the following menu
   options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para518794">Edit Sales Rep</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
                      xpointer="element(listitemN0x180ac00N0x186900c)"/>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518795">View Sales Rep</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
                      xpointer="element(listitemN0x180ac00N0x1869054)"/>
       </varlistentry>
-
       <varlistentry>
          <term id="Para518796">Delete Sales Rep</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
                      xpointer="element(listitemN0x180ac00N0x186909c)"/>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

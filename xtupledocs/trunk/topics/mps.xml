@@ -2,66 +2,54 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555045" role="openmfg">
-    <title>Topic: MPS Basics</title>
-
-    <para id="Para555046">Master Production Scheduling (MPS) is a planning
+   <title>Topic: MPS Basics</title>
+   <para id="Para555046">Master Production Scheduling (MPS) is a planning
     system which serves several important purposes:</para>
-
-    <orderedlist continuation="restarts" inheritnum="ignore">
+   <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem>
-        <para id="Para555047">Increases visibility into future demand</para>
+         <para id="Para555047">Increases visibility into future demand</para>
       </listitem>
-
       <listitem>
-        <para id="Para555048">Provides capability for anticipating future
+         <para id="Para555048">Provides capability for anticipating future
         demand</para>
       </listitem>
-
       <listitem>
-        <para id="Para555049">Drives the plan for lower level components
+         <para id="Para555049">Drives the plan for lower level components
         (i.e., Material Requirements) based on the Forecast</para>
       </listitem>
-    </orderedlist>
-
-    <para id="Para555050">Typically, MPS is used to plan for Items having
+   </orderedlist>
+   <para id="Para555050">Typically, MPS is used to plan for Items having
     "independent" demand. Independent demand Items are defined as those Items
     which derive their demand directly from Customer requirements through
     Sales Orders. By contrast, "dependent" demand Items are normally purchased
     Items and subassemblies. The demand for dependent Items is derived
     indirectly--that is, based on the demand for their parent Items in a Bill
     of Materials.</para>
-
-    <para id="Para555051">In this section, we will demonstrate OpenMFG's MPS
+   <para id="Para555051">In this section, we will demonstrate OpenMFG's MPS
     functionality, using a Production Plan called COLLECTORS-2007. We have
     linked a Planning Item, COLLECTORS-LINE, to this Production Plan. Both the
     Plan and the Planning Item are included in the data for the OpenMFG Demo
     Database.</para>
-
-    <note>
+   <note>
       <para id="Para555053">The scenarios described in this section refer to
       Items and other data found in the OpenMFG Demo Database. The Demo
       Database is available for download from the OpenMFG website.</para>
-    </note>
-
-    <para id="Para555054">The Bill of Materials for the COLLECTORS-LINE
+   </note>
+   <para id="Para555054">The Bill of Materials for the COLLECTORS-LINE
     Planning Item is composed of three MPS planned Items, each of which have
     the following quantities per:</para>
-
-    <itemizedlist>
+   <itemizedlist>
       <listitem>
-        <para id="Para555055">BTRUCK1: .5</para>
+         <para id="Para555055">BTRUCK1: .5</para>
       </listitem>
-
       <listitem>
-        <para id="Para555056">RTRUCK1: .3</para>
+         <para id="Para555056">RTRUCK1: .3</para>
       </listitem>
-
       <listitem>
-        <para id="Para555057">WTRUCK1: .2</para>
+         <para id="Para555057">WTRUCK1: .2</para>
       </listitem>
-    </itemizedlist>
-
-    <para id="Para555058">Our Production Plan for the COLLECTORS-LINE Planning
+   </itemizedlist>
+   <para id="Para555058">Our Production Plan for the COLLECTORS-LINE Planning
     Item currently contains forecast periods for the first three months of
     2007. In the example we will be using, we will actually adjust the dates
     and quantities for these periods to accommodate demand that is anticipated
@@ -74,322 +62,258 @@
     values shown above for each Item in the COLLECTORS-LINE\qs Bill of
     Materials). The COLLECTORS-LINE itself is a logical construct, and, as
     such, no Planned Orders will be created for it.</para>
-
-    <note>
+   <note>
       <para id="Para555060">In our scenario, we will be forecasting using a
       Planning Item--a special type of Item used to defined families or lines
       of products. However, the system also allows you to place individual MPS
       Items on a Production Schedule.</para>
-    </note>
-
-    <section id="Section555062">
+   </note>
+   <section id="Section555062">
       <title>
-         <anchor id="Anchor555061" role="Index"
-                 xreflabel="production plans:releasing and updating"/> 
+          
          <indexterm significance="normal">
             <primary>production plans</primary>
-
             <secondary>releasing and updating</secondary>
-        </indexterm>Updating and Releasing Production Plans</title>
-
+         </indexterm>Updating and Releasing Production Plans</title>
       <para id="Para555063">To begin the process of understanding how MPS
       works, we will first update and release our Production Plan (i.e.,
       Forecast). To access the master list of Production Plans, follow these
       steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555064">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555065">Select the Planning submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555066">Select the "List Production Plans"
           option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555067">Click on the COLLECTORS-2007 Production
           Plan</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555068">Then click the EDIT button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555069">Now that we have opened the Production Plan for
       editing, we can drill down and modify the scheduled date and quantity
       for the COLLECTORS-LINE Planning Item. As you recall, COLLECTORS-LINE is
       the Planning Item whose Bill of Materials we discussed above. To begin,
       follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555070">Select the first scheduled line item</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555071">Click the EDIT button</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555072">The following screen will appear:</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555076">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F058-ProdPlanItem.png" id="Graphic555074"/>
                </imageobject>
-
                <caption id="Caption555077">Production Plan Item Screen</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555078">Enter a "Planned Date" that is +28 days from
           today</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555079">Enter "1,000" in the "Qty." field</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555080">Click the SAVE button</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555081">Repeat the previous step for the other two
           line items on the Production Plan</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555082">For the second line, set the date to +58 days
           from today with a quantity of 2000</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555083">For the third line, set the date to +88 days
           from today with a quantity of 3000</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555084">On the Production Plan screen, change the
           "Start Date" field to today's date</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555085">Click the SAVE button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555086">Now that we have finished updating the Production
       Plan, we are ready to release it. Production Plans must be in a released
       state ("R") if they are to be considered when the MPS planning system is
       run. To release the Production Plan, follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555087">Open the List Production Plans screen</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555088">Right-click on the COLLECTORS-2007 Production
           Plan</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555089">Select the "Release" option from the
           right-click menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555090">Note that the status for the plan has changed
           from "U" (un-released) to "R" (released)</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555091">Click the CLOSE button to close the Production
           Plans screen</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-    </section>
-
-    <section id="Section555093">
+   </section>
+   <section id="Section555093">
       <title>
-         <anchor id="Anchor555092" role="Index" xreflabel="mps:running of"/> 
+          
          <indexterm significance="normal">
             <primary>mps</primary>
-
             <secondary>running of</secondary>
-        </indexterm>Running MPS</title>
-
+         </indexterm>Running MPS</title>
       <para id="Para555094">Because our Production Plan has been released, the
       MPS planning system will recognize it when MPS is run. The next step is
       to run MPS by Planner Code, as follows:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555095">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555096">Select the Scheduling submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555097">Choose the "Run MPS by Planner Code"
           option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555098">Check "All Planner Codes," "All Warehouses,"
           and enter a "Cutoff Date" that is 1 year in the future (+365), as
           shown below:</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555102">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F059-MPS-Run.png" id="Graphic555100"/>
                </imageobject>
-
                <caption id="Caption555103">Run MPS by Planner Code</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555104">Click the CREATE button</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555105">Wait while MPS runs in the background</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555106">Screen will close when MPS is finished</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <note>
-        <para id="Para555108">In a production environment, you can select the
+         <para id="Para555108">In a production environment, you can select the
         SUBMIT button to send the MPS run to the Batch Manager for processing.
         Because the Batch Manager is not available for demonstration
         databases, please do not use this option.</para>
       </note>
-    </section>
-
-    <section id="Section555110">
+   </section>
+   <section id="Section555110">
       <title>
-         <anchor id="Anchor555109" role="Index" xreflabel="mps:displaying results for"/> 
+          
          <indexterm significance="normal">
             <primary>mps</primary>
-
             <secondary>displaying results for</secondary>
-        </indexterm>Displaying Results of an MPS Run</title>
-
+         </indexterm>Displaying Results of an MPS Run</title>
       <para id="Para555111">Once the MPS run is finished, we can go look at
       the Planned Orders generated by the run. To view the results of an MPS
       run, follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555112">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555113">Select the Displays submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555114">Select the "Planned Orders by Planner Code"
           option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555115">Use the default settings and click the QUERY
           button, to get results as shown below:</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555119">
-         <anchor id="Anchor48125" role="Cross-Ref"
-                 xreflabel="48125: Figure: Figure A.3:  Planned Orders by Planner Code Display"/>
+         
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F060-MPS-OrdDisplay.png" id="Graphic555117"/>
                </imageobject>
-
                <caption id="Caption555121">Planned Orders by Planner Code
             Display</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <para id="Para555122">The Planned Orders by Planner Code display shows
       us the top-down nature of the Forecast. Notice how the planned
       quantities match the quantity per ratio for each Planning Item
       component. Also notice how the Orders are grouped into three separate
       date buckets.</para>
-    </section>
-
-    <section id="Section555124">
+   </section>
+   <section id="Section555124">
       <title>
-         <anchor id="Anchor555123" role="Index" xreflabel="mps:detailed information for"/> 
+          
          <indexterm significance="normal">
             <primary>mps</primary>
-
             <secondary>detailed information for</secondary>
-        </indexterm>Displaying MPS Detail for an MPS Item</title>
-
+         </indexterm>Displaying MPS Detail for an MPS Item</title>
       <para id="Para555125">We can understand how our new Planned Orders fit
       into a broader context by examining the MPS Detail display. To access
       the MPS Detail screen, follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555126">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555127">Select the Displays submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555128">Choose the "MPS Detail" option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555129">Select an absolute Calendar for the current
           year. (The M/S module is configured to use the "2007" absolute
           Calendar by default.)</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555130">Click on the BTRUCK1 Item in the Item Sites
           display</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555131">Information about BTRUCK1 will be displayed,
           as shown below:</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555135">
          <anchor id="Anchor90509" role="Cross-Ref"
                  xreflabel="90509: Figure: Figure A.4:  MPS Detail Display"/>
@@ -398,12 +322,10 @@
                <imageobject>
                   <imagedata fileref="images/F061-MPSDetail.png" id="Graphic555133"/>
                </imageobject>
-
                <caption id="Caption555137">MPS Detail Display</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <para id="Para555140">
          <link endterm="Anchor90509" id="XRef555139" linkend="Anchor90509"> MPS Detail Display</link>Figure 2.14 shows the
       MPS Detail for the selected Item based on the Calendar selected. In this
@@ -415,105 +337,84 @@
       on the Item whose MPS Detail information you want to display. Also,
       depending on the time of year, you may need to scroll to the right to
       see the Forecast and Planned Orders.</para>
-
       <para id="Para555142">Now that we have generated the planned MPS Orders,
       let's see the impact these will have on the plan for Material
       Requirements Planning (MRP) Items.</para>
-    </section>
-
-    <section id="Section555144">
+   </section>
+   <section id="Section555144">
       <title>
-         <anchor id="Anchor555143" role="Index" xreflabel="mrp:running of"/> 
+          
          <indexterm significance="normal">
             <primary>mrp</primary>
-
             <secondary>running of</secondary>
-        </indexterm>Running MRP</title>
-
+         </indexterm>Running MRP</title>
       <para id="Para555145">To see how MRP will respond to the MPS Orders we
       created, it will be necessary to run MRP. To run MRP by Planner Code,
       follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555146">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555147">Select the Scheduling submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555148">Choose the "Run MRP by Planner Code"
           option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555149">Check "All Planner Codes," "All Warehouses,"
           and enter a Cutoff Date that is 1 year in the future (+365).</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555153">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F062-MRP-Run.png" id="Graphic555151"/>
                </imageobject>
-
                <caption id="Caption555154">Run MRP by Planner Code</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555155">Click the CREATE button</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555156">Wait while MRP runs in the background</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555157">Screen will close when MRP is finished</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-    </section>
-
-    <section id="Section555159">
+   </section>
+   <section id="Section555159">
       <title>
-         <anchor id="Anchor555158" role="Index" xreflabel="mrp:displaying results for"/> 
+          
          <indexterm significance="normal">
             <primary>mrp</primary>
-
             <secondary>displaying results for</secondary>
-        </indexterm>Displaying Results of MRP after MPS Run</title>
-
+         </indexterm>Displaying Results of MRP after MPS Run</title>
       <para id="Para555160">Once the MRP run is finished, we can go look at
       the Planned Orders generated by the run. To view the results of an MRP
       run, follow these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555161">Pull down the M/S Module menu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555162">Select the Displays submenu</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555163">Select the "Planned Orders by Planner Code"
           option</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555164">Use the default settings and click the QUERY
           button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555165">As you can see, the MRP run generated multiple
       Planned Orders which were not present after we ran MPS initially. The
       reason for this is simple: The extra Orders are MRP Orders generated to
@@ -521,49 +422,41 @@
       demand and then discovered what materials would be needed to meet that
       demand--net existing Quantity on Hand, other demand, existing supplies,
       and expected receipts.</para>
-
       <para id="Para555166">If you want to filter out MRP or MPS Items, you
       may do so on the Planned Orders by Planner Code screen by following
       these steps:</para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555167">Check the "Selected" radio button</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555168">Select "MRP-MRP Items" or "MPS-MPS
           Items"</para>
-        </listitem>
-
-        <listitem>
+         </listitem>
+         <listitem>
             <para id="Para555169">Click the QUERY button</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555173">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/F063-MRP-Run-Output.png" id="Graphic555171"/>
                </imageobject>
-
                <caption id="Caption555174">Planned Orders by Planner Code
             Display</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
-
       <itemizedlist>
-        <listitem>
+         <listitem>
             <para id="Para555175">Click CLOSE to exit the display.</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para555176">If you want to continue further and act upon the
       advice provided by the MPS and MRP planning systems, you can proceed by
       right-clicking on a specific Planned Order and releasing it. For more
       information on releasing Planned Orders, see the Basic Business Process
       Flow chapter of the OpenMFG Demo Guide.</para>
-    </section>
-  </section>
+   </section>
+</section>

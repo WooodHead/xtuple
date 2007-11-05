@@ -2,13 +2,10 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section919864">
-  <title>Schedule System Message</title>
-
-  <para id="Para941161">System Messages enable <anchor id="Anchor934633" role="Index"
-              xreflabel="openmfg administrators:system messages scheduled by"/>
+   <title>Schedule System Message</title>
+   <para id="Para941161">System Messages enable 
       <indexterm significance="normal">
          <primary>openmfg administrators</primary>
-
          <secondary>system messages scheduled by</secondary>
       </indexterm>system administrators and other users who have been granted
   the "IssueSystemMessages" privilege to broadcast System Messages to all
@@ -16,147 +13,117 @@
   application. They can be any message intended for distribution to all users.
   For example, a System Message might notify users about an upcoming system
   shutdown.</para>
-
-  <note>
+   <note>
       <para id="Para919880">Once a System Message is scheduled, it cannot be
     deleted. These messages should be handled carefully by qualified users.
     You can also prevent unnecessary confusion by entering a specific
     expiration date and time whenever you schedule a System Message. Users who
     log in to the application after a System Message has expired will not see
     the outdated Message on their screen.</para>
-  </note>
-
-  <para id="Para522664">The following screen will appear when you select the
+   </note>
+   <para id="Para522664">The following screen will appear when you select the
   "Schedule System Message" option:</para>
-
-  <para id="Para522668">
+   <para id="Para522668">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/Sys_sysMessage.png" id="Graphic522666"/>
             </imageobject>
-
             <caption id="Caption522669">System Message</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para522670">
-      <anchor id="Anchor934681" role="Index" xreflabel="system messages:options for"/> 
+   <para id="Para522670">
+       
       <indexterm significance="normal">
          <primary>system messages</primary>
-
          <secondary>options for</secondary>
       </indexterm>When creating a new System Message, you are presented with the
   following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para937416">Posted</term>
-
          <listitem id="listitemN0x180ac00N0x18e1f44">
             <para>Displays date System Message was posted.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para937420">At</term>
-
          <listitem id="listitemN0x180ac00N0x18e1f8c">
             <para>Displays time of day when System Message was posted.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para937421">Posted by</term>
-
          <listitem id="listitemN0x180ac00N0x18e1fd4">
             <para>Displays username of user who posted System Message.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <tip>
+   </variablelist>
+   <tip>
       <para id="Para954262">Hitting the TAB key in the "Scheduled" field will
     automatically cause a scheduled date of "ASAP" to be entered in the field.
     With an ASAP scheduled date, a System Message will be delivered as soon as
     server resources allow.</para>
-  </tip>
-
-  <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
          <term id="Para522674">Scheduled</term>
-
          <listitem id="listitemN0x180ac00N0x18e2064">
             <para>Specify the date when you want to begin broadcasting the System
         Message to all users who log in to the application.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para522676">At</term>
-
          <listitem id="listitemN0x180ac00N0x18e20ac">
             <para>Enter a standard time format (e.g., "HH:MM:SS").</para>
-
             <para id="Para522677">Specify the time of day--including the hour,
         minute, and second--when you want to begin broadcasting the System
         Message to all users who log in to the application.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para522681">Expires</term>
-
          <listitem id="listitemN0x180ac00N0x18e20f4">
             <para>Specify the date when you want to stop broadcasting the System
         Message to all users who log in to the application.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para522683">At</term>
-
          <listitem id="listitemN0x180ac00N0x18e213c">
             <para>Enter a standard time format (e.g., "HH:MM:SS") for when the
         defined System Message is will expire.</para>
-
             <para id="Para522684">Specify the time of day--including the hour,
         minute, and second--when you want to stop broadcasting the System
         Message to all users who log in to the application.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para522688">Message</term>
-
          <listitem id="listitemN0x180ac00N0x18e2184">
             <para>This is a scrolling text field with word-wrapping for entering a
         System Message. System Message are broadcast to all users when they
         log in to the application.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para522690">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para522690">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para522691">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x18e21f0">
             <para>Closes the screen without creating the defined System Message,
         returning you to the application desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para522692">SAVE</term>
-
          <listitem id="listitemN0x180ac00N0x18e2238">
             <para>Creates the defined System Message.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

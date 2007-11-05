@@ -2,99 +2,78 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972632">
-  <title>
-      <anchor id="Anchor972631" role="Index" xreflabel="account assignments:for a/p"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>account assignments</primary>
-
          <secondary>for a/p</secondary>
       </indexterm>A/P Account Assignments</title>
-
-  <para id="Para972633">Accounts Payable (A/P) Account assignments represent
+   <para id="Para972633">Accounts Payable (A/P) Account assignments represent
   the default General Ledger (G/L) Accounts used by the system when processing
   the following:</para>
-
-  <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1852774">
          <para id="Para972634">Vouchers</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1852798">
          <para id="Para972635">Payment Discounts</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18527bc">
          <para id="Para972636">Miscellaneous A/P Credit Memos</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18527e0">
          <para id="Para972637">Miscellaneous A/P Debit Memos</para>
       </listitem>
-  </itemizedlist>
-
-  <para id="Para972638">The Account assignments are made by Vendor Type. This
+   </itemizedlist>
+   <para id="Para972638">The Account assignments are made by Vendor Type. This
   means that transactions involving a Vendor will follow the assignments
   established for the Vendor Type--unless otherwise specified. To access the
   A/P Account assignments master list, select the "A/P Account Assignments"
   option. The following screen will appear:</para>
-
-  <para id="Para972642">
+   <para id="Para972642">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_MI_apAcctAssignList.png" id="Graphic972640"/>
             </imageobject>
-
             <caption id="Caption972643">A/P Account Assignments Master
         List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para972644">The "A/P Account Assignments" screen displays
+   <para id="Para972644">The "A/P Account Assignments" screen displays
   information on all existing A/P Account assignments.</para>
-
-  <para id="Para972645">To the far right of the screen, the following buttons
+   <para id="Para972645">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para972646">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x18528b8">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para972647">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x1852900">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para972648">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x1852948">
             <para>Opens screen for creating a new Account assignment.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para972649">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x1852990">
             <para>Highlight an Account assignment and then select this button to
         reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para972650">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x18529d8">
             <para>Enables you to edit highlighted Account Assignment. The edit
         screen is the same as that for creating a new Account assignment
@@ -103,14 +82,12 @@
         you to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para972651">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x1852a20">
             <para>Highlight an Account assignment and then select this button to
         remove the Account Assignment from the list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

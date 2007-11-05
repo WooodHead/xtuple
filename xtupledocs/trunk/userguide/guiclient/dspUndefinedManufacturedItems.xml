@@ -2,16 +2,13 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520815">
-    <title>
-      <anchor id="Anchor595560" role="Index"
-              xreflabel="items:locating undefined manufactured "/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>locating undefined manufactured</secondary>
+         <primary>items</primary>
+         <secondary>locating undefined manufactured</secondary>
       </indexterm>Undefined Manufactured Items</title>
-
-    <para id="Para520816">The "Undefined Manufactured Items" utility enables
+   <para id="Para520816">The "Undefined Manufactured Items" utility enables
     you to generate a list of purchased Items that do not have valid Bills of
     Materials and/or Bills of Operations defined. The display also provides
     other valuable information about each Item. Using the right-click option,
@@ -19,124 +16,98 @@
     Bills of Materials and/or Bills of Operations, using the right-click
     option. Selecting the "Undefined Manufactured Items" option. The following
     screen will appear:</para>
-
-    <para id="Para520820">
+   <para id="Para520820">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Utils_unManItem.png" id="Graphic564048"/>
             </imageobject>
-
             <caption id="Caption520821">Undefined Manufactured Items</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para557089">This utility may run for a long period of time. We
       recommend running it during off-peak hours whenever possible.</para>
-    </note>
-
-    <para id="Para520823">When using this utility, you are presented with the
+   </note>
+   <para id="Para520823">When using this utility, you are presented with the
     following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520824">Show Manufactured Items with valid Bills of
+         <term id="Para520824">Show Manufactured Items with valid Bills of
         Operations</term>
-
-        <listitem id="listitemN0x180ac00N0x194678c">
+         <listitem id="listitemN0x180ac00N0x194678c">
             <para>Select to display all manufactured Items with valid Bills of
           Operations.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520825">Show Manufactured Items without valid Bills of
+         <term id="Para520825">Show Manufactured Items without valid Bills of
         Materials</term>
-
-        <listitem id="listitemN0x180ac00N0x19467d4">
+         <listitem id="listitemN0x180ac00N0x19467d4">
             <para>Select to display all manufactured Items without valid Bills
           of Materials.</para>
-
             <para id="Para520826">Display will show undefined manufactured
           Items" for the selected Class Code.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520827">Show Inactive Items</term>
-
-        <listitem id="listitemN0x180ac00N0x194681c">
+         <term id="Para520827">Show Inactive Items</term>
+         <listitem id="listitemN0x180ac00N0x194681c">
             <para>Select to display inactive Items.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520828">Undefined Manufactured Items</term>
-
-        <listitem id="listitemN0x180ac00N0x1946864">
+         <term id="Para520828">Undefined Manufactured Items</term>
+         <listitem id="listitemN0x180ac00N0x1946864">
             <para>Display lists undefined Manufactured Items, using the
           parameters specified on the screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520830">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520830">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520831">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x19468d0">
+         <term id="Para520831">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x19468d0">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520832">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1946918">
+         <term id="Para520832">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1946918">
             <para>Select to identify undefined Manufactured Items, using the
           specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para557097">Right-clicking on an Item in the list of undefined
+   </variablelist>
+   <para id="Para557097">Right-clicking on an Item in the list of undefined
     manufactured Items enables you to select the following menu options. The
     "Create BOM" option will appear only if the Item does not have a Bill of
     Materials. The "Create BOO" option will appear only if the Item does not
     have a Bill of Operations.</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520834">Create BOM</term>
-
-        <listitem id="listitemN0x180ac00N0x1946984">
+         <term id="Para520834">Create BOM</term>
+         <listitem id="listitemN0x180ac00N0x1946984">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520835">Create BOO</term>
-
-        <listitem id="listitemN0x180ac00N0x19469cc">
+         <term id="Para520835">Create BOO</term>
+         <listitem id="listitemN0x180ac00N0x19469cc">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520836">Edit Item</term>
-
-        <listitem id="listitemN0x180ac00N0x1946a14">
+         <term id="Para520836">Edit Item</term>
+         <listitem id="listitemN0x180ac00N0x1946a14">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

@@ -2,174 +2,136 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section553838">
-    <title>
-      <anchor id="Anchor553837" role="Index"
-              xreflabel="open items:aging report for receivables;accounts receivable:aging report for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>open items</primary>
-
-        <secondary>aging report for receivables</secondary>
+         <primary>open items</primary>
+         <secondary>aging report for receivables</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>accounts receivable</primary>
-
-        <secondary>aging report for</secondary>
+         <primary>accounts receivable</primary>
+         <secondary>aging report for</secondary>
       </indexterm>A/R Aging</title>
-
-    <para id="Para553971">To view open Accounts Receivable (A/R) open items
+   <para id="Para553971">To view open Accounts Receivable (A/R) open items
     from an aging perspective, select the "A/R Aging" option. The following
     screen will appear:</para>
-
-    <para id="Para553901">
+   <para id="Para553901">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_arAging.png" id="Graphic553899"/>
             </imageobject>
-
             <caption id="Caption553902">A/R Aging</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para553992">When displaying aging A/R open items, you are
+   <para id="Para553992">When displaying aging A/R open items, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para565107">All Customers</term>
-
-        <listitem id="listitemN0x180ac00N0x18c418c">
+         <term id="Para565107">All Customers</term>
+         <listitem id="listitemN0x180ac00N0x18c418c">
             <para>Select to display A/R open items for all Customers.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565108">Selected Customer</term>
-
-        <listitem id="listitemN0x180ac00N0x18c41d4">
+         <term id="Para565108">Selected Customer</term>
+         <listitem id="listitemN0x180ac00N0x18c41d4">
             <para>Select to display A/R open items for a selected
           Customer.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565110">Selected Customer Type</term>
-
-        <listitem id="listitemN0x180ac00N0x18c421c">
+         <term id="Para565110">Selected Customer Type</term>
+         <listitem id="listitemN0x180ac00N0x18c421c">
             <para>Specify Customer Type whose A/R open items you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para573205">Customer Type Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4264">
+         <term id="Para573205">Customer Type Pattern</term>
+         <listitem id="listitemN0x180ac00N0x18c4264">
             <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
-
             <para id="Para573218">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef573217" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565129">As of</term>
-
-        <listitem id="listitemN0x180ac00N0x18c42ac">
+         <term id="Para565129">As of</term>
+         <listitem id="listitemN0x180ac00N0x18c42ac">
             <para>Enter a date to use as the relative starting point for the
           aging report.</para>
-
             <para id="Para565134">By default, the current date is entered as the
           relative date. However, you may change the relative date to a date
           of your choosing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565141">Use Custom Calendar</term>
-
-        <listitem id="listitemN0x180ac00N0x18c42f4">
+         <term id="Para565141">Use Custom Calendar</term>
+         <listitem id="listitemN0x180ac00N0x18c42f4">
             <para>Select if you want to display A/R open items using a custom
           Calendar of your choosing.</para>
-
             <para id="Para565142">If selected, the screen will present a series
           of different options, including the option to select a Calendar and
           associated periods.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554000">A/R Open Items</term>
-
-        <listitem id="listitemN0x180ac00N0x18c433c">
+         <term id="Para554000">A/R Open Items</term>
+         <listitem id="listitemN0x180ac00N0x18c433c">
             <para>Display lists aging A/R open items, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para565013">
-      <anchor id="Anchor565068" role="Index"
-              xreflabel="open items:time-phased for receivables;accounts receivable:time-phased open items for"/>
+   </variablelist>
+   <para id="Para565013">
+      
       <indexterm significance="normal">
-        <primary>open items</primary>
-
-        <secondary>time-phased for receivables</secondary>
+         <primary>open items</primary>
+         <secondary>time-phased for receivables</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>accounts receivable</primary>
-
-        <secondary>time-phased open items for</secondary>
+         <primary>accounts receivable</primary>
+         <secondary>time-phased open items for</secondary>
       </indexterm>To view A/R open items using a custom Calendar, select the
     "Use Custom Calendar" option above. The following screen will
     appear:</para>
-
-    <para id="Para565017">
+   <para id="Para565017">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_arAgingCalendar.png" id="Graphic565015"/>
             </imageobject>
-
             <caption id="Caption565018">Custom A/R Aging Calendar</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para565020">If a Customer's open Accounts Receivable (A/R)
       balance exceeds their Credit Limit, the Customer will automatically be
       placed on Credit Warning. In addition, any new or open Sales Orders for
       the Customer will also be placed on Credit Hold.</para>
-    </note>
-
-    <para id="Para565021">When displaying A/R open items using a custom
+   </note>
+   <para id="Para565021">When displaying A/R open items using a custom
     Calendar, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para570448">Calendar</term>
-
-        <listitem id="listitemN0x180ac00N0x18c44c8">
+         <term id="Para570448">Calendar</term>
+         <listitem id="listitemN0x180ac00N0x18c44c8">
             <para>Select the Calendar you want to use for the report.</para>
-
             <para id="Para570449">Associated Calendar periods will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565037">Name/Selected Periods</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4510">
+         <term id="Para565037">Name/Selected Periods</term>
+         <listitem id="listitemN0x180ac00N0x18c4510">
             <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
-
             <para id="Para565038">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
@@ -182,82 +144,65 @@
           period you want to select. Continue highlighting periods with the
           CTRL key depressed until all desired periods are selected. The
           entire group is now selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565039">A/R Open Items</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4558">
+         <term id="Para565039">A/R Open Items</term>
+         <listitem id="listitemN0x180ac00N0x18c4558">
             <para>Display lists time-phased A/R open items, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para565041">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para565041">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para565042">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18c45c4">
+         <term id="Para565042">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18c45c4">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565043">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18c460c">
+         <term id="Para565043">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18c460c">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572341">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4654">
+         <term id="Para572341">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18c4654">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para568139">SUBMIT</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4678">
+         <term id="Para568139">SUBMIT</term>
+         <listitem id="listitemN0x180ac00N0x18c4678">
             <para>Select to submit report to the Batch Manager. For additional
           information, see the <link endterm="Anchor61009" id="XRef568141" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para565046">Right-clicking on an Item in the A/R open items list
+   </variablelist>
+   <para id="Para565046">Right-clicking on an Item in the A/R open items list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para565047">View Open Items</term>
-
-        <listitem id="listitemN0x180ac00N0x18c46e4">
+         <term id="Para565047">View Open Items</term>
+         <listitem id="listitemN0x180ac00N0x18c46e4">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para565048">Print Statement</term>
-
-        <listitem id="listitemN0x180ac00N0x18c472c">
+         <term id="Para565048">Print Statement</term>
+         <listitem id="listitemN0x180ac00N0x18c472c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

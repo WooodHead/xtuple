@@ -2,152 +2,118 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519617">
-    <title>
-      <anchor id="Anchor552188" role="Index"
-              xreflabel="count tags:by item;items:count tags for"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>count tags</primary>
-
-        <secondary>by item</secondary>
+         <primary>count tags</primary>
+         <secondary>by item</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>count tags for</secondary>
+         <primary>items</primary>
+         <secondary>count tags for</secondary>
       </indexterm>Count Tags by Item</title>
-
-    <para id="Para519618">To view a display of Count Tags by Item, select the
+   <para id="Para519618">To view a display of Count Tags by Item, select the
     "Count Tags by Item" option. The following screen will appear:</para>
-
-    <para id="Para519622">
+   <para id="Para519622">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_PI_dispCountTagsByItem.png" id="Graphic526356"/>
             </imageobject>
-
             <caption id="Caption519623">Count Tags by Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519629">When displaying Count Tags by Item, you are
+   <para id="Para519629">When displaying Count Tags by Item, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519630">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x192a6f4">
+         <term id="Para519630">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x192a6f4">
             <para>Enter the Item Number of the Item Count Tags you want to
           view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para672031">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x192a73c">
+         <term id="Para672031">UOM</term>
+         <listitem id="listitemN0x180ac00N0x192a73c">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para519634">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x192a760">
+         <term id="Para519634">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x192a760">
             <para>Select to display Count Tags for all Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para519636">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x192a784">
+         <term id="Para519636">Selected</term>
+         <listitem id="listitemN0x180ac00N0x192a784">
             <para>Specify Warehouse whose Count Tags you want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519641">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x192a7cc">
+         <term id="Para519641">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x192a7cc">
             <para>Count Tags entered on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519646">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x192a814">
+         <term id="Para519646">End Date</term>
+         <listitem id="listitemN0x180ac00N0x192a814">
             <para>Count Tags entered on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519648">Show Unposted Count Tags</term>
-
-        <listitem id="listitemN0x180ac00N0x192a85c">
+         <term id="Para519648">Show Unposted Count Tags</term>
+         <listitem id="listitemN0x180ac00N0x192a85c">
             <para>Select to display unposted Count Tags.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519649">Count Tags</term>
-
-        <listitem id="listitemN0x180ac00N0x192a8a4">
+         <term id="Para519649">Count Tags</term>
+         <listitem id="listitemN0x180ac00N0x192a8a4">
             <para>Display lists Count Tags by Item, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519651">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519651">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519652">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x192a910">
+         <term id="Para519652">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x192a910">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para594651">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x192a958">
+         <term id="Para594651">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x192a958">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para675613">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x192a9a0">
+         <term id="Para675613">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x192a9a0">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para524400">Right-clicking on a Count Tag in the Count Tags list
+   </variablelist>
+   <para id="Para524400">Right-clicking on a Count Tag in the Count Tags list
     enables you to select the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519655">View Count Tag</term>
-
-        <listitem id="listitemN0x180ac00N0x192aa0c">
+         <term id="Para519655">View Count Tag</term>
+         <listitem id="listitemN0x180ac00N0x192aa0c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

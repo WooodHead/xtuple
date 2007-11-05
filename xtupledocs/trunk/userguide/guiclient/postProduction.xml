@@ -2,232 +2,184 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519069">
-    <title>
-      <anchor id="Anchor533199" role="Index" xreflabel="production:posting of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>production</primary>
-
-        <secondary>posting of</secondary>
+         <primary>production</primary>
+         <secondary>posting of</secondary>
       </indexterm>Post Production</title>
-
-    <para id="Para519070">Work Order progress can be posted in terms of
+   <para id="Para519070">Work Order progress can be posted in terms of
     materials used or Operations completed. When you post production, you are
     using the materials-driven process for reporting progress. To post
     production for a Work Order, select the "Post Production" option. The
     following screen will appear:</para>
-
-    <para id="Para519074">
+   <para id="Para519074">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Mat_postProd.png" id="Graphic523685"/>
             </imageobject>
-
             <caption id="Caption519075">Post Production for a Work
           Order</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519076">When posting production for a Work Order, you are
+   <para id="Para519076">When posting production for a Work Order, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519077">Work Order #</term>
-
-        <listitem>
+         <term id="Para519077">Work Order #</term>
+         <listitem>
             <para>Enter the Work Order Number of the Work Order whose production
           you want to post.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519079">Whs.</term>
-
-        <listitem>
+         <term id="Para519079">Whs.</term>
+         <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519081">Item Number</term>
-
-        <listitem>
+         <term id="Para519081">Item Number</term>
+         <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568728">UOM</term>
-
-        <listitem>
+         <term id="Para568728">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519085">Status</term>
-
-        <listitem>
+         <term id="Para519085">Status</term>
+         <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para540587">Qty. Ordered</term>
-
-        <listitem>
+         <term id="Para540587">Qty. Ordered</term>
+         <listitem>
             <para>Display the quantity of the component Item required per parent
           Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para540588">Qty. Received</term>
-
-        <listitem>
+         <term id="Para540588">Qty. Received</term>
+         <listitem>
             <para>Received: Displays the quantity required to fulfill the
           specified Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519091">Balance Due</term>
-
-        <listitem>
+         <term id="Para519091">Balance Due</term>
+         <listitem>
             <para>Displays the quantity issued in fulfillment of the specified
           Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519096">Qty. to Post</term>
-
-        <listitem>
+         <term id="Para519096">Qty. to Post</term>
+         <listitem>
             <para>to Post: Enter the quantity of the component Items you want to
           post.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519098">Backflush Materials</term>
-
-        <listitem>
+         <term id="Para519098">Backflush Materials</term>
+         <listitem>
             <para>Select to indicate that the amount of materials indicated by
           the associated Work Order Material Requirement record will be issued
           to the selected Work Order for all "Pull" or "Mixed" component
           Items.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519099">Issue Items not on Pick List</term>
-
-        <listitem>
+         <term id="Para519099">Issue Items not on Pick List</term>
+         <listitem>
             <para>Select to indicate that non-Pick List Items should be
           backflushed as well.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519100">Backflush Operations</term>
-
-        <listitem>
+         <term id="Para519100">Backflush Operations</term>
+         <listitem>
             <para>Select to indicate that the amount of time and labor indicated
           by the associated Work Order Operation record will be issued to the
           selected Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term>Setup By</term>
-
-        <listitem>
+         <term>Setup By</term>
+         <listitem>
             <para>Enter the name of the user who performed the set up.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term>Run By</term>
-
-        <listitem>
+         <term>Run By</term>
+         <listitem>
             <para>Enter the name of the user who performed the production
           run.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para554972">If the "Backflush Operations" option is not
       selected, the setup and run time options will be disabled.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para519101">Close W/O after Posting</term>
-
-        <listitem>
+         <term id="Para519101">Close W/O after Posting</term>
+         <listitem>
             <para>Select to close the Work Order after posting.</para>
-
             <para id="Para519102">If you are posting partial production and want
           to keep the Work Order open, you should not select this
           option.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para530375">Production Notes</term>
-
-        <listitem>
+         <term id="Para530375">Production Notes</term>
+         <listitem>
             <para>This is a scrolling text field with word-wrapping for entering
           production posting Notes related to the Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para543753">Immediate Transfer to Warehouse</term>
-
-        <listitem>
+         <term id="Para543753">Immediate Transfer to Warehouse</term>
+         <listitem>
             <para>Select to transfer Work Order production to specified
           Warehouse. Specify the Warehouse you want to transfer production
           to.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para530337">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para530337">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519104">CANCEL</term>
-
-        <listitem>
+         <term id="Para519104">CANCEL</term>
+         <listitem>
             <para>Closes the screen without posting production for the Work
           Order, returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519105">POST PRODUCTION</term>
-
-        <listitem>
+         <term id="Para519105">POST PRODUCTION</term>
+         <listitem>
             <para>Posts production for the Work Order in the amount
           specified.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557989">SCRAP</term>
-
-        <listitem>
+         <term id="Para557989">SCRAP</term>
+         <listitem>
             <para>Select to open the "Scrap Work Order Material from W/O"
           screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

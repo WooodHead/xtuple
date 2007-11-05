@@ -2,95 +2,74 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524372">
-  <title>
-      <anchor id="Anchor532794" role="Index"
-              xreflabel="series:creating new;general ledger:creating new series in;transactions:creating g/l series"/>
+   <title>
+      
       <indexterm significance="normal">
          <primary>series</primary>
-
          <secondary>adding transactions to</secondary>
       </indexterm> 
       <indexterm significance="normal">
          <primary>general ledger</primary>
-
          <secondary>adding to series in</secondary>
       </indexterm>
       <indexterm significance="normal">
          <primary>transactions</primary>
-
          <secondary>adding to g/l series</secondary>
       </indexterm> Series Journal Entry Item</title>
-
-  <para id="Para527127">To add a new G/L transaction to the series, select the
+   <para id="Para527127">To add a new G/L transaction to the series, select the
   NEW button. The following screen will appear:</para>
-
-  <para id="Para524977">
+   <para id="Para524977">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_Ent_seriesEntryItem.png" id="Graphic524975"/>
             </imageobject>
-
             <caption id="Caption524978">Add Transaction to Series</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para527143">When adding a new G/L transaction item to the series,
+   <para id="Para527143">When adding a new G/L transaction item to the series,
   you are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para527153">Amount</term>
-
          <listitem id="listitemN0x180ac00N0x18be2ec">
             <para>Specify the monetary value of the transaction item.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para534053">Sense</term>
-
          <listitem id="listitemN0x180ac00N0x18be334">
             <para>Choose one of the following options:</para>
-
             <para id="Para534054">Debit: Select if transaction item Debits
         specified Account.</para>
-
             <para id="Para534055">Credit: Select if transaction item Credits
         specified Account.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para527342">Account</term>
-
          <listitem id="listitemN0x180ac00N0x18be37c">
             <para>Specify the Account to be used for the transaction item
         record.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para527201">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para527201">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para527202">CANCEL</term>
-
          <listitem id="listitemN0x180ac00N0x18be3e8">
             <para>Closes the screen without adding a new transaction item to the
         series, returning you to the previous screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para527203">SAVE</term>
-
          <listitem id="listitemN0x180ac00N0x18be430">
             <para>Creates the transaction item and adds it to the series.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>

@@ -2,38 +2,37 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672757">
-    <title> 
-      <anchor id="Anchor672756" role="Index"
-              xreflabel="topics:cycle counting;cycle count tags:explained;cycle counts:explained"/>
+   <title> 
+      
       <indexterm significance="normal">
-        <primary>topics</primary>
-        <secondary>cycle counting</secondary>
+         <primary>topics</primary>
+         <secondary>cycle counting</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>cycle count tags</primary>
-        <secondary>explained</secondary>
+         <primary>cycle count tags</primary>
+         <secondary>explained</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>cycle counts</primary>
-        <secondary>explained</secondary>
+         <primary>cycle counts</primary>
+         <secondary>explained</secondary>
       </indexterm>Topic: Cycle Counting</title>
-    <para id="Para672758">If you need to count Inventory on a regular basis,
+   <para id="Para672758">If you need to count Inventory on a regular basis,
     then you will need to know how to perform Cycle Counts. Let's start with a
     definition: A Cycle Count is a periodic issue of a Count Tag to count
     Inventory quantity within an Item Site. The "periodic" aspect of Cycle
     Counting will be the focus of this section.</para>
-    <tip>
+   <tip>
       <para id="Para672760">You may find it useful to refer also to the
       section dedicated to Count Tags, where the mechanics of Count Tag
       processing are discussed in more detail.</para>
-    </tip>
-    <section id="Section672762">
+   </tip>
+   <section id="Section672762">
       <title>
-         <anchor id="Anchor672761" role="Index" xreflabel="cycle counts:by class code explained"/> 
+          
          <indexterm significance="normal">
             <primary>cycle counts</primary>
             <secondary>by class code explained</secondary>
-        </indexterm>Cycle Counting by Class Code</title>
+         </indexterm>Cycle Counting by Class Code</title>
       <para id="Para672763">To begin, let's create a scenario in which we have
       a Warehouse called "WEST" and a Class Code called "Books". Our aim will
       be to Cycle Count all the Items belonging to Class Code Books located in
@@ -47,7 +46,7 @@
                </imageobject>
                <caption id="Caption672768">Item Sites in WEST Warehouse</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672769">It just so happens that all the Items located in
       Warehouse WEST also belong to Class Code Books. The next thing to do is
@@ -64,23 +63,23 @@
                </imageobject>
                <caption id="Caption672774">Empty Count Tag Edit List</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672775">Before we create the Count Tags for our Items in
       Warehouse WEST, let's first understand the underlying issues involved
       with Cycle Counting.</para>
       <note>
-        <para id="Para672777">Cycle Count Tags are the Count Tags created when
+         <para id="Para672777">Cycle Count Tags are the Count Tags created when
         a Cycle Count is performed.</para>
       </note>
-    </section>
-    <section id="Section672779">
+   </section>
+   <section id="Section672779">
       <title>
-         <anchor id="Anchor672778" role="Index" xreflabel="cycle counts:frequency of"/> 
+          
          <indexterm significance="normal">
             <primary>cycle counts</primary>
             <secondary>frequency of</secondary>
-        </indexterm>Cycle Count Frequency</title>
+         </indexterm>Cycle Count Frequency</title>
       <para id="Para672780">First of all, we need to look at Cycle Count
       frequency settings. These settings indicate how frequently an Item Site
       should be Cycle Counted. For example, if the Cycle Count frequency for
@@ -99,7 +98,7 @@
                <caption id="Caption672786">Cycle Count Frequency for Item in WEST
             Warehouse</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672789">As you can see in <link endterm="Anchor43066" id="XRef672788" linkend="Anchor43066"> Cycle Count Frequency for Item in
       WEST Warehouse</link>Figure 6.108, the Cycle Count frequency for Item B1
@@ -108,7 +107,7 @@
       same frequency setting. They are all due to be Cycle Counted every
       day.</para>
       <tip>
-        <para id="Para672792">A Cycle Count frequency must be specified on an
+         <para id="Para672792">A Cycle Count frequency must be specified on an
         Item Site master for Cycle Count Tags to be created. If no Cycle Count
         frequency is specified, no Cycle Count Tags will be created when the
         Create Cycle Count Tags utility is run.</para>
@@ -129,7 +128,7 @@
                <caption id="Caption672799">Last Counted Dates for Target Item
             Sites</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672800">The Item Sites by Class Code display is one of a
       series of I/M Module displays dedicated to rendering Item Site
@@ -141,20 +140,20 @@
       given Item Site was last counted. OpenMFG monitors this information and
       displays it for us here.</para>
       <note>
-        <para id="Para672805">The term "Last Counted date" has a very specific
+         <para id="Para672805">The term "Last Counted date" has a very specific
         meaning. Item Sites are only considered to have been counted if Count
         Tags for them have been posted. Simply issuing a Count Tag is not
         enough to mark an Item Site as having been counted. Issued Count Tags
         must be posted for the count to be registered.</para>
       </note>
-    </section>
-    <section id="Section672807">
+   </section>
+   <section id="Section672807">
       <title>
-         <anchor id="Anchor672806" role="Index" xreflabel="cycle count tags:mechanics of"/> 
+          
          <indexterm significance="normal">
             <primary>cycle count tags</primary>
             <secondary>mechanics of</secondary>
-        </indexterm>Creating Cycle Count Tags</title>
+         </indexterm>Creating Cycle Count Tags</title>
       <para id="Para672808">Okay, we have identified when our Item Sites were
       last counted: 02/04/2004. That was yesterday. Remember, the Cycle Count
       frequency for these Item Sites indicates they should be Cycle Counted
@@ -171,7 +170,7 @@
                <caption id="Caption672814">Create Cycle Count Tags by
             Warehouse</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672817">As you can see in <link endterm="Anchor98817" id="XRef672816" linkend="Anchor98817"> Create Cycle Count Tags by
       Warehouse</link>Figure 6.110, we have specified the parameters required
@@ -179,39 +178,39 @@
       for Items in Class Code Books located in Warehouse WEST. Here are the
       parameters we specified:</para>
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x1907088">
+         <listitem id="listitemN0x180ac00N0x1907088">
             <para id="Para672819">Warehouse: Selected WEST.</para>
-        </listitem>
-        <listitem id="listitemN0x180ac00N0x19070ac">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x19070ac">
             <para id="Para672820">Class Code: Selected Books.</para>
-        </listitem>
-        <listitem id="listitemN0x180ac00N0x19070d0">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x19070d0">
             <para id="Para672821">Mark Created Count Tag as Priority: Selected.
           Count Tags marked as having priority status are listed first in any
           prioritized lists. For example, priority Count Tags will appear at
           the top of the Count Tag Edit List; whereas, non-priority Count Tags
           will appear at the bottom of the list.</para>
-        </listitem>
-        <listitem id="listitemN0x180ac00N0x19070f4">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x19070f4">
             <para id="Para672822">Freeze Inventory: Selected. We are specifying
           that Inventory be frozen during the Cycle Count. Freezing Inventory
           during a Cycle Count helps preserve the integrity of Quantity on
           Hand (QOH) values. For more information on freezing and thawing, see
           the section dedicated to that topic.</para>
-        </listitem>
-        <listitem id="listitemN0x180ac00N0x1907118">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x1907118">
             <para id="Para672823">Maximum Number of Tags to Create: Entered 20.
           Indicate the maximum number of Cycle Count Tags you want to be
           created--up to a maximum of 1,000--during the Cycle Count. In our
           case, we are dealing with fewer than 20 Item Sites. By entering a
           maximum of 20 will cover our bases.</para>
-        </listitem>
-        <listitem id="listitemN0x180ac00N0x190713c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x190713c">
             <para id="Para672824">Comments: This is a scrolling text field with
           word-wrapping for entering comments related to the Cycle Count. Use
           the Comments field to enter any instructions or other comments that
           need to reach and be read by the cycle counters.</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
       <para id="Para672825">Once our parameters have been entered, we are
       ready to select the CREATE TAGS button. Doing so will create our Cycle
@@ -227,10 +226,10 @@
                <caption id="Caption672830">Count Tags Edit List Showing Cycle
             Count Tags</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <note>
-        <para id="Para672832">Cycle Count Tag Numbers are generated
+         <para id="Para672832">Cycle Count Tag Numbers are generated
         automatically by the system in a sequential pattern, using
         specifications entered on the Warehouse master. Within the Warehouse
         master you can specify both the prefix to be used by Count Tags
@@ -257,11 +256,11 @@
                <caption id="Caption672839">Item Site Display Showing Updated Last
             Counted Dates</caption>
             </mediaobject>
-        </screenshot>
+         </screenshot>
       </para>
       <para id="Para672840">When we look at the "Last Cnt"d" column, we see
       that today's date is displaying: 02/05/04. As expected, the date has
       been updated to correspond with our Cycle Count activity. We have now
       successfully completed the cycle.</para>
-    </section>
-  </section>
+   </section>
+</section>

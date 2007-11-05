@@ -2,174 +2,135 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524360">
-  <title>
-      <anchor id="Anchor532570" role="Index" xreflabel="payments:selection of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>payments</primary>
-
          <secondary>selection of</secondary>
       </indexterm>Select Payment</title>
-
-  <para id="Para528329">To select a individual A/P open item for payment,
+   <para id="Para528329">To select a individual A/P open item for payment,
   choose the SELECT button. The following screen will appear:</para>
-
-  <para id="Para531796">
+   <para id="Para531796">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/AP_Pay_selectPayItem.png" id="Graphic531794"/>
             </imageobject>
-
             <caption id="Caption531797">Select A/P Open Item for Payment</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para531798">When specifying payment details for a selected A/P
+   <para id="Para531798">When specifying payment details for a selected A/P
   open item, you are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para524382">Vendor #</term>
-
          <listitem>
             <para>Displays the name of the Vendor who is owed payment.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para528613">Document #</term>
-
          <listitem>
             <para>Displays the Document Number of the Document being selected for
         payment.</para>
-
             <para id="Para547982">Valid Document Types include posted Vouchers and
         miscellaneous A/P Debit Memos.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para528614">P/O #</term>
-
          <listitem>
             <para>Displays the Purchase Order Number (if any) of the Purchase
         Order associated with the Document.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para530584">Doc. Date</term>
-
          <listitem>
             <para>Displays the Document's origination date.</para>
-
             <para id="Para530585">In the case of a Voucher, the Document date is
         the same as the Invoice date.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para530586">Due Date</term>
-
          <listitem>
             <para>Displays the date payment is due.</para>
-
             <para id="Para530587">The due date is determined based on the billing
         Terms selected at the time the Document is posted.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para548012">Terms</term>
-
          <listitem>
             <para>Displays the billing Terms selected at the time the Document was
         posted.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para528617">Total Owed</term>
-
          <listitem>
             <para>Displays the total amount due to the Vendor.</para>
-
             <para id="Para548030">The total owed is equal to the vouchered
         amount--or to the amount of the miscellaneous A/P Credit Memo at the
         time of posting.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para548040">Balance Owed</term>
-
          <listitem>
             <para>Displays the balance due to the Vendor.</para>
-
             <para id="Para548041">The balance owed will differ from the total owed
         if Discounts are applied based on the specified billing Terms.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para528618">Payment Amount</term>
-
          <listitem>
             <para>Specify the amount to be paid to the Vendor. If a billing Terms
         Discount is applied, the payment amount will be reduced automatically
         by the Discount amount.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <note>
+   </variablelist>
+   <note>
       <para id="Para548093">The payment amount is the amount which appears on
     A/P Checks when they are created.</para>
-  </note>
-
-  <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
          <term id="Para528716">Bank Account</term>
-
          <listitem>
             <para>Specify the Bank Account to be used for paying the A/P open
         item.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para528956">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para528956">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para528957">CANCEL</term>
-
          <listitem>
             <para>Closes the screen without specifying payment details, returning
         you to the application desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para528958">SAVE</term>
-
          <listitem>
             <para>Creates and saves the payment details.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para547910">APPLY DISCOUNT</term>
-
          <listitem>
             <para>Select to apply any billing Terms Discount you may be eligible
         for.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applyDiscount.xml"
+   </variablelist>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applyDiscount.xml"
                xpointer="element(/1)"/>
 </section>

@@ -2,101 +2,80 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section971614">
-  <title>
-      <anchor id="Anchor953779" role="Index" xreflabel="purchase orders:history of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>purchase orders</primary>
-
          <secondary>history of</secondary>
       </indexterm>P/O History</title>
-
-  <para id="Para522213">To view Purchase Order history, select the "P/O
+   <para id="Para522213">To view Purchase Order history, select the "P/O
   History" option. The following screen will appear:</para>
-
-  <para id="Para522216">
+   <para id="Para522216">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/PO_Disp_poHistory.png" id="Graphic522215"/>
             </imageobject>
-
             <caption id="Caption522217">Purchase Order History</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para522218">When displaying Purchase Order history, you are
+   <para id="Para522218">When displaying Purchase Order history, you are
   presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para523143">P/O #</term>
-
          <listitem id="listitemN0x180ac00N0x18c046c">
             <para>Enter the Purchase Order Number of the Purchase Order whose
         history you want to view.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para523156">P/O Items</term>
-
          <listitem id="listitemN0x180ac00N0x18c04b4">
             <para>Display lists Purchase Order history for the specified Purchase
         Order.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para523158">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para523158">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para523159">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x18c0520">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para969999">PRINT</term>
-
          <listitem id="listitemN0x180ac00N0x18c0568">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para954932">COPY</term>
-
          <listitem id="listitemN0x180ac00N0x18c05b0">
             <para>Select to create a copy of the specified Purchase Order. Once a
         Purchase Order is copied, the copy will appear--with a new Purchase
         Order Number--on the List Unposted Purchase Orders screen.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <tip>
-      <para id="Para955033">The copy functionality can be used as a <anchor id="Anchor955032" role="Index"
-                 xreflabel="purchase orders:templates for;purchase orders:handling repetitive"/>
+   </variablelist>
+   <tip>
+      <para id="Para955033">The copy functionality can be used as a 
          <indexterm significance="normal">
             <primary>purchase orders</primary>
-
             <secondary>templates for</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>purchase orders</primary>
-
             <secondary>handling repetitive</secondary>
          </indexterm>templating mechanism for repetitive Purchase Orders.
     Consider creating a template P/O and then simply copy it whenever you need
     to send out a new one.</para>
-  </tip>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyPurchaseOrder.xml"
+   </tip>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="copyPurchaseOrder.xml"
                xpointer="element(Section955035)"/>
 </section>

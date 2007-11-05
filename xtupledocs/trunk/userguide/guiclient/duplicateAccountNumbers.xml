@@ -2,120 +2,96 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section605738">
-    <title>
-      <anchor id="Anchor605746" role="Index" xreflabel="accounts:duplication of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>accounts</primary>
-
-        <secondary>duplication of</secondary>
+         <primary>accounts</primary>
+         <secondary>duplication of</secondary>
       </indexterm>Duplicate Account Numbers</title>
-
-    <para id="Para605742">The Duplicate Account Numbers utility provides a
+   <para id="Para605742">The Duplicate Account Numbers utility provides a
     method for duplicating (i.e., copying) Account Numbers and saving them
     with altered segments. To access the utility, select the "Duplicate
     Account Numbers" option. The following screen will appear:</para>
-
-    <para id="Para605751">
+   <para id="Para605751">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_Utils_copyAcctNums.png" id="Graphic605749"/>
             </imageobject>
-
             <caption id="Caption605752">Duplicate Account Numbers
           Utility</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para605801">When duplicating (i.e., copying) Account Numbers,
+   <para id="Para605801">When duplicating (i.e., copying) Account Numbers,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para605744">Change Company Number</term>
-
-        <listitem id="listitemN0x180ac00N0x1924918">
+         <term id="Para605744">Change Company Number</term>
+         <listitem id="listitemN0x180ac00N0x1924918">
             <para>Select if you want the Company segment to be different in the
           duplicate Account Number.</para>
-
             <para id="Para605864">Specify the number you want the Company
           segment to be changed to. Not selecting this option means the
           Company segment will not be changed when the Account Number(s) is
           duplicated.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para605800">Change Profit Center Number</term>
-
-        <listitem id="listitemN0x180ac00N0x1924960">
+         <term id="Para605800">Change Profit Center Number</term>
+         <listitem id="listitemN0x180ac00N0x1924960">
             <para>Select if you want the Profit Center segment to be different
           in the duplicate Account Number.</para>
-
             <para id="Para605899">Specify the number you want the Profit Center
           segment to be changed to. Not selecting this option means the Profit
           Center segment will not be changed when the Account Number(s) is
           duplicated.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para605802">Change Sub. Accnt. Number</term>
-
-        <listitem id="listitemN0x180ac00N0x19249a8">
+         <term id="Para605802">Change Sub. Accnt. Number</term>
+         <listitem id="listitemN0x180ac00N0x19249a8">
             <para>Select if you want the Subaccount Number segment to be
           different in the duplicate Account Number.</para>
-
             <para id="Para605903">Specify the number you want the Subaccount
           Number segment to be changed to. Not selecting this option means the
           Subaccount Number segment will not be changed when the Account
           Number(s) is duplicated.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para605803">Append to Description</term>
-
-        <listitem id="listitemN0x180ac00N0x19249f0">
+         <term id="Para605803">Append to Description</term>
+         <listitem id="listitemN0x180ac00N0x19249f0">
             <para>Enter any text you want to have appended to the duplicate
           Account Number's description.</para>
-
             <para id="Para605877">The text entered here will be added to the end
           of the already-existing Account Number description.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para605804">Select Account Numbers to Duplicate</term>
-
-        <listitem id="listitemN0x180ac00N0x1924a38">
+         <term id="Para605804">Select Account Numbers to Duplicate</term>
+         <listitem id="listitemN0x180ac00N0x1924a38">
             <para>Select one or multiple Account Numbers using your mouse and a
           combination of the SHIFT and/or CTRL keys.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para605810">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para605810">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para605811">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1924aa4">
+         <term id="Para605811">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1924aa4">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para605812">DUPLICATE</term>
-
-        <listitem id="listitemN0x180ac00N0x1924aec">
+         <term id="Para605812">DUPLICATE</term>
+         <listitem id="listitemN0x180ac00N0x1924aec">
             <para>Duplicates the selected Account Numbers and creates new
           Account Numbers, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

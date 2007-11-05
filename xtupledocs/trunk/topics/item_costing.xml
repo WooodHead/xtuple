@@ -2,56 +2,44 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section665443">
-  <title> 
-      <anchor id="Anchor665442" role="Index"
-              xreflabel="topics:item costing;items:costing explained;costing:for items explained"/>
+   <title> 
+      
       <indexterm significance="normal">
          <primary>topics</primary>
-
          <secondary>item costing</secondary>
       </indexterm> 
       <indexterm significance="normal">
          <primary>items</primary>
-
          <secondary>costing explained</secondary>
       </indexterm> 
       <indexterm significance="normal">
          <primary>costing</primary>
-
          <secondary>for items explained</secondary>
       </indexterm>Topic: Item Costing</title>
-
-  <para id="Para665444">Assigning Costs to Items is an essential step in the
+   <para id="Para665444">Assigning Costs to Items is an essential step in the
   process of Inventory Accounting. In this section, we will cover the basics
   of Item costing--looking first at how Costs are assigned to simple purchased
   Items. And then we will examine more complex manufactured Items and the
   layers of Costs associated with them.</para>
-
-  <section id="Section665446">
+   <section id="Section665446">
       <title>
-         <anchor id="Anchor665445" role="Index"
-                 xreflabel="actual costs:comparison to standard costs;standard costs:comparison to actual costs;costing:actual vs. standard"/>
+         
          <indexterm significance="normal">
             <primary>actual costs</primary>
-
             <secondary>comparison to standard costs</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>standard costs</primary>
-
             <secondary>comparison to actual costs</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>actual vs. standard</secondary>
          </indexterm>Actual Cost vs. Standard Cost</title>
-
       <para id="Para665447">But first, let's get a couple of key definitions out
     of the way. There are two kinds of Costs in OpenMFG: Actual Costs and
     Standard Costs. You should familiarize yourself with the following
     definitions for these two terms:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18d95f8">
             <para id="Para665448">Actual Cost: The real-time Cost associated with
@@ -61,7 +49,6 @@
         Operations. The Actual Cost provides a current record of charges
         actually incurred by an Item.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18d961c">
             <para id="Para665449">Standard Cost: The Cost used for posting General
         Ledger transactions. Standard Cost is distinguished from Actual Cost
@@ -71,69 +58,56 @@
         alignment by posting Actual Cost to Standard.</para>
          </listitem>
       </itemizedlist>
-
       <tip>
          <para id="Para665451">To see General Ledger (G/L) traffic for Inventory
       transactions, Standard Costs must be assigned to the affected Items. If
       no Standard Costs are assigned, the costing aspects of the transactions
       will not be recorded.</para>
       </tip>
-  </section>
-
-  <section id="Section665453">
+   </section>
+   <section id="Section665453">
       <title>
-         <anchor id="Anchor665452" role="Index"
-                 xreflabel="costing:assigning to items;items:assigning costs to"/>
+         
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>assigning to items</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>items</primary>
-
             <secondary>assigning costs to</secondary>
          </indexterm>Assigning Item Costs</title>
-
       <para id="Para665454">To begin, let's assign Costs to the purchased Item
     B1. This Item currently has no Costs assigned to it, as we can see from
     the Maintain Item Costs screen shown below:</para>
-
       <para id="Para665458">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-1.png" id="Graphic665456"/>
                </imageobject>
-
                <caption id="Caption665459">Initial Maintain Item Costs Screen for
           Purchased Item B1</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665460">When you assign Costs to an Item, you begin by
     entering Actual Costs for the Item. Once the Actual Costs have been
     entered, you can then assign Standard Costs. You assign Standard Costs by
     posting the Actual Costs to Standard. We"ll talk more about Standard Cost
     posting later.</para>
-
       <para id="Para665461">By definition, purchased Items have material Cost.
     And so, the first Actual Cost we will assign to Item B1 is its material
     Cost. To do so, we select the NEW COST button, as shown below:</para>
-
       <para id="Para665465">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_createItemCost-1.png" id="Graphic665463"/>
                </imageobject>
-
                <caption id="Caption665466">Create Item Cost for Material</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665467">As you can see, the "Material" Costing Element is
     showing in the drop-down menu. This is a system-defined Costing Element
     available to all purchased Items. For the purposes of this exercise, we"ll
@@ -141,30 +115,25 @@
     button, we are returned to the Maintain Item Costs screen, where the
     newly-added Actual Cost is recorded, as shown in the following
     screenshot:</para>
-
       <para id="Para665471">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-2.png" id="Graphic665469"/>
                </imageobject>
-
                <caption id="Caption665472">Actual Cost Entered for Item
           B1</caption>
             </mediaobject>
          </screenshot>
       </para>
-  </section>
-
-  <section id="Section665474">
+   </section>
+   <section id="Section665474">
       <title>
-         <anchor id="Anchor665473" role="Index" xreflabel="actual costs:posting of explained"/> 
+          
          <indexterm significance="normal">
             <primary>actual costs</primary>
-
             <secondary>posting of explained</secondary>
          </indexterm>Posting Actual to Standard</title>
-
       <para id="Para665475">Because we want to track the costing aspects of
     Inventory transactions involving Item B1 in the General Ledger, we need to
     post the Actual Cost to the Standard Cost. There are several ways to
@@ -172,70 +141,58 @@
     "Post Actual Cost to Standard" option. As you can see in the next screen,
     the Standard Cost column now shows the same amount as the Actual Cost
     column:</para>
-
       <para id="Para665479">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-3.png" id="Graphic665477"/>
                </imageobject>
-
                <caption id="Caption665480">Actual Cost Posted to Standard Cost for
           Item B1</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <note>
          <para id="Para665482">The timetable for posting Actual Cost updates to
       Standard Cost should be guided by Accounting practices at your site.
       Variances between Actual Cost and Standard Cost may provide you with
       useful supply chain or production-related information.</para>
       </note>
-  </section>
-
-  <section id="Section665483">
+   </section>
+   <section id="Section665483">
       <title>Updating Actual Costs</title>
-
       <para id="Para665484">So, we"ve discussed how to enter Actual Costs and
     how to post them to Standard. The next question is: How do you update
     Costs when the Costs for an Item change? And also: How do you ensure that
     any changes are recognized wherever the Item is used?</para>
-
       <para id="Para665485">To answer these questions, let's continue looking at
     our purchased Item B1. This Item, a book, has an Actual Cost of $6.00--and
     this Actual Cost has been posted to Standard. As you can see in the
     following screenshot, Item B1 is a component in the Bill of Materials for
     Item SET, which is a set of books:</para>
-
       <para id="Para665489">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM.png" id="Graphic665487"/>
                </imageobject>
-
                <caption id="Caption665490">Costed View of Component Items</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665491">Let's say our Vendor increases the price for Item B1
     from $6.00 to $7.00. Using the Maintain Item Costs screen, we would record
     this increased Actual Cost, as shown in the following screenshot:</para>
-
       <para id="Para665495">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_updateActCost.png" id="Graphic665493"/>
                </imageobject>
-
                <caption id="Caption665496">Update Actual Cost for Item B1</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <note>
          <para id="Para665498">The system will automatically update Actual Costs
       for purchased Items when Vouchers are posted--that is, if the vouchered
@@ -243,12 +200,10 @@
       Cost on record may increase or decrease, depending on the cost per Item
       entered when Purchase Orders are vouchered.</para>
       </note>
-
       <para id="Para665499">The Actual Cost for Item B1 has now been updated,
     reflecting the change in the Vendor pricing. If we return now to the
     Costed Bill of Materials for Item SET, we can see how the change affected
     one of the manufactured Items where Item B1 is used:</para>
-
       <para id="Para665503">
          <anchor id="Anchor39159" role="Cross-Ref"
                  xreflabel="39159: Figure: Figure 9.3:  Actual Cost of Component Item Updated"/>
@@ -257,41 +212,33 @@
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM2.png" id="Graphic665501"/>
                </imageobject>
-
                <caption id="Caption665505">Actual Cost of Component Item
           Updated</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665508">You have to look closely at <link endterm="Anchor39159" id="XRef665507" linkend="Anchor39159"> Actual Cost
     of Component Item Updated</link>Figure 5.75 to fully appreciate the subtle
     changes that have occurred. For one thing, you can see that the unit Cost
     for Item B1 has been updated to $7.00. This change affected the "Total
     Cost" for the parent Item SET. However, the Actual and Standard Costs for
     Item SET have not been affected:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18d9b08">
             <para id="Para665510">Total Cost = $13.00</para>
-
             <para id="Para665511">Actual Cost = $12.00</para>
-
             <para id="Para665512">Standard Cost = $12.00</para>
          </listitem>
       </itemizedlist>
-  </section>
-
-  <section id="Section665513">
+   </section>
+   <section id="Section665513">
       <title>Rolling Up Actual Costs</title>
-
       <para id="Para665514">Why does the above-mentioned difference exist? The
     reason is that the Cost update for Item B1 has not yet been "rolled up."
     Once a Cost update has been rolled up, the change will be recognized
     wherever the Item is used. In our current example, the Costed Bill of
     Materials for Item SET reflects the update, but the Actual and Standard
     Costs for Item SET have not yet absorbed the change.</para>
-
       <tip>
          <para id="Para665516">To determine whether Costs have been rolled up,
       look closely at the dates when Costs were last updated on the Maintain
@@ -299,35 +246,28 @@
       Cost and the Actual and Standard Costs for an Item on the Costed Bill of
       Materials display.</para>
       </tip>
-
       <para id="Para665519">Another point to consider is that <link endterm="Anchor39159" id="XRef665518" linkend="Anchor39159"> Actual Cost
     of Component Item Updated</link>Figure 5.75 is displaying data using the
     "Use Actual Cost" parameter. Note the difference when the "Use Standard
     Cost" option is selected instead, as shown in the following screen:</para>
-
       <para id="Para665524">
-         <anchor id="Anchor87309" role="Cross-Ref"
-                 xreflabel="87309: Figure: Figure 9.4:  No Affect on Standard Cost from Actual Cost Update"/>
+         
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM3.png" id="Graphic665522"/>
                </imageobject>
-
                <caption id="Caption665526">No Affect on Standard Cost from Actual
           Cost Update</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665527">As you can see, no change is showing in the Standard
     Cost for Item B1. The Standard Cost is still $6.00. The reason for this is
     that the Actual Cost update has not yet been posted to Standard.</para>
-
       <para id="Para665528">To roll up the Item B1 Cost update so that Item SET
     recognizes the change, we open the Update Actual Costs by Item screen, as
     shown below:</para>
-
       <para id="Para665532">
          <anchor id="Anchor18335" role="Cross-Ref"
                  xreflabel="18335: Figure: Figure 9.5:  Roll Up Actual Cost Update"/>
@@ -336,12 +276,10 @@
                <imageobject>
                   <imagedata fileref="images/Topic_updateActCost2.png" id="Graphic665530"/>
                </imageobject>
-
                <caption id="Caption665534">Roll Up Actual Cost Update</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665537">As you can see in <link endterm="Anchor18335" id="XRef665536" linkend="Anchor18335"> Roll Up Actual Cost
     Update</link>Figure 5.77, we have selected the "Roll Up Actual Costs"
     option. Here we are performing a Cost roll up--which is to say that we are
@@ -349,26 +287,22 @@
     select the UPDATE button, all Items that use Item B1 will recognize the
     Actual Cost update. To verify the change has been recognized, we return to
     the Costed Bill of Materials for Item SET, as shown below:</para>
-
       <para id="Para665542">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM4.png" id="Graphic665540"/>
                </imageobject>
-
                <caption id="Caption665543">Actual Cost Rolled Up and Recognized by
           Parent Item</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665544">Sure enough, the Total Cost for Item SET is now
     equal to its Actual Cost. We have successfully rolled up the Cost update
     for the component Item B1. The update has been recognized by the parent
     Item. And the update has been recognized not only by Item SET--but also by
     any other parent Items where Item B1 is used.</para>
-
       <tip>
          <para id="Para665546">Our example has focused on Cost roll ups for
       individual Items. But you may also perform multiple simultaneous roll
@@ -376,40 +310,33 @@
       strain on server resources. Consider performing Cost updates by Class
       Code during off-peak hours.</para>
       </tip>
-
       <para id="Para665547">Incidentally, we could have achieved the same result
     by updating lower level material Costs for the parent Item SET, as shown
     below:</para>
-
       <para id="Para665551">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_updateActCost3.png" id="Graphic665549"/>
                </imageobject>
-
                <caption id="Caption665552">Manufactured Item Perspective on Cost
           Roll Up</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665553">With the option "Update Lower Level Material Costs"
     selected, any component Item material changes will be recognized by the
     parent Item. In this case, the changes made to Item B1 will be reflected
     in the Actual Cost for Item SET.</para>
-  </section>
-
-  <section id="Section665554">
+   </section>
+   <section id="Section665554">
       <title>Standard Cost Roll Ups</title>
-
       <para id="Para665555">The process for updating and rolling up Standard
     Costs mirrors the Actual Costs process described above. Let's assume we
     have already posted the Actual Cost update to Standard for Item B1--using
     the Maintain Item Costs screen, for example. That means, the Standard Cost
     for Item B1 is now also $7.00, as we see reflected in the Costed Bill of
     Materials for Item SET:</para>
-
       <para id="Para665559">
          <anchor id="Anchor22474" role="Cross-Ref"
                  xreflabel="22474: Figure: Figure 9.8:  Standard Cost Updated for Item B1"/>
@@ -418,13 +345,11 @@
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM5.png" id="Graphic665557"/>
                </imageobject>
-
                <caption id="Caption665561">Standard Cost Updated for Item
           B1</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665564">When the "Use Standard Costs" option is selected as
     in <link endterm="Anchor22474" id="XRef665563" linkend="Anchor22474">
     Standard Cost Updated for Item B1</link>Figure 5.80, you can see that the
@@ -432,112 +357,93 @@
     the Standard Cost update for Item B1 has not been recognized. To ensure
     that parent Items recognize the Standard Cost change, we must roll up the
     Standard Cost, as shown below:</para>
-
       <para id="Para665569">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_postActCost.png" id="Graphic665567"/>
                </imageobject>
-
                <caption id="Caption665570">Rolling Up Standard Cost</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665571">With the "Roll Up Standard Costs" option selected,
     we post the update and return once again to the Costed Bill of Materials
     display for Item SET. As the following screen shows, the Standard Cost
     update has successfully been recognized by the parent Item:</para>
-
       <para id="Para665575">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_costSingleBOM6.png" id="Graphic665573"/>
                </imageobject>
-
                <caption id="Caption665576">Standard Cost Update Recognized by
           Parent Item</caption>
             </mediaobject>
          </screenshot>
       </para>
-  </section>
-
-  <section id="Section665577">
+   </section>
+   <section id="Section665577">
       <title>User-Defined Costing Elements</title>
-
       <para id="Para665578">In addition to the system-defined "Material" Costing
     Element, you may also create user-defined Costing Elements. These
     accessory elements enable you to specify additional Item costs.</para>
-
       <para id="Para665579">To add a user-defined Costing Element, we again
     select the NEW COST button. The available elements are shown in the
     following screenshot. As you can see, the "Material" element is no longer
     available in the drop-down list. That is because the "Material" Costing
     Element is already in use.</para>
-
       <para id="Para665583">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_createItemCost-2.png" id="Graphic665581"/>
                </imageobject>
-
                <caption id="Caption665584">Add User-Defined Costing
           Element</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665585">We will select the "Freight Surcharge" element and
     specify a Cost of $0.25. The following screen shows this new Cost has been
     added to the Actual Cost for Item B1.</para>
-
       <note>
          <para id="Para665587">There is no requirement that all Actual Costs must
       be posted to Standard. You may post certain Costs and not
       others--depending on the needs of your site.</para>
       </note>
-
       <para id="Para665591">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-4.png" id="Graphic665589"/>
                </imageobject>
-
                <caption id="Caption665592">User-Defined Cost Added to Actual
           Cost</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665593">The master list of user-defined Costing Elements can
     be found in the Master Information section of the P/D Module. The
     following screen shows the list of Costing Elements created for this
     scenario:</para>
-
       <para id="Para665597">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_userCostElem.png" id="Graphic665595"/>
                </imageobject>
-
                <caption id="Caption665598">Master List of User-Defined Costing
           Elements</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665599">When creating a user-defined Costing Element, you
     may specify the "Accept P/O Distributions" option. Select this option if
     you want the Costing Element to be used for distributing Costs related to
     Purchase Order Vouchers. If selected, the Costing Element will be included
     as one of the available Costing Elements when Voucher Item Costs are
     distributed.</para>
-
       <tip>
          <para id="Para665601">In addition to using Costing Elements, you may
       also create Costing Items--that is, Items assigned the Item Type
@@ -547,26 +453,21 @@
       Item to a Costing Element. You may then track the Costs of the pseudo
       Item as a user-defined Cost.</para>
       </tip>
-  </section>
-
-  <section id="Section665603">
+   </section>
+   <section id="Section665603">
       <title>
-         <anchor id="Anchor665602" role="Index" xreflabel="costing:for manufactured items"/> 
+          
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>for manufactured items</secondary>
          </indexterm>Manufactured Item Costing</title>
-
       <para id="Para665604">Okay, we"ve covered how to assign Costs to a
     purchased Item. Now let's look at costing for a manufactured Item.</para>
-
       <para id="Para665605">The manufactured Item we will be using in this next
     scenario is Item TDMR100, a yellow toy truck having four component Items.
     The fourth component--Item TDPKIT--is also manufactured. Item TDPKIT is
     the packaging used to package the yellow toy truck. The next screen shows
     an indented Bill of Materials for Item TDMR100:</para>
-
       <para id="Para665609">
          <anchor id="Anchor98976" role="Cross-Ref"
                  xreflabel="98976: Figure: Figure 8.8:  Indented Bill of Materials"/>
@@ -575,37 +476,31 @@
                <imageobject>
                   <imagedata fileref="images/Topic_indentBOMTruck.png" id="Graphic665607"/>
                </imageobject>
-
                <caption id="Caption665611">Indented Bill of Materials</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665612">Because manufactured Items consist of component
     Items--sometimes extending to several layers--the costing issues are more
     complex than they are for purchased Items. New Costs are assigned in the
     same way as they are for purchased Items. But the layers of Costs and the
     relationships between them make costing for manufactured Items
     unique.</para>
-
       <note>
          <para id="Para665614">New Costs are assigned to manufactured Items in
       the same way that new Costs are assigned to purchased Items. You simply
       select the NEW COST button on the Maintain Item Costs screen and specify
       a Costing Element and Cost amount.</para>
       </note>
-
       <para id="Para665615">All Costs have already been assigned to Item
     TDMR100--and to all its component Items. So we will jump right into
     understanding how these Costs fit together.</para>
-
       <para id="Para665616">Let's start by looking at Costs associated with the
     manufactured component Item TDPKIT, the packaging for our yellow truck. As
     we saw in <link endterm="Anchor98976" id="XRef665618" linkend="Anchor98976"> Indented Bill of Materials</link>Figure 5.86, Item
     TDPKIT is the fourth component listed on the Bill of Materials for the
     parent Item. The Costs for Item TDPKIT are shown in the following
     screenshot:</para>
-
       <para id="Para665623">
          <anchor id="Anchor30461" role="Cross-Ref"
                  xreflabel="30461: Figure: Figure 8.9:  Item Costing for Manufactured Component Item TDPKIT"/>
@@ -614,43 +509,36 @@
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-5.png" id="Graphic665621"/>
                </imageobject>
-
                <caption id="Caption665625">Item Costing for Manufactured Component
           Item TDPKIT</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665626">A few key points about manufactured Item costing can
     be made by looking closely at the information displayed in <link endterm="Anchor30461" id="XRef665628" linkend="Anchor30461"> Item Costing
     for Manufactured Component Item TDPKIT</link>Figure 5.87:</para>
-
       <orderedlist continuation="restarts" inheritnum="ignore">
          <listitem id="listitemN0x180ac00N0x18da1c8">
             <para id="Para665630">Three system-defined Costing Elements are
         available to manufactured Items: "Material," "Direct Labor," and
         "Overhead."</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18da1ec">
             <para id="Para665631">Material Costs for manufactured Items are always
         lower level--which means they are associated with component Items, not
         with the parent Item.</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e7a00">
             <para id="Para665632">Direct labor and overhead Costs are this
         level--meaning, if in use, these Costs are associated with the parent
         Item they refer to.</para>
          </listitem>
       </orderedlist>
-
       <note>
          <para id="Para665634">This level Costs are associated with the parent
       Item they refer to. Lower level Costs are associated with component
       Items.</para>
       </note>
-
       <para id="Para665635">As you can see, Item TDPKIT has material, direct
     labor, and overhead Costs associated with it. The labor and overhead Costs
     are displaying as this level (that is, not lower level). And the material
@@ -658,70 +546,56 @@
     how the lower level material Costs totalling $0.55 were arrived at. If you
     recall, Item TDPKIT has two component Items: TDK1 and TDK2. The following
     screenshot shows Item costing for these two Items:</para>
-
       <para id="Para665639">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-6.png" id="Graphic665637"/>
                </imageobject>
-
                <caption id="Caption665640">Costs for Component Items</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665641">Items TDK1 and TDK2 are basic purchased Items having
     material Costs only. Doing some simple math, we see how the lower level
     material Costs for Item TDPKIT were calculated:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e7ad8">
             <para id="Para665642">$0.30 (TDK1) + $0.25 (TDK2) = $0.55</para>
          </listitem>
       </itemizedlist>
-  </section>
-
-  <section id="Section665644">
+   </section>
+   <section id="Section665644">
       <title>
-         <anchor id="Anchor665643" role="Index"
-                 xreflabel="labor costs:explained;overhead costs:explained;costing:labor costs explained;costing:overhead costs explained;work centers:labor charges for;work centers:overhead charges for;costing:work centers and"/>
+         
          <indexterm significance="normal">
             <primary>labor costs</primary>
-
             <secondary>explained</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>overhead costs</primary>
-
             <secondary>explained</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>labor costs explained</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>overhead costs explained</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>work centers</primary>
-
             <secondary>labor charges for</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>work centers</primary>
-
             <secondary>overhead charges for</secondary>
          </indexterm> 
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>work centers and</secondary>
          </indexterm>Labor and Overhead Costs</title>
-
       <para id="Para665645">So, that explains the material Costs for Item
     TDPKIT. Now let's look at the Item's direct labor Costs. We"ll explore the
     overhead Costs a little later. Referring back to <link endterm="Anchor30461" id="XRef665647" linkend="Anchor30461"> Item Costing
@@ -729,33 +603,28 @@
     direct labor Costs for Item TDPKIT total $1.00. How was this amount
     determined? The answer to that question is the subject of our next
     scenario.</para>
-
       <para id="Para665649">Direct labor Costs are tied to the manufacturing
     process, to the Operations required to make an Item. So, to calculate
     labor Costs, we need to know how long it takes to make the Item and what
     the labor rates are. To gather this information, we will need to look at a
     series of different screens. We"ll begin by examining the Bill of
     Operations for Item TDPKIT:</para>
-
       <para id="Para665653">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_booTDPKIT.png" id="Graphic665651"/>
                </imageobject>
-
                <caption id="Caption665654">Bill of Operations for Item
           TDPKIT</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665655">As you can see, there is only one Operation listed
     on the Bill of Operations. It is Standard Operation "TD-A," which is
     performed in Work Center "Assembly." We can learn more about this
     Operation by double-clicking on it to open it, as shown in the following
     screen:</para>
-
       <para id="Para665659">
          <anchor id="Anchor59303" role="Cross-Ref"
                  xreflabel="59303: Figure: Figure 8.12:  Operation Detail from TDPKIT Bill of Operations"/>
@@ -764,45 +633,37 @@
                <imageobject>
                   <imagedata fileref="images/Topic_booItemTDPKIT.png" id="Graphic665657"/>
                </imageobject>
-
                <caption id="Caption665661">Operation Detail from TDPKIT Bill of
           Operations</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665664">The Bill of Operations Item screen shown in <link endterm="Anchor59303" id="XRef665663" linkend="Anchor59303"> Operation
     Detail from TDPKIT Bill of Operations</link>Figure 5.90 contains extensive
     controls used to define the Operation. Looking closely at the screenshot,
     we see Standard Operation "TD-A" is in use. Standard Operations are not
     required, but in this case one is being used.</para>
-
       <note>
          <para id="Para665667">Setup time and run time values will carry over
       from the Standard Operation master if a Standard Operation is in
       use.</para>
       </note>
-  </section>
-
-  <section id="Section665668">
+   </section>
+   <section id="Section665668">
       <title>Setup and Run Time Charges</title>
-
       <para id="Para665669">The Work Center "Assembly" has been specified from
     the drop-down menu. And the following setup time and run time values have
     been entered:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e7e5c">
             <para id="Para665670">Setup time = 5 minutes (charged only once per
         Operation)</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e7e80">
             <para id="Para665671">Run time = 1 minute (charged per each unit of
         Item TDPKIT)</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665672">It's important to highlight the differences in how
     setup times and run times are charged. As you might expect, run time is
     the amount of time required to execute an Operation. In our scenario, the
@@ -811,41 +672,34 @@
     minute to assemble the packaging for one unit of Item TDPKIT. So, if a
     Work Order calls for 100 units of packaging, then run time will be charged
     100 times--for a total of 100 minutes.</para>
-
       <para id="Para665673">Setup time is charged differently. Setup time refers
     to the amount of time needed to prepare the Work Center to perform the
     Operation. Setup time is charged only once per Operation--regardless of
     the number of units required by a Work Order. In other words, to use our
     previous example, if a Work Order calls for 100 units of packaging, the
     setup time charge would be 5 minutes.</para>
-
       <note>
          <para id="Para665675">Setup time is charged only once per Operation,
       regardless of the quantity ordered.</para>
       </note>
-
       <para id="Para665676">You should pay attention also to how reporting of
     setup and run time is specified. We see in <link endterm="Anchor59303" id="XRef665678" linkend="Anchor59303"> Operation Detail from TDPKIT Bill
     of Operations</link>Figure 5.90 that both times are to be reported as
     Direct Labor. This means that all labor required to set up the Work Center
     and also to run the Operation will appear as Direct Labor Cost for the
     Item.</para>
-
       <para id="Para665680">We referred earlier to Standard Operation "TD-A."
     The following screen shows the master for this Standard Operation:</para>
-
       <para id="Para665684">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_standOpTDPKIT.png" id="Graphic665682"/>
                </imageobject>
-
                <caption id="Caption665685">Standard Operation Master</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665686">The setup and run time values entered on the
     Standard Operation master transfer to the Bill of Operations if and when
     the Standard Operation is specified. As you can see, the same values
@@ -853,12 +707,10 @@
     Operations</link>Figure 5.90. These values may be changed at the Operation
     level, but any permanent changes must be made to the Standard Operation
     master itself.</para>
-
       <para id="Para665690">So we now know the amount of time required for the
     Operation. Next we need to determine the rate charged for labor. For that
     information, we must turn to the Work Center master for Work Center
     "Assembly," as shown in the next screenshot:</para>
-
       <para id="Para665694">
          <anchor id="Anchor13529" role="Cross-Ref"
                  xreflabel="13529: Figure: Figure 8.14:  Work Center Master"/> 
@@ -867,12 +719,10 @@
                <imageobject>
                   <imagedata fileref="images/Topic_workCenterTDPKIT.png" id="Graphic665692"/>
                </imageobject>
-
                <caption id="Caption665696">Work Center Master</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665697">Just as Standard Operations may be used for Bill of
     Operations Items, so may Standard Labor Rates be used for Work Centers. As
     you can see in <link endterm="Anchor13529" id="XRef665699" linkend="Anchor13529"> Work Center Master</link>Figure 5.92, the Standard
@@ -881,75 +731,60 @@
     Labor Rates master list found in the Master Information section of the P/D
     Module. The specific details for rate "MA10" are shown in the following
     screen:</para>
-
       <para id="Para665704">
-         <anchor id="Anchor85099" role="Cross-Ref"
-                 xreflabel="85099: Figure: Figure 8.15:  Standard Labor Rate"/>
+         
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_standLabRate.png" id="Graphic665702"/>
                </imageobject>
-
                <caption id="Caption665706">Standard Labor Rate</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665707">As you can see, the Standard Labor Rate = $10.00.
     This means that for our Assembly Operation, $10 is the hourly rate charged
     for setup; it is also the hourly rate charged for run time.</para>
-
       <para id="Para665708">Let's review, then, the information we have gathered
     so far in our effort to reconstruct how direct labor Costs for
     manufactured component Item TDPKIT were arrived at:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e8030">
             <para id="Para665709">Setup time = 5 mins (converted to hours: 5/60 =
         .0833333)</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e8054">
             <para id="Para665710">Run time = 1 min (converted to hours: 1/60 =
         .016666)</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e8078">
             <para id="Para665711">Setup rate = $10/hr</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e809c">
             <para id="Para665712">Run rate = $10/hr</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665713">We now have enough information to calculate the
     direct labor Cost. The following formula is the one we will use:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e80e4">
             <para id="Para665714">(setup time x setup rate) + (run time x run
         rate) = direct labor Cost</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665715">This formula works because, as you recall, the
     "Assembly" Operation specifies that setup time and run time are both
     reported as direct labor. All we have to do now is insert the correct
     values, and the equation looks like this:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e812c">
             <para id="Para665716">(.0833333 x $10.00) + (.016666 x $10.00) =
         $1.00</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665717">To verify that $1.00 is indeed the direct labor Cost
     for Item TDPKIT, let's look at the Maintain Item Costs screen for Item
     TDPKIT again:</para>
-
       <para id="Para665721">
          <anchor id="Anchor90804" role="Cross-Ref"
                  xreflabel="90804: Figure: Figure 8.16:  Item Costing for Item TDPKIT"/>
@@ -958,63 +793,51 @@
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-5.png" id="Graphic665719"/>
                </imageobject>
-
                <caption id="Caption665723">Item Costing for Item TDPKIT</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665724">Sure enough, the reported direct labor Cost for Item
     TDPKIT = $1.00. As you can see, this amount has been posted to the
     Standard Cost for the Item.</para>
-
       <para id="Para665725">Finally, we need to determine how overhead Cost for
     Item TDPKIT is arrived at. Referring back to the Work Center master shown
     in <link endterm="Anchor13529" id="XRef665727" linkend="Anchor13529"> Work
     Center Master</link>Figure 5.92, we recall that the overhead rate per hour
     = $10.00 To calculate overhead Cost then, we would use the following
     formula:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e81e0">
             <para id="Para665729">setup time + run time x overhead rate = overhead
         Cost</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665730">If we now insert the correct values, the equation
     looks like this:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e8228">
             <para id="Para665731">.0833333 + . 016666 x $10.00 = $1.00</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665734">Again, referring to the Item Costing detail shown in
     <link endterm="Anchor90804" id="XRef665733" linkend="Anchor90804"> Item
     Costing for Item TDPKIT</link>Figure 5.94, we can verify that reported
     overhead Costs for Item TDPKIT = $1.00.</para>
-  </section>
-
-  <section id="Section665737">
+   </section>
+   <section id="Section665737">
       <title>
-         <anchor id="Anchor665736" role="Index" xreflabel="costing:multi-level explained"/> 
+          
          <indexterm significance="normal">
             <primary>costing</primary>
-
             <secondary>multi-level explained</secondary>
          </indexterm>Multi-Level Costing</title>
-
       <para id="Para665738">We"ve now covered the fundamentals of manufactured
     Item costing. But remember: Item TDPKIT is a fairly simple manufactured
     Item. We will look next at costing for the more complex parent Item
     TDMR100. The same processes will be used to determine its Costs, but the
     factors we have to consider are more complicated.</para>
-
       <para id="Para665739">To begin, let's look at the Costs for Item TDMR100,
     as shown in the following screen:</para>
-
       <para id="Para665743">
          <anchor id="Anchor56668" role="Cross-Ref"
                  xreflabel="56668: Figure: Figure 8.17:  Item Costing for Parent Item TDMR100"/>
@@ -1023,105 +846,87 @@
                <imageobject>
                   <imagedata fileref="images/Topic_maintItemCost-7.png" id="Graphic665741"/>
                </imageobject>
-
                <caption id="Caption665745">Item Costing for Parent Item
           TDMR100</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665746">For starters, note the distinctions between the
     lower level and this level Costs. As we discussed earlier, this level
     Costs are associated with the parent Item they refer to. Lower level Costs
     are associated with component Items. For Item TDMR100, the levels may be
     broken down as follows:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18e8348">
             <para id="Para665747">This level: Direct labor and overhead Costs for
         parent Item TDMR100</para>
          </listitem>
-
          <listitem id="listitemN0x180ac00N0x18e836c">
             <para id="Para665748">Lower level: Direct labor and overhead Costs
         associated with component Item TDPKIT; total material Costs for all
         non-manufactured component Items.</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665749">To better understand how these levels fit together,
     let's open the Costed Indented Bill of Materials display, found in the
     Costing section of the P/D Module. This is a useful display because it
     shows not only Bill of Materials Items, but also the Costs associated with
     each:</para>
-
       <para id="Para665753">
-         <anchor id="Anchor24962" role="Cross-Ref"
-                 xreflabel="24962: Figure: Figure 8.18:  Costed Indented Bill of Materials Display for Item TDMR100"/>
+         
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_costedIndentBOM.png" id="Graphic665751"/>
                </imageobject>
-
                <caption id="Caption665755">Costed Indented Bill of Materials
           Display for Item TDMR100</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665756">As you can see, Item TDMR100 consists of four
     component Items--one of which, Item TDPKIT, has two component Items of its
     own.</para>
-
       <para id="Para665757">We"ve already determined that material Costs for
     manufactured Items are always lower level. So, to determine material Costs
     for Item TDMR100, we must look to the non-manufactured component Items:
     TDMRY, TDMRB, TDMRW, TDK1, and TDK2.</para>
-
       <para id="Para665758">Conveniently, the only Costs assigned to these Items
     are material Costs. As a result, we simply have to add up the extended
     Costs for these Items to determine the overall material Cost for Item
     TDMR100.</para>
-
       <tip>
          <para id="Para665760">When using the Costed Indented Bill of Materials
       display, be sure to distinguish between unit Cost and extended Cost. The
       extended Cost represents the unit Cost multiplied by the quantity
       required by the Bill of Materials.</para>
       </tip>
-
       <para id="Para665761">When we add all these material Costs together--TDMRY
     ($0.0025), TDMRB ($2.5000), TDMRW ($1.2500), TDK1 ($0.3000), and TDK2
     ($0.2500)--we get an overall material Cost for Item TDMR100 of $8.0525.
     Referring back to <link endterm="Anchor56668" id="XRef665763" linkend="Anchor56668"> Item Costing for Parent Item TDMR100</link>Figure
     5.95, we can verify on the Maintain Item Costs screen that this amount is
     in fact the reported material Cost for Item TDMR100.</para>
-
       <para id="Para665765">Next, we need to examine how direct labor Costs for
     Item TDMR100 are determined. As before, we begin with the Bill of
     Operations, as shown in the following screenshot:</para>
-
       <para id="Para665769">
          <screenshot>
             <mediaobject>
                <imageobject>
                   <imagedata fileref="images/Topic_booTDMR100.png" id="Graphic665767"/>
                </imageobject>
-
                <caption id="Caption665770">Bill of Operations for Item
           TDMR100</caption>
             </mediaobject>
          </screenshot>
       </para>
-
       <para id="Para665771">As you can see, the Bill of Operations for Item
     TDMR100 contains three Operations--as compared to the one Operation we saw
     for component Item TDPKIT. We"ve already discussed how to locate costing
     information on both the Operation and Work Center screens. So, rather than
     repeat that process here, we"ve extracted the pertinent information into
     the following table:</para>
-
       <para id="Para665823">
          <table id="Table665772">
             <tgroup cols="5">
@@ -1130,87 +935,68 @@
                      <entry>
                         <para id="Para665784">Work Center</para>
                      </entry>
-
                      <entry>
                         <para id="Para665786">Setup + Run Time</para>
                      </entry>
-
                      <entry>
                         <para id="Para665788">Setup Rate</para>
                      </entry>
-
                      <entry>
                         <para id="Para665790">Run Rate</para>
                      </entry>
-
                      <entry>
                         <para id="Para665792">Overhead Rate</para>
                      </entry>
                   </row>
                </thead>
-
                <tbody>
                   <row>
                      <entry>
                         <para id="Para665794">Assembly</para>
                      </entry>
-
                      <entry>
                         <para id="Para665796">.03333 hrs.</para>
                      </entry>
-
                      <entry>
                         <para id="Para665798">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665800">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665802">$10</para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para665804">Paint</para>
                      </entry>
-
                      <entry>
                         <para id="Para665806">.16666 hrs.</para>
                      </entry>
-
                      <entry>
                         <para id="Para665808">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665810">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665812">$10</para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para665814">Ship</para>
                      </entry>
-
                      <entry>
                         <para id="Para665816">.05000 hrs.</para>
                      </entry>
-
                      <entry>
                         <para id="Para665818">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665820">$10</para>
                      </entry>
-
                      <entry>
                         <para id="Para665822">$10</para>
                      </entry>
@@ -1219,61 +1005,51 @@
             </tgroup>
          </table>
       </para>
-
       <para id="Para665824">As you can see, all the rates (setup, run, and
     overhead) are the same: $10.00. This fact enables us to combine the setup
     and run times into one. If the rates were not identical, the setup and run
     times would have to be multiplied individually by the appropriate
     rate.</para>
-
       <para id="Para665825">To determine the direct labor Cost for Item TDMR100,
     then, we follow the same equation we introduced earlier:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18f3048">
             <para id="Para665826">(setup time x setup rate) + (run time x run
         rate) = direct labor Cost</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665827">To simplify things this time around, we"ve combined
     the setup and run times for each Operation into a single value. With those
     values inserted, the equation now looks like this:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18f3090">
             <para id="Para665828">(.03333 + .16666 + .05000) x $10.00 =
         $2.50</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665831">Looking back at the Maintain Item Costs screen shown
     in <link endterm="Anchor56668" id="XRef665830" linkend="Anchor56668"> Item
     Costing for Parent Item TDMR100</link>Figure 5.95, we can verify that the
     direct labor Costs for Item TDMR100 are indeed $2.500. To calculate
     overhead Cost, we would again use a formula we introduced earlier:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18f30d8">
             <para id="Para665833">setup time + run time x overhead rate = overhead
         Cost</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665834">And with values for each of the Operations for Item
     TDMR100 inserted, the overhead Cost equation would appear as
     follows:</para>
-
       <itemizedlist>
          <listitem id="listitemN0x180ac00N0x18f3120">
             <para id="Para665835">(.03333 + .16666 + .05000) x $10.00 =
         $2.50</para>
          </listitem>
       </itemizedlist>
-
       <para id="Para665836">As expected, this result corresponds to the overhead
     Costs reported for Item TDMR100 in <link endterm="Anchor56668" id="XRef665838" linkend="Anchor56668"> Item Costing for Parent Item
     TDMR100</link>Figure 5.95. We have now accounted for all the Costs
     associated with our manufactured Item TDMR100.</para>
-  </section>
+   </section>
 </section>

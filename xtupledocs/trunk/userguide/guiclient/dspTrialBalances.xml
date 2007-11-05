@@ -2,65 +2,52 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section571902">
-    <title>
-      <anchor id="Anchor571901" role="Index"
-              xreflabel="trial balances:reporting on;financial reports:trial balances"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>trial balances</primary>
-
-        <secondary>reporting on</secondary>
+         <primary>trial balances</primary>
+         <secondary>reporting on</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>financial reports</primary>
-
-        <secondary>trial balances</secondary>
+         <primary>financial reports</primary>
+         <secondary>trial balances</secondary>
       </indexterm>View Trial Balances</title>
-
-    <para id="Para571903">To view the Trial Balances for General Ledger
+   <para id="Para571903">To view the Trial Balances for General Ledger
     Accounts, select the "View Trial Balances" option. The following screen
     will appear:</para>
-
-    <para id="Para571907">
+   <para id="Para571907">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/GL_Disp_trialBalances.png" id="Graphic571905"/>
             </imageobject>
-
             <caption id="Caption571908">View Trial Balances</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para575874">The system will automatically reset the beginning
       balances for Revenue and Expense Accounts to $0 at the start of a new
       Fiscal Year.</para>
-    </tip>
-
-    <para id="Para571909">When viewing Trial Balances, you are presented with
+   </tip>
+   <para id="Para571909">When viewing Trial Balances, you are presented with
     the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para571910">All Accounts</term>
-
-        <listitem id="listitemN0x180ac00N0x1908678">
+         <term id="Para571910">All Accounts</term>
+         <listitem id="listitemN0x180ac00N0x1908678">
             <para>Select to display Trial Balances from all G/L Accounts.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para571911">Selected Account</term>
-
-        <listitem id="listitemN0x180ac00N0x19086c0">
+         <term id="Para571911">Selected Account</term>
+         <listitem id="listitemN0x180ac00N0x19086c0">
             <para>Specify G/L Account whose Trial Balance you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para588705">When viewing Trial Balances for the Year-End
       Equity Account, the beginning balance for the first Period of the Fiscal
       Year will be equal to the ending balance for the previous year. In
@@ -68,40 +55,32 @@
       expense account activity for the previous year, and the ending balance
       will be the actual year-end equity value for the just-closed Fiscal
       Year.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para571913">
-            <anchor id="Anchor571912" role="Index" xreflabel="trial balances:periods included in"/> 
+         <term id="Para571913">
+             
             <indexterm significance="normal">
                <primary>trial balances</primary>
-
                <secondary>periods included in</secondary>
             </indexterm>All Periods</term>
-
-        <listitem id="listitemN0x180ac00N0x1908798">
+         <listitem id="listitemN0x180ac00N0x1908798">
             <para>Select to display Trial Balances for all Accounting
           Periods.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para571914">Selected Period</term>
-
-        <listitem id="listitemN0x180ac00N0x19087e0">
+         <term id="Para571914">Selected Period</term>
+         <listitem id="listitemN0x180ac00N0x19087e0">
             <para>Specify Accounting Period whose Trial Balances you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para571915">Trial Balances</term>
-
-        <listitem id="listitemN0x180ac00N0x1908828">
+         <term id="Para571915">Trial Balances</term>
+         <listitem id="listitemN0x180ac00N0x1908828">
             <para>Display lists Trial Balances based on the specified
           parameters.</para>
-
             <para id="Para610864">A "CR" may display after the following
           columns: Beg. Bal., Difference, and End. Bal. The "CR" indicates the
           balance is a Credit balance. If no "CR" appears, then the balance is
@@ -110,59 +89,47 @@
           has not been forward-updated, or 2) the ending balance has been
           forward-updated, but the account in question has no activity during
           the specified Period.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para571918">The Trial Balances for an Accounting Period will
       automatically forward-update when the Accounting Period is closed.
       Ending balances cannot be forward-updated into future Periods.</para>
-    </note>
-
-    <para id="Para571919">To the far right of the screen, the following
+   </note>
+   <para id="Para571919">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para571920">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x19088b8">
+         <term id="Para571920">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x19088b8">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para571921">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1908900">
+         <term id="Para571921">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1908900">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para610769">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1908948">
+         <term id="Para610769">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1908948">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para571924">Right-clicking on an Account Number in the Trial
+   </variablelist>
+   <para id="Para571924">Right-clicking on an Account Number in the Trial
     Balances list enables you to select from the following menu
     options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/9/2/3)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/9/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

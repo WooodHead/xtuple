@@ -2,322 +2,240 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519408">
-    <title>
-      <anchor id="Anchor533217" role="Index"
-              xreflabel="work orders:scheduling by item;items:work order schedule details for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>scheduling by item</secondary>
+         <primary>work orders</primary>
+         <secondary>scheduling by item</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>work order schedule details for</secondary>
+         <primary>items</primary>
+         <secondary>work order schedule details for</secondary>
       </indexterm>Work Order Schedule by Item</title>
-
-    <para id="Para519409">To view Work Order schedules by Item, select the
+   <para id="Para519409">To view Work Order schedules by Item, select the
     "Work Order Schedule by Item" option. The following screen will
     appear:</para>
-
-    <para id="Para519413">
+   <para id="Para519413">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Disp_schedByItem.png" id="Graphic523849"/>
             </imageobject>
-
             <caption id="Caption519414">Work Order Schedule by Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para560468">To edit a Work Order after it has been created,
       use the right-click menu in any of the "Work Order Schedule by..."
       displays. There you will find an "Edit W/O" option.</para>
-    </tip>
-
-    <para id="Para519420">When displaying Work Order schedules by Item, you
+   </tip>
+   <para id="Para519420">When displaying Work Order schedules by Item, you
     are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519421">Item Number</term>
-
-        <listitem>
+         <term id="Para519421">Item Number</term>
+         <listitem>
             <para>Enter the Item Number of the Item whose Work Order schedules
           you want to view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568772">UOM</term>
-
-        <listitem>
+         <term id="Para568772">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para519425">All Warehouses</term>
-
-        <listitem>
+         <term id="Para519425">All Warehouses</term>
+         <listitem>
             <para>Select to display the Work Order schedule by Item for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para519427">Selected</term>
-
-        <listitem>
+         <term id="Para519427">Selected</term>
+         <listitem>
             <para>Specify Warehouse whose Work Order schedule by Item you want
           to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519432">Start W/O Start Date</term>
-
-        <listitem>
+         <term id="Para519432">Start W/O Start Date</term>
+         <listitem>
             <para>Work Orders scheduled on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519437">End W/O Start Date</term>
-
-        <listitem>
+         <term id="Para519437">End W/O Start Date</term>
+         <listitem>
             <para>Work Orders scheduled on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519439">Only Show Released and In-Process W/O"s</term>
-
-        <listitem>
+         <term id="Para519439">Only Show Released and In-Process W/O"s</term>
+         <listitem>
             <para>Select to display only released and in-process Work Order
           schedules.</para>
-
             <para id="Para519440">Selecting this option means only Work Orders
           whose Status is released ("R") or in-process ("I") will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519441">Only Show Top Level Work Orders</term>
-
-        <listitem>
+         <term id="Para519441">Only Show Top Level Work Orders</term>
+         <listitem>
             <para>Select to display only top level Work Orders.</para>
-
             <para id="Para519442">Top level Work Orders are Work Orders that
           have not been created to meet the component demands of a parent Work
           Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519443">Work Orders</term>
-
-        <listitem>
+         <term id="Para519443">Work Orders</term>
+         <listitem>
             <para>Display lists Work Order schedules by Item, using the
           specified parameters.</para>
-
             <para id="Para569284">The start dates and end dates are color-coded
           for ease of use. Both dates will display in red type if the Work
           Order is not yet in-process and is also past due. Once a Work
           Order's Status is changed to in-process "I", the start date will
           automatically revert to black type.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para533386">Automatically Update</term>
-
-        <listitem>
+         <term id="Para533386">Automatically Update</term>
+         <listitem>
             <para>Select to automatically update the display every five
           minutes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519446">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519446">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519447">CLOSE</term>
-
-        <listitem>
+         <term id="Para519447">CLOSE</term>
+         <listitem>
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548522">QUERY</term>
-
-        <listitem>
+         <term id="Para548522">QUERY</term>
+         <listitem>
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519448">PRINT</term>
-
-        <listitem>
+         <term id="Para519448">PRINT</term>
+         <listitem>
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para528405">Right-clicking on a Work Order in the Work Orders
+   </variablelist>
+   <para id="Para528405">Right-clicking on a Work Order in the Work Orders
     list enables you to select a number of context-sensitive menu options. If
     the Work Order's Status is open "O," the following options will appear
     when you right-click on the Work Order:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/6)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/17)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/7)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/5)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/16)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para519455">If the Work Order's Status is exploded "E," the
+   </variablelist>
+   <para id="Para519455">If the Work Order's Status is exploded "E," the
     following options will appear when you right-click on the Work
     Order:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/6)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/17)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/14)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/10)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/11)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/8)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/5)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/19)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/18)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/16)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para566247">If the Work Order's Status is released "R", the
+   </variablelist>
+   <para id="Para566247">If the Work Order's Status is released "R", the
     following options will appear when you right-click on the Work
     Order:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/6)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/17)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/13)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/10)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/4)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/11)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/3)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/19)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/18)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para519480">If the Work Order's Status is in-process "I," the
+   </variablelist>
+   <para id="Para519480">If the Work Order's Status is in-process "I," the
     following options will appear when you right-click on the Work
     Order:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/6)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/17)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/10)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/4)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/11)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/3)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/19)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/4/2/18)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

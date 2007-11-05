@@ -2,105 +2,83 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556323">
-    <title>
-      <anchor id="Anchor556322" role="Index"
-              xreflabel="deposits:register of;registers:for deposits"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>deposits</primary>
-
-        <secondary>register of</secondary>
+         <primary>deposits</primary>
+         <secondary>register of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>registers</primary>
-
-        <secondary>for deposits</secondary>
+         <primary>registers</primary>
+         <secondary>for deposits</secondary>
       </indexterm>Deposits Register</title>
-
-    <para id="Para556989">To view the records of posted Cash Receipts, select
+   <para id="Para556989">To view the records of posted Cash Receipts, select
     the "Deposits Register" option. The following screen will appear:</para>
-
-    <para id="Para556906">
+   <para id="Para556906">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_depRegister.png" id="Graphic556904"/>
             </imageobject>
-
             <caption id="Caption556907">Deposits Register</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para556908">When displaying the Deposits Register, you are
+   <para id="Para556908">When displaying the Deposits Register, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para557125">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdb60">
+         <term id="Para557125">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x18bdb60">
             <para>Cash Receipts posted on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557130">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdba8">
+         <term id="Para557130">End Date</term>
+         <listitem id="listitemN0x180ac00N0x18bdba8">
             <para>Cash Receipts posted on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557132">Transactions</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdbf0">
+         <term id="Para557132">Transactions</term>
+         <listitem id="listitemN0x180ac00N0x18bdbf0">
             <para>Display lists posted Cash Receipts, using the specified
           parameters.</para>
-
             <para id="Para572454">The totals for the received and A/R
           application amounts will display at the bottom of the screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para557159">The balance due amount displayed here refers to
       any open amount remaining on the A/R open item which the Cash Receipt
       was applied to. No balance due will appear for prepaid
       transactions.</para>
-    </note>
-
-    <para id="Para557134">To the far right of the screen, the following
+   </note>
+   <para id="Para557134">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para557135">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdc80">
+         <term id="Para557135">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18bdc80">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para557136">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdcc8">
+         <term id="Para557136">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18bdcc8">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572325">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18bdd10">
+         <term id="Para572325">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18bdd10">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

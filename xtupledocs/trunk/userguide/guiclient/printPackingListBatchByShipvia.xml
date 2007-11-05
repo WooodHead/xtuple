@@ -2,89 +2,72 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section547036">
-    <title>
-      <anchor id="Anchor541061" role="Index"
-              xreflabel="packing lists:batch printing of;batch mode:printing packing lists using;ship vias:printing packing lists by"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>packing lists</primary>
-
-        <secondary>batch printing of</secondary>
+         <primary>packing lists</primary>
+         <secondary>batch printing of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>batch mode</primary>
-
-        <secondary>printing packing lists using</secondary>
+         <primary>batch mode</primary>
+         <secondary>printing packing lists using</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>ship vias</primary>
-
-        <secondary>printing packing lists by</secondary>
+         <primary>ship vias</primary>
+         <secondary>printing packing lists by</secondary>
       </indexterm>Print Packing List Batch by Ship Via</title>
-
-    <para id="Para541063">If you want to print batches of Packing Lists
+   <para id="Para541063">If you want to print batches of Packing Lists
     according to their Ship Via method, select the "Print Packing List Batch
     by Ship Via" option. The following screen will appear:</para>
-
-    <para id="Para541067">
+   <para id="Para541067">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SR_Ship_printBatShipVia.png" id="Graphic541065"/>
             </imageobject>
-
             <caption id="Caption541068">Print Packing List Batch by Ship
           Via</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para541369">If you don"t see any Ship Vias appearing in the
       Ship Via list, this probably means you don"t have any unprinted Orders
       on the Packing List Batch. To verify, open the Packing List Batch and
       check the printed status of the Orders listed there.</para>
-    </tip>
-
-    <para id="Para541365">When printing batches of Packing Lists according to
+   </tip>
+   <para id="Para541365">When printing batches of Packing Lists according to
     their Ship Via, you are presented with the following options:</para>
-
-    <note>
+   <note>
       <para id="Para550834">The system supports up-to-date shipment tracking
       with links to the websites of many leading shipping companies (i.e.,
       "Ship Vias").</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para541225">Ship Via</term>
-
-        <listitem id="listitemN0x180ac00N0x181a550">
+         <term id="Para541225">Ship Via</term>
+         <listitem id="listitemN0x180ac00N0x181a550">
             <para>Specify the Ship Via whose batched Packing Lists you want to
           print.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para541214">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para541214">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para541175">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x181a5bc">
+         <term id="Para541175">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x181a5bc">
             <para>Closes the screen without printing a Packing List batch,
           returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para541176">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x181a604">
+         <term id="Para541176">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x181a604">
             <para>Prints the Packing List batch for the specified Ship
           Via.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

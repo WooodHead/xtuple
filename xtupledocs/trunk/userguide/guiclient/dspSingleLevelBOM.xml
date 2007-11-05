@@ -2,134 +2,105 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520308">
-    <title>
-      <anchor id="Anchor595510" role="Index"
-              xreflabel="bills of materials:single level view of"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>bills of materials</primary>
-
-        <secondary>single level view of</secondary>
+         <primary>bills of materials</primary>
+         <secondary>single level view of</secondary>
       </indexterm>Single Level Bill of Materials</title>
-
-    <para id="Para520309">To view a single level Bill of Materials, select the
+   <para id="Para520309">To view a single level Bill of Materials, select the
     "Single Level Bill of Materials" option. The following screen will
     appear:</para>
-
-    <para id="Para520313">
+   <para id="Para520313">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Disp_SingleBOM.png" id="Graphic563652"/>
             </imageobject>
-
             <caption id="Caption520314">Single Level Bill of Materials</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520320">When displaying a single level Bill of Materials,
+   <para id="Para520320">When displaying a single level Bill of Materials,
     you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520321">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x192c5ac">
+         <term id="Para520321">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x192c5ac">
             <para>Enter the Item Number of the manufactured Item you would like
           to view a single level Bill of Materials for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663337">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x192c5f4">
+         <term id="Para663337">UOM</term>
+         <listitem id="listitemN0x180ac00N0x192c5f4">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520325">Show Expired Components</term>
-
-        <listitem id="listitemN0x180ac00N0x192c63c">
+         <term id="Para520325">Show Expired Components</term>
+         <listitem id="listitemN0x180ac00N0x192c63c">
             <para>Select to cause expired components to be listed in the "Bill
           of Materials" display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para597334">Threshold Days</term>
-
-        <listitem id="listitemN0x180ac00N0x192c684">
+         <term id="Para597334">Threshold Days</term>
+         <listitem id="listitemN0x180ac00N0x192c684">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para597294">Components that have been expired from the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520326">Show Future Components</term>
-
-        <listitem id="listitemN0x180ac00N0x192c6cc">
+         <term id="Para520326">Show Future Components</term>
+         <listitem id="listitemN0x180ac00N0x192c6cc">
             <para>Select to cause future components to be listed in the "Bill of
           Materials" display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para597357">Threshold Days</term>
-
-        <listitem id="listitemN0x180ac00N0x192c714">
+         <term id="Para597357">Threshold Days</term>
+         <listitem id="listitemN0x180ac00N0x192c714">
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-
             <para id="Para597358">Components that will be added in future to the
           Bill of Materials within the specified number of days will be
           included in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520327">Bill of Materials</term>
-
-        <listitem id="listitemN0x180ac00N0x192c75c">
+         <term id="Para520327">Bill of Materials</term>
+         <listitem id="listitemN0x180ac00N0x192c75c">
             <para>Display lists single level Bill of Materials components, using
           the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520329">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520329">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520330">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x192c7c8">
+         <term id="Para520330">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x192c7c8">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para616837">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1932000">
+         <term id="Para616837">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1932000">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para664000">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1932048">
+         <term id="Para664000">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1932048">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

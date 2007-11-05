@@ -2,82 +2,64 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520047">
-    <title>
-      <anchor id="Anchor595484" role="Index"
-              xreflabel="costing:for items by class code;class codes:item costs details for;item costs:by class code"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>costing</primary>
-
-        <secondary>for items by class code</secondary>
+         <primary>costing</primary>
+         <secondary>for items by class code</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>class codes</primary>
-
-        <secondary>item costs details for</secondary>
+         <primary>class codes</primary>
+         <secondary>item costs details for</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>item costs</primary>
-
-        <secondary>by class code</secondary>
+         <primary>item costs</primary>
+         <secondary>by class code</secondary>
       </indexterm>Item Costs by Class Code</title>
-
-    <para id="Para520048">To view Item Costs by Class Code, select the "Item
+   <para id="Para520048">To view Item Costs by Class Code, select the "Item
     Costs by Class Code" option. The following screen will appear:</para>
-
-    <para id="Para520052">
+   <para id="Para520052">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Cost_dispItemCostClass.png" id="Graphic563447"/>
             </imageobject>
-
             <caption id="Caption520053">Item Costs by Class Code</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para520054">When displaying Item Costs by Class Code, you are
+   <para id="Para520054">When displaying Item Costs by Class Code, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para616992">All Class Codes</term>
-
-        <listitem id="listitemN0x180ac00N0x191ba68">
+         <term id="Para616992">All Class Codes</term>
+         <listitem id="listitemN0x180ac00N0x191ba68">
             <para>Select to display Item Costs for all Class Codes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520055">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x191bab0">
+         <term id="Para520055">Selected</term>
+         <listitem id="listitemN0x180ac00N0x191bab0">
             <para>Specify Class Code whose Item Costs you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para593259">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x191baf8">
+         <term id="Para593259">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x191baf8">
             <para>Enter a Class Code pattern to select a range of Class
           Codes.</para>
-
             <para id="Para664813">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef664812" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para596786">Only Show Zero Cost Items</term>
-
-        <listitem id="listitemN0x180ac00N0x191bb40">
+         <term id="Para596786">Only Show Zero Cost Items</term>
+         <listitem id="listitemN0x180ac00N0x191bb40">
             <para>Select to include only Items with zero Cost in the
           display.</para>
-
             <para id="Para638818">Use this option to identify Items having no
           Costs associated with them. The zero Costs view can be helpful when
           trying to determine why no General Ledger (G/L) transactions are
@@ -85,80 +67,63 @@
           Standard Costs associated with them if transactions involving them
           are to be recorded in the G/L. If an Item has no Standard Cost, no
           G/L records for that Item will be created.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520059">Items</term>
-
-        <listitem id="listitemN0x180ac00N0x191bb88">
+         <term id="Para520059">Items</term>
+         <listitem id="listitemN0x180ac00N0x191bb88">
             <para>Display lists Item Costs by Class Code, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para520061">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para520061">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520062">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x191bbf4">
+         <term id="Para520062">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x191bbf4">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para618156">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x191bc3c">
+         <term id="Para618156">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x191bc3c">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para663964">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x191bc84">
+         <term id="Para663964">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x191bc84">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para556948">Right-clicking on an Item in the list of Items
+   </variablelist>
+   <para id="Para556948">Right-clicking on an Item in the list of Items
     displayed by Class Code enables you to select from the following menu
     options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para520065">View Item Costing Summary</term>
-
-        <listitem id="listitemN0x180ac00N0x191bcf0">
+         <term id="Para520065">View Item Costing Summary</term>
+         <listitem id="listitemN0x180ac00N0x191bcf0">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520066">Update Actual Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x191bd38">
+         <term id="Para520066">Update Actual Costs</term>
+         <listitem id="listitemN0x180ac00N0x191bd38">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para520067">Post Actual Costs</term>
-
-        <listitem id="listitemN0x180ac00N0x191bd80">
+         <term id="Para520067">Post Actual Costs</term>
+         <listitem id="listitemN0x180ac00N0x191bd80">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

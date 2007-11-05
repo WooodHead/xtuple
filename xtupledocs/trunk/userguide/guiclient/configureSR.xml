@@ -2,184 +2,146 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519218">
-    <title>
-      <anchor id="Anchor932294" role="Index" xreflabel="configuration:of s/r module"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>configuration</primary>
-
-        <secondary>of s/r module</secondary>
+         <primary>configuration</primary>
+         <secondary>of s/r module</secondary>
       </indexterm>Configure S/R</title>
-
-    <para id="Para519219">To configure the Shipping &amp; Receiving (S/R)
+   <para id="Para519219">To configure the Shipping &amp; Receiving (S/R)
     module, select the "Configure S/R" option. The following screen will
     appear:</para>
-
-    <para id="Para519223">
+   <para id="Para519223">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/Sys_configSR.png" id="Graphic522143"/>
             </imageobject>
-
             <caption id="Caption519224">Configure S/R Module</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519225">When configuring the S/R module, you are presented
+   <para id="Para519225">When configuring the S/R module, you are presented
     with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para971930">Shipment # Generation</term>
-
-        <listitem id="listitemN0x180ac00N0x18b2460">
+         <term id="Para971930">Shipment # Generation</term>
+         <listitem id="listitemN0x180ac00N0x18b2460">
             <para>By default, Shipment Numbers are generated
           automatically.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para971934">Next #</term>
-
-        <listitem id="listitemN0x180ac00N0x18b24a8">
+         <term id="Para971934">Next #</term>
+         <listitem id="listitemN0x180ac00N0x18b24a8">
             <para>Enter the next Shipment Number to be used.</para>
-
             <para id="Para971951">The system assigns Shipment Numbers to Sales
           Order Line Item quantities when stock is issued to Shipping. All
           stock at Shipping for an individual Sales Order is assigned the same
           Shipment Number. If no stock is already at Shipping, then a new
           Shipment Number will be used.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para958898">Disallow P/O Receipt of Qty greater than
+         <term id="Para958898">Disallow P/O Receipt of Qty greater than
         ordered</term>
-
-        <listitem id="listitemN0x180ac00N0x18b24f0">
+         <listitem id="listitemN0x180ac00N0x18b24f0">
             <para>Select to ensure the maximum receiving quantity does not
           exceed the quantity ordered.</para>
-
             <para id="Para958907">If selected, the system will prevent users
           from receiving more Purchase Order Line Item quantity than the
           quantity ordered. Not selecting this option means users will be
           allowed to receive quantity in excess of the quantity
           ordered.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972055">Warn if P/O Receipt Qty differs from receivable
+         <term id="Para972055">Warn if P/O Receipt Qty differs from receivable
         Qty</term>
-
-        <listitem id="listitemN0x180ac00N0x18b2538">
+         <listitem id="listitemN0x180ac00N0x18b2538">
             <para>Select to generate a warning message if the entered quantity
           to receive does not match the quantity remaining to be
           received.</para>
-
             <para id="Para972056">The warning message will alert users that a
           difference exists. However, it will not prevent users from
           continuing.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para972057">Default Shipping Form Copies</term>
-
-        <listitem id="listitemN0x180ac00N0x18b2580">
+         <term id="Para972057">Default Shipping Form Copies</term>
+         <listitem id="listitemN0x180ac00N0x18b2580">
             <para>Indicate the number of Shipping Form copies you want to print
           by default:</para>
-
             <para id="Para933648"># of Copies: Specify the number of
           miscellaneous copies you want to print. Information about the
           specified copies will display below. To add a Watermark,
           double-click on a copy line.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para950019">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para950019">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para950020">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18b25ec">
+         <term id="Para950020">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18b25ec">
             <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para950021">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18ba224">
+         <term id="Para950021">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18ba224">
             <para>Saves the configuration settings, returning you to the
           application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para949988">To add a Watermark to a Shipping Form copy,
+   </variablelist>
+   <para id="Para949988">To add a Watermark to a Shipping Form copy,
     double-click on a copy line. The following screen will appear:</para>
-
-    <para id="Para949992">
-      <anchor id="Anchor58193" role="Cross-Ref"
-              xreflabel="58193: Figure: Figure 2.57:  Add Watermark"/> 
+   <para id="Para949992">
+       
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Bill_addWatermark.png" id="Graphic949990"/>
             </imageobject>
-
             <caption id="Caption949994">Add Watermark</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para949995">When adding a Watermark to a Shipping Form copy, you
+   <para id="Para949995">When adding a Watermark to a Shipping Form copy, you
     are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para949999">Watermark</term>
-
-        <listitem id="listitemN0x180ac00N0x18ba2fc">
+         <term id="Para949999">Watermark</term>
+         <listitem id="listitemN0x180ac00N0x18ba2fc">
             <para>Specify the name of the Watermark to be used for the selected
           copy.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para950001">Show Prices</term>
-
-        <listitem id="listitemN0x180ac00N0x18ba344">
+         <term id="Para950001">Show Prices</term>
+         <listitem id="listitemN0x180ac00N0x18ba344">
             <para>Select to show Prices in the selected copy.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para950002">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para950002">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para950003">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18ba3b0">
+         <term id="Para950003">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x18ba3b0">
             <para>Closes the screen without adding a Watermark, returning you to
           the previous screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para950004">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18ba3f8">
+         <term id="Para950004">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x18ba3f8">
             <para>Saves the Watermark definition to the selected copy.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

@@ -2,153 +2,120 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section532515">
-    <title>
-      <anchor id="Anchor533953" role="Index"
-              xreflabel="customers:open items by;accounts receivable:open items by customer;open items:customer details for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>customers</primary>
-
-        <secondary>open items by</secondary>
+         <primary>customers</primary>
+         <secondary>open items by</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>accounts receivable</primary>
-
-        <secondary>open items by customer</secondary>
+         <primary>accounts receivable</primary>
+         <secondary>open items by customer</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>open items</primary>
-
-        <secondary>customer details for</secondary>
+         <primary>open items</primary>
+         <secondary>customer details for</secondary>
       </indexterm>Open Items by Customer</title>
-
-    <para id="Para532516">To view A/R open items by Customer, select the "Open
+   <para id="Para532516">To view A/R open items by Customer, select the "Open
     Items by Customer" option. The following screen will appear:</para>
-
-    <para id="Para532395">
+   <para id="Para532395">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_openItemsByCust.png" id="Graphic532393"/>
             </imageobject>
-
             <caption id="Caption532396">A/R Open Items by Customer</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <note>
+   <note>
       <para id="Para547756">If a Customer's open Accounts Receivable (A/R)
       balance exceeds their Credit Limit, the Customer will automatically be
       placed on Credit Warning. In addition, any new or open Sales Orders for
       the Customer will also be placed on Credit Hold.</para>
-    </note>
-
-    <para id="Para532397">When displaying A/R open items by Customer, you are
+   </note>
+   <para id="Para532397">When displaying A/R open items by Customer, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para532398">Customer #</term>
-
-        <listitem id="listitemN0x180ac00N0x18be2d4">
+         <term id="Para532398">Customer #</term>
+         <listitem id="listitemN0x180ac00N0x18be2d4">
             <para>Enter the Customer Number of the Customer whose A/R open items
           you want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532403">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18be31c">
+         <term id="Para532403">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x18be31c">
             <para>A/R open items having due dates on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532408">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18be364">
+         <term id="Para532408">End Date</term>
+         <listitem id="listitemN0x180ac00N0x18be364">
             <para>A/R open items having due dates on and before this date will
           be displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532410">A/R Open Items</term>
-
-        <listitem id="listitemN0x180ac00N0x18be3ac">
+         <term id="Para532410">A/R Open Items</term>
+         <listitem id="listitemN0x180ac00N0x18be3ac">
             <para>Display lists A/R open items by Customer, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para532412">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para532412">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para532413">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18be418">
+         <term id="Para532413">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18be418">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para536797">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18be460">
+         <term id="Para536797">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18be460">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572335">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18be4a8">
+         <term id="Para572335">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18be4a8">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para532417">Right-clicking on an Item in the A/R open items list
+   </variablelist>
+   <para id="Para532417">Right-clicking on an Item in the A/R open items list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para532418">Edit</term>
-
-        <listitem id="listitemN0x180ac00N0x18be514">
+         <term id="Para532418">Edit</term>
+         <listitem id="listitemN0x180ac00N0x18be514">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para532419">View</term>
-
-        <listitem id="listitemN0x180ac00N0x18be55c">
+         <term id="Para532419">View</term>
+         <listitem id="listitemN0x180ac00N0x18be55c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-
-    <para id="Para565946">If you right-click on an Invoice, the following
+   </variablelist>
+   <para id="Para565946">If you right-click on an Invoice, the following
     additional option will be available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para532420">View Invoice</term>
-
-        <listitem id="listitemN0x180ac00N0x18c4000">
+         <term id="Para532420">View Invoice</term>
+         <listitem id="listitemN0x180ac00N0x18c4000">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

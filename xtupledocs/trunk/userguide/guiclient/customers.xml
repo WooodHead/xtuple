@@ -2,57 +2,45 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section656923">
-  <title>
-      <anchor id="Anchor656922" role="Index" xreflabel="customers:master list of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>customers</primary>
-
          <secondary>master list of</secondary>
       </indexterm>List Customers</title>
-
-  <para id="Para656924">To access the Customer master list, select the
+   <para id="Para656924">To access the Customer master list, select the
   "Customers" option. The following screen will appear:</para>
-
-  <para id="Para656928">
+   <para id="Para656928">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_MI_customerList.png" id="Graphic656926"/>
             </imageobject>
-
             <caption id="Caption656929">Customer Master List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para656930">The Customer master list displays basic information on
+   <para id="Para656930">The Customer master list displays basic information on
   all existing Customers, including Customer Type, Customer Number, active
   status, Customer name, billing address, and phone number.</para>
-
-  <para id="Para656931">To the far right of the screen, the following buttons
+   <para id="Para656931">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para656932">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x18552ec">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656933">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x1855334">
             <para>Opens screen for creating a new Customer.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656934">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x185537c">
             <para>Enables you to edit highlighted Customer. The edit screen is the
         same as that for creating a new Customer--except that when editing,
@@ -61,52 +49,40 @@
         screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656935">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x18553c4">
             <para>Highlight a Customer and then select this button to reach a
         read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656936">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x185540c">
             <para>Highlight a Customer and then select this button to remove the
         Customer from the master list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para656937">Right-clicking on a Customer in the Customer master
+   </variablelist>
+   <para id="Para656937">Right-clicking on a Customer in the Customer master
   list enables you to select from the following menu options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para656938">View Customer Master</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                      xpointer="element(listitemN0x180ac00N0x18553c4)"/>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656939">Edit Customer Master</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                      xpointer="element(listitemN0x180ac00N0x185537c)"/>
       </varlistentry>
-
       <varlistentry>
          <term id="Para656940">Delete Customer Master</term>
-
          <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
                      xpointer="element(listitemN0x180ac00N0x185540c)"/>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
+   </variablelist>
 </section>

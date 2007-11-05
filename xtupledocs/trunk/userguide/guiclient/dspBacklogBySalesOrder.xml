@@ -2,125 +2,97 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section534676">
-    <title>
-      <anchor id="Anchor549040" role="Index"
-              xreflabel="backlog:by sales order;sales orders:backlog for"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>backlog</primary>
-
-        <secondary>by sales order</secondary>
+         <primary>backlog</primary>
+         <secondary>by sales order</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>sales orders</primary>
-
-        <secondary>backlog for</secondary>
+         <primary>sales orders</primary>
+         <secondary>backlog for</secondary>
       </indexterm>Backlog by Sales Order</title>
-
-    <para id="Para548384">To view Backlog by Sales Order, select the "Backlog
+   <para id="Para548384">To view Backlog by Sales Order, select the "Backlog
     by Sales Order" option. The following screen will appear:</para>
-
-    <para id="Para548388">
+   <para id="Para548388">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Disp_backlogBySO.png" id="Graphic548386"/>
             </imageobject>
-
             <caption id="Caption548389">Backlog by Sales Order</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para548390">When displaying Backlog by Sales Order, you are
+   <para id="Para548390">When displaying Backlog by Sales Order, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para548542">Sales Order #</term>
-
-        <listitem id="listitemN0x180ac00N0x197e2ac">
+         <term id="Para548542">Sales Order #</term>
+         <listitem id="listitemN0x180ac00N0x197e2ac">
             <para>Enter the Sales Order Number of the Sales Order whose backlog
           you want to view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548550">Order Date</term>
-
-        <listitem id="listitemN0x180ac00N0x197e2f4">
+         <term id="Para548550">Order Date</term>
+         <listitem id="listitemN0x180ac00N0x197e2f4">
             <para>Displays the date the Sales Order was placed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548564">Cust. Name</term>
-
-        <listitem id="listitemN0x180ac00N0x197e33c">
+         <term id="Para548564">Cust. Name</term>
+         <listitem id="listitemN0x180ac00N0x197e33c">
             <para>Displays the Customer name associated with specified Sales
           Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548568">Cust. Phone</term>
-
-        <listitem id="listitemN0x180ac00N0x197e384">
+         <term id="Para548568">Cust. Phone</term>
+         <listitem id="listitemN0x180ac00N0x197e384">
             <para>Displays the Customer phone number associated with specified
           Sales Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548569">P/O Number</term>
-
-        <listitem id="listitemN0x180ac00N0x197e3cc">
+         <term id="Para548569">P/O Number</term>
+         <listitem id="listitemN0x180ac00N0x197e3cc">
             <para>Displays the Customer Purchase Order number associated with
           specified Sales Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para548416">Shipment Status</term>
-
-        <listitem id="listitemN0x180ac00N0x197e414">
+         <term id="Para548416">Shipment Status</term>
+         <listitem id="listitemN0x180ac00N0x197e414">
             <para>Display lists Backlog by Sales Order, using the specified
           parameters.</para>
-
             <para id="Para654189">If the available quantity falls below zero,
           the value will display in red type.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para548418">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para548418">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para548419">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x197e480">
+         <term id="Para548419">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x197e480">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para653771">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x197e4c8">
+         <term id="Para653771">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x197e4c8">
             <para>Runs the report associated with this screen.</para>
-
             <para id="Para548446">Right-clicking on a Sales Order Line Item in
           the Shipment Status list enables you to select from the following
           menu options:</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/5/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

@@ -2,133 +2,105 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519194">
-    <title>
-      <anchor id="Anchor533233" role="Index"
-              xreflabel="sales history:time-phased by customer;customers:time-phased sales history for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>sales history</primary>
-
-        <secondary>time-phased by customer</secondary>
+         <primary>sales history</primary>
+         <secondary>time-phased by customer</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>customers</primary>
-
-        <secondary>time-phased sales history for</secondary>
+         <primary>customers</primary>
+         <secondary>time-phased sales history for</secondary>
       </indexterm>Time-Phased Sales History by Customer</title>
-
-    <para id="Para519195">To view time-phased Sales history by Customer,
+   <para id="Para519195">To view time-phased Sales history by Customer,
     select the "Time-Phased Sales History by Customer" option. The following
     screen will appear:</para>
-
-    <para id="Para519199">
+   <para id="Para519199">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SA_Disp_timePhSalesByCust.png" id="Graphic521908"/>
             </imageobject>
-
             <caption id="Caption519200">Time-Phased Sales History by
           Customer</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519201">When displaying time-phased Sales history by
+   <para id="Para519201">When displaying time-phased Sales history by
     Customer, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519202">All Customer Types</term>
-
-        <listitem id="listitemN0x180ac00N0x1883800">
+         <term id="Para519202">All Customer Types</term>
+         <listitem id="listitemN0x180ac00N0x1883800">
             <para>Select to display time-phased Sales history for all Customer
           Types.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para539648">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1883848">
+         <term id="Para539648">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1883848">
             <para>Specify Customer Type whose time-phased Sales history you want
           to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para528400">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x1883890">
+         <term id="Para528400">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x1883890">
             <para>Enter a Customer Type pattern to select a range of Customer
           Types.</para>
-
             <para id="Para555748">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef555747" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para543749">All Product Categories</term>
-
-        <listitem id="listitemN0x180ac00N0x18838d8">
+         <term id="Para543749">All Product Categories</term>
+         <listitem id="listitemN0x180ac00N0x18838d8">
             <para>Select to display time-phased Sales history by Customer for
           all Product Categories.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para543763">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1883920">
+         <term id="Para543763">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1883920">
             <para>Specify Product Category whose time-phased Sales history by
           Customer you want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para543717">Pattern</term>
-
-        <listitem id="listitemN0x180ac00N0x1883968">
+         <term id="Para543717">Pattern</term>
+         <listitem id="listitemN0x180ac00N0x1883968">
             <para>Enter a Product Category pattern to select a range of Product
           Categories.</para>
-
             <para id="Para555756">Refine your search using Regular Expressions,
           as described in <link endterm="Anchor77806" id="XRef555755" linkend="Anchor77806"> Pattern Matching with Regular
           Expressions</link>"Topic: Pattern Matching with Regular
           Expressions".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para521201">The type of Calendar and number of Calendar
       periods you choose to display may have an impact on response time. The
       data may take longer to display, depending on the time frame
       requested.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para554497">Calendar</term>
-
-        <listitem id="listitemN0x180ac00N0x18839f8">
+         <term id="Para554497">Calendar</term>
+         <listitem id="listitemN0x180ac00N0x18839f8">
             <para>Select the Calendar you want to use for the report.</para>
-
             <para id="Para554498">Associated Calendar periods will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para526182">Name/Selected Periods</term>
-
-        <listitem id="listitemN0x180ac00N0x1883a40">
+         <term id="Para526182">Name/Selected Periods</term>
+         <listitem id="listitemN0x180ac00N0x1883a40">
             <para>Select as many periods as you want to display. Selected
           periods correspond to Calendar specified in the "Calendar"
           field.</para>
-
             <para id="Para530209">Select individual periods or groups of periods
           together. To select an individual period, highlight the period using
           your mouse button. The period is now selected. To select a sequence
@@ -141,83 +113,65 @@
           period you want to select. Continue highlighting periods with the
           CTRL key depressed until all desired periods are selected. The
           entire group is now selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para539175">Order By</term>
-
-        <listitem id="listitemN0x180ac00N0x1883a88">
+         <term id="Para539175">Order By</term>
+         <listitem id="listitemN0x180ac00N0x1883a88">
             <para>Order the output by one of the following methods:</para>
-
             <para id="Para539176">by Customer #: Select to order display by
           Customer Number.</para>
-
             <para id="Para539177">by Sales Volume in first Period: Select to
           order display by sales volume in first period.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519212">Sales History</term>
-
-        <listitem id="listitemN0x180ac00N0x1883ad0">
+         <term id="Para519212">Sales History</term>
+         <listitem id="listitemN0x180ac00N0x1883ad0">
             <para>Display lists time-phased Sales history by Customer, using the
           specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519214">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519214">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519215">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1883b3c">
+         <term id="Para519215">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1883b3c">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para541963">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1883b84">
+         <term id="Para541963">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1883b84">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para555089">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1883bcc">
+         <term id="Para555089">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1883bcc">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para553465">SUBMIT</term>
-
-        <listitem id="listitemN0x180ac00N0x1883bf0">
+         <term id="Para553465">SUBMIT</term>
+         <listitem id="listitemN0x180ac00N0x1883bf0">
             <para>Select to submit report to the Batch Manager. For additional
           information, see the <link endterm="Anchor61009" id="XRef553467" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
           Manager</link>"Topic: Submitting Reports and Jobs to the Batch
           Manager".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para541565">Right-clicking on a Customer in the Sales history
+   </variablelist>
+   <para id="Para541565">Right-clicking on a Customer in the Sales history
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/7/2/22)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

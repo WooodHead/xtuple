@@ -2,186 +2,146 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518989">
-    <title>
-      <anchor id="Anchor533195" role="Index"
-              xreflabel="work order material requirements:returning individually;work orders:return material item from"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>work order material requirements</primary>
-
-        <secondary>returning individually</secondary>
+         <primary>work order material requirements</primary>
+         <secondary>returning individually</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>work orders</primary>
-
-        <secondary>return material item from</secondary>
+         <primary>work orders</primary>
+         <secondary>return material item from</secondary>
       </indexterm>Return W/O Material Item</title>
-
-    <para id="Para518990">To return Work Order materials to Inventory
+   <para id="Para518990">To return Work Order materials to Inventory
     individually, select the "Return W/O Material Item" option. The following
     screen will appear:</para>
-
-    <para id="Para518994">
+   <para id="Para518994">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Mat_returnMatItem.png" id="Graphic523656"/>
             </imageobject>
-
             <caption id="Caption518995">Return Work Order Material
           Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para518996">When returning Work Order materials to Inventory
+   <para id="Para518996">When returning Work Order materials to Inventory
     individually, you are presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para518997">Work Order #</term>
-
-        <listitem>
+         <term id="Para518997">Work Order #</term>
+         <listitem>
             <para>Enter the Work Order Number of the Work Order whose materials
           you want to return to Inventory individually.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para518999">Whs.</term>
-
-        <listitem>
+         <term id="Para518999">Whs.</term>
+         <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519001">Item Number</term>
-
-        <listitem>
+         <term id="Para519001">Item Number</term>
+         <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568694">UOM</term>
-
-        <listitem>
+         <term id="Para568694">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519005">Status</term>
-
-        <listitem>
+         <term id="Para519005">Status</term>
+         <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519007">Component Item Number</term>
-
-        <listitem>
+         <term id="Para519007">Component Item Number</term>
+         <listitem>
             <para>Select one of the individual component Items for the specified
           Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568700">UOM</term>
-
-        <listitem>
+         <term id="Para568700">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519011">Qty. Per</term>
-
-        <listitem>
+         <term id="Para519011">Qty. Per</term>
+         <listitem>
             <para>Displayed value represents the quantity of the component Item
           required per parent Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519013">Scrap %</term>
-
-        <listitem>
+         <term id="Para519013">Scrap %</term>
+         <listitem>
             <para>Displayed value represents the allotted Scrap percentage for
           the component Item when manufacturing the parent Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519015">Qty. Required</term>
-
-        <listitem>
+         <term id="Para519015">Qty. Required</term>
+         <listitem>
             <para>Required: Displayed value represents the quantity required to
           fulfill the specified Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519017">Qty. Issued</term>
-
-        <listitem>
+         <term id="Para519017">Qty. Issued</term>
+         <listitem>
             <para>Issued: Displayed value represents the quantity issued in
           fulfillment of the specified Work Order.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519022">Qty. to Return</term>
-
-        <listitem>
+         <term id="Para519022">Qty. to Return</term>
+         <listitem>
             <para>to Return: Enter the amount of the component Item to be
           returned to Inventory.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519024">QOH Before</term>
-
-        <listitem>
+         <term id="Para519024">QOH Before</term>
+         <listitem>
             <para>Total Quantity on Hand prior to the issue will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519026">QOH After</term>
-
-        <listitem>
+         <term id="Para519026">QOH After</term>
+         <listitem>
             <para>Total Quantity on Hand after the proposed issue will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519028">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519028">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519029">CANCEL</term>
-
-        <listitem>
+         <term id="Para519029">CANCEL</term>
+         <listitem>
             <para>Closes the screen without returning the Work Order component
           Item to Inventory, returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519030">RETURN MATERIAL</term>
-
-        <listitem>
+         <term id="Para519030">RETURN MATERIAL</term>
+         <listitem>
             <para>Returns the material for the specified component Item to
           Inventory.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

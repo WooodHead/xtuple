@@ -2,89 +2,71 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section559236">
-  <title>
-      <anchor id="Anchor559235" role="Index" xreflabel="pricing schedules:master list of"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>pricing schedules</primary>
-
          <secondary>master list of</secondary>
       </indexterm>Pricing Schedules</title>
-
-  <para id="Para559237">A Pricing Schedule is a grouping of sold Items
+   <para id="Para559237">A Pricing Schedule is a grouping of sold Items
   indicating special Prices for specified Quantity Breaks. Pricing Schedules
   may be assigned to individual Customers or to groups of Customers by
   Customer Type. To access the master list of Pricing Schedules, select the
   "Pricing Schedules" option. The following screen will appear:</para>
-
-  <para id="Para519575">
+   <para id="Para519575">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_IP_pricingSchedList.png" id="Graphic523611"/>
             </imageobject>
-
             <caption id="Caption519576">Pricing Schedules Master List</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para519577">At the top of the screen is a "Search for" field. To
+   <para id="Para519577">At the top of the screen is a "Search for" field. To
   search for a Pricing Schedule, begin typing in the search field. As you
   type, the list will automatically scroll toward the Pricing Schedule you are
   typing. You can also search for Pricing Schedules manually by scrolling
   through the list. The following filters can also be applied to your
   search:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para519578">Show Expired Pricing Schedules</term>
-
          <listitem id="listitemN0x180ac00N0x194348c">
             <para>Select to display expired Pricing Schedules.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519579">Show Future Pricing Schedules</term>
-
          <listitem id="listitemN0x180ac00N0x19434d4">
             <para>Select to display future Pricing Schedules.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519580">Item Pricing Schedules</term>
-
          <listitem id="listitemN0x180ac00N0x194351c">
             <para>Display lists Item Pricing Schedules.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <para id="Para519582">To the far right of the screen, the following buttons
+   </variablelist>
+   <para id="Para519582">To the far right of the screen, the following buttons
   are available:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para519583">CLOSE</term>
-
          <listitem id="listitemN0x180ac00N0x1943588">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519584">NEW</term>
-
          <listitem id="listitemN0x180ac00N0x19435d0">
             <para>Opens screen for creating a new Pricing Schedule.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519585">EDIT</term>
-
          <listitem id="listitemN0x180ac00N0x1943618">
             <para>Enables you to edit highlighted Pricing Schedule. The edit
         screen is the same as that for creating a new Pricing Schedule--except
@@ -93,36 +75,29 @@
         to the editing screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519586">VIEW</term>
-
          <listitem id="listitemN0x180ac00N0x1943660">
             <para>Highlight a Pricing Schedule and then select this button to
         reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para610353">COPY</term>
-
          <listitem id="listitemN0x180ac00N0x19436a8">
             <para>Highlight a Pricing Schedule and then select this button to
         create a new Pricing Schedule which duplicates the source Pricing
         Schedule.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para519587">DELETE</term>
-
          <listitem id="listitemN0x180ac00N0x19436f0">
             <para>Highlight a Pricing Schedule and then select this button to
         remove the Pricing Schedule from the list.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="itemPricingSchedule.xml"
+   </variablelist>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="itemPricingSchedule.xml"
                xpointer="element(/1)"/>
 </section>

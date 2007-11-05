@@ -2,262 +2,204 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section636762">
-    <title>
-      <anchor id="Anchor636938" role="Index" xreflabel="prospects:creating new"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>prospects</primary>
-
-        <secondary>creating new</secondary>
+         <primary>prospects</primary>
+         <secondary>creating new</secondary>
       </indexterm>Enter New Prospect</title>
-
-    <para id="Para636927">Prospects are potential Customer Accounts. The
+   <para id="Para636927">Prospects are potential Customer Accounts. The
     system allows you to maintain information on Prospects--and then, when the
     time is right, it enables you to convert Prospect Accounts to Customer
     Accounts.</para>
-
-    <tip>
+   <tip>
       <para id="Para638396">To convert a Prospect to a Customer, simply select
       the "Customer" button on the Prospect's CRM Account. This will prompt
       you to convert the Prospect information--and also give you the chance to
       convert any existing Prospect Quotes to Customer Quotes.</para>
-    </tip>
-
-    <para id="Para636949">To create a new Prospect, select the "Enter New
+   </tip>
+   <para id="Para636949">To create a new Prospect, select the "Enter New
     Prospect" option. The following screen will appear:</para>
-
-    <para id="Para636932">
+   <para id="Para636932">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_MI_prospectNew.png" id="Graphic636931"/>
             </imageobject>
-
             <caption id="Caption636876">Create New Prospect Account</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para639213">Prospects can also be created from the CRM Account
       screen. Simply enter a new CRM Account, selecting the "Prospect"
       Relationship option.</para>
-    </tip>
-
-    <para id="Para639209">When creating a new Prospect, you are presented with
+   </tip>
+   <para id="Para639209">When creating a new Prospect, you are presented with
     the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para636878">Prospect #</term>
-
-        <listitem id="listitemN0x180ac00N0x185f558">
+         <term id="Para636878">Prospect #</term>
+         <listitem id="listitemN0x180ac00N0x185f558">
             <para>Enter a code to identify the Prospect.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636879">Prospect Name</term>
-
-        <listitem id="listitemN0x180ac00N0x185f5a0">
+         <term id="Para636879">Prospect Name</term>
+         <listitem id="listitemN0x180ac00N0x185f5a0">
             <para>Enter a name to describe the Prospect.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para637074">Active</term>
-
-        <listitem id="listitemN0x180ac00N0x185f5e8">
+         <term id="Para637074">Active</term>
+         <listitem id="listitemN0x180ac00N0x185f5e8">
             <para>Select to indicate the Prospect is Active.</para>
-
             <para id="Para637080">Not selecting this option means the Prospect
           is inactive.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para636880">CRM Account</term>
-
-        <listitem id="listitemN0x180ac00N0x185f630">
+         <term id="Para636880">CRM Account</term>
+         <listitem id="listitemN0x180ac00N0x185f630">
             <para>Displays the CRM Account Number associated with the
           Prospect.</para>
-
             <para id="Para636881">Prospects are a form of CRM Account. If a
           Prospect is created from the Sales module, a linked CRM Account will
           automatically be created. To view the CRM Account information for
           the Prospect, select the "?" symbol next to the field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para637012">If a new Contact is manually entered here, that
       Contact will be added automatically to the master list of
       Contacts.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para637013">Contact</term>
-
-        <listitem id="listitemN0x180ac00N0x185f6c0">
+         <term id="Para637013">Contact</term>
+         <listitem id="listitemN0x180ac00N0x185f6c0">
             <para>Manually enter Contact information in the fields below--or use
           the browse button to select pre-existing Contact information.</para>
-
             <para id="Para650677">Title: Select a Title from the list of
           available Titles.</para>
-
             <para id="Para637015">First: Enter the Contact's first name.</para>
-
             <para id="Para637016">Last: Enter the Contact's last name.</para>
-
             <para id="Para639604">Job Title: Enter the Contact's job
           title.</para>
-
             <para id="Para637017">Voice: Enter the Contact's phone
           number.</para>
-
             <para id="Para637018">Fax: Enter the Contact's fax number.</para>
-
             <para id="Para637019">E-Mail: Enter the Contact's e-mail
           address.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para637021">If a new Address is manually entered here, that
       Address will be added automatically to the master list of
       Addresses.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para636998">Address</term>
-
-        <listitem id="listitemN0x180ac00N0x185f750">
+         <term id="Para636998">Address</term>
+         <listitem id="listitemN0x180ac00N0x185f750">
             <para>Manually enter the Prospect's Address information in the
           fields below--or use the browse button to select pre-existing
           Address information.</para>
-
             <para id="Para636889">Street Address: Enter the street Address for
           the Prospect.</para>
-
             <para id="Para636890">City: Enter the city where the Contact is
           Prospect.</para>
-
             <para id="Para636891">State: Enter the state where the Contact is
           Prospect.</para>
-
             <para id="Para636892">Postal Code: Enter the Postal Code for the
           Prospect.</para>
-
             <para id="Para636893">Country: Enter the country where the Prospect
           is located.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para637167">
-            <anchor id="Anchor637166" role="Index" xreflabel="tax authorities:for prospects"/> 
+         <term id="Para637167">
+             
             <indexterm significance="normal">
                <primary>tax authorities</primary>
-
                <secondary>for prospects</secondary>
             </indexterm>Tax Authority</term>
-
-        <listitem id="listitemN0x180ac00N0x185f7e0">
+         <listitem id="listitemN0x180ac00N0x185f7e0">
             <para>Specify the Tax Authority you want to associate with the
           Prospect.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para637070">The system allows you to enter Quotes for Prospects.
+   </variablelist>
+   <para id="Para637070">The system allows you to enter Quotes for Prospects.
     To view the list of existing Prospect Quotes--or to enter a new Quote for
     a Prospect--select the "Quotes" tab at the bottom of the Prospect screen.
     The following screen will appear:</para>
-
-    <para id="Para638247">
+   <para id="Para638247">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_MI_prospectQuote.png" id="Graphic638245"/>
             </imageobject>
-
             <caption id="Caption638248">List of Prospect Quotes</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para638249">The "Quotes" screen displays information on all
+   <para id="Para638249">The "Quotes" screen displays information on all
     existing Prospect Quotes, including Quote Number and Quote date.</para>
-
-    <para id="Para638224">To the far right of the screen, the following
+   <para id="Para638224">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para638283">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x185f8b8">
+         <term id="Para638283">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x185f8b8">
             <para>Closes the screen without creating a Prospect, returning you
           to the previous screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para638284">SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x185f900">
+         <term id="Para638284">SAVE</term>
+         <listitem id="listitemN0x180ac00N0x185f900">
             <para>Creates the Prospect and adds it to the master list of
           Prospects.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para638227">NEW</term>
-
-        <listitem id="listitemN0x180ac00N0x185f948">
+         <term id="Para638227">NEW</term>
+         <listitem id="listitemN0x180ac00N0x185f948">
             <para>Opens screen for creating a new Prospect Quote.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para638228">EDIT</term>
-
-        <listitem id="listitemN0x180ac00N0x185f990">
+         <term id="Para638228">EDIT</term>
+         <listitem id="listitemN0x180ac00N0x185f990">
             <para>Enables you to edit highlighted Prospect Quotes. The edit
           screen is the same as that for creating new Prospect Quotes--except
           that when editing, the fields will contain Prospect Quote
           information. Double-clicking on a Prospect Quote line will also
           bring you to the editing screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para638229">VIEW</term>
-
-        <listitem id="listitemN0x180ac00N0x185f9d8">
+         <term id="Para638229">VIEW</term>
+         <listitem id="listitemN0x180ac00N0x185f9d8">
             <para>Highlight a Prospect Quote and then select this button to
           reach a read-only view of the "Edit" screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para638230">DELETE</term>
-
-        <listitem id="listitemN0x180ac00N0x185fa20">
+         <term id="Para638230">DELETE</term>
+         <listitem id="listitemN0x180ac00N0x185fa20">
             <para>Highlight a Prospect Quote line and then select this button to
           remove the Prospect Quote from the list</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para653603">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x185fa68">
+         <term id="Para653603">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x185fa68">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

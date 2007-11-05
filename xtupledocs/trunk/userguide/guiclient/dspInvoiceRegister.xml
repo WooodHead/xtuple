@@ -2,155 +2,122 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section554209">
-    <title>
-      <anchor id="Anchor554208" role="Index"
-              xreflabel="invoices:register of;registers:for invoices"/> 
+   <title>
+       
       <indexterm significance="normal">
-        <primary>invoices</primary>
-
-        <secondary>register of</secondary>
+         <primary>invoices</primary>
+         <secondary>register of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>registers</primary>
-
-        <secondary>for invoices</secondary>
+         <primary>registers</primary>
+         <secondary>for invoices</secondary>
       </indexterm>Invoice Register</title>
-
-    <para id="Para554210">To view daily Invoice and Credit Memo transactions,
+   <para id="Para554210">To view daily Invoice and Credit Memo transactions,
     select the "Invoice Register" option. The following screen will
     appear:</para>
-
-    <para id="Para554214">
+   <para id="Para554214">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AR_Disp_invRegister.png" id="Graphic554212"/>
             </imageobject>
-
             <caption id="Caption554215">Invoice Register</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para554216">When displaying the Invoice Register, you are
+   <para id="Para554216">When displaying the Invoice Register, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para554217">All Accounts</term>
-
-        <listitem id="listitemN0x180ac00N0x18b78a8">
+         <term id="Para554217">All Accounts</term>
+         <listitem id="listitemN0x180ac00N0x18b78a8">
             <para>Select to display Invoice and Credit Memo transactions for all
           G/L Accounts.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554218">Selected Account</term>
-
-        <listitem id="listitemN0x180ac00N0x18b78f0">
+         <term id="Para554218">Selected Account</term>
+         <listitem id="listitemN0x180ac00N0x18b78f0">
             <para>Specify G/L Account whose Invoice and Credit Memo transactions
           you want to display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554222">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18b7938">
+         <term id="Para554222">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x18b7938">
             <para>Invoices and Credit Memos posted on and after this date will
           be displayed. This is a required field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554227">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x18b7980">
+         <term id="Para554227">End Date</term>
+         <listitem id="listitemN0x180ac00N0x18b7980">
             <para>Invoices and Credit Memos posted on and before this date will
           be displayed. This is a required field.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554229">Transactions</term>
-
-        <listitem id="listitemN0x180ac00N0x18b79c8">
+         <term id="Para554229">Transactions</term>
+         <listitem id="listitemN0x180ac00N0x18b79c8">
             <para>Display lists daily Invoice and Credit Memo transactions based
           on the specified parameters.</para>
-
             <para id="Para572442">This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each date.
           By clicking your mouse on a plus sign, you reveal lower levels of
           information related to transactions on that date. In addition, the
           totals for the included transactions will appear at the bottom of
           the screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <tip>
+   </variablelist>
+   <tip>
       <para id="Para559538">If a Ship-To Address was used for an Invoice, the
       Ship-To Address will appear in the Reference column of the Transactions
       display.</para>
-    </tip>
-
-    <para id="Para554231">To the far right of the screen, the following
+   </tip>
+   <para id="Para554231">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para554232">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18bd848">
+         <term id="Para554232">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x18bd848">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para554233">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x18bd890">
+         <term id="Para554233">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x18bd890">
             <para>Select to generate the display, using the specified
           parameters.</para>
-
             <para id="Para554234">Start date and end date must be entered for
           request to proceed. Results will be displayed in the "Transactions"
           list.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para572320">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x18bd8d8">
+         <term id="Para572320">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x18bd8d8">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para564362">Right-clicking on a Document in the Transactions
+   </variablelist>
+   <para id="Para564362">Right-clicking on a Document in the Transactions
     list enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para564363">View Invoice</term>
-
-        <listitem id="listitemN0x180ac00N0x18bd944">
+         <term id="Para564363">View Invoice</term>
+         <listitem id="listitemN0x180ac00N0x18bd944">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para564364">View Credit Memo</term>
-
-        <listitem id="listitemN0x180ac00N0x18bd98c">
+         <term id="Para564364">View Credit Memo</term>
+         <listitem id="listitemN0x180ac00N0x18bd98c">
             <para/>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

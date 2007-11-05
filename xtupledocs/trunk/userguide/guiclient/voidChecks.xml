@@ -2,106 +2,84 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524366">
-    <title>
-      <anchor id="Anchor532582" role="Index"
-              xreflabel="check runs:voiding of;accounts payable:voiding check runs for"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>check runs</primary>
-
-        <secondary>voiding of</secondary>
+         <primary>check runs</primary>
+         <secondary>voiding of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>accounts payable</primary>
-
-        <secondary>voiding check runs for</secondary>
+         <primary>accounts payable</primary>
+         <secondary>voiding check runs for</secondary>
       </indexterm>Void Check Run</title>
-
-    <para id="Para524398">You may occasionally have a need to void an entire
+   <para id="Para524398">You may occasionally have a need to void an entire
     Check Run--if, for example, you print the Check Run on the wrong kind of
     paper, etc. To void a Check Run, select the "Void Check Run" option. The
     following screen will appear:</para>
-
-    <para id="Para529585">
+   <para id="Para529585">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/AP_Pay_voidChkRun.png" id="Graphic529583"/>
             </imageobject>
-
             <caption id="Caption529586">Void Check Run</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para529587">When voiding a Check Run, you are presented with the
+   <para id="Para529587">When voiding a Check Run, you are presented with the
     following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529609">Bank Account</term>
-
-        <listitem>
+         <term id="Para529609">Bank Account</term>
+         <listitem>
             <para>Specify the Bank Account whose associated Check Run you want
           to void.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529611">First Check #</term>
-
-        <listitem>
+         <term id="Para529611">First Check #</term>
+         <listitem>
             <para>Displays the first Check Number in the Check Run for the
           specified Bank Account.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529613"># of Checks to Void</term>
-
-        <listitem>
+         <term id="Para529613"># of Checks to Void</term>
+         <listitem>
             <para>Indicates the number of Checks in the Check Run to be
           voided.</para>
-
             <para id="Para531265">Check Numbers increment in intervals of one
           (1) beginning with the first Check Number displayed above.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529618">
-            <anchor id="Anchor534583" role="Index" xreflabel="checks:replacing voided"/> 
+         <term id="Para529618">
+             
             <indexterm significance="normal">
                <primary>checks</primary>
-
                <secondary>replacing voided</secondary>
             </indexterm>Issue Replacement Checks</term>
-
-        <listitem>
+         <listitem>
             <para>Select to issue replacement Checks for the Checks being
           voided.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para529620">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para529620">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para529621">CANCEL</term>
-
-        <listitem>
+         <term id="Para529621">CANCEL</term>
+         <listitem>
             <para>Closes the screen without voiding the Check Run, returning you
           to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para529622">VOID</term>
-
-        <listitem>
+         <term id="Para529622">VOID</term>
+         <listitem>
             <para>Voids the Check Run, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

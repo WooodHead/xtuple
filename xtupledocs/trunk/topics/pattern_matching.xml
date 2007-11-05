@@ -2,104 +2,84 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section486955">
-    <title>
+   <title>
       <anchor id="Anchor77806" role="Cross-Ref"
               xreflabel="77806: Heading2: Topic: Pattern Matching with Regular Expressions"/>
-      <anchor id="Anchor486954" role="Index"
-              xreflabel="pattern matching:with regular expressions;regular expressions:pattern matching using"/>
+      
       <indexterm significance="normal">
-        <primary>pattern matching</primary>
-
-        <secondary>with regular expressions</secondary>
+         <primary>pattern matching</primary>
+         <secondary>with regular expressions</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>regular expressions</primary>
-
-        <secondary>pattern matching using</secondary>
+         <primary>regular expressions</primary>
+         <secondary>pattern matching using</secondary>
       </indexterm>Topic: Pattern Matching with Regular Expressions</title>
-
-    <para id="Para486956">OpenMFG supports the use of Regular Expressions
+   <para id="Para486956">OpenMFG supports the use of Regular Expressions
     (also known as "Regex") in fields where pattern matching is called for.
     This Regular Expression support gives you tremendous flexibility and
     control whenever you want to retrieve unique patterns from within any of
     the following groupings:</para>
-
-    <itemizedlist>
+   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1855484">
-        <para id="Para486957">Class Codes</para>
+         <para id="Para486957">Class Codes</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18554a8">
-        <para id="Para486958">Planner Codes</para>
+         <para id="Para486958">Planner Codes</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18554cc">
-        <para id="Para486959">Item Groups</para>
+         <para id="Para486959">Item Groups</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x18554f0">
-        <para id="Para486960">Product Categories</para>
+         <para id="Para486960">Product Categories</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1855514">
-        <para id="Para486961">Customer Types</para>
+         <para id="Para486961">Customer Types</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x1855538">
-        <para id="Para486962">Customer Groups</para>
+         <para id="Para486962">Customer Groups</para>
       </listitem>
-
       <listitem id="listitemN0x180ac00N0x185555c">
-        <para id="Para486963">Vendor Types</para>
+         <para id="Para486963">Vendor Types</para>
       </listitem>
-    </itemizedlist>
-
-    <para id="Para486964">Let's say, for example, you want to generate a
+   </itemizedlist>
+   <para id="Para486964">Let's say, for example, you want to generate a
     report showing Internet sales during a given period. To access this data,
     you would need to look at sales made to your Internet Customers. Because
     Internet Customers are a subset of Customer Types, you would create a
     Regular Expression to retrieve this subset and send it to the
     report.</para>
-
-    <section id="Section486965">
+   <section id="Section486965">
       <title>Characters and Metacharacters</title>
-
       <para id="Para486967">
-         <anchor id="Anchor486966" role="Index"
-                 xreflabel="metacharacters:in regular expressions"/> 
+          
          <indexterm significance="normal">
             <primary>metacharacters</primary>
-
             <secondary>in regular expressions</secondary>
-        </indexterm>Regular Expressions are created using different
+         </indexterm>Regular Expressions are created using different
       combinations of characters and metacharacters. A character is defined as
       any alphanumeric character--both upper and lower case--including
       punctuation marks, white space, and other keyboard symbols.
-      Metacharacters, sometimes referred to as "<anchor id="Anchor486968" role="Index" xreflabel="wildcards"/> 
+      Metacharacters, sometimes referred to as " 
          <indexterm significance="normal">
             <primary>wildcards</primary>
-        </indexterm>wildcards," are special characters used to facilitate
+         </indexterm>wildcards," are special characters used to facilitate
       pattern matching. The most common metacharacters are described in the
       tables below.</para>
-
       <tip>
-        <para id="Para486970">The more you understand the role of
+         <para id="Para486970">The more you understand the role of
         metacharacters, the more you will be able to control your pattern
         matching.</para>
       </tip>
-
       <para id="Para486972">The first thing to understand is that Regular
-      Expressions match "<anchor id="Anchor486971" role="Index" xreflabel="substrings:metacharacters and"/> 
+      Expressions match " 
          <indexterm significance="normal">
             <primary>substrings</primary>
-
             <secondary>metacharacters and</secondary>
-        </indexterm>substrings." A substring is a subset of a "<anchor id="Anchor486973" role="Index" xreflabel="strings:pattern matching and"/> 
+         </indexterm>substrings." A substring is a subset of a " 
          <indexterm significance="normal">
             <primary>strings</primary>
-
             <secondary>pattern matching and</secondary>
-        </indexterm>string"--a string being a sequence of characters arranged
+         </indexterm>string"--a string being a sequence of characters arranged
       in a line. For example, the numbers 123 are a substring of the string
       012345. Similarly, the letters EAT are a substring of the strings MEAT,
       EATERY, and THEATER. Numbers and letters can also be combined to form a
@@ -107,13 +87,11 @@
       Internet Customer strings: INTCUST400, INTCUST401, INTCUST402, and so
       on. As you can see, substrings may appear anywhere in a string--at the
       beginning, the middle, or the end.</para>
-
       <tip>
-        <para id="Para486975">Regular Expressions are case-sensitive. This
+         <para id="Para486975">Regular Expressions are case-sensitive. This
         means there is a difference between "a" and "A". Keep this in mind
         when using Regular Expressions for pattern matching.</para>
       </tip>
-
       <para id="Para486976">Metacharacters give you even more control over
       your substring definitions. With metacharacters, you can specify the
       exact location of a substring: beginning of a word or line, end of a
@@ -122,18 +100,15 @@
       through large quantities of data. As you can imagine, metacharacters
       will not only save you time, they will also increase your precision. The
       following tables describe metacharacters in more detail.</para>
-
       <para id="Para487010">
          <table id="Table486977">
             <title>Single Character Metacharacters</title>
-
             <tgroup cols="2">
                <tbody>
                   <row>
                      <entry>
                         <para id="Para486986"> . </para>
                      </entry>
-
                      <entry>
                         <para id="Para486988"> Matches any single character.
                 </para> 
@@ -144,12 +119,10 @@
                 match bottle , batch , abbot , etc. </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para486993"> [...] </para>
                      </entry>
-
                      <entry>
                         <para id="Para486995"> Matches any single character
                 listed between the brackets. </para> 
@@ -171,12 +144,10 @@
                 PRODCAT1ABC , PRODCAT2123 , etc. </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487003"> [^...] </para>
                      </entry>
-
                      <entry>
                         <para id="Para487005"> Matches any single character
                 except those listed between the brackets. </para> 
@@ -195,31 +166,26 @@
                   </row>
                </tbody>
             </tgroup>
-        </table>
+         </table>
       </para>
-
       <note>
-        <para id="Para487012">OpenMFG supports pattern matching with Regular
-        Expressions in accordance with the <anchor id="Anchor487013" role="Index" xreflabel="posix:openmfg support for"/> 
+         <para id="Para487012">OpenMFG supports pattern matching with Regular
+        Expressions in accordance with the  
             <indexterm significance="normal">
                <primary>posix</primary>
-
                <secondary>openmfg support for</secondary>
             </indexterm>Portable Operating System Interface (POSIX)
         standard.</para>
       </note>
-
       <para id="Para487061">
          <table id="Table487014">
             <title>Quantifiers</title>
-
             <tgroup cols="2">
                <tbody>
                   <row>
                      <entry>
                         <para id="Para487023"> ? </para>
                      </entry>
-
                      <entry>
                         <para id="Para487025"> Matches the preceding element
                 zero or one time. </para> 
@@ -241,12 +207,10 @@
                 example, CLASS123 , CLASSDEF , etc. </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487033"> * </para>
                      </entry>
-
                      <entry>
                         <para id="Para487035"> Matches the preceding element
                 zero or more times. </para> 
@@ -268,12 +232,10 @@
                 </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487041"> + </para>
                      </entry>
-
                      <entry>
                         <para id="Para487043"> Matches the preceding element
                 one or more times. </para> 
@@ -286,12 +248,10 @@
                 PRODCAT100ABC , PRODCAT1000ABC , and so on. </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487048"> {num} </para>
                      </entry>
-
                      <entry>
                         <para id="Para487050"> Matches the preceding element
                 num times. </para> 
@@ -302,12 +262,10 @@
                 , etc. </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487055"> {min,max} </para>
                      </entry>
-
                      <entry>
                         <para id="Para487057"> Matches the preceding element at
                 least min times, but not more than max times. </para> 
@@ -321,27 +279,23 @@
                   </row>
                </tbody>
             </tgroup>
-        </table>
+         </table>
       </para>
-
       <tip>
-        <para id="Para487063">A space between characters is considered a
+         <para id="Para487063">A space between characters is considered a
         character itself. You should avoid using spaces when writing Regular
         Expressions, unless the pattern you are matching expressly calls for
         them.</para>
       </tip>
-
       <para id="Para487086">
          <table id="Table487064">
             <title>Anchors</title>
-
             <tgroup cols="2">
                <tbody>
                   <row>
                      <entry>
                         <para id="Para487073"> ^ </para>
                      </entry>
-
                      <entry>
                         <para id="Para487075"> Matches at the start of the
                 line. </para> 
@@ -356,12 +310,10 @@
                 </para>
                      </entry>
                   </row>
-
                   <row>
                      <entry>
                         <para id="Para487080"> $ </para>
                      </entry>
-
                      <entry>
                         <para id="Para487082"> Matches at the end of the line.
                 </para> 
@@ -377,89 +329,71 @@
                   </row>
                </tbody>
             </tgroup>
-        </table>
+         </table>
       </para>
-
       <tip>
-        <para id="Para487088">Build Regular Expressions using trial and error.
+         <para id="Para487088">Build Regular Expressions using trial and error.
         If your first attempt doesn"t yield the desired results, modify the
         expression and try again.</para>
       </tip>
-    </section>
-
-    <section id="Section487089">
+   </section>
+   <section id="Section487089">
       <title>Hierarchical Structure</title>
-
       <para id="Para487091">
-         <anchor id="Anchor487090" role="Index"
-                 xreflabel="hierarchical structure:pattern matching and;structure:hierarchical;pattern matching:hierarchical structure and"/>
+         
          <indexterm significance="normal">
             <primary>hierarchical structure</primary>
-
             <secondary>pattern matching and</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>structure</primary>
-
             <secondary>hierarchical</secondary>
-        </indexterm> 
+         </indexterm> 
          <indexterm significance="normal">
             <primary>pattern matching</primary>
-
             <secondary>hierarchical structure and</secondary>
-        </indexterm>To simplify your pattern matching efforts, you should
+         </indexterm>To simplify your pattern matching efforts, you should
       organize your groupings according to a hierarchical structure. Again,
       the following groupings support pattern matching using Regular
       Expressions:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x185efbc">
+         <listitem id="listitemN0x180ac00N0x185efbc">
             <para id="Para487092">Class Codes</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185efe0">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185efe0">
             <para id="Para487093">Planner Codes</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f004">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f004">
             <para id="Para487094">Item Groups</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f028">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f028">
             <para id="Para487095">Product Categories</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f04c">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f04c">
             <para id="Para487096">Customer Types</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f070">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f070">
             <para id="Para487097">Customer Groups</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para487098">Let's consider the Customer Type grouping to
       illustrate this point about hierarchies. If your Customer Types have
       been arranged hierarchically, the naming convention will exhibit a
       logical, sequential order. The following list shows an orderly,
       hierarchical arrangement of Customer Types:</para>
-
       <itemizedlist>
-        <listitem id="listitemN0x180ac00N0x185f0b8">
+         <listitem id="listitemN0x180ac00N0x185f0b8">
             <para id="Para487099">CUSTUSA100, 101, 102, ...</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f0dc">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f0dc">
             <para id="Para487100">CUSTEUROPE100, 101, 102, ...</para>
-        </listitem>
-
-        <listitem id="listitemN0x180ac00N0x185f100">
+         </listitem>
+         <listitem id="listitemN0x180ac00N0x185f100">
             <para id="Para487101">CUSTASIA100, 101, 102, ...</para>
-        </listitem>
+         </listitem>
       </itemizedlist>
-
       <para id="Para487102">Regular Expressions will find and match any
       pattern. But writing them will be easier if you arrange your groupings
       hierarchically, as shown in the example above.</para>
-    </section>
-  </section>
+   </section>
+</section>

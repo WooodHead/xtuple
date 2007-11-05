@@ -2,165 +2,132 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519141">
-    <title>
-      <anchor id="Anchor533203" role="Index"
-              xreflabel="production:posting miscellaneous;miscellaneous production:posting of"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>production</primary>
-
-        <secondary>posting miscellaneous</secondary>
+         <primary>production</primary>
+         <secondary>posting miscellaneous</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>miscellaneous production</primary>
-
-        <secondary>posting of</secondary>
+         <primary>miscellaneous production</primary>
+         <secondary>posting of</secondary>
       </indexterm>Post Miscellaneous Production</title>
-
-    <para id="Para519142">In repetitive manufacturing environments where
+   <para id="Para519142">In repetitive manufacturing environments where
     production is continuous, the option to post miscellaneous production can
     be a useful feature. It can also be a useful feature for shops where
     disassembling manufactured Items is required. To post miscellaneous
     production, select the "Post Miscellaneous Production" option. The
     following screen will appear:</para>
-
-    <para id="Para519146">
+   <para id="Para519146">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/WO_Mat_postMiscProd.png" id="Graphic523709"/>
             </imageobject>
-
             <caption id="Caption519147">Post Miscellaneous Work Order
           Production</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <tip>
+   <tip>
       <para id="Para551262">If you want to disassemble a manufactured Item and
       return the component Items to Inventory, simply enter a negative
       quantity for the manufactured Item. Posting negative miscellaneous
       Production effectively reverses the Production process.</para>
-    </tip>
-
-    <para id="Para551257">When posting miscellaneous production, you are
+   </tip>
+   <para id="Para551257">When posting miscellaneous production, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519154">Item Number</term>
-
-        <listitem>
+         <term id="Para519154">Item Number</term>
+         <listitem>
             <para>Enter the Item Number of the Item you want to post
           miscellaneous production for.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para568742">UOM</term>
-
-        <listitem>
+         <term id="Para568742">UOM</term>
+         <listitem>
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519158">Warehouse</term>
-
-        <listitem>
+         <term id="Para519158">Warehouse</term>
+         <listitem>
             <para>Specify Warehouse Location for selected Item.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519163">Qty. to Post</term>
-
-        <listitem>
+         <term id="Para519163">Qty. to Post</term>
+         <listitem>
             <para>to Post: Enter the quantity of production you want to post.
           This field will accept negative numbers for disassembly
           purposes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para530423">Document #</term>
-
-        <listitem>
+         <term id="Para530423">Document #</term>
+         <listitem>
             <para>Creates a user-defined reference for the miscellaneous
           production. The document number will be posted with the General
           Ledger (G/L) transaction record when the miscellaneous production is
           generated. This field may be used for internal tracking and auditing
           purposes.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para530409">Backflush</term>
-
-        <listitem>
+         <term id="Para530409">Backflush</term>
+         <listitem>
             <para>Select to indicate that the material requirements indicated by
           the associated Work Order Material Requirement record should be
           issued to the selected Work Order regardless of the issue method
           associated with these requirements.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519166">Issue Items not on Pick List</term>
-
-        <listitem>
+         <term id="Para519166">Issue Items not on Pick List</term>
+         <listitem>
             <para>Select to indicate that non-Pick List Items should be
           backflushed as well.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519167">Comments</term>
-
-        <listitem>
+         <term id="Para519167">Comments</term>
+         <listitem>
             <para>This is a scrolling text field with word-wrapping for entering
           Comments related to the miscellaneous production posting.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para543809">Immediate Transfer to Warehouse</term>
-
-        <listitem>
+         <term id="Para543809">Immediate Transfer to Warehouse</term>
+         <listitem>
             <para>Select to transfer miscellaneous production to specified
           Warehouse.</para>
-
             <para id="Para543810">Specify the Warehouse you want to transfer
           production to.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para551424">Miscellaneous Production may not be posted for
       Breeder Items.</para>
-    </note>
-
-    <para id="Para519169">To the far right of the screen, the following
+   </note>
+   <para id="Para519169">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519170">CANCEL</term>
-
-        <listitem>
+         <term id="Para519170">CANCEL</term>
+         <listitem>
             <para>Closes the screen without posting the miscellaneous
           production, returning you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519171">POST</term>
-
-        <listitem>
+         <term id="Para519171">POST</term>
+         <listitem>
             <para>Posts the production for the selected Item in the specified
           quantity.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

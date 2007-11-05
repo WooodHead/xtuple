@@ -2,95 +2,76 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section594369">
-    <title>
-      <anchor id="Anchor595438" role="Index"
-              xreflabel="item images:viewing of;images:items associated with;items:images associated with"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>item images</primary>
-
-        <secondary>viewing of</secondary>
+         <primary>item images</primary>
+         <secondary>viewing of</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>images</primary>
-
-        <secondary>items associated with</secondary>
+         <primary>images</primary>
+         <secondary>items associated with</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>images associated with</secondary>
+         <primary>items</primary>
+         <secondary>images associated with</secondary>
       </indexterm>Item Images</title>
-
-    <para id="Para594503">Images may be associated with Items in the Item
+   <para id="Para594503">Images may be associated with Items in the Item
     master. To view Images associated with an Item, select the "Item Images"
     option. The following screen will appear:</para>
-
-    <para id="Para594507">
+   <para id="Para594507">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/PD_Items_itemImages.png" id="Graphic594505"/>
             </imageobject>
-
             <caption id="Caption594508">Item Images</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para594509">When viewing Item Images, you are presented with the
+   <para id="Para594509">When viewing Item Images, you are presented with the
     following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para594510">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x189012c">
+         <term id="Para594510">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x189012c">
             <para>Enter the Item Number of the Item whose associated Images you
           want to view.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <note>
+   </variablelist>
+   <note>
       <para id="Para614704">Images are associated with Items in a two-step
       process. First, an Image must be loaded into the database at the system
       level. Second, the link between Image and Item must be made using the
       Images tab found on the Item master.</para>
-    </note>
-
-    <variablelist>
+   </note>
+   <variablelist>
       <varlistentry>
-        <term id="Para663177">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x18901bc">
+         <term id="Para663177">UOM</term>
+         <listitem id="listitemN0x180ac00N0x18901bc">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para594520">Image Description</term>
-
-        <listitem id="listitemN0x180ac00N0x1890204">
+         <term id="Para594520">Image Description</term>
+         <listitem id="listitemN0x180ac00N0x1890204">
             <para>A preview of the first Item Image will appear here.</para>
-
             <para id="Para664191">To view the next Image associated with the
           Item, select the forward arrow "\&gt;\&gt;" button. To view previous
           images, select the back arrow "&lt;&lt;" button.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para594522">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para594522">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para594523">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1890270">
+         <term id="Para594523">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1890270">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

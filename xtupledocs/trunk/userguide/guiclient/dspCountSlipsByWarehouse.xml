@@ -2,125 +2,98 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519588">
-    <title>
-      <anchor id="Anchor552186" role="Index"
-              xreflabel="count slips:by warehouse;warehouses:count slips in"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>count slips</primary>
-
-        <secondary>by warehouse</secondary>
+         <primary>count slips</primary>
+         <secondary>by warehouse</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>warehouses</primary>
-
-        <secondary>count slips in</secondary>
+         <primary>warehouses</primary>
+         <secondary>count slips in</secondary>
       </indexterm>Count Slips by Warehouse</title>
-
-    <para id="Para519589">To view a display of Count Slips by Warehouse,
+   <para id="Para519589">To view a display of Count Slips by Warehouse,
     select the "Count Slips by Warehouse" option. The following screen will
     appear:</para>
-
-    <para id="Para519593">
+   <para id="Para519593">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_PI_dispCountSlipWare.png" id="Graphic526345"/>
             </imageobject>
-
             <caption id="Caption519594">Count Slips by Warehouse</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para519595">When displaying Count Slips by Warehouse, you are
+   <para id="Para519595">When displaying Count Slips by Warehouse, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry role="openmfg">
-        <term id="Para519596">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x1922d38">
+         <term id="Para519596">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x1922d38">
             <para>Select to display Count Slips for all Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para628813">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x1922d5c">
+         <term id="Para628813">Selected</term>
+         <listitem id="listitemN0x180ac00N0x1922d5c">
             <para>Specify Warehouse whose Count Slips you want to
           display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para628817">Start Date</term>
-
-        <listitem id="listitemN0x180ac00N0x1922da4">
+         <term id="Para628817">Start Date</term>
+         <listitem id="listitemN0x180ac00N0x1922da4">
             <para>Count Slips entered on and after this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519608">End Date</term>
-
-        <listitem id="listitemN0x180ac00N0x1922dec">
+         <term id="Para519608">End Date</term>
+         <listitem id="listitemN0x180ac00N0x1922dec">
             <para>Count Slips entered on and before this date will be
           displayed.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519610">Show Unposted Count Tags</term>
-
-        <listitem id="listitemN0x180ac00N0x192a424">
+         <term id="Para519610">Show Unposted Count Tags</term>
+         <listitem id="listitemN0x180ac00N0x192a424">
             <para>Select to display unposted Count Tags.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519611">Treat Slip Numbers as Numeric</term>
-
-        <listitem id="listitemN0x180ac00N0x192a46c">
+         <term id="Para519611">Treat Slip Numbers as Numeric</term>
+         <listitem id="listitemN0x180ac00N0x192a46c">
             <para>Select to treat Count Slip numbers as numeric.</para>
-
             <para id="Para566211">If selected, the display will treat existing
           Count Slips as if they were created in a numerical sequence. If
           numbers are missing from the sequence, the display will indicate the
           missing Count Slip numbers in red type.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para519612">Count Slips</term>
-
-        <listitem id="listitemN0x180ac00N0x192a4b4">
+         <term id="Para519612">Count Slips</term>
+         <listitem id="listitemN0x180ac00N0x192a4b4">
             <para>Display lists Count Slips by Warehouse, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para519614">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para519614">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para519615">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x192a520">
+         <term id="Para519615">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x192a520">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para675604">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x192a568">
+         <term id="Para675604">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x192a568">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

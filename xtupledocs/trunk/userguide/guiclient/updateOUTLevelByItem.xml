@@ -2,110 +2,86 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548559">
-    <title>
-      <anchor id="Anchor552340" role="Index"
-              xreflabel="order up to levels:updating by item;items:order up to levels for;OUT levels. See order up to levels"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>order up to levels</primary>
-
-        <secondary>updating by item</secondary>
+         <primary>order up to levels</primary>
+         <secondary>updating by item</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>items</primary>
-
-        <secondary>order up to levels for</secondary>
+         <primary>items</primary>
+         <secondary>order up to levels for</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>OUT levels</primary>
-
-        <see>order up to levels</see>
+         <primary>OUT levels</primary>
+         <see>order up to levels</see>
       </indexterm>Update Order Up To Levels by Item</title>
-
-    <para id="Para549268">To update Order Up To Levels by Item, select the
+   <para id="Para549268">To update Order Up To Levels by Item, select the
     "Order Up To Level by Item" option. The following screen will
     appear:</para>
-
-    <para id="Para549272">
+   <para id="Para549272">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/IM_Utilities_upOUTbyItem.png" id="Graphic549270"/>
             </imageobject>
-
             <caption id="Caption549273">Update Order Up To Levels by
           Item</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para549274">When updating Order Up To Levels by Item, you are
+   <para id="Para549274">When updating Order Up To Levels by Item, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para549275">Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1550">
+         <term id="Para549275">Item Number</term>
+         <listitem id="listitemN0x180ac00N0x19b1550">
             <para>Enter the Item Number of the Item whose Order Up To Level you
           want to update.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para672110">UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1598">
+         <term id="Para672110">UOM</term>
+         <listitem id="listitemN0x180ac00N0x19b1598">
             <para>Inventory Unit of Measure.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para549285">All Warehouses</term>
-
-        <listitem id="listitemN0x180ac00N0x19b15bc">
+         <term id="Para549285">All Warehouses</term>
+         <listitem id="listitemN0x180ac00N0x19b15bc">
             <para>Select to update Order Up To Levels by Item for all
           Warehouses.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para549287">Selected</term>
-
-        <listitem id="listitemN0x180ac00N0x19b15e0">
+         <term id="Para549287">Selected</term>
+         <listitem id="listitemN0x180ac00N0x19b15e0">
             <para>Specify Warehouse where Order Up To Levels by Item are to be
           updated.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566683">Days of Stock at Reorder Level</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1628">
+         <term id="Para566683">Days of Stock at Reorder Level</term>
+         <listitem id="listitemN0x180ac00N0x19b1628">
             <para>Specify number of days using one of the following
           options:</para>
-
             <para id="Para566684">Item Site Lead Time +: Select a number using
           the arrow buttons, or manually enter a value up to a maximum of 99.
           Average daily usage calculated using selected Calendar periods will
           be multiplied by this value to determine Reorder Level.</para>
-
             <para id="Para566685">Fixed Days: Select a number using the arrow
           buttons, or manually enter a value up to a maximum of 999. Average
           daily usage calculated using selected Calendar periods will be
           multiplied by this value to determine Reorder Level.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566686">Periods to Include in Analysis</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1670">
+         <term id="Para566686">Periods to Include in Analysis</term>
+         <listitem id="listitemN0x180ac00N0x19b1670">
             <para>Specify the periods to include in the analysis using the
           following Calendar options:</para>
-
             <para id="Para670738">Calendar: Select the Calendar you want to use
           for the analysis.</para>
-
             <para id="Para566688">Name/Selected Periods: Select as many periods
           as you want to include in the analysis. Selected periods correspond
           to Calendar specified in the "Calendar" field. Select individual
@@ -121,40 +97,33 @@
           Continue highlighting periods with the CTRL key depressed until all
           desired periods are selected. The entire group is now
           selected.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para566689">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para566689">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para566690">CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x19b16dc">
+         <term id="Para566690">CANCEL</term>
+         <listitem id="listitemN0x180ac00N0x19b16dc">
             <para>Closes the screen without updating Reorder Levels, returning
           you to the application desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para566691">UPDATE</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1724">
+         <term id="Para566691">UPDATE</term>
+         <listitem id="listitemN0x180ac00N0x19b1724">
             <para>Updates Reorder Levels, using the specified parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry role="openmfg">
-        <term id="Para566692">SUBMIT</term>
-
-        <listitem id="listitemN0x180ac00N0x19b1748">
+         <term id="Para566692">SUBMIT</term>
+         <listitem id="listitemN0x180ac00N0x19b1748">
             <para>Select to submit requested action to the Batch Manager for
           processing. For additional information, see the <link endterm="Anchor61009" id="XRef665397" linkend="Anchor61009">
           Submitting Reports and Jobs to the Batch Manager</link>"Topic:
           Submitting Reports and Jobs to the Batch Manager".</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

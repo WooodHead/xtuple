@@ -2,120 +2,94 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section592300">
-    <title>
-      <anchor id="Anchor592308" role="Index"
-              xreflabel="customers:characteristics for;characteristics:for customers"/>
+   <title>
+      
       <indexterm significance="normal">
-        <primary>customers</primary>
-
-        <secondary>characteristics for</secondary>
+         <primary>customers</primary>
+         <secondary>characteristics for</secondary>
       </indexterm> 
       <indexterm significance="normal">
-        <primary>characteristics</primary>
-
-        <secondary>for customers</secondary>
+         <primary>characteristics</primary>
+         <secondary>for customers</secondary>
       </indexterm>Customers by Characteristic</title>
-
-    <para id="Para592512">To view Customers by Characteristic, select the
+   <para id="Para592512">To view Customers by Characteristic, select the
     "Customers by Characteristic" option from the "Displays" menu. The
     following screen will appear:</para>
-
-    <para id="Para592395">
+   <para id="Para592395">
       <screenshot>
-        <mediaobject>
+         <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_Disp_custByCharact.png" id="Graphic592393"/>
             </imageobject>
-
             <caption id="Caption592396">Customers by Characteristic</caption>
-        </mediaobject>
+         </mediaobject>
       </screenshot>
    </para>
-
-    <para id="Para592517">When displaying Customers by Characteristic, you are
+   <para id="Para592517">When displaying Customers by Characteristic, you are
     presented with the following options:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para650664">Characteristic</term>
-
-        <listitem id="listitemN0x180ac00N0x1970a64">
+         <term id="Para650664">Characteristic</term>
+         <listitem id="listitemN0x180ac00N0x1970a64">
             <para>Select a Characteristic from the list of Characteristics
           designated as being available for use as Customer
           Characteristics.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para592642">Value</term>
-
-        <listitem id="listitemN0x180ac00N0x1970aac">
+         <term id="Para592642">Value</term>
+         <listitem id="listitemN0x180ac00N0x1970aac">
             <para>Enter the value corresponding to the specified Characteristic
           to view Customers who have been assigned the Characteristic and
           value combination.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para592520">Show Inactive Customers</term>
-
-        <listitem id="listitemN0x180ac00N0x1970af4">
+         <term id="Para592520">Show Inactive Customers</term>
+         <listitem id="listitemN0x180ac00N0x1970af4">
             <para>Select to include inactive Customers in the display.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para592529">Customers</term>
-
-        <listitem id="listitemN0x180ac00N0x1970b3c">
+         <term id="Para592529">Customers</term>
+         <listitem id="listitemN0x180ac00N0x1970b3c">
             <para>Display lists Customers who have been assigned the
           Characteristic and value combination.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para592531">To the far right of the screen, the following
+   </variablelist>
+   <para id="Para592531">To the far right of the screen, the following
     buttons are available:</para>
-
-    <variablelist>
+   <variablelist>
       <varlistentry>
-        <term id="Para592532">CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x1970ba8">
+         <term id="Para592532">CLOSE</term>
+         <listitem id="listitemN0x180ac00N0x1970ba8">
             <para>Closes the screen, returning you to the application
           desktop.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para592533">QUERY</term>
-
-        <listitem id="listitemN0x180ac00N0x1970bf0">
+         <term id="Para592533">QUERY</term>
+         <listitem id="listitemN0x180ac00N0x1970bf0">
             <para>Select to generate the display, using the specified
           parameters.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-
       <varlistentry>
-        <term id="Para653753">PRINT</term>
-
-        <listitem id="listitemN0x180ac00N0x1970c38">
+         <term id="Para653753">PRINT</term>
+         <listitem id="listitemN0x180ac00N0x1970c38">
             <para>Runs the report associated with this screen.</para>
-        </listitem>
+         </listitem>
       </varlistentry>
-    </variablelist>
-
-    <para id="Para592536">Right-clicking on a Customer in the Customer list
+   </variablelist>
+   <para id="Para592536">Right-clicking on a Customer in the Customer list
     enables you to select from the following menu options:</para>
-
-    <variablelist>
+   <variablelist>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/1)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
                   xpointer="element(/1/3/2/2)"/>
-
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
                   xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+   </variablelist>
+</section>

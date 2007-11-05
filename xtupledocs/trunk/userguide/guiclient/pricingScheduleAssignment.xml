@@ -2,37 +2,30 @@
 <!DOCTYPE section
   PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519656">
-  <title>
-      <anchor id="Anchor644807" role="Index" xreflabel="pricing:assigning schedules for"/> 
+   <title>
+       
       <indexterm significance="normal">
          <primary>pricing</primary>
-
          <secondary>assigning schedules for</secondary>
       </indexterm>Pricing Schedule Assignment</title>
-
-  <para id="Para598202">To create a Pricing Schedule assignment, select the
+   <para id="Para598202">To create a Pricing Schedule assignment, select the
   NEW button. The following screen will appear:</para>
-
-  <para id="Para598076">
+   <para id="Para598076">
       <screenshot>
          <mediaobject>
             <imageobject>
                <imagedata fileref="images/SO_IP_priceAssignNew.png" id="Graphic598074"/>
             </imageobject>
-
             <caption id="Caption598077">Create New Pricing Schedule
         Assignment</caption>
          </mediaobject>
       </screenshot>
    </para>
-
-  <para id="Para598070">When creating a new Pricing Schedule assignment, you
+   <para id="Para598070">When creating a new Pricing Schedule assignment, you
   are presented with the following options:</para>
-
-  <variablelist>
+   <variablelist>
       <varlistentry>
          <term id="Para598338">Selected Customer</term>
-
          <listitem id="listitemN0x180ac00N0x195206c">
             <para>Select to assign a Pricing Schedule to an individual Customer.
         Customer #: Specify the Customer Number of the Customer you want to
@@ -49,10 +42,8 @@
         Hold."</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para617116">Selected Customer Ship-To</term>
-
          <listitem id="listitemN0x180ac00N0x19520b4">
             <para>Specify the Customer Ship-To Address you want to assign a
         Pricing Schedule to. This is an optional setting which may be used in
@@ -62,60 +53,49 @@
         Addresses.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
-
-  <tip>
+   </variablelist>
+   <tip>
       <para id="Para622148">When entering Credit Memos, make sure the Ship-To
     Address on the Credit Memo matches the Ship-To Address on the Customer's
     Pricing Schedule. If they don"t match, you won"t be able to issue credit
     for exclusively sold Items.</para>
-  </tip>
-
-  <variablelist>
+   </tip>
+   <variablelist>
       <varlistentry>
          <term id="Para633968">Selected Cust. Ship-To Pattern</term>
-
          <listitem id="listitemN0x180ac00N0x1952144">
             <para>Enter a Ship-To Address pattern to select a range of Ship-To
         Addresses for the selected Customer.</para>
-
             <para id="Para656078">Refine your search using Regular Expressions, as
         described in <link endterm="Anchor77806" id="XRef656077" linkend="Anchor77806"> Pattern Matching with Regular
         Expressions</link>"Topic: Pattern Matching with Regular
         Expressions".</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598327">Selected Customer Type</term>
-
          <listitem id="listitemN0x180ac00N0x195218c">
             <para>Specify the Customer Type you want to assign a Pricing Schedule
         to.</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598328">Customer Type Pattern</term>
-
          <listitem id="listitemN0x180ac00N0x19521d4">
             <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-
             <para id="Para656086">Refine your search using Regular Expressions, as
         described in <link endterm="Anchor77806" id="XRef656085" linkend="Anchor77806"> Pattern Matching with Regular
         Expressions</link>"Topic: Pattern Matching with Regular
         Expressions".</para>
          </listitem>
       </varlistentry>
-
       <varlistentry>
          <term id="Para598395">Pricing Schedule</term>
-
          <listitem id="listitemN0x180ac00N0x195221c">
             <para>Specify the Pricing Schedule to be used when entering Sales
         Orders for the specified Customers.</para>
          </listitem>
       </varlistentry>
-  </variablelist>
+   </variablelist>
 </section>
