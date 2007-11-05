@@ -81,6 +81,8 @@ public slots:
     virtual void helpContents();
     virtual void helpAbout();
 
+    virtual void setMultipleTransactions(bool);
+
 protected:
     Package * _package;
     TarFile * _files;
@@ -95,6 +97,7 @@ protected slots:
 
 private:
     int _dbTimerId;
+    bool _multitrans;
 
 };
 

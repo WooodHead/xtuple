@@ -86,6 +86,7 @@ LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl
 
   (void)statusBar();
 
+  _multitrans = false;
   _package = 0;
   _files = 0;
   _dbTimerId = startTimer(60000);
@@ -327,6 +328,10 @@ void LoaderWindow::sStart()
   if(!_package->id().isEmpty())
     prefix = _package->id() + "/";
 
+  QSqlQuery qry;
+  if(!_multitrans)
+    qry.exec("begin;");
+
   // update scripts here
   _status->setText(tr("<p><b>Updating Schema</b></p>"));
   _text->setText(tr("<p>Applying database change files...</p>"));
@@ -344,13 +349,13 @@ void LoaderWindow::sStart()
     }
 
     QString sql(scriptData);
-    QSqlQuery qry;
 
     bool again = true;
     int r = 0;
     while(again) {
       again = false;
-      qry.exec("begin;");
+      if(_multitrans)
+        qry.exec("begin;");
       if(!qry.exec(sql))
       {
         QSqlError err = qry.lastError();
@@ -361,11 +366,17 @@ void LoaderWindow::sStart()
                       .arg(err.driverText())
                       .arg(err.databaseText());
         _text->append(tr("<p>"));
-        if(script.onError() == Script::Ignore)
+        if(_multitrans && script.onError() == Script::Ignore)
           _text->append(tr("<font color=orange>%1</font><br>").arg(message));
         else
           _text->append(tr("<font color=red>%1</font><br>").arg(message));
         qry.exec("rollback;");
+        if(!_multitrans)
+        {
+          _text->append(tr("<p>"));
+          _text->append(tr("<font color=red>The upgrade has been aborted due to an error and your database was rolled back to the state it was in when the upgrade was initiated.</font><br>"));
+          return;
+        }
         switch(script.onError())
         {
           case Script::Ignore:
@@ -395,7 +406,8 @@ void LoaderWindow::sStart()
         }
       }
     }
-    qry.exec("commit;");
+    if(_multitrans)
+      qry.exec("commit;");
     _progress->setValue(_progress->value() + 1);
   }
 
@@ -439,7 +451,6 @@ void LoaderWindow::sStart()
 
         if(!report_name.isEmpty())
         {
-          QSqlQuery qry;
           QSqlQuery query;
 
           QString sql("SELECT report_id "
@@ -509,6 +520,14 @@ void LoaderWindow::sStart()
 
   _progress->setValue(_progress->value() + 1);
 
+  if(!_multitrans)
+    qry.exec("commit;");
+
   _text->append(tr("<p>The Update is now complete!</p>"));
+}
+
+void LoaderWindow::setMultipleTransactions(bool mt)
+{
+  _multitrans = mt;
 }
 

@@ -82,6 +82,7 @@ int main(int argc, char* argv[])
   bool    haveUsername    = FALSE;
   bool    haveDatabaseURL = FALSE;
   _loggedIn        = FALSE;
+  bool multitrans = false;
 
   QString databaseURL = "";
 
@@ -91,6 +92,10 @@ int main(int argc, char* argv[])
 #ifdef Q_WS_WIN
   if (app.winVersion() == QSysInfo::WV_XP)
     app.setStyle(QStyleFactory::create("windowsxpstyle"));
+#if QT_VERSION >= 0x040300
+  else if (app.winVersion() == QSysInfo::WV_VISTA)
+    app.setStyle(QStyleFactory::create("windowsvistastyle"));
+#endif
   else
     app.setStyle(new QWindowsStyle);
 #elif defined Q_WS_MACX
@@ -109,25 +114,27 @@ int main(int argc, char* argv[])
     {
       QString argument(argv[intCounter]);
 
-      if (argument.contains("-databaseURL=")) {
+      if (argument.startsWith("-databaseURL=", Qt::CaseInsensitive)) {
         haveDatabaseURL = TRUE;
         databaseURL    = argument.right(argument.length() - 13);
       }
-      else if (argument.contains("-username="))
+      else if (argument.startsWith("-username=", Qt::CaseInsensitive))
       {
         haveUsername = TRUE;
         username     = argument.right(argument.length() - 10);
       }
-      else if (argument.contains("-passwd="))
+      else if (argument.startsWith("-passwd=", Qt::CaseInsensitive))
       {
         havePasswd = TRUE;
         passwd     = argument.right(argument.length() - 8);
       }
-      else if (argument.contains("-noAuth"))
+      else if (argument.toLower() == "-noauth")
       {
         haveUsername = TRUE;
         havePasswd   = TRUE;
       }
+      else if (argument.toLower() == "-multitrans")
+        multitrans = true;
 
     }
 
@@ -196,6 +203,7 @@ int main(int argc, char* argv[])
   }
 
   LoaderWindow * mainwin = new LoaderWindow();
+  mainwin->setMultipleTransactions(multitrans);
   mainwin->show();
 
   return app.exec();
