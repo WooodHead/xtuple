@@ -122,7 +122,7 @@ BEGIN
       _p.cmhead_docdate, '''',
       _p.cmhead_number, _p.cmhead_custponumber, _p.cmhead_docdate,
       ''C'', _p.cmhead_invcnumber, _p.cmhead_docdate,
-      (_r.cmitem_qtycredit * cmitem_qty_invuomratio -1), _r.unitprice, _r.cost,
+      (_r.cmitem_qtycredit * _r.cmitem_qty_invuomratio -1), _r.unitprice, _r.cost,
       _p.cmhead_salesrep_id, (_r.cmhead_commission * _r.amount * -1), FALSE,
       _p.cmhead_billtoname, _p.cmhead_billtoaddress1,
       _p.cmhead_billtoaddress2, _p.cmhead_billtoaddress3,
@@ -134,7 +134,7 @@ BEGIN
       _r.cmitem_tax_pcta,	_r.cmitem_tax_pctb,	_r.cmitem_tax_pctc,
       COALESCE(_r.cmitem_tax_ratea * -1,0.0), COALESCE(_r.cmitem_tax_rateb * -1,0.0), COALESCE(_r.cmitem_tax_ratec * -1,0.0));
 
-    _totalAmount := _totalAmount + _r.amount + currToCurr(_p.cmhead_tax_curr_id,
+    _totalAmount := _totalAmount + round(_r.amount, 2) + currToCurr(_p.cmhead_tax_curr_id,
 							  _p.cmhead_curr_id,
 							  COALESCE(_r.cmitem_tax_ratea,0.0) +
 							  COALESCE(_r.cmitem_tax_rateb,0.0) +
