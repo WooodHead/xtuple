@@ -1,202 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590099">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>financial reports</primary>
-         <secondary>balance sheet type</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>balance sheet reports</primary>
-      </indexterm>Balance Sheet Report</title>
-   <para id="Para590620">The system ships with a basic Balance Sheet designed
-    to generate Financial Reports using your Chart of Accounts data. In this
-    section, we will examine this basic Balance Sheet.</para>
-   <note>
-      <para id="Para590622">Because the basic Balance Sheet is a
-      system-defined Financial Report, it may not be modified (except to make
-      it active or inactive). However, you may copy the report and modify the
-      copy. You can think of the basic Balance Sheet as a template for
-      building other, similar Financial Reports.</para>
-   </note>
-   <para id="Para590623">To view the basic Balance Sheet, select it for
-    editing from the master list of Financial Reports. A message will alert
-    you that this is a system-defined report which may only be viewed, not
-    edited. Select the OK button to reach the following screen:</para>
-   <para id="Para588975">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_FR_basicBalSheet.png" id="Graphic588974"/>
-            </imageobject>
-            <caption id="Caption588976">Basic Balance Sheet
-          System-Defined</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para592084">The "Row Layout" tab displays information on all the
-    Account Groups and Account Numbers which make up the basic Balance Sheet.
-    If this were a custom report you were creating, you would be able to
-    add/remove Account Groups and Account Numbers to meet your specific
-    needs.</para>
-   <tip>
-      <para id="Para595256">To build row layouts for the three standard report
-      types--Income Statement, Balance Sheet, and Cash Flow--use the same
-      techniques as when building Ad Hoc report row layouts. The only
-      difference is you won"t need to specify which balances to calculate
-      (e.g., beginning, ending, etc.). The system determines which
-      calculations will be done for the standard statement formats.</para>
-   </tip>
-   <para id="Para592085">When viewing row layouts for the basic Balance
-    Sheet, you are presented with the following columns:</para>
-   <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18dcf50">
-         <para id="Para592086">Group/Account Name: Lists the Account Groups and
-        Account Types used in the report. The two main groups are ASSETS and
-        LIABILITIES AND OWNERS EQUITY. All Accounts having Type=Asset are
-        included in the ASSETS group. And within the LIABILITIES AND OWNERS
-        EQUITY group all Accounts having Type=Liability, Type=Equity, and also
-        Net Income are included.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dcf74">
-         <para id="Para592087">Sub./Summ.: Indicates whether group information
-        will be presented as a subtotal or summary line when the report is
-        run. In the basic Balance Sheet, all Account Groups are
-        subtotaled--except for the Net Income group, which is
-        summarized.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dcf98">
-         <para id="Para595814">Oper.: Specifies whether a group will be added
-        to ("+") or subtracted from ("-") the group total. In the basic Income
-        Statement, LIABILITIES AND OWNERS EQUITY are subtracted from the
-        ASSETS group.</para>
-      </listitem>
-   </itemizedlist>
-   <note>
-      <para id="Para595816">Select the VIEW button to see the system-defined
-      settings for each Account Group and Account Type used in the basic
-      Income Statement. When creating your own reports, you may choose to
-      either imitate or alter these default settings.</para>
-   </note>
-   <para id="Para592091">In addition to row layouts, you may also define
-    column layouts for your Financial Reports. Column layouts are used to
-    specify the time buckets financial information will be sorted into. You
-    specify a column layout to use when viewing or printing Financial Reports.
-    You may define any number of column layouts. Each layout will be linked to
-    either a pre-defined report definition or a custom report definition you
-    create yourself.</para>
-   <para id="Para592092">On the basic Balance Sheet, select the "Column
-    Layouts" tab to view all the time buckets available for the report. If
-    this were a custom report you were creating, you would be able to
-    add/remove column layouts to meet your specific needs.</para>
-   <tip>
-      <para id="Para596242">See the <link endterm="Anchor94732" id="XRef596244" linkend="Anchor94732"> Cash Flow Report</link>"Cash Flow
-      Report" section for specific examples describing the various column
-      layout options.</para>
-   </tip>
-   <para id="Para588995">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_FR_basicBalSheetCols.png" id="Graphic588994"/>
-            </imageobject>
-            <caption id="Caption588996">Basic Balance Sheet Column
-          Layouts</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para592418">When viewing column layouts for the basic Balance
-    Sheet, you are presented with the following column definitions--each of
-    which defines a different time bucket available for viewing Balance Sheet
-    information:</para>
-   <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18dd094">
-         <para id="Para592165">Current: Displays data for the current month
-        (i.e., Accounting Period). The month used as the basis for the
-        reporting is specified when the report is run. Uses the
-        "FinancialReportMonth" report definition.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dd0b8">
-         <para id="Para592166">Current, Budget: Displays data for the current
-        month, compared to Budget information for the current month. The month
-        used as the basis for the reporting is specified when the report is
-        run. Uses the "FinancialReportMonthBudget" report definition.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dd0dc">
-         <para id="Para592205">Current, Prior Month: Displays data for the
-        current month, compared to the prior month end. The month used as the
-        basis for the reporting is specified when the report is run. Uses the
-        "FinancialReportMonthPriorMonth" report definition.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dd100">
-         <para id="Para592213">Current, Prior Quarter: Displays data for the
-        current month, compared to the prior Quarter end. The month used as
-        the basis for the reporting is specified when the report is run. Uses
-        the "FinancialReportMonthPriorQuarter" report definition.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dd124">
-         <para id="Para592221">Current, Prior Year: Displays data for the
-        current month, compared to the Prior Fiscal Year end. The month used
-        as the basis for the reporting is specified when the report is run.
-        Uses the "FinancialReportMonthPriorYear" report definition.</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18dd148">
-         <para id="Para592206">Current, Year Ago: Displays data for the current
-        month, compared to the same month in the prior Fiscal Year. The month
-        used as the basis for the reporting is specified when the report is
-        run. Uses the "FinancialReportMonthPriorMonth" report
-        definition.</para>
-      </listitem>
-   </itemizedlist>
-   <note>
-      <para id="Para592180">Select the VIEW button to see the system-defined
-      settings for each Account Group and Account Type used in the basic
-      Income Statement. When creating your own reports, you may choose to
-      either imitate or alter these default settings.</para>
-   </note>
-   <tip>
-      <para id="Para595823">When creating a column layout, you can choose from
-      the following standard report templates:</para>
-      <para id="Para595824">FinancialReport (used by all Ad Hoc
-      reports)</para>
-      <para id="Para595825">FinancialReportMonth</para>
-      <para id="Para595826">FinancialReportMonthBudget</para>
-      <para id="Para595827">FinancialReportMonthDbCr</para>
-      <para id="Para595828">FinancialReportMonthPriorMonth</para>
-      <para id="Para595829">FinancialReportMonthPriorQuarter</para>
-      <para id="Para595830">FinancialReportMonthPriorYear</para>
-      <para id="Para595831">FinancialReportMonthQuarter</para>
-      <para id="Para595832">FinancialReportMonthYear</para>
-      <para id="Para595833">FinancialReportQuarter</para>
-      <para id="Para595834">FinancialReportQuarterBudget</para>
-      <para id="Para595835">FinancialReportQuarterPriorQuarter</para>
-      <para id="Para595836">FinancialReportYear</para>
-      <para id="Para595837">FinancialReportYearBudget</para>
-      <para id="Para595838">FinancialReportYearPriorYear</para>
-      <para id="Para595839">FinancialTrend (used by non-Ad-Hoc trend
-      reports)</para>
-      <para id="Para595840">If for some reason these templates don"t meet your
-      needs, you can always use OpenRPT to a) modify them or b) create your
-      own custom report templates.</para>
-   </tip>
-   <para id="Para592655">To view additional configuration options for the
-    layout of the basic Balance Sheet, select the "Options" tab. The following
-    screen will appear:</para>
-   <para id="Para589014">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/GL_FR_basicBalSheetOpt.png" id="Graphic589013"/>
-            </imageobject>
-            <caption id="Caption589015">Basic Balance Sheet Options</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para592705">The layout for the basic Balance Sheet does not use
-    any extra configuration options. However, if you were creating your own
-    Balance Sheet layout, you could choose to a) include a Grand Total row and
-    b) use alternate labels for Budget and Grand Total rows when viewing
-    and/or printing the Financial Report.</para>
+  <title><indexterm significance="normal">
+      <primary>financial reports</primary>
+      <secondary>balance sheet type</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>balance sheet reports</primary>
+    </indexterm>Balance Sheet Report</title>
+  <para id="Para590620">The system ships with a basic Balance Sheet designed
+  to generate Financial Reports using your Chart of Accounts data. In this
+  section, we will examine this basic Balance Sheet.</para>
+  <note>
+    <para id="Para590622">Because the basic Balance Sheet is a system-defined
+    Financial Report, it may not be modified (except to make it active or
+    inactive). However, you may copy the report and modify the copy. You can
+    think of the basic Balance Sheet as a template for building other, similar
+    Financial Reports.</para>
+  </note>
+  <para id="Para590623">To view the basic Balance Sheet, select it for editing
+  from the master list of Financial Reports. A message will alert you that
+  this is a system-defined report which may only be viewed, not edited. Select
+  the OK button to reach the following screen:</para>
+  <para id="Para588975"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_basicBalSheet.png"
+                     id="Graphic588974" />
+        </imageobject>
+        <caption id="Caption588976">Basic Balance Sheet
+        System-Defined</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para592084">The "Row Layout" tab displays information on all the
+  Account Groups and Account Numbers which make up the basic Balance Sheet. If
+  this were a custom report you were creating, you would be able to add/remove
+  Account Groups and Account Numbers to meet your specific needs.</para>
+  <tip>
+    <para id="Para595256">To build row layouts for the three standard report
+    types--Income Statement, Balance Sheet, and Cash Flow--use the same
+    techniques as when building Ad Hoc report row layouts. The only difference
+    is you won"t need to specify which balances to calculate (e.g., beginning,
+    ending, etc.). The system determines which calculations will be done for
+    the standard statement formats.</para>
+  </tip>
+  <para id="Para592085">When viewing row layouts for the basic Balance Sheet,
+  you are presented with the following columns:</para>
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x18dcf50">
+      <para id="Para592086">Group/Account Name: Lists the Account Groups and
+      Account Types used in the report. The two main groups are ASSETS and
+      LIABILITIES AND OWNERS EQUITY. All Accounts having Type=Asset are
+      included in the ASSETS group. And within the LIABILITIES AND OWNERS
+      EQUITY group all Accounts having Type=Liability, Type=Equity, and also
+      Net Income are included.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dcf74">
+      <para id="Para592087">Sub./Summ.: Indicates whether group information
+      will be presented as a subtotal or summary line when the report is run.
+      In the basic Balance Sheet, all Account Groups are subtotaled--except
+      for the Net Income group, which is summarized.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dcf98">
+      <para id="Para595814">Oper.: Specifies whether a group will be added to
+      ("+") or subtracted from ("-") the group total. In the basic Income
+      Statement, LIABILITIES AND OWNERS EQUITY are subtracted from the ASSETS
+      group.</para>
+    </listitem>
+  </itemizedlist>
+  <note>
+    <para id="Para595816">Select the VIEW button to see the system-defined
+    settings for each Account Group and Account Type used in the basic Income
+    Statement. When creating your own reports, you may choose to either
+    imitate or alter these default settings.</para>
+  </note>
+  <para id="Para592091">In addition to row layouts, you may also define column
+  layouts for your Financial Reports. Column layouts are used to specify the
+  time buckets financial information will be sorted into. You specify a column
+  layout to use when viewing or printing Financial Reports. You may define any
+  number of column layouts. Each layout will be linked to either a pre-defined
+  report definition or a custom report definition you create yourself.</para>
+  <para id="Para592092">On the basic Balance Sheet, select the "Column
+  Layouts" tab to view all the time buckets available for the report. If this
+  were a custom report you were creating, you would be able to add/remove
+  column layouts to meet your specific needs.</para>
+  <tip>
+    <para id="Para596242">See the <link endterm="Anchor94732" id="XRef596244"
+    linkend="Anchor94732"> Cash Flow Report</link>"Cash Flow Report" section
+    for specific examples describing the various column layout options.</para>
+  </tip>
+  <para id="Para588995"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_basicBalSheetCols.png"
+                     id="Graphic588994" />
+        </imageobject>
+        <caption id="Caption588996">Basic Balance Sheet Column
+        Layouts</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para592418">When viewing column layouts for the basic Balance
+  Sheet, you are presented with the following column definitions--each of
+  which defines a different time bucket available for viewing Balance Sheet
+  information:</para>
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x18dd094">
+      <para id="Para592165">Current: Displays data for the current month
+      (i.e., Accounting Period). The month used as the basis for the reporting
+      is specified when the report is run. Uses the "FinancialReportMonth"
+      report definition.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dd0b8">
+      <para id="Para592166">Current, Budget: Displays data for the current
+      month, compared to Budget information for the current month. The month
+      used as the basis for the reporting is specified when the report is run.
+      Uses the "FinancialReportMonthBudget" report definition.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dd0dc">
+      <para id="Para592205">Current, Prior Month: Displays data for the
+      current month, compared to the prior month end. The month used as the
+      basis for the reporting is specified when the report is run. Uses the
+      "FinancialReportMonthPriorMonth" report definition.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dd100">
+      <para id="Para592213">Current, Prior Quarter: Displays data for the
+      current month, compared to the prior Quarter end. The month used as the
+      basis for the reporting is specified when the report is run. Uses the
+      "FinancialReportMonthPriorQuarter" report definition.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dd124">
+      <para id="Para592221">Current, Prior Year: Displays data for the current
+      month, compared to the Prior Fiscal Year end. The month used as the
+      basis for the reporting is specified when the report is run. Uses the
+      "FinancialReportMonthPriorYear" report definition.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18dd148">
+      <para id="Para592206">Current, Year Ago: Displays data for the current
+      month, compared to the same month in the prior Fiscal Year. The month
+      used as the basis for the reporting is specified when the report is run.
+      Uses the "FinancialReportMonthPriorMonth" report definition.</para>
+    </listitem>
+  </itemizedlist>
+  <note>
+    <para id="Para592180">Select the VIEW button to see the system-defined
+    settings for each Account Group and Account Type used in the basic Income
+    Statement. When creating your own reports, you may choose to either
+    imitate or alter these default settings.</para>
+  </note>
+  <tip>
+    <para id="Para595823">When creating a column layout, you can choose from
+    the following standard report templates:</para>
+    <para id="Para595824">FinancialReport (used by all Ad Hoc reports)</para>
+    <para id="Para595825">FinancialReportMonth</para>
+    <para id="Para595826">FinancialReportMonthBudget</para>
+    <para id="Para595827">FinancialReportMonthDbCr</para>
+    <para id="Para595828">FinancialReportMonthPriorMonth</para>
+    <para id="Para595829">FinancialReportMonthPriorQuarter</para>
+    <para id="Para595830">FinancialReportMonthPriorYear</para>
+    <para id="Para595831">FinancialReportMonthQuarter</para>
+    <para id="Para595832">FinancialReportMonthYear</para>
+    <para id="Para595833">FinancialReportQuarter</para>
+    <para id="Para595834">FinancialReportQuarterBudget</para>
+    <para id="Para595835">FinancialReportQuarterPriorQuarter</para>
+    <para id="Para595836">FinancialReportYear</para>
+    <para id="Para595837">FinancialReportYearBudget</para>
+    <para id="Para595838">FinancialReportYearPriorYear</para>
+    <para id="Para595839">FinancialTrend (used by non-Ad-Hoc trend
+    reports)</para>
+    <para id="Para595840">If for some reason these templates don"t meet your
+    needs, you can always use OpenRPT to a) modify them or b) create your own
+    custom report templates.</para>
+  </tip>
+  <para id="Para592655">To view additional configuration options for the
+  layout of the basic Balance Sheet, select the "Options" tab. The following
+  screen will appear:</para>
+  <para id="Para589014"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/GL_FR_basicBalSheetOpt.png"
+                     id="Graphic589013" />
+        </imageobject>
+        <caption id="Caption589015">Basic Balance Sheet Options</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para592705">The layout for the basic Balance Sheet does not use
+  any extra configuration options. However, if you were creating your own
+  Balance Sheet layout, you could choose to a) include a Grand Total row and
+  b) use alternate labels for Budget and Grand Total rows when viewing and/or
+  printing the Financial Report.</para>
 </section>

@@ -1,244 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-   <title>Work Center</title>
-   <para id="Para530143">To  
-      <indexterm significance="normal">
-         <primary>work centers</primary>
-         <secondary>creating new</secondary>
-      </indexterm>create a new Work Center, select the NEW button. The following
-  screen will appear:</para>
-   <para id="Para530147">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_MI_workCenterNew.png" id="Graphic530145"/>
-            </imageobject>
-            <caption id="Caption530148">Create New Work Center</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para530149">When creating a new Work Center, you are presented
+  <title><indexterm significance="normal">
+      <primary>work centers</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Work Center</title>
+  <para id="Para530143">To create a new Work Center, select the NEW button.
+  The following screen will appear:</para>
+  <para id="Para530147"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_workCenterNew.png"
+                     id="Graphic530145" />
+        </imageobject>
+        <caption id="Caption530148">Create New Work Center</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para530149">When creating a new Work Center, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para530150">Work Center #</term>
-         <listitem>
-            <para>Enter a unique code to identify the Work Center.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530151">Description</term>
-         <listitem>
-            <para>Enter a description to further identify the Work Center.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530152">Department</term>
-         <listitem>
-            <para>Specify a Department to be associated with the Work
+  <variablelist>
+    <varlistentry>
+      <term id="Para530150">Work Center #</term>
+      <listitem>
+        <para>Enter a unique code to identify the Work Center.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530151">Description</term>
+      <listitem>
+        <para>Enter a description to further identify the Work Center.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530152">Department</term>
+      <listitem>
+        <para>Specify a Department to be associated with the Work
         Center.</para>
-            <para id="Para530153">This is an optional setting.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530154">Warehouse</term>
-         <listitem>
-            <para>Specify the Warehouse where the Work Center is located.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530155"># of Machines</term>
-         <listitem>
-            <para>Select a number using the arrow buttons, or manually enter a
+        <para id="Para530153">This is an optional setting.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530154">Warehouse</term>
+      <listitem>
+        <para>Specify the Warehouse where the Work Center is located.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530155"># of Machines</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 99.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530156"># of People</term>
-         <listitem>
-            <para>Select a number using the arrow buttons, or manually enter a
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530156"># of People</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 1,000.</para>
-            <para id="Para530157">Value entered indicates the multiplier that will
+        <para id="Para530157">Value entered indicates the multiplier that will
         be used for man hour calculations.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530159">
-            
-            <indexterm significance="normal">
-               <primary>labor rates</primary>
-               <secondary>for work centers</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>work centers</primary>
-               <secondary>labor rates for</secondary>
-            </indexterm>Run Labor Rate</term>
-         <listitem>
-            <para>Specify a run labor rate from the following options:</para>
-            <para id="Para530160">Specify Labor Rate: Amount entered represents
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530159"><indexterm significance="normal">
+          <primary>labor rates</primary>
+          <secondary>for work centers</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>work centers</primary>
+          <secondary>labor rates for</secondary>
+        </indexterm>Run Labor Rate</term>
+      <listitem>
+        <para>Specify a run labor rate from the following options:</para>
+        <para id="Para530160">Specify Labor Rate: Amount entered represents
         dollars per man hour that it Costs to complete the activity assigned
         to the Work Center. You have the choice of entering a specific run
         labor rate in this field, or selecting a pre-defined Standard Labor
         Rate from the list in the succeeding field.</para>
-            <para id="Para530161">Select Standard Rate: Select a pre-defined labor
+        <para id="Para530161">Select Standard Rate: Select a pre-defined labor
         rate to be applied for the activity assigned to the Work
         Center.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para530163">For the purposes of Work Order reporting, Work
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para530163">For the purposes of Work Order reporting, Work
     Centers are set up only once. As a result, the setup labor rate is charged
     only once per Work Order. The run labor rate, on the other hand, is
     charged per Item produced. These rates may be adjusted after Work Order
     explosion using the Maintain Work Order Operations screen.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para530164">Setup Labor Rate</term>
-         <listitem>
-            <para>Specify a setup labor rate from the following options:</para>
-            <para id="Para530165">Specify Labor Rate: Amount entered represents
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para530164">Setup Labor Rate</term>
+      <listitem>
+        <para>Specify a setup labor rate from the following options:</para>
+        <para id="Para530165">Specify Labor Rate: Amount entered represents
         dollars per man hour that it Costs to set up the Operation that will
         be performed at the Work Center. You have the choice of entering a
         specific setup labor rate in this field, or selecting a pre-defined
         Standard Labor Rate from the list in the succeeding field.</para>
-            <para id="Para530166">Select Standard Rate: Select a pre-defined labor
+        <para id="Para530166">Select Standard Rate: Select a pre-defined labor
         rate to be applied to the setup activity assigned to the Work Center.
         If you determine that none of the Standard Labor Rates apply to the
         setup activity involved with the Work Center, then you can manually
         specify a rate in the preceding field.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para530168">To calculate hourly labor rates for a Work Center,
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para530168">To calculate hourly labor rates for a Work Center,
     multiply the number of people by the labor rate--either the run rate or
     the setup rate. To calculate all Work Center charges, add overhead Costs
     to the sum of the labor rates.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para530170">
-            
-            <indexterm significance="normal">
-               <primary>overhead</primary>
-               <secondary>in work centers</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>work centers</primary>
-               <secondary>overhead in</secondary>
-            </indexterm>Overhead % of Labor</term>
-         <listitem>
-            <para>Amount entered represents overhead for this Work Center as a
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para530170"><indexterm significance="normal">
+          <primary>overhead</primary>
+          <secondary>in work centers</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>work centers</primary>
+          <secondary>overhead in</secondary>
+        </indexterm>Overhead % of Labor</term>
+      <listitem>
+        <para>Amount entered represents overhead for this Work Center as a
         percentage of the hourly run labor rate. The hourly run labor rate is
         equal to the number of people multiplied by the run labor rate.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530171">Overhead per Labor Hr.</term>
-         <listitem>
-            <para>Amount entered represents overhead for this Work Center as the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530171">Overhead per Labor Hr.</term>
+      <listitem>
+        <para>Amount entered represents overhead for this Work Center as the
         number of dollars per man hour.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530172">Overhead per Mach. Hr.</term>
-         <listitem>
-            <para>Hr.: Amount entered represents overhead for this Work Center as
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530172">Overhead per Mach. Hr.</term>
+      <listitem>
+        <para>Hr.: Amount entered represents overhead for this Work Center as
         the number of dollars per machine hour.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530173">Overhead Rate/Hr.</term>
-         <listitem>
-            <para>Displays automatic calculation of the Work Center's overhead
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530173">Overhead Rate/Hr.</term>
+      <listitem>
+        <para>Displays automatic calculation of the Work Center's overhead
         Costs, expressed in dollars per hour. Calculation is based on the
         following formula, using data entered into the Work Center screen:
         (overhead % of labor <!--Yen--> run labor rate) + (overhead per labor
         Hr. <!--Yen--> # of People) + (overhead per mach. hr. <!--Yen--> # of
         machines) = overhead rate/Hr.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530174">Overhead per Unit</term>
-         <listitem>
-            <para>Amount entered represents overhead for this Work Center as the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530174">Overhead per Unit</term>
+      <listitem>
+        <para>Amount entered represents overhead for this Work Center as the
         number of dollars per unit produced.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530175">Avg. Queue Days</term>
-         <listitem>
-            <para>Queue Days: Select a number using the arrow buttons, or manually
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530175">Avg. Queue Days</term>
+      <listitem>
+        <para>Queue Days: Select a number using the arrow buttons, or manually
         enter a value up to a maximum of 999.</para>
-            <para id="Para530176">Amount entered represents the average number of
+        <para id="Para530176">Amount entered represents the average number of
         days between the day a job arrives at the Work Center and the day work
         begins on the job.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530177">Avg. Setup Time</term>
-         <listitem>
-            <para>Setup Time: Amount entered represents the average amount of time
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530177">Avg. Setup Time</term>
+      <listitem>
+        <para>Setup Time: Amount entered represents the average amount of time
         required to set up the Work Center in preparation for starting the
         job.</para>
-            <para id="Para530178">This option also enables you to specify whether
+        <para id="Para530178">This option also enables you to specify whether
         setup time relates to labor time or machine time.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530180">
-            
-            <indexterm significance="normal">
-               <primary>capacity</primary>
-               <secondary>daily in work centers</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>work centers</primary>
-               <secondary>daily capacity</secondary>
-            </indexterm>Daily Capacity</term>
-         <listitem>
-            <para>The amount entered indicates the number of minutes worth of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530180"><indexterm significance="normal">
+          <primary>capacity</primary>
+          <secondary>daily in work centers</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>work centers</primary>
+          <secondary>daily capacity</secondary>
+        </indexterm>Daily Capacity</term>
+      <listitem>
+        <para>The amount entered indicates the number of minutes worth of
         production the Work Center is available to perform in one day.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530181">Efficiency Factor</term>
-         <listitem>
-            <para>Amount entered will be multiplied by the daily Capacity to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530181">Efficiency Factor</term>
+      <listitem>
+        <para>Amount entered will be multiplied by the daily Capacity to
         determine the standard Capacity for the Work Center. The standard
         Capacity value will be used when determining the actual Capacity for
         this Work Center. The efficiency factor for a Work Center should be
         developed based on time studies.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530182">Comments</term>
-         <listitem>
-            <para>This is a scrolling text field with word-wrapping for entering
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530182">Comments</term>
+      <listitem>
+        <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Work Center.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para530183">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para530183">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para530184">CANCEL</term>
-         <listitem>
-            <para>Closes the screen without creating the Work Center, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para530184">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating the Work Center, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para530185">SAVE</term>
-         <listitem>
-            <para>Creates the Work Center and adds it to the master list of Work
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para530185">SAVE</term>
+      <listitem>
+        <para>Creates the Work Center and adds it to the master list of Work
         Centers.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
