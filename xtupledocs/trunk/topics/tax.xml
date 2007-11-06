@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section611231">
-   <title> 
-       
-      <indexterm significance="normal">
-         <primary>taxes</primary>
-         <secondary>explained</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>topics</primary>
-         <secondary>taxation basics</secondary>
-      </indexterm>Topic: Taxation Basics</title>
-   <para id="Para611232">Beginning with version 2.1.0, OpenMFG has implemented
+  <title><indexterm significance="normal">
+      <primary>taxes</primary>
+      <secondary>explained</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>topics</primary>
+      <secondary>taxation basics</secondary>
+    </indexterm>Topic: Taxation Basics</title>
+  <para id="Para611232">Beginning with version 2.1.0, OpenMFG has implemented
   a comprehensive and flexible design for taxation intended to address the
   unique requirements for sales Tax around the world. This section illustrates
   how this capability can be adapted to wide-ranging requirements. It also
   offers tips for users migrating from previous releases of OpenMFG.</para>
-   <section id="Section611233">
-      <title>Overview</title>
-      <para id="Para611234">In this scenario, we will show the setup for and
+  <section id="Section611233">
+    <title>Overview</title>
+    <para id="Para611234">In this scenario, we will show the setup for and
     operation of a simple Tax scheme in which there are two Tax Authorities
     (described as "Tax Zones"). Two Tax Types will also be defined--one for
     Normal Products (Tax Type 1) and one for Educational Products (Tax Type
@@ -33,15 +30,15 @@
     Codes have been established to determine the Tax Rate to apply (5% or 1%
     in this example) and the appropriate General Ledger (G/L) Account to
     use.</para>
-   </section>
-   <section id="Section611235">
-      <title>Creating G/L Accounts for Taxation</title>
-      <para id="Para611236">OpenMFG gives you the ability to collect Taxes on
+  </section>
+  <section id="Section611235">
+    <title>Creating G/L Accounts for Taxation</title>
+    <para id="Para611236">OpenMFG gives you the ability to collect Taxes on
     Sales Orders. There are generally two methods for recording the collection
     of sales Tax in the General Ledger:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x18970c0">
-            <para id="Para611237">Tax Liability: Taxes collected from Customers
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x18970c0">
+        <para id="Para611237">Tax Liability: Taxes collected from Customers
         are recorded as a liability on the balance sheet. When the Tax is
         paid, the liability is reduced based on the amount of the payment. In
         this section, we will create two Expense Categories--one for each of
@@ -51,198 +48,190 @@
         for a Tax payment is posted, the liability Account linked to the
         Expense Category is cleared and the cash Account on which the Check is
         drawn is charged.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18970e4">
-            <para id="Para611238">Tax Revenue: Using the method described above
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18970e4">
+        <para id="Para611238">Tax Revenue: Using the method described above
         assumes that Tax collected from a Customer is revenue and as such is
         posted to a revenue Account in the G/L. Expense Categories are
         established that charge G/L expense Accounts when the Tax is paid to
         the Tax Authority thereby offsetting Tax revenues and Tax expenses on
         the Income Statement.</para>
-         </listitem>
-      </itemizedlist>
-      <para id="Para611239">These two methods are not mutually exclusive, but
+      </listitem>
+    </itemizedlist>
+    <para id="Para611239">These two methods are not mutually exclusive, but
     the relationships between Tax Codes, Expense Categories, and corresponding
     G/L Accounts and Tax Authorities must be carefully thought out.</para>
-      <para id="Para611240">You will setup your G/L Accounts with the level of
+    <para id="Para611240">You will setup your G/L Accounts with the level of
     detail necessary to provide the insight and reporting you require for your
     situation. The following screen shows the Account detail for a Tax
     liability Account:</para>
-      <para id="Para611244">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_0100_GL.png" id="Graphic611242"/>
-               </imageobject>
-               <caption id="Caption611246">G/L Account Definitions</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611247">In this example we have created Accounts that relate
+    <para id="Para611244"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0100_GL.png"
+                       id="Graphic611242" />
+          </imageobject>
+          <caption id="Caption611246">G/L Account Definitions</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611247">In this example we have created Accounts that relate
     to Tax Types and Tax Authorities. This may be desirable if you plan to use
     the Financial Reporting Engine (FRE) to perform financial analysis or to
     generate supporting documents for Tax returns that require this level of
     detail.</para>
-   </section>
-   <section id="Section611248">
-      <title>Tax Controls</title>
-      <para id="Para611249">The following Tax-related screens are grouped
+  </section>
+  <section id="Section611248">
+    <title>Tax Controls</title>
+    <para id="Para611249">The following Tax-related screens are grouped
     together in the "Master Information" section of the G/L Module:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x18971bc">
-            <para id="Para611250">Tax Authorities</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18971e0">
-            <para id="Para611251">Tax Codes</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1897204">
-            <para id="Para611252">Tax Types</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1897228">
-            <para id="Para611253">Tax Selections</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x189724c">
-            <para id="Para611254">Tax Registrations</para>
-         </listitem>
-      </itemizedlist>
-      <para id="Para611255">We will look at each of these Master Information
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x18971bc">
+        <para id="Para611250">Tax Authorities</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18971e0">
+        <para id="Para611251">Tax Codes</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1897204">
+        <para id="Para611252">Tax Types</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1897228">
+        <para id="Para611253">Tax Selections</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x189724c">
+        <para id="Para611254">Tax Registrations</para>
+      </listitem>
+    </itemizedlist>
+    <para id="Para611255">We will look at each of these Master Information
     categories--with the exception of Tax Registrations, which are used
     (optionally) to store Tax Account numbers by Tax Authority.</para>
-   </section>
-   <section id="Section611256">
-      <title>Creating Tax Authorities</title>
-      <para id="Para611257">Tax Authorities are defined as CRM Accounts in
+  </section>
+  <section id="Section611256">
+    <title>Creating Tax Authorities</title>
+    <para id="Para611257">Tax Authorities are defined as CRM Accounts in
     OpenMFG, as shown in the following screenshot:</para>
-      <para id="Para611261">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_0130_Accnt.png" id="Graphic611259"/>
-               </imageobject>
-               <caption id="Caption611263">Tax Authority CRM Account
+    <para id="Para611261"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0130_Accnt.png"
+                       id="Graphic611259" />
+          </imageobject>
+          <caption id="Caption611263">Tax Authority CRM Account
           Definition</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <tip>
-         <para id="Para611265">If we need to generate a Check to pay Taxes to a
+        </mediaobject>
+      </screenshot></para>
+    <tip>
+      <para id="Para611265">If we need to generate a Check to pay Taxes to a
       Tax Authority, the parent CRM Account should also be defined as a Vendor
       in order to facilitate the payment process.</para>
-      </tip>
-      <para id="Para611266">The detail under a Tax Authority provides a place to
+    </tip>
+    <para id="Para611266">The detail under a Tax Authority provides a place to
     store Account information, Contacts, and Addresses.</para>
-      <note>
-         <para id="Para611268">The concept of a Tax Authority is new beginning
+    <note>
+      <para id="Para611268">The concept of a Tax Authority is new beginning
       with OpenMFG version 2.1. For users migrating to this version, the
       upgrade script will automatically create Tax Authorities from each
       pre-existing Tax Code.</para>
-      </note>
-   </section>
-   <section id="Section611269">
-      <title>Customer Ship-To Tax Definitions</title>
-      <para id="Para611270">In this scenario, we will use one Customer who ships
+    </note>
+  </section>
+  <section id="Section611269">
+    <title>Customer Ship-To Tax Definitions</title>
+    <para id="Para611270">In this scenario, we will use one Customer who ships
     to stores that fall under the Tax jurisdiction of two different Tax
     Authorities, each with different Tax Rates on different types of
     products.</para>
-      <para id="Para611274">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_0160_Shi-To.png" id="Graphic611272"/>
-               </imageobject>
-               <caption id="Caption611276">Customer Ship-To Tax
+    <para id="Para611274"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0160_Shi-To.png"
+                       id="Graphic611272" />
+          </imageobject>
+          <caption id="Caption611276">Customer Ship-To Tax
           Definition</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611279">The critical field for taxation in <link endterm="Anchor74917" id="XRef611278" linkend="Anchor74917"> G/L Account
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611279">The critical field for taxation in <link
+    endterm="Anchor74917" id="XRef611278" linkend="Anchor74917"> G/L Account
     Settings</link>Figure 15.15 is the "Tax Authority" field. In this case we
     see that Store 1 falls under the Tax jurisdiction of TAXZONE1. Store 2
     (not shown) falls under TAXZONE2.</para>
-   </section>
-   <section id="Section611281">
-      <title>Tax Code Definitions</title>
-      <para id="Para611282">Tax Codes hold both the rate(s) at which Tax is
+  </section>
+  <section id="Section611281">
+    <title>Tax Code Definitions</title>
+    <para id="Para611282">Tax Codes hold both the rate(s) at which Tax is
     calculated and the G/L Account(s) Tax transactions are posted to. You can
     see a sample Tax Code detail in the following screen:</para>
-      <para id="Para611286">
-         <screenshot id="Figure611284">
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_0190_Tax Codes.png" id="Graphic611284"/>
-               </imageobject>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611288">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="" id="Graphic"/>
-               </imageobject>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611289">You may define up to three Tax Rates. Each is
+    <para id="Para611286"><screenshot id="Figure611284">
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png"
+                       id="Graphic611284" />
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611288"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="" id="Graphic" />
+          </imageobject>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611289">You may define up to three Tax Rates. Each is
     calculated independently, unless the "Cumulative" box is checked. When
     that option is selected, Tax is calculated cumulatively on the previous
     Tax Rate. Such a scenario is very rare.</para>
-      <para id="Para611290">Notice that G/L Accounts are also linked to each Tax
+    <para id="Para611290">Notice that G/L Accounts are also linked to each Tax
     Rate. The same Account may be used for all three Tax Rates--or a different
     Account may be used for each to capture more detail for G/L and Tax
     reporting purposes.</para>
-   </section>
-   <section id="Section611291">
-      <title>Tax Type Definitions</title>
-      <para id="Para611292">Tax Types are linked to Items and Tax Authorities in
+  </section>
+  <section id="Section611291">
+    <title>Tax Type Definitions</title>
+    <para id="Para611292">Tax Types are linked to Items and Tax Authorities in
     an Item's P/D record. You should think carefully about how to approach Tax
     Types. For example, you may consider creating Tax Types that relate to
     different Tax Authorities. In this case, you might have Tax TYPE10 and Tax
     TYPE15. A single Item could be linked to each--TYPE10 for each Tax
     Authority that taxes it at 10% and TYPE15 for each that taxes it at
     15%.</para>
-      <para id="Para611293">A sample Tax Types list is shown in the following
+    <para id="Para611293">A sample Tax Types list is shown in the following
     screen:</para>
-      <para id="Para611297">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_230_TaxTypes.png" id="Graphic611295"/>
-               </imageobject>
-               <caption id="Caption611298">Tax Types</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611299">Another strategy is to relate the Tax Type to
+    <para id="Para611297"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_230_TaxTypes.png"
+                       id="Graphic611295" />
+          </imageobject>
+          <caption id="Caption611298">Tax Types</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611299">Another strategy is to relate the Tax Type to
     Product Categories. In our scenario, we have Normal Products and
     Educational Products. The relationship between Item, Tax Type, and Tax
     Authority is then established based on how each Tax Authority treats that
     type of product.</para>
-      <para id="Para611300">Some Tax Authorities charge Tax on Freight. A
+    <para id="Para611300">Some Tax Authorities charge Tax on Freight. A
     reserved Tax Type called Freight is pre-populated in the OpenMFG database
     specifically for this purpose. On the Tax Selection screen (see below),
     the freight Tax Type is then linked to a) Tax Authorities that charge Tax
     on freight and b) Tax Codes that contain the appropriate rate.</para>
-   </section>
-   <section id="Section611301">
-      <title>Tax Selection Matrix</title>
-      <para id="Para611302">Before we look at an Item and its relationship to
+  </section>
+  <section id="Section611301">
+    <title>Tax Selection Matrix</title>
+    <para id="Para611302">Before we look at an Item and its relationship to
     Tax Types, let's take a look at Tax Selections. The Tax Selections screen
     creates a matrix combining the Tax Type (linked to the Item), the Tax
     Authority (also linked to the Item), and the Tax Code. The following
     screen shows a sample Tax Selections master list:</para>
-      <para id="Para611306">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_260_TaxTypes.png" id="Graphic611304"/>
-               </imageobject>
-               <caption id="Caption611308">Tax Selections</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611309">Here we see that Tax Authority TAXZONE1 links two
+    <para id="Para611306"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_260_TaxTypes.png"
+                       id="Graphic611304" />
+          </imageobject>
+          <caption id="Caption611308">Tax Selections</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611309">Here we see that Tax Authority TAXZONE1 links two
     different Tax Types (one for Normal Products and one for Educational
     Products) to two distinct Tax Codes. Tax Code ZONE1-TYPE1 will calculate
     the Tax at 5% and post it through to a special G/L Account. Tax Code
@@ -253,32 +242,30 @@
     defined to hold Tax Authority TAXZONE2 balances. Were this not desired, a
     single 5% Tax Code could have been use for both TAXZONE1 and
     TAXZONE2.</para>
-   </section>
-   <section id="Section611310">
-      <title>Item Tax Type Assignments</title>
-      <para id="Para611311">The P/D Item record contains a tab called "Tax
+  </section>
+  <section id="Section611310">
+    <title>Item Tax Type Assignments</title>
+    <para id="Para611311">The P/D Item record contains a tab called "Tax
     Types." This tab is used to associate an Item with a Tax Type and
     corresponding Tax Authority.</para>
-      <tip>
-         <para id="Para611313">The same Tax Type may be taxed differently by
+    <tip>
+      <para id="Para611313">The same Tax Type may be taxed differently by
       different Tax Authorities. This is controlled on the Tax Selections
       screen, where Tax Authorities/Tax Types are linked to Tax Codes (which
       determine Tax Rates).</para>
-      </tip>
-      <para id="Para611314">The following screen shows the "Tax Types" tab on a
+    </tip>
+    <para id="Para611314">The following screen shows the "Tax Types" tab on a
     sample Item master:</para>
-      <para id="Para611318">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_290_ItemTax.png" id="Graphic611316"/>
-               </imageobject>
-               <caption id="Caption611320">Item Tax Types Assignments</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611321">By default, an Item is not taxed if no relationship
+    <para id="Para611318"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_290_ItemTax.png"
+                       id="Graphic611316" />
+          </imageobject>
+          <caption id="Caption611320">Item Tax Types Assignments</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611321">By default, an Item is not taxed if no relationship
     has been created to link it to a Tax Type and Tax Authority. However, it
     may be desirable in some cases to intentionally indicate that an Item is
     not taxed for a specific Tax Authority. If so, you would set this up by
@@ -286,270 +273,263 @@
     master. You would then link this relationship to a Tax Selection record
     pointing to a Tax Code having a 0% Tax Rate. Again, this is optional and
     may or may not be desirable.</para>
-   </section>
-   <section id="Section611322">
-      <title>Clearing Tax Liability with Expense Categories</title>
-      <para id="Para611323">Because we are charging Customers Tax that we must
+  </section>
+  <section id="Section611322">
+    <title>Clearing Tax Liability with Expense Categories</title>
+    <para id="Para611323">Because we are charging Customers Tax that we must
     ultimately pay to Tax Authorities, it is important to have a mechanism for
     making payments to Tax Authorities. Sales Tax is a liability that must be
-    settled. As we saw in <link endterm="Anchor33178" id="XRef611325" linkend="Anchor33178"> Tax Codes</link>Figure 15.36, our sample Tax Code
+    settled. As we saw in <link endterm="Anchor33178" id="XRef611325"
+    linkend="Anchor33178"> Tax Codes</link>Figure 15.36, our sample Tax Code
     references a liability Account. By creating an Expense Category that links
     to the same liability Account, we can clear our Tax liability when we post
     Vouchers that pay Tax Authorities.</para>
-      <para id="Para611327">The following screen shows a sample Expense Category
+    <para id="Para611327">The following screen shows a sample Expense Category
     detail:</para>
-      <para id="Para611331">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_320_ExpenseCat.png" id="Graphic611329"/>
-               </imageobject>
-               <caption id="Caption611333">Expense Categories for Tax</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611334">Notice how the "Expense" field for Expense Category
+    <para id="Para611331"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png"
+                       id="Graphic611329" />
+          </imageobject>
+          <caption id="Caption611333">Expense Categories for Tax</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611334">Notice how the "Expense" field for Expense Category
     TAXZONE1-TYPE1 is linked to a liability Account. When we Voucher our
     payment to the Tax Authority, we will use this Expense Category to clear
     the lability.</para>
-      <tip>
-         <para id="Para611336">An alternate method for clearing Tax liability is
+    <tip>
+      <para id="Para611336">An alternate method for clearing Tax liability is
       to book the Sales Tax collected to a Revenue Account--and then offset it
       with an Expense Category linked to an expense Account.</para>
-      </tip>
-   </section>
-   <section id="Section611337">
-      <title>Sample Sales Order</title>
-      <para id="Para611338">Let's create a Sales Order for a Customer Ship-To
+    </tip>
+  </section>
+  <section id="Section611337">
+    <title>Sample Sales Order</title>
+    <para id="Para611338">Let's create a Sales Order for a Customer Ship-To
     Address that taxes Educational Products at one rate and Normal Products at
     another. In addition, we will use a Tax Selection record that links the
     Freight Tax Type to a Tax Code, thereby causing Tax to be calculated on
     the freight charge.</para>
-      <para id="Para611339">The following screen shows the Line Item Tax detail
+    <para id="Para611339">The following screen shows the Line Item Tax detail
     for the sample Sales Order will be using:</para>
-      <para id="Para611343">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png" id="Graphic611341"/>
-               </imageobject>
-               <caption id="Caption611345">Sales Order Line Showing Tax
+    <para id="Para611343"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png"
+                       id="Graphic611341" />
+          </imageobject>
+          <caption id="Caption611345">Sales Order Line Showing Tax
           Detail</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <tip>
-         <para id="Para611347">To view Line Item Tax detail, simply click on the
+        </mediaobject>
+      </screenshot></para>
+    <tip>
+      <para id="Para611347">To view Line Item Tax detail, simply click on the
       "Tax" hyperlink found on the Sales Order Item screen.</para>
-      </tip>
-      <para id="Para611348">While Tax is calculated at the Line Item level, we
+    </tip>
+    <para id="Para611348">While Tax is calculated at the Line Item level, we
     can see the Tax impact for an entire Sales Order from the "Line Items"
     tab, as shown below:</para>
-      <para id="Para611352">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png" id="Graphic611350"/>
-               </imageobject>
-               <caption id="Caption611354">Sales Order Line Items Showing Tax
+    <para id="Para611352"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png"
+                       id="Graphic611350" />
+          </imageobject>
+          <caption id="Caption611354">Sales Order Line Items Showing Tax
           Breakdown</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611355">From the "Line Items" tab screen, click on the "Tax"
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611355">From the "Line Items" tab screen, click on the "Tax"
     hyperlink to see an overview of the Tax calculation for the entire Order.
     In this case, the total Tax resulted from the educational Item taxed at
     1%, a normal Item taxed at 5%, and freight taxed at 5%.</para>
-      <para id="Para611356">When the product is shipped and the corresponding
+    <para id="Para611356">When the product is shipped and the corresponding
     Invoice is posted, the appropriate Tax Accounts will be reflected in the
     G/L.</para>
-   </section>
-   <section id="Section611357">
-      <title>G/L Transactions After Invoice Posting</title>
-      <para id="Para611358">You will recall that in this scenario we are posting
+  </section>
+  <section id="Section611357">
+    <title>G/L Transactions After Invoice Posting</title>
+    <para id="Para611358">You will recall that in this scenario we are posting
     Sales Tax to a liability Account. And even though it is not necessary to
     do so, our example uses a different G/L Account for each different Tax
     Type/Tax Authority combination we are using. This varied approach enables
     us to better demonstrate how the Financial Reporting Engine (FRE) can be
     used as a Tax reporting tool.</para>
-      <para id="Para611359">The following screen shows a summary of the G/L
+    <para id="Para611359">The following screen shows a summary of the G/L
     transactions recorded after we posted the Invoice corresponding to our
     initial Sales Order:</para>
-      <para id="Para611363">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_410_SO-GL.png" id="Graphic611361"/>
-               </imageobject>
-               <caption id="Caption611364">Summarized G/L Transactions for Sales
+    <para id="Para611363"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_410_SO-GL.png"
+                       id="Graphic611361" />
+          </imageobject>
+          <caption id="Caption611364">Summarized G/L Transactions for Sales
           Tax on an Invoice</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611365">Now that we have accrued the liability for the sales
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611365">Now that we have accrued the liability for the sales
     Tax, we must next pay the Tax Authority.</para>
-   </section>
-   <section id="Section611366">
-      <title>Tax Payment at Vouchering</title>
-      <para id="Para611367">While a Miscellaneous Check could be used to pay the
+  </section>
+  <section id="Section611366">
+    <title>Tax Payment at Vouchering</title>
+    <para id="Para611367">While a Miscellaneous Check could be used to pay the
     sales Tax we have collected, a Voucher provides an additional level of
     control--and also give us the ability to define amounts specific to the
     different types of Tax being paid. A Miscellaneous Check may only be
     linked to a single Expense Category; whereas, a Voucher can have an
     unlimited number of distributions to different Expense Categories.</para>
-      <para id="Para611368">The following screen shows a sample Miscellaneous
+    <para id="Para611368">The following screen shows a sample Miscellaneous
     Voucher Distribution:</para>
-      <para id="Para611372">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_430_AP-Voucher.png" id="Graphic611370"/>
-               </imageobject>
-               <caption id="Caption611373">Voucher for Tax Payment</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611374">Miscellaneous Distributions on a Miscellaneous
+    <para id="Para611372"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png"
+                       id="Graphic611370" />
+          </imageobject>
+          <caption id="Caption611373">Voucher for Tax Payment</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611374">Miscellaneous Distributions on a Miscellaneous
     Voucher enable us to select the appropriate Expense Category for each type
     of Tax being paid on a single payment. You may recall that our scenario
     links an Expense Category to the same G/L Account used for accruing sales
     Tax liability. Paying taxes in this way enables us to clear the
     appropriate liability Account when we post Miscellaneous Vouchers.</para>
-      <para id="Para611375">In the following screen you can see a summary of the
+    <para id="Para611375">In the following screen you can see a summary of the
     G/L transactions which resulted from out posting of the Miscellaneous
     Voucher:</para>
-      <para id="Para611379">
-         <anchor id="Anchor74253" role="Cross-Ref"
-                 xreflabel="74253: Figure: Figure 15.13:  G/L Postings After Voucher Posting"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png" id="Graphic611377"/>
-               </imageobject>
-               <caption id="Caption611381">G/L Postings After Voucher
+    <para id="Para611379"><anchor id="Anchor74253" role="Cross-Ref"
+    xreflabel="74253: Figure: Figure 15.13:  G/L Postings After Voucher Posting" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png"
+                       id="Graphic611377" />
+          </imageobject>
+          <caption id="Caption611381">G/L Postings After Voucher
           Posting</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611384">As you can see in <link endterm="Anchor74253" id="XRef611383" linkend="Anchor74253"> G/L Postings After Voucher
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611384">As you can see in <link endterm="Anchor74253"
+    id="XRef611383" linkend="Anchor74253"> G/L Postings After Voucher
     Posting</link>Figure 15.45, posting the Voucher cleared the liability
     Accounts associated with the Expense Categories used on the Voucher. The
     A/P liability will subsequently be cleared when a Check paying the Voucher
     is posted.</para>
-   </section>
-   <section id="Section611386">
-      <title>Taxes on Purchases</title>
-      <para id="Para611387">Just as we calculated sales Tax for our Customers,
+  </section>
+  <section id="Section611386">
+    <title>Taxes on Purchases</title>
+    <para id="Para611387">Just as we calculated sales Tax for our Customers,
     our Vendors will do the same for us. Tax on purchases appears on the
     Vendor's invoice--and should be recorded during the vouchering process.
     Again, when vouchering we can use Miscellaneous Distributions along with
     Expense Categories to record purchasing Tax.</para>
-      <para id="Para611388">The following screen shows a sample Expense Category
+    <para id="Para611388">The following screen shows a sample Expense Category
     we have established to record Tax on purchases:</para>
-      <para id="Para611392">
-         <anchor id="Anchor70062" role="Cross-Ref"
-                 xreflabel="70062: Figure: Figure Appendix X.14:  Expense Category for Taxes on Purchased Items"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png" id="Graphic611390"/>
-               </imageobject>
-               <caption id="Caption611394">Expense Category for Taxes on Purchased
+    <para id="Para611392"><anchor id="Anchor70062" role="Cross-Ref"
+    xreflabel="70062: Figure: Figure Appendix X.14:  Expense Category for Taxes on Purchased Items" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png"
+                       id="Graphic611390" />
+          </imageobject>
+          <caption id="Caption611394">Expense Category for Taxes on Purchased
           Items</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611397">We will use the Expense Category shown in <link endterm="Anchor70062" id="XRef611396" linkend="Anchor70062"> Expense
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611397">We will use the Expense Category shown in <link
+    endterm="Anchor70062" id="XRef611396" linkend="Anchor70062"> Expense
     Category for Taxes on Purchased Items</link>Figure 15.46 during a
     vouchering scenario. In our example, the Vendor is charging us Tax on one
     or more Items of Type 1. The following screen shows the Voucher for this
     purchase, as well as the Miscellaneous Distribution for Tax
     purposes:</para>
-      <para id="Para611402">
-         <anchor id="Anchor59557" role="Cross-Ref"
-                 xreflabel="59557: Figure: Figure Appendix X.15:  Miscellaneious Distribution onf Voucher to Pay Tax"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png" id="Graphic611400"/>
-               </imageobject>
-               <caption id="Caption611404">Miscellaneous Distribution of Voucher to
+    <para id="Para611402"><anchor id="Anchor59557" role="Cross-Ref"
+    xreflabel="59557: Figure: Figure Appendix X.15:  Miscellaneious Distribution onf Voucher to Pay Tax" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png"
+                       id="Graphic611400" />
+          </imageobject>
+          <caption id="Caption611404">Miscellaneous Distribution of Voucher to
           Pay Tax</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para611407">The Purchase Order we are vouchering in <link endterm="Anchor59557" id="XRef611406" linkend="Anchor59557">
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para611407">The Purchase Order we are vouchering in <link
+    endterm="Anchor59557" id="XRef611406" linkend="Anchor59557">
     Miscellaneious Distribution onf Voucher to Pay Tax</link>Figure 15.47 is
     for a Vendor invoice totaling $220.00. Of this amount, $200.00 is for the
     product and $20.00 is for Tax. The Tax is accounted for using the Expense
     Category corresponding to the type of Tax being paid. Because Expense
     Categories are linked to G/L Accounts, the Tax amount will be posted to
     the appropriate Account.</para>
-      <tip>
-         <para id="Para611410">If multiple types of Taxes are identified on a
+    <tip>
+      <para id="Para611410">If multiple types of Taxes are identified on a
       Vendor invoice, multiple Expense Categories pointing to different Tax
       Accounts may be used.</para>
-      </tip>
-   </section>
-   <section id="Section611411">
-      <title>Tips on Upgrading to Version 2.1</title>
-      <para id="Para611412">The Tax functionality described in this section is
+    </tip>
+  </section>
+  <section id="Section611411">
+    <title>Tips on Upgrading to Version 2.1</title>
+    <para id="Para611412">The Tax functionality described in this section is
     new, as of OpenMFG version 2.1 The upgrade to version 2.1 from an earlier
     versions of OpenMFG should be seamless. However, it may be helpful to know
     how the changes impact the underlying data:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x18a193c">
-            <para id="Para611413">Item Taxable Check Box Removed: The "Taxable"
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x18a193c">
+        <para id="Para611413">Item Taxable Check Box Removed: The "Taxable"
         check box on the Item master is removed in version 2.1. As mentioned
         earlier, an Item that is not taxable will contain no entry for a given
         Tax Authority in the new Tax Types tab on the Item screen.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18a1960">
-            <para id="Para611414">Tax Codes Create Tax Authorities - The 2.1
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18a1960">
+        <para id="Para611414">Tax Codes Create Tax Authorities - The 2.1
         upgrade script reads the Tax Codes table and creates a CRM Account
         entry for each Tax Code, flagging it as a Tax Authority. Keep in mind
         that there is no Contact Information or Address information contained
         in a Tax Code, so these fields will be blank in the resulting Tax
         Authorities entry.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18a1984">
-            <para id="Para611415">Freight Moved From Tax Codes to Tax Selection:
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18a1984">
+        <para id="Para611415">Freight Moved From Tax Codes to Tax Selection:
         The Tax Code check box for "Freight" has been removed. Instead, an
         entry in the Tax Selections screen links the new Tax Authority
         (created from the Tax Code) to the new system-defined Tax Type called
         Freight; the relationship to the original Tax Code is maintained. This
         enables the Tax on freight to be linked to a unique Tax Code with a
         distinct Tax Rate should this be necessary.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18a19a8">
-            <para id="Para611416">Customer Linked to New Tax Authority: In
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18a19a8">
+        <para id="Para611416">Customer Linked to New Tax Authority: In
         versions prior to 2.1, each Customer (and, if applicable, each Ship-To
         Address), was linked to a Tax Code. During the upgrade to 2.1, the Tax
         Code reference is replaced with the relevant Tax Authority (created
         from the Tax Code). A Tax Selection record that links the new Tax
         Authority to the existing Tax Code and a system defined Tax Type
         called "Taxable" is automatically created.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18a19cc">
-            <para id="Para611417">Tax Registration Numbers: Version 2.1 introduces
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18a19cc">
+        <para id="Para611417">Tax Registration Numbers: Version 2.1 introduces
         the concept of Tax Registration Numbers for Customers. Prior to
         version 2.1, there was a single field in the Customer master called
         "Tax Ex: Number." The upgrade moves the value stored in that field so
         it now appears as a Tax Registration number associated with the new
         Tax Authority for the Customer.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x18a19f0">
-            <para id="Para611418">Transactions in Progress: Prior to version 2.1,
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x18a19f0">
+        <para id="Para611418">Transactions in Progress: Prior to version 2.1,
         Tax on taxable transactions (such as Invoices) was stored at the
         header level. With version 2.1, Tax is now calculated at the Line Item
         level--and the detail is stored at the Line Item level. The upgrade
         script analyzes all pending transactions, recalculates the Tax for
         each line, stores the detail for how it was calculated in each line,
         and places the sum in the header record.</para>
-         </listitem>
-      </itemizedlist>
-   </section>
+      </listitem>
+    </itemizedlist>
+  </section>
 </section>

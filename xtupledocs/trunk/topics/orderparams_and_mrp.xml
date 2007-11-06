@@ -1,54 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672485" role="openmfg">
-   <title>Topic: Order Parameters and MRP</title>
-   <para id="Para672486">This section is designed to briefly illustrate the
+  <title>Topic: Order Parameters and MRP</title>
+  <para id="Para672486">This section is designed to briefly illustrate the
   interaction between Order Parameters and Material Requirements Planning
   (MRP). As you will see, Order Parameters play a key role in the execution of
   MRP.</para>
-   <section id="Section672488">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>material requirements planning</primary>
-            <secondary>order parameters and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>order parameters</primary>
-            <secondary>for mrp</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>item sites</primary>
-            <secondary>order parameter settings</secondary>
-         </indexterm>Item Site Settings</title>
-      <para id="Para672489">For the purposes of this exercise, we will be
+  <section id="Section672488">
+    <title><indexterm significance="normal">
+        <primary>material requirements planning</primary>
+        <secondary>order parameters and</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>order parameters</primary>
+        <secondary>for mrp</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>item sites</primary>
+        <secondary>order parameter settings</secondary>
+      </indexterm>Item Site Settings</title>
+    <para id="Para672489">For the purposes of this exercise, we will be
     looking at the Order Parameter settings for a purchased Item--Item V1. The
     following screenshot shows the Item Site master for Item V1:</para>
-      <para id="Para672493">
-         <anchor id="Anchor93905" role="Cross-Ref"
-                 xreflabel="93905: Figure: Figure 1.12:  Item Site with Order Parameters Selected"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_ordParamItemSite.png" id="Graphic672491"/>
-               </imageobject>
-               <caption id="Caption672495">Item Site with Order Parameters
+    <para id="Para672493"><anchor id="Anchor93905" role="Cross-Ref"
+    xreflabel="93905: Figure: Figure 1.12:  Item Site with Order Parameters Selected" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_ordParamItemSite.png"
+                       id="Graphic672491" />
+          </imageobject>
+          <caption id="Caption672495">Item Site with Order Parameters
           Selected</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672498">As you can see in <link endterm="Anchor93905" id="XRef672497" linkend="Anchor93905"> Item Site with Order Parameters
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672498">As you can see in <link endterm="Anchor93905"
+    id="XRef672497" linkend="Anchor93905"> Item Site with Order Parameters
     Selected</link>Figure 6.21, the "Enforce Order Parameters" flag is set for
     this Item Site. Selecting this option tells the system to enforce the
     specified Order Parameters when MRP is run. The "on Manual Orders" option
     applies to manual Work Orders only and does not have an impact on
     MRP.</para>
-      <para id="Para672500">Let's define the significance of each Order
+    <para id="Para672500">Let's define the significance of each Order
     Parameter setting:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x1868964">
-            <para id="Para672501">Reorder Level: Specifies when a Planned
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x1868964">
+        <para id="Para672501">Reorder Level: Specifies when a Planned
         Replenishment Order should be created for an Item Site. If Planned
         Availability minus Safety Stock falls below the Reorder Level, then a
         Replenishment Order will be created when MRP is run. The Replenishment
@@ -59,46 +55,43 @@
         30. So, when Planned Availability minus Safety Stock falls below 30,
         MRP (when it is run) will recognize this and reorder quantities for
         the Item Site.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1868988">
-            <para id="Para672502">Order Up To: Indicates the level of Planned
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1868988">
+        <para id="Para672502">Order Up To: Indicates the level of Planned
         Availability an Item Site should be replenished up to when MRP is run.
         In cases where the Reorder Level for an Item Site exceeds the Order Up
         To (OUT), MRP will replenish the Item Site up to the Reorder Level. In
         this example, the OUT Level is 100. So, in our example, when Planned
         Availability falls below the Reorder Level, MRP (when it is run) will
         replenish the Item Site quantity up to 100.</para>
-         </listitem>
-      </itemizedlist>
-      <tip>
-         <para id="Para672504">Setting the Order Up To Level to "0" removes any
+      </listitem>
+    </itemizedlist>
+    <tip>
+      <para id="Para672504">Setting the Order Up To Level to "0" removes any
       restrictions on maximum Order quantities. Removing quantity restrictions
       can be an effective strategy to help ensure that all Order demands are
       satisfied when MRP is run. Order demands may not be met if Order Up To
       Levels are set below the demand threshold.</para>
-      </tip>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x18689f4">
-            <para id="Para672505">Minimum Order: Indicates the minimum quantity
+    </tip>
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x18689f4">
+        <para id="Para672505">Minimum Order: Indicates the minimum quantity
         that may be entered for a Planned Replenishment Order when MRP is run.
         In this example, no minimum Order quantity is specified.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1868a18">
-            <para id="Para672506">Order Multiple: Indicates the quantity multiple
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1868a18">
+        <para id="Para672506">Order Multiple: Indicates the quantity multiple
         that should be used for Planned Replenishment Orders when MRP is run.
         In this example, the Order multiple = 1.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1868a3c">
-            <para id="Para672508">
-               
-               <indexterm significance="normal">
-                  <primary>planned orders</primary>
-                  <secondary>consolidation of</secondary>
-               </indexterm> 
-               <indexterm significance="normal">
-                  <primary>material requirements planning</primary>
-                  <secondary>consolidation of planned orders and</secondary>
-               </indexterm>Group MRP Orders Every: Value entered specifies the
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1868a3c">
+        <para id="Para672508"><indexterm significance="normal">
+            <primary>planned orders</primary>
+            <secondary>consolidation of</secondary>
+          </indexterm> <indexterm significance="normal">
+            <primary>material requirements planning</primary>
+            <secondary>consolidation of planned orders and</secondary>
+          </indexterm>Group MRP Orders Every: Value entered specifies the
         length of a period--measured in days--within which Planned
         Replenishment Orders will be grouped together (i.e, consolidated) to
         meet scheduled demand for the period. This functionality serves to
@@ -113,44 +106,41 @@
         of Planned Orders is handled differently than subsequent buckets. The
         following formula specifies how the date range for the initial period
         is determined:</para>
-            <para id="Para672509">Start Date = Today's Date</para>
-            <para id="Para672510">End Date = Today's Date + Lead Time</para>
-            <para id="Para672511">All subsequent periods are determined using the
+        <para id="Para672509">Start Date = Today's Date</para>
+        <para id="Para672510">End Date = Today's Date + Lead Time</para>
+        <para id="Para672511">All subsequent periods are determined using the
         following calculations:</para>
-            <para id="Para672512">Start Date = End Date of Previous Period +
+        <para id="Para672512">Start Date = End Date of Previous Period +
         1</para>
-            <para id="Para672513">End Date = Start Date of Current Period + Group
+        <para id="Para672513">End Date = Start Date of Current Period + Group
         Value</para>
-         </listitem>
-      </itemizedlist>
-      <tip>
-         <para id="Para672516">To enforce 
-            <indexterm significance="normal">
-               <primary>just-in-time</primary>
-               <secondary>delivery of planned orders</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>planned orders</primary>
-               <secondary>just-in-time delivery and</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>material requirements planning</primary>
-               <secondary>just-in-time delivery and</secondary>
-            </indexterm>Just-In-Time (JIT) delivery methods, set the MRP group
+      </listitem>
+    </itemizedlist>
+    <tip>
+      <para id="Para672516">To enforce <indexterm significance="normal">
+          <primary>just-in-time</primary>
+          <secondary>delivery of planned orders</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>planned orders</primary>
+          <secondary>just-in-time delivery and</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>material requirements planning</primary>
+          <secondary>just-in-time delivery and</secondary>
+        </indexterm>Just-In-Time (JIT) delivery methods, set the MRP group
       value to "0." This will ensure that Planned Order due dates are the same
       as the demand due dates to which they correspond. If the MRP Order
       grouping value is set to "0", the initial period will be determined in
       the same way as for all Planned Order groups:</para>
-         <para id="Para672517">Start Date = Today's Date</para>
-         <para id="Para672518">End Date = Today's Date + Lead Time</para>
-         <para id="Para672519">However, the date range for all subsequent JIT
+      <para id="Para672517">Start Date = Today's Date</para>
+      <para id="Para672518">End Date = Today's Date + Lead Time</para>
+      <para id="Para672519">However, the date range for all subsequent JIT
       Planned Orders will be based on the following calculations:</para>
-         <para id="Para672520">Start Date = Demand Due Date - Lead Time</para>
-         <para id="Para672521">End Date = Demand Due Date</para>
-      </tip>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x1874a00">
-            <para id="Para672522">Safety Stock: Specifies the quantity of Stock
+      <para id="Para672520">Start Date = Demand Due Date - Lead Time</para>
+      <para id="Para672521">End Date = Demand Due Date</para>
+    </tip>
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x1874a00">
+        <para id="Para672522">Safety Stock: Specifies the quantity of Stock
         you want to keep in Inventory to protect against unplanned,
         unforeseeable trends in your Order forecasts. When Material
         Requirements Planning (MRP) is run, the system considers the Safety
@@ -161,260 +151,248 @@
         calculation effectively creates a buffer Inventory (if needed) to
         handle unexpected fluctuations in demand. In this example, Safety
         Stock is set to 20.</para>
-         </listitem>
-      </itemizedlist>
-      <tip>
-         <para id="Para672524">If you do not want to use the Safety Stock
+      </listitem>
+    </itemizedlist>
+    <tip>
+      <para id="Para672524">If you do not want to use the Safety Stock
       functionality, set the Safety Stock value to "0".</para>
-      </tip>
-   </section>
-   <section id="Section672525">
-      <title>Viewing Planned Availability</title>
-      <para id="Para672526">Planned Availability--also known as available
+    </tip>
+  </section>
+  <section id="Section672525">
+    <title>Viewing Planned Availability</title>
+    <para id="Para672526">Planned Availability--also known as available
     quantity--describes Inventory quantity available for consumption by Work
     Orders or Sales Orders. To determine available quantity, the system uses
     the following formula:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x1874a90">
-            <para id="Para672527">Planned Availability = Unallocated Qty. + Qty.
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x1874a90">
+        <para id="Para672527">Planned Availability = Unallocated Qty. + Qty.
         on Order</para>
-         </listitem>
-      </itemizedlist>
-      <para id="Para672528">Let's look now at Planned Availability for Item V1.
+      </listitem>
+    </itemizedlist>
+    <para id="Para672528">Let's look now at Planned Availability for Item V1.
     The Inventory Availability by Item screen found in the I/M Module provides
     us with this detail, as shown below:</para>
-      <para id="Para672532">
-         <anchor id="Anchor80872" role="Cross-Ref"
-                 xreflabel="80872: Figure: Figure 1.16:  Inventory Availability Display Showing Availability Below Reorder Level"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_availOrdParamItem.png" id="Graphic672530"/>
-               </imageobject>
-               <caption id="Caption672534">Inventory Availability Display Showing
+    <para id="Para672532"><anchor id="Anchor80872" role="Cross-Ref"
+    xreflabel="80872: Figure: Figure 1.16:  Inventory Availability Display Showing Availability Below Reorder Level" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_availOrdParamItem.png"
+                       id="Graphic672530" />
+          </imageobject>
+          <caption id="Caption672534">Inventory Availability Display Showing
           Availability Below Reorder Level</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672535">As you can see from the screenshot, the available
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672535">As you can see from the screenshot, the available
     quantity is displayed in orange. The orange-colored font is used to
     indicate that Planned Availability has fallen below the Reorder Level.
     Whenever this scenario occurs, Planned Replenishment Orders will be
     generated the next time MRP is run.</para>
-      <para id="Para672538">The following columns in <link endterm="Anchor80872" id="XRef672537" linkend="Anchor80872"> Inventory Availability Display
+    <para id="Para672538">The following columns in <link endterm="Anchor80872"
+    id="XRef672537" linkend="Anchor80872"> Inventory Availability Display
     Showing Availability Below Reorder Level</link>Figure 6.22 are of interest
     to us now:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x1874b44">
-            <para id="Para672540">QOH = 25: In this example, the Quantity on Hand
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x1874b44">
+        <para id="Para672540">QOH = 25: In this example, the Quantity on Hand
         (QOH) is equal to the available quantity. If quantities of Item V1
         were in any way allocated, these two values would not be the
         same.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1874b68">
-            <para id="Para672541">Allocated = 0: Item quantity is considered
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1874b68">
+        <para id="Para672541">Allocated = 0: Item quantity is considered
         allocated if Sales Orders or Work Orders are demanding the Item. In
         this case, no outstanding demands for Item V1 have been created in the
         system, and so the allocated quantity = 0.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1874b8c">
-            <para id="Para672542">Unallocated = 25: Because Item V1 is not
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1874b8c">
+        <para id="Para672542">Unallocated = 25: Because Item V1 is not
         currently allocated to any Sales Orders or Work Orders, the
         unallocated quantity equals the QOH.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1874bb0">
-            <para id="Para672543">Reorder Lvl. = 30: This is the Reorder Level
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1874bb0">
+        <para id="Para672543">Reorder Lvl. = 30: This is the Reorder Level
         specified on the Item Site definition.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1874bd4">
-            <para id="Para672544">OUT Level = 100: This is the Order Up To Level
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1874bd4">
+        <para id="Para672544">OUT Level = 100: This is the Order Up To Level
         specified on the Item Site definition.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x1874bf8">
-            <para id="Para672545">Available = 25: Doing some simple math, you can
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x1874bf8">
+        <para id="Para672545">Available = 25: Doing some simple math, you can
         see that the available quantity of Item V1 in Warehouse EAST is below
         the Reorder Level--5 units below it, in fact. As a result, a Planned
         Replenishment Order for Item V1 should be created when MRP is
         run.</para>
-         </listitem>
-      </itemizedlist>
-   </section>
-   <section id="Section672546">
-      <title>Running MRP</title>
-      <para id="Para672547">Now let's run MRP and see what happens. Based on our
+      </listitem>
+    </itemizedlist>
+  </section>
+  <section id="Section672546">
+    <title>Running MRP</title>
+    <para id="Para672547">Now let's run MRP and see what happens. Based on our
     knowledge of the Item Site Order Parameters and the available quantity for
     Item V1, we know that a Planned Replenishment Order will be created. We
     know this because the following condition is true:</para>
-      <blockquote>
-         <para id="Para672548">Planned Availability (25) - Safety Stock (20) &lt;
+    <blockquote>
+      <para id="Para672548">Planned Availability (25) - Safety Stock (20) &lt;
       Reorder Level (30).</para>
-      </blockquote>
-      <para id="Para672549">Whenever Planned Availability minus Safety Stock
+    </blockquote>
+    <para id="Para672549">Whenever Planned Availability minus Safety Stock
     falls below the Reorder Level, a Planned Order will be generated when MRP
     is run. The only question now is what will the Planned Order quantity
     be?</para>
-      <para id="Para672550">The following M/S Module screen, "Run MRP by Item,"
+    <para id="Para672550">The following M/S Module screen, "Run MRP by Item,"
     is one of two utilities used to run MRP--the other is "Run MRP by Planner
     Code." For this exercise, we will be running MRP by Item, as shown in the
     following screenshot:</para>
-      <para id="Para672554">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_createPlanRepOrd.png" id="Graphic672552"/>
-               </imageobject>
-               <caption id="Caption672555">Running MRP by Item</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672556">We enter Item V1 in the Item Number field, specify
+    <para id="Para672554"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_createPlanRepOrd.png"
+                       id="Graphic672552" />
+          </imageobject>
+          <caption id="Caption672555">Running MRP by Item</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672556">We enter Item V1 in the Item Number field, specify
     the Warehouse where the Item Site is located, and set the Cutoff Date for
     the current day. Once we select the CREATE button, MRP is off and running.
     To see the resulting Planned Replenishment Orders, we open the M/S Display
     "Planned Orders by Item," as shown in the following screen:</para>
-      <para id="Para672560">
-         <anchor id="Anchor34728" role="Cross-Ref"
-                 xreflabel="34728: Figure: Figure 1.15:  MRP Created Planned Purchase Order"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_planOrdDisp1.png" id="Graphic672558"/>
-               </imageobject>
-               <caption id="Caption672562">MRP Created Planned Purchase
+    <para id="Para672560"><anchor id="Anchor34728" role="Cross-Ref"
+    xreflabel="34728: Figure: Figure 1.15:  MRP Created Planned Purchase Order" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_planOrdDisp1.png"
+                       id="Graphic672558" />
+          </imageobject>
+          <caption id="Caption672562">MRP Created Planned Purchase
           Order</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672565">As you can see in <link endterm="Anchor34728" id="XRef672564" linkend="Anchor34728"> MRP Created Planned Purchase
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672565">As you can see in <link endterm="Anchor34728"
+    id="XRef672564" linkend="Anchor34728"> MRP Created Planned Purchase
     Order</link>Figure 6.24, a Planned Purchase Order has been generated for
     75 units of Item V1. So how did the system determine that 75 units was the
     required quantity?</para>
-      <para id="Para672567">Well, when MRP creates Planned Orders, the system
+    <para id="Para672567">Well, when MRP creates Planned Orders, the system
     looks at both the Reorder Level and the Order Up To (OUT) Level. It
     determines which of the two has the greater value--and then it places an
     Order to replenish available quantity up to that value. In our example,
     the OUT Level (100) is the greater value. And so we have the following
     scenario:</para>
-      <blockquote>
-         <para id="Para">25 (Current Available Qty.) + 75 (Needed Replenishment
-      Qty.) = 100 (OUT Level)</para>
-      </blockquote>
-      <para id="Para672569">So you can see, MRP generated a Planned Order for 75
+    <blockquote>
+      <para>25 (Current Available Qty.) + 75 (Needed Replenishment Qty.) = 100
+      (OUT Level)</para>
+    </blockquote>
+    <para id="Para672569">So you can see, MRP generated a Planned Order for 75
     units of Item V1 to restore available quantity to the OUT Level.</para>
-      <note>
-         <para id="Para672571">Because Item V1 is a purchased Item, the
+    <note>
+      <para id="Para672571">Because Item V1 is a purchased Item, the
       Replenishment Order is a Planned Purchase Order. Had the Item been a
       manufactured Item, Planned Work Orders would have been created--and also
       Planned Purchase Orders, depending on the availability and Reorder
       Levels of required component Items.</para>
-      </note>
-   </section>
-   <section id="Section672573">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>planned orders</primary>
-            <secondary>converting to actual orders</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>material requirements planning</primary>
-            <secondary>conversion of planned orders</secondary>
-         </indexterm>Converting Planned Orders to Actual Orders</title>
-      <para id="Para672574">The next step is to convert the Planned Purchase
+    </note>
+  </section>
+  <section id="Section672573">
+    <title><indexterm significance="normal">
+        <primary>planned orders</primary>
+        <secondary>converting to actual orders</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>material requirements planning</primary>
+        <secondary>conversion of planned orders</secondary>
+      </indexterm>Converting Planned Orders to Actual Orders</title>
+    <para id="Para672574">The next step is to convert the Planned Purchase
     Order to a Purchase Request. Doing so will make Purchasing aware of the
     requirement. We can release the Order using the "Release Order" option
     from the right-click menu. After choosing that option, we are prompted to
     create a Purchase Request, as shown below:</para>
-      <para id="Para672578">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_planOrdDisp2.png" id="Graphic672576"/>
-               </imageobject>
-               <caption id="Caption672579">Convert Planned Order to Purchase
+    <para id="Para672578"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_planOrdDisp2.png"
+                       id="Graphic672576" />
+          </imageobject>
+          <caption id="Caption672579">Convert Planned Order to Purchase
           Request</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672580">A quick check of the details on the "Purchase
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672580">A quick check of the details on the "Purchase
     Request" screen shows us that the quantity ordered is correct. We now
     select the CREATE button to generate the Purchase Request and forward it
     to Purchasing. To verify this activity, we turn to the P/O Module Display
     Purchase Requests by Item, as shown below:</para>
-      <para id="Para672584">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_purchReqDispl.png" id="Graphic672582"/>
-               </imageobject>
-               <caption id="Caption672585">Release Purchase Request</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672586">Sure enough, there's the Purchase Request for the
+    <para id="Para672584"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_purchReqDispl.png"
+                       id="Graphic672582" />
+          </imageobject>
+          <caption id="Caption672585">Release Purchase Request</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672586">Sure enough, there's the Purchase Request for the
     correct quantity. Once again, we select the "Release Order" option from
     the right-click menu. Because Item Sources have been defined for the Item,
     we are asked to pick a Vendor from among the list of possible Vendors for
     this Item, as shown in the next screen:</para>
-      <para id="Para672590">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_prItemSource.png" id="Graphic672588"/>
-               </imageobject>
-               <caption id="Caption672591">Select Item Source during Purchase
+    <para id="Para672590"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_prItemSource.png"
+                       id="Graphic672588" />
+          </imageobject>
+          <caption id="Caption672591">Select Item Source during Purchase
           Request Conversion</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672592">We choose the Vendor Smithson Industries from the
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672592">We choose the Vendor Smithson Industries from the
     list, because this is the Vendor with the highest ranking. After selecting
     the Vendor, we are asked whether we want to add the Item to an existing
     open Purchase Order--or whether we would like to create a new Purchase
     Order for this Item:</para>
-      <para id="Para672596">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_openPOExists.png" id="Graphic672594"/>
-               </imageobject>
-               <caption id="Caption672597">Choose Existing or New PO</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672598">After making our choice, we are brought straight to
+    <para id="Para672596"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_openPOExists.png"
+                       id="Graphic672594" />
+          </imageobject>
+          <caption id="Caption672597">Choose Existing or New PO</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672598">After making our choice, we are brought straight to
     the Purchase Order Line Item screen. As you can see in the next
     screenshot, all the correct values have automatically been entered: Item
     Number, Order quantity, unit price, extended price, due date, etc.:</para>
-      <para id="Para672602">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_prPOItem.png" id="Graphic672600"/>
-               </imageobject>
-               <caption id="Caption672603">P/O Line Item with Values
+    <para id="Para672602"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_prPOItem.png" id="Graphic672600" />
+          </imageobject>
+          <caption id="Caption672603">P/O Line Item with Values
           Pre-Populated</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672604">We verify the details and then select the SAVE
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672604">We verify the details and then select the SAVE
     button. Finally we are brought to the Purchase Order header, as shown
     below:</para>
-      <para id="Para672608">
-         
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_poFromPurchReq.png" id="Graphic672606"/>
-               </imageobject>
-               <caption id="Caption672610">Purchase Order Originated by MRP
+    <para id="Para672608"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_poFromPurchReq.png"
+                       id="Graphic672606" />
+          </imageobject>
+          <caption id="Caption672610">Purchase Order Originated by MRP
           Replenishment</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672611">As you can see, we have successfully created a
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672611">As you can see, we have successfully created a
     Purchase Order using MRP replenishment functionality. All we have to do
     now is post the Purchase Order, and the replenishment quantity will be
     well on its way.</para>
-   </section>
+  </section>
 </section>

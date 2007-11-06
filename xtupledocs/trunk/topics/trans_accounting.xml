@@ -1,2618 +1,1819 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section611426">
-   <title> 
-       
-      <indexterm significance="normal">
-         <primary>topics</primary>
-         <secondary>transaction accounting</secondary>
-      </indexterm>Topic: Transaction Accounting</title>
-   <para id="Para611427">This section is designed to illustrate the
-    relationship between OpenMFG transactions and the General Ledger (G/L)
-    Accounts they impact. Think of this section as being a reference tool you
-    can use to help you track G/L transactions.</para>
-   <para id="Para611428">The transactions have been listed by Module--and
-    only those transactions which create G/L records have been included. For
-    each transaction, we have noted the G/L Accounts affected by the
-    transaction.</para>
-   <tip>
-      <para id="Para611430">If you are not seeing G/L traffic for Inventory
-      transactions, verify that Standard Costs have been assigned to the
-      affected Items. If no Standard Costs are assigned, the costing aspects
-      of the transactions will not be recorded.</para>
-   </tip>
-   <section id="Section611433">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for inventory accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory transactions</primary>
-            <secondary>accounting related to</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>accounting for</secondary>
-         </indexterm> 
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for inventory accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>accounting for</secondary>
-         </indexterm>I/M Module Transactions</title>
-      <para id="Para611434">The majority of I/M Module transactions are
-      initiated in the Inventory Transaction section. This is the case with
-      our first transaction type: Miscellaneous Adjustment. You would enter a
-      Miscellaneous Adjustment to change the Quantity on Hand (QOH) for an
-      Item in a particular Item Site. Using a Miscellaneous Adjustment, QOH
-      can be adjusted either upwards or downwards:</para>
-      <informaltable id="Table611435">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611439">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611441">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611443">Miscellaneous</para> 
-                     <para id="Para611444">Adjustment</para> 
-                     <para id="Para611445">(Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611447">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611449">Inventory Adjustment</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611451">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611455">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611457">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611459">Miscellaneous</para> 
-                     <para id="Para611460">Adjustment</para> 
-                     <para id="Para611461">(Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611463">Inventory Adjustment</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611465">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611467">If an Item is located in more than one Warehouse,
-      you have the option of moving quantities of the Item from one Warehouse
-      to another. During an Inter-Warehouse transfer, you increase QOH at the
-      receiving Warehouse and decrease QOH at the originating
-      Warehouse.</para>
-      <informaltable id="Table611468">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611472">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611474">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611476">Inter-Warehouse</para> 
-                     <para id="Para611477">Transfer</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611479">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611481">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611483">Inventory may need to be scrapped for a variety of
-      different reasons. Entering a Scrap transaction decreases Inventory
-      value by the Cost of the quantity being scrapped. The following Accounts
-      are affected:</para>
-      <informaltable id="Table611484">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611488">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611490">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611492">Scrap</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611494">Inventory Scrap</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611496">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611498">Expense transactions are like Scrap transactions,
-      in that they decrease Inventory value. The debit side of the transaction
-      is assigned to an Expense Category. The Accounts used for Expense
-      Categories will vary from site to site:</para>
-      <informaltable id="Table611499">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611503">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611505">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611507">Expense</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611509">Expense Account</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611511">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611513">Items may be received into Inventory via a number
-      of different paths:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x183efac">
-            <para id="Para611514">As a purchased Item from the P/O Module</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x183efd0">
-            <para id="Para611515">As manufactured Item from the W/O
-          Module</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x183eff4">
-            <para id="Para611516">As a Credit Memo Item from the S/O
-          Module</para>
-         </listitem>
-      </itemizedlist>
-      <para id="Para611517">If none of these paths is being used, you may
-      receive Inventory using a miscellaneous Material Receipt. When an Item
-      is received into Inventory via a Material Receipt, the Inventory value
-      of that Item is increased:</para>
-      <informaltable id="Table611518">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611522">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611524">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611526">Material Receipt</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611528">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611530">P/O Liability
-              Clearing</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611532">The Transform utility enables you to transform
-      quantities of a source Item into quantities of a target Item. As far as
-      the source Item is concerned, its Inventory value is decreased. The
-      reverse is true for the Target Item, whose Inventory value is increased.
-      The following Accounts are affected:</para>
-      <informaltable id="Table611533">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611537">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611539">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611541">Transform</para> 
-                     <para id="Para611542">(Source Item)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611544">Transform Clearing</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611546">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611548">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611552">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611554">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611556">Transform</para> 
-                     <para id="Para611557">(Target Item)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611559">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611561">Transform Clearing</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611563">To avoid the unnecessary confusion that can occur
-      if negative QOH balances are used for planning purposes, OpenMFG gives
-      you the ability to reset negative QOH values to "0." Adjusting Inventory
-      from a negative value to "0" increases the value of the affected
-      Inventory.</para>
-      <informaltable id="Table611564">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611568">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611570">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611572">Reset QOH</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611574">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611576">Inventory Adjustment</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611578">At the end of a physical Inventory count, the
-      count totals are posted using Count Tags. A posted Count Tag affects
-      Inventory value in either a positive or a negative sense, depending on
-      whether counted QOH was found to be greater than or less than recorded
-      QOH. The Inventory Asset Account will be adjusted accordingly:</para>
-      <informaltable id="Table611579">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611583">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611585">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611587">Post Count Tag</para> 
-                     <para id="Para611588">(Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611590">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611592">Inventory Adjustment</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611594">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611598">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611600">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611602">Post Count Tag</para> 
-                     <para id="Para611603">(Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611605">Inventory Adjustment</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611607">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section611610">
-      <title>
-          
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for p/d accounting</secondary>
-         </indexterm>P/D Module Transactions</title>
-      <para id="Para611611">Whenever the Standard Cost for an Item is updated,
-      the G/L will record the update. If Standard Cost is increased, the
-      Inventory Asset will be debited for the amount of the increase
-      multiplied by the Quantity on Hand for the Item in question. Both
-      netable and non-netable quantities will be included in the calculation.
-      If the Standard Cost is decreased, the opposite records will be
-      generated, as shown below:</para>
-      <informaltable id="Table611612">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611616">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611618">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611620">Post Actual Cost</para> 
-                     <para id="Para611621">to Standard</para> 
-                     <para id="Para611622">(Increase)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611624">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611626">Inventory Cost
-              Variance</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611628">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611632">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611634">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611636">Post Actual Cost</para> 
-                     <para id="Para611637">to Standard</para> 
-                     <para id="Para611638">(Decrease)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611640">Inventory Cost
-              Variance</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611642">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section611645">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for purchasing accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>purchasing</primary>
-            <secondary>accounting for</secondary>
-         </indexterm>P/O Module Transactions</title>
-      <note>
-         <para id="Para611647">When Purchase Orders are posted, no G/L record
-        is created. Instead, posting a Purchase Order makes it available to
-        the S/R Module, where purchased Items are received.</para>
-      </note>
-      <para id="Para611648">Some might expect the posting of a Voucher to be
-      recorded as a P/O Module transaction. However, the system gives
-      ownership over Voucher postings to the A/P Module. Similarly, the
-      process of receiving a Purchase Order Item is owned by the S/R
-      Module.</para>
-      <para id="Para611649">One exception to the pattern of ownership involves
-      the return of Purchase Order Items. While purchased Items are returned
-      using the S/R Module, the system considers returns to be P/O Module
-      transactions. As shown below, the affected Accounts vary based on
-      whether the return involves an Inventory or a non-Inventory Item:</para>
-      <informaltable id="Table611650">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611654">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611656">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611658">Post P/O Return</para> 
-                     <para id="Para611659">(Inventory Item)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611661">P/O Liability
-              Clearing</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611663">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611665">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611669">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611671">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611673">Post P/O Return</para> 
-                     <para id="Para611674">(Non-Inventory Item)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611676">P/O Liability
-              Clearing</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611678">Expense Account</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section611680">
-      <title>S/O Module Transactions</title>
-      <note>
-         <para id="Para611682">No G/L records are generated when billing
-        selections are posted. Instead, the posting of billing selections
-        creates an Invoice for the Sales Order quantity in question.</para>
-      </note>
-      <para id="Para611683">While you might expect the posting of an Invoice
-      to be recorded as an S/O Module transaction, the system considers posted
-      Invoices to be owned by the A/R Module. The posting of S/O Credit Memos,
-      however, is owned by the S/O Module.</para>
-      <para id="Para611684">It can be a bit complicated to follow the
-      transaction records for posted S/O Credit Memos. The reason for this is
-      that when a Credit Memo is posted, a couple of different things happen.
-      For one, the billing portion is owned by the A/R Module. Second, the
-      merchandise the Customer is returning must be placed back into
-      Inventory. It is the Inventory return process which is owned by the S/O
-      Module, as shown below.</para>
-      <informaltable id="Table611685">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611689">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611691">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611693">Post S/O Credit Memo</para> 
-                     <para id="Para611694">(Inventory)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611696">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611698">Cost of Sales
-              Account</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section611701">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for manufacturing accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>manufacturing</primary>
-            <secondary>accounting for</secondary>
-         </indexterm>W/O Module Transactions</title>
-      <para id="Para611702">Owing to the complexity of Work Order processing,
-      multiple transaction records may be generated from the W/O Module.
-      Perhaps the most basic transaction involves the issuance of materials to
-      a Work Order. As shown below, materials are first removed from Inventory
-      and then transferred to the Work Order as work-in-process (WIP)
-      assets:</para>
-      <informaltable id="Table611703">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611707">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611709">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611711">Issue W/O Materials</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611713">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611715">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611717">Returning materials from a Work Order creates
-      records opposite to those generated when materials are issued:</para>
-      <informaltable id="Table611718">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611722">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611724">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611726">Return W/O Materials</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611728">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611730">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611732">When materials are scrapped from a Work Order, the
-      WIP Asset Account is credited for the amount of the Scrap quantity--and
-      the Manufacturing Scrap Account is debited, as shown below:</para>
-      <informaltable id="Table611733">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611737">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611739">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611741">Scrap W/O Materials</para> 
-                     <para id="Para611742">from Work Order</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611744">Manufacturing Scrap</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611746">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611748">When posting Production for a Work Order, a number
-      of different transactions occur--and each transaction generates its own
-      G/L record:</para>
-      <itemizedlist>
-         <listitem id="listitemN0x180ac00N0x184f20c">
-            <para id="Para611749">Materials that have not already been issued to
-          the Work Order are issued to the Work Order.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x184f230">
-            <para id="Para611750">Manufactured Item quantity is entered into
-          Inventory.</para>
-         </listitem>
-         <listitem id="listitemN0x180ac00N0x184f254">
-            <para id="Para611751">Work Order Operations--that is, setup and run
-          time records--are posted.</para>
-         </listitem>
-      </itemizedlist>
-      <note>
-         <para id="Para611753">If a Bill of Operations is defined for a
-        manufactured Item, both setup time and run time Costs will be posted
-        to the G/L when production is posted. Overhead Costs will be added to
-        both the setup time and run time amounts, if overhead is specified for
-        the given Work Center. In other words, the posted setup time amount
-        (and also the posted run time amount) will include not only the setup
-        time charge but also the applicable percentage of the hourly overhead
-        rate.</para>
-      </note>
-      <informaltable id="Table611754">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611758">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611760">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611762">Post Production</para> 
-                     <para id="Para611763">(Materials)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611765">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611767">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611769">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611773">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611775">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611777">Post Production</para> 
-                     <para id="Para611778">(Mfg. Items)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611780">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611782">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611784">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611788">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611790">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611792">Post Production</para> 
-                     <para id="Para611793">(Operations)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611795">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611797">Labor and Overhead</para> 
-                     <para id="Para611798">Costs</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611800">A slightly different set of records is generated
-      when posting Production for a Breeder Item. To begin with, the Breeder
-      Item itself must be accounted for. Because Breeder Items are transient
-      in nature, their effect on Inventory is temporary. When Production is
-      posted for a Breeder Item, a reversed pair of transactions is generated.
-      These paired transactions effectively cancel each other out. As shown
-      below, Breeder Items are both consumed by and received from
-      manufacturing:</para>
-      <informaltable id="Table611801">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611805">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611807">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611809">Post Production</para> 
-                     <para id="Para611810">(Issue Breeder)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611812">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611814">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611816">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611820">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611822">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611824">Post Production</para> 
-                     <para id="Para611825">(Receive Breeder)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611827">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611829">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611831">Next, the material required for Breeder Production
-      must be issued to the Work Order. The following Accounts are affected
-      when material requirements are issued to Breeder production:</para>
-      <informaltable id="Table611832">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611836">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611838">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611840">Post Production</para> 
-                     <para id="Para611841">(Issue Materials)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611843">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611845">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611847">The Co-Products and/or By-Products which result
-      from Breeder Production must be received into Inventory, as
-      follows:</para>
-      <informaltable id="Table611848">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611852">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611854">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611856">Post Production</para> 
-                     <para id="Para611857">(Receive Products)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611859">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611861">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611863">And finally, if during Production you vary the
-      standard quantity when distributing Co-Products and/or By-Products, the
-      following Accounts will be affected:</para>
-      <informaltable id="Table611864">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611868">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611870">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611872">Post Production</para> 
-                     <para id="Para611873">(Cost Variance -- </para> 
-                     <para id="Para611874">Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611876">Inventory Cost
-              Variance</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611878">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611880">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611884">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611886">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611888">Post Production</para> 
-                     <para id="Para611889">(Cost Variance -- </para> 
-                     <para id="Para611890">Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611892">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611894">Inventory Cost
-              Variance</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611896">When you correct Production posting, the records
-      generated are the opposite of those generated when Production is posted.
-      Only the materials and the manufactured Items are corrected when posting
-      a correction. Any Operations that were posted must be corrected
-      separately.</para>
-      <note>
-         <para id="Para611898">You may not post a correction to a Work Order
-        that manufactures a Breeder Item. Instead, you must manually adjust
-        the Quantity on Hand values for the Breeder materials, the
-        Co-Products, and the By-Products.</para>
-      </note>
-      <informaltable id="Table611899">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611903">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611905">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611907">Correct Production</para> 
-                     <para id="Para611908">(Mfg. Items)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611910">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611912">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611914">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611918">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611920">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611922">Correct Production</para> 
-                     <para id="Para611923">(Materials)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611925">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611927">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para611929">The records generated when posting miscellaneous
-      Production are similar to those generated when posting regular
-      Production--the main difference being that when Operations are posted,
-      the Inventory Cost Variance Account is used instead of the Labor and
-      Overhead Costs Account.</para>
-      <note>
-         <para id="Para611931">Miscellaneous Production may not be posted for
-        Breeder Items.</para>
-      </note>
-      <informaltable id="Table611932">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611936">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611938">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611940">Post Misc. Production</para> 
-                     <para id="Para611941">(Mfg. Items - Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611943">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611945">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611947">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611951">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611953">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611955">Post Misc. Production</para> 
-                     <para id="Para611956">(Mfg. Items - Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611958">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611960">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611962">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611966">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611968">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611970">Post Misc. Production</para> 
-                     <para id="Para611971">(Materials - Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611973">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611975">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611977">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611981">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611983">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para611985">Post Misc. Production</para> 
-                     <para id="Para611986">(Materials - Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611988">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611990">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table611992">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para611996">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para611998">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612000">Post Misc. Production</para> 
-                     <para id="Para612001">(Operations - Positive)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612003">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612005">Inventory Cost
-              Variance</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table612007">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612011">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612013">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612015">Post Misc. Production</para> 
-                     <para id="Para612016">(Operations - Negative)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612018">Inventory Cost
-              Variance</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612020">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612022">When Work Order Operations are posted separately
-      from Production posting, the following Accounts are affected:</para>
-      <informaltable id="Table612023">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612027">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612029">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612031">Post Operations</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612033">WIP Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612035">Labor and Overhead</para> 
-                     <para id="Para612036">Costs</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612038">The same Accounts affected when posting Operations
-      are impacted in reverse order when correcting Operations posting:</para>
-      <informaltable id="Table612039">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612043">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612045">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612047">Correct Operations</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612049">Labor and Overhead</para> 
-                     <para id="Para612050">Costs</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612052">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612054">When closing a Work Order, you may elect to post
-      Material Usage and/or Labor variances. The sense of the records will
-      depend on the transaction. If any variances exist for the Work Order in
-      question, the following Accounts will be affected:</para>
-      <informaltable id="Table612055">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612059">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612061">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612063">Close Work Order</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612065">WIP Asset</para> 
-                     <para id="Para612066">Inventory Cost Variance</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612068">Inventory Cost Variance</para>
-                     <para id="Para612069">WIP Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section612071">
-      <title>S/R Module Transactions</title>
-      <para id="Para612072">Sales Order Items are removed from Inventory at
-      the point when they are issued to Shipping. Issuing Stock to Shipping
-      affects the following Accounts:</para>
-      <informaltable id="Table612073">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612077">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612079">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612081">Issue Stock</para> 
-                     <para id="Para612082">to Shipping</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612084">Shipping Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612086">Inventory Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612088">Prior to being shipped, Sales Order Items that
-      have been issued to Shipping may be returned to Inventory. Returning
-      Stock to Inventory reverses the transaction records created when Stock
-      was issued to Shipping:</para>
-      <informaltable id="Table612089">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612093">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612095">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612097">Return Stock</para> 
-                     <para id="Para612098">from Shipping</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612100">Inventory Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612102">Shipping Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612104">When Stock is shipped, the Shipping Asset Account
-      is cleared out--and the Cost of Sales Account is debited, as shown
-      below:</para>
-      <informaltable id="Table612105">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612109">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612111">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612113">Ship Order</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612115">Cost of Sales</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612117">Shipping Asset</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612119">If a Shipment is returned to Shipping, the action
-      reverses the transaction records generated when the Order was
-      shipped:</para>
-      <informaltable id="Table612120">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612124">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612126">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612128">Return Order</para> 
-                     <para id="Para612129">to Shipping</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612131">Shipping Asset</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612133">Cost of Sales</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612135">When Purchase Order Items are received, they are
-      entered into Inventory and the P/O Liability Clearing Account is
-      credited for the Standard Cost of the received Items. If the Items being
-      received are non-Inventory Items, the appropriate Expense Account will
-      be debited. In either case, if any P/O Line Item freight charges exist,
-      they will be debited:</para>
-      <informaltable id="Table612136">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612140">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612142">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612144">Post P/O Receipt</para> 
-                     <para id="Para612145">(Inventory Item)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612147">Inventory Asset</para> 
-                     <para id="Para612148">P/O Freight Expense</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612150">P/O Liability
-              Clearing</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table612152">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612156">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612158">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612160">Post P/O Receipt</para> 
-                     <para id="Para612161">(Non-Inventory)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612163">Expense Account</para> 
-                     <para id="Para612164">P/O Freight Expense</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612166">P/O Liability
-              Clearing</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612168">If you need to correct the quantity received for a
-      Purchase Order, you may do so using the "Correct Receiving" option on
-      the right-click menu of the "Uninvoiced Receipts" screen. The
-      "Uninvoiced Receipts" screen is found in the Vouchers section of the P/O
-      Module. Corrections to received quantity are considered to be S/R Module
-      transactions. The Accounts affected will vary depending on whether the
-      correction decreases or increases the original received quantity, as
-      shown below for both Inventory and non-Inventory Items. Freight expenses
-      may also be corrected:</para>
-      <para id="Para612185">
-         <informaltable id="Table612169">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612173"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612175"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612177"> Correct Receiving </para> 
-                        <para id="Para612178"> (Decrease Qty.: </para> 
-                        <para id="Para612179"> (Inventory Item) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612181"> P/O Liability Clearing
-                </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612183"> Inventory Asset </para> 
-                        <para id="Para612184"> P/O Freight Expense </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612202">
-         <informaltable id="Table612186">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612190"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612192"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612194"> Correct Receiving </para> 
-                        <para id="Para612195"> (Increase Qty.: </para> 
-                        <para id="Para612196"> Inventory Item) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612198"> Inventory Asset </para> 
-                        <para id="Para612199"> P/O Freight Expense </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612201"> P/O Liability Clearing
-                </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612219">
-         <informaltable id="Table612203">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612207"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612209"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612211"> Correct Receiving </para> 
-                        <para id="Para612212"> (Decrease Qty.: </para> 
-                        <para id="Para612213"> (Non-Inventory) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612215"> P/O Liability Clearing
-                </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612217"> Expense Account </para> 
-                        <para id="Para612218"> P/O Freight Expense </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612235">
-         <informaltable id="Table612220">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612224"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612226"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612228"> Correct Receiving </para> 
-                        <para id="Para612229"> (Increase Qty.: </para> 
-                        <para id="Para612230"> Non-Inventory) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612232"> Expense Account </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612234"> P/O Liability Clearing
-                </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <note>
-         <para id="Para612237">While Purchase Order Items are returned using
-        the S/R Module, the system considers these transactions to be owned by
-        the P/O Module.</para>
-      </note>
-   </section>
-   <section id="Section612239">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for payables accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>payables</primary>
-            <secondary>accounting for</secondary>
-         </indexterm>A/P Module Transactions</title>
-      <para id="Para612240">Even though Vouchers may be posted from the P/O
-      Module, these transactions are owned by the A/P Module. Posting a
-      Voucher affects several Accounts. The Accounts Payable (A/P) Account is
-      credited for the Voucher amount. The P/O Liability Clearing Account is
-      debited for the Standard Cost of the Items received against the given
-      Purchase Order. If there are differences between the Vouchered amount
-      and the Standard Cost of received Items, the Purchase Price Variance
-      Account will be debited or credited to reflect those differences.
-      Finally, Freight charges may be added, depending on the details of the
-      transaction.</para>
-      <note>
-         <para id="Para612242">The same Accounts are affected regardless of
-        whether a Voucher is posted for Inventory or non-Inventory
-        Items.</para>
-      </note>
-      <informaltable id="Table612243">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612247">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612249">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612251">Post Voucher</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612253">P/O Liability Clearing</para> 
-                     <para id="Para612254">Purch. Price Variance</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612256">Accounts Payable</para> 
-                     <para id="Para612257">Purch. Price Variance</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612259">If you make a miscellaneous distribution when
-      posting a Voucher, the following additional Accounts will be affected.
-      The debit side of the transaction will vary depending on whether a
-      miscellaneous Account or an Expense Category is selected:</para>
-      <informaltable id="Table612260">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612264">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612266">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612268">Post Voucher</para> 
-                     <para id="Para612269">(Misc. Distribution)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612271">Misc. Account (varies)</para> 
-                     <para id="Para612272">Expense Account (optional)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612274">Accounts Payable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <tip>
-         <para id="Para612277">You may reverse the sense (Db/Cr) of a
-        miscellaneous distribution by entering a negative distribution
-        amount.</para>
-      </tip>
-      <para id="Para612278">When a miscellaneous Voucher is posted, the debit
-      Account may vary--depending on the circumstances of the transaction. As
-      with regular Vouchers, though, the Accounts Payable Account is credited,
-      as shown below:</para>
-      <informaltable id="Table612279">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612283">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612285">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612287">Post Misc. Voucher</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612289">Misc. Account
-              (varies)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612291">Accounts Payable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612293">Purchasing Discounts may be taken when a Voucher
-      is selected for payment. The following Accounts are affected when
-      applying a Discount to a Voucher:</para>
-      <para id="Para612307">
-         <informaltable id="Table612294">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612298"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612300"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612302"> Apply Discount </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612304"> Accounts Payable </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612306"> Discount Account </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612308">When posting Checks, the Bank Account selected at
-      the time of posting determines which Asset Account will be used. This is
-      true whether posting a single or multiple Checks. The following Accounts
-      are affected:</para>
-      <informaltable id="Table612309">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612313">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612315">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612317">Post Check(s)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612319">Accounts Payable</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612321">Asset Account</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612323">The Accounts affected differ slightly when a
-      miscellaneous A/P Check is posted, as shown below:</para>
-      <informaltable id="Table612324">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612328">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612330">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612332">Post Misc. Check</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612334">Expense Account</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612336">Asset Account</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612338">Miscellaneous A/P Credit Memos may be used, among
-      other things, to register prepaid amounts paid to Vendors. The following
-      Accounts are affected when a miscellaneous A/P Credit Memo is
-      posted:</para>
-      <informaltable id="Table612339">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612343">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612345">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612347">Post Misc. A/P</para> 
-                     <para id="Para612348">Credit Memo</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612350">Accounts Payable</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612352">Prepaid Payables</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <note>
-         <para id="Para612355">The system does not generate G/L Account records
-        when a miscellaneous A/P Credit Memo is applied to either a Voucher or
-        a miscellaneous A/P Debit Memo.</para>
-      </note>
-      <para id="Para612356">Similarly, miscellaneous A/P Debit Memos may be
-      posted, with the reverse Accounts being affected:</para>
-      <informaltable id="Table612357">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612361">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612363">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612365">Post Misc. A/P</para> 
-                     <para id="Para612366">Debit Memo</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612368">Prepaid Payables</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612370">Accounts Payable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-   </section>
-   <section id="Section612373">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for receivables accounting</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>receivables</primary>
-            <secondary>accounting for</secondary>
-         </indexterm>A/R Module Transactions</title>
-      <para id="Para612374">The G/L records generated when Invoices are posted
-      are fairly straightforward. The Accounts Receivable (A/R) Account is
-      debited, and the Sales Account credited. Several other Accounts may also
-      be credited, depending on whether any additional charges are associated
-      with the Order:</para>
-      <informaltable id="Table612375">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612379">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612381">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612383">Post Invoice</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612385">Accounts Receivable</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612387">Sales Account</para> 
-                     <para id="Para612388">Sales Tax Account</para> 
-                     <para id="Para612389">Freight Account</para> 
-                     <para id="Para612390">Misc. Charges Account</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612392">When posting a Cash Receipt, the Asset Account
-      specified for the selected Bank Account is debited, while the Accounts
-      Receivable (A/R) Account is credited:</para>
-      <informaltable id="Table612393">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612397">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612399">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612401">Post Cash Receipt</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612403">Asset Account</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612405">Accounts Receivable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <note>
-         <para id="Para612408">The Asset Account used when posting Cash
-        Receipts will vary depending on which Bank Account is
-        specified.</para>
-      </note>
-      <para id="Para612409">If you enter a Cash Receipt and do not apply the
-      cash to an open Invoice (and your system is not configured to enable
-      Customer Deposits), the following Accounts will be affected when the
-      Cash Receipt is posted. In this example, a miscellaneous A/R Credit Memo
-      will be generated--a Credit Memo which may be applied at a later point.
-      The Credit Memo portion of the transaction is represented by the second
-      pair listed below:</para>
-      <para id="Para612426">
-         <informaltable id="Table612410">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612414"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612416"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612418"> Post Cash Receipt </para> 
-                        <para id="Para612419"> (No Application) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612421"> Cash </para> 
-                        <para id="Para612422"> Prepaid Receivables </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612424"> Prepaid Receivables </para>
-                        <para id="Para612425"> Accounts Receivable </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612427">If your system is configured to enable Customer
-      Deposits, then the following alternate Accounts will be affected when
-      you post an unapplied Cash Receipt balance. The Credit Memo portion of
-      the transaction is represented by the second pair listed below:</para>
-      <para id="Para612444">
-         <informaltable id="Table612428">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612432"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612434"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612436"> Post Cash Receipt </para> 
-                        <para id="Para612437"> (Customer Deposit)) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612439"> Cash </para> 
-                        <para id="Para612440"> Prepaid Receivables </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612442"> Prepaid Receivables </para>
-                        <para id="Para612443"> Deferred Revenue </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612445">The Deferred Revenue Account will be cleared when
-      the Credit Memo generated by the Customer Deposit is applied to A/R open
-      items:</para>
-      <para id="Para612460">
-         <informaltable id="Table612446">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612450"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612452"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612454"> Apply Credit Memo </para> 
-                        <para id="Para612455"> (Customer Deposit)) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612457"> Deferred Revenue </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612459"> Accounts Receivable
-                </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612461">If you make a miscellaneous distribution when
-      posting a Cash Receipt, the following additional Accounts will be
-      affected:</para>
-      <informaltable id="Table612462">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612466">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612468">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612470">Post Cash Receipt</para> 
-                     <para id="Para612471">(Misc. Distribution)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612473">Asset Account</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612475">Misc. Account
-              (varies)</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <tip>
-         <para id="Para612478">You may reverse the sense (Db/Cr) of a
-        miscellaneous distribution by entering a negative distribution
-        amount.</para>
-      </tip>
-      <para id="Para612479">When S/O Credit Memos are posted, the S/O Module
-      owns the Inventory return process; however, the billing aspects are
-      owned by the A/R Module. The following Accounts represent the billing
-      portion of an S/O Credit Memo posting:</para>
-      <informaltable id="Table612480">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612484">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612486">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612488">Post S/O Credit Memo</para> 
-                     <para id="Para612489">(Billing)</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612491">Credit Memo Account</para> 
-                     <para id="Para612492">Sales Tax Account</para> 
-                     <para id="Para612493">Freight Account</para> 
-                     <para id="Para612494">Misc. Charges Account</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612496">Accounts Receivable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612498">Miscellaneous A/R Credit Memos may be used, among
-      other things, to register prepaid amounts received from Customers. The
-      following Accounts are affected when a miscellaneous A/R Credit Memo is
-      posted:</para>
-      <informaltable id="Table612499">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612503">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612505">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612507">Post Misc. A/R</para> 
-                     <para id="Para612508">Credit Memo</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612510">Prepaid Receivables</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612512">Accounts Receivable</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612514">Similarly, miscellaneous A/R Debit Memos may be
-      posted, with the reverse Accounts being affected:</para>
-      <informaltable id="Table612515">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612519">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612521">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612523">Post Misc. A/R</para> 
-                     <para id="Para612524">Debit Memo</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612526">Accounts Receivable</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612528">Prepaid Receivables</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612530">When charging a Customer Credit Card on the Sales
-      Order "Payments" tab, you get the same transactions as when posting an
-      unapplied Cash Receipt. A miscellaneous A/R Credit Memo will be
-      generated--a Credit Memo which should be applied at a later point--and
-      the Cash is posted to the Asset Account for the relevant Bank
-      Account:</para>
-      <para id="Para612547">
-         <informaltable id="Table612531">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612535"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612537"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612539"> Charge Credit Card </para> 
-                        <para id="Para612540"> (No Application) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612542"> Cash </para> 
-                        <para id="Para612543"> Prepaid Receivables </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612545"> Prepaid Receivables </para>
-                        <para id="Para612546"> Accounts Receivable </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <tip>
-         <para id="Para612549">The default Bank Account used for Credit Card
-        charges is defined on the "Configure Credit Card" screen in the System
-        Module. This Bank Account may be different from other Bank Accounts
-        used for other purposes.</para>
-      </tip>
-   </section>
-   <section id="Section612551">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>transactions</primary>
-            <secondary>for g/l entries and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>general ledger</primary>
-            <secondary>direct entry accounting</secondary>
-         </indexterm>G/L Module Transactions</title>
-      <para id="Para612552">G/L transactions entered from the G/L Module may
-      affect the broadest possible spectrum of G/L Accounts. For example, the
-      following actions are user-defined, meaning the Accounts affected will
-      vary from case-to-case:</para>
-      <informaltable id="Table612553">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612557">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612559">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612561">Post Simple Entry</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612563">Varies</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612565">Varies</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table612567">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612571">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612573">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612575">Post Series Entry</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612577">Varies</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612579">Varies</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table612581">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612585">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612587">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612589">Post Standard</para> 
-                     <para id="Para612590">Journal</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612592">Varies</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612594">Varies</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <informaltable id="Table612596">
-         <tgroup cols="3">
-            <thead>
-               <row>
-                  <entry/>
-                  <entry>
-                     <para id="Para612600">Debit</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612602">Credit</para>
-                  </entry>
-               </row>
-            </thead>
-            <tbody>
-               <row>
-                  <entry>
-                     <para id="Para612604">Post Standard</para> 
-                     <para id="Para612605">Journal Group</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612607">Varies</para>
-                  </entry>
-                  <entry>
-                     <para id="Para612609">Varies</para>
-                  </entry>
-               </row>
-            </tbody>
-         </tgroup>
-      </informaltable>
-      <para id="Para612611">When posting a Bank Adjustment, the sense of the
-      transaction will vary based on the Adjustment Type:</para>
-      <para id="Para612626">
-         <informaltable id="Table612612">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612616"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612618"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612620"> Post Adjustment </para> 
-                        <para id="Para612621"> (Positive) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612623"> Asset Account </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612625"> Adjustment Account
-                </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-      <para id="Para612641">
-         <informaltable id="Table612627">
-            <tgroup cols="3">
-               <thead>
-                  <row>
-                     <entry/>
-                     <entry>
-                        <para id="Para612631"> Debit </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612633"> Credit </para>
-                     </entry>
-                  </row>
-               </thead>
-               <tbody>
-                  <row>
-                     <entry>
-                        <para id="Para612635"> Post Adjustment </para> 
-                        <para id="Para612636"> (Negative) </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612638"> Adjustment Account
-                </para>
-                     </entry>
-                     <entry>
-                        <para id="Para612640"> Asset Account </para>
-                     </entry>
-                  </row>
-               </tbody>
-            </tgroup>
-         </informaltable>
-      </para>
-   </section>
+  <title><indexterm significance="normal">
+      <primary>topics</primary>
+      <secondary>transaction accounting</secondary>
+    </indexterm>Topic: Transaction Accounting</title>
+  <para id="Para611427">This section is designed to illustrate the
+  relationship between OpenMFG transactions and the General Ledger (G/L)
+  Accounts they impact. Think of this section as being a reference tool you
+  can use to help you track G/L transactions.</para>
+  <para id="Para611428">The transactions have been listed by Module--and only
+  those transactions which create G/L records have been included. For each
+  transaction, we have noted the G/L Accounts affected by the
+  transaction.</para>
+  <tip>
+    <para id="Para611430">If you are not seeing G/L traffic for Inventory
+    transactions, verify that Standard Costs have been assigned to the
+    affected Items. If no Standard Costs are assigned, the costing aspects of
+    the transactions will not be recorded.</para>
+  </tip>
+  <section id="Section611433">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for inventory accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory transactions</primary>
+        <secondary>accounting related to</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>accounting for</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for inventory accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>accounting for</secondary>
+      </indexterm>I/M Module Transactions</title>
+    <para id="Para611434">The majority of I/M Module transactions are
+    initiated in the Inventory Transaction section. This is the case with our
+    first transaction type: Miscellaneous Adjustment. You would enter a
+    Miscellaneous Adjustment to change the Quantity on Hand (QOH) for an Item
+    in a particular Item Site. Using a Miscellaneous Adjustment, QOH can be
+    adjusted either upwards or downwards:</para>
+    <informaltable id="Table611435">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611439">Debit</para></entry>
+            <entry><para id="Para611441">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611443">Miscellaneous</para> <para
+            id="Para611444">Adjustment</para> <para
+            id="Para611445">(Positive)</para></entry>
+            <entry><para id="Para611447">Inventory Asset</para></entry>
+            <entry><para id="Para611449">Inventory Adjustment</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611451">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611455">Debit</para></entry>
+            <entry><para id="Para611457">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611459">Miscellaneous</para> <para
+            id="Para611460">Adjustment</para> <para
+            id="Para611461">(Negative)</para></entry>
+            <entry><para id="Para611463">Inventory Adjustment</para></entry>
+            <entry><para id="Para611465">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611467">If an Item is located in more than one Warehouse,
+    you have the option of moving quantities of the Item from one Warehouse to
+    another. During an Inter-Warehouse transfer, you increase QOH at the
+    receiving Warehouse and decrease QOH at the originating Warehouse.</para>
+    <informaltable id="Table611468">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611472">Debit</para></entry>
+            <entry><para id="Para611474">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611476">Inter-Warehouse</para> <para
+            id="Para611477">Transfer</para></entry>
+            <entry><para id="Para611479">Inventory Asset</para></entry>
+            <entry><para id="Para611481">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611483">Inventory may need to be scrapped for a variety of
+    different reasons. Entering a Scrap transaction decreases Inventory value
+    by the Cost of the quantity being scrapped. The following Accounts are
+    affected:</para>
+    <informaltable id="Table611484">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611488">Debit</para></entry>
+            <entry><para id="Para611490">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611492">Scrap</para></entry>
+            <entry><para id="Para611494">Inventory Scrap</para></entry>
+            <entry><para id="Para611496">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611498">Expense transactions are like Scrap transactions, in
+    that they decrease Inventory value. The debit side of the transaction is
+    assigned to an Expense Category. The Accounts used for Expense Categories
+    will vary from site to site:</para>
+    <informaltable id="Table611499">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611503">Debit</para></entry>
+            <entry><para id="Para611505">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611507">Expense</para></entry>
+            <entry><para id="Para611509">Expense Account</para></entry>
+            <entry><para id="Para611511">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611513">Items may be received into Inventory via a number of
+    different paths:</para>
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x183efac">
+        <para id="Para611514">As a purchased Item from the P/O Module</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x183efd0">
+        <para id="Para611515">As manufactured Item from the W/O Module</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x183eff4">
+        <para id="Para611516">As a Credit Memo Item from the S/O Module</para>
+      </listitem>
+    </itemizedlist>
+    <para id="Para611517">If none of these paths is being used, you may
+    receive Inventory using a miscellaneous Material Receipt. When an Item is
+    received into Inventory via a Material Receipt, the Inventory value of
+    that Item is increased:</para>
+    <informaltable id="Table611518">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611522">Debit</para></entry>
+            <entry><para id="Para611524">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611526">Material Receipt</para></entry>
+            <entry><para id="Para611528">Inventory Asset</para></entry>
+            <entry><para id="Para611530">P/O Liability Clearing</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611532">The Transform utility enables you to transform
+    quantities of a source Item into quantities of a target Item. As far as
+    the source Item is concerned, its Inventory value is decreased. The
+    reverse is true for the Target Item, whose Inventory value is increased.
+    The following Accounts are affected:</para>
+    <informaltable id="Table611533">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611537">Debit</para></entry>
+            <entry><para id="Para611539">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611541">Transform</para> <para
+            id="Para611542">(Source Item)</para></entry>
+            <entry><para id="Para611544">Transform Clearing</para></entry>
+            <entry><para id="Para611546">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611548">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611552">Debit</para></entry>
+            <entry><para id="Para611554">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611556">Transform</para> <para
+            id="Para611557">(Target Item)</para></entry>
+            <entry><para id="Para611559">Inventory Asset</para></entry>
+            <entry><para id="Para611561">Transform Clearing</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611563">To avoid the unnecessary confusion that can occur if
+    negative QOH balances are used for planning purposes, OpenMFG gives you
+    the ability to reset negative QOH values to "0." Adjusting Inventory from
+    a negative value to "0" increases the value of the affected
+    Inventory.</para>
+    <informaltable id="Table611564">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611568">Debit</para></entry>
+            <entry><para id="Para611570">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611572">Reset QOH</para></entry>
+            <entry><para id="Para611574">Inventory Asset</para></entry>
+            <entry><para id="Para611576">Inventory Adjustment</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611578">At the end of a physical Inventory count, the count
+    totals are posted using Count Tags. A posted Count Tag affects Inventory
+    value in either a positive or a negative sense, depending on whether
+    counted QOH was found to be greater than or less than recorded QOH. The
+    Inventory Asset Account will be adjusted accordingly:</para>
+    <informaltable id="Table611579">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611583">Debit</para></entry>
+            <entry><para id="Para611585">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611587">Post Count Tag</para> <para
+            id="Para611588">(Positive)</para></entry>
+            <entry><para id="Para611590">Inventory Asset</para></entry>
+            <entry><para id="Para611592">Inventory Adjustment</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611594">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611598">Debit</para></entry>
+            <entry><para id="Para611600">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611602">Post Count Tag</para> <para
+            id="Para611603">(Negative)</para></entry>
+            <entry><para id="Para611605">Inventory Adjustment</para></entry>
+            <entry><para id="Para611607">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section611610">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for p/d accounting</secondary>
+      </indexterm>P/D Module Transactions</title>
+    <para id="Para611611">Whenever the Standard Cost for an Item is updated,
+    the G/L will record the update. If Standard Cost is increased, the
+    Inventory Asset will be debited for the amount of the increase multiplied
+    by the Quantity on Hand for the Item in question. Both netable and
+    non-netable quantities will be included in the calculation. If the
+    Standard Cost is decreased, the opposite records will be generated, as
+    shown below:</para>
+    <informaltable id="Table611612">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611616">Debit</para></entry>
+            <entry><para id="Para611618">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611620">Post Actual Cost</para> <para
+            id="Para611621">to Standard</para> <para
+            id="Para611622">(Increase)</para></entry>
+            <entry><para id="Para611624">Inventory Asset</para></entry>
+            <entry><para id="Para611626">Inventory Cost
+            Variance</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611628">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611632">Debit</para></entry>
+            <entry><para id="Para611634">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611636">Post Actual Cost</para> <para
+            id="Para611637">to Standard</para> <para
+            id="Para611638">(Decrease)</para></entry>
+            <entry><para id="Para611640">Inventory Cost
+            Variance</para></entry>
+            <entry><para id="Para611642">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section611645">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for purchasing accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>purchasing</primary>
+        <secondary>accounting for</secondary>
+      </indexterm>P/O Module Transactions</title>
+    <note>
+      <para id="Para611647">When Purchase Orders are posted, no G/L record is
+      created. Instead, posting a Purchase Order makes it available to the S/R
+      Module, where purchased Items are received.</para>
+    </note>
+    <para id="Para611648">Some might expect the posting of a Voucher to be
+    recorded as a P/O Module transaction. However, the system gives ownership
+    over Voucher postings to the A/P Module. Similarly, the process of
+    receiving a Purchase Order Item is owned by the S/R Module.</para>
+    <para id="Para611649">One exception to the pattern of ownership involves
+    the return of Purchase Order Items. While purchased Items are returned
+    using the S/R Module, the system considers returns to be P/O Module
+    transactions. As shown below, the affected Accounts vary based on whether
+    the return involves an Inventory or a non-Inventory Item:</para>
+    <informaltable id="Table611650">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611654">Debit</para></entry>
+            <entry><para id="Para611656">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611658">Post P/O Return</para> <para
+            id="Para611659">(Inventory Item)</para></entry>
+            <entry><para id="Para611661">P/O Liability Clearing</para></entry>
+            <entry><para id="Para611663">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611665">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611669">Debit</para></entry>
+            <entry><para id="Para611671">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611673">Post P/O Return</para> <para
+            id="Para611674">(Non-Inventory Item)</para></entry>
+            <entry><para id="Para611676">P/O Liability Clearing</para></entry>
+            <entry><para id="Para611678">Expense Account</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section611680">
+    <title>S/O Module Transactions</title>
+    <note>
+      <para id="Para611682">No G/L records are generated when billing
+      selections are posted. Instead, the posting of billing selections
+      creates an Invoice for the Sales Order quantity in question.</para>
+    </note>
+    <para id="Para611683">While you might expect the posting of an Invoice to
+    be recorded as an S/O Module transaction, the system considers posted
+    Invoices to be owned by the A/R Module. The posting of S/O Credit Memos,
+    however, is owned by the S/O Module.</para>
+    <para id="Para611684">It can be a bit complicated to follow the
+    transaction records for posted S/O Credit Memos. The reason for this is
+    that when a Credit Memo is posted, a couple of different things happen.
+    For one, the billing portion is owned by the A/R Module. Second, the
+    merchandise the Customer is returning must be placed back into Inventory.
+    It is the Inventory return process which is owned by the S/O Module, as
+    shown below.</para>
+    <informaltable id="Table611685">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611689">Debit</para></entry>
+            <entry><para id="Para611691">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611693">Post S/O Credit Memo</para> <para
+            id="Para611694">(Inventory)</para></entry>
+            <entry><para id="Para611696">Inventory Asset</para></entry>
+            <entry><para id="Para611698">Cost of Sales Account</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section611701">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for manufacturing accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>manufacturing</primary>
+        <secondary>accounting for</secondary>
+      </indexterm>W/O Module Transactions</title>
+    <para id="Para611702">Owing to the complexity of Work Order processing,
+    multiple transaction records may be generated from the W/O Module. Perhaps
+    the most basic transaction involves the issuance of materials to a Work
+    Order. As shown below, materials are first removed from Inventory and then
+    transferred to the Work Order as work-in-process (WIP) assets:</para>
+    <informaltable id="Table611703">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611707">Debit</para></entry>
+            <entry><para id="Para611709">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611711">Issue W/O Materials</para></entry>
+            <entry><para id="Para611713">WIP Asset</para></entry>
+            <entry><para id="Para611715">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611717">Returning materials from a Work Order creates
+    records opposite to those generated when materials are issued:</para>
+    <informaltable id="Table611718">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611722">Debit</para></entry>
+            <entry><para id="Para611724">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611726">Return W/O Materials</para></entry>
+            <entry><para id="Para611728">Inventory Asset</para></entry>
+            <entry><para id="Para611730">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611732">When materials are scrapped from a Work Order, the
+    WIP Asset Account is credited for the amount of the Scrap quantity--and
+    the Manufacturing Scrap Account is debited, as shown below:</para>
+    <informaltable id="Table611733">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611737">Debit</para></entry>
+            <entry><para id="Para611739">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611741">Scrap W/O Materials</para> <para
+            id="Para611742">from Work Order</para></entry>
+            <entry><para id="Para611744">Manufacturing Scrap</para></entry>
+            <entry><para id="Para611746">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611748">When posting Production for a Work Order, a number
+    of different transactions occur--and each transaction generates its own
+    G/L record:</para>
+    <itemizedlist>
+      <listitem id="listitemN0x180ac00N0x184f20c">
+        <para id="Para611749">Materials that have not already been issued to
+        the Work Order are issued to the Work Order.</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x184f230">
+        <para id="Para611750">Manufactured Item quantity is entered into
+        Inventory.</para>
+      </listitem>
+      <listitem id="listitemN0x180ac00N0x184f254">
+        <para id="Para611751">Work Order Operations--that is, setup and run
+        time records--are posted.</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para id="Para611753">If a Bill of Operations is defined for a
+      manufactured Item, both setup time and run time Costs will be posted to
+      the G/L when production is posted. Overhead Costs will be added to both
+      the setup time and run time amounts, if overhead is specified for the
+      given Work Center. In other words, the posted setup time amount (and
+      also the posted run time amount) will include not only the setup time
+      charge but also the applicable percentage of the hourly overhead
+      rate.</para>
+    </note>
+    <informaltable id="Table611754">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611758">Debit</para></entry>
+            <entry><para id="Para611760">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611762">Post Production</para> <para
+            id="Para611763">(Materials)</para></entry>
+            <entry><para id="Para611765">WIP Asset</para></entry>
+            <entry><para id="Para611767">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611769">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611773">Debit</para></entry>
+            <entry><para id="Para611775">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611777">Post Production</para> <para
+            id="Para611778">(Mfg. Items)</para></entry>
+            <entry><para id="Para611780">Inventory Asset</para></entry>
+            <entry><para id="Para611782">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611784">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611788">Debit</para></entry>
+            <entry><para id="Para611790">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611792">Post Production</para> <para
+            id="Para611793">(Operations)</para></entry>
+            <entry><para id="Para611795">WIP Asset</para></entry>
+            <entry><para id="Para611797">Labor and Overhead</para> <para
+            id="Para611798">Costs</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611800">A slightly different set of records is generated
+    when posting Production for a Breeder Item. To begin with, the Breeder
+    Item itself must be accounted for. Because Breeder Items are transient in
+    nature, their effect on Inventory is temporary. When Production is posted
+    for a Breeder Item, a reversed pair of transactions is generated. These
+    paired transactions effectively cancel each other out. As shown below,
+    Breeder Items are both consumed by and received from manufacturing:</para>
+    <informaltable id="Table611801">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611805">Debit</para></entry>
+            <entry><para id="Para611807">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611809">Post Production</para> <para
+            id="Para611810">(Issue Breeder)</para></entry>
+            <entry><para id="Para611812">WIP Asset</para></entry>
+            <entry><para id="Para611814">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611816">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611820">Debit</para></entry>
+            <entry><para id="Para611822">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611824">Post Production</para> <para
+            id="Para611825">(Receive Breeder)</para></entry>
+            <entry><para id="Para611827">Inventory Asset</para></entry>
+            <entry><para id="Para611829">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611831">Next, the material required for Breeder Production
+    must be issued to the Work Order. The following Accounts are affected when
+    material requirements are issued to Breeder production:</para>
+    <informaltable id="Table611832">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611836">Debit</para></entry>
+            <entry><para id="Para611838">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611840">Post Production</para> <para
+            id="Para611841">(Issue Materials)</para></entry>
+            <entry><para id="Para611843">WIP Asset</para></entry>
+            <entry><para id="Para611845">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611847">The Co-Products and/or By-Products which result from
+    Breeder Production must be received into Inventory, as follows:</para>
+    <informaltable id="Table611848">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611852">Debit</para></entry>
+            <entry><para id="Para611854">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611856">Post Production</para> <para
+            id="Para611857">(Receive Products)</para></entry>
+            <entry><para id="Para611859">Inventory Asset</para></entry>
+            <entry><para id="Para611861">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611863">And finally, if during Production you vary the
+    standard quantity when distributing Co-Products and/or By-Products, the
+    following Accounts will be affected:</para>
+    <informaltable id="Table611864">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611868">Debit</para></entry>
+            <entry><para id="Para611870">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611872">Post Production</para> <para
+            id="Para611873">(Cost Variance -- </para> <para
+            id="Para611874">Positive)</para></entry>
+            <entry><para id="Para611876">Inventory Cost
+            Variance</para></entry>
+            <entry><para id="Para611878">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611880">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611884">Debit</para></entry>
+            <entry><para id="Para611886">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611888">Post Production</para> <para
+            id="Para611889">(Cost Variance -- </para> <para
+            id="Para611890">Negative)</para></entry>
+            <entry><para id="Para611892">WIP Asset</para></entry>
+            <entry><para id="Para611894">Inventory Cost
+            Variance</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611896">When you correct Production posting, the records
+    generated are the opposite of those generated when Production is posted.
+    Only the materials and the manufactured Items are corrected when posting a
+    correction. Any Operations that were posted must be corrected
+    separately.</para>
+    <note>
+      <para id="Para611898">You may not post a correction to a Work Order that
+      manufactures a Breeder Item. Instead, you must manually adjust the
+      Quantity on Hand values for the Breeder materials, the Co-Products, and
+      the By-Products.</para>
+    </note>
+    <informaltable id="Table611899">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611903">Debit</para></entry>
+            <entry><para id="Para611905">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611907">Correct Production</para> <para
+            id="Para611908">(Mfg. Items)</para></entry>
+            <entry><para id="Para611910">WIP Asset</para></entry>
+            <entry><para id="Para611912">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611914">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611918">Debit</para></entry>
+            <entry><para id="Para611920">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611922">Correct Production</para> <para
+            id="Para611923">(Materials)</para></entry>
+            <entry><para id="Para611925">Inventory Asset</para></entry>
+            <entry><para id="Para611927">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para611929">The records generated when posting miscellaneous
+    Production are similar to those generated when posting regular
+    Production--the main difference being that when Operations are posted, the
+    Inventory Cost Variance Account is used instead of the Labor and Overhead
+    Costs Account.</para>
+    <note>
+      <para id="Para611931">Miscellaneous Production may not be posted for
+      Breeder Items.</para>
+    </note>
+    <informaltable id="Table611932">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611936">Debit</para></entry>
+            <entry><para id="Para611938">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611940">Post Misc. Production</para> <para
+            id="Para611941">(Mfg. Items - Positive)</para></entry>
+            <entry><para id="Para611943">Inventory Asset</para></entry>
+            <entry><para id="Para611945">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611947">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611951">Debit</para></entry>
+            <entry><para id="Para611953">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611955">Post Misc. Production</para> <para
+            id="Para611956">(Mfg. Items - Negative)</para></entry>
+            <entry><para id="Para611958">WIP Asset</para></entry>
+            <entry><para id="Para611960">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611962">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611966">Debit</para></entry>
+            <entry><para id="Para611968">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611970">Post Misc. Production</para> <para
+            id="Para611971">(Materials - Positive)</para></entry>
+            <entry><para id="Para611973">WIP Asset</para></entry>
+            <entry><para id="Para611975">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611977">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611981">Debit</para></entry>
+            <entry><para id="Para611983">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para611985">Post Misc. Production</para> <para
+            id="Para611986">(Materials - Negative)</para></entry>
+            <entry><para id="Para611988">Inventory Asset</para></entry>
+            <entry><para id="Para611990">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table611992">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para611996">Debit</para></entry>
+            <entry><para id="Para611998">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612000">Post Misc. Production</para> <para
+            id="Para612001">(Operations - Positive)</para></entry>
+            <entry><para id="Para612003">WIP Asset</para></entry>
+            <entry><para id="Para612005">Inventory Cost
+            Variance</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table612007">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612011">Debit</para></entry>
+            <entry><para id="Para612013">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612015">Post Misc. Production</para> <para
+            id="Para612016">(Operations - Negative)</para></entry>
+            <entry><para id="Para612018">Inventory Cost
+            Variance</para></entry>
+            <entry><para id="Para612020">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612022">When Work Order Operations are posted separately
+    from Production posting, the following Accounts are affected:</para>
+    <informaltable id="Table612023">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612027">Debit</para></entry>
+            <entry><para id="Para612029">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612031">Post Operations</para></entry>
+            <entry><para id="Para612033">WIP Asset</para></entry>
+            <entry><para id="Para612035">Labor and Overhead</para> <para
+            id="Para612036">Costs</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612038">The same Accounts affected when posting Operations
+    are impacted in reverse order when correcting Operations posting:</para>
+    <informaltable id="Table612039">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612043">Debit</para></entry>
+            <entry><para id="Para612045">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612047">Correct Operations</para></entry>
+            <entry><para id="Para612049">Labor and Overhead</para> <para
+            id="Para612050">Costs</para></entry>
+            <entry><para id="Para612052">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612054">When closing a Work Order, you may elect to post
+    Material Usage and/or Labor variances. The sense of the records will
+    depend on the transaction. If any variances exist for the Work Order in
+    question, the following Accounts will be affected:</para>
+    <informaltable id="Table612055">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612059">Debit</para></entry>
+            <entry><para id="Para612061">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612063">Close Work Order</para></entry>
+            <entry><para id="Para612065">WIP Asset</para> <para
+            id="Para612066">Inventory Cost Variance</para></entry>
+            <entry><para id="Para612068">Inventory Cost Variance</para> <para
+            id="Para612069">WIP Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section612071">
+    <title>S/R Module Transactions</title>
+    <para id="Para612072">Sales Order Items are removed from Inventory at the
+    point when they are issued to Shipping. Issuing Stock to Shipping affects
+    the following Accounts:</para>
+    <informaltable id="Table612073">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612077">Debit</para></entry>
+            <entry><para id="Para612079">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612081">Issue Stock</para> <para
+            id="Para612082">to Shipping</para></entry>
+            <entry><para id="Para612084">Shipping Asset</para></entry>
+            <entry><para id="Para612086">Inventory Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612088">Prior to being shipped, Sales Order Items that have
+    been issued to Shipping may be returned to Inventory. Returning Stock to
+    Inventory reverses the transaction records created when Stock was issued
+    to Shipping:</para>
+    <informaltable id="Table612089">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612093">Debit</para></entry>
+            <entry><para id="Para612095">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612097">Return Stock</para> <para
+            id="Para612098">from Shipping</para></entry>
+            <entry><para id="Para612100">Inventory Asset</para></entry>
+            <entry><para id="Para612102">Shipping Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612104">When Stock is shipped, the Shipping Asset Account is
+    cleared out--and the Cost of Sales Account is debited, as shown
+    below:</para>
+    <informaltable id="Table612105">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612109">Debit</para></entry>
+            <entry><para id="Para612111">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612113">Ship Order</para></entry>
+            <entry><para id="Para612115">Cost of Sales</para></entry>
+            <entry><para id="Para612117">Shipping Asset</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612119">If a Shipment is returned to Shipping, the action
+    reverses the transaction records generated when the Order was
+    shipped:</para>
+    <informaltable id="Table612120">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612124">Debit</para></entry>
+            <entry><para id="Para612126">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612128">Return Order</para> <para
+            id="Para612129">to Shipping</para></entry>
+            <entry><para id="Para612131">Shipping Asset</para></entry>
+            <entry><para id="Para612133">Cost of Sales</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612135">When Purchase Order Items are received, they are
+    entered into Inventory and the P/O Liability Clearing Account is credited
+    for the Standard Cost of the received Items. If the Items being received
+    are non-Inventory Items, the appropriate Expense Account will be debited.
+    In either case, if any P/O Line Item freight charges exist, they will be
+    debited:</para>
+    <informaltable id="Table612136">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612140">Debit</para></entry>
+            <entry><para id="Para612142">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612144">Post P/O Receipt</para> <para
+            id="Para612145">(Inventory Item)</para></entry>
+            <entry><para id="Para612147">Inventory Asset</para> <para
+            id="Para612148">P/O Freight Expense</para></entry>
+            <entry><para id="Para612150">P/O Liability Clearing</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table612152">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612156">Debit</para></entry>
+            <entry><para id="Para612158">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612160">Post P/O Receipt</para> <para
+            id="Para612161">(Non-Inventory)</para></entry>
+            <entry><para id="Para612163">Expense Account</para> <para
+            id="Para612164">P/O Freight Expense</para></entry>
+            <entry><para id="Para612166">P/O Liability Clearing</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612168">If you need to correct the quantity received for a
+    Purchase Order, you may do so using the "Correct Receiving" option on the
+    right-click menu of the "Uninvoiced Receipts" screen. The "Uninvoiced
+    Receipts" screen is found in the Vouchers section of the P/O Module.
+    Corrections to received quantity are considered to be S/R Module
+    transactions. The Accounts affected will vary depending on whether the
+    correction decreases or increases the original received quantity, as shown
+    below for both Inventory and non-Inventory Items. Freight expenses may
+    also be corrected:</para>
+    <para id="Para612185"><informaltable id="Table612169">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612173"> Debit </para></entry>
+              <entry><para id="Para612175"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612177"> Correct Receiving </para> <para
+              id="Para612178"> (Decrease Qty.: </para> <para id="Para612179">
+              (Inventory Item) </para></entry>
+              <entry><para id="Para612181"> P/O Liability Clearing
+              </para></entry>
+              <entry><para id="Para612183"> Inventory Asset </para> <para
+              id="Para612184"> P/O Freight Expense </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612202"><informaltable id="Table612186">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612190"> Debit </para></entry>
+              <entry><para id="Para612192"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612194"> Correct Receiving </para> <para
+              id="Para612195"> (Increase Qty.: </para> <para id="Para612196">
+              Inventory Item) </para></entry>
+              <entry><para id="Para612198"> Inventory Asset </para> <para
+              id="Para612199"> P/O Freight Expense </para></entry>
+              <entry><para id="Para612201"> P/O Liability Clearing
+              </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612219"><informaltable id="Table612203">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612207"> Debit </para></entry>
+              <entry><para id="Para612209"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612211"> Correct Receiving </para> <para
+              id="Para612212"> (Decrease Qty.: </para> <para id="Para612213">
+              (Non-Inventory) </para></entry>
+              <entry><para id="Para612215"> P/O Liability Clearing
+              </para></entry>
+              <entry><para id="Para612217"> Expense Account </para> <para
+              id="Para612218"> P/O Freight Expense </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612235"><informaltable id="Table612220">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612224"> Debit </para></entry>
+              <entry><para id="Para612226"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612228"> Correct Receiving </para> <para
+              id="Para612229"> (Increase Qty.: </para> <para id="Para612230">
+              Non-Inventory) </para></entry>
+              <entry><para id="Para612232"> Expense Account </para></entry>
+              <entry><para id="Para612234"> P/O Liability Clearing
+              </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <note>
+      <para id="Para612237">While Purchase Order Items are returned using the
+      S/R Module, the system considers these transactions to be owned by the
+      P/O Module.</para>
+    </note>
+  </section>
+  <section id="Section612239">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for payables accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>payables</primary>
+        <secondary>accounting for</secondary>
+      </indexterm>A/P Module Transactions</title>
+    <para id="Para612240">Even though Vouchers may be posted from the P/O
+    Module, these transactions are owned by the A/P Module. Posting a Voucher
+    affects several Accounts. The Accounts Payable (A/P) Account is credited
+    for the Voucher amount. The P/O Liability Clearing Account is debited for
+    the Standard Cost of the Items received against the given Purchase Order.
+    If there are differences between the Vouchered amount and the Standard
+    Cost of received Items, the Purchase Price Variance Account will be
+    debited or credited to reflect those differences. Finally, Freight charges
+    may be added, depending on the details of the transaction.</para>
+    <note>
+      <para id="Para612242">The same Accounts are affected regardless of
+      whether a Voucher is posted for Inventory or non-Inventory Items.</para>
+    </note>
+    <informaltable id="Table612243">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612247">Debit</para></entry>
+            <entry><para id="Para612249">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612251">Post Voucher</para></entry>
+            <entry><para id="Para612253">P/O Liability Clearing</para> <para
+            id="Para612254">Purch. Price Variance</para></entry>
+            <entry><para id="Para612256">Accounts Payable</para> <para
+            id="Para612257">Purch. Price Variance</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612259">If you make a miscellaneous distribution when
+    posting a Voucher, the following additional Accounts will be affected. The
+    debit side of the transaction will vary depending on whether a
+    miscellaneous Account or an Expense Category is selected:</para>
+    <informaltable id="Table612260">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612264">Debit</para></entry>
+            <entry><para id="Para612266">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612268">Post Voucher</para> <para
+            id="Para612269">(Misc. Distribution)</para></entry>
+            <entry><para id="Para612271">Misc. Account (varies)</para> <para
+            id="Para612272">Expense Account (optional)</para></entry>
+            <entry><para id="Para612274">Accounts Payable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <tip>
+      <para id="Para612277">You may reverse the sense (Db/Cr) of a
+      miscellaneous distribution by entering a negative distribution
+      amount.</para>
+    </tip>
+    <para id="Para612278">When a miscellaneous Voucher is posted, the debit
+    Account may vary--depending on the circumstances of the transaction. As
+    with regular Vouchers, though, the Accounts Payable Account is credited,
+    as shown below:</para>
+    <informaltable id="Table612279">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612283">Debit</para></entry>
+            <entry><para id="Para612285">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612287">Post Misc. Voucher</para></entry>
+            <entry><para id="Para612289">Misc. Account (varies)</para></entry>
+            <entry><para id="Para612291">Accounts Payable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612293">Purchasing Discounts may be taken when a Voucher is
+    selected for payment. The following Accounts are affected when applying a
+    Discount to a Voucher:</para>
+    <para id="Para612307"><informaltable id="Table612294">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612298"> Debit </para></entry>
+              <entry><para id="Para612300"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612302"> Apply Discount </para></entry>
+              <entry><para id="Para612304"> Accounts Payable </para></entry>
+              <entry><para id="Para612306"> Discount Account </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612308">When posting Checks, the Bank Account selected at
+    the time of posting determines which Asset Account will be used. This is
+    true whether posting a single or multiple Checks. The following Accounts
+    are affected:</para>
+    <informaltable id="Table612309">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612313">Debit</para></entry>
+            <entry><para id="Para612315">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612317">Post Check(s)</para></entry>
+            <entry><para id="Para612319">Accounts Payable</para></entry>
+            <entry><para id="Para612321">Asset Account</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612323">The Accounts affected differ slightly when a
+    miscellaneous A/P Check is posted, as shown below:</para>
+    <informaltable id="Table612324">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612328">Debit</para></entry>
+            <entry><para id="Para612330">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612332">Post Misc. Check</para></entry>
+            <entry><para id="Para612334">Expense Account</para></entry>
+            <entry><para id="Para612336">Asset Account</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612338">Miscellaneous A/P Credit Memos may be used, among
+    other things, to register prepaid amounts paid to Vendors. The following
+    Accounts are affected when a miscellaneous A/P Credit Memo is
+    posted:</para>
+    <informaltable id="Table612339">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612343">Debit</para></entry>
+            <entry><para id="Para612345">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612347">Post Misc. A/P</para> <para
+            id="Para612348">Credit Memo</para></entry>
+            <entry><para id="Para612350">Accounts Payable</para></entry>
+            <entry><para id="Para612352">Prepaid Payables</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <note>
+      <para id="Para612355">The system does not generate G/L Account records
+      when a miscellaneous A/P Credit Memo is applied to either a Voucher or a
+      miscellaneous A/P Debit Memo.</para>
+    </note>
+    <para id="Para612356">Similarly, miscellaneous A/P Debit Memos may be
+    posted, with the reverse Accounts being affected:</para>
+    <informaltable id="Table612357">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612361">Debit</para></entry>
+            <entry><para id="Para612363">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612365">Post Misc. A/P</para> <para
+            id="Para612366">Debit Memo</para></entry>
+            <entry><para id="Para612368">Prepaid Payables</para></entry>
+            <entry><para id="Para612370">Accounts Payable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+  </section>
+  <section id="Section612373">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for receivables accounting</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>receivables</primary>
+        <secondary>accounting for</secondary>
+      </indexterm>A/R Module Transactions</title>
+    <para id="Para612374">The G/L records generated when Invoices are posted
+    are fairly straightforward. The Accounts Receivable (A/R) Account is
+    debited, and the Sales Account credited. Several other Accounts may also
+    be credited, depending on whether any additional charges are associated
+    with the Order:</para>
+    <informaltable id="Table612375">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612379">Debit</para></entry>
+            <entry><para id="Para612381">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612383">Post Invoice</para></entry>
+            <entry><para id="Para612385">Accounts Receivable</para></entry>
+            <entry><para id="Para612387">Sales Account</para> <para
+            id="Para612388">Sales Tax Account</para> <para
+            id="Para612389">Freight Account</para> <para id="Para612390">Misc.
+            Charges Account</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612392">When posting a Cash Receipt, the Asset Account
+    specified for the selected Bank Account is debited, while the Accounts
+    Receivable (A/R) Account is credited:</para>
+    <informaltable id="Table612393">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612397">Debit</para></entry>
+            <entry><para id="Para612399">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612401">Post Cash Receipt</para></entry>
+            <entry><para id="Para612403">Asset Account</para></entry>
+            <entry><para id="Para612405">Accounts Receivable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <note>
+      <para id="Para612408">The Asset Account used when posting Cash Receipts
+      will vary depending on which Bank Account is specified.</para>
+    </note>
+    <para id="Para612409">If you enter a Cash Receipt and do not apply the
+    cash to an open Invoice (and your system is not configured to enable
+    Customer Deposits), the following Accounts will be affected when the Cash
+    Receipt is posted. In this example, a miscellaneous A/R Credit Memo will
+    be generated--a Credit Memo which may be applied at a later point. The
+    Credit Memo portion of the transaction is represented by the second pair
+    listed below:</para>
+    <para id="Para612426"><informaltable id="Table612410">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612414"> Debit </para></entry>
+              <entry><para id="Para612416"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612418"> Post Cash Receipt </para> <para
+              id="Para612419"> (No Application) </para></entry>
+              <entry><para id="Para612421"> Cash </para> <para
+              id="Para612422"> Prepaid Receivables </para></entry>
+              <entry><para id="Para612424"> Prepaid Receivables </para> <para
+              id="Para612425"> Accounts Receivable </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612427">If your system is configured to enable Customer
+    Deposits, then the following alternate Accounts will be affected when you
+    post an unapplied Cash Receipt balance. The Credit Memo portion of the
+    transaction is represented by the second pair listed below:</para>
+    <para id="Para612444"><informaltable id="Table612428">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612432"> Debit </para></entry>
+              <entry><para id="Para612434"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612436"> Post Cash Receipt </para> <para
+              id="Para612437"> (Customer Deposit)) </para></entry>
+              <entry><para id="Para612439"> Cash </para> <para
+              id="Para612440"> Prepaid Receivables </para></entry>
+              <entry><para id="Para612442"> Prepaid Receivables </para> <para
+              id="Para612443"> Deferred Revenue </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612445">The Deferred Revenue Account will be cleared when
+    the Credit Memo generated by the Customer Deposit is applied to A/R open
+    items:</para>
+    <para id="Para612460"><informaltable id="Table612446">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612450"> Debit </para></entry>
+              <entry><para id="Para612452"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612454"> Apply Credit Memo </para> <para
+              id="Para612455"> (Customer Deposit)) </para></entry>
+              <entry><para id="Para612457"> Deferred Revenue </para></entry>
+              <entry><para id="Para612459"> Accounts Receivable
+              </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612461">If you make a miscellaneous distribution when
+    posting a Cash Receipt, the following additional Accounts will be
+    affected:</para>
+    <informaltable id="Table612462">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612466">Debit</para></entry>
+            <entry><para id="Para612468">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612470">Post Cash Receipt</para> <para
+            id="Para612471">(Misc. Distribution)</para></entry>
+            <entry><para id="Para612473">Asset Account</para></entry>
+            <entry><para id="Para612475">Misc. Account (varies)</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <tip>
+      <para id="Para612478">You may reverse the sense (Db/Cr) of a
+      miscellaneous distribution by entering a negative distribution
+      amount.</para>
+    </tip>
+    <para id="Para612479">When S/O Credit Memos are posted, the S/O Module
+    owns the Inventory return process; however, the billing aspects are owned
+    by the A/R Module. The following Accounts represent the billing portion of
+    an S/O Credit Memo posting:</para>
+    <informaltable id="Table612480">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612484">Debit</para></entry>
+            <entry><para id="Para612486">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612488">Post S/O Credit Memo</para> <para
+            id="Para612489">(Billing)</para></entry>
+            <entry><para id="Para612491">Credit Memo Account</para> <para
+            id="Para612492">Sales Tax Account</para> <para
+            id="Para612493">Freight Account</para> <para id="Para612494">Misc.
+            Charges Account</para></entry>
+            <entry><para id="Para612496">Accounts Receivable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612498">Miscellaneous A/R Credit Memos may be used, among
+    other things, to register prepaid amounts received from Customers. The
+    following Accounts are affected when a miscellaneous A/R Credit Memo is
+    posted:</para>
+    <informaltable id="Table612499">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612503">Debit</para></entry>
+            <entry><para id="Para612505">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612507">Post Misc. A/R</para> <para
+            id="Para612508">Credit Memo</para></entry>
+            <entry><para id="Para612510">Prepaid Receivables</para></entry>
+            <entry><para id="Para612512">Accounts Receivable</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612514">Similarly, miscellaneous A/R Debit Memos may be
+    posted, with the reverse Accounts being affected:</para>
+    <informaltable id="Table612515">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612519">Debit</para></entry>
+            <entry><para id="Para612521">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612523">Post Misc. A/R</para> <para
+            id="Para612524">Debit Memo</para></entry>
+            <entry><para id="Para612526">Accounts Receivable</para></entry>
+            <entry><para id="Para612528">Prepaid Receivables</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612530">When charging a Customer Credit Card on the Sales
+    Order "Payments" tab, you get the same transactions as when posting an
+    unapplied Cash Receipt. A miscellaneous A/R Credit Memo will be
+    generated--a Credit Memo which should be applied at a later point--and the
+    Cash is posted to the Asset Account for the relevant Bank Account:</para>
+    <para id="Para612547"><informaltable id="Table612531">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612535"> Debit </para></entry>
+              <entry><para id="Para612537"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612539"> Charge Credit Card </para> <para
+              id="Para612540"> (No Application) </para></entry>
+              <entry><para id="Para612542"> Cash </para> <para
+              id="Para612543"> Prepaid Receivables </para></entry>
+              <entry><para id="Para612545"> Prepaid Receivables </para> <para
+              id="Para612546"> Accounts Receivable </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <tip>
+      <para id="Para612549">The default Bank Account used for Credit Card
+      charges is defined on the "Configure Credit Card" screen in the System
+      Module. This Bank Account may be different from other Bank Accounts used
+      for other purposes.</para>
+    </tip>
+  </section>
+  <section id="Section612551">
+    <title><indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>for g/l entries and</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>general ledger</primary>
+        <secondary>direct entry accounting</secondary>
+      </indexterm>G/L Module Transactions</title>
+    <para id="Para612552">G/L transactions entered from the G/L Module may
+    affect the broadest possible spectrum of G/L Accounts. For example, the
+    following actions are user-defined, meaning the Accounts affected will
+    vary from case-to-case:</para>
+    <informaltable id="Table612553">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612557">Debit</para></entry>
+            <entry><para id="Para612559">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612561">Post Simple Entry</para></entry>
+            <entry><para id="Para612563">Varies</para></entry>
+            <entry><para id="Para612565">Varies</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table612567">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612571">Debit</para></entry>
+            <entry><para id="Para612573">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612575">Post Series Entry</para></entry>
+            <entry><para id="Para612577">Varies</para></entry>
+            <entry><para id="Para612579">Varies</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table612581">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612585">Debit</para></entry>
+            <entry><para id="Para612587">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612589">Post Standard</para> <para
+            id="Para612590">Journal</para></entry>
+            <entry><para id="Para612592">Varies</para></entry>
+            <entry><para id="Para612594">Varies</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <informaltable id="Table612596">
+      <tgroup cols="3">
+        <thead>
+          <row>
+            <entry></entry>
+            <entry><para id="Para612600">Debit</para></entry>
+            <entry><para id="Para612602">Credit</para></entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry><para id="Para612604">Post Standard</para> <para
+            id="Para612605">Journal Group</para></entry>
+            <entry><para id="Para612607">Varies</para></entry>
+            <entry><para id="Para612609">Varies</para></entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para id="Para612611">When posting a Bank Adjustment, the sense of the
+    transaction will vary based on the Adjustment Type:</para>
+    <para id="Para612626"><informaltable id="Table612612">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612616"> Debit </para></entry>
+              <entry><para id="Para612618"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612620"> Post Adjustment </para> <para
+              id="Para612621"> (Positive) </para></entry>
+              <entry><para id="Para612623"> Asset Account </para></entry>
+              <entry><para id="Para612625"> Adjustment Account </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+    <para id="Para612641"><informaltable id="Table612627">
+        <tgroup cols="3">
+          <thead>
+            <row>
+              <entry></entry>
+              <entry><para id="Para612631"> Debit </para></entry>
+              <entry><para id="Para612633"> Credit </para></entry>
+            </row>
+          </thead>
+          <tbody>
+            <row>
+              <entry><para id="Para612635"> Post Adjustment </para> <para
+              id="Para612636"> (Negative) </para></entry>
+              <entry><para id="Para612638"> Adjustment Account </para></entry>
+              <entry><para id="Para612640"> Asset Account </para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </informaltable></para>
+  </section>
 </section>
