@@ -1,286 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570079">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>accounts receivable</primary>
-         <secondary>workbench for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>workbenches</primary>
-         <secondary>for accounts receivable</secondary>
-      </indexterm> 
-       
-      
-      <indexterm significance="normal">
-         <primary>accounts receivable</primary>
-         <secondary>workbench for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>workbenches</primary>
-         <secondary>for accounts receivable</secondary>
-      </indexterm>A/R Workbench</title>
-   <para id="Para559366">The Accounts Receivable (A/R) Workbench is designed to
+  <title><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>workbench for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>workbenches</primary>
+      <secondary>for accounts receivable</secondary>
+    </indexterm>A/R Workbench</title>
+  <para id="Para559366">The Accounts Receivable (A/R) Workbench is designed to
   consolidate on one screen the functions performed by A/R personnel. To view
   the A/R Workbench, select the "A/R Workbench" option. The following screen
   will appear:</para>
-   <para id="Para559370">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/AR_Disp_arWorkbench.png" id="Graphic559368"/>
-            </imageobject>
-            <caption id="Caption559371">A/R Workbench</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para559372">When viewing the A/R Workbench, you are presented with
+  <para id="Para559370"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AR_Disp_arWorkbench.png"
+                     id="Graphic559368" />
+        </imageobject>
+        <caption id="Caption559371">A/R Workbench</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para559372">When viewing the A/R Workbench, you are presented with
   the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para559373">Customer #</term>
-         <listitem id="listitemN0x180ac00N0x187f190">
-            <para>Enter the Customer Number of the Customer whose A/R information
+  <variablelist>
+    <varlistentry>
+      <term id="Para559373">Customer #</term>
+      <listitem id="listitemN0x180ac00N0x187f190">
+        <para>Enter the Customer Number of the Customer whose A/R information
         you want to display.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para559376">Once a Cash Receipt is posted, it will no longer
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para559376">Once a Cash Receipt is posted, it will no longer
     appear in the Cash Receipts list.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para559377">Total Open Items</term>
-         <listitem id="listitemN0x180ac00N0x187f220">
-            <para>Displays the total amount of A/R open items for the Customer.
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para559377">Total Open Items</term>
+      <listitem id="listitemN0x180ac00N0x187f220">
+        <para>Displays the total amount of A/R open items for the Customer.
         This total is the same amount as displayed in the A/R Display "Open
         Items by Customer."</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para559379">Cash Receipts</term>
-         <listitem id="listitemN0x180ac00N0x187f268">
-            <para>Displays the current list of unposted Cash Receipts for the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para559379">Cash Receipts</term>
+      <listitem id="listitemN0x180ac00N0x187f268">
+        <para>Displays the current list of unposted Cash Receipts for the
         specified Customer.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following buttons are
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
   available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>NEW</term>
-         <listitem>
-            <para>Opens screen for creating a new Cash Receipt. For more
-        information on entering Cash Receipts, see the <link endterm="Anchor39275" id="XRef559382" linkend="Anchor39275">Enter Cash
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem>
+        <para>Opens screen for creating a new Cash Receipt. For more
+        information on entering Cash Receipts, see the <link
+        endterm="Anchor39275" id="XRef559382" linkend="Anchor39275">Enter Cash
         Receipt</link>"Enter Cash Receipt" section.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem>
-            <para>Enables you to edit highlighted Cash Receipt. The edit screen is
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Cash Receipt. The edit screen is
         the same as that for creating a new Cash Receipt--except that when
         editing, the fields will contain pre-loaded Cash Receipt information.
         Double-clicking on a Cash Receipt will also bring you to the editing
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem>
-            <para>Highlight a Cash Receipt and then select this button to reach a
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight a Cash Receipt and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>DELETE</term>
-         <listitem>
-            <para>Highlight a Cash Receipt and then select this button to remove
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem>
+        <para>Highlight a Cash Receipt and then select this button to remove
         the Cash Receipt from the edit list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>POST</term>
-         <listitem>
-            <para>Highlight a Cash Receipt and then select this button to post the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>POST</term>
+      <listitem>
+        <para>Highlight a Cash Receipt and then select this button to post the
         Cash Receipt.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para565755">Right-clicking on a Cash Receipt in the Cash Receipts
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para565755">Right-clicking on a Cash Receipt in the Cash Receipts
   list enables you to select from the following menu options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para565759">Edit Cash Receipt</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/9/2/2)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565765">View Cash Receipt</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/9/3/2)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565769">Delete Cash Receipt</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/9/4/2)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565773">Post Cash Receipt</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/9/5/2)"/>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-      <varlistentry>
-         <term id="Para559390">A/R Open Credit Memos and Deposits</term>
-         <listitem id="listitemN0x180ac00N0x187f43c">
-            <para>Displays the current list of open A/R Credit Memos for the
+  <variablelist>
+    <varlistentry>
+      <term id="Para565759">Edit Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/9/2/2)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565765">View Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/9/3/2)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565769">Delete Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/9/4/2)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565773">Post Cash Receipt</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/9/5/2)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <varlistentry>
+      <term id="Para559390">A/R Open Credit Memos and Deposits</term>
+      <listitem id="listitemN0x180ac00N0x187f43c">
+        <para>Displays the current list of open A/R Credit Memos for the
         specified Customer.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para565748">Once the full amount of a Credit Memo has been
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para565748">Once the full amount of a Credit Memo has been
     applied, the Credit Memo will be removed from the A/R Open Credit Memos
     list.</para>
-   </tip>
-   <para>To the far right of the screen, the following buttons are
+  </tip>
+  <para>To the far right of the screen, the following buttons are
   available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>APPLY</term>
-         <listitem>
-            <para>Highlight an unapplied Credit Memo and then select this button
-        to apply an amount, as described in the <link endterm="Anchor30541" id="XRef559393" linkend="Anchor30541">List Unapplied Credit
+  <variablelist>
+    <varlistentry>
+      <term>APPLY</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
+        to apply an amount, as described in the <link endterm="Anchor30541"
+        id="XRef559393" linkend="Anchor30541">List Unapplied Credit
         Memos</link>"List Unapplied Credit Memos" section.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem>
-            <para>Enables you to edit highlighted Credit Memos. The edit screen is
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted Credit Memos. The edit screen is
         the same as that for creating a new Credit Memo--except that when
         editing, the fields will contain pre-loaded Credit Memo information.
         Double-clicking on a Credit Memo will also bring you to the editing
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem>
-            <para>Highlight an unapplied Credit Memo and then select this button
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an unapplied Credit Memo and then select this button
         to reach a read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para565806">Right-clicking on a Credit Memo in the A/R Open Credit
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para565806">Right-clicking on a Credit Memo in the A/R Open Credit
   Memos and Deposits list enables you to select from the following menu
   options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para565807">Apply Credit Memo</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/14/1/2)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565862">Edit Credit Memo</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/14/2/2)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565866">View Credit Memo</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section570079/14/3/2)"/>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-      <varlistentry>
-         <term id="Para559397">A/R Open Items</term>
-         <listitem id="listitemN0x180ac00N0x1886a6c">
-            <para>Displays the current list of A/R open items for the specified
+  <variablelist>
+    <varlistentry>
+      <term id="Para565807">Apply Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/14/1/2)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565862">Edit Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/14/2/2)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565866">View Credit Memo</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section570079/14/3/2)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <varlistentry>
+      <term id="Para559397">A/R Open Items</term>
+      <listitem id="listitemN0x180ac00N0x1886a6c">
+        <para>Displays the current list of A/R open items for the specified
         Customer.</para>
-            <para id="Para573145">This is the same information as displayed in the
+        <para id="Para573145">This is the same information as displayed in the
         A/R Display "Open Items by Customer."</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para573141">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para573141">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem>
-            <para>Enables you to edit highlighted A/R open items. Double-clicking
+  <variablelist>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem>
+        <para>Enables you to edit highlighted A/R open items. Double-clicking
         on an A/R open item will also bring you to the editing screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem>
-            <para>Highlight an A/R open item and then select this button to reach
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem>
+        <para>Highlight an A/R open item and then select this button to reach
         a read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para565824">Right-clicking on an Invoice in the A/R Open Items
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para565824">Right-clicking on an Invoice in the A/R Open Items
   list enables you to select from the following menu options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para565828">View Apply-To Invoice</term>
-         <listitem id="listitemN0x180ac00N0x1886b44">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-      <varlistentry>
-         <term id="Para559402">Pre-auth Credit Card Charges</term>
-         <listitem id="listitemN0x180ac00N0x1886bd4">
-            <para>Displays the current list of pre-authorized Credit Card charges
+  <variablelist>
+    <varlistentry>
+      <term id="Para565828">View Apply-To Invoice</term>
+      <listitem id="listitemN0x180ac00N0x1886b44">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <varlistentry>
+      <term id="Para559402">Pre-auth Credit Card Charges</term>
+      <listitem id="listitemN0x180ac00N0x1886bd4">
+        <para>Displays the current list of pre-authorized Credit Card charges
         for the specified Customer.</para>
-            <para id="Para573152">Pre-authorizations are generated from the
+        <para id="Para573152">Pre-authorizations are generated from the
         "Payments" tab of the Sales Order header.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para573158">To the far right of the screen, the following options
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para573158">To the far right of the screen, the following options
   are available:</para>
-   <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1886c1c">
-         <para id="Para559403">POST: Highlight a pre-authorized Credit Card
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x1886c1c">
+      <para id="Para559403">POST: Highlight a pre-authorized Credit Card
       charge amount and then select this button to post-authorize the charge.
       When a pre-authorization is post-authorized, an unposted Cash Receipt is
       created in the specified post-authorization amount.</para>
-      </listitem>
-   </itemizedlist>
-   <tip>
-      <para id="Para573166">You only get one chance to post a Credit Card
+    </listitem>
+  </itemizedlist>
+  <tip>
+    <para id="Para573166">You only get one chance to post a Credit Card
     pre-authorization. Once a pre-authorization is post-authorized, it will no
     longer appear in the "Pre-authorized Credit Card Charges" list.</para>
-   </tip>
-   <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1886c88">
-         <para id="Para559404">Amount: Specify the amount of the
+  </tip>
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x1886c88">
+      <para id="Para559404">Amount: Specify the amount of the
       post-authorization. By default, the pre-authorized amount will display
       here. However, you may override the default amount. After posting, a
       Cash Receipt for the Customer will be generated in the amount entered
       here (i.e., the post-authorization amount).</para>
-      </listitem>
-   </itemizedlist>
-   <para id="Para559405">To the far right of the screen, the following buttons
+    </listitem>
+  </itemizedlist>
+  <para id="Para559405">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para559406">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1886cf4">
-            <para>Closes the screen, returning you to the application
+  <variablelist>
+    <varlistentry>
+      <term id="Para559406">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1886cf4">
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

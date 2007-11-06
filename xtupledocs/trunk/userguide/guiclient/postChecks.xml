@@ -1,76 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524368">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>checks</primary>
-         <secondary>posting multiple</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>accounts payable</primary>
-         <secondary>posting checks for</secondary>
-      </indexterm>Post A/P Checks</title>
-   <para id="Para529768">To post multiple Checks, select the "Post A/P
-    Checks" option. The following screen will appear:</para>
-   <para id="Para529772">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/AP_Pay_postChkRun.png" id="Graphic529770"/>
-            </imageobject>
-            <caption id="Caption529773">Post Multiple A/P Checks</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para529774">When posting multiple Checks, you are presented with
-    the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para529775">Bank Account</term>
-         <listitem>
-            <para>Specify the Bank Account for the multiple Checks you want to
-          post.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para529777">Number of Unposted Checks</term>
-         <listitem>
-            <para>Displays the total number of unposted Checks.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para529833">
-            
-            <indexterm significance="normal">
-               <primary>checks</primary>
-               <secondary>printing journal</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>check journal</primary>
-               <secondary>printing of</secondary>
-            </indexterm>Print Check Journal</term>
-         <listitem>
-            <para>Select to print the Check Journal.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para529779">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para529780">CANCEL</term>
-         <listitem>
-            <para>Closes the screen without posting a Check, returning you to
-          the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para529781">POST</term>
-         <listitem>
-            <para>Posts the Check, using the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>checks</primary>
+      <secondary>posting multiple</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>accounts payable</primary>
+      <secondary>posting checks for</secondary>
+    </indexterm>Post A/P Checks</title>
+  <para id="Para529768">To post multiple Checks, select the "Post A/P Checks"
+  option. The following screen will appear:</para>
+  <para id="Para529772"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AP_Pay_postChkRun.png" id="Graphic529770" />
+        </imageobject>
+        <caption id="Caption529773">Post Multiple A/P Checks</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para529774">When posting multiple Checks, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para529775">Bank Account</term>
+      <listitem>
+        <para>Specify the Bank Account for the multiple Checks you want to
+        post.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para529777">Number of Unposted Checks</term>
+      <listitem>
+        <para>Displays the total number of unposted Checks.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para529833"><indexterm significance="normal">
+          <primary>checks</primary>
+          <secondary>printing journal</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>check journal</primary>
+          <secondary>printing of</secondary>
+        </indexterm>Print Check Journal</term>
+      <listitem>
+        <para>Select to print the Check Journal.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para529779">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para529780">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without posting a Check, returning you to the
+        application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para529781">POST</term>
+      <listitem>
+        <para>Posts the Check, using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
