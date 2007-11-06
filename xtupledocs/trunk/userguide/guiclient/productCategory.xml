@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518621">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>product categories</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Product Category</title>
-   <para id="Para518643">To create a new Product
-  Category, select the NEW button. The following screen will appear:</para>
-   <para id="Para518647">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_MI_prodCatNew.png" id="Graphic562578"/>
-            </imageobject>
-            <caption id="Caption518648">Create New Product Category</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para595229">Create your Product Categories using a logical,
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="productCategory">
+  <title><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Product Category</title>
+  <para id="Para518643">To create a new Product Category, select the NEW
+  button. The following screen will appear:</para>
+  <para id="Para518647"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_prodCatNew.png" id="Graphic562578" />
+        </imageobject>
+        <caption id="Caption518648">Create New Product Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para595229">Create your Product Categories using a logical,
     hierarchical structure. This will make it easier to retrieve Product
     Category information in the future. For more information on matching
-    patterns using Regular Expressions, see <link endterm="Anchor77806" id="XRef664904" linkend="Anchor77806"> Pattern Matching with Regular
+    patterns using Regular Expressions, see <link endterm="Anchor77806"
+    id="XRef664904" linkend="Anchor77806"> Pattern Matching with Regular
     Expressions</link>"Topic: Pattern Matching with Regular
     Expressions".</para>
-   </tip>
-   <para id="Para595203">When creating a new Product Category, you are
+  </tip>
+  <para id="Para595203">When creating a new Product Category, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518653">Category</term>
-         <listitem id="listitemN0x180ac00N0x182fcd0">
-            <para>Enter a unique code to identify the Product Category.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518657">Description</term>
-         <listitem id="listitemN0x180ac00N0x182fd18">
-            <para>Enter a description to further identify the Product
+  <variablelist>
+    <varlistentry>
+      <term id="Para518653">Category</term>
+      <listitem id="listitemN0x180ac00N0x182fcd0">
+        <para>Enter a unique code to identify the Product Category.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518657">Description</term>
+      <listitem id="listitemN0x180ac00N0x182fd18">
+        <para>Enter a description to further identify the Product
         Category.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518658">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518658">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518659">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x182fd84">
-            <para>Closes the screen without creating a Product Category, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para518659">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x182fd84">
+        <para>Closes the screen without creating a Product Category, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518660">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x182fdcc">
-            <para>Creates the Product Category and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518660">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x182fdcc">
+        <para>Creates the Product Category and adds it to the master list of
         Product Categories.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

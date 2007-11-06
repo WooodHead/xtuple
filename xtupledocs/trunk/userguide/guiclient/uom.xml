@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section662610">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>units of measure</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Unit of Measure</title>
-   <para id="Para619656">To  create a new Unit of Measure,
-  select the NEW button. The following screen will appear:</para>
-   <para id="Para619580">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_MI_uomNew.png" id="Graphic619578"/>
-            </imageobject>
-            <caption id="Caption638699">Create New Unit of Measure</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para id="Para638704">You will notice that Units of Measure may be
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="uom">
+  <title><indexterm significance="normal">
+      <primary>units of measure</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Unit of Measure</title>
+  <para id="Para619656">To create a new Unit of Measure, select the NEW
+  button. The following screen will appear:</para>
+  <para id="Para619580"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_uomNew.png" id="Graphic619578" />
+        </imageobject>
+        <caption id="Caption638699">Create New Unit of Measure</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para638704">You will notice that Units of Measure may be
     overwritten in various places throughout the application--for example, on
     the Item master. This functionality is intentional. Units of Measure are
     intended to be editable.</para>
-   </note>
-   <para id="Para638701">When creating a new Unit of Measure, you are presented
+  </note>
+  <para id="Para638701">When creating a new Unit of Measure, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para620041">Name</term>
-         <listitem id="listitemN0x180ac00N0x181a37c">
-            <para>Enter a unique name for the Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para620045">Description</term>
-         <listitem id="listitemN0x180ac00N0x181a3c4">
-            <para>Enter a description to further identify the Unit of
+  <variablelist>
+    <varlistentry>
+      <term id="Para620041">Name</term>
+      <listitem id="listitemN0x180ac00N0x181a37c">
+        <para>Enter a unique name for the Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para620045">Description</term>
+      <listitem id="listitemN0x180ac00N0x181a3c4">
+        <para>Enter a description to further identify the Unit of
         Measure.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para620046">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para620046">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para620047">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x181a430">
-            <para>Closes the screen without creating a Unit of Measure, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para620047">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x181a430">
+        <para>Closes the screen without creating a Unit of Measure, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para620048">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x181a478">
-            <para>Creates the Unit of Measure and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para620048">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x181a478">
+        <para>Creates the Unit of Measure and adds it to the master list of
         Units of Measure.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

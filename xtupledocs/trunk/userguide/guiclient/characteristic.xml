@@ -1,79 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section665915">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>characteristics</primary>
-         <secondary>creating new</secondary>
-      </indexterm>
-      Characteristic</title>
-   <para id="Para665931">To create a new Characteristic, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="characteristic">
+  <title><indexterm significance="normal">
+      <primary>characteristics</primary>
+      <secondary>creating new</secondary>
+    </indexterm> Characteristic</title>
+  <para id="Para665931">To create a new Characteristic, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para665935">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_MI_charactNew.png" id="Graphic665933"/>
-            </imageobject>
-            <caption id="Caption665936">Create New Characteristic</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para665937">When creating a new Characteristic, you are presented
+  <para id="Para665935"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_charactNew.png" id="Graphic665933" />
+        </imageobject>
+        <caption id="Caption665936">Create New Characteristic</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para665937">When creating a new Characteristic, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para665938">Name</term>
-         <listitem id="listitemN0x180ac00N0x1830150">
-            <para>Enter a unique name for the Characteristic.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para665939">May be used for</term>
-         <listitem id="listitemN0x180ac00N0x1830198">
-            <para>Select one of the following Characteristic assignment
+  <variablelist>
+    <varlistentry>
+      <term id="Para665938">Name</term>
+      <listitem id="listitemN0x180ac00N0x1830150">
+        <para>Enter a unique name for the Characteristic.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para665939">May be used for</term>
+      <listitem id="listitemN0x180ac00N0x1830198">
+        <para>Select one of the following Characteristic assignment
         options:</para>
-            <para id="Para665940">Item Characteristics: Select to make
+        <para id="Para665940">Item Characteristics: Select to make
         Characteristic available for Item Characteristics.</para>
-            <para id="Para665941">Customer Characteristics: Select to make
+        <para id="Para665941">Customer Characteristics: Select to make
         Characteristic available for Customer Characteristics.</para>
-            <para id="Para665942">Lot/Serial Characteristics: Select to make
+        <para id="Para665942">Lot/Serial Characteristics: Select to make
         Characteristic available for Lot/Serial Characteristics.</para>
-            <para id="Para665943">Address Characteristics: Select to make
+        <para id="Para665943">Address Characteristics: Select to make
         Characteristic available for Address Characteristics.</para>
-            <para id="Para665944">CRM Account Characteristics: Select to make
+        <para id="Para665944">CRM Account Characteristics: Select to make
         Characteristic available for CRM Account Characteristics.</para>
-            <para id="Para665945">Contact Characteristics: Select to make
+        <para id="Para665945">Contact Characteristics: Select to make
         Characteristic available for Contact Characteristics.</para>
-            <para id="Para665946">Opportunity Characteristics: Select to make
+        <para id="Para665946">Opportunity Characteristics: Select to make
         Characteristic available for Opportunity Characteristics.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para665947">Description</term>
-         <listitem id="listitemN0x180ac00N0x18301e0">
-            <para>Enter a brief description of the Characteristic.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para665948">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para665947">Description</term>
+      <listitem id="listitemN0x180ac00N0x18301e0">
+        <para>Enter a brief description of the Characteristic.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para665948">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para665949">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x183024c">
-            <para>Closes the screen without creating a Characteristic, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para665949">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x183024c">
+        <para>Closes the screen without creating a Characteristic, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para665950">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1830294">
-            <para>Creates the Characteristic and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para665950">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1830294">
+        <para>Creates the Characteristic and adds it to the master list of
         Characteristics.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

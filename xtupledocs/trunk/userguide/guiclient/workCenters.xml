@@ -89,42 +89,26 @@
   <variablelist>
     <varlistentry>
       <term id="Para530137">Edit Work Center</term>
-      <listitem>
-        <para>Enables you to edit highlighted Work Centers. The edit screen is
-        the same as that for creating a new Work Center --except that when
-        editing, the fields will contain Work Center information.
-        Double-clicking on Work Center will also bring you to the editing
-        screen.</para>
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/4/2)" />
     </varlistentry>
     <varlistentry>
       <term id="Para530138">View Work Center</term>
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
-        read-only view of the "Edit" screen.</para>
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/5/2)" />
     </varlistentry>
     <varlistentry>
       <term id="Para530139">Copy Work Center</term>
-      <listitem>
-        <para>Highlight a Work Center and then select this button to reach a
-        screen for copying the Work Center master.</para>
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/6/2)" />
     </varlistentry>
     <varlistentry>
       <term id="Para530140">Delete Work Center</term>
-      <listitem>
-        <para>Highlight a Work Center and then select this button to remove
-        the Work Center from the list.</para>
-      </listitem>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1/7/7/2)" />
     </varlistentry>
-    <varlistentry id="xtreewidget.menu.exportcontents">
-      <term><guimenuitem moreinfo="none">Export Contents</guimenuitem></term>
-      <listitem>
-        <para>Export the data displayed on the screen into a plain-text,
-        TAB-delimited file. This file may subsequently be imported into a
-        spreadsheet or other office tool.</para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
