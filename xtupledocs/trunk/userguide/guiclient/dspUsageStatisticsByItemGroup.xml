@@ -1,136 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520654">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>item usage statistics</primary>
-         <secondary>by item group</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>item groups</primary>
-         <secondary>item usage statistics for</secondary>
-      </indexterm>Item Usage Statistics by Item Group</title>
-   <para id="Para550341">To view Item usage statistics by Item Group, select
-    the "Item Usage Statistics by Item Group" option. The following screen
-    will appear:</para>
-   <para id="Para550345">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_Disp_itemUseStatsItGrp.png" id="Graphic550343"/>
-            </imageobject>
-            <caption id="Caption550346">Item Usage Statistics by Item
-          Group</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para550347">When displaying Item usage statistics by Item Group,
-    you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para582047">All Item Groups</term>
-         <listitem id="listitemN0x180ac00N0x19986d0">
-            <para>Select to display Item usage statistics for all Item
-          Groups.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551475">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1998718">
-            <para>Specify Item Group whose Item usage statistics you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551477">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x1998760">
-            <para>Enter an Item Group pattern to select a range of Item
-          Groups.</para>
-            <para id="Para677359">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677358" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para551550">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x1998784">
-            <para>Select to display Item usage statistics by Item Group for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para551552">Selected</term>
-         <listitem id="listitemN0x180ac00N0x19987a8">
-            <para>Specify Warehouse whose Item usage statistics by Item Group
-          you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551557">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x19987f0">
-            <para>Item usage recorded on and after this date will be displayed.
-          Start date and end date must be entered for calculation to
-          proceed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551562">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1998838">
-            <para>Item usage recorded on and before this date will be displayed.
-          Start date and end date must be entered for calculation to
-          proceed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551564">Usage</term>
-         <listitem id="listitemN0x180ac00N0x1998880">
-            <para>Display lists Item usage statistics by Item Group, using the
-          specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para551566">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para551567">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x19988ec">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para578733">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x1998934">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-            <para id="Para551569">Start date and end date must be entered for
-          calculation to proceed. Results will be displayed in the "Usage"
-          list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para551570">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x199897c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para595484">Right-clicking on an Item in the Usage list enables
-    you to select from the following menu options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para595485">View All Transactions</term>
-         <listitem id="listitemN0x180ac00N0x19989e8">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
-   <para id="Para617261">To view details on Issue, Sold, Scrap, or Adjustment
-    transactions, simply right-click in the corresponding columns.</para>
+  <title><indexterm significance="normal">
+      <primary>item usage statistics</primary>
+      <secondary>by item group</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>item groups</primary>
+      <secondary>item usage statistics for</secondary>
+    </indexterm>Item Usage Statistics by Item Group</title>
+  <para id="Para550341">To view Item usage statistics by Item Group, select
+  the "Item Usage Statistics by Item Group" option. The following screen will
+  appear:</para>
+  <para id="Para550345"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_Disp_itemUseStatsItGrp.png"
+                     id="Graphic550343" />
+        </imageobject>
+        <caption id="Caption550346">Item Usage Statistics by Item
+        Group</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para550347">When displaying Item usage statistics by Item Group,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para582047">All Item Groups</term>
+      <listitem id="listitemN0x180ac00N0x19986d0">
+        <para>Select to display Item usage statistics for all Item
+        Groups.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551475">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1998718">
+        <para>Specify Item Group whose Item usage statistics you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551477">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x1998760">
+        <para>Enter an Item Group pattern to select a range of Item
+        Groups.</para>
+        <para id="Para677359">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef677358"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para551550">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x1998784">
+        <para>Select to display Item usage statistics by Item Group for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para551552">Selected</term>
+      <listitem id="listitemN0x180ac00N0x19987a8">
+        <para>Specify Warehouse whose Item usage statistics by Item Group you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551557">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x19987f0">
+        <para>Item usage recorded on and after this date will be displayed.
+        Start date and end date must be entered for calculation to
+        proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551562">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1998838">
+        <para>Item usage recorded on and before this date will be displayed.
+        Start date and end date must be entered for calculation to
+        proceed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551564">Usage</term>
+      <listitem id="listitemN0x180ac00N0x1998880">
+        <para>Display lists Item usage statistics by Item Group, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para551566">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para551567">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x19988ec">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para578733">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x1998934">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+        <para id="Para551569">Start date and end date must be entered for
+        calculation to proceed. Results will be displayed in the "Usage"
+        list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para551570">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x199897c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para595484">Right-clicking on an Item in the Usage list enables
+  you to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para595485">View All Transactions</term>
+      <listitem id="listitemN0x180ac00N0x19989e8">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para617261">To view details on Issue, Sold, Scrap, or Adjustment
+  transactions, simply right-click in the corresponding columns.</para>
 </section>

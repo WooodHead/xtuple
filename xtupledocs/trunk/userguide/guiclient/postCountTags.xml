@@ -1,101 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519435">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>count tags</primary>
-         <secondary>posting by warehouse</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>warehouses</primary>
-         <secondary>posting count tags in</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>physical inventory</primary>
-         <secondary>posting count tags</secondary>
-      </indexterm>Post Count Tags</title>
-   <para id="Para519436">To post Count Tag totals (i.e., Inventory counts) to
-    the Quantity on Hand for their respective Item Sites for an entire
-    Warehouse, select the "Post Count Tags" option. The following screen will
-    appear:</para>
-   <para id="Para519440">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_PI_postCountTags.png" id="Graphic526126"/>
-            </imageobject>
-            <caption id="Caption519441">Post Count Tags</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519442">When posting Count Tags, you are presented with the
-    following options:</para>
-   <variablelist>
-      <varlistentry role="openmfg">
-         <term id="Para519443">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x191a0b4">
-            <para>Select to post Count Tags for all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para519445">Selected</term>
-         <listitem id="listitemN0x180ac00N0x191a0d8">
-            <para>Specify Warehouse where Count Tags are to be posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519447">
-            
-            <indexterm significance="normal">
-               <primary>thawing</primary>
-               <secondary>of inventory</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>thawing</primary>
-               <secondary>at count tag posting</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>count tags</primary>
-               <secondary>thawing at posting</secondary>
-            </indexterm>Thaw Frozen Inventory</term>
-         <listitem id="listitemN0x180ac00N0x191a1f8">
-            <para>Select to thaw all previously frozen Inventory in specified
-          Warehouse(s).</para>
-            <para id="Para519448">For a detailed explanation of these concepts,
-          see the <link endterm="Anchor80983" id="XRef530096" linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing
-          and Thawing" section.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para634258">Item Sites in</term>
-         <listitem id="listitemN0x180ac00N0x191a240">
-            <para>Specify which of the following codes you want to have Count
-          Tags posted for:</para>
-            <para id="Para634259">Class Code: If selected, you will be presented
-          with Class Code options.</para>
-            <para id="Para634260">Planner Code: If selected, you will be
-          presented with Planner Code options.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519449">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519450">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x191a2ac">
-            <para>Closes the screen without posting Count Slip totals, returning
-          you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519451">POST</term>
-         <listitem id="listitemN0x180ac00N0x191a2f4">
-            <para>Posts Count Slip totals to their respective Count Tag
-          totals.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>count tags</primary>
+      <secondary>posting by warehouse</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>warehouses</primary>
+      <secondary>posting count tags in</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>physical inventory</primary>
+      <secondary>posting count tags</secondary>
+    </indexterm>Post Count Tags</title>
+  <para id="Para519436">To post Count Tag totals (i.e., Inventory counts) to
+  the Quantity on Hand for their respective Item Sites for an entire
+  Warehouse, select the "Post Count Tags" option. The following screen will
+  appear:</para>
+  <para id="Para519440"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_PI_postCountTags.png"
+                     id="Graphic526126" />
+        </imageobject>
+        <caption id="Caption519441">Post Count Tags</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519442">When posting Count Tags, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para519443">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x191a0b4">
+        <para>Select to post Count Tags for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519445">Selected</term>
+      <listitem id="listitemN0x180ac00N0x191a0d8">
+        <para>Specify Warehouse where Count Tags are to be posted.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519447"><indexterm significance="normal">
+          <primary>thawing</primary>
+          <secondary>of inventory</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>thawing</primary>
+          <secondary>at count tag posting</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>count tags</primary>
+          <secondary>thawing at posting</secondary>
+        </indexterm>Thaw Frozen Inventory</term>
+      <listitem id="listitemN0x180ac00N0x191a1f8">
+        <para>Select to thaw all previously frozen Inventory in specified
+        Warehouse(s).</para>
+        <para id="Para519448">For a detailed explanation of these concepts,
+        see the <link endterm="Anchor80983" id="XRef530096"
+        linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing and
+        Thawing" section.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para634258">Item Sites in</term>
+      <listitem id="listitemN0x180ac00N0x191a240">
+        <para>Specify which of the following codes you want to have Count Tags
+        posted for:</para>
+        <para id="Para634259">Class Code: If selected, you will be presented
+        with Class Code options.</para>
+        <para id="Para634260">Planner Code: If selected, you will be presented
+        with Planner Code options.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519449">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519450">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x191a2ac">
+        <para>Closes the screen without posting Count Slip totals, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519451">POST</term>
+      <listitem id="listitemN0x180ac00N0x191a2f4">
+        <para>Posts Count Slip totals to their respective Count Tag
+        totals.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

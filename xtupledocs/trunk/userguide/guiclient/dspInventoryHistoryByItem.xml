@@ -1,181 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section678210">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>inventory history</primary>
-         <secondary>by item</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>items</primary>
-         <secondary>inventory history</secondary>
-      </indexterm>Inventory History by Item</title>
-   <para id="Para520330">To view Inventory history by Item, select the
-    "Inventory History by Item" option. The following screen will
-    appear:</para>
-   <para id="Para626697">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_Disp_invHistItem.png" id="Graphic626695"/>
-            </imageobject>
-            <caption id="Caption626698">Inventory History by Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para675696">If a line displays in orange, this means the Item
-      Site in question is frozen. Accurate Quantity on Hand information will
-      not be shown until the Item Site is thawed.</para>
-   </tip>
-   <para id="Para675689">When displaying Inventory history by Item, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520342">Item Number</term>
-         <listitem id="listitemN0x180ac00N0x19760b0">
-            <para>Enter the Item Number of the Item whose Inventory history you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para672078">UOM</term>
-         <listitem id="listitemN0x180ac00N0x19760f8">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520346">Trans. Types</term>
-         <listitem id="listitemN0x180ac00N0x1976140">
-            <para>Select one of the available transaction types:</para>
-            <para id="Para520347">All Transactions: Displays all Inventory
-          transactions.</para>
-            <para id="Para520348">Receipts: Displays receipts into Inventory
-          from Manufacturing, purchases, or miscellaneous receipts.</para>
-            <para id="Para520349">Issues: Displays issues from Inventory to
-          Manufacturing.</para>
-            <para id="Para520350">Shipments: Displays shipments to
-          customers.</para>
-            <para id="Para520351">Adjustments and Counts: Displays Inventory
-          adjustments and counts.</para>
-            <para id="Para520352">Transfers: Displays Inter-Warehouse Transfers
-          and Location and Lot/Serial Number reassignments.</para>
-            <para id="Para520353">Scraps: Displays Scrap removed from
-          Inventory.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para621385">The system prefixes Order Numbers with letters
-      indicating the Order type. For example, Work Orders are prefixed with
-      "WO", Purchase Orders with "PO", and Sales Orders with "SO". These
-      letters are for display purposes only and are not considered part of the
-      Order Number.</para>
-   </note>
-   <variablelist>
-      <varlistentry role="openmfg">
-         <term id="Para520354">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x19761ac">
-            <para>Select to display Inventory history by Item for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para520356">Selected</term>
-         <listitem id="listitemN0x180ac00N0x19761d0">
-            <para>Specify Warehouse whose Inventory history by Item you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520361">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x1976218">
-            <para>This is a required field.</para>
-            <para id="Para520362">Inventory transactions conducted on and after
-          this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520366">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1976260">
-            <para>This is a required field.</para>
-            <para id="Para520367">Inventory transactions conducted on and before
-          this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520368">Inventory History</term>
-         <listitem id="listitemN0x180ac00N0x19762a8">
-            <para>Display lists Inventory history by Item, using the specified
-          parameters.</para>
-            <para id="Para676076">This display is a nested list, with a plus
-          ("+") sign located to the far left of the display next to each
-          transaction that may be expanded to lower levels. By clicking your
-          mouse on a plus sign, you reveal lower levels of information related
-          to the Order.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520371">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520372">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1976314">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para578668">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x197635c">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-            <para id="Para520374">Start date and end date must be entered for
-          calculation to proceed. Results will be displayed in the "Inventory
-          History" list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para678684">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x19763a4">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para678685">Right-clicking on a transaction in the Inventory
-    History list enables you to select from the following menu options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para678686">View Transaction Information</term>
-         <listitem id="listitemN0x180ac00N0x197dc00">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para565509">Edit Transaction Information</term>
-         <listitem id="listitemN0x180ac00N0x197dc48">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
-   <para id="Para599351">When editing transaction information, you may choose
-    to exclude a transaction from Inventory analysis. Not including a
-    transaction in this manner means the following Inventory analyses will
-    ignore the transaction: Item Usage Statistics displays, Update Reorder
-    Levels, and Update Order Up To Levels.</para>
-   <para id="Para599361">If the Order Number is associated with a Work Order,
-    the following additional menu option will also be available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para599352">View Work Order Information</term>
-         <listitem id="listitemN0x180ac00N0x197dcfc">
-            <para/>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>inventory history</primary>
+      <secondary>by item</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>inventory history</secondary>
+    </indexterm>Inventory History by Item</title>
+  <para id="Para520330">To view Inventory history by Item, select the
+  "Inventory History by Item" option. The following screen will appear:</para>
+  <para id="Para626697"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_Disp_invHistItem.png"
+                     id="Graphic626695" />
+        </imageobject>
+        <caption id="Caption626698">Inventory History by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para675696">If a line displays in orange, this means the Item
+    Site in question is frozen. Accurate Quantity on Hand information will not
+    be shown until the Item Site is thawed.</para>
+  </tip>
+  <para id="Para675689">When displaying Inventory history by Item, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520342">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x19760b0">
+        <para>Enter the Item Number of the Item whose Inventory history you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para672078">UOM</term>
+      <listitem id="listitemN0x180ac00N0x19760f8">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520346">Trans. Types</term>
+      <listitem id="listitemN0x180ac00N0x1976140">
+        <para>Select one of the available transaction types:</para>
+        <para id="Para520347">All Transactions: Displays all Inventory
+        transactions.</para>
+        <para id="Para520348">Receipts: Displays receipts into Inventory from
+        Manufacturing, purchases, or miscellaneous receipts.</para>
+        <para id="Para520349">Issues: Displays issues from Inventory to
+        Manufacturing.</para>
+        <para id="Para520350">Shipments: Displays shipments to
+        customers.</para>
+        <para id="Para520351">Adjustments and Counts: Displays Inventory
+        adjustments and counts.</para>
+        <para id="Para520352">Transfers: Displays Inter-Warehouse Transfers
+        and Location and Lot/Serial Number reassignments.</para>
+        <para id="Para520353">Scraps: Displays Scrap removed from
+        Inventory.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para621385">The system prefixes Order Numbers with letters
+    indicating the Order type. For example, Work Orders are prefixed with
+    "WO", Purchase Orders with "PO", and Sales Orders with "SO". These letters
+    are for display purposes only and are not considered part of the Order
+    Number.</para>
+  </note>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para520354">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x19761ac">
+        <para>Select to display Inventory history by Item for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para520356">Selected</term>
+      <listitem id="listitemN0x180ac00N0x19761d0">
+        <para>Specify Warehouse whose Inventory history by Item you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520361">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x1976218">
+        <para>This is a required field.</para>
+        <para id="Para520362">Inventory transactions conducted on and after
+        this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520366">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1976260">
+        <para>This is a required field.</para>
+        <para id="Para520367">Inventory transactions conducted on and before
+        this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520368">Inventory History</term>
+      <listitem id="listitemN0x180ac00N0x19762a8">
+        <para>Display lists Inventory history by Item, using the specified
+        parameters.</para>
+        <para id="Para676076">This display is a nested list, with a plus ("+")
+        sign located to the far left of the display next to each transaction
+        that may be expanded to lower levels. By clicking your mouse on a plus
+        sign, you reveal lower levels of information related to the
+        Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520371">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520372">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1976314">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para578668">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x197635c">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+        <para id="Para520374">Start date and end date must be entered for
+        calculation to proceed. Results will be displayed in the "Inventory
+        History" list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para678684">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x19763a4">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para678685">Right-clicking on a transaction in the Inventory
+  History list enables you to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para678686">View Transaction Information</term>
+      <listitem id="listitemN0x180ac00N0x197dc00">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para565509">Edit Transaction Information</term>
+      <listitem id="listitemN0x180ac00N0x197dc48">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para599351">When editing transaction information, you may choose
+  to exclude a transaction from Inventory analysis. Not including a
+  transaction in this manner means the following Inventory analyses will
+  ignore the transaction: Item Usage Statistics displays, Update Reorder
+  Levels, and Update Order Up To Levels.</para>
+  <para id="Para599361">If the Order Number is associated with a Work Order,
+  the following additional menu option will also be available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para599352">View Work Order Information</term>
+      <listitem id="listitemN0x180ac00N0x197dcfc">
+        <para></para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

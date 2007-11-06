@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519452">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>count slips</primary>
-         <secondary>purging posted</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>physical inventory</primary>
-         <secondary>purging count slips</secondary>
-      </indexterm>Purge Posted Count Slips</title>
-   <para id="Para519453">Purging Count Slips deletes the Count Slips from
-    your system, freeing up disk storage space. To purge Count Slips from the
-    system once they have been posted, select the "Purge Posted Count Slips"
-    option. The following screen will appear:</para>
-   <para id="Para519457">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_PI_purgePostedCount.png" id="Graphic526136"/>
-            </imageobject>
-            <caption id="Caption519458">Purge Posted Count Slips</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519459">When purging posted Count Slips, you are presented
-    with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519463">Cutoff Date</term>
-         <listitem id="listitemN0x180ac00N0x191a480">
-            <para>All posted Count Slips up to and including this date will be
-          purged.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para583355">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x191a4a4">
-            <para>Select to purge posted Count Slips for all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para583356">Selected</term>
-         <listitem id="listitemN0x180ac00N0x191a4c8">
-            <para>Specify Warehouse where posted Count Slips are to be
-          purged.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519469">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519470">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x191a534">
-            <para>Closes the screen without purging posted Count Slips,
-          returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519471">PURGE</term>
-         <listitem id="listitemN0x180ac00N0x191a57c">
-            <para>Purges posted Count Slips from the system.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>count slips</primary>
+      <secondary>purging posted</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>physical inventory</primary>
+      <secondary>purging count slips</secondary>
+    </indexterm>Purge Posted Count Slips</title>
+  <para id="Para519453">Purging Count Slips deletes the Count Slips from your
+  system, freeing up disk storage space. To purge Count Slips from the system
+  once they have been posted, select the "Purge Posted Count Slips" option.
+  The following screen will appear:</para>
+  <para id="Para519457"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_PI_purgePostedCount.png"
+                     id="Graphic526136" />
+        </imageobject>
+        <caption id="Caption519458">Purge Posted Count Slips</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519459">When purging posted Count Slips, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519463">Cutoff Date</term>
+      <listitem id="listitemN0x180ac00N0x191a480">
+        <para>All posted Count Slips up to and including this date will be
+        purged.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para583355">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x191a4a4">
+        <para>Select to purge posted Count Slips for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para583356">Selected</term>
+      <listitem id="listitemN0x180ac00N0x191a4c8">
+        <para>Specify Warehouse where posted Count Slips are to be
+        purged.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519469">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519470">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x191a534">
+        <para>Closes the screen without purging posted Count Slips, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519471">PURGE</term>
+      <listitem id="listitemN0x180ac00N0x191a57c">
+        <para>Purges posted Count Slips from the system.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

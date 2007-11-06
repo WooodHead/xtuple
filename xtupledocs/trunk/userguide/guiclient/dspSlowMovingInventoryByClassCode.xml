@@ -1,170 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section676303">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>slow moving inventory</primary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>inventory</primary>
-         <secondary>slow moving</secondary>
-      </indexterm>Slow Moving Inventory</title>
-   <para id="Para570800">Slow moving Inventory is Inventory that has not been
-    used since the specified cutoff date. Inventory is considered to have been
-    used whenever it is issued, received, returned, counted, etc. To view slow
-    moving Inventory, select the "Slow Moving Inventory" option. The following
-    screen will appear:</para>
-   <para id="Para554950">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_Disp_slowMovingInv.png" id="Graphic554948"/>
-            </imageobject>
-            <caption id="Caption554951">Slow Moving Inventory</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para613821">The Cutoff date is a required field. If you don"t
-      enter a Cutoff date, no data will be displayed.</para>
-   </tip>
-   <para id="Para613817">When displaying slow moving Inventory, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para554984">All Class Codes</term>
-         <listitem id="listitemN0x180ac00N0x194e06c">
-            <para>Select to display slow moving Inventory for all Class
-          Codes.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554985">Selected</term>
-         <listitem id="listitemN0x180ac00N0x194e0b4">
-            <para>Specify Class Code whose slow moving Inventory you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554987">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x194e0fc">
-            <para>Enter a Class Code pattern to select a range of Class
-          Codes.</para>
-            <para id="Para677115">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef677114" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554872">Cutoff Date</term>
-         <listitem id="listitemN0x180ac00N0x194e144">
-            <para>Any Inventory that has not been moved since this date will be
-          displayed.</para>
-            <para id="Para652561">This is a required field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para554894">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x194e168">
-            <para>Select to display slow moving Inventory for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para554896">Selected</term>
-         <listitem id="listitemN0x180ac00N0x194e18c">
-            <para>Specify Warehouse whose slow moving Inventory you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para572278">Show Inventory Value</term>
-         <listitem id="listitemN0x180ac00N0x194e1d4">
-            <para>Select to include the Inventory value of slow moving Inventory
-          in the display.</para>
-            <para id="Para572279">Specify whether to display Inventory value
-          using Standard Costs or Actual Costs.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554836">Use Standard Costs</term>
-         <listitem id="listitemN0x180ac00N0x194e21c">
-            <para>Select to show Inventory value based on Standard Costs.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554837">Use Actual Costs</term>
-         <listitem id="listitemN0x180ac00N0x194e264">
-            <para>Select to show Inventory value based on Actual Costs.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para558787">Order By</term>
-         <listitem id="listitemN0x180ac00N0x194e2ac">
-            <para>Order the output by one of the following methods:</para>
-            <para id="Para599929">Item Number: Select to order the display by
-          Item Number.</para>
-            <para id="Para599930">Date Last Used: Select to order the display by
-          the date Inventory was last used. Inventory is considered to have
-          been used whenever it is issued, received, returned, counted,
-          etc.</para>
-            <para id="Para599931">Inventory Value: Select to order the display
-          by Inventory value. This selection will only be available if used in
-          conjunction with the "Show Inventory Value" option.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para599932">Quantities on Hand</term>
-         <listitem id="listitemN0x180ac00N0x194e2f4">
-            <para>Display lists Quantities on Hand for slow moving Inventory,
-          using the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para555062">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para555063">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x194e360">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para578626">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x194e3a8">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-            <para id="Para564818">Cutoff date must be entered for calculation to
-          proceed. Results will be displayed in the "Quantities on Hand"
-          list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para555065">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x194e3f0">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para556639">Right-clicking on an Item in the Quantities on Hand
-    list enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/11)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/9)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/4)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/5)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>slow moving inventory</primary>
+    </indexterm><indexterm significance="normal">
+      <primary>inventory</primary>
+      <secondary>slow moving</secondary>
+    </indexterm>Slow Moving Inventory</title>
+  <para id="Para570800">Slow moving Inventory is Inventory that has not been
+  used since the specified cutoff date. Inventory is considered to have been
+  used whenever it is issued, received, returned, counted, etc. To view slow
+  moving Inventory, select the "Slow Moving Inventory" option. The following
+  screen will appear:</para>
+  <para id="Para554950"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_Disp_slowMovingInv.png"
+                     id="Graphic554948" />
+        </imageobject>
+        <caption id="Caption554951">Slow Moving Inventory</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para613821">The Cutoff date is a required field. If you don"t
+    enter a Cutoff date, no data will be displayed.</para>
+  </tip>
+  <para id="Para613817">When displaying slow moving Inventory, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para554984">All Class Codes</term>
+      <listitem id="listitemN0x180ac00N0x194e06c">
+        <para>Select to display slow moving Inventory for all Class
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554985">Selected</term>
+      <listitem id="listitemN0x180ac00N0x194e0b4">
+        <para>Specify Class Code whose slow moving Inventory you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554987">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x194e0fc">
+        <para>Enter a Class Code pattern to select a range of Class
+        Codes.</para>
+        <para id="Para677115">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef677114"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554872">Cutoff Date</term>
+      <listitem id="listitemN0x180ac00N0x194e144">
+        <para>Any Inventory that has not been moved since this date will be
+        displayed.</para>
+        <para id="Para652561">This is a required field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para554894">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x194e168">
+        <para>Select to display slow moving Inventory for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para554896">Selected</term>
+      <listitem id="listitemN0x180ac00N0x194e18c">
+        <para>Specify Warehouse whose slow moving Inventory you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para572278">Show Inventory Value</term>
+      <listitem id="listitemN0x180ac00N0x194e1d4">
+        <para>Select to include the Inventory value of slow moving Inventory
+        in the display.</para>
+        <para id="Para572279">Specify whether to display Inventory value using
+        Standard Costs or Actual Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554836">Use Standard Costs</term>
+      <listitem id="listitemN0x180ac00N0x194e21c">
+        <para>Select to show Inventory value based on Standard Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554837">Use Actual Costs</term>
+      <listitem id="listitemN0x180ac00N0x194e264">
+        <para>Select to show Inventory value based on Actual Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para558787">Order By</term>
+      <listitem id="listitemN0x180ac00N0x194e2ac">
+        <para>Order the output by one of the following methods:</para>
+        <para id="Para599929">Item Number: Select to order the display by Item
+        Number.</para>
+        <para id="Para599930">Date Last Used: Select to order the display by
+        the date Inventory was last used. Inventory is considered to have been
+        used whenever it is issued, received, returned, counted, etc.</para>
+        <para id="Para599931">Inventory Value: Select to order the display by
+        Inventory value. This selection will only be available if used in
+        conjunction with the "Show Inventory Value" option.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para599932">Quantities on Hand</term>
+      <listitem id="listitemN0x180ac00N0x194e2f4">
+        <para>Display lists Quantities on Hand for slow moving Inventory,
+        using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para555062">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para555063">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x194e360">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para578626">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x194e3a8">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+        <para id="Para564818">Cutoff date must be entered for calculation to
+        proceed. Results will be displayed in the "Quantities on Hand"
+        list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para555065">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x194e3f0">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para556639">Right-clicking on an Item in the Quantities on Hand
+  list enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/11)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/9)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/4)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/5)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
