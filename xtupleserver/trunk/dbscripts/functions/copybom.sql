@@ -39,7 +39,7 @@ BEGIN
     INSERT INTO bomitem
     ( bomitem_id, bomitem_parent_item_id, bomitem_seqnumber, bomitem_item_id,
       bomitem_uom_id, bomitem_qtyper, bomitem_scrap,
-      bomitem_configtype, bomitem_configid, bomitem_booitem_id,
+      bomitem_configtype, bomitem_configid, bomitem_booitem_seq_id,
       bomitem_effective, bomitem_expires, bomitem_ecn,
       bomitem_createwo, bomitem_issuemethod, bomitem_moddate, bomitem_subtype )
     VALUES
