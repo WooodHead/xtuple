@@ -1,439 +1,407 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672615" role="openmfg">
-   <title>Topic: Receiving Lot/Serial Items into Inventory</title>
-   <para id="Para672616">This section describes the special steps that must
-    be followed when receiving Lot/Serial Items into Inventory. Like any other
-    Items, Lot/Serial Items can be received in three ways:</para>
-   <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x18a0a5c">
-         <para id="Para672617">As a Material Receipt transaction using the I/M
-        Module</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18a0a80">
-         <para id="Para672618">As a Shipping Receipt from the S/R Module</para>
-      </listitem>
-      <listitem id="listitemN0x180ac00N0x18a0aa4">
-         <para id="Para672619">Or as Manufacturing Receipt from the W/O
-        Module</para>
-      </listitem>
-   </orderedlist>
-   <section id="Section672621">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>lots</primary>
-            <secondary>inventory control of</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>serial numbers</primary>
-            <secondary>inventory control of</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>lot quantity controls</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>serial number controls</secondary>
-         </indexterm>Item Site Control Method</title>
-      <para id="Para672622">To illustrate the receiving process for Lot/Serial
-      Items, we will be tracking the receipt of imported gladiolas. These
-      perishable flowers are Lot-controlled. While we are focusing here on
-      Lot-controlled Items, the steps for receiving Serial-Number-controlled
-      Items are identical--the only exception being that Serial Number Items
-      may be received in quantities of one (1) only.</para>
-      <note>
-         <para id="Para672624">Lot-controlled Items and
-        Serial-Number-controlled Items are received in the same way. The only
-        difference is that Serial Number Items may be received in quantities
-        of one (1) only. Lot-controlled Items may be received in any
-        quantity.</para>
-      </note>
-      <para id="Para672625">But before we begin, let's examine the Item Site
-      definition for our imported flowers, otherwise known as Item
-      GLAD02:</para>
-      <para id="Para672629">
-         <anchor id="Anchor55665" role="Cross-Ref"
-                 xreflabel="55665: Figure: Figure 2.23:  Item Site Definition for Lot-Controlled Item"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_lotNumItemSite.png" id="Graphic672627"/>
-               </imageobject>
-               <caption id="Caption672631">Item Site Definition for
-            Lot-Controlled Item</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672634">A few points are worth noting when looking at the
-      Item Site definition shown in <link endterm="Anchor55665" id="XRef672633" linkend="Anchor55665"> Item Site Definition for
-      Lot-Controlled Item</link>Figure 6.49. First, note that the Control
-      Method is specified as Lot #. This designation marks an Item as being
-      Lot-controlled. And it is because of this specification that GLADO2 in
-      Warehouse STAR will be handled differently when quantities of it are
-      received into Inventory. Another point to notice is that the Item is
-      marked as perishable. Naturally, an imported flower will be vibrant and
-      saleable for only a limited period of time. Accounting for the
-      perishable nature of Lot-controlled goods will be covered later in this
-      example. Finally, you can see that the Item Site specifies that Multiple
-      Location Control (MLC) is turned on. Distribution issues related to MLC
-      Items are covered thoroughly in the "Topic: Distributing Multiple
-      Location Control (MLC) Items" section. We will be covering some of that
-      same ground again here when receiving quantities of GLAD02 into
-      Inventory.</para>
-   </section>
-   <section id="Section672637">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>lot assignments and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>serial number assignments and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>lots</primary>
-            <secondary>assigning to inventory</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>serial numbers</primary>
-            <secondary>assigning to inventory</secondary>
-         </indexterm>Assigning Lot Numbers</title>
-      <para id="Para672638">Let's begin, then, by receiving a quantity of 150
-      gladiolas into Inventory. We will do so by using the Material Receipt
-      screen, found in the Inventory Transactions section of the I/M Module,
-      as shown below:</para>
-      <para id="Para672642">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_enterMatRecpt.png" id="Graphic672640"/>
-               </imageobject>
-               <caption id="Caption672643">Enter Material Receipt for
-            Lot-Controlled Item</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672644">At this point in the process, the Material Receipt
-      screen looks and behaves no differently than it would for any other
-      Item. Into the Item Number field we enter GLAD02, specifying a Receipt
-      quantity of 150 units. Because GLAD02 is a Lot-controlled Item, however,
-      the following screen appears when we select the POST button:</para>
-      <para id="Para672648">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_assgnLotNum.png" id="Graphic672646"/>
-               </imageobject>
-               <caption id="Caption672649">Initial Screen for Assigning
-            Lot/Serial Number</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672651">As you can see, the  
-         <indexterm significance="normal">
-            <primary>lots</primary>
-            <secondary>assigning numbers to</secondary>
-         </indexterm>assignment screen indicates the Item Number and quantity
-      to be assigned--namely the original quantity being received, 150 units.
-      Keep in mind that you may not exit this sequence once it has been
-      initiated. When receiving Lot-controlled Items into Inventory, you are
-      required to assign Lot Numbers to some or all of the incoming
+  <title>Topic: Receiving Lot/Serial Items into Inventory</title>
+  <para id="Para672616">This section describes the special steps that must be
+  followed when receiving Lot/Serial Items into Inventory. Like any other
+  Items, Lot/Serial Items can be received in three ways:</para>
+  <orderedlist continuation="restarts" inheritnum="ignore">
+    <listitem id="listitemN0x180ac00N0x18a0a5c">
+      <para id="Para672617">As a Material Receipt transaction using the I/M
+      Module</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18a0a80">
+      <para id="Para672618">As a Shipping Receipt from the S/R Module</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x18a0aa4">
+      <para id="Para672619">Or as Manufacturing Receipt from the W/O
+      Module</para>
+    </listitem>
+  </orderedlist>
+  <section id="Section672621">
+    <title><indexterm significance="normal">
+        <primary>lots</primary>
+        <secondary>inventory control of</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>serial numbers</primary>
+        <secondary>inventory control of</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>lot quantity controls</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>serial number controls</secondary>
+      </indexterm>Item Site Control Method</title>
+    <para id="Para672622">To illustrate the receiving process for Lot/Serial
+    Items, we will be tracking the receipt of imported gladiolas. These
+    perishable flowers are Lot-controlled. While we are focusing here on
+    Lot-controlled Items, the steps for receiving Serial-Number-controlled
+    Items are identical--the only exception being that Serial Number Items may
+    be received in quantities of one (1) only.</para>
+    <note>
+      <para id="Para672624">Lot-controlled Items and Serial-Number-controlled
+      Items are received in the same way. The only difference is that Serial
+      Number Items may be received in quantities of one (1) only.
+      Lot-controlled Items may be received in any quantity.</para>
+    </note>
+    <para id="Para672625">But before we begin, let's examine the Item Site
+    definition for our imported flowers, otherwise known as Item
+    GLAD02:</para>
+    <para id="Para672629"><anchor id="Anchor55665" role="Cross-Ref"
+    xreflabel="55665: Figure: Figure 2.23:  Item Site Definition for Lot-Controlled Item" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_lotNumItemSite.png"
+                       id="Graphic672627" />
+          </imageobject>
+          <caption id="Caption672631">Item Site Definition for Lot-Controlled
+          Item</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672634">A few points are worth noting when looking at the
+    Item Site definition shown in <link endterm="Anchor55665" id="XRef672633"
+    linkend="Anchor55665"> Item Site Definition for Lot-Controlled
+    Item</link>Figure 6.49. First, note that the Control Method is specified
+    as Lot #. This designation marks an Item as being Lot-controlled. And it
+    is because of this specification that GLADO2 in Warehouse STAR will be
+    handled differently when quantities of it are received into Inventory.
+    Another point to notice is that the Item is marked as perishable.
+    Naturally, an imported flower will be vibrant and saleable for only a
+    limited period of time. Accounting for the perishable nature of
+    Lot-controlled goods will be covered later in this example. Finally, you
+    can see that the Item Site specifies that Multiple Location Control (MLC)
+    is turned on. Distribution issues related to MLC Items are covered
+    thoroughly in the "Topic: Distributing Multiple Location Control (MLC)
+    Items" section. We will be covering some of that same ground again here
+    when receiving quantities of GLAD02 into Inventory.</para>
+  </section>
+  <section id="Section672637">
+    <title><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>lot assignments and</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>serial number assignments and</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>lots</primary>
+        <secondary>assigning to inventory</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>serial numbers</primary>
+        <secondary>assigning to inventory</secondary>
+      </indexterm>Assigning Lot Numbers</title>
+    <para id="Para672638">Let's begin, then, by receiving a quantity of 150
+    gladiolas into Inventory. We will do so by using the Material Receipt
+    screen, found in the Inventory Transactions section of the I/M Module, as
+    shown below:</para>
+    <para id="Para672642"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_enterMatRecpt.png"
+                       id="Graphic672640" />
+          </imageobject>
+          <caption id="Caption672643">Enter Material Receipt for
+          Lot-Controlled Item</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672644">At this point in the process, the Material Receipt
+    screen looks and behaves no differently than it would for any other Item.
+    Into the Item Number field we enter GLAD02, specifying a Receipt quantity
+    of 150 units. Because GLAD02 is a Lot-controlled Item, however, the
+    following screen appears when we select the POST button:</para>
+    <para id="Para672648"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_assgnLotNum.png"
+                       id="Graphic672646" />
+          </imageobject>
+          <caption id="Caption672649">Initial Screen for Assigning Lot/Serial
+          Number</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672651">As you can see, the <indexterm significance="normal">
+        <primary>lots</primary>
+        <secondary>assigning numbers to</secondary>
+      </indexterm>assignment screen indicates the Item Number and quantity to
+    be assigned--namely the original quantity being received, 150 units. Keep
+    in mind that you may not exit this sequence once it has been initiated.
+    When receiving Lot-controlled Items into Inventory, you are required to
+    assign Lot Numbers to some or all of the incoming quantity.</para>
+    <note>
+      <para id="Para672653">Serial Number assignments are made in the same way
+      that Lot Number assignments are made when receiving goods into
+      Inventory. The only difference is that Serial Numbers may be assigned to
+      only one (1) Item at a time. Lot Numbers may be assigned to any
       quantity.</para>
-      <note>
-         <para id="Para672653">Serial Number assignments are made in the same
-        way that Lot Number assignments are made when receiving goods into
-        Inventory. The only difference is that Serial Numbers may be assigned
-        to only one (1) Item at a time. Lot Numbers may be assigned to any
-        quantity.</para>
-      </note>
-      <para id="Para672654">To create a Lot Number, we select the NEW button.
-      The following screenshot shows the Create Lot/Serial Number screen, with
-      the two referring screens that brought us to this point shown in the
-      background:</para>
-      <para id="Para672658">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_createLotNum.png" id="Graphic672656"/>
-               </imageobject>
-               <caption id="Caption672659">Create Lot/Serial Number</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672660">When creating a Lot or Serial Number for incoming
-      quantities, you are presented with the following options:</para>
-      <variablelist>
-         <varlistentry>
-            <term id="Para672661">Lot/Serial #</term>
-            <listitem id="listitemN0x180ac00N0x18a0fd8">
-               <para id="Para">Enter a Lot or Serial Number to identify the
-            specified quantity.</para>
-            </listitem>
-         </varlistentry>
-      </variablelist>
-      <tip>
-         <para id="Para672663">Lot or Serial Numbers may be changed at a later
-        point using the Reassign Lot/Serial Number screen found in the
-        Inventory Transactions section of the I/M Module.</para>
-      </tip>
-      <variablelist>
-         <varlistentry>
-            <term id="Para672664">Expiration Date</term>
-            <listitem id="listitemN0x180ac00N0x18a1068">
-               <para id="Para">Perishable Items, such as flowers, are assigned an
-            expiration date using this field. Specify the date on or after
-            which the Item should be considered expired. If a Lot/Serial Item
-            is not perishable, then an expiration date does not apply. Items
-            are designated as perishable or not in the Item Site
-            definition.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term id="Para672665">Qty. to Assign</term>
-            <listitem id="listitemN0x180ac00N0x18a10b0">
-               <para id="Para">Specify the quantity to assign to the specified
-            Lot or Serial Number.</para>
-               <para id="Para672666">For Serial Number Items, you may only assign
-            one Serial Number per Item. Fractional quantities may be assigned
-            to Lot Numbers, only if the Item in question may be stored in
-            fractional quantities, as specified in the Item master.</para>
-            </listitem>
-         </varlistentry>
-      </variablelist>
-      <note>
-         <para id="Para672668">Incoming quantities may be assigned to multiple
-        Lot or Serial Numbers. The entire incoming quantity does not have to
-        be assigned the same number.</para>
-      </note>
-      <para id="Para672669">To the far right of the screen, the following
-      buttons are available:</para>
-      <variablelist>
-         <varlistentry>
-            <term id="Para672670">CANCEL</term>
-            <listitem id="listitemN0x180ac00N0x18a1140">
-               <para id="Para">Closes the screen without creating a Lot or Serial
-            Number.</para>
-            </listitem>
-         </varlistentry>
-         <varlistentry>
-            <term id="Para672671">ASSIGN</term>
-            <listitem id="listitemN0x180ac00N0x18a1188">
-               <para id="Para">Assigns the specified quantity to the indicated
-            Lot or Serial Number.</para>
-            </listitem>
-         </varlistentry>
-      </variablelist>
-      <para id="Para672672">Although it is not necessary to do so, we have
-      decided for this example to assign the entire incoming quantity of 150
-      units to Lot Number LOT-2. This designation is confirmed in the
-      following screen:</para>
-      <para id="Para672676">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_assgnLotNum-2.png" id="Graphic672674"/>
-               </imageobject>
-               <caption id="Caption672677">Lot Number Assigned to Lot-Controlled
-            Quantity</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-   </section>
-   <section id="Section672679">
-      <title>
-         
-         <indexterm significance="normal">
-            <primary>lots</primary>
-            <secondary>distributing to locations</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>multiple location control</primary>
-            <secondary>lot distribution and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>serial numbers</primary>
-            <secondary>distributing to locations</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>multiple location control</primary>
-            <secondary>serial number distribution and</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>receiving lot quantity</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>inventory</primary>
-            <secondary>receiving serial quantity</secondary>
-         </indexterm>Distributing to Multiple Locations</title>
-      <para id="Para672680">To complete the Lot Number assignment sequence, we
-      select the ASSIGN button. But we are not done there. Since our gladiolas
-      are Multiple Location Control (MLC) Items, the following distribution
-      sequence is triggered:</para>
-      <note>
-         <para id="Para672682">For an in-depth discussion covering the
-        distribution of Multiple Location Control Items, see the "Topic:
-        Distributing Multiple Location Control (MLC) Items" section.</para>
-      </note>
-      <para id="Para672686">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_distrLotNum.png" id="Graphic672684"/>
-               </imageobject>
-               <caption id="Caption672687">Multiple Location Distribution of
-            Lot-Controlled Quantity</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672688">Noting that the quantity to distribute is the full
-      150 units, we select the DEFAULT AND POST button. Selecting this button
-      automatically causes the full quantity to be distributed to the default
-      Location. The transaction is now complete. We have successfully assigned
-      a Lot Number to the 150 gladiolas, specified an expiration date, and
-      received the full quantity into Inventory. To verify the result, we open
-      the I/M display Location/Lot/Serial Number Detail, as shown in the
-      following screen:</para>
-      <para id="Para672692">
-         <anchor id="Anchor12147" role="Cross-Ref"
-                 xreflabel="12147: Figure: Figure 2.31:  Verify Lot Transaction Using Detail Display"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_displayLotDetail.png" id="Graphic672690"/>
-               </imageobject>
-               <caption id="Caption672694">Verify Lot Transaction Using Detail
-            Display</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672697">As you can see in <link endterm="Anchor12147" id="XRef672696" linkend="Anchor12147"> Verify Lot Transaction Using
-      Detail Display</link>Figure 6.55, the Warehouse STAR is showing 150
-      units of LOT-2 with the specified expiration date. A previously entered
-      Lot is also located here, as shown in the display.</para>
-   </section>
-   <section id="Section672699">
-      <title>Receiving from Shipping</title>
-      <para id="Para672700">When Lot-controlled Items are purchased using a
-      Purchase Order, they are received into Inventory via the Shipping &amp;
-      Receiving (S/R) Module. Our next example illustrates this process. Let's
-      begin in the Receiving section of the S/R Module. The following Enter
-      Receipt screen shows us ready to receive 300 units of imported gladiolas
-      from a flower Vendor using Purchase Order #563:</para>
-      <para id="Para672704">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_recvLotSR.png" id="Graphic672702"/>
-               </imageobject>
-               <caption id="Caption672705">Receiving Lot-Controlled Quantity from
-            S/R Module</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672706">At this point in the process, the Enter Receipt
-      screen looks and behaves no differently than it would for any other
-      Item. The standard receiving sequence is described in detail in the
-      <link endterm="Anchor28097" id="XRef672708" linkend="Anchor28097"> Enter
-      Receipt</link>"Enter Receipt" section of the <link endterm="Anchor74541" id="XRef672711" linkend="Anchor74541"> Shipping &amp; Receiving (S/R)
-      Module</link>Shipping &amp; Receiving (S/R) Module chapter. As expected,
-      the following screen appears when we highlight the Purchase Order Item
-      and select the ENTER RECEIPT button:</para>
-      <para id="Para672716">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_recvLotQty.png" id="Graphic672714"/>
-               </imageobject>
-               <caption id="Caption672717">Enter Purchase Order Item Receipt for
-            Lot-Controlled Item</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672718">For this example, we specify that 300 units were
-      received. After the RECEIVE button is selected, we are brought back to
-      the initial receiving screen, as shown below:</para>
-      <para id="Para672722">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_recvLotSR-2.png" id="Graphic672720"/>
-               </imageobject>
-               <caption id="Caption672723">Receipt Entered for Lot-Controlled
-            Quantity in S/R Module</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672724">It is when we select the POST button that the
-      special Lot-controlled sequence begins, as shown in the following
-      screen:</para>
-      <para id="Para672728">
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_createLotSR.png" id="Graphic672726"/>
-               </imageobject>
-               <caption id="Caption672729">Create Lot Number for Quantity
-            Received in S/R Module</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672730">The process from this point forward is identical
-      to the process described in the earlier Material Receipt example. We
-      assign a Lot Number to the specified quantity. And then, because Item
-      GLAD02 is a Multiple Location Control Item, we go through the MLC
-      distribution cycle. To verify the results, we can open the I/M display
-      Location/Lot/Serial Number Detail, as shown in the following
-      screen:</para>
-      <para id="Para672734">
-         <anchor id="Anchor74636" role="Cross-Ref" xreflabel="74636: Figure: Figure 2.36: "/> 
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_displayLotDetail-2.png" id="Graphic672732"/>
-               </imageobject>
-               <caption id="Caption672736">Verify Lot Receipt Using Detail
-            Display</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672739">As you can see in <link endterm="Anchor74636" id="XRef672738" linkend="Anchor74636"> </link>Figure 6.60, the Warehouse
-      STAR is now showing 300 units of LOT-3 with the specified expiration
-      date. The Lot-controlled goods have now been successfully assigned and
-      received into Inventory using the S/R Module.</para>
-   </section>
-   <section id="Section672741">
-      <title>Receiving from Manufacturing</title>
-      <para id="Para672742">The example Item we have been using, Item GLAD02,
-      is a purchased Item, not a manufactured Item. And so, we cannot use Item
-      GLAD02 to demonstrate how Lot-controlled Items are received from
-      manufacturing.</para>
-      <para id="Para672743">Because the process of receiving Lot/Serial Items
-      from manufacturing is virtually identical to the processes already
-      described, we will not cover this topic in much detail. However, we will
-      include the following screenshot showing Work Order production posting
-      for Item V0, a Lot-controlled, manufactured Item:</para>
-      <para id="Para672747">
-         <anchor id="Anchor56575" role="Cross-Ref"
-                 xreflabel="56575: Figure: Figure 6.13:  Create Lot Number for Quantity Received from Manufacturing"/>
-         <screenshot>
-            <mediaobject>
-               <imageobject>
-                  <imagedata fileref="images/Topic_createLotWO.png" id="Graphic672745"/>
-               </imageobject>
-               <caption id="Caption672749">Create Lot Number for Quantity
-            Received from Manufacturing</caption>
-            </mediaobject>
-         </screenshot>
-      </para>
-      <para id="Para672752">As you can see in <link endterm="Anchor56575" id="XRef672751" linkend="Anchor56575"> Create Lot Number for Quantity
-      Received from Manufacturing</link>Figure 6.61, the now familiar Lot
-      Number assignment sequence is triggered as part of the Work Order
-      production posting process for this Lot-controlled Item.</para>
-   </section>
+    </note>
+    <para id="Para672654">To create a Lot Number, we select the NEW button.
+    The following screenshot shows the Create Lot/Serial Number screen, with
+    the two referring screens that brought us to this point shown in the
+    background:</para>
+    <para id="Para672658"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_createLotNum.png"
+                       id="Graphic672656" />
+          </imageobject>
+          <caption id="Caption672659">Create Lot/Serial Number</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672660">When creating a Lot or Serial Number for incoming
+    quantities, you are presented with the following options:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para672661">Lot/Serial #</term>
+        <listitem id="listitemN0x180ac00N0x18a0fd8">
+          <para>Enter a Lot or Serial Number to identify the specified
+          quantity.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <tip>
+      <para id="Para672663">Lot or Serial Numbers may be changed at a later
+      point using the Reassign Lot/Serial Number screen found in the Inventory
+      Transactions section of the I/M Module.</para>
+    </tip>
+    <variablelist>
+      <varlistentry>
+        <term id="Para672664">Expiration Date</term>
+        <listitem id="listitemN0x180ac00N0x18a1068">
+          <para>Perishable Items, such as flowers, are assigned an expiration
+          date using this field. Specify the date on or after which the Item
+          should be considered expired. If a Lot/Serial Item is not
+          perishable, then an expiration date does not apply. Items are
+          designated as perishable or not in the Item Site definition.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para672665">Qty. to Assign</term>
+        <listitem id="listitemN0x180ac00N0x18a10b0">
+          <para>Specify the quantity to assign to the specified Lot or Serial
+          Number.</para>
+          <para id="Para672666">For Serial Number Items, you may only assign
+          one Serial Number per Item. Fractional quantities may be assigned to
+          Lot Numbers, only if the Item in question may be stored in
+          fractional quantities, as specified in the Item master.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <note>
+      <para id="Para672668">Incoming quantities may be assigned to multiple
+      Lot or Serial Numbers. The entire incoming quantity does not have to be
+      assigned the same number.</para>
+    </note>
+    <para id="Para672669">To the far right of the screen, the following
+    buttons are available:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para672670">CANCEL</term>
+        <listitem id="listitemN0x180ac00N0x18a1140">
+          <para>Closes the screen without creating a Lot or Serial
+          Number.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para672671">ASSIGN</term>
+        <listitem id="listitemN0x180ac00N0x18a1188">
+          <para>Assigns the specified quantity to the indicated Lot or Serial
+          Number.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para id="Para672672">Although it is not necessary to do so, we have
+    decided for this example to assign the entire incoming quantity of 150
+    units to Lot Number LOT-2. This designation is confirmed in the following
+    screen:</para>
+    <para id="Para672676"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_assgnLotNum-2.png"
+                       id="Graphic672674" />
+          </imageobject>
+          <caption id="Caption672677">Lot Number Assigned to Lot-Controlled
+          Quantity</caption>
+        </mediaobject>
+      </screenshot></para>
+  </section>
+  <section id="Section672679">
+    <title><indexterm significance="normal">
+        <primary>lots</primary>
+        <secondary>distributing to locations</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>multiple location control</primary>
+        <secondary>lot distribution and</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>serial numbers</primary>
+        <secondary>distributing to locations</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>multiple location control</primary>
+        <secondary>serial number distribution and</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>receiving lot quantity</secondary>
+      </indexterm><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>receiving serial quantity</secondary>
+      </indexterm>Distributing to Multiple Locations</title>
+    <para id="Para672680">To complete the Lot Number assignment sequence, we
+    select the ASSIGN button. But we are not done there. Since our gladiolas
+    are Multiple Location Control (MLC) Items, the following distribution
+    sequence is triggered:</para>
+    <note>
+      <para id="Para672682">For an in-depth discussion covering the
+      distribution of Multiple Location Control Items, see the "Topic:
+      Distributing Multiple Location Control (MLC) Items" section.</para>
+    </note>
+    <para id="Para672686"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_distrLotNum.png"
+                       id="Graphic672684" />
+          </imageobject>
+          <caption id="Caption672687">Multiple Location Distribution of
+          Lot-Controlled Quantity</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672688">Noting that the quantity to distribute is the full
+    150 units, we select the DEFAULT AND POST button. Selecting this button
+    automatically causes the full quantity to be distributed to the default
+    Location. The transaction is now complete. We have successfully assigned a
+    Lot Number to the 150 gladiolas, specified an expiration date, and
+    received the full quantity into Inventory. To verify the result, we open
+    the I/M display Location/Lot/Serial Number Detail, as shown in the
+    following screen:</para>
+    <para id="Para672692"><anchor id="Anchor12147" role="Cross-Ref"
+    xreflabel="12147: Figure: Figure 2.31:  Verify Lot Transaction Using Detail Display" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_displayLotDetail.png"
+                       id="Graphic672690" />
+          </imageobject>
+          <caption id="Caption672694">Verify Lot Transaction Using Detail
+          Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672697">As you can see in <link endterm="Anchor12147"
+    id="XRef672696" linkend="Anchor12147"> Verify Lot Transaction Using Detail
+    Display</link>Figure 6.55, the Warehouse STAR is showing 150 units of
+    LOT-2 with the specified expiration date. A previously entered Lot is also
+    located here, as shown in the display.</para>
+  </section>
+  <section id="Section672699">
+    <title>Receiving from Shipping</title>
+    <para id="Para672700">When Lot-controlled Items are purchased using a
+    Purchase Order, they are received into Inventory via the Shipping &amp;
+    Receiving (S/R) Module. Our next example illustrates this process. Let's
+    begin in the Receiving section of the S/R Module. The following Enter
+    Receipt screen shows us ready to receive 300 units of imported gladiolas
+    from a flower Vendor using Purchase Order #563:</para>
+    <para id="Para672704"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_recvLotSR.png" id="Graphic672702" />
+          </imageobject>
+          <caption id="Caption672705">Receiving Lot-Controlled Quantity from
+          S/R Module</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672706">At this point in the process, the Enter Receipt
+    screen looks and behaves no differently than it would for any other Item.
+    The standard receiving sequence is described in detail in the <link
+    endterm="Anchor28097" id="XRef672708" linkend="Anchor28097"> Enter
+    Receipt</link>"Enter Receipt" section of the <link endterm="Anchor74541"
+    id="XRef672711" linkend="Anchor74541"> Shipping &amp; Receiving (S/R)
+    Module</link>Shipping &amp; Receiving (S/R) Module chapter. As expected,
+    the following screen appears when we highlight the Purchase Order Item and
+    select the ENTER RECEIPT button:</para>
+    <para id="Para672716"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_recvLotQty.png"
+                       id="Graphic672714" />
+          </imageobject>
+          <caption id="Caption672717">Enter Purchase Order Item Receipt for
+          Lot-Controlled Item</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672718">For this example, we specify that 300 units were
+    received. After the RECEIVE button is selected, we are brought back to the
+    initial receiving screen, as shown below:</para>
+    <para id="Para672722"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_recvLotSR-2.png"
+                       id="Graphic672720" />
+          </imageobject>
+          <caption id="Caption672723">Receipt Entered for Lot-Controlled
+          Quantity in S/R Module</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672724">It is when we select the POST button that the
+    special Lot-controlled sequence begins, as shown in the following
+    screen:</para>
+    <para id="Para672728"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_createLotSR.png"
+                       id="Graphic672726" />
+          </imageobject>
+          <caption id="Caption672729">Create Lot Number for Quantity Received
+          in S/R Module</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672730">The process from this point forward is identical to
+    the process described in the earlier Material Receipt example. We assign a
+    Lot Number to the specified quantity. And then, because Item GLAD02 is a
+    Multiple Location Control Item, we go through the MLC distribution cycle.
+    To verify the results, we can open the I/M display Location/Lot/Serial
+    Number Detail, as shown in the following screen:</para>
+    <para id="Para672734"><anchor id="Anchor74636" role="Cross-Ref"
+    xreflabel="74636: Figure: Figure 2.36: " /> <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_displayLotDetail-2.png"
+                       id="Graphic672732" />
+          </imageobject>
+          <caption id="Caption672736">Verify Lot Receipt Using Detail
+          Display</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672739">As you can see in <link endterm="Anchor74636"
+    id="XRef672738" linkend="Anchor74636"> </link>Figure 6.60, the Warehouse
+    STAR is now showing 300 units of LOT-3 with the specified expiration date.
+    The Lot-controlled goods have now been successfully assigned and received
+    into Inventory using the S/R Module.</para>
+  </section>
+  <section id="Section672741">
+    <title>Receiving from Manufacturing</title>
+    <para id="Para672742">The example Item we have been using, Item GLAD02, is
+    a purchased Item, not a manufactured Item. And so, we cannot use Item
+    GLAD02 to demonstrate how Lot-controlled Items are received from
+    manufacturing.</para>
+    <para id="Para672743">Because the process of receiving Lot/Serial Items
+    from manufacturing is virtually identical to the processes already
+    described, we will not cover this topic in much detail. However, we will
+    include the following screenshot showing Work Order production posting for
+    Item V0, a Lot-controlled, manufactured Item:</para>
+    <para id="Para672747"><anchor id="Anchor56575" role="Cross-Ref"
+    xreflabel="56575: Figure: Figure 6.13:  Create Lot Number for Quantity Received from Manufacturing" />
+    <screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/Topic_createLotWO.png"
+                       id="Graphic672745" />
+          </imageobject>
+          <caption id="Caption672749">Create Lot Number for Quantity Received
+          from Manufacturing</caption>
+        </mediaobject>
+      </screenshot></para>
+    <para id="Para672752">As you can see in <link endterm="Anchor56575"
+    id="XRef672751" linkend="Anchor56575"> Create Lot Number for Quantity
+    Received from Manufacturing</link>Figure 6.61, the now familiar Lot Number
+    assignment sequence is triggered as part of the Work Order production
+    posting process for this Lot-controlled Item.</para>
+  </section>
 </section>
