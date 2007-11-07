@@ -1,75 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section931779">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>label forms</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Label Form</title>
-   <para id="Para931810">To create a new Label Form definition, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="labelForm">
+  <title><indexterm significance="normal">
+      <primary>label forms</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Label Form</title>
+  <para id="Para931810">To create a new Label Form definition, select the NEW
   button. The following screen will appear:</para>
-   <para id="Para931814">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_labelFormNew.png" id="Graphic931812"/>
-            </imageobject>
-            <caption id="Caption931815">Create New Label Form</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para931816">When creating a new Label Form definition, you are
+  <para id="Para931814"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_labelFormNew.png" id="Graphic931812" />
+        </imageobject>
+        <caption id="Caption931815">Create New Label Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para931816">When creating a new Label Form definition, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para931820">Name</term>
-         <listitem id="listitemN0x180ac00N0x18307ec">
-            <para>Enter a unique Label Form name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para932507">Report</term>
-         <listitem id="listitemN0x180ac00N0x1841a24">
-            <para>Specify the report definition you want to associate with the
+  <variablelist>
+    <varlistentry>
+      <term id="Para931820">Name</term>
+      <listitem id="listitemN0x180ac00N0x18307ec">
+        <para>Enter a unique Label Form name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para932507">Report</term>
+      <listitem id="listitemN0x180ac00N0x1841a24">
+        <para>Specify the report definition you want to associate with the
         Label Form.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para973488">In the case where you have multiple versions (i.e.,
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para973488">In the case where you have multiple versions (i.e.,
     grades) of the same-named report definition, it doesn"t matter which one
     you select when setting up a Form. The system will always use the report
     definition having the highest grade.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para932509"># of Labels per Page</term>
-         <listitem id="listitemN0x180ac00N0x1841ab4">
-            <para>Select a value between 1 and 99 using the arrow buttons located
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para932509"># of Labels per Page</term>
+      <listitem id="listitemN0x180ac00N0x1841ab4">
+        <para>Select a value between 1 and 99 using the arrow buttons located
         to the right of the field.</para>
-            <para id="Para931961">Value entered dictates the number of Label Forms
+        <para id="Para931961">Value entered dictates the number of Label Forms
         to be printed per page.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para931837">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para931837">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para931838">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1841b20">
-            <para>Closes the screen without adding a new Label Form to the master
+  <variablelist>
+    <varlistentry>
+      <term id="Para931838">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1841b20">
+        <para>Closes the screen without adding a new Label Form to the master
         list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para931839">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1841b68">
-            <para>Creates the Label Form and adds it to the Label Forms master
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para931839">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1841b68">
+        <para>Creates the Label Form and adds it to the Label Forms master
         list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,120 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section966198">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>currencies</primary>
-         <secondary>master list of</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>multi-currency</primary>
-         <secondary>currency definitions for</secondary>
-      </indexterm>List Currencies</title>
-   <para id="Para968648">The system support for multi-currency begins with the
+  <title><indexterm significance="normal">
+      <primary>currencies</primary>
+      <secondary>master list of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>multi-currency</primary>
+      <secondary>currency definitions for</secondary>
+    </indexterm>List Currencies</title>
+  <para id="Para968648">The system support for multi-currency begins with the
   definition of multiple Currencies. In fact, the way to turn on
   multi-currency support is to define two or more Currencies on the master
   list of Currencies. Once two Currencies are defined, you will see
   multi-currency support integrated throughout the application. If you prefer
   not to use multi-currency at your site, then simply define a base Currency
   only--and no secondary Currencies.</para>
-   <note>
-      <title>Caution</title>
-      <para id="Para966282">You must define a base Currency, even if you do not
+  <note>
+    <title>Caution</title>
+    <para id="Para966282">You must define a base Currency, even if you do not
     plan to use multi-currency. System administrators must ensure that a base
     Currency is defined--and that it is defined accurately.</para>
-   </note>
-   <para id="Para966272">The base Currency is the Currency used for all General
+  </note>
+  <para id="Para966272">The base Currency is the Currency used for all General
   Ledger (G/L) transactions. Only one base Currency may be defined per each
   database. Any transactions conducted in a foreign Currency will be converted
   automatically to the base Currency (using the prevailing Exchange Rate)
   before they are posted to the G/L.</para>
-   <note>
-      <title>Warning</title>
-      <para id="Para966314">Once you post a transaction using multi-currency
+  <note>
+    <title>Warning</title>
+    <para id="Para966314">Once you post a transaction using multi-currency
     support, you cannot turn off multi-currency from that point forward.
     Either you implement multi-currency or you don"t. There is no middle
     ground. System-level privileges are available to prevent users from
     accessing Currency and Exchange Rate functionality.</para>
-   </note>
-   <para id="Para966271">To access the master list of Currencies, select the
+  </note>
+  <para id="Para966271">To access the master list of Currencies, select the
   "Currencies" option. The following screen will appear:</para>
-   <para id="Para965907">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_currList.png" id="Graphic965905"/>
-            </imageobject>
-            <caption id="Caption966176">Currencies Master List</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para972895">Standard Currency information for most Countries is
-    provided by default as part of the <link endterm="Anchor62146" id="XRef972897" linkend="Anchor62146"> Countries</link>"Countries" list.
+  <para id="Para965907"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_currList.png" id="Graphic965905" />
+        </imageobject>
+        <caption id="Caption966176">Currencies Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para972895">Standard Currency information for most Countries is
+    provided by default as part of the <link endterm="Anchor62146"
+    id="XRef972897" linkend="Anchor62146"> Countries</link>"Countries" list.
     Simply select this information by Country when setting up multiple
     Currencies.</para>
-   </tip>
-   <para id="Para972712">The Currencies master list displays information on all
+  </tip>
+  <para id="Para972712">The Currencies master list displays information on all
   Currencies, including base Currency indicator, Currency name, Currency
   symbol, and Currency abbreviation.</para>
-   <para id="Para965910">To the far right of the list, the following buttons
+  <para id="Para965910">To the far right of the list, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para965911">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x184ac38">
-            <para>Closes the screen, returning you to the application
+  <variablelist>
+    <varlistentry>
+      <term id="Para965911">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x184ac38">
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965913">NEW</term>
-         <listitem id="listitemN0x180ac00N0x184ac80">
-            <para>Opens screen for adding a new Currency to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965913">NEW</term>
+      <listitem id="listitemN0x180ac00N0x184ac80">
+        <para>Opens screen for adding a new Currency to the master list of
         Currencies.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965914">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x184acc8">
-            <para>Enables you to edit highlighted Currency definitions. The edit
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965914">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x184acc8">
+        <para>Enables you to edit highlighted Currency definitions. The edit
         screen is the same as that for creating a new Currency
         definition--except that when editing, the fields will contain Currency
         information. Double-clicking on a Currency definition will also bring
         you to the editing screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965915">VIEW</term>
-         <listitem id="listitemN0x180ac00N0x184ad10">
-            <para>Highlight a Currency definition and then select this button to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965915">VIEW</term>
+      <listitem id="listitemN0x180ac00N0x184ad10">
+        <para>Highlight a Currency definition and then select this button to
         reach a read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965916">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x184ad58">
-            <para>Highlight a Currency definition and then select this button to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965916">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x184ad58">
+        <para>Highlight a Currency definition and then select this button to
         remove the Currency from the master list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para965918">Right-clicking on a Currency in the Currencies list
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para965918">Right-clicking on a Currency in the Currencies list
   enables you to select from the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para965920">View</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x184ad10)"/>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965921">Delete</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x184ad58)"/>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <variablelist>
+    <varlistentry>
+      <term id="Para965920">View</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x184ad10)" />
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965921">Delete</term>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x184ad58)" />
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

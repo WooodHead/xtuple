@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518603">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>reports</primary>
-         <secondary>creating new</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>report writer</primary>
-         <secondary>creating reports using</secondary>
-      </indexterm>Report</title>
-   <para id="Para944417">To create a new report definition, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="report">
+  <title><indexterm significance="normal">
+      <primary>reports</primary>
+      <secondary>creating new</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>report writer</primary>
+      <secondary>creating reports using</secondary>
+    </indexterm>Report</title>
+  <para id="Para944417">To create a new report definition, select the NEW
   button. The report writer will be opened, as shown in the following
   screen:</para>
-   <para id="Para944421">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_reportNew.png" id="Graphic944419"/>
-            </imageobject>
-            <caption id="Caption944422">Create New Report</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para944423">The report writer can be used to create new report
+  <para id="Para944421"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_reportNew.png" id="Graphic944419" />
+        </imageobject>
+        <caption id="Caption944422">Create New Report</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para944423">The report writer can be used to create new report
   definitions or edit those already found on the report master list. Once
   created, new reports can be added to the master list, making them available
   for use in the application. To edit an existing report, simply load the

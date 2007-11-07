@@ -1,82 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section923257">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>forms</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Form</title>
-   <para id="Para924795">
-       To create a new Form definition, select
-  the NEW button. The following screen will appear:</para>
-   <para id="Para924638">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_formsNew.png" id="Graphic924659"/>
-            </imageobject>
-            <caption id="Caption924673">Create New Form</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para924835">When creating a new Form definition, you are presented
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="form">
+  <title><indexterm significance="normal">
+      <primary>forms</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Form</title>
+  <para id="Para924795">To create a new Form definition, select the NEW
+  button. The following screen will appear:</para>
+  <para id="Para924638"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_formsNew.png" id="Graphic924659" />
+        </imageobject>
+        <caption id="Caption924673">Create New Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para924835">When creating a new Form definition, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para924841">Name</term>
-         <listitem id="listitemN0x180ac00N0x1830294">
-            <para>Enter a unique Form name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para924846">Description</term>
-         <listitem id="listitemN0x180ac00N0x18302dc">
-            <para>Enter a brief description of the Form.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para978108">Report</term>
-         <listitem id="listitemN0x180ac00N0x1830324">
-            <para>Specify the report definition you want to associate with the
+  <variablelist>
+    <varlistentry>
+      <term id="Para924841">Name</term>
+      <listitem id="listitemN0x180ac00N0x1830294">
+        <para>Enter a unique Form name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para924846">Description</term>
+      <listitem id="listitemN0x180ac00N0x18302dc">
+        <para>Enter a brief description of the Form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para978108">Report</term>
+      <listitem id="listitemN0x180ac00N0x1830324">
+        <para>Specify the report definition you want to associate with the
         Form.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para978117">In the case where you have multiple versions (i.e.,
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para978117">In the case where you have multiple versions (i.e.,
     grades) of the same-named report definition, it doesn"t matter which one
     you select when setting up a Form. The system will always use the report
     definition having the highest grade.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para925088">Keyed On</term>
-         <listitem id="listitemN0x180ac00N0x18303b4">
-            <para>Specify where in the application you want the report definition
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para925088">Keyed On</term>
+      <listitem id="listitemN0x180ac00N0x18303b4">
+        <para>Specify where in the application you want the report definition
         to be cross referenced.</para>
-            <para id="Para978354">For example, selecting "Work Orders" will make
+        <para id="Para978354">For example, selecting "Work Orders" will make
         the specified report definition available to the "Print Work Order
         Form" screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para925031">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para925031">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para924851">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1830420">
-            <para>Closes the screen without adding a new Form to the master
+  <variablelist>
+    <varlistentry>
+      <term id="Para924851">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1830420">
+        <para>Closes the screen without adding a new Form to the master
         list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para924852">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1830468">
-            <para>Creates the Form and adds it to the Forms master list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para924852">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1830468">
+        <para>Creates the Form and adds it to the Forms master list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

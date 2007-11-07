@@ -1,57 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section941111">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>events</primary>
-         <secondary>user notification of</secondary>
-      </indexterm>
-      <indexterm significance="normal">
-         <primary>users</primary>
-         <secondary>event notification for</secondary>
-      </indexterm> 
-      User Event
-  Notification</title>
-   <para id="Para976931">To define or modify a user's Event notification
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="userEventNotification">
+  <title><indexterm significance="normal">
+      <primary>events</primary>
+      <secondary>user notification of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>users</primary>
+      <secondary>event notification for</secondary>
+    </indexterm>User Event Notification</title>
+  <para id="Para976931">To define or modify a user's Event notification
   preferences, select the EVENTS button. The following screen will
   appear:</para>
-   <note>
-      <para id="Para947292">The complete list of user-defined Events has been
-    reproduced in this manual. See <link endterm="Anchor80421" id="XRef947304" linkend="Anchor80421"> Appendix A</link>Appendix A to view the
+  <note>
+    <para id="Para947292">The complete list of user-defined Events has been
+    reproduced in this manual. See <link endterm="Anchor80421" id="XRef947304"
+    linkend="Anchor80421"> Appendix A</link>Appendix A to view the
     list.</para>
-   </note>
-   <para id="Para947296">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_userPrefEvents.png" id="Graphic947294"/>
-            </imageobject>
-            <caption id="Caption947297">User Event Notification</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519389">When defining or modifying a user's Event notification
+  </note>
+  <para id="Para947296"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_userPrefEvents.png"
+                     id="Graphic947294" />
+        </imageobject>
+        <caption id="Caption947297">User Event Notification</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519389">When defining or modifying a user's Event notification
   preferences, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para919679">Username</term>
-         <listitem id="listitemN0x180ac00N0x18d8998">
-            <para>Displays the username of the current or selected user.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para919686">Proper Name</term>
-         <listitem id="listitemN0x180ac00N0x18d89e0">
-            <para>Displays the proper name of the current or selected user.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519390">Event</term>
-         <listitem id="listitemN0x180ac00N0x18d8a28">
-            <para>Displays the complete list of system-defined Events.</para>
-            <para id="Para979467">Highlight an Event and then double-click a
+  <variablelist>
+    <varlistentry>
+      <term id="Para919679">Username</term>
+      <listitem id="listitemN0x180ac00N0x18d8998">
+        <para>Displays the username of the current or selected user.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para919686">Proper Name</term>
+      <listitem id="listitemN0x180ac00N0x18d89e0">
+        <para>Displays the proper name of the current or selected user.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519390">Event</term>
+      <listitem id="listitemN0x180ac00N0x18d8a28">
+        <para>Displays the complete list of system-defined Events.</para>
+        <para id="Para979467">Highlight an Event and then double-click a
         Warehouse in the adjacent Warehouse column to set the user's Event
         notification preference for that Warehouse. Selecting "Yes" means the
         user will be notified if the specified event occurs in the specified
@@ -60,21 +55,21 @@
         settings for all Warehouses, double-click on an Event. Double-clicking
         on an Event causes the Warehouse settings to toggle back-and-forth
         between "Yes" and "No."</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para947267">When an Event occurs, the Event notification button
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para947267">When an Event occurs, the Event notification button
     will appear in the lower left-hand corner of the application desktop. This
     alerts the user that one of the Events they subscribe to has occurred.
     Open the Event Manager to view and respond to the Event.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para947268">Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18d8ab8">
-            <para>Displays the complete list of Warehouses.</para>
-            <para id="Para979475">Highlight an Event in the adjacent Event column
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para947268">Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18d8ab8">
+        <para>Displays the complete list of Warehouses.</para>
+        <para id="Para979475">Highlight an Event in the adjacent Event column
         and then double-click a Warehouse to set the user's Event notification
         preference for that Warehouse. Selecting "Yes" means the user will be
         notified if the specified event occurs in the specified Warehouse.
@@ -83,18 +78,18 @@
         Warehouses, double-click on an Event. Double-clicking on an Event
         causes the Warehouse settings to toggle back-and-forth between "Yes"
         and "No."</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para926673">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para926673">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para926674">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18d8b24">
-            <para>Closes the screen without making any changes to the user's
+  <variablelist>
+    <varlistentry>
+      <term id="Para926674">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18d8b24">
+        <para>Closes the screen without making any changes to the user's
         preferences, returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

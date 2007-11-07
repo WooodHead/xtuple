@@ -1,57 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section949448">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>comment types</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Comment Type</title>
-   <para id="Para952472">To create a new Comment Type, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="commentType">
+  <title><indexterm significance="normal">
+      <primary>comment types</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Comment Type</title>
+  <para id="Para952472">To create a new Comment Type, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para952476">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_commTypeNew.png" id="Graphic952474"/>
-            </imageobject>
-            <caption id="Caption952478">Create New Comment Type</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para952479">When creating a new Comment Type, you are presented
+  <para id="Para952476"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_commTypeNew.png" id="Graphic952474" />
+        </imageobject>
+        <caption id="Caption952478">Create New Comment Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para952479">When creating a new Comment Type, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para952567">Name</term>
-         <listitem id="listitemN0x180ac00N0x1879fa0">
-            <para>Enter a unique Comment Type name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para952572">Description</term>
-         <listitem id="listitemN0x180ac00N0x1879fe8">
-            <para>Enter a brief description of the Comment Type.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para952574">To the far right of the screen, the following buttons
+  <variablelist>
+    <varlistentry>
+      <term id="Para952567">Name</term>
+      <listitem id="listitemN0x180ac00N0x1879fa0">
+        <para>Enter a unique Comment Type name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para952572">Description</term>
+      <listitem id="listitemN0x180ac00N0x1879fe8">
+        <para>Enter a brief description of the Comment Type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para952574">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para952575">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x187a054">
-            <para>Closes the screen without adding a new Comment Type to the
+  <variablelist>
+    <varlistentry>
+      <term id="Para952575">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x187a054">
+        <para>Closes the screen without adding a new Comment Type to the
         master list of Comment Types.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para952576">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x187a09c">
-            <para>Creates the Comment Type and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para952576">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x187a09c">
+        <para>Creates the Comment Type and adds it to the master list of
         Comment Types.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

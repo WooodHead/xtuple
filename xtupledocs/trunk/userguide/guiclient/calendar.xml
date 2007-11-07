@@ -1,171 +1,163 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section923258">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>calendars</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Calendar</title>
-   <para id="Para518618">To create a new Calendar, select the NEW button. The
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="calendar">
+  <title><indexterm significance="normal">
+      <primary>calendars</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Calendar</title>
+  <para id="Para518618">To create a new Calendar, select the NEW button. The
   following screen will appear:</para>
-   <para id="Para518622">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_calendarType.png" id="Graphic521921"/>
-            </imageobject>
-            <caption id="Caption518623">Calendar Type</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518624">When determining the type of Calendar you want to
+  <para id="Para518622"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_calendarType.png" id="Graphic521921" />
+        </imageobject>
+        <caption id="Caption518623">Calendar Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518624">When determining the type of Calendar you want to
   create, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518625">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1841ea4">
-            <para>Closes the screen without creating a new Calendar, returning you
+  <variablelist>
+    <varlistentry>
+      <term id="Para518625">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1841ea4">
+        <para>Closes the screen without creating a new Calendar, returning you
         to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518626">
-            
-            <indexterm significance="normal">
-               <primary>calendars</primary>
-               <secondary>absolute</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>calendars</primary>
-               <secondary>relative</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>absolute calendars</primary>
-               <secondary>creating new</secondary>
-            </indexterm> 
-            <indexterm significance="normal">
-               <primary>relative calendars</primary>
-               <secondary>creating new</secondary>
-            </indexterm>ABSOLUTE</term>
-         <listitem id="listitemN0x180ac00N0x184200c">
-            <para>Opens screen for creating a new absolute Calendar.</para>
-            <para id="Para535381">Absolute Calendars consist of fixed time periods
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518626"><indexterm significance="normal">
+          <primary>calendars</primary>
+          <secondary>absolute</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>calendars</primary>
+          <secondary>relative</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>absolute calendars</primary>
+          <secondary>creating new</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>relative calendars</primary>
+          <secondary>creating new</secondary>
+        </indexterm>ABSOLUTE</term>
+      <listitem id="listitemN0x180ac00N0x184200c">
+        <para>Opens screen for creating a new absolute Calendar.</para>
+        <para id="Para535381">Absolute Calendars consist of fixed time periods
         with specific dates defining the periods. The following example
         illustrates the kind of fixed time period to be found in an absolute
         Calendar: "01/01/2002 to 03/31/2002".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518627">RELATIVE</term>
-         <listitem id="listitemN0x180ac00N0x1842054">
-            <para>Opens screen for creating a new relative Calendar.</para>
-            <para id="Para535385">Relative Calendars are more dynamic than
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518627">RELATIVE</term>
+      <listitem id="listitemN0x180ac00N0x1842054">
+        <para>Opens screen for creating a new relative Calendar.</para>
+        <para id="Para535385">Relative Calendars are more dynamic than
         absolute Calendars, allowing you to define time periods in relation to
         a point in time. Examples of points in time that relative Calendar
         periods might be defined in relation to include the following:
         "Current Day" or "Beginning of Current Month" or "Beginning of Next
         Quarter".</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518628">Regardless of which Calendar type you select, the
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518628">Regardless of which Calendar type you select, the
   following screen will appear:</para>
-   <para id="Para518632">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_calendarRelative.png" id="Graphic521953"/>
-            </imageobject>
-            <caption id="Caption518633">Create New Calendar</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518634">When creating a new Calendar, you are presented with
+  <para id="Para518632"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_calendarRelative.png"
+                     id="Graphic521953" />
+        </imageobject>
+        <caption id="Caption518633">Create New Calendar</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518634">When creating a new Calendar, you are presented with
   the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518638">Name</term>
-         <listitem id="listitemN0x180ac00N0x184212c">
-            <para>Enter a unique Calendar name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518643">Description</term>
-         <listitem id="listitemN0x180ac00N0x1842174">
-            <para>Enter a brief description of the Calendar.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para531425">Calendar Type</term>
-         <listitem id="listitemN0x180ac00N0x18421bc">
-            <para>One of the following options will be selected:</para>
-            <para id="Para937666">Absolute: Option will be selected if you
+  <variablelist>
+    <varlistentry>
+      <term id="Para518638">Name</term>
+      <listitem id="listitemN0x180ac00N0x184212c">
+        <para>Enter a unique Calendar name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518643">Description</term>
+      <listitem id="listitemN0x180ac00N0x1842174">
+        <para>Enter a brief description of the Calendar.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para531425">Calendar Type</term>
+      <listitem id="listitemN0x180ac00N0x18421bc">
+        <para>One of the following options will be selected:</para>
+        <para id="Para937666">Absolute: Option will be selected if you
         specified absolute Calendar.</para>
-            <para id="Para937651">Relative: Option will be selected if you
+        <para id="Para937651">Relative: Option will be selected if you
         specified relative Calendar.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para531429">Origin</term>
-         <listitem id="listitemN0x180ac00N0x1842204">
-            <para>Specify the origin point for your relative Calendar.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para531328">Calendar Items</term>
-         <listitem id="listitemN0x180ac00N0x184224c">
-            <para>Display lists Calendar Items for the specified Calendar.</para>
-            <para id="Para979516">For relative Calendars, columns in the display
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para531429">Origin</term>
+      <listitem id="listitemN0x180ac00N0x1842204">
+        <para>Specify the origin point for your relative Calendar.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para531328">Calendar Items</term>
+      <listitem id="listitemN0x180ac00N0x184224c">
+        <para>Display lists Calendar Items for the specified Calendar.</para>
+        <para id="Para979516">For relative Calendars, columns in the display
         include Calendar Item name, offset, and period length. For absolute
         Calendars, columns in the display include Calendar Item name, start
         date, and period.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para535102">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para535102">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518646">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x18422b8">
-            <para>Closes the screen, returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518647">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1842300">
-            <para>Creates the Calendar, returning you to the previous
+  <variablelist>
+    <varlistentry>
+      <term id="Para518646">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18422b8">
+        <para>Closes the screen, returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518647">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1842300">
+        <para>Creates the Calendar, returning you to the previous
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518649">NEW</term>
-         <listitem id="listitemN0x180ac00N0x1842348">
-            <para>Opens screen for creating a new Calendar Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518650">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x1842390">
-            <para>Enables you to edit highlighted Calendar Items. The edit screen
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518649">NEW</term>
+      <listitem id="listitemN0x180ac00N0x1842348">
+        <para>Opens screen for creating a new Calendar Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518650">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1842390">
+        <para>Enables you to edit highlighted Calendar Items. The edit screen
         is the same as that for creating a new Calendar Item--except that when
         editing, the fields will contain Calendar Item information.
         Double-clicking on a Calendar Item will also bring you to the editing
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518651">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x18423d8">
-            <para>Highlight a Calendar Item and then select this button to remove
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518651">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x18423d8">
+        <para>Highlight a Calendar Item and then select this button to remove
         the Calendar Item from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="absoluteCalendarItem.xml"
-               xpointer="element(/1)"/>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="relativeCalendarItem.xml"
-               xpointer="element(/1)"/>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="absoluteCalendarItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="relativeCalendarItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

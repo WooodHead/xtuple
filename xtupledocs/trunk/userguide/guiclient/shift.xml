@@ -1,71 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section965136" role="openmfg">
-  <title>Shift</title>
-
-  <para id="Para965636">
-      <anchor id="Anchor965635" role="Index" xreflabel="shifts:adding new"/> 
-      <indexterm significance="normal">
-         <primary>shifts</primary>
-
-         <secondary>adding new</secondary>
-      </indexterm>To add a new Shift to the master list of Shifts, select the
-  NEW button. The following screen will appear:</para>
-
-  <para id="Para965640">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_shiftNew.png" id="Graphic965638"/>
-            </imageobject>
-
-            <caption id="Caption965641">Create New Shift</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="shift" role="openmfg">
+  <title><indexterm significance="normal">
+      <primary>shifts</primary>
+      <secondary>adding new</secondary>
+    </indexterm>Shift</title>
+  <para id="Para965636">To add a new Shift to the master list of Shifts,
+  select the NEW button. The following screen will appear:</para>
+  <para id="Para965640"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_shiftNew.png" id="Graphic965638" />
+        </imageobject>
+        <caption id="Caption965641">Create New Shift</caption>
+      </mediaobject>
+    </screenshot></para>
   <para id="Para965642">When adding a new Shift to the master list of Shifts,
   you are presented with the following options:</para>
-
   <variablelist>
-      <varlistentry>
-         <term id="Para965643">Shift Number</term>
-
-         <listitem id="listitemN0x180ac00N0x1890890">
-            <para>Enter a unique code to identify the Shift.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para965644">Shift Name</term>
-
-         <listitem id="listitemN0x180ac00N0x18908d8">
-            <para>Enter a brief name to describe the Shift.</para>
-         </listitem>
-      </varlistentry>
+    <varlistentry>
+      <term id="Para965643">Shift Number</term>
+      <listitem id="listitemN0x180ac00N0x1890890">
+        <para>Enter a unique code to identify the Shift.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965644">Shift Name</term>
+      <listitem id="listitemN0x180ac00N0x18908d8">
+        <para>Enter a brief name to describe the Shift.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <para id="Para965645">To the far right of the screen, the following buttons
   are available:</para>
-
   <variablelist>
-      <varlistentry>
-         <term id="Para965646">CANCEL</term>
-
-         <listitem id="listitemN0x180ac00N0x1890944">
-            <para>Closes the screen without adding a new Shift to the master list
+    <varlistentry>
+      <term id="Para965646">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1890944">
+        <para>Closes the screen without adding a new Shift to the master list
         of Shifts.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para965647">SAVE</term>
-
-         <listitem id="listitemN0x180ac00N0x189098c">
-            <para>Creates the Shift and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965647">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x189098c">
+        <para>Creates the Shift and adds it to the master list of
         Shifts.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
   </variablelist>
 </section>

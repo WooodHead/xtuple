@@ -1,136 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section937769" role="openmfg">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="batchItem" role="openmfg">
   <title>Batch Item</title>
-
   <para id="Para937815">To reschedule a Batch Item, select the RESCHEDULE
   button. The following screen will appear:</para>
-
-  <para id="Para938458">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_batchMgrResched.png" id="Graphic938456"/>
-            </imageobject>
-
-            <caption id="Caption938459">Reschedule Batch Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
+  <para id="Para938458"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_batchMgrResched.png"
+                     id="Graphic938456" />
+        </imageobject>
+        <caption id="Caption938459">Reschedule Batch Item</caption>
+      </mediaobject>
+    </screenshot></para>
   <para id="Para938460">When rescheduling a Batch Item, you are presented with
   the following options:</para>
-
   <variablelist>
-      <varlistentry>
-         <term id="Para938482">Submitted by</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb568">
-            <para>Displays the name of the user who submitted the Batch
+    <varlistentry>
+      <term id="Para938482">Submitted by</term>
+      <listitem id="listitemN0x180ac00N0x18eb568">
+        <para>Displays the name of the user who submitted the Batch
         Item.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938486">Submitted on</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb5b0">
-            <para>Displays the date and time when the Batch Item was
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938486">Submitted on</term>
+      <listitem id="listitemN0x180ac00N0x18eb5b0">
+        <para>Displays the date and time when the Batch Item was
         submitted.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938487">Response Email</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb5f8">
-            <para>Displays the email address--typically belonging to the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938487">Response Email</term>
+      <listitem id="listitemN0x180ac00N0x18eb5f8">
+        <para>Displays the email address--typically belonging to the
         submitting user--where the Batch Manager will send the Batch Item
         results once they are completed.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938488">Action</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb640">
-            <para>Displays the type of action to be performed when the Batch Item
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938488">Action</term>
+      <listitem id="listitemN0x180ac00N0x18eb640">
+        <para>Displays the type of action to be performed when the Batch Item
         is run.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938489">Parameter</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb688">
-            <para>Displays the source in the application where the Batch Item
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938489">Parameter</term>
+      <listitem id="listitemN0x180ac00N0x18eb688">
+        <para>Displays the source in the application where the Batch Item
         originated from.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938490">Scheduled</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb6d0">
-            <para>Schedule a date and time to run the Batch Item.</para>
-
-            <para id="Para938578">Specify a date in the first field using a
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938490">Scheduled</term>
+      <listitem id="listitemN0x180ac00N0x18eb6d0">
+        <para>Schedule a date and time to run the Batch Item.</para>
+        <para id="Para938578">Specify a date in the first field using a
         standard date format. Use the arrow buttons in the second field to
         specify a time of day.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938491">Started</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb718">
-            <para>Displays the date and time when processing of the Batch Item
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938491">Started</term>
+      <listitem id="listitemN0x180ac00N0x18eb718">
+        <para>Displays the date and time when processing of the Batch Item
         began.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938492">Completed</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb760">
-            <para>Displays the date and time when processing of the Batch Item was
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938492">Completed</term>
+      <listitem id="listitemN0x180ac00N0x18eb760">
+        <para>Displays the date and time when processing of the Batch Item was
         completed.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para957769">Reschedule every</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb7a8">
-            <para>Select to reschedule the submitted action on a regular
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para957769">Reschedule every</term>
+      <listitem id="listitemN0x180ac00N0x18eb7a8">
+        <para>Select to reschedule the submitted action on a regular
         basis.</para>
-
-            <para id="Para957773">If you decide to reschedule the action, you may
+        <para id="Para957773">If you decide to reschedule the action, you may
         reschedule on a daily, weekly, or monthly basis.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <para id="Para938504">To the far right of the screen, the following buttons
   are available:</para>
-
   <variablelist>
-      <varlistentry>
-         <term id="Para938505">CANCEL</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb814">
-            <para>Closes the screen without rescheduling the Batch Item, returning
+    <varlistentry>
+      <term id="Para938505">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18eb814">
+        <para>Closes the screen without rescheduling the Batch Item, returning
         you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term id="Para938506">SAVE</term>
-
-         <listitem id="listitemN0x180ac00N0x18eb85c">
-            <para>Saves any changes made to the Batch Item schedule.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para938506">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18eb85c">
+        <para>Saves any changes made to the Batch Item schedule.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
 </section>

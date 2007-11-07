@@ -1,95 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section972122">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>countries</primary>
-         <secondary>creating new</secondary>
-      </indexterm> 
-      <anchor id="Anchor62146" role="Cross-Ref" xreflabel="62146: Heading2: Countries"/>Country</title>
-   <para id="Para972294">To create a new Country definition, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="country">
+  <title><indexterm significance="normal">
+      <primary>countries</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Country</title>
+  <para id="Para972294">To create a new Country definition, select the NEW
   button. The following screen will appear:</para>
-   <para id="Para972298">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_countryNew.png" id="Graphic972296"/>
-            </imageobject>
-            <caption id="Caption972556">Create New Country</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para972557">When creating a new Country definition, you are
+  <para id="Para972298"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_countryNew.png" id="Graphic972296" />
+        </imageobject>
+        <caption id="Caption972556">Create New Country</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para972557">When creating a new Country definition, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972558">Country Name</term>
-         <listitem id="listitemN0x180ac00N0x1869460">
-            <para>Enter a unique Country name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972302">Country Abbreviation</term>
-         <listitem id="listitemN0x180ac00N0x18694a8">
-            <para>Enter a short abbreviation for the Country.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para972618">Defining Currency information for Countries helps
+  <variablelist>
+    <varlistentry>
+      <term id="Para972558">Country Name</term>
+      <listitem id="listitemN0x180ac00N0x1869460">
+        <para>Enter a unique Country name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972302">Country Abbreviation</term>
+      <listitem id="listitemN0x180ac00N0x18694a8">
+        <para>Enter a short abbreviation for the Country.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para972618">Defining Currency information for Countries helps
     standardize the process of defining Currencies.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972567">Currency Name</term>
-         <listitem id="listitemN0x180ac00N0x1869538">
-            <para>Enter a name to identify the Country's Currency.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972587">Currency Symbol</term>
-         <listitem id="listitemN0x180ac00N0x1869580">
-            <para>Enter a symbol to identify the Country's Currency.</para>
-            <para id="Para972588">Use special keyboard characters to enter special
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term id="Para972567">Currency Name</term>
+      <listitem id="listitemN0x180ac00N0x1869538">
+        <para>Enter a name to identify the Country's Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972587">Currency Symbol</term>
+      <listitem id="listitemN0x180ac00N0x1869580">
+        <para>Enter a symbol to identify the Country's Currency.</para>
+        <para id="Para972588">Use special keyboard characters to enter special
         Currency symbols. For example, under Windows, you can create the
         symbol for Japanese Yen "<!--Yen-->" by using the following keys: ALT
         + 0165.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972591">Currency Abbreviation</term>
-         <listitem id="listitemN0x180ac00N0x18695c8">
-            <para>Enter a short abbreviation for the Country's Currency.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972599">Currency Number</term>
-         <listitem id="listitemN0x180ac00N0x1870400">
-            <para>Enter a number to uniquely identify the Currency.</para>
-            <para id="Para972655">For example, in the standard Currencies defined
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972591">Currency Abbreviation</term>
+      <listitem id="listitemN0x180ac00N0x18695c8">
+        <para>Enter a short abbreviation for the Country's Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972599">Currency Number</term>
+      <listitem id="listitemN0x180ac00N0x1870400">
+        <para>Enter a number to uniquely identify the Currency.</para>
+        <para id="Para972655">For example, in the standard Currencies defined
         in the default Countries table, the Currency Number used is the
         ISO-assigned Currency Number.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972303">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972303">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972304">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x187046c">
-            <para>Closes the screen without adding a new Country definition to the
+  <variablelist>
+    <varlistentry>
+      <term id="Para972304">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x187046c">
+        <para>Closes the screen without adding a new Country definition to the
         master list of Countries.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para973412">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18704b4">
-            <para>Creates the Country definition and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para973412">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18704b4">
+        <para>Creates the Country definition and adds it to the master list of
         Countries.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

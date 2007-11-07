@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section965001">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>exchange rates</primary>
-         <secondary>adding new</secondary>
-      </indexterm>Exchange Rate</title>
-   <para id="Para966363">To add a new Exchange Rate to the master list of
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="currencyConversion">
+  <title><indexterm significance="normal">
+      <primary>exchange rates</primary>
+      <secondary>adding new</secondary>
+    </indexterm>Exchange Rate</title>
+  <para id="Para966363">To add a new Exchange Rate to the master list of
   Exchange Rates, select the NEW button. The following screen will
   appear:</para>
-   <para id="Para966367">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_xrateNew.png" id="Graphic966365"/>
-            </imageobject>
-            <caption id="Caption966368">Create New Exchange Rate</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para966369">When adding a new Exchange Rate to the master list of
+  <para id="Para966367"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_xrateNew.png" id="Graphic966365" />
+        </imageobject>
+        <caption id="Caption966368">Create New Exchange Rate</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para966369">When adding a new Exchange Rate to the master list of
   Exchange Rates, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para966370">Currency</term>
-         <listitem id="listitemN0x180ac00N0x186172c">
-            <para>Specify the Currency you want to apply the Exchange Rate
+  <variablelist>
+    <varlistentry>
+      <term id="Para966370">Currency</term>
+      <listitem id="listitemN0x180ac00N0x186172c">
+        <para>Specify the Currency you want to apply the Exchange Rate
         to.</para>
-            <para id="Para966959">You may enter multiple Exchange Rates for an
+        <para id="Para966959">You may enter multiple Exchange Rates for an
         individual Currency--as long as the effective dates do not
         overlap.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para966577">Exchange Rate</term>
-         <listitem id="listitemN0x180ac00N0x1861774">
-            <para>Enter the Exchange Rate to be used for the specified Currency
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para966577">Exchange Rate</term>
+      <listitem id="listitemN0x180ac00N0x1861774">
+        <para>Enter the Exchange Rate to be used for the specified Currency
         during specified date range.</para>
-            <para id="Para966976">The meaning of the Exchange Rate value is
+        <para id="Para966976">The meaning of the Exchange Rate value is
         configured on the Configure G/L screen in the System module. The value
         of Exchange Rates may be configured in either of two ways: 1) Base x
         Exchange Rate = Foreign or 2) Foreign x Exchange Rate = Base.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para966734">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x18617bc">
-            <para>Enter the date on which the Exchange Rate becomes
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para966734">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x18617bc">
+        <para>Enter the date on which the Exchange Rate becomes
         effective.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para966735">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1861804">
-            <para>Enter the date after which the Exchange Rate is no longer
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para966735">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1861804">
+        <para>Enter the date after which the Exchange Rate is no longer
         valid.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para966573">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para966573">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para966379">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1861870">
-            <para>Closes the screen without adding a new Exchange Rate to the
+  <variablelist>
+    <varlistentry>
+      <term id="Para966379">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1861870">
+        <para>Closes the screen without adding a new Exchange Rate to the
         master list of Exchange Rates.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para966380">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x18618b8">
-            <para>Creates the Exchange Rate and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para966380">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18618b8">
+        <para>Creates the Exchange Rate and adds it to the master list of
         Exchange Rates.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,163 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section966198">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>currencies</primary>
-         <secondary>adding new</secondary>
-      </indexterm>Currency</title>
-   <para id="Para965924">To add a new Currency to the master list of
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="currency">
+  <title><indexterm significance="normal">
+      <primary>currencies</primary>
+      <secondary>adding new</secondary>
+    </indexterm>Currency</title>
+  <para id="Para965924">To add a new Currency to the master list of
   Currencies, select the NEW button. The following screen will appear:</para>
-   <para id="Para965928">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_currNew.png" id="Graphic965926"/>
-            </imageobject>
-            <caption id="Caption965929">Create New Currency</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para972752">Standard Currency information for most Countries is
-    provided by default as part of the <link endterm="Anchor62146" id="XRef972879" linkend="Anchor62146"> Countries</link>"Countries" list.
+  <para id="Para965928"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_currNew.png" id="Graphic965926" />
+        </imageobject>
+        <caption id="Caption965929">Create New Currency</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para972752">Standard Currency information for most Countries is
+    provided by default as part of the <link endterm="Anchor62146"
+    id="XRef972879" linkend="Anchor62146"> Countries</link>"Countries" list.
     Simply select this information by Country when setting up multiple
     Currencies.</para>
-   </tip>
-   <para id="Para972670">When adding a new Currency to the master list of
+  </tip>
+  <para id="Para972670">When adding a new Currency to the master list of
   Currencies, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para965931">Name</term>
-         <listitem id="listitemN0x180ac00N0x184af98">
-            <para>Enter a name to describe the Currency.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965932">Symbol</term>
-         <listitem id="listitemN0x180ac00N0x184afe0">
-            <para>Enter a symbol to identify the Currency.</para>
-            <para id="Para966048">Use special keyboard characters to enter special
+  <variablelist>
+    <varlistentry>
+      <term id="Para965931">Name</term>
+      <listitem id="listitemN0x180ac00N0x184af98">
+        <para>Enter a name to describe the Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965932">Symbol</term>
+      <listitem id="listitemN0x180ac00N0x184afe0">
+        <para>Enter a symbol to identify the Currency.</para>
+        <para id="Para966048">Use special keyboard characters to enter special
         Currency symbols. For example, under Windows, you can create the
         symbol for Japanese Yen "<!--Yen-->" by using the following keys: ALT
         + 0165.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965993">Abbreviation</term>
-         <listitem id="listitemN0x180ac00N0x184b028">
-            <para>Enter an abbreviation to identify the Currency.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965994">Base Currency</term>
-         <listitem id="listitemN0x180ac00N0x184b070">
-            <para>Specify whether the Currency is the base Currency.</para>
-            <para id="Para966086">The base Currency is the Currency used for all
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965993">Abbreviation</term>
+      <listitem id="listitemN0x180ac00N0x184b028">
+        <para>Enter an abbreviation to identify the Currency.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965994">Base Currency</term>
+      <listitem id="listitemN0x180ac00N0x184b070">
+        <para>Specify whether the Currency is the base Currency.</para>
+        <para id="Para966086">The base Currency is the Currency used for all
         General Ledger (G/L) transactions. Only one base Currency may be
         defined per each database. Any transactions conducted in a foreign
         Currency will be converted automatically to the base Currency (using
         the prevailing Exchange Rate) before they are posted to the
         G/L.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para966114">Choose your base Currency carefully. Once you
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para966114">Choose your base Currency carefully. Once you
     indicate a given Currency is the base Currency, you will not be able to
     change that selection using the application. Consult your system
     administrator if this situation occurs.</para>
-   </tip>
-   <para id="Para966087">To the far right of the screen, the following buttons
+  </tip>
+  <para id="Para966087">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para965934">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x184b100">
-            <para>Closes the screen without adding a new Currency to the master
+  <variablelist>
+    <varlistentry>
+      <term id="Para965934">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x184b100">
+        <para>Closes the screen without adding a new Currency to the master
         list of Currencies.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para965935">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x184b148">
-            <para>Creates the Currency and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para965935">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x184b148">
+        <para>Creates the Currency and adds it to the master list of
         Currencies.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972755">SELECT</term>
-         <listitem id="listitemN0x180ac00N0x184b190">
-            <para>Choose this button to select Currency information by Country
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972755">SELECT</term>
+      <listitem id="listitemN0x180ac00N0x184b190">
+        <para>Choose this button to select Currency information by Country
         from the Countries table.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972769">To select Currency information by Country, choose the
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972769">To select Currency information by Country, choose the
   SELECT button. The following screen will appear:</para>
-   <para id="Para972773">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/Sys_currSelect.png" id="Graphic972771"/>
-            </imageobject>
-            <caption id="Caption972774">Select Currency by Country</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para id="Para972865">Make any changes to the Currency information for a
+  <para id="Para972773"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/Sys_currSelect.png" id="Graphic972771" />
+        </imageobject>
+        <caption id="Caption972774">Select Currency by Country</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para id="Para972865">Make any changes to the Currency information for a
     Country on the Country master screen.</para>
-   </tip>
-   <para id="Para972861">When selecting Currency information by Country, you
+  </tip>
+  <para id="Para972861">When selecting Currency information by Country, you
   are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972763">Country</term>
-         <listitem id="listitemN0x180ac00N0x184b28c">
-            <para>Specify the Country you want to assign the Currency to.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972817">Currency Name</term>
-         <listitem id="listitemN0x180ac00N0x184b2d4">
-            <para>Displays the name of the Currency for the specified
+  <variablelist>
+    <varlistentry>
+      <term id="Para972763">Country</term>
+      <listitem id="listitemN0x180ac00N0x184b28c">
+        <para>Specify the Country you want to assign the Currency to.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972817">Currency Name</term>
+      <listitem id="listitemN0x180ac00N0x184b2d4">
+        <para>Displays the name of the Currency for the specified
         Country.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972818">Symbol</term>
-         <listitem id="listitemN0x180ac00N0x184b31c">
-            <para>Displays the symbol for the Currency of the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972818">Symbol</term>
+      <listitem id="listitemN0x180ac00N0x184b31c">
+        <para>Displays the symbol for the Currency of the specified
         Country.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972819">Abbreviation</term>
-         <listitem id="listitemN0x180ac00N0x184b364">
-            <para>Displays the abbreviation for the Currency of the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972819">Abbreviation</term>
+      <listitem id="listitemN0x180ac00N0x184b364">
+        <para>Displays the abbreviation for the Currency of the specified
         Country.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para972822">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para972822">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para972823">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x184b3d0">
-            <para>Closes the screen without selecting Currency information by
+  <variablelist>
+    <varlistentry>
+      <term id="Para972823">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x184b3d0">
+        <para>Closes the screen without selecting Currency information by
         Country.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para972825">SELECT</term>
-         <listitem id="listitemN0x180ac00N0x184b418">
-            <para>Choose this button to select the Currency information for the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para972825">SELECT</term>
+      <listitem id="listitemN0x180ac00N0x184b418">
+        <para>Choose this button to select the Currency information for the
         specified Country.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
