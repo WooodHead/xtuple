@@ -76,30 +76,18 @@
   <para id="Para524450">Right-clicking on an Item Site in the Item Sites list
   enables you to select the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term id="Para519932">View Item Site</term>
-      <listitem id="listitemN0x180ac00N0x1932bc4">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para519933">Edit Item Site</term>
-      <listitem id="listitemN0x180ac00N0x1932c0c">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para519934">View Inventory Availability</term>
-      <listitem id="listitemN0x180ac00N0x1932c54">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term id="Para556418">Issue Count Tag</term>
-      <listitem id="listitemN0x180ac00N0x1932c9c">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/27)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/8)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/25)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/10)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
@@ -108,11 +96,8 @@
   method is Lot/Serial #, then the following additional option will be
   available:</para>
   <variablelist>
-    <varlistentry>
-      <term id="Para578563">View Location/Lot/Serial # Detail</term>
-      <listitem id="listitemN0x180ac00N0x1932d50">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/28)" />
   </variablelist>
 </section>
