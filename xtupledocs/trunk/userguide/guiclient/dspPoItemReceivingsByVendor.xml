@@ -1,138 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section535325">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>receipts</primary>
-         <secondary>by vendor</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>returns</primary>
-         <secondary>details by vendor</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>vendors</primary>
-         <secondary>receipt details for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>vendors</primary>
-         <secondary>return details for</secondary>
-      </indexterm>Receipts and Returns by Vendor</title>
-   <para id="Para535336">To view Receipts and Returns by Vendor, select the
-    "Receipts and Returns by Vendor" option. The following screen will
-    appear:</para>
-   <para id="Para535340">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Disp_rcptsRtnsByVend.png" id="Graphic535338"/>
-            </imageobject>
-            <caption id="Caption535341">Receipts and Returns by Vendor</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para535342">When displaying Receipts and Returns by Vendor, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para913737">Vendor #</term>
-         <listitem id="listitemN0x180ac00N0x18c7654">
-            <para>Enter the Vendor Number of the Vendor whose Receipts and
-          Returns you want to view.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913777">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x18c769c">
-            <para>Receipts and Returns by Vendor entered on and after this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913782">End Date</term>
-         <listitem id="listitemN0x180ac00N0x18c76e4">
-            <para>Receipts and Returns by Vendor entered on and before this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para913745">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18c7708">
-            <para>Select to display Receipts and Returns by Vendor for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para913747">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18c772c">
-            <para>Specify Warehouse whose Receipts and Returns by Vendor you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913759">All Purchasing Agents</term>
-         <listitem id="listitemN0x180ac00N0x18c7774">
-            <para>Select to display Receipts and Returns by Vendor for all
-          Purchasing Agents.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913760">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18c77bc">
-            <para>Specify Purchasing Agent whose Receipts and Returns by Vendor
-          you want to display.</para>
-            <para id="Para935592">Users may be designated as Purchasing Agents
-          at the system level.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913827">Show Purchase Price Variances</term>
-         <listitem id="listitemN0x180ac00N0x18c7804">
-            <para>Select to include purchase Price variances in the
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para913719">P/O Receipts and Returns</term>
-         <listitem id="listitemN0x180ac00N0x18c784c">
-            <para>Display lists Receipts and Returns by Vendor, using the
-          specified parameters.</para>
-            <para id="Para970217">Purchased Cost and Receiving Cost variances
-          will also display if the "Show Purchase Price Variances" option is
-          selected.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para953931">If you select the "Show Purchase Price Variances"
-      option and the value "N/A" is displayed in the "Recv. Cost" column, this
-      simply means the Purchase Order qty. has been received but not yet
-      vouchered.</para>
-   </tip>
-   <para id="Para953926">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para913722">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18c78dc">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para934532">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x18c7924">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para970026">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18c796c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>receipts</primary>
+      <secondary>by vendor</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>returns</primary>
+      <secondary>details by vendor</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>receipt details for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>vendors</primary>
+      <secondary>return details for</secondary>
+    </indexterm>Receipts and Returns by Vendor</title>
+  <para id="Para535336">To view Receipts and Returns by Vendor, select the
+  "Receipts and Returns by Vendor" option. The following screen will
+  appear:</para>
+  <para id="Para535340"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Disp_rcptsRtnsByVend.png"
+                     id="Graphic535338" />
+        </imageobject>
+        <caption id="Caption535341">Receipts and Returns by Vendor</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para535342">When displaying Receipts and Returns by Vendor, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para913737">Vendor #</term>
+      <listitem id="listitemN0x180ac00N0x18c7654">
+        <para>Enter the Vendor Number of the Vendor whose Receipts and Returns
+        you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913777">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x18c769c">
+        <para>Receipts and Returns by Vendor entered on and after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913782">End Date</term>
+      <listitem id="listitemN0x180ac00N0x18c76e4">
+        <para>Receipts and Returns by Vendor entered on and before this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para913745">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18c7708">
+        <para>Select to display Receipts and Returns by Vendor for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para913747">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18c772c">
+        <para>Specify Warehouse whose Receipts and Returns by Vendor you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913759">All Purchasing Agents</term>
+      <listitem id="listitemN0x180ac00N0x18c7774">
+        <para>Select to display Receipts and Returns by Vendor for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913760">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18c77bc">
+        <para>Specify Purchasing Agent whose Receipts and Returns by Vendor
+        you want to display.</para>
+        <para id="Para935592">Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913827">Show Purchase Price Variances</term>
+      <listitem id="listitemN0x180ac00N0x18c7804">
+        <para>Select to include purchase Price variances in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para913719">P/O Receipts and Returns</term>
+      <listitem id="listitemN0x180ac00N0x18c784c">
+        <para>Display lists Receipts and Returns by Vendor, using the
+        specified parameters.</para>
+        <para id="Para970217">Purchased Cost and Receiving Cost variances will
+        also display if the "Show Purchase Price Variances" option is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para953931">If you select the "Show Purchase Price Variances"
+    option and the value "N/A" is displayed in the "Recv. Cost" column, this
+    simply means the Purchase Order qty. has been received but not yet
+    vouchered.</para>
+  </tip>
+  <para id="Para953926">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para913722">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18c78dc">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para934532">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x18c7924">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para970026">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18c796c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

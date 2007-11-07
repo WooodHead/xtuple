@@ -1,123 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section535280">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>receipts</primary>
-         <secondary>by date</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>returns</primary>
-         <secondary>details by date</secondary>
-      </indexterm>Receipts and Returns by Date</title>
-   <para id="Para535281">To view Receipts and Returns by date, select the
-    "Receipts and Returns by Date" option. The following screen will
-    appear:</para>
-   <para id="Para535285">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Disp_rcptsRtnsByDate.png" id="Graphic535283"/>
-            </imageobject>
-            <caption id="Caption535286">Receipts and Returns by Date</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para535287">When displaying Receipts and Returns by date, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para535291">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x18cf01c">
-            <para>Receipts and Returns entered on and after this date will be
-          displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535296">End Date</term>
-         <listitem id="listitemN0x180ac00N0x18cf064">
-            <para>Receipts and Returns entered on and before this date will be
-          displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para535298">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18cf088">
-            <para>Select to display Receipts and Returns by date for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para535300">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18cf0ac">
-            <para>Specify Warehouse whose Receipts and Returns by date you want
-          to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535302">All Purchasing Agents</term>
-         <listitem id="listitemN0x180ac00N0x18cf0f4">
-            <para>Select to display Receipts and Returns by date for all
-          Purchasing Agents.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535303">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18cf13c">
-            <para>Specify Purchasing Agent whose Receipts and Returns by date
-          you want to display.</para>
-            <para id="Para935622">Users may be designated as Purchasing Agents
-          at the system level.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para921133">Show Purchase Price Variances</term>
-         <listitem id="listitemN0x180ac00N0x18cf184">
-            <para>Select to include purchase Price variances in the
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para535306">P/O Receipts and Returns</term>
-         <listitem id="listitemN0x180ac00N0x18cf1cc">
-            <para>Display lists Receipts and Returns by date, using the
-          specified parameters.</para>
-            <para id="Para970242">Purchased Cost and Receiving Cost variances
-          will also display if the "Show Purchase Price Variances" option is
-          selected.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para953965">If you select the "Show Purchase Price Variances"
-      option and the value "N/A" is displayed in the "Recv. Cost" column, this
-      simply means the Purchase Order qty. has been received but not yet
-      vouchered.</para>
-   </tip>
-   <para id="Para535308">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para535309">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18cf25c">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para934552">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x18cf2a4">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para970037">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18cf2ec">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>receipts</primary>
+      <secondary>by date</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>returns</primary>
+      <secondary>details by date</secondary>
+    </indexterm>Receipts and Returns by Date</title>
+  <para id="Para535281">To view Receipts and Returns by date, select the
+  "Receipts and Returns by Date" option. The following screen will
+  appear:</para>
+  <para id="Para535285"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Disp_rcptsRtnsByDate.png"
+                     id="Graphic535283" />
+        </imageobject>
+        <caption id="Caption535286">Receipts and Returns by Date</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para535287">When displaying Receipts and Returns by date, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para535291">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x18cf01c">
+        <para>Receipts and Returns entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535296">End Date</term>
+      <listitem id="listitemN0x180ac00N0x18cf064">
+        <para>Receipts and Returns entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para535298">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18cf088">
+        <para>Select to display Receipts and Returns by date for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para535300">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18cf0ac">
+        <para>Specify Warehouse whose Receipts and Returns by date you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535302">All Purchasing Agents</term>
+      <listitem id="listitemN0x180ac00N0x18cf0f4">
+        <para>Select to display Receipts and Returns by date for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535303">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18cf13c">
+        <para>Specify Purchasing Agent whose Receipts and Returns by date you
+        want to display.</para>
+        <para id="Para935622">Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para921133">Show Purchase Price Variances</term>
+      <listitem id="listitemN0x180ac00N0x18cf184">
+        <para>Select to include purchase Price variances in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para535306">P/O Receipts and Returns</term>
+      <listitem id="listitemN0x180ac00N0x18cf1cc">
+        <para>Display lists Receipts and Returns by date, using the specified
+        parameters.</para>
+        <para id="Para970242">Purchased Cost and Receiving Cost variances will
+        also display if the "Show Purchase Price Variances" option is
+        selected.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para953965">If you select the "Show Purchase Price Variances"
+    option and the value "N/A" is displayed in the "Recv. Cost" column, this
+    simply means the Purchase Order qty. has been received but not yet
+    vouchered.</para>
+  </tip>
+  <para id="Para535308">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para535309">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18cf25c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para934552">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x18cf2a4">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para970037">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18cf2ec">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

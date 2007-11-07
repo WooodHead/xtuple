@@ -1,119 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section914385">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>variances</primary>
-         <secondary>delivery date by item</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>items</primary>
-         <secondary>delivery date variances for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>delivery date variances</primary>
-         <secondary>item details for</secondary>
-      </indexterm>Delivery Date Variances by Item</title>
-   <para id="Para914386">To view delivery date variances by Item, select the
-    "Delivery Date Variances by Item" option. The following screen will
-    appear:</para>
-   <para id="Para914389">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Disp_deliveryVarItem.png" id="Graphic914388"/>
-            </imageobject>
-            <caption id="Caption914390">Delivery Date Variances by
-          Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para914391">When displaying delivery date variances by Item, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para918478">Item Number</term>
-         <listitem id="listitemN0x180ac00N0x18d5ba0">
-            <para>Enter the Item Number of the Item whose delivery date
-          variances you want to view.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para918403">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18d5bc4">
-            <para>Select to display delivery date variances by Item for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para918405">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18d5be8">
-            <para>Specify Warehouse whose delivery date variances by Item you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para918410">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x18d5c30">
-            <para>Delivery date variances by Item entered on and after this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para918415">End Date</term>
-         <listitem id="listitemN0x180ac00N0x18d5c78">
-            <para>Delivery date variances by Item entered on and before this
-          date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para935686">All Purchasing Agents</term>
-         <listitem id="listitemN0x180ac00N0x18d5cc0">
-            <para>Select to display delivery date variances by Item for all
-          Purchasing Agents.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para918418">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18d5d08">
-            <para>Specify Purchasing Agent whose delivery date variances by Item
-          you want to display.</para>
-            <para id="Para935697">Users may be designated as Purchasing Agents
-          at the system level.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para918421">P/O Item Receipts</term>
-         <listitem id="listitemN0x180ac00N0x18d5d50">
-            <para>Display lists Purchase Order delivery date variances by
-          Item.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para918423">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para918424">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18d5dbc">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para934591">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x18d5e04">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para970085">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18d5e4c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>variances</primary>
+      <secondary>delivery date by item</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>delivery date variances for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>delivery date variances</primary>
+      <secondary>item details for</secondary>
+    </indexterm>Delivery Date Variances by Item</title>
+  <para id="Para914386">To view delivery date variances by Item, select the
+  "Delivery Date Variances by Item" option. The following screen will
+  appear:</para>
+  <para id="Para914389"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Disp_deliveryVarItem.png"
+                     id="Graphic914388" />
+        </imageobject>
+        <caption id="Caption914390">Delivery Date Variances by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para914391">When displaying delivery date variances by Item, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para918478">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x18d5ba0">
+        <para>Enter the Item Number of the Item whose delivery date variances
+        you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para918403">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18d5bc4">
+        <para>Select to display delivery date variances by Item for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para918405">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18d5be8">
+        <para>Specify Warehouse whose delivery date variances by Item you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para918410">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x18d5c30">
+        <para>Delivery date variances by Item entered on and after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para918415">End Date</term>
+      <listitem id="listitemN0x180ac00N0x18d5c78">
+        <para>Delivery date variances by Item entered on and before this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para935686">All Purchasing Agents</term>
+      <listitem id="listitemN0x180ac00N0x18d5cc0">
+        <para>Select to display delivery date variances by Item for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para918418">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18d5d08">
+        <para>Specify Purchasing Agent whose delivery date variances by Item
+        you want to display.</para>
+        <para id="Para935697">Users may be designated as Purchasing Agents at
+        the system level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para918421">P/O Item Receipts</term>
+      <listitem id="listitemN0x180ac00N0x18d5d50">
+        <para>Display lists Purchase Order delivery date variances by
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para918423">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para918424">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18d5dbc">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para934591">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x18d5e04">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para970085">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18d5e4c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
