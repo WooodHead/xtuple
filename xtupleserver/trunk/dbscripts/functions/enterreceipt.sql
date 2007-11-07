@@ -72,7 +72,7 @@ BEGIN
     ( recv_id, recv_date,
       recv_order_number, recv_order_type, recv_orderitem_id,
       recv_trans_usr_name, recv_agent_username, recv_itemsite_id,
-      recv_vend_id, -- recv_vend_item_number, recv_vend_item_descrip,
+      recv_vend_id, recv_vend_item_number, recv_vend_item_descrip,
       recv_vend_uom, recv_qty, recv_duedate,
       recv_purchcost, recv_purchcost_curr_id,
       recv_notes, recv_freight, recv_freight_curr_id
@@ -80,7 +80,7 @@ BEGIN
       _recvid, _timestamp,
       _o.order_number::INTEGER, pordertype, _o.orderitem_id::INTEGER,
       CURRENT_USER, _o.agent, _o.itemsite_id::INTEGER,
-      _o.vend_id::INTEGER, -- _o.vend_item_number, _o.vend_item_descrip,
+      _o.vend_id::INTEGER, _o.vend_item_number, _o.vend_item_descrip,
       _o.vend_uom, pQty, _o.duedate,
       _o.unitprice, _o.unitprice_curr_id::INTEGER,
       pNotes, pFreight, _o.freight_curr_id::INTEGER);
