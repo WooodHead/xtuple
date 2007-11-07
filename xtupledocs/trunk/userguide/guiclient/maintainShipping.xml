@@ -1,95 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520522">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>shipping</primary>
-         <secondary>maintaining contents at</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>shipping contents</primary>
-         <secondary>maintenance of</secondary>
-      </indexterm>Maintain Shipping Contents</title>
-   <para id="Para518541">When Items have been issued to Shipping, you have the
+  <title><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>maintaining contents at</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipping contents</primary>
+      <secondary>maintenance of</secondary>
+    </indexterm>Maintain Shipping Contents</title>
+  <para id="Para518541">When Items have been issued to Shipping, you have the
   ability to maintain these Shipping contents in one central location, by
   Warehouse. To maintain Shipping contents, select the "Maintain Shipping
   Contents" option. The following screen will appear:</para>
-   <para id="Para518545">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SR_Ship_maintShipContents.png" id="Graphic519965"/>
-            </imageobject>
-            <caption id="Caption518546">Maintain Shipping Contents</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518547">When maintaining Shipping contents, you are presented
+  <para id="Para518545"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Ship_maintShipContents.png"
+                     id="Graphic519965" />
+        </imageobject>
+        <caption id="Caption518546">Maintain Shipping Contents</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518547">When maintaining Shipping contents, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry role="openmfg">
-         <term id="Para518548">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x1830a54">
-            <para>Select to maintain Shipping contents for all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para518550">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1830a78">
-            <para>Specify Warehouse whose Shipping contents you want to
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para518548">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x1830a54">
+        <para>Select to maintain Shipping contents for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para518550">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1830a78">
+        <para>Specify Warehouse whose Shipping contents you want to
         maintain.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518552">Stock at Shipping</term>
-         <listitem id="listitemN0x180ac00N0x1830ac0">
-            <para>Display lists Stock at Shipping based on the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518552">Stock at Shipping</term>
+      <listitem id="listitemN0x180ac00N0x1830ac0">
+        <para>Display lists Stock at Shipping based on the specified
         parameters. This display is a nested list, with a plus ("+") sign
         located to the far left of the display next to each line that may be
         expanded to lower levels. By clicking your mouse on a plus sign, you
         reveal lower levels of information related to the Documents.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para538855">The printed status for a Sales Order at Shipping may
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para538855">The printed status for a Sales Order at Shipping may
     be either "No," "Yes," or "Dirty." The first two options indicate whether
     Shipping Forms have been printed for the Order or not. The Dirty status
     indicates Shipping contents have changed since Shipping Forms were printed
     for the Order.</para>
-   </note>
-   <para id="Para533922">To the far right of the screen, the following button
+  </note>
+  <para id="Para533922">To the far right of the screen, the following button
   is available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para533923">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1830b50">
-            <para>Closes the screen without maintaining Shipping contents,
+  <variablelist>
+    <varlistentry>
+      <term id="Para533923">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1830b50">
+        <para>Closes the screen without maintaining Shipping contents,
         returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519596">Right-clicking on a parent Order in the "Stock at
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519596">Right-clicking on a parent Order in the "Stock at
   Shipping" list enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/6/2/6)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/6/2/3)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/21)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/6/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/6/2/4)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
-   <tip>
-      <para id="Para533960">Before a Sales Order can be shipped successfully,
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/6)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/3)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/21)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/6/2/4)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <tip>
+    <para id="Para533960">Before a Sales Order can be shipped successfully,
     Sales Account and A/R Account Assignments for the specified Customer must
     be in place.</para>
-   </tip>
+  </tip>
 </section>

@@ -1,126 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section520506">
-   <title>
-      
-  Enter Return Item</title>
-   <para id="Para523293">To enter Return details, highlight a Purchase Order
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="enterPoitemReturn">
+  <title>Enter Return Item</title>
+  <para id="Para523293">To enter Return details, highlight a Purchase Order
   Item and select the ENTER RETURN button. The following screen will
   appear:</para>
-   <para id="Para523210">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SR_Rcvg_enterReturnItem.png" id="Graphic523222"/>
-            </imageobject>
-            <caption id="Caption523221">Enter Purchase Order Item Return</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para523328">When entering Return details, you are presented with
+  <para id="Para523210"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Rcvg_enterReturnItem.png"
+                     id="Graphic523222" />
+        </imageobject>
+        <caption id="Caption523221">Enter Purchase Order Item Return</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para523328">When entering Return details, you are presented with
   the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para523329">P/O Number</term>
-         <listitem id="listitemN0x180ac00N0x1861448">
-            <para>Displays the Purchase Order Number specified on the previous
+  <variablelist>
+    <varlistentry>
+      <term id="Para523329">P/O Number</term>
+      <listitem id="listitemN0x180ac00N0x1861448">
+        <para>Displays the Purchase Order Number specified on the previous
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527010">Line #</term>
-         <listitem id="listitemN0x180ac00N0x1861490">
-            <para>Displays the Purchase Order Line Item number selected on the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527010">Line #</term>
+      <listitem id="listitemN0x180ac00N0x1861490">
+        <para>Displays the Purchase Order Line Item number selected on the
         previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527011">Item Number</term>
-         <listitem id="listitemN0x180ac00N0x18614d8">
-            <para>Displays the Item Number of the Line Item selected on the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527011">Item Number</term>
+      <listitem id="listitemN0x180ac00N0x18614d8">
+        <para>Displays the Item Number of the Line Item selected on the
         previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para550797">UOM</term>
-         <listitem id="listitemN0x180ac00N0x1861520">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527050">Vend. Item Number</term>
-         <listitem id="listitemN0x180ac00N0x1861568">
-            <para>Displays the Vendor's Item number for the specified Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527054">Vendor Item Description</term>
-         <listitem id="listitemN0x180ac00N0x18615b0">
-            <para>Displays Vendor's description of specified Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527057">Vendor UOM</term>
-         <listitem id="listitemN0x180ac00N0x18615f8">
-            <para>Displays the Vendor's Item UOM for the specified Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527059">Inv./Vendor UOM Ratio</term>
-         <listitem id="listitemN0x180ac00N0x1861640">
-            <para>Displays the ratio between Inventory and Vendor Units of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para550797">UOM</term>
+      <listitem id="listitemN0x180ac00N0x1861520">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527050">Vend. Item Number</term>
+      <listitem id="listitemN0x180ac00N0x1861568">
+        <para>Displays the Vendor's Item number for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527054">Vendor Item Description</term>
+      <listitem id="listitemN0x180ac00N0x18615b0">
+        <para>Displays Vendor's description of specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527057">Vendor UOM</term>
+      <listitem id="listitemN0x180ac00N0x18615f8">
+        <para>Displays the Vendor's Item UOM for the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527059">Inv./Vendor UOM Ratio</term>
+      <listitem id="listitemN0x180ac00N0x1861640">
+        <para>Displays the ratio between Inventory and Vendor Units of
         Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527066">Qty. Ordered</term>
-         <listitem id="listitemN0x180ac00N0x1861688">
-            <para>Displays the quantity ordered of the specified Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para527070">Qty. to Return</term>
-         <listitem id="listitemN0x180ac00N0x18616d0">
-            <para>Specify the quantity of the Item you want to return.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540815">Returnable Qty.</term>
-         <listitem id="listitemN0x180ac00N0x1861718">
-            <para>Displays the quantity available to be returned.</para>
-            <para id="Para540824">The maximum returnable quantity is the original
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527066">Qty. Ordered</term>
+      <listitem id="listitemN0x180ac00N0x1861688">
+        <para>Displays the quantity ordered of the specified Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para527070">Qty. to Return</term>
+      <listitem id="listitemN0x180ac00N0x18616d0">
+        <para>Specify the quantity of the Item you want to return.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540815">Returnable Qty.</term>
+      <listitem id="listitemN0x180ac00N0x1861718">
+        <para>Displays the quantity available to be returned.</para>
+        <para id="Para540824">The maximum returnable quantity is the original
         quantity ordered. The system will not allow you to return more than
         the returnable quantity.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540812">Reject Code</term>
-         <listitem id="listitemN0x180ac00N0x1861760">
-            <para>Specify a code to describe the return.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para523358">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540812">Reject Code</term>
+      <listitem id="listitemN0x180ac00N0x1861760">
+        <para>Specify a code to describe the return.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para523358">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para523359">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x18617cc">
-            <para>Closes the screen without entering a return for the Purchase
+  <variablelist>
+    <varlistentry>
+      <term id="Para523359">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18617cc">
+        <para>Closes the screen without entering a return for the Purchase
         Order Line Item, returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para523360">RETURN</term>
-         <listitem id="listitemN0x180ac00N0x1861814">
-            <para>Select to return the specified Line Item quantity.</para>
-            <para id="Para549538">When posting a Return, privileged users will be
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para523360">RETURN</term>
+      <listitem id="listitemN0x180ac00N0x1861814">
+        <para>Select to return the specified Line Item quantity.</para>
+        <para id="Para549538">When posting a Return, privileged users will be
         given the option to generate an A/P Credit Memo in the amount of the
         Return. This option is available when returning against closed
         Purchase Order Line Items. Closed Purchase Orders will be reopened
         automatically in this scenario to allow for future Receipts.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
