@@ -1,81 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563754">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>work orders</primary>
-         <secondary>printing forms for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>forms</primary>
-         <secondary>for work orders</secondary>
-      </indexterm>Print Work Order Form</title>
-   <para id="Para563755">To print a Work Order Form, select the "Print Work
-    Order Form" option. The following screen will appear:</para>
-   <para id="Para563759">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/WO_Rep_printWOForm.png" id="Graphic563757"/>
-            </imageobject>
-            <caption id="Caption563760">Print Work Order Form</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para563761">When printing a Work Order Form, you are presented
-    with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para563762">Work Order #</term>
-         <listitem>
-            <para>Enter the Work Order Number of the Work Order you want to
-          print a Form for.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para563764">Whs.</term>
-         <listitem>
-            <para>Displays Warehouse code automatically when Work Order Number
-          is entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para563765">Item Number</term>
-         <listitem>
-            <para>Displays Item Number automatically when Work Order Number is
-          entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para568892">UOM</term>
-         <listitem>
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para563767">Form Name</term>
-         <listitem>
-            <para>Select Form definition you want to use for the report.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para563772">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para568974">CANCEL</term>
-         <listitem>
-            <para>Closes the screen without generating a report, returning you
-          to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para568975">PRINT</term>
-         <listitem>
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>printing forms for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>forms</primary>
+      <secondary>for work orders</secondary>
+    </indexterm>Print Work Order Form</title>
+  <para id="Para563755">To print a Work Order Form, select the "Print Work
+  Order Form" option. The following screen will appear:</para>
+  <para id="Para563759"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/WO_Rep_printWOForm.png"
+                     id="Graphic563757" />
+        </imageobject>
+        <caption id="Caption563760">Print Work Order Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para563761">When printing a Work Order Form, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para563762">Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order you want to print
+        a Form for.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para563764">Whs.</term>
+      <listitem>
+        <para>Displays Warehouse code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para563765">Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para568892">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para563767">Form Name</term>
+      <listitem>
+        <para>Select Form definition you want to use for the report.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para563772">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para568974">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without generating a report, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para568975">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

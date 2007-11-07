@@ -1,95 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519987">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>variances</primary>
-         <secondary>material usage by w/o</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>work orders</primary>
-         <secondary>material usage variances for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>material usage variances</primary>
-         <secondary>w/o details for</secondary>
-      </indexterm>Material Usage Variance by Work Order</title>
-   <para id="Para519988">To view material usage variances by Work Order,
-    select the "Material Usage Variance by Work Order" option. The following
-    screen will appear:</para>
-   <para id="Para519992">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/WO_Disp_matVarWOrder.png" id="Graphic524105"/>
-            </imageobject>
-            <caption id="Caption519993">Material Usage Variance by Work
-          Order</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519994">When displaying material usage variances by Work
-    Order, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519995">Work Order #</term>
-         <listitem>
-            <para>Enter the Work Order Number of the Work Order whose material
-          usage variances you want to view.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519997">Whs.</term>
-         <listitem>
-            <para>Displays Warehouse code automatically when Work Order Number
-          is entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519999">Item Number</term>
-         <listitem>
-            <para>Displays Item Number automatically when Work Order Number is
-          entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para568853">UOM</term>
-         <listitem>
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520003">Status</term>
-         <listitem>
-            <para>Displays Work Order Status automatically when Work Order
-          Number is entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520005">Material Usage Variance</term>
-         <listitem>
-            <para>Display lists material usage variances by Work Order, using
-          the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para520007">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para520008">CLOSE</term>
-         <listitem>
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para520009">PRINT</term>
-         <listitem>
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>variances</primary>
+      <secondary>material usage by w/o</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>material usage variances for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>material usage variances</primary>
+      <secondary>w/o details for</secondary>
+    </indexterm>Material Usage Variance by Work Order</title>
+  <para id="Para519988">To view material usage variances by Work Order, select
+  the "Material Usage Variance by Work Order" option. The following screen
+  will appear:</para>
+  <para id="Para519992"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/WO_Disp_matVarWOrder.png"
+                     id="Graphic524105" />
+        </imageobject>
+        <caption id="Caption519993">Material Usage Variance by Work
+        Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519994">When displaying material usage variances by Work
+  Order, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519995">Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order whose material
+        usage variances you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519997">Whs.</term>
+      <listitem>
+        <para>Displays Warehouse code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519999">Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para568853">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520003">Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520005">Material Usage Variance</term>
+      <listitem>
+        <para>Display lists material usage variances by Work Order, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para520007">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para520008">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para520009">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

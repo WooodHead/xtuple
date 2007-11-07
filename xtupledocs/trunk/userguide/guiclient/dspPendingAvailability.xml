@@ -1,121 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519778">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>work orders</primary>
-         <secondary>pending material availability for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>materials</primary>
-         <secondary>pending w/o availability</secondary>
-      </indexterm>Pending W/O Material Availability</title>
-   <para id="Para519779">To view the Pending Availability for Work Order
-    Material Requirements associated with a Work Order, select the "Pending
-    W/O Material Availability" option. The following screen will
-    appear:</para>
-   <para id="Para519783">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/WO_Disp_pendingMatAvail.png" id="Graphic524034"/>
-            </imageobject>
-            <caption id="Caption519784">Pending Work Order Material
-          Availability</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para id="Para551403">This display shows Pending Availability for Work
-      Order Material Requirements associated with the manufactured parent
-      Item.</para>
-   </note>
-   <para id="Para551399">When displaying pending Work Order Material
-    Availability, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519791">Item Number</term>
-         <listitem>
-            <para>Enter the Item Number of the Item whose pending material
-          Availability you want to view.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para568808">UOM</term>
-         <listitem>
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519795">Warehouse</term>
-         <listitem>
-            <para>Specify Warehouse whose pending Work Order Material
-          Availability you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519800">Qty. to Build</term>
-         <listitem>
-            <para>Enter the quantity ordered for the hypothetical Work Order
-          Item. The Pending Availability for Material Requirements will vary
-          depending on the quantity entered.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519805">Effective</term>
-         <listitem>
-            <para>Pending Work Order Material Availability on or after this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519810">Build Date</term>
-         <listitem>
-            <para>Enter the date you need to begin building the Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519812">Only Show Shortages</term>
-         <listitem>
-            <para>Select to only show shortages in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para531101">Material Requirements</term>
-         <listitem>
-            <para>Display lists pending Work Order Material Availability, using
-          the specified parameters.</para>
-            <para id="Para569342">The display is color-coded for ease of use.
-          Orange text indicates the Item has fallen below its Reorder Level.
-          Red text indicates the Quantity on Hand or Availability has fallen
-          below 0.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519814">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519815">CLOSE</term>
-         <listitem>
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para545156">QUERY</term>
-         <listitem>
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519817">PRINT</term>
-         <listitem>
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>pending material availability for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>materials</primary>
+      <secondary>pending w/o availability</secondary>
+    </indexterm>Pending W/O Material Availability</title>
+  <para id="Para519779">To view the Pending Availability for Work Order
+  Material Requirements associated with a Work Order, select the "Pending W/O
+  Material Availability" option. The following screen will appear:</para>
+  <para id="Para519783"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/WO_Disp_pendingMatAvail.png"
+                     id="Graphic524034" />
+        </imageobject>
+        <caption id="Caption519784">Pending Work Order Material
+        Availability</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para551403">This display shows Pending Availability for Work
+    Order Material Requirements associated with the manufactured parent
+    Item.</para>
+  </note>
+  <para id="Para551399">When displaying pending Work Order Material
+  Availability, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519791">Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose pending material
+        Availability you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para568808">UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519795">Warehouse</term>
+      <listitem>
+        <para>Specify Warehouse whose pending Work Order Material Availability
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519800">Qty. to Build</term>
+      <listitem>
+        <para>Enter the quantity ordered for the hypothetical Work Order Item.
+        The Pending Availability for Material Requirements will vary depending
+        on the quantity entered.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519805">Effective</term>
+      <listitem>
+        <para>Pending Work Order Material Availability on or after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519810">Build Date</term>
+      <listitem>
+        <para>Enter the date you need to begin building the Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519812">Only Show Shortages</term>
+      <listitem>
+        <para>Select to only show shortages in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para531101">Material Requirements</term>
+      <listitem>
+        <para>Display lists pending Work Order Material Availability, using
+        the specified parameters.</para>
+        <para id="Para569342">The display is color-coded for ease of use.
+        Orange text indicates the Item has fallen below its Reorder Level. Red
+        text indicates the Quantity on Hand or Availability has fallen below
+        0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519814">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519815">CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para545156">QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519817">PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
