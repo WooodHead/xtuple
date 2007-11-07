@@ -1,173 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519066">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>bookings</primary>
-         <secondary>time-phased by product category</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>product categories</primary>
-         <secondary>time-phased bookings for</secondary>
-      </indexterm>Time-Phased Bookings by Product Category</title>
-   <para id="Para519067">To view time-phased Bookings by Product Category,
-    select the "Time-Phased Bookings by Product Category" option. The
-    following screen will appear:</para>
-   <para id="Para519071">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_timePhBookByProdCat.png" id="Graphic521779"/>
-            </imageobject>
-            <caption id="Caption519072">Time-Phased Bookings by Product
-          Category</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519073">When displaying time-phased Bookings by Product
-    Category, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry role="openmfg">
-         <term id="Para519074">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18776ec">
-            <para>Select to display time-phased Bookings by Product Category for
-          all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para519076">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1877710">
-            <para>Specify Warehouse whose time-phased Bookings by Product
-          Category you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519078">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x1877758">
-            <para>Select to display time-phased Bookings for all Product
-          Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para539915">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18777a0">
-            <para>Specify Product Category whose time-phased Bookings you want
-          to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para528144">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x18777e8">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555712">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555711" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519083">Inventory Units</term>
-         <listitem id="listitemN0x180ac00N0x1877830">
-            <para>Select to display Inventory Units of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519084">Capacity Units</term>
-         <listitem id="listitemN0x180ac00N0x1877878">
-            <para>Select to display Capacity Units of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519085">Alt. Capacity Units</term>
-         <listitem id="listitemN0x180ac00N0x18778c0">
-            <para>Capacity Units: Select to display Alternate Capacity Units of
-          Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519086">Sales Dollars</term>
-         <listitem id="listitemN0x180ac00N0x1877908">
-            <para>Select to display sales dollars.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554469">Calendar</term>
-         <listitem id="listitemN0x180ac00N0x1877950">
-            <para>Select the Calendar you want to use for the report.</para>
-            <para id="Para554470">Associated Calendar periods will be
-          displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para526140">Name/Selected Periods</term>
-         <listitem id="listitemN0x180ac00N0x1877998">
-            <para>Select as many periods as you want to display. Selected
-          periods correspond to Calendar specified in the "Calendar"
-          field.</para>
-            <para id="Para530189">Select individual periods or groups of periods
-          together. To select an individual period, highlight the period using
-          your mouse button. The period is now selected. To select a sequence
-          of periods, highlight the first in the sequence using your mouse
-          button. Then, holding down the SHIFT key on your keyboard, highlight
-          the last period in the sequence. The entire sequence is now
-          selected. To select periods that are out of sequence (e.g., January,
-          April, July, October), highlight the first period in the group.
-          Then, holding down the CTRL key on your keyboard, highlight the next
-          period you want to select. Continue highlighting periods with the
-          CTRL key depressed until all desired periods are selected. The
-          entire group is now selected.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519091">Bookings</term>
-         <listitem id="listitemN0x180ac00N0x18779e0">
-            <para>Display lists time-phased Bookings by Product Category, using
-          the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519093">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519094">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1877a4c">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para541930">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x1877a94">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para555062">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x1877adc">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para553207">SUBMIT</term>
-         <listitem id="listitemN0x180ac00N0x1877b00">
-            <para>Select to submit report to the Batch Manager. For additional
-          information, see the <link endterm="Anchor61009" id="XRef553209" linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
-          Manager</link>"Topic: Submitting Reports and Jobs to the Batch
-          Manager".</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para521129">Right-clicking on a Customer in the Sales history
-    list enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/19)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>bookings</primary>
+      <secondary>time-phased by product category</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>time-phased bookings for</secondary>
+    </indexterm>Time-Phased Bookings by Product Category</title>
+  <para id="Para519067">To view time-phased Bookings by Product Category,
+  select the "Time-Phased Bookings by Product Category" option. The following
+  screen will appear:</para>
+  <para id="Para519071"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_timePhBookByProdCat.png"
+                     id="Graphic521779" />
+        </imageobject>
+        <caption id="Caption519072">Time-Phased Bookings by Product
+        Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519073">When displaying time-phased Bookings by Product
+  Category, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry role="openmfg">
+      <term id="Para519074">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18776ec">
+        <para>Select to display time-phased Bookings by Product Category for
+        all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519076">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1877710">
+        <para>Specify Warehouse whose time-phased Bookings by Product Category
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519078">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x1877758">
+        <para>Select to display time-phased Bookings for all Product
+        Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para539915">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18777a0">
+        <para>Specify Product Category whose time-phased Bookings you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para528144">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x18777e8">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555712">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555711"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519083">Inventory Units</term>
+      <listitem id="listitemN0x180ac00N0x1877830">
+        <para>Select to display Inventory Units of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519084">Capacity Units</term>
+      <listitem id="listitemN0x180ac00N0x1877878">
+        <para>Select to display Capacity Units of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519085">Alt. Capacity Units</term>
+      <listitem id="listitemN0x180ac00N0x18778c0">
+        <para>Capacity Units: Select to display Alternate Capacity Units of
+        Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519086">Sales Dollars</term>
+      <listitem id="listitemN0x180ac00N0x1877908">
+        <para>Select to display sales dollars.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554469">Calendar</term>
+      <listitem id="listitemN0x180ac00N0x1877950">
+        <para>Select the Calendar you want to use for the report.</para>
+        <para id="Para554470">Associated Calendar periods will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para526140">Name/Selected Periods</term>
+      <listitem id="listitemN0x180ac00N0x1877998">
+        <para>Select as many periods as you want to display. Selected periods
+        correspond to Calendar specified in the "Calendar" field.</para>
+        <para id="Para530189">Select individual periods or groups of periods
+        together. To select an individual period, highlight the period using
+        your mouse button. The period is now selected. To select a sequence of
+        periods, highlight the first in the sequence using your mouse button.
+        Then, holding down the SHIFT key on your keyboard, highlight the last
+        period in the sequence. The entire sequence is now selected. To select
+        periods that are out of sequence (e.g., January, April, July,
+        October), highlight the first period in the group. Then, holding down
+        the CTRL key on your keyboard, highlight the next period you want to
+        select. Continue highlighting periods with the CTRL key depressed
+        until all desired periods are selected. The entire group is now
+        selected.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519091">Bookings</term>
+      <listitem id="listitemN0x180ac00N0x18779e0">
+        <para>Display lists time-phased Bookings by Product Category, using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519093">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519094">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1877a4c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541930">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x1877a94">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para555062">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x1877adc">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para553207">SUBMIT</term>
+      <listitem id="listitemN0x180ac00N0x1877b00">
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see the <link endterm="Anchor61009" id="XRef553209"
+        linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
+        Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+        Manager".</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para521129">Right-clicking on a Customer in the Sales history list
+  enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/19)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

@@ -1,83 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section607486">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>list prices</primary>
-         <secondary>updating of</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>product categories</primary>
-         <secondary>list prices updated by</secondary>
-      </indexterm>Update List Prices by Product Category</title>
-   <para id="Para607490">To update List Prices by Product Category, select
-    the "Update List Prices by Product Category" option. The following screen
-    will appear:</para>
-   <para id="Para607715">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_IP_updateListPrices.png" id="Graphic607757"/>
-            </imageobject>
-            <caption id="Caption607716">Update List Prices by Product
-          Category</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para607491">When updating List Prices by Product Category, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para607837">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x19431bc">
-            <para>Select to update List Prices for all Product
-          Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para607838">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1943204">
-            <para>Specify Product Category whose List Prices you want to
-          update.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para607839">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x194324c">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para656069">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef656068" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para607850">Update Prices by</term>
-         <listitem id="listitemN0x180ac00N0x1943294">
-            <para>Update your List Prices by a specified percentage for the
-          selected Product Categories.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para607852">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para607853">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1943300">
-            <para>Closes the screen without updating List Prices by Product
-          Category, returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para607854">UPDATE</term>
-         <listitem id="listitemN0x180ac00N0x1943348">
-            <para>Updates List Prices by Product Category, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>list prices</primary>
+      <secondary>updating of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>list prices updated by</secondary>
+    </indexterm>Update List Prices by Product Category</title>
+  <para id="Para607490">To update List Prices by Product Category, select the
+  "Update List Prices by Product Category" option. The following screen will
+  appear:</para>
+  <para id="Para607715"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_updateListPrices.png"
+                     id="Graphic607757" />
+        </imageobject>
+        <caption id="Caption607716">Update List Prices by Product
+        Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para607491">When updating List Prices by Product Category, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para607837">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x19431bc">
+        <para>Select to update List Prices for all Product Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para607838">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1943204">
+        <para>Specify Product Category whose List Prices you want to
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para607839">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x194324c">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para656069">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef656068"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para607850">Update Prices by</term>
+      <listitem id="listitemN0x180ac00N0x1943294">
+        <para>Update your List Prices by a specified percentage for the
+        selected Product Categories.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para607852">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para607853">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1943300">
+        <para>Closes the screen without updating List Prices by Product
+        Category, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para607854">UPDATE</term>
+      <listitem id="listitemN0x180ac00N0x1943348">
+        <para>Updates List Prices by Product Category, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

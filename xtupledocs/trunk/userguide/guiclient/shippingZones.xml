@@ -1,77 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518825">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>shipping zones</primary>
-         <secondary>master list of</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>shipping</primary>
-         <secondary>zones for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>zones</primary>
-         <secondary>for shipping</secondary>
-      </indexterm>List Shipping Zones</title>
-   <para id="Para518826">Shipping Zones are used to define geographic regions
+  <title><indexterm significance="normal">
+      <primary>shipping zones</primary>
+      <secondary>master list of</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>zones for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>zones</primary>
+      <secondary>for shipping</secondary>
+    </indexterm>List Shipping Zones</title>
+  <para id="Para518826">Shipping Zones are used to define geographic regions
   into which sold Items are shipped. Sales Orders are linked to Shipping Zones
   through the Ship-To Address master. This assignment of Shipping Zones to
   Sales Order enables you to analyze sales activity by geographic region. To
   access the master list of Shipping Zones, select the "Shipping Zones"
   option. The following screen will appear:</para>
-   <para id="Para518830">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_MI_shipZoneList.png" id="Graphic523002"/>
-            </imageobject>
-            <caption id="Caption518831">Shipping Zones Master List</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518832">The Shipping Zones master list displays the name and
+  <para id="Para518830"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_shipZoneList.png"
+                     id="Graphic523002" />
+        </imageobject>
+        <caption id="Caption518831">Shipping Zones Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518832">The Shipping Zones master list displays the name and
   description of all existing Shipping Zones.</para>
-   <para id="Para518833">To the far right of the screen, the following buttons
+  <para id="Para518833">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518834">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18696a8">
-            <para>Closes the screen, returning you to the application
+  <variablelist>
+    <varlistentry>
+      <term id="Para518834">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18696a8">
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para653620">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18696f0">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518836">NEW</term>
-         <listitem id="listitemN0x180ac00N0x1869738">
-            <para>Opens screen for creating a new Shipping Zone.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518837">EDIT</term>
-         <listitem id="listitemN0x180ac00N0x1869780">
-            <para>Enables you to edit highlighted Shipping Zone. The edit screen
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para653620">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18696f0">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518836">NEW</term>
+      <listitem id="listitemN0x180ac00N0x1869738">
+        <para>Opens screen for creating a new Shipping Zone.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518837">EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1869780">
+        <para>Enables you to edit highlighted Shipping Zone. The edit screen
         is the same as that for creating a new Shipping Zone--except that when
         editing, the fields will contain Shipping Zone information.
         Double-clicking on a Shipping Zone will also bring you to the editing
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518838">DELETE</term>
-         <listitem id="listitemN0x180ac00N0x18697c8">
-            <para>Highlight a Shipping Zone and then select this button to remove
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518838">DELETE</term>
+      <listitem id="listitemN0x180ac00N0x18697c8">
+        <para>Highlight a Shipping Zone and then select this button to remove
         the Shipping Zone from the master list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

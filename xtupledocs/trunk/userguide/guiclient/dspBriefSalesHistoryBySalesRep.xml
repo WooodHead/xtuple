@@ -1,136 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section547373">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>sales history</primary>
-         <secondary>brief by sales rep</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>sales representatives</primary>
-         <secondary>brief sales history for</secondary>
-      </indexterm>Brief Sales History by Sales Rep</title>
-   <para id="Para547374">To view brief Sales history by Sales Representative,
-    select the "Brief Sales History by Sales Rep" option. The following screen
-    will appear:</para>
-   <para id="Para547665">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_briefHistByRep.png" id="Graphic547663"/>
-            </imageobject>
-            <caption id="Caption547666">Brief Sales History by Sales
-          Representative</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para547667">When displaying brief Sales history by Sales
-    Representative, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para547805">Sales Rep.</term>
-         <listitem id="listitemN0x180ac00N0x184f7cc">
-            <para>Specify the Sales Representative whose brief sales history you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547769">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x184f814">
-            <para>Select to display brief Sales history by Sales Representative
-          for all Product Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547770">Selected</term>
-         <listitem id="listitemN0x180ac00N0x184f85c">
-            <para>Specify Product Category whose brief Sales history by Sales
-          Representative you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547771">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x184f8a4">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555570">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555569" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para547708">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x184f8c8">
-            <para>Select to display brief Sales history by Sales Representative
-          for all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para547679">Selected</term>
-         <listitem id="listitemN0x180ac00N0x184f8ec">
-            <para>Specify Warehouse whose brief Sales history by Sales
-          Representative you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547683">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x184f934">
-            <para>Brief Sales history by Sales Representative generated on or
-          after this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547688">End Date</term>
-         <listitem id="listitemN0x180ac00N0x184f97c">
-            <para>Brief Sales history by Sales Representative generated on or
-          before this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547829">Show Costs</term>
-         <listitem id="listitemN0x180ac00N0x184f9c4">
-            <para>Select to include Costs in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547830">Show Prices</term>
-         <listitem id="listitemN0x180ac00N0x184fa0c">
-            <para>Select to include Prices in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547690">Sales History</term>
-         <listitem id="listitemN0x180ac00N0x184fa54">
-            <para>Display lists brief Sales history by Sales Representative,
-          using the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para547692">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para547693">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x184fac0">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para547694">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x184fb08">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554969">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x184fb50">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>brief by sales rep</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sales representatives</primary>
+      <secondary>brief sales history for</secondary>
+    </indexterm>Brief Sales History by Sales Rep</title>
+  <para id="Para547374">To view brief Sales history by Sales Representative,
+  select the "Brief Sales History by Sales Rep" option. The following screen
+  will appear:</para>
+  <para id="Para547665"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_briefHistByRep.png"
+                     id="Graphic547663" />
+        </imageobject>
+        <caption id="Caption547666">Brief Sales History by Sales
+        Representative</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para547667">When displaying brief Sales history by Sales
+  Representative, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para547805">Sales Rep.</term>
+      <listitem id="listitemN0x180ac00N0x184f7cc">
+        <para>Specify the Sales Representative whose brief sales history you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547769">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x184f814">
+        <para>Select to display brief Sales history by Sales Representative
+        for all Product Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547770">Selected</term>
+      <listitem id="listitemN0x180ac00N0x184f85c">
+        <para>Specify Product Category whose brief Sales history by Sales
+        Representative you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547771">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x184f8a4">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555570">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555569"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para547708">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x184f8c8">
+        <para>Select to display brief Sales history by Sales Representative
+        for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para547679">Selected</term>
+      <listitem id="listitemN0x180ac00N0x184f8ec">
+        <para>Specify Warehouse whose brief Sales history by Sales
+        Representative you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547683">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x184f934">
+        <para>Brief Sales history by Sales Representative generated on or
+        after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547688">End Date</term>
+      <listitem id="listitemN0x180ac00N0x184f97c">
+        <para>Brief Sales history by Sales Representative generated on or
+        before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547829">Show Costs</term>
+      <listitem id="listitemN0x180ac00N0x184f9c4">
+        <para>Select to include Costs in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547830">Show Prices</term>
+      <listitem id="listitemN0x180ac00N0x184fa0c">
+        <para>Select to include Prices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547690">Sales History</term>
+      <listitem id="listitemN0x180ac00N0x184fa54">
+        <para>Display lists brief Sales history by Sales Representative, using
+        the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para547692">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para547693">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x184fac0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para547694">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x184fb08">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554969">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x184fb50">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,157 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section527209">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>sales history</primary>
-         <secondary>by customer</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>customers</primary>
-         <secondary>sales history for</secondary>
-      </indexterm>Sales History by Customer</title>
-   <para id="Para527210">To view Sales history by Customer, select the "Sales
-    History by Customer" option. The following screen will appear:</para>
-   <para id="Para548185">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_salesHistByCust.png" id="Graphic548183"/>
-            </imageobject>
-            <caption id="Caption548186">Sales History by Customer</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para548187">When displaying Sales history by Customer, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518514">Customer #</term>
-         <listitem id="listitemN0x180ac00N0x181a088">
-            <para>Enter the Customer Number of the Customer whose Sales history
-          you want to display.</para>
-            <para id="Para518515">The browse button located to the right of the
-          field leads to a searchable Customers list. You may also access this
-          list using the keyboard shortcut "CTRL + L". Once a Customer Number
-          is entered, the Customer name and billing address will display.
-          Select the "?" or "$" symbol next to the browse button to view
-          Customer information for the specified Customer. If a Customer's
-          credit is "In Good Standing," the button will feature a black
-          question mark ("?") icon. If the icon turns to an orange dollar sign
-          ("$"), the Customer's credit Status is "On Credit Warning." A red
-          dollar sign ("$") indicates the Customer's credit Status is "On
-          Credit Hold."</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para534259">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x181a0d0">
-            <para>Select to display Sales history by Customer for all Product
-          Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para534260">Selected</term>
-         <listitem id="listitemN0x180ac00N0x181a118">
-            <para>Specify Product Category whose Sales history by Customer you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para534262">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x181a160">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555462">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555461" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para518516">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x181a184">
-            <para>Select to display Sales history by Customer for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para518518">Selected</term>
-         <listitem id="listitemN0x180ac00N0x181a1a8">
-            <para>Specify Warehouse whose Sales history by Customer you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518523">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x181a1f0">
-            <para>Sales history by Customer generated on or after this date will
-          be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518528">End Date</term>
-         <listitem id="listitemN0x180ac00N0x181a238">
-            <para>Sales history by Customer generated on or before this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540487">Show Costs</term>
-         <listitem id="listitemN0x180ac00N0x181a280">
-            <para>Select to include Costs in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540491">Show Prices</term>
-         <listitem id="listitemN0x180ac00N0x181a2c8">
-            <para>Select to include Prices in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518535">Sales History</term>
-         <listitem id="listitemN0x180ac00N0x181a310">
-            <para>Display lists Sales history by Customer, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518537">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518538">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x181a37c">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para541729">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x181a3c4">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554906">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x181a40c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para537458">Right-clicking on an Order in the Sales history list
-    enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/2)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/9)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>by customer</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>sales history for</secondary>
+    </indexterm>Sales History by Customer</title>
+  <para id="Para527210">To view Sales history by Customer, select the "Sales
+  History by Customer" option. The following screen will appear:</para>
+  <para id="Para548185"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_salesHistByCust.png"
+                     id="Graphic548183" />
+        </imageobject>
+        <caption id="Caption548186">Sales History by Customer</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para548187">When displaying Sales history by Customer, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518514">Customer #</term>
+      <listitem id="listitemN0x180ac00N0x181a088">
+        <para>Enter the Customer Number of the Customer whose Sales history
+        you want to display.</para>
+        <para id="Para518515">The browse button located to the right of the
+        field leads to a searchable Customers list. You may also access this
+        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display. Select
+        the "?" or "$" symbol next to the browse button to view Customer
+        information for the specified Customer. If a Customer's credit is "In
+        Good Standing," the button will feature a black question mark ("?")
+        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
+        credit Status is "On Credit Warning." A red dollar sign ("$")
+        indicates the Customer's credit Status is "On Credit Hold."</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para534259">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x181a0d0">
+        <para>Select to display Sales history by Customer for all Product
+        Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para534260">Selected</term>
+      <listitem id="listitemN0x180ac00N0x181a118">
+        <para>Specify Product Category whose Sales history by Customer you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para534262">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x181a160">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555462">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555461"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para518516">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x181a184">
+        <para>Select to display Sales history by Customer for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para518518">Selected</term>
+      <listitem id="listitemN0x180ac00N0x181a1a8">
+        <para>Specify Warehouse whose Sales history by Customer you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518523">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x181a1f0">
+        <para>Sales history by Customer generated on or after this date will
+        be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518528">End Date</term>
+      <listitem id="listitemN0x180ac00N0x181a238">
+        <para>Sales history by Customer generated on or before this date will
+        be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540487">Show Costs</term>
+      <listitem id="listitemN0x180ac00N0x181a280">
+        <para>Select to include Costs in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540491">Show Prices</term>
+      <listitem id="listitemN0x180ac00N0x181a2c8">
+        <para>Select to include Prices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518535">Sales History</term>
+      <listitem id="listitemN0x180ac00N0x181a310">
+        <para>Display lists Sales history by Customer, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518537">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518538">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x181a37c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541729">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x181a3c4">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554906">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x181a40c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para537458">Right-clicking on an Order in the Sales history list
+  enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/7/2/9)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

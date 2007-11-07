@@ -1,139 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section523823">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>sales history</primary>
-         <secondary>by product category</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>product categories</primary>
-         <secondary>sales history details for</secondary>
-      </indexterm>Sales History by Product Category</title>
-   <para id="Para538470">To view Sales history by Product Category, select
-    the "Sales History by Product Category" option. The following screen will
-    appear:</para>
-   <para id="Para538474">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_salesHistByProdCat.png" id="Graphic538472"/>
-            </imageobject>
-            <caption id="Caption518656">Sales History by Product
-          Category</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para518657">When displaying Sales history by Product Category,
-    you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para528818">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x18407e8">
-            <para>Select to display Sales history for all Product
-          Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para539779">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1840830">
-            <para>Specify Product Category whose Sales history you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para528821">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x1840878">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555516">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555515" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para518658">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x184089c">
-            <para>Select to display Sales history by Product Category for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para518660">Selected</term>
-         <listitem id="listitemN0x180ac00N0x18408c0">
-            <para>Specify Warehouse whose Sales history by Product Category you
-          want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para523305">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x1840908">
-            <para>Sales history by Product Category generated on or after this
-          date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518670">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1840950">
-            <para>Sales history by Product Category generated on or before this
-          date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540686">Show Costs</term>
-         <listitem id="listitemN0x180ac00N0x1840998">
-            <para>Select to include Costs in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540687">Show Prices</term>
-         <listitem id="listitemN0x180ac00N0x18409e0">
-            <para>Select to include Prices in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para518677">Sales History</term>
-         <listitem id="listitemN0x180ac00N0x1840a28">
-            <para>Display lists Sales history by Product Category, using the
-          specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para518679">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para518680">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1840a94">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para541769">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x1840adc">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554935">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x1840b24">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para537657">Right-clicking on an Order in the Sales history list
-    enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/2)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>by product category</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>product categories</primary>
+      <secondary>sales history details for</secondary>
+    </indexterm>Sales History by Product Category</title>
+  <para id="Para538470">To view Sales history by Product Category, select the
+  "Sales History by Product Category" option. The following screen will
+  appear:</para>
+  <para id="Para538474"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_salesHistByProdCat.png"
+                     id="Graphic538472" />
+        </imageobject>
+        <caption id="Caption518656">Sales History by Product
+        Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para518657">When displaying Sales history by Product Category, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para528818">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x18407e8">
+        <para>Select to display Sales history for all Product
+        Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para539779">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1840830">
+        <para>Specify Product Category whose Sales history you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para528821">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x1840878">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555516">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555515"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para518658">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x184089c">
+        <para>Select to display Sales history by Product Category for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para518660">Selected</term>
+      <listitem id="listitemN0x180ac00N0x18408c0">
+        <para>Specify Warehouse whose Sales history by Product Category you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para523305">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x1840908">
+        <para>Sales history by Product Category generated on or after this
+        date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518670">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1840950">
+        <para>Sales history by Product Category generated on or before this
+        date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540686">Show Costs</term>
+      <listitem id="listitemN0x180ac00N0x1840998">
+        <para>Select to include Costs in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540687">Show Prices</term>
+      <listitem id="listitemN0x180ac00N0x18409e0">
+        <para>Select to include Prices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para518677">Sales History</term>
+      <listitem id="listitemN0x180ac00N0x1840a28">
+        <para>Display lists Sales history by Product Category, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para518679">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para518680">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1840a94">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541769">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x1840adc">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554935">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x1840b24">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para537657">Right-clicking on an Order in the Sales history list
+  enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

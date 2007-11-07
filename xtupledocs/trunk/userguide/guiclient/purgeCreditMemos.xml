@@ -1,69 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-   <title>
-      Purge Credit Memos
-    </title>
-   <subtitle>purgeCreditMemos : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/purgeCreditMemos.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-      Purge Credit Memos
-    </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-  <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-                    <row>
-               <entry>
-                  <guilabel moreinfo="none">Cu<accel>t</accel> Off Date:</guilabel>
-               </entry>
-               <entry>_cutOffDateLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                    <row>
-               <entry/>
-               <entry>_cutOffDate</entry>
-               <entry>DLineEdit</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>P</accel>urge</guilabel>
-               </entry>
-               <entry>_purge</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section569538">
+    <title><indexterm significance="normal">
+        <primary>credit memos</primary>
+        <secondary>purging records for</secondary>
+      </indexterm>Purge Credit Memos</title>
+    <para id="Para569539">Purging Credit Memo records is one method for
+    freeing up disk storage space--without losing important sales history. To
+    purge Credit Memo records, select the "Credit Memo Records" option. The
+    following screen will appear:</para>
+    <para id="Para569543"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Bill_purgeCredMemos.png"
+                       id="Graphic569541" />
+          </imageobject>
+          <caption id="Caption569544">Purge Credit Memo Records</caption>
+        </mediaobject>
+      </screenshot></para>
+    <note>
+      <para id="Para589418">The consequence of purging Credit Memo records is
+      that any purged Credit Memo records can no longer be re-printed.</para>
+    </note>
+    <para id="Para569545">When purging Credit Memo records, you are presented
+    with the following options:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para569549">Cut Off Date</term>
+        <listitem id="listitemN0x180ac00N0x1942a48">
+          <para>Credit Memo records created before and including this date
+          will be purged.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para id="Para569551">To the far right of the screen, the following
+    buttons are available:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para569552">CANCEL</term>
+        <listitem id="listitemN0x180ac00N0x1942ab4">
+          <para>Closes the screen without purging any Credit Memo records,
+          returning you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para569553">PURGE</term>
+        <listitem id="listitemN0x180ac00N0x1942afc">
+          <para>Purges the Credit Memo records.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

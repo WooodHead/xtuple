@@ -1,129 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section596333">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>inventory</primary>
-         <secondary>availability by sales order</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>sales orders</primary>
-         <secondary>inventory availability for</secondary>
-      </indexterm>Inventory Availability by Sales Order</title>
-   <para id="Para596334">To view Inventory Availability by Sales Order,
-    select the "Inventory Availability by Sales Order" option. The following
-    screen will appear:</para>
-   <para id="Para598464">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_Disp_invAvailBySO.png" id="Graphic598462"/>
-            </imageobject>
-            <caption id="Caption598465">Inventory Availability by Sales
-          Order</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para598466">When displaying Inventory Availability by Sales
-    Order, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para598561">Sales Order #</term>
-         <listitem id="listitemN0x180ac00N0x1976c90">
-            <para>Enter the Sales Order Number of the Sales Order whose
-          Availability you want to view.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598563">Order Date</term>
-         <listitem id="listitemN0x180ac00N0x1976cd8">
-            <para>Displays the date the Sales Order was placed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598564">Cust. Name</term>
-         <listitem id="listitemN0x180ac00N0x1976d20">
-            <para>Displays Customer name.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598565">Cust. Phone</term>
-         <listitem id="listitemN0x180ac00N0x1976d68">
-            <para>Phone: Displays Customer phone number.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598566">P/O Number</term>
-         <listitem id="listitemN0x180ac00N0x1976db0">
-            <para>Displays Purchase Order Number.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598479">Only Show Shortages</term>
-         <listitem id="listitemN0x180ac00N0x1976df8">
-            <para>Select to only show Inventory shortages in display. A shortage
-          describes Inventory quantity whose Availability is negative.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598482">Availability</term>
-         <listitem id="listitemN0x180ac00N0x1976e40">
-            <para>Display lists Inventory Availability by Sales Order, using the
-          specified parameters.</para>
-            <para id="Para654182">If an available quantity value displays in the
-          color orange, this means the actual or projected Quantity on Hand is
-          at or below the Reorder Level. If the color is red, the current or
-          projected Quantity on Hand is below 0.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para598484">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para598485">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1976eac">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para598486">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x1976ef4">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para653758">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x1976f3c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para598613">Right-clicking on an Item in the Availability list
-    enables you to select from the following context-sensitive menu
-    options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/17)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/23)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/2)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/14)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/8)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
-   <para id="Para598621">The following additional option is available for
-    purchased Items:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/9)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>inventory</primary>
+      <secondary>availability by sales order</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>sales orders</primary>
+      <secondary>inventory availability for</secondary>
+    </indexterm>Inventory Availability by Sales Order</title>
+  <para id="Para596334">To view Inventory Availability by Sales Order, select
+  the "Inventory Availability by Sales Order" option. The following screen
+  will appear:</para>
+  <para id="Para598464"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Disp_invAvailBySO.png"
+                     id="Graphic598462" />
+        </imageobject>
+        <caption id="Caption598465">Inventory Availability by Sales
+        Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para598466">When displaying Inventory Availability by Sales Order,
+  you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para598561">Sales Order #</term>
+      <listitem id="listitemN0x180ac00N0x1976c90">
+        <para>Enter the Sales Order Number of the Sales Order whose
+        Availability you want to view.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598563">Order Date</term>
+      <listitem id="listitemN0x180ac00N0x1976cd8">
+        <para>Displays the date the Sales Order was placed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598564">Cust. Name</term>
+      <listitem id="listitemN0x180ac00N0x1976d20">
+        <para>Displays Customer name.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598565">Cust. Phone</term>
+      <listitem id="listitemN0x180ac00N0x1976d68">
+        <para>Phone: Displays Customer phone number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598566">P/O Number</term>
+      <listitem id="listitemN0x180ac00N0x1976db0">
+        <para>Displays Purchase Order Number.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598479">Only Show Shortages</term>
+      <listitem id="listitemN0x180ac00N0x1976df8">
+        <para>Select to only show Inventory shortages in display. A shortage
+        describes Inventory quantity whose Availability is negative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598482">Availability</term>
+      <listitem id="listitemN0x180ac00N0x1976e40">
+        <para>Display lists Inventory Availability by Sales Order, using the
+        specified parameters.</para>
+        <para id="Para654182">If an available quantity value displays in the
+        color orange, this means the actual or projected Quantity on Hand is
+        at or below the Reorder Level. If the color is red, the current or
+        projected Quantity on Hand is below 0.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para598484">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para598485">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1976eac">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para598486">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x1976ef4">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para653758">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x1976f3c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para598613">Right-clicking on an Item in the Availability list
+  enables you to select from the following context-sensitive menu
+  options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/17)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/23)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/14)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/8)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para id="Para598621">The following additional option is available for
+  purchased Items:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/8/2/9)" />
+  </variablelist>
 </section>

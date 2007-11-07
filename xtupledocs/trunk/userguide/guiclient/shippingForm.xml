@@ -1,64 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section652878">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>shipping forms</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Shipping Form</title>
-   <para id="Para519003">To create a new Shipping Form, select the NEW button.
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="shippingForm">
+  <title><indexterm significance="normal">
+      <primary>shipping forms</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Shipping Form</title>
+  <para id="Para519003">To create a new Shipping Form, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para519007">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_MI_shipFormNew.png" id="Graphic523122"/>
-            </imageobject>
-            <caption id="Caption519008">Create New Shipping Form</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519009">When creating a new Shipping Form, you are presented
+  <para id="Para519007"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_shipFormNew.png" id="Graphic523122" />
+        </imageobject>
+        <caption id="Caption519008">Create New Shipping Form</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519009">When creating a new Shipping Form, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519013">Form Name</term>
-         <listitem id="listitemN0x180ac00N0x187d310">
-            <para>Enter a format name to identify the Shipping Form.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519015">Report</term>
-         <listitem id="listitemN0x180ac00N0x187d358">
-            <para>Specify the report definition you want to associate with the
+  <variablelist>
+    <varlistentry>
+      <term id="Para519013">Form Name</term>
+      <listitem id="listitemN0x180ac00N0x187d310">
+        <para>Enter a format name to identify the Shipping Form.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519015">Report</term>
+      <listitem id="listitemN0x180ac00N0x187d358">
+        <para>Specify the report definition you want to associate with the
         Shipping Form.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para id="Para637408">In the case where you have multiple versions (i.e.,
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para id="Para637408">In the case where you have multiple versions (i.e.,
     grades) of the same-named report definition, it doesn"t matter which one
     you select when setting up a Form. The system will always use the report
     definition having the highest grade.</para>
-   </tip>
-   <para id="Para519017">To the far right of the screen, the following buttons
+  </tip>
+  <para id="Para519017">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519018">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x187d3e8">
-            <para>Closes the screen without creating a new Shipping Form,
+  <variablelist>
+    <varlistentry>
+      <term id="Para519018">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x187d3e8">
+        <para>Closes the screen without creating a new Shipping Form,
         returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519019">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x187d430">
-            <para>Creates the Shipping Form and enters the information into the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519019">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x187d430">
+        <para>Creates the Shipping Form and enters the information into the
         Shipping Form master list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

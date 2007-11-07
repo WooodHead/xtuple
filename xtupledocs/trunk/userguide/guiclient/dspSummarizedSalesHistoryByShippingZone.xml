@@ -1,131 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518998">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>sales history</primary>
-         <secondary>summarized by shipping zone</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>shipping zones</primary>
-         <secondary>sales history summarized by</secondary>
-      </indexterm>Summarized Sales History by Shipping Zone by Item</title>
-   <para id="Para518999">To view summarized Sales history by Shipping Zone by
-    Item, select the "Summarized Sales History by Shipping Zone by Item"
-    option. The following screen will appear:</para>
-   <para id="Para519003">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_summSalesHistByShZo.png" id="Graphic521750"/>
-            </imageobject>
-            <caption id="Caption519004">Summarized Sales History by Shipping
-          Zone by Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519005">When displaying summarized Sales history by Shipping
-    Zone by Item, you are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519006">All Shipping Zones</term>
-         <listitem id="listitemN0x180ac00N0x1870ab8">
-            <para>Select to display summarized Sales history by Item for all
-          Shipping Zones.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519007">Selected Shipping Zone</term>
-         <listitem id="listitemN0x180ac00N0x1870b00">
-            <para>Specify the Shipping Zone whose summarized Sales history by
-          Item you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519009">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x1870b48">
-            <para>Select to display summarized Sales history by Shipping Zone by
-          Item for all Product Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para539894">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1870b90">
-            <para>Specify Product Category whose summarized Sales history by
-          Shipping Zone you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para528132">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x1870bd8">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555692">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555691" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para519014">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x1870bfc">
-            <para>Select to display summarized Sales history by Shipping Zone by
-          Item for all Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para519016">Selected</term>
-         <listitem id="listitemN0x180ac00N0x1870c20">
-            <para>Specify Warehouse whose summarized Sales history by Shipping
-          Zone by Item you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519021">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x1870c68">
-            <para>Summarized Sales history by Shipping Zone by Item generated on
-          or after this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519026">End Date</term>
-         <listitem id="listitemN0x180ac00N0x1870cb0">
-            <para>Summarized Sales history by Shipping Zone by Item generated on
-          or before this date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519028">Sales History</term>
-         <listitem id="listitemN0x180ac00N0x1870cf8">
-            <para>Display lists summarized Sales history by Shipping Zone by
-          Item, using the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519030">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519031">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1870d64">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para541910">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x1870dac">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para555050">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x1870df4">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>summarized by shipping zone</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>shipping zones</primary>
+      <secondary>sales history summarized by</secondary>
+    </indexterm>Summarized Sales History by Shipping Zone by Item</title>
+  <para id="Para518999">To view summarized Sales history by Shipping Zone by
+  Item, select the "Summarized Sales History by Shipping Zone by Item" option.
+  The following screen will appear:</para>
+  <para id="Para519003"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_summSalesHistByShZo.png"
+                     id="Graphic521750" />
+        </imageobject>
+        <caption id="Caption519004">Summarized Sales History by Shipping Zone
+        by Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519005">When displaying summarized Sales history by Shipping
+  Zone by Item, you are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519006">All Shipping Zones</term>
+      <listitem id="listitemN0x180ac00N0x1870ab8">
+        <para>Select to display summarized Sales history by Item for all
+        Shipping Zones.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519007">Selected Shipping Zone</term>
+      <listitem id="listitemN0x180ac00N0x1870b00">
+        <para>Specify the Shipping Zone whose summarized Sales history by Item
+        you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519009">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x1870b48">
+        <para>Select to display summarized Sales history by Shipping Zone by
+        Item for all Product Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para539894">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1870b90">
+        <para>Specify Product Category whose summarized Sales history by
+        Shipping Zone you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para528132">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x1870bd8">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555692">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555691"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519014">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x1870bfc">
+        <para>Select to display summarized Sales history by Shipping Zone by
+        Item for all Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para519016">Selected</term>
+      <listitem id="listitemN0x180ac00N0x1870c20">
+        <para>Specify Warehouse whose summarized Sales history by Shipping
+        Zone by Item you want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519021">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x1870c68">
+        <para>Summarized Sales history by Shipping Zone by Item generated on
+        or after this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519026">End Date</term>
+      <listitem id="listitemN0x180ac00N0x1870cb0">
+        <para>Summarized Sales history by Shipping Zone by Item generated on
+        or before this date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519028">Sales History</term>
+      <listitem id="listitemN0x180ac00N0x1870cf8">
+        <para>Display lists summarized Sales history by Shipping Zone by Item,
+        using the specified parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519030">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519031">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1870d64">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541910">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x1870dac">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para555050">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x1870df4">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,95 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519825">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>item pricing</primary>
-         <secondary>by customer type</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>customer types</primary>
-         <secondary>item pricing for</secondary>
-      </indexterm>Prices by Customer Type</title>
-   <para id="Para519826">To display a list of Prices by Customer Type, select
-    the "Prices by Customer Type" option. The following screen will
-    appear:</para>
-   <para id="Para519830">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_IP_dispPricesByCustType.png" id="Graphic523935"/>
-            </imageobject>
-            <caption id="Caption519831">Prices by Customer Type</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para519832">When displaying Prices by Customer Type, you are
-    presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519833">Customer Type</term>
-         <listitem id="listitemN0x180ac00N0x195a8dc">
-            <para>Specify the Customer Type whose Prices you want to
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519835">Show Expired Prices</term>
-         <listitem id="listitemN0x180ac00N0x195a924">
-            <para>Select to display expired Prices.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519836">Show Future Prices</term>
-         <listitem id="listitemN0x180ac00N0x195a96c">
-            <para>Select to display future Prices.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para557015">Show Costs and Margins</term>
-         <listitem id="listitemN0x180ac00N0x195a9b4">
-            <para>Select to show Costs and margins using one of the following
-          costing parameters:.</para>
-            <para id="Para557016">Use Standard Costs: Select to show Costs and
-          margins using Standard Costs.</para>
-            <para id="Para557017">Use Actual Costs: Select to show Costs and
-          margins using Actual Costs.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para519837">Prices</term>
-         <listitem id="listitemN0x180ac00N0x195a9fc">
-            <para>Display lists Prices for the specified Customer Type.</para>
-            <para id="Para654120">Cost and margin columns will also appear if
-          the "Show Costs and Margins" parameter is selected. If the margin is
-          negative, the value will display in red type.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para519839">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para519840">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x195aa68">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para610549">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x195aab0">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para653741">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x195aaf8">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>item pricing</primary>
+      <secondary>by customer type</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>customer types</primary>
+      <secondary>item pricing for</secondary>
+    </indexterm>Prices by Customer Type</title>
+  <para id="Para519826">To display a list of Prices by Customer Type, select
+  the "Prices by Customer Type" option. The following screen will
+  appear:</para>
+  <para id="Para519830"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_IP_dispPricesByCustType.png"
+                     id="Graphic523935" />
+        </imageobject>
+        <caption id="Caption519831">Prices by Customer Type</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para519832">When displaying Prices by Customer Type, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519833">Customer Type</term>
+      <listitem id="listitemN0x180ac00N0x195a8dc">
+        <para>Specify the Customer Type whose Prices you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519835">Show Expired Prices</term>
+      <listitem id="listitemN0x180ac00N0x195a924">
+        <para>Select to display expired Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519836">Show Future Prices</term>
+      <listitem id="listitemN0x180ac00N0x195a96c">
+        <para>Select to display future Prices.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para557015">Show Costs and Margins</term>
+      <listitem id="listitemN0x180ac00N0x195a9b4">
+        <para>Select to show Costs and margins using one of the following
+        costing parameters:.</para>
+        <para id="Para557016">Use Standard Costs: Select to show Costs and
+        margins using Standard Costs.</para>
+        <para id="Para557017">Use Actual Costs: Select to show Costs and
+        margins using Actual Costs.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para519837">Prices</term>
+      <listitem id="listitemN0x180ac00N0x195a9fc">
+        <para>Display lists Prices for the specified Customer Type.</para>
+        <para id="Para654120">Cost and margin columns will also appear if the
+        "Show Costs and Margins" parameter is selected. If the margin is
+        negative, the value will display in red type.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para519839">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para519840">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x195aa68">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para610549">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x195aab0">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para653741">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x195aaf8">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

@@ -1,71 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section>
-   <title>
-   Post Credit Memos
-  </title>
-   <subtitle>postCreditMemos : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para id="ScreenShotd1e1">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/postCreditMemos.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Post Credit Memos
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Post Unprinted Credit Memos</guilabel>
-               </entry>
-               <entry>_postUnprinted</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">P<accel>r</accel>int Credit Memo Journal</guilabel>
-               </entry>
-               <entry>_printJournal</entry>
-               <entry>XCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>P</accel>ost</guilabel>
-               </entry>
-               <entry>_post</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
-</section>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+  <section id="Section602279">
+    <title><indexterm significance="normal">
+        <primary>credit memos</primary>
+        <secondary>posting of</secondary>
+      </indexterm>Post Credit Memos</title>
+    <para id="Para602343">To post Credit Memos in batch mode, select the "Post
+    Credit Memos" option. The following screen will appear:</para>
+    <para id="Para602347"><screenshot>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="images/SO_Bill_postCredMems.png"
+                       id="Graphic602345" />
+          </imageobject>
+          <caption id="Caption602348">Post Credit Memos</caption>
+        </mediaobject>
+      </screenshot></para>
+    <note>
+      <para id="Para603503">Credit Memos are posted effective on the date they
+      are distributed, not on the date they are posted--as might be
+      assumed.</para>
+    </note>
+    <para id="Para602349">When posting Credit Memos, you are presented with
+    the following options:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para602350">Post Unprinted Credit Memos</term>
+        <listitem id="listitemN0x180ac00N0x193afd0">
+          <para>Select to include unprinted Credit Memos in the list of Credit
+          Memos to be posted.</para>
+          <para id="Para602351">If not selected--and if there are unprinted
+          Credit Memos waiting to be posted--you will be prompted to print the
+          unprinted Credit Memos before posting may occur.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para602352">Print Credit Memo Journal</term>
+        <listitem id="listitemN0x180ac00N0x193b018">
+          <para>Select to print the Credit Memo Journal in addition to posting
+          the Credit Memos.</para>
+          <para id="Para602353">Credit Memo Journals are assigned a unique
+          identification number, which corresponds to the Credit Memo batch
+          and the date the batch was posted.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <note>
+      <para id="Para602355">A Credit Memo Journal will also be created for
+      Credit Memos that are posted individually--that is, not in batch mode,
+      but one at a time. As with batch postings, the Credit Memo Journals for
+      individually-posted Credit Memos are assigned a unique identification
+      number.</para>
+    </note>
+    <para id="Para602356">To the far right of the screen, the following
+    buttons are available:</para>
+    <variablelist>
+      <varlistentry>
+        <term id="Para602357">CANCEL</term>
+        <listitem id="listitemN0x180ac00N0x193b0a8">
+          <para>Closes the screen without posting any Credit Memos, returning
+          you to the application desktop.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term id="Para602358">POST</term>
+        <listitem id="listitemN0x180ac00N0x193b0f0">
+          <para>Posts the Credit Memos, using the specified parameters.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>

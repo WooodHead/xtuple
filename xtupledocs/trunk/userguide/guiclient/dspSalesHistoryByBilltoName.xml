@@ -1,155 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518541">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>sales history</primary>
-         <secondary>by bill-to name</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>bill-to names</primary>
-         <secondary>sales history for</secondary>
-      </indexterm>Sales History by Bill-To Name</title>
-   <para id="Para524812">The Bill-To Name for a Customer is defined as the
-    Customer Name, as it appears on the Customer master. To view Sales history
-    by Bill-To Name, select the "Sales History by Bill-To Name" option. The
-    following screen will appear:</para>
-   <para id="Para524816">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SA_Disp_salesHistByBill-To.png" id="Graphic524814"/>
-            </imageobject>
-            <caption id="Caption524817">Sales History by Bill-To Name</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para524818">When displaying Sales history by Bill-To Name, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para524810">Bill-To Name</term>
-         <listitem id="listitemN0x180ac00N0x181a6dc">
-            <para>Specify the Bill-To Name for the Customer whose Sales history
-          you want to view.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para539423">The "Bill-To Name" field on this screen supports
-      Regular Expressions. For more information on pattern matching using
-      Regular Expressions, see <link endterm="Anchor77806" id="XRef551595" linkend="Anchor77806"> Pattern Matching with Regular
-      Expressions</link>"Topic: Pattern Matching with Regular
-      Expressions".</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term id="Para534291">All Product Categories</term>
-         <listitem id="listitemN0x180ac00N0x181a76c">
-            <para>Select to display Sales history by Bill-To Name for all
-          Product Categories.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para539734">Selected</term>
-         <listitem id="listitemN0x180ac00N0x181a7b4">
-            <para>Specify Product Category whose Sales history by Bill-To Name
-          you want to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para534294">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x181a7fc">
-            <para>Enter a Product Category pattern to select a range of Product
-          Categories.</para>
-            <para id="Para555476">Refine your search using Regular Expressions,
-          as described in <link endterm="Anchor77806" id="XRef555475" linkend="Anchor77806"> Pattern Matching with Regular
-          Expressions</link>"Topic: Pattern Matching with Regular
-          Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para524862">All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x181a820">
-            <para>Select to display Sales history by Bill-To Name for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term id="Para524864">Selected</term>
-         <listitem id="listitemN0x180ac00N0x181a844">
-            <para>Specify Warehouse whose Sales history by Bill-To Name you want
-          to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para524869">Start Date</term>
-         <listitem id="listitemN0x180ac00N0x181a88c">
-            <para>Sales history by Bill-To Name generated on or after this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para524874">End Date</term>
-         <listitem id="listitemN0x180ac00N0x181a8d4">
-            <para>Sales history by Bill-To Name generated on or before this date
-          will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540517">Show Costs</term>
-         <listitem id="listitemN0x180ac00N0x181a91c">
-            <para>Select to include Costs in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para540518">Show Prices</term>
-         <listitem id="listitemN0x180ac00N0x181a964">
-            <para>Select to include Prices in the display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para524887">Sales History</term>
-         <listitem id="listitemN0x180ac00N0x181a9ac">
-            <para>Display lists Sales history by Bill-To Name, using the
-          specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para524889">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para524890">CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x181aa18">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para541736">QUERY</term>
-         <listitem id="listitemN0x180ac00N0x181aa60">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para554915">PRINT</term>
-         <listitem id="listitemN0x180ac00N0x181aaa8">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para528545">Right-clicking on an Order in the Sales history list
-    enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/2)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>sales history</primary>
+      <secondary>by bill-to name</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>bill-to names</primary>
+      <secondary>sales history for</secondary>
+    </indexterm>Sales History by Bill-To Name</title>
+  <para id="Para524812">The Bill-To Name for a Customer is defined as the
+  Customer Name, as it appears on the Customer master. To view Sales history
+  by Bill-To Name, select the "Sales History by Bill-To Name" option. The
+  following screen will appear:</para>
+  <para id="Para524816"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SA_Disp_salesHistByBill-To.png"
+                     id="Graphic524814" />
+        </imageobject>
+        <caption id="Caption524817">Sales History by Bill-To Name</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para524818">When displaying Sales history by Bill-To Name, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para524810">Bill-To Name</term>
+      <listitem id="listitemN0x180ac00N0x181a6dc">
+        <para>Specify the Bill-To Name for the Customer whose Sales history
+        you want to view.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para539423">The "Bill-To Name" field on this screen supports
+    Regular Expressions. For more information on pattern matching using
+    Regular Expressions, see <link endterm="Anchor77806" id="XRef551595"
+    linkend="Anchor77806"> Pattern Matching with Regular
+    Expressions</link>"Topic: Pattern Matching with Regular
+    Expressions".</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para534291">All Product Categories</term>
+      <listitem id="listitemN0x180ac00N0x181a76c">
+        <para>Select to display Sales history by Bill-To Name for all Product
+        Categories.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para539734">Selected</term>
+      <listitem id="listitemN0x180ac00N0x181a7b4">
+        <para>Specify Product Category whose Sales history by Bill-To Name you
+        want to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para534294">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x181a7fc">
+        <para>Enter a Product Category pattern to select a range of Product
+        Categories.</para>
+        <para id="Para555476">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef555475"
+        linkend="Anchor77806"> Pattern Matching with Regular
+        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions".</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para524862">All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x181a820">
+        <para>Select to display Sales history by Bill-To Name for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term id="Para524864">Selected</term>
+      <listitem id="listitemN0x180ac00N0x181a844">
+        <para>Specify Warehouse whose Sales history by Bill-To Name you want
+        to display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para524869">Start Date</term>
+      <listitem id="listitemN0x180ac00N0x181a88c">
+        <para>Sales history by Bill-To Name generated on or after this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para524874">End Date</term>
+      <listitem id="listitemN0x180ac00N0x181a8d4">
+        <para>Sales history by Bill-To Name generated on or before this date
+        will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540517">Show Costs</term>
+      <listitem id="listitemN0x180ac00N0x181a91c">
+        <para>Select to include Costs in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para540518">Show Prices</term>
+      <listitem id="listitemN0x180ac00N0x181a964">
+        <para>Select to include Prices in the display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para524887">Sales History</term>
+      <listitem id="listitemN0x180ac00N0x181a9ac">
+        <para>Display lists Sales history by Bill-To Name, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para524889">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para524890">CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x181aa18">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para541736">QUERY</term>
+      <listitem id="listitemN0x180ac00N0x181aa60">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para554915">PRINT</term>
+      <listitem id="listitemN0x180ac00N0x181aaa8">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para528545">Right-clicking on an Order in the Sales history list
+  enables you to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>

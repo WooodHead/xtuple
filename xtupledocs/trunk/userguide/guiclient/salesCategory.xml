@@ -1,93 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section656996">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>sales account assignments</primary>
-         <secondary>creating new</secondary>
-      </indexterm>Sales Category</title>
-   <para id="Para657018">
-       To create a new Sales
-  Category, select the NEW button. The following screen will appear:</para>
-   <para id="Para657022">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_MI_salesCatsNew.png" id="Graphic657020"/>
-            </imageobject>
-            <caption id="Caption657023">Create New Sales Category</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para657024">When creating a new Sales Category, you are presented
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="salesCategory">
+  <title><indexterm significance="normal">
+      <primary>sales account assignments</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Sales Category</title>
+  <para id="Para657018">To create a new Sales Category, select the NEW button.
+  The following screen will appear:</para>
+  <para id="Para657022"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_salesCatsNew.png"
+                     id="Graphic657020" />
+        </imageobject>
+        <caption id="Caption657023">Create New Sales Category</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para657024">When creating a new Sales Category, you are presented
   with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para657025">Category</term>
-         <listitem id="listitemN0x180ac00N0x187d8f8">
-            <para>Enter an identifying code for the Sales Category.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657026">Active</term>
-         <listitem id="listitemN0x180ac00N0x187d940">
-            <para>Select if the Sales Category is currently active. Not selecting
+  <variablelist>
+    <varlistentry>
+      <term id="Para657025">Category</term>
+      <listitem id="listitemN0x180ac00N0x187d8f8">
+        <para>Enter an identifying code for the Sales Category.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657026">Active</term>
+      <listitem id="listitemN0x180ac00N0x187d940">
+        <para>Select if the Sales Category is currently active. Not selecting
         means the Sales Category is inactive.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657028">Description</term>
-         <listitem id="listitemN0x180ac00N0x187d988">
-            <para>Enter a description to identify the Sales Category.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657029">Sales Account</term>
-         <listitem id="listitemN0x180ac00N0x187d9d0">
-            <para>Identify a General Ledger (G/L) Account to distribute Sales
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657028">Description</term>
+      <listitem id="listitemN0x180ac00N0x187d988">
+        <para>Enter a description to identify the Sales Category.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657029">Sales Account</term>
+      <listitem id="listitemN0x180ac00N0x187d9d0">
+        <para>Identify a General Ledger (G/L) Account to distribute Sales
         Revenue to. This is a Revenue Account. It will be credited when
         Invoices for Non-Inventory goods are posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657031">Prepaid Account</term>
-         <listitem id="listitemN0x180ac00N0x187da18">
-            <para>Specify a General Ledger (G/L) Account to use for handling
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657031">Prepaid Account</term>
+      <listitem id="listitemN0x180ac00N0x187da18">
+        <para>Specify a General Ledger (G/L) Account to use for handling
         prepaid Receivables. This is a Revenue contra Account. If a Sales
         Category is used when entering a Miscellaneous A/R Credit Memo, this
         Account will be debited when the Credit Memo is posted. If used when
         entering a Miscellaneous A/R Debit Memo, the Account will be credited
         when the Debit Memos are posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657033">A/R Account</term>
-         <listitem id="listitemN0x180ac00N0x187da60">
-            <para>Specify a General Ledger (G/L) Account to use for handling
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657033">A/R Account</term>
+      <listitem id="listitemN0x180ac00N0x187da60">
+        <para>Specify a General Ledger (G/L) Account to use for handling
         Customer deposits. This is an Asset Account. If a Sales Category is
         used when applying a Cash Receipt to a Customer Invoice, this Account
         will be credited when the Cash Receipt is posted.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para657035">To the far right of the screen, the following buttons
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para657035">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para657036">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x187dacc">
-            <para>Closes the screen without creating a Sales Category, returning
+  <variablelist>
+    <varlistentry>
+      <term id="Para657036">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x187dacc">
+        <para>Closes the screen without creating a Sales Category, returning
         you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657037">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x187db14">
-            <para>Creates the Sales Category and adds it to the master list of
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657037">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x187db14">
+        <para>Creates the Sales Category and adds it to the master list of
         Sales Categories.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

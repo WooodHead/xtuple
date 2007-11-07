@@ -1,111 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section657386">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>accounts receivable</primary>
-         <secondary>creating new assignment for</secondary>
-      </indexterm>A/R Account Assignment</title>
-   <para id="Para657408">To create a new A/R Account assignment, select the NEW
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="arAccountAssignment">
+  <title><indexterm significance="normal">
+      <primary>accounts receivable</primary>
+      <secondary>creating new assignment for</secondary>
+    </indexterm>A/R Account Assignment</title>
+  <para id="Para657408">To create a new A/R Account assignment, select the NEW
   button. The following screen will appear:</para>
-   <para id="Para657412">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_MI_arAssignNew.png" id="Graphic657410"/>
-            </imageobject>
-            <caption id="Caption657413">Create New A/R Account
+  <para id="Para657412"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_arAssignNew.png" id="Graphic657410" />
+        </imageobject>
+        <caption id="Caption657413">Create New A/R Account
         Assignment</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para id="Para657414">When creating a new A/R Account assignment, you are
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para657414">When creating a new A/R Account assignment, you are
   presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para657415">Selected Customer Type</term>
-         <listitem id="listitemN0x180ac00N0x1885988">
-            <para>Specify the Customer Type you want to associate with the A/R
+  <variablelist>
+    <varlistentry>
+      <term id="Para657415">Selected Customer Type</term>
+      <listitem id="listitemN0x180ac00N0x1885988">
+        <para>Specify the Customer Type you want to associate with the A/R
         Account assignment.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657416">Pattern</term>
-         <listitem id="listitemN0x180ac00N0x18859d0">
-            <para>Enter a Customer Type pattern to select a range of Customer
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657416">Pattern</term>
+      <listitem id="listitemN0x180ac00N0x18859d0">
+        <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-            <para id="Para657419">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef657418" linkend="Anchor77806"> Pattern Matching with Regular
+        <para id="Para657419">Refine your search using Regular Expressions, as
+        described in <link endterm="Anchor77806" id="XRef657418"
+        linkend="Anchor77806"> Pattern Matching with Regular
         Expressions</link>"Topic: Pattern Matching with Regular
         Expressions".</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657421">A/R Account</term>
-         <listitem id="listitemN0x180ac00N0x1885a18">
-            <para>Identify a General Ledger (G/L) Account to assign as the default
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657421">A/R Account</term>
+      <listitem id="listitemN0x180ac00N0x1885a18">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
         A/R Account.</para>
-            <para id="Para657422">This is an Asset Account. For example, it will
+        <para id="Para657422">This is an Asset Account. For example, it will
         be debited when Invoices are posted and credited when Cash Receipts
         are posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657423">Prepaid Receivables Account</term>
-         <listitem id="listitemN0x180ac00N0x1885a60">
-            <para>Identify a General Ledger (G/L) Account to assign as the default
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657423">Prepaid Receivables Account</term>
+      <listitem id="listitemN0x180ac00N0x1885a60">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
         A/R Prepaid Account.</para>
-            <para id="Para657424">This is a Revenue contra Account. It will be
+        <para id="Para657424">This is a Revenue contra Account. It will be
         debited when Miscellaneous A/R Credit Memos are posted and credited
         when Miscellaneous A/R Debit Memos are posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657425">Freight Account</term>
-         <listitem id="listitemN0x180ac00N0x1885aa8">
-            <para>Identify a General Ledger (G/L) Account to assign as the default
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657425">Freight Account</term>
+      <listitem id="listitemN0x180ac00N0x1885aa8">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
         Freight Account.</para>
-            <para id="Para657426">This is a Revenue Account. It will be credited
+        <para id="Para657426">This is a Revenue Account. It will be credited
         when Invoices are posted and debited when S/O Credit Memos are
         posted.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657427">Deferred Revenue Account</term>
-         <listitem id="listitemN0x180ac00N0x1885af0">
-            <para>Identify a General Ledger (G/L) Account to assign as the default
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657427">Deferred Revenue Account</term>
+      <listitem id="listitemN0x180ac00N0x1885af0">
+        <para>Identify a General Ledger (G/L) Account to assign as the default
         Deferred Revenue Account.</para>
-            <para id="Para657428">This is a Liability Account. It is an optional
+        <para id="Para657428">This is a Liability Account. It is an optional
         Account, as systems may be configured to ignore it when handling
         Customer Deposits. When this Account is used, it will be credited when
         unapplied Cash Receipts are posted and debited when the A/R Credit
         Memos resulting from unapplied Cash Receipts are applied to A/R open
         items.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para id="Para657430">You can disable the use of a Deferred Revenue
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para657430">You can disable the use of a Deferred Revenue
     Account for handling Customer Deposits at the system level.</para>
-   </note>
-   <para id="Para657431">To the far right of the screen, the following buttons
+  </note>
+  <para id="Para657431">To the far right of the screen, the following buttons
   are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para657432">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x1885b80">
-            <para>Closes the screen without creating an A/R Account assignment,
+  <variablelist>
+    <varlistentry>
+      <term id="Para657432">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x1885b80">
+        <para>Closes the screen without creating an A/R Account assignment,
         returning you to the previous screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para657433">SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1885bc8">
-            <para>Creates the A/R Account assignment and adds it to the master
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para657433">SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1885bc8">
+        <para>Creates the A/R Account assignment and adds it to the master
         list of A/R Account assignments.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

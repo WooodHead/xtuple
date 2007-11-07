@@ -1,110 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section619210">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>customers</primary>
-         <secondary>updating credit status for</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>credit status</primary>
-         <secondary>updating by customer</secondary>
-      </indexterm>Update Credit Status by Customer</title>
-   <para id="Para619211">The credit status of a Customer has a direct bearing
-    on whether Sales Orders can be created for that Customer. For example,
-    Customers whose credit status is either "On Credit Warning" or "On Credit
-    Hold" may not have Sales Orders entered for them. To update a Customer's
-    credit status, select the "Update Credit Status by Customer" option. The
-    following screen will appear:</para>
-   <para id="Para619215">
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_MI_updateCredStat.png" id="Graphic619213"/>
-            </imageobject>
-            <caption id="Caption619216">Update Credit Status by
-          Customer</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para id="Para619218">The credit status for a Customer may also be
-      updated using the Customer master. Any updates made using this utility
-      will be reflected in the Customer master.</para>
-   </note>
-   <para id="Para619219">When updating the credit status for a Customer, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para619220">Customer #</term>
-         <listitem id="listitemN0x180ac00N0x199ae4c">
-            <para>Enter the Customer Number of the Customer whose credit status
-          you want to update.</para>
-            <para id="Para619221">The browse button located to the right of the
-          field leads to a searchable Customers list. You may also access this
-          list using the keyboard shortcut "CTRL + L". Once a Customer Number
-          is entered, the Customer name and billing address will
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para619222">Current Credit Status</term>
-         <listitem id="listitemN0x180ac00N0x199ae94">
-            <para>Displays the specified Customer's current credit
-          status.</para>
-            <para id="Para619223">Current credit status is drawn from the
-          Customer master.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para619224">In Good Standing</term>
-         <listitem id="listitemN0x180ac00N0x199aedc">
-            <para>Select to make the Customer's credit status "In Good
-          Standing."</para>
-            <para id="Para619225">Customers with credit "In Good Standing" may
-          have Sales Orders issued for them. A black-colored typeface will be
-          associated with their account.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para619226">On Credit Warning</term>
-         <listitem id="listitemN0x180ac00N0x199af24">
-            <para>Select to make the Customer's credit status "On Credit
-          Warning."</para>
-            <para id="Para619227">Customers with credit "On Credit Warning" may
-          not have Sales Orders issued for them. An orange-colored typeface
-          will be associated with their account.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para619228">On Credit Hold</term>
-         <listitem id="listitemN0x180ac00N0x199af6c">
-            <para>Select to make the Customer's credit status "On Credit
-          Hold."</para>
-            <para id="Para619229">Customers with credit "On Credit Hold" may not
-          have Sales Orders issued for them. A red-colored typeface will be
-          associated with their account.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para id="Para619230">To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term id="Para619231">CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x199afd8">
-            <para>Closes the screen without updating the Customer's credit
-          status, returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term id="Para619232">UPDATE</term>
-         <listitem id="listitemN0x180ac00N0x199b020">
-            <para>Updates the Customer's credit status, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>customers</primary>
+      <secondary>updating credit status for</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>credit status</primary>
+      <secondary>updating by customer</secondary>
+    </indexterm>Update Credit Status by Customer</title>
+  <para id="Para619211">The credit status of a Customer has a direct bearing
+  on whether Sales Orders can be created for that Customer. For example,
+  Customers whose credit status is either "On Credit Warning" or "On Credit
+  Hold" may not have Sales Orders entered for them. To update a Customer's
+  credit status, select the "Update Credit Status by Customer" option. The
+  following screen will appear:</para>
+  <para id="Para619215"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_MI_updateCredStat.png"
+                     id="Graphic619213" />
+        </imageobject>
+        <caption id="Caption619216">Update Credit Status by Customer</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para id="Para619218">The credit status for a Customer may also be updated
+    using the Customer master. Any updates made using this utility will be
+    reflected in the Customer master.</para>
+  </note>
+  <para id="Para619219">When updating the credit status for a Customer, you
+  are presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para619220">Customer #</term>
+      <listitem id="listitemN0x180ac00N0x199ae4c">
+        <para>Enter the Customer Number of the Customer whose credit status
+        you want to update.</para>
+        <para id="Para619221">The browse button located to the right of the
+        field leads to a searchable Customers list. You may also access this
+        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        entered, the Customer name and billing address will display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para619222">Current Credit Status</term>
+      <listitem id="listitemN0x180ac00N0x199ae94">
+        <para>Displays the specified Customer's current credit status.</para>
+        <para id="Para619223">Current credit status is drawn from the Customer
+        master.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para619224">In Good Standing</term>
+      <listitem id="listitemN0x180ac00N0x199aedc">
+        <para>Select to make the Customer's credit status "In Good
+        Standing."</para>
+        <para id="Para619225">Customers with credit "In Good Standing" may
+        have Sales Orders issued for them. A black-colored typeface will be
+        associated with their account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para619226">On Credit Warning</term>
+      <listitem id="listitemN0x180ac00N0x199af24">
+        <para>Select to make the Customer's credit status "On Credit
+        Warning."</para>
+        <para id="Para619227">Customers with credit "On Credit Warning" may
+        not have Sales Orders issued for them. An orange-colored typeface will
+        be associated with their account.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para619228">On Credit Hold</term>
+      <listitem id="listitemN0x180ac00N0x199af6c">
+        <para>Select to make the Customer's credit status "On Credit
+        Hold."</para>
+        <para id="Para619229">Customers with credit "On Credit Hold" may not
+        have Sales Orders issued for them. A red-colored typeface will be
+        associated with their account.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para619230">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para619231">CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x199afd8">
+        <para>Closes the screen without updating the Customer's credit status,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para619232">UPDATE</term>
+      <listitem id="listitemN0x180ac00N0x199b020">
+        <para>Updates the Customer's credit status, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
