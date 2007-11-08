@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section622465">
   <title><indexterm significance="normal">
       <primary>sales orders</primary>
@@ -15,8 +14,7 @@
   <para id="Para622470"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_LookByCusType.png"
-                     id="Graphic622468" />
+          <imagedata fileref="images/SO_Disp_LookByCusType.png" id="Graphic622468"/>
         </imageobject>
         <caption id="Caption622471">Sales Order Lookup by Customer
         Type</caption>
@@ -44,9 +42,9 @@
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
         <para id="Para656107">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef656106"
-        linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
       </listitem>
     </varlistentry>
@@ -91,20 +89,10 @@
   <para id="Para626947">Right-clicking on a Sales Order in the Sales Orders
   list enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/3/2/1)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/3/2/2)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/17)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/16)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/17)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/16)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

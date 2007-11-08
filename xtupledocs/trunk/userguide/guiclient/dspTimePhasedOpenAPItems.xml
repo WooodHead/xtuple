@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section549958">
   <title><indexterm significance="normal">
       <primary>accounts payable</primary>
@@ -15,7 +14,7 @@
   <para id="Para550037"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035" />
+          <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035"/>
         </imageobject>
         <caption id="Caption550291">A/P Aging</caption>
       </mediaobject>
@@ -48,9 +47,9 @@
         <para>Enter a Vendor Type pattern to select a range of Vendor
         Types.</para>
         <para id="Para566416">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef566415"
-        linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>.</para>
+        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  .</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -92,8 +91,7 @@
   <para id="Para558445"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAgingCalendar.png"
-                     id="Graphic558443" />
+          <imagedata fileref="images/AP_Disp_apAgingCalendar.png" id="Graphic558443"/>
         </imageobject>
         <caption id="Caption558446">Custom A/P Aging Calendar</caption>
       </mediaobject>
@@ -163,9 +161,9 @@
       <term id="Para561305">SUBMIT</term>
       <listitem>
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <link endterm="Anchor61009" id="XRef561307"
-        linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
-        Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
+    FINDME
+  "Topic: Submitting Reports and Jobs to the Batch
         Manager".</para>
       </listitem>
     </varlistentry>
@@ -173,11 +171,7 @@
   <para id="Para558472">Right-clicking on a Vendor in the A/P open items list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/9/2/2)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/9/2/2)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

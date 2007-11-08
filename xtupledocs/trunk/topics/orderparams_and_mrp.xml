@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672485" role="openmfg">
   <title>Topic: Order Parameters and MRP</title>
   <para id="Para672486">This section is designed to briefly illustrate the
@@ -21,21 +20,19 @@
     <para id="Para672489">For the purposes of this exercise, we will be
     looking at the Order Parameter settings for a purchased Item--Item V1. The
     following screenshot shows the Item Site master for Item V1:</para>
-    <para id="Para672493"><anchor id="Anchor93905" role="Cross-Ref"
-    xreflabel="93905: Figure: Figure 1.12:  Item Site with Order Parameters Selected" />
+    <para id="Para672493"><anchor id="Anchor93905" role="Cross-Ref" xreflabel="93905: Figure: Figure 1.12:  Item Site with Order Parameters Selected"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_ordParamItemSite.png"
-                       id="Graphic672491" />
+            <imagedata fileref="images/Topic_ordParamItemSite.png" id="Graphic672491"/>
           </imageobject>
           <caption id="Caption672495">Item Site with Order Parameters
           Selected</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672498">As you can see in <link endterm="Anchor93905"
-    id="XRef672497" linkend="Anchor93905"> Item Site with Order Parameters
-    Selected</link>Figure 6.21, the "Enforce Order Parameters" flag is set for
+    <para id="Para672498">As you can see in <xref endterm="Anchor93905" linkend="Anchor93905"/>
+    FINDME
+  Figure 6.21, the "Enforce Order Parameters" flag is set for
     this Item Site. Selecting this option tells the system to enforce the
     specified Order Parameters when MRP is run. The "on Manual Orders" option
     applies to manual Work Orders only and does not have an impact on
@@ -173,13 +170,11 @@
     <para id="Para672528">Let's look now at Planned Availability for Item V1.
     The Inventory Availability by Item screen found in the I/M Module provides
     us with this detail, as shown below:</para>
-    <para id="Para672532"><anchor id="Anchor80872" role="Cross-Ref"
-    xreflabel="80872: Figure: Figure 1.16:  Inventory Availability Display Showing Availability Below Reorder Level" />
+    <para id="Para672532"><anchor id="Anchor80872" role="Cross-Ref" xreflabel="80872: Figure: Figure 1.16:  Inventory Availability Display Showing Availability Below Reorder Level"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_availOrdParamItem.png"
-                       id="Graphic672530" />
+            <imagedata fileref="images/Topic_availOrdParamItem.png" id="Graphic672530"/>
           </imageobject>
           <caption id="Caption672534">Inventory Availability Display Showing
           Availability Below Reorder Level</caption>
@@ -190,9 +185,9 @@
     indicate that Planned Availability has fallen below the Reorder Level.
     Whenever this scenario occurs, Planned Replenishment Orders will be
     generated the next time MRP is run.</para>
-    <para id="Para672538">The following columns in <link endterm="Anchor80872"
-    id="XRef672537" linkend="Anchor80872"> Inventory Availability Display
-    Showing Availability Below Reorder Level</link>Figure 6.22 are of interest
+    <para id="Para672538">The following columns in <xref endterm="Anchor80872" linkend="Anchor80872"/>
+    FINDME
+  Figure 6.22 are of interest
     to us now:</para>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1874b44">
@@ -250,8 +245,7 @@
     <para id="Para672554"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createPlanRepOrd.png"
-                       id="Graphic672552" />
+            <imagedata fileref="images/Topic_createPlanRepOrd.png" id="Graphic672552"/>
           </imageobject>
           <caption id="Caption672555">Running MRP by Item</caption>
         </mediaobject>
@@ -261,21 +255,19 @@
     the current day. Once we select the CREATE button, MRP is off and running.
     To see the resulting Planned Replenishment Orders, we open the M/S Display
     "Planned Orders by Item," as shown in the following screen:</para>
-    <para id="Para672560"><anchor id="Anchor34728" role="Cross-Ref"
-    xreflabel="34728: Figure: Figure 1.15:  MRP Created Planned Purchase Order" />
+    <para id="Para672560"><anchor id="Anchor34728" role="Cross-Ref" xreflabel="34728: Figure: Figure 1.15:  MRP Created Planned Purchase Order"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_planOrdDisp1.png"
-                       id="Graphic672558" />
+            <imagedata fileref="images/Topic_planOrdDisp1.png" id="Graphic672558"/>
           </imageobject>
           <caption id="Caption672562">MRP Created Planned Purchase
           Order</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672565">As you can see in <link endterm="Anchor34728"
-    id="XRef672564" linkend="Anchor34728"> MRP Created Planned Purchase
-    Order</link>Figure 6.24, a Planned Purchase Order has been generated for
+    <para id="Para672565">As you can see in <xref endterm="Anchor34728" linkend="Anchor34728"/>
+    FINDME
+  Figure 6.24, a Planned Purchase Order has been generated for
     75 units of Item V1. So how did the system determine that 75 units was the
     required quantity?</para>
     <para id="Para672567">Well, when MRP creates Planned Orders, the system
@@ -314,8 +306,7 @@
     <para id="Para672578"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_planOrdDisp2.png"
-                       id="Graphic672576" />
+            <imagedata fileref="images/Topic_planOrdDisp2.png" id="Graphic672576"/>
           </imageobject>
           <caption id="Caption672579">Convert Planned Order to Purchase
           Request</caption>
@@ -329,8 +320,7 @@
     <para id="Para672584"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_purchReqDispl.png"
-                       id="Graphic672582" />
+            <imagedata fileref="images/Topic_purchReqDispl.png" id="Graphic672582"/>
           </imageobject>
           <caption id="Caption672585">Release Purchase Request</caption>
         </mediaobject>
@@ -343,8 +333,7 @@
     <para id="Para672590"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_prItemSource.png"
-                       id="Graphic672588" />
+            <imagedata fileref="images/Topic_prItemSource.png" id="Graphic672588"/>
           </imageobject>
           <caption id="Caption672591">Select Item Source during Purchase
           Request Conversion</caption>
@@ -358,8 +347,7 @@
     <para id="Para672596"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_openPOExists.png"
-                       id="Graphic672594" />
+            <imagedata fileref="images/Topic_openPOExists.png" id="Graphic672594"/>
           </imageobject>
           <caption id="Caption672597">Choose Existing or New PO</caption>
         </mediaobject>
@@ -371,7 +359,7 @@
     <para id="Para672602"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_prPOItem.png" id="Graphic672600" />
+            <imagedata fileref="images/Topic_prPOItem.png" id="Graphic672600"/>
           </imageobject>
           <caption id="Caption672603">P/O Line Item with Values
           Pre-Populated</caption>
@@ -383,8 +371,7 @@
     <para id="Para672608"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_poFromPurchReq.png"
-                       id="Graphic672606" />
+            <imagedata fileref="images/Topic_poFromPurchReq.png" id="Graphic672606"/>
           </imageobject>
           <caption id="Caption672610">Purchase Order Originated by MRP
           Replenishment</caption>

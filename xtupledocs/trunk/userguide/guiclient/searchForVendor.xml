@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section534973">
    <title>
        
@@ -30,8 +29,9 @@
         match, followed by the TAB key.</para>
             <para id="Para957667">The "Search for" field supports pattern matching
         with Regular Expressions. For more information on matching patterns
-        using Regular Expressions, see <link endterm="Anchor77806" id="XRef971736" linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        using Regular Expressions, see <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
          </listitem>
       </varlistentry>
@@ -158,15 +158,12 @@
    <variablelist>
       <varlistentry>
          <term id="Para957695">View</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x1841a30)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1841a30)"/>
       </varlistentry>
       <varlistentry>
          <term id="Para957696">Edit</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18419e8)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18419e8)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

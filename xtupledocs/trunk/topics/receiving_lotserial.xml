@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672615" role="openmfg">
   <title>Topic: Receiving Lot/Serial Items into Inventory</title>
   <para id="Para672616">This section describes the special steps that must be
@@ -48,22 +47,20 @@
     <para id="Para672625">But before we begin, let's examine the Item Site
     definition for our imported flowers, otherwise known as Item
     GLAD02:</para>
-    <para id="Para672629"><anchor id="Anchor55665" role="Cross-Ref"
-    xreflabel="55665: Figure: Figure 2.23:  Item Site Definition for Lot-Controlled Item" />
+    <para id="Para672629"><anchor id="Anchor55665" role="Cross-Ref" xreflabel="55665: Figure: Figure 2.23:  Item Site Definition for Lot-Controlled Item"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_lotNumItemSite.png"
-                       id="Graphic672627" />
+            <imagedata fileref="images/Topic_lotNumItemSite.png" id="Graphic672627"/>
           </imageobject>
           <caption id="Caption672631">Item Site Definition for Lot-Controlled
           Item</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para672634">A few points are worth noting when looking at the
-    Item Site definition shown in <link endterm="Anchor55665" id="XRef672633"
-    linkend="Anchor55665"> Item Site Definition for Lot-Controlled
-    Item</link>Figure 6.49. First, note that the Control Method is specified
+    Item Site definition shown in <xref endterm="Anchor55665" linkend="Anchor55665"/>
+    FINDME
+  Figure 6.49. First, note that the Control Method is specified
     as Lot #. This designation marks an Item as being Lot-controlled. And it
     is because of this specification that GLADO2 in Warehouse STAR will be
     handled differently when quantities of it are received into Inventory.
@@ -98,8 +95,7 @@
     <para id="Para672642"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_enterMatRecpt.png"
-                       id="Graphic672640" />
+            <imagedata fileref="images/Topic_enterMatRecpt.png" id="Graphic672640"/>
           </imageobject>
           <caption id="Caption672643">Enter Material Receipt for
           Lot-Controlled Item</caption>
@@ -113,8 +109,7 @@
     <para id="Para672648"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_assgnLotNum.png"
-                       id="Graphic672646" />
+            <imagedata fileref="images/Topic_assgnLotNum.png" id="Graphic672646"/>
           </imageobject>
           <caption id="Caption672649">Initial Screen for Assigning Lot/Serial
           Number</caption>
@@ -142,8 +137,7 @@
     <para id="Para672658"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotNum.png"
-                       id="Graphic672656" />
+            <imagedata fileref="images/Topic_createLotNum.png" id="Graphic672656"/>
           </imageobject>
           <caption id="Caption672659">Create Lot/Serial Number</caption>
         </mediaobject>
@@ -217,8 +211,7 @@
     <para id="Para672676"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_assgnLotNum-2.png"
-                       id="Graphic672674" />
+            <imagedata fileref="images/Topic_assgnLotNum-2.png" id="Graphic672674"/>
           </imageobject>
           <caption id="Caption672677">Lot Number Assigned to Lot-Controlled
           Quantity</caption>
@@ -257,8 +250,7 @@
     <para id="Para672686"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrLotNum.png"
-                       id="Graphic672684" />
+            <imagedata fileref="images/Topic_distrLotNum.png" id="Graphic672684"/>
           </imageobject>
           <caption id="Caption672687">Multiple Location Distribution of
           Lot-Controlled Quantity</caption>
@@ -272,21 +264,19 @@
     received the full quantity into Inventory. To verify the result, we open
     the I/M display Location/Lot/Serial Number Detail, as shown in the
     following screen:</para>
-    <para id="Para672692"><anchor id="Anchor12147" role="Cross-Ref"
-    xreflabel="12147: Figure: Figure 2.31:  Verify Lot Transaction Using Detail Display" />
+    <para id="Para672692"><anchor id="Anchor12147" role="Cross-Ref" xreflabel="12147: Figure: Figure 2.31:  Verify Lot Transaction Using Detail Display"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_displayLotDetail.png"
-                       id="Graphic672690" />
+            <imagedata fileref="images/Topic_displayLotDetail.png" id="Graphic672690"/>
           </imageobject>
           <caption id="Caption672694">Verify Lot Transaction Using Detail
           Display</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672697">As you can see in <link endterm="Anchor12147"
-    id="XRef672696" linkend="Anchor12147"> Verify Lot Transaction Using Detail
-    Display</link>Figure 6.55, the Warehouse STAR is showing 150 units of
+    <para id="Para672697">As you can see in <xref endterm="Anchor12147" linkend="Anchor12147"/>
+    FINDME
+  Figure 6.55, the Warehouse STAR is showing 150 units of
     LOT-2 with the specified expiration date. A previously entered Lot is also
     located here, as shown in the display.</para>
   </section>
@@ -301,7 +291,7 @@
     <para id="Para672704"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_recvLotSR.png" id="Graphic672702" />
+            <imagedata fileref="images/Topic_recvLotSR.png" id="Graphic672702"/>
           </imageobject>
           <caption id="Caption672705">Receiving Lot-Controlled Quantity from
           S/R Module</caption>
@@ -309,18 +299,17 @@
       </screenshot></para>
     <para id="Para672706">At this point in the process, the Enter Receipt
     screen looks and behaves no differently than it would for any other Item.
-    The standard receiving sequence is described in detail in the <link
-    endterm="Anchor28097" id="XRef672708" linkend="Anchor28097"> Enter
-    Receipt</link>"Enter Receipt" section of the <link endterm="Anchor74541"
-    id="XRef672711" linkend="Anchor74541"> Shipping &amp; Receiving (S/R)
-    Module</link>Shipping &amp; Receiving (S/R) Module chapter. As expected,
+    The standard receiving sequence is described in detail in the <xref endterm="Anchor28097" linkend="Anchor28097"/>
+    FINDME
+  "Enter Receipt" section of the <xref endterm="Anchor74541" linkend="Anchor74541"/>
+    FINDME
+  Shipping &amp; Receiving (S/R) Module chapter. As expected,
     the following screen appears when we highlight the Purchase Order Item and
     select the ENTER RECEIPT button:</para>
     <para id="Para672716"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_recvLotQty.png"
-                       id="Graphic672714" />
+            <imagedata fileref="images/Topic_recvLotQty.png" id="Graphic672714"/>
           </imageobject>
           <caption id="Caption672717">Enter Purchase Order Item Receipt for
           Lot-Controlled Item</caption>
@@ -332,8 +321,7 @@
     <para id="Para672722"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_recvLotSR-2.png"
-                       id="Graphic672720" />
+            <imagedata fileref="images/Topic_recvLotSR-2.png" id="Graphic672720"/>
           </imageobject>
           <caption id="Caption672723">Receipt Entered for Lot-Controlled
           Quantity in S/R Module</caption>
@@ -345,8 +333,7 @@
     <para id="Para672728"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotSR.png"
-                       id="Graphic672726" />
+            <imagedata fileref="images/Topic_createLotSR.png" id="Graphic672726"/>
           </imageobject>
           <caption id="Caption672729">Create Lot Number for Quantity Received
           in S/R Module</caption>
@@ -358,19 +345,18 @@
     Multiple Location Control Item, we go through the MLC distribution cycle.
     To verify the results, we can open the I/M display Location/Lot/Serial
     Number Detail, as shown in the following screen:</para>
-    <para id="Para672734"><anchor id="Anchor74636" role="Cross-Ref"
-    xreflabel="74636: Figure: Figure 2.36: " /> <screenshot>
+    <para id="Para672734"><anchor id="Anchor74636" role="Cross-Ref" xreflabel="74636: Figure: Figure 2.36: "/> <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_displayLotDetail-2.png"
-                       id="Graphic672732" />
+            <imagedata fileref="images/Topic_displayLotDetail-2.png" id="Graphic672732"/>
           </imageobject>
           <caption id="Caption672736">Verify Lot Receipt Using Detail
           Display</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672739">As you can see in <link endterm="Anchor74636"
-    id="XRef672738" linkend="Anchor74636"> </link>Figure 6.60, the Warehouse
+    <para id="Para672739">As you can see in <xref endterm="Anchor74636" linkend="Anchor74636"/>
+    FINDME
+  Figure 6.60, the Warehouse
     STAR is now showing 300 units of LOT-3 with the specified expiration date.
     The Lot-controlled goods have now been successfully assigned and received
     into Inventory using the S/R Module.</para>
@@ -386,21 +372,19 @@
     described, we will not cover this topic in much detail. However, we will
     include the following screenshot showing Work Order production posting for
     Item V0, a Lot-controlled, manufactured Item:</para>
-    <para id="Para672747"><anchor id="Anchor56575" role="Cross-Ref"
-    xreflabel="56575: Figure: Figure 6.13:  Create Lot Number for Quantity Received from Manufacturing" />
+    <para id="Para672747"><anchor id="Anchor56575" role="Cross-Ref" xreflabel="56575: Figure: Figure 6.13:  Create Lot Number for Quantity Received from Manufacturing"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createLotWO.png"
-                       id="Graphic672745" />
+            <imagedata fileref="images/Topic_createLotWO.png" id="Graphic672745"/>
           </imageobject>
           <caption id="Caption672749">Create Lot Number for Quantity Received
           from Manufacturing</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672752">As you can see in <link endterm="Anchor56575"
-    id="XRef672751" linkend="Anchor56575"> Create Lot Number for Quantity
-    Received from Manufacturing</link>Figure 6.61, the now familiar Lot Number
+    <para id="Para672752">As you can see in <xref endterm="Anchor56575" linkend="Anchor56575"/>
+    FINDME
+  Figure 6.61, the now familiar Lot Number
     assignment sequence is triggered as part of the Work Order production
     posting process for this Lot-controlled Item.</para>
   </section>

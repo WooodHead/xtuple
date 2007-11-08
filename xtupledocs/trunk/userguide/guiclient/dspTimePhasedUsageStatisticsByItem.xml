@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520685">
   <title><indexterm significance="normal">
       <primary>item usage statistics</primary>
@@ -15,8 +14,7 @@
   <para id="Para520690"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_timephasedStats.png"
-                     id="Graphic526919" />
+          <imagedata fileref="images/IM_Disp_timephasedStats.png" id="Graphic526919"/>
         </imageobject>
         <caption id="Caption520691">Time-Phased Item Usage Statistics by
         Item</caption>
@@ -120,9 +118,9 @@
       <term id="Para665161">SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x19a0848">
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <link endterm="Anchor61009" id="XRef665163"
-        linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
-        Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
+    FINDME
+  "Topic: Submitting Reports and Jobs to the Batch
         Manager".</para>
       </listitem>
     </varlistentry>
@@ -133,11 +131,9 @@
     <varlistentry>
       <term id="Para520718">View Transactions</term>
       <listitem id="listitemN0x180ac00N0x19a08b4">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

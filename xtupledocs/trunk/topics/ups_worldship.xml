@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section551405">
-  <title><anchor id="Anchor29552" role="Cross-Ref"
-  xreflabel="29552: Heading3: Topic: UPS WorldShip Integration" /> <indexterm
-      significance="normal">
+  <title><anchor id="Anchor29552" role="Cross-Ref" xreflabel="29552: Heading3: Topic: UPS WorldShip Integration"/> <indexterm significance="normal">
       <primary>topics</primary>
       <secondary>ups worldship</secondary>
     </indexterm><indexterm significance="normal">
@@ -21,8 +18,7 @@
     <para id="Para551408">For technical support using and/or configuring UPS
     WorldShip, please contact your local or area UPS WorldShip representative.
     Detailed WorldShip integration information can also be found on the UPS
-    website at <ulink id="Hypertext551409"
-    url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
+    website at <ulink id="Hypertext551409" url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
   </note>
   <section id="Section551410">
     <title>Basic Requirements</title>
@@ -65,19 +61,18 @@
     However, for integration with OpenMFG, you only need an export map since
     the communication is one-way. The following screenshot shows a sample
     export map created using the UPS WorldShip mapping utility:</para>
-    <para id="Para551424"><anchor id="Anchor70270" role="Cross-Ref"
-    xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip" />
+    <para id="Para551424"><anchor id="Anchor70270" role="Cross-Ref" xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_ups1.png" id="Graphic551422" />
+            <imagedata fileref="images/Topic_ups1.png" id="Graphic551422"/>
           </imageobject>
           <caption id="Caption551426">Export Map in UPS WorldShip</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para551429">As you can see in <link endterm="Anchor70270"
-    id="XRef551428" linkend="Anchor70270"> Export Map in UPS
-    WorldShip</link>Figure 7.7, we have created a map called "export." The map
+    <para id="Para551429">As you can see in <xref endterm="Anchor70270" linkend="Anchor70270"/>
+    FINDME
+  Figure 7.7, we have created a map called "export." The map
     type is "Shipment," which indicates the data export will occur when the
     shipment is shipped using UPS WorldShip. And the ODBC driver used to
     export the data to the OpenMFG Database is called "openmfg."</para>
@@ -86,7 +81,7 @@
     <para id="Para551435"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_ups2.png" id="Graphic551433" />
+            <imagedata fileref="images/Topic_ups2.png" id="Graphic551433"/>
           </imageobject>
           <caption id="Caption551436">WorldShip Utility for Editing Export
           Map</caption>
@@ -94,25 +89,21 @@
       </screenshot></para>
     <para id="Para551437">Your primary goal when creating an export map is to
     match UPS WorldShip tables and fields with the corresponding OpenMFG
-    Database tables and fields. <link endterm="Anchor31923" id="XRef551439"
-    linkend="Anchor31923"> Data Mapping Information</link>Table 7.1 provides
+    Database tables and fields. <xref endterm="Anchor31923" linkend="Anchor31923"/>
+    FINDME
+  Table 7.1 provides
     you with the information you will need to successfully map the tables and
     fields from one system to the other.</para>
     <para id="Para551535"><table id="Table551441">
-        <title><anchor id="Anchor31923" role="Cross-Ref"
-        xreflabel="31923: TableTitle: Table 11.1: Data Mapping Information" />
+        <title><anchor id="Anchor31923" role="Cross-Ref" xreflabel="31923: TableTitle: Table 11.1: Data Mapping Information"/>
         Data Mapping Information</title>
         <tgroup cols="4">
           <thead>
             <row>
-              <entry><para id="Para551452"> WorldShip </para> <para
-              id="Para551453"> Table </para></entry>
-              <entry><para id="Para551455"> WorldShip </para> <para
-              id="Para551456"> Field </para></entry>
-              <entry><para id="Para551458"> OpenMFG </para> <para
-              id="Para551459"> Table </para></entry>
-              <entry><para id="Para551461"> OpenMFG </para> <para
-              id="Para551462"> Field </para></entry>
+              <entry><para id="Para551452"> WorldShip </para> <para id="Para551453"> Table </para></entry>
+              <entry><para id="Para551455"> WorldShip </para> <para id="Para551456"> Field </para></entry>
+              <entry><para id="Para551458"> OpenMFG </para> <para id="Para551459"> Table </para></entry>
+              <entry><para id="Para551461"> OpenMFG </para> <para id="Para551462"> Field </para></entry>
             </row>
           </thead>
           <tbody>
@@ -256,8 +247,7 @@
     <para id="Para551561"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsGraphic.png"
-                       id="Graphic551559" />
+            <imagedata fileref="images/Topic_upsGraphic.png" id="Graphic551559"/>
           </imageobject>
           <caption id="Caption551562">Basic Process Flow for UPS WorldShip
           Integration</caption>
@@ -315,21 +305,19 @@
     either 1) issue Stock to Shipping or 2) ship the Order. For this example,
     we have already issued two Line Items to Shipping. We see these two Line
     Items on the Ship Order screen, as shown below:</para>
-    <para id="Para551581"><anchor id="Anchor34640" role="Cross-Ref"
-    xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information" />
+    <para id="Para551581"><anchor id="Anchor34640" role="Cross-Ref" xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsShipOrder.png"
-                       id="Graphic551579" />
+            <imagedata fileref="images/Topic_upsShipOrder.png" id="Graphic551579"/>
           </imageobject>
           <caption id="Caption551583">Sales Order with UPS WorldShip
           Information</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para551586">As you can see in <link endterm="Anchor34640"
-    id="XRef551585" linkend="Anchor34640"> Sales Order with UPS WorldShip
-    Information</link>Figure 7.10, our Order contains UPS Tracking Number
+    <para id="Para551586">As you can see in <xref endterm="Anchor34640" linkend="Anchor34640"/>
+    FINDME
+  Figure 7.10, our Order contains UPS Tracking Number
     information. And the total shipping and handling charges appear in the
     Freight field.</para>
     <note>

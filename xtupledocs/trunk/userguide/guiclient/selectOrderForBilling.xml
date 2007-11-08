@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519242">
    <title>
        
@@ -246,7 +245,9 @@
          <listitem id="listitemN0x180ac00N0x1903bb4">
             <para>Brings you to the Sales Order screen, where you may edit the
         specified Sales Order. The Sales Order screen is described at length
-        in the <link endterm="Anchor23923" id="XRef532069" linkend="Anchor23923"> New Sales Order</link>"New Sales Order" section
+        in the <xref endterm="Anchor23923" linkend="Anchor23923"/>
+    FINDME
+  "New Sales Order" section
         of this chapter.</para>
          </listitem>
       </varlistentry>
@@ -273,6 +274,5 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBillingQty.xml"
-               xpointer="element(/1)"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBillingQty.xml" xpointer="element(/1)"/>
 </section>

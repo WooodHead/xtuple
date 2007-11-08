@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="selectPayments">
   <title><indexterm significance="normal">
       <primary>payments</primary>
@@ -17,7 +16,7 @@
   <para id="Para528305"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Pay_selectPay.png" id="Graphic528303" />
+          <imagedata fileref="images/AP_Pay_selectPay.png" id="Graphic528303"/>
         </imageobject>
 
         <caption id="Caption528306">Select Payments</caption>
@@ -50,9 +49,9 @@
 
         <para id="Para566424">Vendor Type Pattern: Enter a Vendor Type pattern
         to select a range of Vendor Types. Refine your search using Regular
-        Expressions, as described in <link endterm="Anchor77806"
-        id="XRef566423" linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        Expressions, as described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
       </listitem>
     </varlistentry>
@@ -201,11 +200,7 @@
     </varlistentry>
   </variablelist>
 
-  <xi:include href="selectBankAccount.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBankAccount.xml" xpointer="element(/1)"/>
 
-  <xi:include href="selectPayment.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectPayment.xml" xpointer="element(/1)"/>
 </section>

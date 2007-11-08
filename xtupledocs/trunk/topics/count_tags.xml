@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672209">
   <title><indexterm significance="normal">
       <primary>topics</primary>
@@ -36,8 +35,7 @@
     <para id="Para672219"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createCTbyItem.png"
-                       id="Graphic672217" />
+            <imagedata fileref="images/Topic_createCTbyItem.png" id="Graphic672217"/>
           </imageobject>
           <caption id="Caption672220">Create Count Tag by Item</caption>
         </mediaobject>
@@ -80,8 +78,7 @@
     <para id="Para672230"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-1.png"
-                       id="Graphic672228" />
+            <imagedata fileref="images/Topic_cntTagEditList-1.png" id="Graphic672228"/>
           </imageobject>
           <caption id="Caption672231">Count Tag Edit List Showing Count
           Tag</caption>
@@ -106,13 +103,11 @@
     total. To open the Count Tag, either double-click on it or highlight it
     and then select the EDIT button. The Count Tag entry screen opens up, as
     shown in the following screenshot:</para>
-    <para id="Para672240"><anchor id="Anchor21825" role="Cross-Ref"
-    xreflabel="21825: Figure: Figure 4.3:  Enter Count Tag Details" />
+    <para id="Para672240"><anchor id="Anchor21825" role="Cross-Ref" xreflabel="21825: Figure: Figure 4.3:  Enter Count Tag Details"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_enterCntTag-1.png"
-                       id="Graphic672238" />
+            <imagedata fileref="images/Topic_enterCntTag-1.png" id="Graphic672238"/>
           </imageobject>
           <caption id="Caption672242">Enter Count Tag Details</caption>
         </mediaobject>
@@ -120,9 +115,9 @@
     <para id="Para672243">In the "Count Qty." field we enter 635. This is the
     Quantity on Hand (QOH) we discovered during our Inventory count.
     Interestingly, the system is showing a different QOH for Item B1 in
-    Warehouse WEST. If you look closely at <link endterm="Anchor21825"
-    id="XRef672245" linkend="Anchor21825"> Enter Count Tag
-    Details</link>Figure 6.90, you can see the system believes there are 640
+    Warehouse WEST. If you look closely at <xref endterm="Anchor21825" linkend="Anchor21825"/>
+    FINDME
+  Figure 6.90, you can see the system believes there are 640
     units on hand. Inventory discrepancies such as this can arise from a
     number of different causes--from undocumented Scrap transactions, to
     pilferage, etc. The important point is that by entering and posting a
@@ -137,13 +132,11 @@
     any information you want to associate with the Count Tag. We are now ready
     to select the SAVE button. As you can see in the following screenshot, the
     count total is now registered on the Count Tag Edit List:</para>
-    <para id="Para672253"><anchor id="Anchor86804" role="Cross-Ref"
-    xreflabel="86804: Figure: Figure 4.4:  Count Tag Details in Edit List" />
+    <para id="Para672253"><anchor id="Anchor86804" role="Cross-Ref" xreflabel="86804: Figure: Figure 4.4:  Count Tag Details in Edit List"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-2.png"
-                       id="Graphic672251" />
+            <imagedata fileref="images/Topic_cntTagEditList-2.png" id="Graphic672251"/>
           </imageobject>
           <caption id="Caption672255">Count Tag Details in Edit List</caption>
         </mediaobject>
@@ -160,9 +153,9 @@
         <primary>cycle counts</primary>
         <secondary>variances and</secondary>
       </indexterm>Inventory Variances Identified</title>
-    <para id="Para672260">Looking at <link endterm="Anchor86804"
-    id="XRef672259" linkend="Anchor86804"> Count Tag Details in Edit
-    List</link>Figure 6.91, you see that the QOH discrepancy has created a
+    <para id="Para672260">Looking at <xref endterm="Anchor86804" linkend="Anchor86804"/>
+    FINDME
+  Figure 6.91, you see that the QOH discrepancy has created a
     negative Inventory Asset variance. The Count Tag Edit List is a good
     starting point for identifying and tracking these discrepancies. Note that
     the list gives you the ability to highlight records when variances exceed
@@ -184,8 +177,7 @@
     <para id="Para672268"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_qohBeforeCntTag-1.png"
-                       id="Graphic672266" />
+            <imagedata fileref="images/Topic_qohBeforeCntTag-1.png" id="Graphic672266"/>
           </imageobject>
           <caption id="Caption672269">QOH Before Count Tag Posted</caption>
         </mediaobject>
@@ -202,8 +194,7 @@
     <para id="Para672276"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_postCntTag-1.png"
-                       id="Graphic672274" />
+            <imagedata fileref="images/Topic_postCntTag-1.png" id="Graphic672274"/>
           </imageobject>
           <caption id="Caption672277">Post Count Tag</caption>
         </mediaobject>
@@ -230,8 +221,7 @@
     <para id="Para672285"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_qohAfterCntTag-1.png"
-                       id="Graphic672283" />
+            <imagedata fileref="images/Topic_qohAfterCntTag-1.png" id="Graphic672283"/>
           </imageobject>
           <caption id="Caption672286">QOH After Count Tag Posted</caption>
         </mediaobject>
@@ -255,8 +245,7 @@
     <para id="Para672294"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_enterCntSlip-1.png"
-                       id="Graphic672292" />
+            <imagedata fileref="images/Topic_enterCntSlip-1.png" id="Graphic672292"/>
           </imageobject>
           <caption id="Caption672295">Count Slip Option on Count Tag Edit
           List</caption>
@@ -266,13 +255,11 @@
     to contribute count subtotals from various sources can be extremely
     useful. Selecting the "Enter Count Slip" option brings up the Count Slip
     interface, as shown in the following screen:</para>
-    <para id="Para672300"><anchor id="Anchor71986" role="Cross-Ref"
-    xreflabel="71986: Figure: Figure 4.9:  Enter Count Slip Details" />
+    <para id="Para672300"><anchor id="Anchor71986" role="Cross-Ref" xreflabel="71986: Figure: Figure 4.9:  Enter Count Slip Details"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_enterCntSlip-2.png"
-                       id="Graphic672298" />
+            <imagedata fileref="images/Topic_enterCntSlip-2.png" id="Graphic672298"/>
           </imageobject>
           <caption id="Caption672302">Enter Count Slip Details</caption>
         </mediaobject>
@@ -281,9 +268,9 @@
       <para id="Para672304">Unlike Count Tags, Count Slips do not have to be
       created before they can be entered.</para>
     </note>
-    <para id="Para672307">As you can see in <link endterm="Anchor71986"
-    id="XRef672306" linkend="Anchor71986"> Enter Count Slip
-    Details</link>Figure 6.96, the Enter Count Slip screen presents us with a
+    <para id="Para672307">As you can see in <xref endterm="Anchor71986" linkend="Anchor71986"/>
+    FINDME
+  Figure 6.96, the Enter Count Slip screen presents us with a
     range of information and options. For the purpose of this exercise, we
     will enter the following:</para>
     <variablelist>
@@ -387,8 +374,7 @@
     <para id="Para672327"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntSlipError.png"
-                       id="Graphic672325" />
+            <imagedata fileref="images/Topic_cntSlipError.png" id="Graphic672325"/>
           </imageobject>
           <caption id="Caption672328">Duplicate Count Slip Error
           Message</caption>
@@ -410,7 +396,7 @@
     <para id="Para672336"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_configIM.png" id="Graphic672334" />
+            <imagedata fileref="images/Topic_configIM.png" id="Graphic672334"/>
           </imageobject>
           <caption id="Caption672337">I/M Module Configuration
           Options</caption>
@@ -478,8 +464,7 @@
     <para id="Para672354"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntSlipEditList-1.png"
-                       id="Graphic672352" />
+            <imagedata fileref="images/Topic_cntSlipEditList-1.png" id="Graphic672352"/>
           </imageobject>
           <caption id="Caption672355">Count Tag Edit List with Unposted Count
           Slips</caption>
@@ -504,8 +489,7 @@
     <para id="Para672364"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntSlipEditList-2.png"
-                       id="Graphic672362" />
+            <imagedata fileref="images/Topic_cntSlipEditList-2.png" id="Graphic672362"/>
           </imageobject>
           <caption id="Caption672365">Count Slip Edit List</caption>
         </mediaobject>
@@ -521,8 +505,7 @@
     <para id="Para672371"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-3.png"
-                       id="Graphic672369" />
+            <imagedata fileref="images/Topic_cntTagEditList-3.png" id="Graphic672369"/>
           </imageobject>
           <caption id="Caption672372">Count Tag Edit List with Posted Count
           Slips</caption>
@@ -536,21 +519,19 @@
     <para id="Para672374">Now that all Count Slip quantities have been
     collected, we are ready to post our Count Tag, as shown in the following
     screenshot:</para>
-    <para id="Para672378"><anchor id="Anchor71186" role="Cross-Ref"
-    xreflabel="71186: Figure: Figure 4.15:  Post Count Tag with Count Slip Comments" />
+    <para id="Para672378"><anchor id="Anchor71186" role="Cross-Ref" xreflabel="71186: Figure: Figure 4.15:  Post Count Tag with Count Slip Comments"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_postCntTag-2.png"
-                       id="Graphic672376" />
+            <imagedata fileref="images/Topic_postCntTag-2.png" id="Graphic672376"/>
           </imageobject>
           <caption id="Caption672380">Post Count Tag with Count Slip
           Comments</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672383">As <link endterm="Anchor71186" id="XRef672382"
-    linkend="Anchor71186"> Post Count Tag with Count Slip
-    Comments</link>Figure 6.102 shows, the cumulative count quantity is
+    <para id="Para672383">As <xref endterm="Anchor71186" linkend="Anchor71186"/>
+    FINDME
+  Figure 6.102 shows, the cumulative count quantity is
     displaying as expected. In the Current Comments field we see the Count
     Slip comments posted by each of our employees. Again, we want to be sure
     to thaw the Inventory at posting. Finally, we simply select the POST COUNT
@@ -569,8 +550,7 @@
     <para id="Para672391"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createCTbyClass.png"
-                       id="Graphic672389" />
+            <imagedata fileref="images/Topic_createCTbyClass.png" id="Graphic672389"/>
           </imageobject>
           <caption id="Caption672392">Create Count Tags by Class
           Code</caption>
@@ -581,21 +561,19 @@
     comment is entered, and then we then select the CREATE TAGS option. To see
     the resulting Count Tags, we once again open the Count Tag Edit
     List:</para>
-    <para id="Para672397"><anchor id="Anchor70270" role="Cross-Ref"
-    xreflabel="70270: Figure: Figure 4.17:  Count Tags Created by Class Code" />
+    <para id="Para672397"><anchor id="Anchor70270" role="Cross-Ref" xreflabel="70270: Figure: Figure 4.17:  Count Tags Created by Class Code"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cntTagEditList-4.png"
-                       id="Graphic672395" />
+            <imagedata fileref="images/Topic_cntTagEditList-4.png" id="Graphic672395"/>
           </imageobject>
           <caption id="Caption672399">Count Tags Created by Class
           Code</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672402">As you can see in <link endterm="Anchor70270"
-    id="XRef672401" linkend="Anchor70270"> Count Tags Created by Class
-    Code</link>Figure 6.104, multiple Count Tags have been created--one for
+    <para id="Para672402">As you can see in <xref endterm="Anchor70270" linkend="Anchor70270"/>
+    FINDME
+  Figure 6.104, multiple Count Tags have been created--one for
     each of the Items fitting our criteria. These Count Tags can now be
     processed using the basic techniques described throughout this
     example.</para>

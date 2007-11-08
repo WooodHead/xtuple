@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section941111">
    <title>
       Preferences</title>
@@ -62,9 +61,11 @@
    </variablelist>
    <note>
       <para id="Para938036">For a complete list of available toolbar buttons,
-    see the <link endterm="Anchor51567" id="XRef938035" linkend="Anchor51567">
-    Toolbar Buttons</link>"Toolbar Buttons" section in the <link endterm="Anchor23250" id="XRef938050" linkend="Anchor23250">
-    Introduction</link>Introduction.</para>
+    see the <xref endterm="Anchor51567" linkend="Anchor51567"/>
+    FINDME
+  "Toolbar Buttons" section in the <xref endterm="Anchor23250" linkend="Anchor23250"/>
+    FINDME
+  Introduction.</para>
    </note>
    <variablelist>
       <varlistentry>
@@ -444,8 +445,6 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="userEventNotification.xml"
-               xpointer="element(/1)"/>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hotkeys.xml"
-               xpointer="element(/1)"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="userEventNotification.xml" xpointer="element(/1)"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hotkeys.xml" xpointer="element(/1)"/>
 </section>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555045" role="openmfg">
    <title>Topic: MPS Basics</title>
    <para id="Para555046">Master Production Scheduling (MPS) is a planning
@@ -315,8 +314,7 @@
          </listitem>
       </itemizedlist>
       <para id="Para555135">
-         <anchor id="Anchor90509" role="Cross-Ref"
-                 xreflabel="90509: Figure: Figure A.4:  MPS Detail Display"/>
+         <anchor id="Anchor90509" role="Cross-Ref" xreflabel="90509: Figure: Figure A.4:  MPS Detail Display"/>
          <screenshot>
             <mediaobject>
                <imageobject>
@@ -327,7 +325,9 @@
          </screenshot>
       </para>
       <para id="Para555140">
-         <link endterm="Anchor90509" id="XRef555139" linkend="Anchor90509"> MPS Detail Display</link>Figure 2.14 shows the
+         <xref endterm="Anchor90509" linkend="Anchor90509"/>
+    FINDME
+  Figure 2.14 shows the
       MPS Detail for the selected Item based on the Calendar selected. In this
       case, the Calendar being used is a special absolute Calendar that shows
       the last three months of 2006 and the first two months of 2007. As you

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section567098">
   <title><indexterm significance="normal">
       <primary>item sites</primary>
@@ -16,8 +15,7 @@
   <para id="Para567103"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_createSitesByC.png"
-                     id="Graphic567101" />
+          <imagedata fileref="images/IM_Utilities_createSitesByC.png" id="Graphic567101"/>
         </imageobject>
         <caption id="Caption567104">Create Item Sites by Class Code</caption>
       </mediaobject>
@@ -52,8 +50,9 @@
         below when generating Planned Replenishment Orders. If you want to
         enforce Order Parameters on manual Orders as well, select the "on
         Manual Orders" option. For more information on how Order Parameters
-        interact with MRP, see the <link endterm="Anchor14508" id="XRef625499"
-        linkend="Anchor14508"> Order Parameters and MRP</link>"Topic: Order
+        interact with MRP, see the <xref endterm="Anchor14508" linkend="Anchor14508"/>
+    FINDME
+  "Topic: Order
         Parameters and MRP" section.</para>
       </listitem>
     </varlistentry>
@@ -75,8 +74,9 @@
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
         Up To quantity--whichever is greater. For more information, see the
-        <link endterm="Anchor14508" id="XRef638310" linkend="Anchor14508">
-        Order Parameters and MRP</link>"Topic: Order Parameters and MRP"
+        <xref endterm="Anchor14508" linkend="Anchor14508"/>
+    FINDME
+  "Topic: Order Parameters and MRP"
         section.</para>
       </listitem>
     </varlistentry>
@@ -96,9 +96,9 @@
         Availability an Item Site should be replenished up to when Material
         Requirements Planning (MRP) is run. In cases where the Reorder Level
         for an Item Site exceeds the Order Up To Level, MRP will replenish the
-        Item Site up to the Reorder Level. For more information, see the <link
-        endterm="Anchor14508" id="XRef638318" linkend="Anchor14508"> Order
-        Parameters and MRP</link>"Topic: Order Parameters and MRP"
+        Item Site up to the Reorder Level. For more information, see the <xref endterm="Anchor14508" linkend="Anchor14508"/>
+    FINDME
+  "Topic: Order Parameters and MRP"
         section.</para>
       </listitem>
     </varlistentry>
@@ -460,18 +460,18 @@
         control are subject to unique processing requirements whenever
         Inventory is received or distributed. For additional information on
         some of the unique methods required to handle Lot-controlled Items,
-        see the <link endterm="Anchor58321" id="XRef625597"
-        linkend="Anchor58321"> Receiving Lot/Serial Items into
-        Inventory</link>"Topic: Receiving Lot/Serial Items into
+        see the <xref endterm="Anchor58321" linkend="Anchor58321"/>
+    FINDME
+  "Topic: Receiving Lot/Serial Items into
         Inventory"section.</para>
         <para id="Para625599" role="openmfg">Serial #: Select to impose Serial
         Number control methods on the Item Site. Item Sites using Serial
         Number control are subject to unique processing requirements whenever
         Inventory is received or distributed. For additional information on
         some of the unique methods required to handle Serial-controlled Items,
-        see the <link endterm="Anchor58321" id="XRef638328"
-        linkend="Anchor58321"> Receiving Lot/Serial Items into
-        Inventory</link>"Topic: Receiving Lot/Serial Items into
+        see the <xref endterm="Anchor58321" linkend="Anchor58321"/>
+    FINDME
+  "Topic: Receiving Lot/Serial Items into
         Inventory"section.</para>
       </listitem>
     </varlistentry>
@@ -497,9 +497,9 @@
         <para id="Para625607">Items designated as Multiple Location Control
         (MLC) Items require special processing whenever Item quantities are
         distributed. For more information on distributing MLC Item quantities,
-        see the <link endterm="Anchor81167" id="XRef625609"
-        linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
-        Items</link>"Inter-Warehouse Transfer" section.</para>
+        see the <xref endterm="Anchor81167" linkend="Anchor81167"/>
+    FINDME
+  "Inter-Warehouse Transfer" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

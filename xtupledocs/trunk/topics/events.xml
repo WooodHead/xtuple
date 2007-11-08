@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section980808">
   <title><indexterm significance="normal">
       <primary>topics</primary>
@@ -22,8 +21,9 @@
       <para id="Para980811">Event: Any one of a limited set of possible
       occurrences precipitated by user activity which OpenMFG defines as
       having special importance. For a complete list of system-defined Events,
-      see <link endterm="Anchor80421" id="XRef980813" linkend="Anchor80421">
-      Appendix A</link>.</para>
+      see <xref endterm="Anchor80421" linkend="Anchor80421"/>
+    FINDME
+  .</para>
     </listitem>
     <listitem>
       <para id="Para980815">Event notification: A system-generated alert sent
@@ -50,8 +50,7 @@
     <para id="Para980823"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_bomBOQ-002.png"
-                       id="Graphic980821" />
+            <imagedata fileref="images/Topic_bomBOQ-002.png" id="Graphic980821"/>
           </imageobject>
           <caption id="Caption980824">Bill of Materials for Manufactured
           Item</caption>
@@ -63,13 +62,11 @@
     user ever changes the quantity of a Work Order. To see this Event in
     action, we will create a Work Order for 100 units of Item BOQ-002. The
     following screenshot shows the Work Order we are creating:</para>
-    <para id="Para980829"><anchor id="Anchor10794" role="Cross-Ref"
-    xreflabel="10794: Figure: Figure 1.2:  Work Order for Item BOQ-002" />
+    <para id="Para980829"><anchor id="Anchor10794" role="Cross-Ref" xreflabel="10794: Figure: Figure 1.2:  Work Order for Item BOQ-002"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_wOrderBOQ-002.png"
-                       id="Graphic980827" />
+            <imagedata fileref="images/Topic_wOrderBOQ-002.png" id="Graphic980827"/>
           </imageobject>
           <caption id="Caption980831">Work Order for Manufactured
           Item</caption>
@@ -89,13 +86,11 @@
     by opening the User Preferences screen found in the System Module. On the
     User Preferences screen, select the EVENTS button. The following screen
     will appear:</para>
-    <para id="Para980839"><anchor id="Anchor84078" role="Cross-Ref"
-    xreflabel="84078: Figure: Figure 1.3:  User Event Screen Showing No Subscriptions" />
+    <para id="Para980839"><anchor id="Anchor84078" role="Cross-Ref" xreflabel="84078: Figure: Figure 1.3:  User Event Screen Showing No Subscriptions"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventNotify1.png"
-                       id="Graphic980837" />
+            <imagedata fileref="images/Topic_eventNotify1.png" id="Graphic980837"/>
           </imageobject>
           <caption id="Caption980841">User Event Notification Screen</caption>
         </mediaobject>
@@ -110,8 +105,9 @@
     on user Event subscriptions. If a user is subscribed to an Event, the user
     will be notified whenever that Event occurs. For this exercise we are
     interested specifically in the Event "WoQtyChanged". As you can see in
-    <link endterm="Anchor84078" id="XRef980846" linkend="Anchor84078"> User
-    Event Screen Showing No Subscriptions</link>, this Event has been
+    <xref endterm="Anchor84078" linkend="Anchor84078"/>
+    FINDME
+  , this Event has been
     highlighted. Simply click your mouse on an Event to highlight it.</para>
     <para id="Para980848">Once the desired Event has been highlighted, we look
     next to the list of Warehouses found on the right-hand side of the screen.
@@ -131,17 +127,15 @@
     BOQ-002--meaning this is the Warehouse where a change in Work Order
     quantity would occur, triggering an Event--we double-click on Warehouse
     EAST. Doing so changes the Notification status for Warehouse EAST to
-    "Yes," as shown in <link endterm="Anchor79592" id="XRef980853"
-    linkend="Anchor79592"> Event Subscription Now Showing on User Events
-    Screen</link>. The user is now subscribed to the "WoQtyChanged"
+    "Yes," as shown in <xref endterm="Anchor79592" linkend="Anchor79592"/>
+    FINDME
+  . The user is now subscribed to the "WoQtyChanged"
     Event.</para>
-    <para id="Para980858"><anchor id="Anchor79592" role="Cross-Ref"
-    xreflabel="79592: Figure: Figure 1.4:  Event Subscription Now Showing on User Events Screen" />
+    <para id="Para980858"><anchor id="Anchor79592" role="Cross-Ref" xreflabel="79592: Figure: Figure 1.4:  Event Subscription Now Showing on User Events Screen"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventNotify2.png"
-                       id="Graphic980856" />
+            <imagedata fileref="images/Topic_eventNotify2.png" id="Graphic980856"/>
           </imageobject>
           <caption id="Caption980860">Event Notification Established for
           Warehouse</caption>
@@ -166,8 +160,7 @@
     <para id="Para980867"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_itemSiteBOQ-002.png"
-                       id="Graphic980865" />
+            <imagedata fileref="images/Topic_itemSiteBOQ-002.png" id="Graphic980865"/>
           </imageobject>
           <caption id="Caption980868">Event Fence for Manufactured
           Item</caption>
@@ -175,15 +168,15 @@
       </screenshot></para>
     <para id="Para980869">Given their measurement in days, Event Fences relate
     to the timing of Events. You might ask, How does timing relate to Events?
-    Well, if you look at the complete list of Events found in <link
-    endterm="Anchor80421" id="XRef980871" linkend="Anchor80421"> Appendix
-    A</link>, you will see that the majority of Events are tied to Sales
+    Well, if you look at the complete list of Events found in <xref endterm="Anchor80421" linkend="Anchor80421"/>
+    FINDME
+  , you will see that the majority of Events are tied to Sales
     Orders or Work Orders. Because Orders have definite due dates and start
     dates, they are time-sensitive.</para>
     <para id="Para980873">Let's return to our specific example now. Look back
-    at the Work Order we created for Item BOQ-002 in <link
-    endterm="Anchor10794" id="XRef980875" linkend="Anchor10794"> Work Order
-    for Item BOQ-002</link>. The start date is "01/09/2004". We recall that
+    at the Work Order we created for Item BOQ-002 in <xref endterm="Anchor10794" linkend="Anchor10794"/>
+    FINDME
+  . The start date is "01/09/2004". We recall that
     the Event Fence setting for Item BOQ-002 in Warehouse EAST is five days.
     That means in terms of calendar days, the Event Fence for this Work Order
     ranges over a period of five days from 01/05/2004 to 01/09/2004. If a
@@ -195,17 +188,15 @@
     track the results. Today's date is 01/08/2004, so we are within the
     specified Event Fence for the BOQ-002 Item Site. All we have to do is open
     the Change Work Order Quantity screen, which is found in the Work Order
-    Control Section of the W/O Module. And as you can see in <link
-    endterm="Anchor52867" id="XRef980879" linkend="Anchor52867"> Event
-    Initiated by Change in Work Order Quantity</link>, we will change the
+    Control Section of the W/O Module. And as you can see in <xref endterm="Anchor52867" linkend="Anchor52867"/>
+    FINDME
+  , we will change the
     original Work Order quantity from 100 units to 75 units:</para>
-    <para id="Para980884"><anchor id="Anchor52867" role="Cross-Ref"
-    xreflabel="52867: Figure: Figure 1.6:  Event Initiated by Change in Work Order Quantity" />
+    <para id="Para980884"><anchor id="Anchor52867" role="Cross-Ref" xreflabel="52867: Figure: Figure 1.6:  Event Initiated by Change in Work Order Quantity"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_changeWoQty.png"
-                       id="Graphic980882" />
+            <imagedata fileref="images/Topic_changeWoQty.png" id="Graphic980882"/>
           </imageobject>
           <caption id="Caption980886">Event Initiated by Change in Work Order
           Quantity</caption>
@@ -221,8 +212,7 @@
     <para id="Para980892"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventAlert.png"
-                       id="Graphic980890" />
+            <imagedata fileref="images/Topic_eventAlert.png" id="Graphic980890"/>
           </imageobject>
           <caption id="Caption980893">Event Notification Alert</caption>
         </mediaobject>
@@ -230,13 +220,11 @@
     <para id="Para980894">To see details about the Event, we double-click on
     the alert button. Doing so opens the OpenMFG Event Manager, as shown in
     the following screen:</para>
-    <para id="Para980898"><anchor id="Anchor49980" role="Cross-Ref"
-    xreflabel="49980: Figure: Figure 1.8:  Event Shown in Event Manager" />
+    <para id="Para980898"><anchor id="Anchor49980" role="Cross-Ref" xreflabel="49980: Figure: Figure 1.8:  Event Shown in Event Manager"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventManager1.png"
-                       id="Graphic980896" />
+            <imagedata fileref="images/Topic_eventManager1.png" id="Graphic980896"/>
           </imageobject>
           <caption id="Caption980900">Event Shown in Event Manager</caption>
         </mediaobject>
@@ -246,9 +234,9 @@
       whether the Event notification button has appeared. Simply select the
       Event Manager option from the System Module menu.</para>
     </note>
-    <para id="Para980905">As you can see in <link endterm="Anchor49980"
-    id="XRef980904" linkend="Anchor49980"> Event Shown in Event
-    Manager</link>, the Event for the current user is displayed. If you are a
+    <para id="Para980905">As you can see in <xref endterm="Anchor49980" linkend="Anchor49980"/>
+    FINDME
+  , the Event for the current user is displayed. If you are a
     manager with permission to view Event details pertaining to other users,
     you would have the ability to select another user on this screen. Looking
     at the details for our current user, we see the Warehouse where the Event
@@ -260,8 +248,7 @@
     <para id="Para980910"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_eventManager2.png"
-                       id="Graphic980908" />
+            <imagedata fileref="images/Topic_eventManager2.png" id="Graphic980908"/>
           </imageobject>
           <caption id="Caption980911">Event Acknowledged in Event
           Manager</caption>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title><indexterm significance="normal">
+  <title id="Anchor81167"><indexterm significance="normal">
       <primary>topics</primary>
       <secondary>multiple location control</secondary>
     </indexterm><indexterm significance="normal">
@@ -41,13 +40,11 @@
     "01-01-03". That is the definition of an MLC Item. It is an Item that is
     located in more than one Warehouse Location. You will notice that
     "01-01-01" is the Default Location for this Item.</para>
-    <para id="Para672857"><anchor id="Anchor82518" role="Cross-Ref"
-    xreflabel="82518: Figure: Figure 2.14:  Distribute Stock To/From Warehouse Locations" />
+    <para id="Para672857"><anchor id="Anchor82518" role="Cross-Ref" xreflabel="82518: Figure: Figure 2.14:  Distribute Stock To/From Warehouse Locations"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc.png"
-                       id="Graphic672855" />
+            <imagedata fileref="images/Topic_distrStockToLoc.png" id="Graphic672855"/>
           </imageobject>
           <caption id="Caption672859">Distribute Stock To/From Warehouse
           Locations</caption>
@@ -79,9 +76,9 @@
         goods to shipping or receiving goods into Inventory.</para>
       </listitem>
     </itemizedlist>
-    <para id="Para672868">As you can see from <link endterm="Anchor82518"
-    id="XRef672867" linkend="Anchor82518"> Distribute Stock To/From Warehouse
-    Locations</link>Figure 6.39, the Material Receipt operation that brought
+    <para id="Para672868">As you can see from <xref endterm="Anchor82518" linkend="Anchor82518"/>
+    FINDME
+  Figure 6.39, the Material Receipt operation that brought
     us to this point calls for the distribution of 300 units of Item TDMR100.
     None of the units have been distributed so far--leaving all 300 units
     still to be distributed. At the bottom of the screen you can see that 680
@@ -126,21 +123,19 @@
     third option--distributing some to one Location and some to the other. To
     begin, we will double-click on Location "01-01-02". The following
     distribution screen will appear:</para>
-    <para id="Para672882"><anchor id="Anchor31853" role="Cross-Ref"
-    xreflabel="31853: Figure: Figure 2.15:  Distribution to Second Location" />
+    <para id="Para672882"><anchor id="Anchor31853" role="Cross-Ref" xreflabel="31853: Figure: Figure 2.15:  Distribution to Second Location"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrToLoc.png"
-                       id="Graphic672880" />
+            <imagedata fileref="images/Topic_distrToLoc.png" id="Graphic672880"/>
           </imageobject>
           <caption id="Caption672884">Initial Distribution to First
           Location</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672887">As you can see from <link endterm="Anchor31853"
-    id="XRef672886" linkend="Anchor31853"> Distribution to Second
-    Location</link>Figure 6.40, we must specify how many toy trucks to
+    <para id="Para672887">As you can see from <xref endterm="Anchor31853" linkend="Anchor31853"/>
+    FINDME
+  Figure 6.40, we must specify how many toy trucks to
     distribute to this Location. We decide to distribute 100 trucks, entering
     this amount in the "Qty. to this Location" field.</para>
     <note>
@@ -154,8 +149,7 @@
     <para id="Para672895"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc2.png"
-                       id="Graphic672893" />
+            <imagedata fileref="images/Topic_distrStockToLoc2.png" id="Graphic672893"/>
           </imageobject>
           <caption id="Caption672896">Display Showing Partial Distribution to
           First Location</caption>
@@ -167,8 +161,7 @@
     <para id="Para672901"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrError.png"
-                       id="Graphic672899" />
+            <imagedata fileref="images/Topic_distrError.png" id="Graphic672899"/>
           </imageobject>
           <caption id="Caption672902">Error Message: Cannot Perform Partial
           Distribution</caption>
@@ -199,8 +192,7 @@
     <para id="Para672911"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrToLoc-2.png"
-                       id="Graphic672909" />
+            <imagedata fileref="images/Topic_distrToLoc-2.png" id="Graphic672909"/>
           </imageobject>
           <caption id="Caption672912">Partial Distribution to Default
           Location</caption>
@@ -213,8 +205,7 @@
     <para id="Para672917"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_distrStockToLoc3.png"
-                       id="Graphic672915" />
+            <imagedata fileref="images/Topic_distrStockToLoc3.png" id="Graphic672915"/>
           </imageobject>
           <caption id="Caption672918">Display Showing Distribution to Second
           Location</caption>

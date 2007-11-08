@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section615525">
   <title><indexterm significance="normal">
       <primary>quantity on hand</primary>
@@ -18,8 +17,7 @@
   <para id="Para519070"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_resetQOHBalances.png"
-                     id="Graphic525901" />
+          <imagedata fileref="images/IM_IT_resetQOHBalances.png" id="Graphic525901"/>
         </imageobject>
         <caption id="Caption519071">Reset QOH Balances</caption>
       </mediaobject>
@@ -28,8 +26,9 @@
     <para id="Para560082">Be sure to thaw any Item Site whose negative
     Quantity on Hand balance you want to reset to "0". An Item Site must be
     unfrozen before its QOH balance can be reset. For more information on
-    freezing and thawing, see the <link endterm="Anchor80983" id="XRef567659"
-    linkend="Anchor80983"> Freezing and Thawing</link>"Topic: Freezing and
+    freezing and thawing, see the <xref endterm="Anchor80983" linkend="Anchor80983"/>
+    FINDME
+  "Topic: Freezing and
     Thawing" section.</para>
   </tip>
   <para id="Para560062">When resetting Quantity on Hand balances, you are
@@ -69,9 +68,9 @@
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
         <para id="Para677019">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef677018"
-        linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
       </listitem>
     </varlistentry>
@@ -97,8 +96,8 @@
   <note>
     <para id="Para578302">Additional steps will be necessary if any Items
     within the specified Class Code(s) are stored in multiple Locations. For
-    more information, see the <link endterm="Anchor81167" id="XRef578304"
-    linkend="Anchor81167"> Distributing Multiple Location Control (MLC)
-    Items</link>"Inter-Warehouse Transfer" section.</para>
+    more information, see the <xref endterm="Anchor81167" linkend="Anchor81167"/>
+    FINDME
+  "Inter-Warehouse Transfer" section.</para>
   </note>
 </section>

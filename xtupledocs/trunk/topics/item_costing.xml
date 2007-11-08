@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section665443">
   <title><indexterm significance="normal">
       <primary>topics</primary>
@@ -71,8 +70,7 @@
     <para id="Para665458"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-1.png"
-                       id="Graphic665456" />
+            <imagedata fileref="images/Topic_maintItemCost-1.png" id="Graphic665456"/>
           </imageobject>
           <caption id="Caption665459">Initial Maintain Item Costs Screen for
           Purchased Item B1</caption>
@@ -89,8 +87,7 @@
     <para id="Para665465"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createItemCost-1.png"
-                       id="Graphic665463" />
+            <imagedata fileref="images/Topic_createItemCost-1.png" id="Graphic665463"/>
           </imageobject>
           <caption id="Caption665466">Create Item Cost for Material</caption>
         </mediaobject>
@@ -105,8 +102,7 @@
     <para id="Para665471"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-2.png"
-                       id="Graphic665469" />
+            <imagedata fileref="images/Topic_maintItemCost-2.png" id="Graphic665469"/>
           </imageobject>
           <caption id="Caption665472">Actual Cost Entered for Item
           B1</caption>
@@ -128,8 +124,7 @@
     <para id="Para665479"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-3.png"
-                       id="Graphic665477" />
+            <imagedata fileref="images/Topic_maintItemCost-3.png" id="Graphic665477"/>
           </imageobject>
           <caption id="Caption665480">Actual Cost Posted to Standard Cost for
           Item B1</caption>
@@ -156,8 +151,7 @@
     <para id="Para665489"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM.png"
-                       id="Graphic665487" />
+            <imagedata fileref="images/Topic_costSingleBOM.png" id="Graphic665487"/>
           </imageobject>
           <caption id="Caption665490">Costed View of Component Items</caption>
         </mediaobject>
@@ -168,8 +162,7 @@
     <para id="Para665495"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_updateActCost.png"
-                       id="Graphic665493" />
+            <imagedata fileref="images/Topic_updateActCost.png" id="Graphic665493"/>
           </imageobject>
           <caption id="Caption665496">Update Actual Cost for Item B1</caption>
         </mediaobject>
@@ -185,21 +178,19 @@
     reflecting the change in the Vendor pricing. If we return now to the
     Costed Bill of Materials for Item SET, we can see how the change affected
     one of the manufactured Items where Item B1 is used:</para>
-    <para id="Para665503"><anchor id="Anchor39159" role="Cross-Ref"
-    xreflabel="39159: Figure: Figure 9.3:  Actual Cost of Component Item Updated" />
+    <para id="Para665503"><anchor id="Anchor39159" role="Cross-Ref" xreflabel="39159: Figure: Figure 9.3:  Actual Cost of Component Item Updated"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM2.png"
-                       id="Graphic665501" />
+            <imagedata fileref="images/Topic_costSingleBOM2.png" id="Graphic665501"/>
           </imageobject>
           <caption id="Caption665505">Actual Cost of Component Item
           Updated</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para665508">You have to look closely at <link
-    endterm="Anchor39159" id="XRef665507" linkend="Anchor39159"> Actual Cost
-    of Component Item Updated</link>Figure 5.75 to fully appreciate the subtle
+    <para id="Para665508">You have to look closely at <xref endterm="Anchor39159" linkend="Anchor39159"/>
+    FINDME
+  Figure 5.75 to fully appreciate the subtle
     changes that have occurred. For one thing, you can see that the unit Cost
     for Item B1 has been updated to $7.00. This change affected the "Total
     Cost" for the parent Item SET. However, the Actual and Standard Costs for
@@ -227,16 +218,15 @@
       Cost and the Actual and Standard Costs for an Item on the Costed Bill of
       Materials display.</para>
     </tip>
-    <para id="Para665519">Another point to consider is that <link
-    endterm="Anchor39159" id="XRef665518" linkend="Anchor39159"> Actual Cost
-    of Component Item Updated</link>Figure 5.75 is displaying data using the
+    <para id="Para665519">Another point to consider is that <xref endterm="Anchor39159" linkend="Anchor39159"/>
+    FINDME
+  Figure 5.75 is displaying data using the
     "Use Actual Cost" parameter. Note the difference when the "Use Standard
     Cost" option is selected instead, as shown in the following screen:</para>
     <para id="Para665524"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM3.png"
-                       id="Graphic665522" />
+            <imagedata fileref="images/Topic_costSingleBOM3.png" id="Graphic665522"/>
           </imageobject>
           <caption id="Caption665526">No Affect on Standard Cost from Actual
           Cost Update</caption>
@@ -248,20 +238,18 @@
     <para id="Para665528">To roll up the Item B1 Cost update so that Item SET
     recognizes the change, we open the Update Actual Costs by Item screen, as
     shown below:</para>
-    <para id="Para665532"><anchor id="Anchor18335" role="Cross-Ref"
-    xreflabel="18335: Figure: Figure 9.5:  Roll Up Actual Cost Update" />
+    <para id="Para665532"><anchor id="Anchor18335" role="Cross-Ref" xreflabel="18335: Figure: Figure 9.5:  Roll Up Actual Cost Update"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_updateActCost2.png"
-                       id="Graphic665530" />
+            <imagedata fileref="images/Topic_updateActCost2.png" id="Graphic665530"/>
           </imageobject>
           <caption id="Caption665534">Roll Up Actual Cost Update</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para665537">As you can see in <link endterm="Anchor18335"
-    id="XRef665536" linkend="Anchor18335"> Roll Up Actual Cost
-    Update</link>Figure 5.77, we have selected the "Roll Up Actual Costs"
+    <para id="Para665537">As you can see in <xref endterm="Anchor18335" linkend="Anchor18335"/>
+    FINDME
+  Figure 5.77, we have selected the "Roll Up Actual Costs"
     option. Here we are performing a Cost roll up--which is to say that we are
     seeking to impact Actual Costs for all Items that use Item B1. After we
     select the UPDATE button, all Items that use Item B1 will recognize the
@@ -270,8 +258,7 @@
     <para id="Para665542"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM4.png"
-                       id="Graphic665540" />
+            <imagedata fileref="images/Topic_costSingleBOM4.png" id="Graphic665540"/>
           </imageobject>
           <caption id="Caption665543">Actual Cost Rolled Up and Recognized by
           Parent Item</caption>
@@ -295,8 +282,7 @@
     <para id="Para665551"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_updateActCost3.png"
-                       id="Graphic665549" />
+            <imagedata fileref="images/Topic_updateActCost3.png" id="Graphic665549"/>
           </imageobject>
           <caption id="Caption665552">Manufactured Item Perspective on Cost
           Roll Up</caption>
@@ -315,21 +301,20 @@
     the Maintain Item Costs screen, for example. That means, the Standard Cost
     for Item B1 is now also $7.00, as we see reflected in the Costed Bill of
     Materials for Item SET:</para>
-    <para id="Para665559"><anchor id="Anchor22474" role="Cross-Ref"
-    xreflabel="22474: Figure: Figure 9.8:  Standard Cost Updated for Item B1" />
+    <para id="Para665559"><anchor id="Anchor22474" role="Cross-Ref" xreflabel="22474: Figure: Figure 9.8:  Standard Cost Updated for Item B1"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM5.png"
-                       id="Graphic665557" />
+            <imagedata fileref="images/Topic_costSingleBOM5.png" id="Graphic665557"/>
           </imageobject>
           <caption id="Caption665561">Standard Cost Updated for Item
           B1</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para665564">When the "Use Standard Costs" option is selected as
-    in <link endterm="Anchor22474" id="XRef665563" linkend="Anchor22474">
-    Standard Cost Updated for Item B1</link>Figure 5.80, you can see that the
+    in <xref endterm="Anchor22474" linkend="Anchor22474"/>
+    FINDME
+  Figure 5.80, you can see that the
     Total Cost for Item SET differs from the Standard Cost. This means that
     the Standard Cost update for Item B1 has not been recognized. To ensure
     that parent Items recognize the Standard Cost change, we must roll up the
@@ -337,8 +322,7 @@
     <para id="Para665569"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_postActCost.png"
-                       id="Graphic665567" />
+            <imagedata fileref="images/Topic_postActCost.png" id="Graphic665567"/>
           </imageobject>
           <caption id="Caption665570">Rolling Up Standard Cost</caption>
         </mediaobject>
@@ -350,8 +334,7 @@
     <para id="Para665575"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costSingleBOM6.png"
-                       id="Graphic665573" />
+            <imagedata fileref="images/Topic_costSingleBOM6.png" id="Graphic665573"/>
           </imageobject>
           <caption id="Caption665576">Standard Cost Update Recognized by
           Parent Item</caption>
@@ -371,8 +354,7 @@
     <para id="Para665583"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createItemCost-2.png"
-                       id="Graphic665581" />
+            <imagedata fileref="images/Topic_createItemCost-2.png" id="Graphic665581"/>
           </imageobject>
           <caption id="Caption665584">Add User-Defined Costing
           Element</caption>
@@ -389,8 +371,7 @@
     <para id="Para665591"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-4.png"
-                       id="Graphic665589" />
+            <imagedata fileref="images/Topic_maintItemCost-4.png" id="Graphic665589"/>
           </imageobject>
           <caption id="Caption665592">User-Defined Cost Added to Actual
           Cost</caption>
@@ -403,8 +384,7 @@
     <para id="Para665597"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_userCostElem.png"
-                       id="Graphic665595" />
+            <imagedata fileref="images/Topic_userCostElem.png" id="Graphic665595"/>
           </imageobject>
           <caption id="Caption665598">Master List of User-Defined Costing
           Elements</caption>
@@ -438,13 +418,11 @@
     The fourth component--Item TDPKIT--is also manufactured. Item TDPKIT is
     the packaging used to package the yellow toy truck. The next screen shows
     an indented Bill of Materials for Item TDMR100:</para>
-    <para id="Para665609"><anchor id="Anchor98976" role="Cross-Ref"
-    xreflabel="98976: Figure: Figure 8.8:  Indented Bill of Materials" />
+    <para id="Para665609"><anchor id="Anchor98976" role="Cross-Ref" xreflabel="98976: Figure: Figure 8.8:  Indented Bill of Materials"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_indentBOMTruck.png"
-                       id="Graphic665607" />
+            <imagedata fileref="images/Topic_indentBOMTruck.png" id="Graphic665607"/>
           </imageobject>
           <caption id="Caption665611">Indented Bill of Materials</caption>
         </mediaobject>
@@ -466,27 +444,26 @@
     understanding how these Costs fit together.</para>
     <para id="Para665616">Let's start by looking at Costs associated with the
     manufactured component Item TDPKIT, the packaging for our yellow truck. As
-    we saw in <link endterm="Anchor98976" id="XRef665618"
-    linkend="Anchor98976"> Indented Bill of Materials</link>Figure 5.86, Item
+    we saw in <xref endterm="Anchor98976" linkend="Anchor98976"/>
+    FINDME
+  Figure 5.86, Item
     TDPKIT is the fourth component listed on the Bill of Materials for the
     parent Item. The Costs for Item TDPKIT are shown in the following
     screenshot:</para>
-    <para id="Para665623"><anchor id="Anchor30461" role="Cross-Ref"
-    xreflabel="30461: Figure: Figure 8.9:  Item Costing for Manufactured Component Item TDPKIT" />
+    <para id="Para665623"><anchor id="Anchor30461" role="Cross-Ref" xreflabel="30461: Figure: Figure 8.9:  Item Costing for Manufactured Component Item TDPKIT"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-5.png"
-                       id="Graphic665621" />
+            <imagedata fileref="images/Topic_maintItemCost-5.png" id="Graphic665621"/>
           </imageobject>
           <caption id="Caption665625">Item Costing for Manufactured Component
           Item TDPKIT</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para665626">A few key points about manufactured Item costing can
-    be made by looking closely at the information displayed in <link
-    endterm="Anchor30461" id="XRef665628" linkend="Anchor30461"> Item Costing
-    for Manufactured Component Item TDPKIT</link>Figure 5.87:</para>
+    be made by looking closely at the information displayed in <xref endterm="Anchor30461" linkend="Anchor30461"/>
+    FINDME
+  Figure 5.87:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem id="listitemN0x180ac00N0x18da1c8">
         <para id="Para665630">Three system-defined Costing Elements are
@@ -519,8 +496,7 @@
     <para id="Para665639"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-6.png"
-                       id="Graphic665637" />
+            <imagedata fileref="images/Topic_maintItemCost-6.png" id="Graphic665637"/>
           </imageobject>
           <caption id="Caption665640">Costs for Component Items</caption>
         </mediaobject>
@@ -559,9 +535,9 @@
       </indexterm>Labor and Overhead Costs</title>
     <para id="Para665645">So, that explains the material Costs for Item
     TDPKIT. Now let's look at the Item's direct labor Costs. We"ll explore the
-    overhead Costs a little later. Referring back to <link
-    endterm="Anchor30461" id="XRef665647" linkend="Anchor30461"> Item Costing
-    for Manufactured Component Item TDPKIT</link>Figure 5.87, you recall that
+    overhead Costs a little later. Referring back to <xref endterm="Anchor30461" linkend="Anchor30461"/>
+    FINDME
+  Figure 5.87, you recall that
     direct labor Costs for Item TDPKIT total $1.00. How was this amount
     determined? The answer to that question is the subject of our next
     scenario.</para>
@@ -574,7 +550,7 @@
     <para id="Para665653"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_booTDPKIT.png" id="Graphic665651" />
+            <imagedata fileref="images/Topic_booTDPKIT.png" id="Graphic665651"/>
           </imageobject>
           <caption id="Caption665654">Bill of Operations for Item
           TDPKIT</caption>
@@ -585,21 +561,19 @@
     performed in Work Center "Assembly." We can learn more about this
     Operation by double-clicking on it to open it, as shown in the following
     screen:</para>
-    <para id="Para665659"><anchor id="Anchor59303" role="Cross-Ref"
-    xreflabel="59303: Figure: Figure 8.12:  Operation Detail from TDPKIT Bill of Operations" />
+    <para id="Para665659"><anchor id="Anchor59303" role="Cross-Ref" xreflabel="59303: Figure: Figure 8.12:  Operation Detail from TDPKIT Bill of Operations"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_booItemTDPKIT.png"
-                       id="Graphic665657" />
+            <imagedata fileref="images/Topic_booItemTDPKIT.png" id="Graphic665657"/>
           </imageobject>
           <caption id="Caption665661">Operation Detail from TDPKIT Bill of
           Operations</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para665664">The Bill of Operations Item screen shown in <link
-    endterm="Anchor59303" id="XRef665663" linkend="Anchor59303"> Operation
-    Detail from TDPKIT Bill of Operations</link>Figure 5.90 contains extensive
+    <para id="Para665664">The Bill of Operations Item screen shown in <xref endterm="Anchor59303" linkend="Anchor59303"/>
+    FINDME
+  Figure 5.90 contains extensive
     controls used to define the Operation. Looking closely at the screenshot,
     we see Standard Operation "TD-A" is in use. Standard Operations are not
     required, but in this case one is being used.</para>
@@ -643,9 +617,9 @@
       regardless of the quantity ordered.</para>
     </note>
     <para id="Para665676">You should pay attention also to how reporting of
-    setup and run time is specified. We see in <link endterm="Anchor59303"
-    id="XRef665678" linkend="Anchor59303"> Operation Detail from TDPKIT Bill
-    of Operations</link>Figure 5.90 that both times are to be reported as
+    setup and run time is specified. We see in <xref endterm="Anchor59303" linkend="Anchor59303"/>
+    FINDME
+  Figure 5.90 that both times are to be reported as
     Direct Labor. This means that all labor required to set up the Work Center
     and also to run the Operation will appear as Direct Labor Cost for the
     Item.</para>
@@ -654,8 +628,7 @@
     <para id="Para665684"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_standOpTDPKIT.png"
-                       id="Graphic665682" />
+            <imagedata fileref="images/Topic_standOpTDPKIT.png" id="Graphic665682"/>
           </imageobject>
           <caption id="Caption665685">Standard Operation Master</caption>
         </mediaobject>
@@ -663,29 +636,28 @@
     <para id="Para665686">The setup and run time values entered on the
     Standard Operation master transfer to the Bill of Operations if and when
     the Standard Operation is specified. As you can see, the same values
-    appear here as we saw in <link endterm="Anchor59303" id="XRef665688"
-    linkend="Anchor59303"> Operation Detail from TDPKIT Bill of
-    Operations</link>Figure 5.90. These values may be changed at the Operation
+    appear here as we saw in <xref endterm="Anchor59303" linkend="Anchor59303"/>
+    FINDME
+  Figure 5.90. These values may be changed at the Operation
     level, but any permanent changes must be made to the Standard Operation
     master itself.</para>
     <para id="Para665690">So we now know the amount of time required for the
     Operation. Next we need to determine the rate charged for labor. For that
     information, we must turn to the Work Center master for Work Center
     "Assembly," as shown in the next screenshot:</para>
-    <para id="Para665694"><anchor id="Anchor13529" role="Cross-Ref"
-    xreflabel="13529: Figure: Figure 8.14:  Work Center Master" /> <screenshot>
+    <para id="Para665694"><anchor id="Anchor13529" role="Cross-Ref" xreflabel="13529: Figure: Figure 8.14:  Work Center Master"/> <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_workCenterTDPKIT.png"
-                       id="Graphic665692" />
+            <imagedata fileref="images/Topic_workCenterTDPKIT.png" id="Graphic665692"/>
           </imageobject>
           <caption id="Caption665696">Work Center Master</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para665697">Just as Standard Operations may be used for Bill of
     Operations Items, so may Standard Labor Rates be used for Work Centers. As
-    you can see in <link endterm="Anchor13529" id="XRef665699"
-    linkend="Anchor13529"> Work Center Master</link>Figure 5.92, the Standard
+    you can see in <xref endterm="Anchor13529" linkend="Anchor13529"/>
+    FINDME
+  Figure 5.92, the Standard
     Labor Rate "MA10" is specified for both run and setup labor. To determine
     what the dollar amount is for this standard rate, we open the Standard
     Labor Rates master list found in the Master Information section of the P/D
@@ -694,8 +666,7 @@
     <para id="Para665704"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_standLabRate.png"
-                       id="Graphic665702" />
+            <imagedata fileref="images/Topic_standLabRate.png" id="Graphic665702"/>
           </imageobject>
           <caption id="Caption665706">Standard Labor Rate</caption>
         </mediaobject>
@@ -743,13 +714,11 @@
     <para id="Para665717">To verify that $1.00 is indeed the direct labor Cost
     for Item TDPKIT, let's look at the Maintain Item Costs screen for Item
     TDPKIT again:</para>
-    <para id="Para665721"><anchor id="Anchor90804" role="Cross-Ref"
-    xreflabel="90804: Figure: Figure 8.16:  Item Costing for Item TDPKIT" />
+    <para id="Para665721"><anchor id="Anchor90804" role="Cross-Ref" xreflabel="90804: Figure: Figure 8.16:  Item Costing for Item TDPKIT"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-5.png"
-                       id="Graphic665719" />
+            <imagedata fileref="images/Topic_maintItemCost-5.png" id="Graphic665719"/>
           </imageobject>
           <caption id="Caption665723">Item Costing for Item TDPKIT</caption>
         </mediaobject>
@@ -759,8 +728,9 @@
     Standard Cost for the Item.</para>
     <para id="Para665725">Finally, we need to determine how overhead Cost for
     Item TDPKIT is arrived at. Referring back to the Work Center master shown
-    in <link endterm="Anchor13529" id="XRef665727" linkend="Anchor13529"> Work
-    Center Master</link>Figure 5.92, we recall that the overhead rate per hour
+    in <xref endterm="Anchor13529" linkend="Anchor13529"/>
+    FINDME
+  Figure 5.92, we recall that the overhead rate per hour
     = $10.00 To calculate overhead Cost then, we would use the following
     formula:</para>
     <itemizedlist>
@@ -777,8 +747,9 @@
       </listitem>
     </itemizedlist>
     <para id="Para665734">Again, referring to the Item Costing detail shown in
-    <link endterm="Anchor90804" id="XRef665733" linkend="Anchor90804"> Item
-    Costing for Item TDPKIT</link>Figure 5.94, we can verify that reported
+    <xref endterm="Anchor90804" linkend="Anchor90804"/>
+    FINDME
+  Figure 5.94, we can verify that reported
     overhead Costs for Item TDPKIT = $1.00.</para>
   </section>
   <section id="Section665737">
@@ -793,13 +764,11 @@
     factors we have to consider are more complicated.</para>
     <para id="Para665739">To begin, let's look at the Costs for Item TDMR100,
     as shown in the following screen:</para>
-    <para id="Para665743"><anchor id="Anchor56668" role="Cross-Ref"
-    xreflabel="56668: Figure: Figure 8.17:  Item Costing for Parent Item TDMR100" />
+    <para id="Para665743"><anchor id="Anchor56668" role="Cross-Ref" xreflabel="56668: Figure: Figure 8.17:  Item Costing for Parent Item TDMR100"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_maintItemCost-7.png"
-                       id="Graphic665741" />
+            <imagedata fileref="images/Topic_maintItemCost-7.png" id="Graphic665741"/>
           </imageobject>
           <caption id="Caption665745">Item Costing for Parent Item
           TDMR100</caption>
@@ -829,8 +798,7 @@
     <para id="Para665753"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_costedIndentBOM.png"
-                       id="Graphic665751" />
+            <imagedata fileref="images/Topic_costedIndentBOM.png" id="Graphic665751"/>
           </imageobject>
           <caption id="Caption665755">Costed Indented Bill of Materials
           Display for Item TDMR100</caption>
@@ -856,8 +824,9 @@
     <para id="Para665761">When we add all these material Costs together--TDMRY
     ($0.0025), TDMRB ($2.5000), TDMRW ($1.2500), TDK1 ($0.3000), and TDK2
     ($0.2500)--we get an overall material Cost for Item TDMR100 of $8.0525.
-    Referring back to <link endterm="Anchor56668" id="XRef665763"
-    linkend="Anchor56668"> Item Costing for Parent Item TDMR100</link>Figure
+    Referring back to <xref endterm="Anchor56668" linkend="Anchor56668"/>
+    FINDME
+  Figure
     5.95, we can verify on the Maintain Item Costs screen that this amount is
     in fact the reported material Cost for Item TDMR100.</para>
     <para id="Para665765">Next, we need to examine how direct labor Costs for
@@ -866,8 +835,7 @@
     <para id="Para665769"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_booTDMR100.png"
-                       id="Graphic665767" />
+            <imagedata fileref="images/Topic_booTDMR100.png" id="Graphic665767"/>
           </imageobject>
           <caption id="Caption665770">Bill of Operations for Item
           TDMR100</caption>
@@ -938,8 +906,9 @@
       </listitem>
     </itemizedlist>
     <para id="Para665831">Looking back at the Maintain Item Costs screen shown
-    in <link endterm="Anchor56668" id="XRef665830" linkend="Anchor56668"> Item
-    Costing for Parent Item TDMR100</link>Figure 5.95, we can verify that the
+    in <xref endterm="Anchor56668" linkend="Anchor56668"/>
+    FINDME
+  Figure 5.95, we can verify that the
     direct labor Costs for Item TDMR100 are indeed $2.500. To calculate
     overhead Cost, we would again use a formula we introduced earlier:</para>
     <itemizedlist>
@@ -958,9 +927,9 @@
       </listitem>
     </itemizedlist>
     <para id="Para665836">As expected, this result corresponds to the overhead
-    Costs reported for Item TDMR100 in <link endterm="Anchor56668"
-    id="XRef665838" linkend="Anchor56668"> Item Costing for Parent Item
-    TDMR100</link>Figure 5.95. We have now accounted for all the Costs
+    Costs reported for Item TDMR100 in <xref endterm="Anchor56668" linkend="Anchor56668"/>
+    FINDME
+  Figure 5.95. We have now accounted for all the Costs
     associated with our manufactured Item TDMR100.</para>
   </section>
 </section>

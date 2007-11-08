@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section672757">
   <title><indexterm significance="normal">
       <primary>topics</primary>
@@ -35,8 +34,7 @@
     <para id="Para672767"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_itemSitesWest.png"
-                       id="Graphic672765" />
+            <imagedata fileref="images/Topic_itemSitesWest.png" id="Graphic672765"/>
           </imageobject>
           <caption id="Caption672768">Item Sites in WEST Warehouse</caption>
         </mediaobject>
@@ -51,8 +49,7 @@
     <para id="Para672773"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cycleEditList-1.png"
-                       id="Graphic672771" />
+            <imagedata fileref="images/Topic_cycleEditList-1.png" id="Graphic672771"/>
           </imageobject>
           <caption id="Caption672774">Empty Count Tag Edit List</caption>
         </mediaobject>
@@ -77,21 +74,19 @@
     Counted every 30 days; if the setting is "5", the Item Site should be
     Cycle Counted every 5 days, etc. The following screenshot shows the Item
     Site master for Item B1, one of our target Items:</para>
-    <para id="Para672784"><anchor id="Anchor43066" role="Cross-Ref"
-    xreflabel="43066: Figure: Figure 4.3:  Cycle Count Frequency for Item in WEST Warehouse" />
+    <para id="Para672784"><anchor id="Anchor43066" role="Cross-Ref" xreflabel="43066: Figure: Figure 4.3:  Cycle Count Frequency for Item in WEST Warehouse"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_itemSiteB1.png"
-                       id="Graphic672782" />
+            <imagedata fileref="images/Topic_itemSiteB1.png" id="Graphic672782"/>
           </imageobject>
           <caption id="Caption672786">Cycle Count Frequency for Item in WEST
           Warehouse</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672789">As you can see in <link endterm="Anchor43066"
-    id="XRef672788" linkend="Anchor43066"> Cycle Count Frequency for Item in
-    WEST Warehouse</link>Figure 6.108, the Cycle Count frequency for Item B1
+    <para id="Para672789">As you can see in <xref endterm="Anchor43066" linkend="Anchor43066"/>
+    FINDME
+  Figure 6.108, the Cycle Count frequency for Item B1
     is set to "1". This means the Item Site should be Cycle Counted on a daily
     basis. In fact, all our target Items in Warehouse WEST share the same
     frequency setting. They are all due to be Cycle Counted every day.</para>
@@ -106,13 +101,11 @@
     The answer is that OpenMFG monitors this information for you. Take a look
     at the next screenshot, which shows the I/M Module display Item Sites by
     Class Code:</para>
-    <para id="Para672797"><anchor id="Anchor40341" role="Cross-Ref"
-    xreflabel="40341: Figure: Figure 4.4:  Last Counted Dates for Target Item Sites" />
+    <para id="Para672797"><anchor id="Anchor40341" role="Cross-Ref" xreflabel="40341: Figure: Figure 4.4:  Last Counted Dates for Target Item Sites"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cycleSitesByClass-1.png"
-                       id="Graphic672795" />
+            <imagedata fileref="images/Topic_cycleSitesByClass-1.png" id="Graphic672795"/>
           </imageobject>
           <caption id="Caption672799">Last Counted Dates for Target Item
           Sites</caption>
@@ -120,9 +113,9 @@
       </screenshot></para>
     <para id="Para672800">The Item Sites by Class Code display is one of a
     series of I/M Module displays dedicated to rendering Item Site
-    information. As you can see in <link endterm="Anchor40341" id="XRef672802"
-    linkend="Anchor40341"> Last Counted Dates for Target Item
-    Sites</link>Figure 6.109, we are displaying all Item Sites in Warehouse
+    information. As you can see in <xref endterm="Anchor40341" linkend="Anchor40341"/>
+    FINDME
+  Figure 6.109, we are displaying all Item Sites in Warehouse
     WEST belonging to Class Code Books. Not only do we see Item Numbers and
     Item Descriptions, but to the right of the screen we also see a column
     labeled "Last Cnt"d." This column displays the date when a given Item Site
@@ -146,21 +139,19 @@
     frequency for these Item Sites indicates they should be Cycle Counted
     daily. So now we need to initiate a Cycle Count. To do so, we open the
     Create Cycle Count Tags by Warehouse screen, as shown below:</para>
-    <para id="Para672812"><anchor id="Anchor98817" role="Cross-Ref"
-    xreflabel="98817: Figure: Figure 4.5:  Create Cycle Count Tags by Warehouse" />
+    <para id="Para672812"><anchor id="Anchor98817" role="Cross-Ref" xreflabel="98817: Figure: Figure 4.5:  Create Cycle Count Tags by Warehouse"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_createCycleCntTags.png"
-                       id="Graphic672810" />
+            <imagedata fileref="images/Topic_createCycleCntTags.png" id="Graphic672810"/>
           </imageobject>
           <caption id="Caption672814">Create Cycle Count Tags by
           Warehouse</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para672817">As you can see in <link endterm="Anchor98817"
-    id="XRef672816" linkend="Anchor98817"> Create Cycle Count Tags by
-    Warehouse</link>Figure 6.110, we have specified the parameters required to
+    <para id="Para672817">As you can see in <xref endterm="Anchor98817" linkend="Anchor98817"/>
+    FINDME
+  Figure 6.110, we have specified the parameters required to
     produce our desired result--namely, the creation of Cycle Count Tags for
     Items in Class Code Books located in Warehouse WEST. Here are the
     parameters we specified:</para>
@@ -207,8 +198,7 @@
     <para id="Para672829"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cycleEditList-2.png"
-                       id="Graphic672827" />
+            <imagedata fileref="images/Topic_cycleEditList-2.png" id="Graphic672827"/>
           </imageobject>
           <caption id="Caption672830">Count Tags Edit List Showing Cycle Count
           Tags</caption>
@@ -236,8 +226,7 @@
     <para id="Para672838"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_cycleSitesByClass-2.png"
-                       id="Graphic672836" />
+            <imagedata fileref="images/Topic_cycleSitesByClass-2.png" id="Graphic672836"/>
           </imageobject>
           <caption id="Caption672839">Item Site Display Showing Updated Last
           Counted Dates</caption>

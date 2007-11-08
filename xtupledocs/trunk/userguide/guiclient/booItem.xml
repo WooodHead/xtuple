@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="booItem" role="openmfg">
   <title><indexterm significance="normal">
       <primary>bills of operations</primary>
@@ -14,7 +13,7 @@
   <para id="Para519545"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOO_newBOOItem.png" id="Graphic563108" />
+          <imagedata fileref="images/PD_BOO_newBOOItem.png" id="Graphic563108"/>
         </imageobject>
         <caption id="Caption519546">Add New Operation to Bill of
         Operations</caption>
@@ -156,8 +155,9 @@
         <para>This is the ratio that normalizes quantities to create a
         Production UOM for use when posting Work Order Operations. The ratio
         is set up in the same way as the Capacity/Inventory UOM ratio
-        described in the <link endterm="Anchor13555" id="XRef629153"
-        linkend="Anchor13555"> Enter New Item</link>"Enter New Item"
+        described in the <xref endterm="Anchor13555" linkend="Anchor13555"/>
+    FINDME
+  "Enter New Item"
         section.</para>
       </listitem>
     </varlistentry>
@@ -222,15 +222,14 @@
         quantity which accurately reflects your normal batch size for the
         Operation. Specifying a standard batch size helps ensure your
         Operations Costs are evenly distributed. For an example of how the
-        batch size can help distribute Costs from Operations, see <link
-        endterm="Anchor15267" id="XRef647277" linkend="Anchor15267"> Affect of
-        Batch Size on Manufactured Item Costing</link>Table 5.1.</para>
+        batch size can help distribute Costs from Operations, see <xref endterm="Anchor15267" linkend="Anchor15267"/>
+    FINDME
+  Table 5.1.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <para id="Para646341"><table id="Table646345">
-      <title><anchor id="Anchor15267" role="Cross-Ref"
-      xreflabel="15267: Figure: Figure 5.51:  Affect of Batch Size on Manufactured Item Costing" />
+      <title><anchor id="Anchor15267" role="Cross-Ref" xreflabel="15267: Figure: Figure 5.51:  Affect of Batch Size on Manufactured Item Costing"/>
       Affect of Batch Size on Manufactured Item Costing</title>
       <tgroup cols="8">
         <thead>
@@ -245,11 +244,9 @@
             Mins </para></entry>
             <entry><para id="Para647064"> Mins </para> <para id="Para647065">
             Per </para></entry>
-            <entry><para id="Para647067"> Cost @ </para> <para
-            id="Para647068"> .10c per </para> <para id="Para647069"> Min
+            <entry><para id="Para647067"> Cost @ </para> <para id="Para647068"> .10c per </para> <para id="Para647069"> Min
             </para></entry>
-            <entry><para id="Para647071"> Material </para> <para
-            id="Para647072"> Cost </para> <para id="Para647073"> per Unit
+            <entry><para id="Para647071"> Material </para> <para id="Para647072"> Cost </para> <para id="Para647073"> per Unit
             </para></entry>
             <entry><para id="Para647075"> Total Mfg. Cost per Run
             </para></entry>
@@ -425,8 +422,7 @@
   <para id="Para651103"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOO_BOOInstruct.png"
-                     id="Graphic651101" />
+          <imagedata fileref="images/PD_BOO_BOOInstruct.png" id="Graphic651101"/>
         </imageobject>
         <caption id="Caption651104">Operational Instructions</caption>
       </mediaobject>
@@ -458,7 +454,7 @@
   <para id="Para651115"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOO_BOOImages.png" id="Graphic651113" />
+          <imagedata fileref="images/PD_BOO_BOOImages.png" id="Graphic651113"/>
         </imageobject>
         <caption id="Caption651116">Operation Images</caption>
       </mediaobject>
@@ -507,8 +503,7 @@
   <para id="Para651162"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOO_BOOImageNew.png"
-                     id="Graphic651160" />
+          <imagedata fileref="images/PD_BOO_BOOImageNew.png" id="Graphic651160"/>
         </imageobject>
         <caption id="Caption651163">Associate Image with Operation</caption>
       </mediaobject>
@@ -578,7 +573,7 @@
   <para id="Para651419"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_imageNew.png" id="Graphic651417" />
+          <imagedata fileref="images/Sys_imageNew.png" id="Graphic651417"/>
         </imageobject>
         <caption id="Caption651420">Create New Image</caption>
       </mediaobject>

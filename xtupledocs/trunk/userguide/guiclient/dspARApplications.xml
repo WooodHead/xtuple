@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section553578">
   <title><indexterm significance="normal">
       <primary>cash receipts</primary>
@@ -15,8 +14,7 @@
   <para id="Para548353"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_arApplications.png"
-                     id="Graphic548351" />
+          <imagedata fileref="images/AR_Disp_arApplications.png" id="Graphic548351"/>
         </imageobject>
         <caption id="Caption548354">A/R Applications</caption>
       </mediaobject>
@@ -51,9 +49,9 @@
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
         <para id="Para573189">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef573188"
-        linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
       </listitem>
     </varlistentry>
@@ -128,12 +126,10 @@
     <varlistentry>
       <term id="Para564304">View Apply to Invoice</term>
       <listitem id="listitemN0x180ac00N0x18b71a0">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para564340">If you are right-clicking on a Credit Memo, the
   following additional option will be available:</para>
@@ -141,7 +137,7 @@
     <varlistentry>
       <term id="Para564344">View Source Credit Memo</term>
       <listitem id="listitemN0x180ac00N0x18b7254">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
   </variablelist>

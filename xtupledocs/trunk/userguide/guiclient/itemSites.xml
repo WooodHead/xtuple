@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section665983">
    <title>
        
@@ -61,8 +60,9 @@
          <term id="Para518813">NEW</term>
          <listitem id="listitemN0x180ac00N0x18752dc">
             <para>Opens screen for creating a new Item Site, as described in the
-        <link endterm="Anchor41372" id="XRef540340" linkend="Anchor41372">
-        Enter Item Site</link>"Enter Item Site" section above.</para>
+        <xref endterm="Anchor41372" linkend="Anchor41372"/>
+    FINDME
+  "Enter Item Site" section above.</para>
             <para id="Para627150">Mac users may use COMMAND + N to enter a new
         Item Site.</para>
          </listitem>
@@ -98,15 +98,12 @@
    <variablelist>
       <varlistentry>
          <term id="Para518818">View Item Site</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x187536c)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x187536c)"/>
       </varlistentry>
       <varlistentry>
          <term id="Para518819">Edit Item Site</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x1875324)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1875324)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

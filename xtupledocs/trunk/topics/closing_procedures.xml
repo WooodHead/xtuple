@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section612645">
   <title><indexterm significance="normal">
       <primary>topics</primary>
@@ -28,8 +27,7 @@
     <para id="Para612652"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_010_GLAcct.png"
-                       id="Graphic612650" />
+            <imagedata fileref="images/Topic_acctClose_010_GLAcct.png" id="Graphic612650"/>
           </imageobject>
           <caption id="Caption612654">G/L Account Definition</caption>
         </mediaobject>
@@ -91,8 +89,7 @@
     <para id="Para612670"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_020_AcctPer.png"
-                       id="Graphic612668" />
+            <imagedata fileref="images/Topic_acctClose_020_AcctPer.png" id="Graphic612668"/>
           </imageobject>
           <caption id="Caption612672">Accounting Periods Statuses</caption>
         </mediaobject>
@@ -155,40 +152,38 @@
     Account called "Cash eBank" and a Supplies Account called "Office
     Supplies." The definition for the Cash Account is shown in the following
     screen:</para>
-    <para id="Para612690"><anchor id="Anchor74917" role="Cross-Ref"
-    xreflabel="74917: Figure: Figure 11.3:  G/L Account Settings" />
+    <para id="Para612690"><anchor id="Anchor74917" role="Cross-Ref" xreflabel="74917: Figure: Figure 11.3:  G/L Account Settings"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_010_GLAcct.png"
-                       id="Graphic612688" />
+            <imagedata fileref="images/Topic_acctClose_010_GLAcct.png" id="Graphic612688"/>
           </imageobject>
           <caption id="Caption612692">G/L Chart of Accounts, Account
           Settings</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para612695">As <link endterm="Anchor74917" id="XRef612694"
-    linkend="Anchor74917"> G/L Account Settings</link>Figure 15.15 shows, the
+    <para id="Para612695">As <xref endterm="Anchor74917" linkend="Anchor74917"/>
+    FINDME
+  Figure 15.15 shows, the
     Cash Account is configured to not allow posting into closed Periods and
     also to not automatically forward-update Trial Balances.</para>
     <para id="Para612697">For the purposes of this exercise, the current
     Accounting Period is 2006-March. Let's look again at our master list of
     Accounting Periods and see how the current Period relates to those before
     and after it.</para>
-    <para id="Para612701"><anchor id="Anchor12928" role="Cross-Ref"
-    xreflabel="12928: Figure: Figure 11.4:  G/L Accounting Periods" />
+    <para id="Para612701"><anchor id="Anchor12928" role="Cross-Ref" xreflabel="12928: Figure: Figure 11.4:  G/L Accounting Periods"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_020_AcctPer.png"
-                       id="Graphic612699" />
+            <imagedata fileref="images/Topic_acctClose_020_AcctPer.png" id="Graphic612699"/>
           </imageobject>
           <caption id="Caption612703">Master List of Accounting
           Periods</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para612706">As you can see in <link endterm="Anchor12928"
-    id="XRef612705" linkend="Anchor12928"> G/L Accounting Periods</link>Figure
+    <para id="Para612706">As you can see in <xref endterm="Anchor12928" linkend="Anchor12928"/>
+    FINDME
+  Figure
     15.16, all the Periods prior to the current Period are both closed and
     frozen. By contrast, the current Period (2006-March) is open and not
     frozen.</para>
@@ -199,8 +194,7 @@
     <para id="Para612712"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_030_FYs.png"
-                       id="Graphic612710" />
+            <imagedata fileref="images/Topic_acctClose_030_FYs.png" id="Graphic612710"/>
           </imageobject>
           <caption id="Caption612713">Master List of Fiscal Years</caption>
         </mediaobject>
@@ -235,35 +229,31 @@
     a prior Period is to enter a simple Journal Entry using the "Simple
     Journal Entry" option found under the "Enter G/L Journal" section of the
     G/L Module. The Journal Entry screen is shown below:</para>
-    <para id="Para612726"><anchor id="Anchor49677" role="Cross-Ref"
-    xreflabel="49677: Figure: Figure 11.6:  Simple Journal Entry into Closed and Frozen Accounting Period" />
+    <para id="Para612726"><anchor id="Anchor49677" role="Cross-Ref" xreflabel="49677: Figure: Figure 11.6:  Simple Journal Entry into Closed and Frozen Accounting Period"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_040_GL_Entry.png"
-                       id="Graphic612724" />
+            <imagedata fileref="images/Topic_acctClose_040_GL_Entry.png" id="Graphic612724"/>
           </imageobject>
           <caption id="Caption612728">Simple G/L Journal Entry</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para612729">For this transaction, we will simulate a $500
     purchase of office supplies, using both the Office Supplies and Cash
-    Accounts. Notice how in <link endterm="Anchor49677" id="XRef612731"
-    linkend="Anchor49677"> Simple Journal Entry into Closed and Frozen
-    Accounting Period</link>Figure 15.18 we have entered a distribution date
+    Accounts. Notice how in <xref endterm="Anchor49677" linkend="Anchor49677"/>
+    FINDME
+  Figure 15.18 we have entered a distribution date
     of January 17, 2006--a date which falls within a closed and frozen
     Period.</para>
     <para id="Para612733">Posting Prevented into Closed Period</para>
     <para id="Para612734">Because our Accounts are marked to prevent posting
     into closed Periods, we get the following error message when we try to
     post the simple Journal Entry:</para>
-    <para id="Para612738"><anchor id="Anchor20676" role="Cross-Ref"
-    xreflabel="20676: Figure: Figure 14.7:  Prevented fromPosting" />
+    <para id="Para612738"><anchor id="Anchor20676" role="Cross-Ref" xreflabel="20676: Figure: Figure 14.7:  Prevented fromPosting"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_045_PostError.png"
-                       id="Graphic612736" />
+            <imagedata fileref="images/Topic_acctClose_045_PostError.png" id="Graphic612736"/>
           </imageobject>
           <caption id="Caption612740">Prevented from Posting</caption>
         </mediaobject>
@@ -272,8 +262,9 @@
     closed Accounting Periods if the Accounts are specifically set up to
     disallow it. No G/L activity is recorded when transactions are blocked in
     this manner.</para>
-    <para id="Para612744">As you can see in <link endterm="Anchor20676"
-    id="XRef612743" linkend="Anchor20676"> Prevented fromPosting</link>Figure
+    <para id="Para612744">As you can see in <xref endterm="Anchor20676" linkend="Anchor20676"/>
+    FINDME
+  Figure
     15.19, the error message indicates the dates for the closed Period in
     question. To allow the transaction to proceed--if that is what you truly
     want--then it will be necessary to identify the Period and then open it to
@@ -317,21 +308,19 @@
     <para id="Para612757">The Accounting Period has now been updated, as we
     can see in the following screenshot of the Accounting Periods master
     list:</para>
-    <para id="Para612761"><anchor id="Anchor17632" role="Cross-Ref"
-    xreflabel="17632: Figure: Figure 11.9:  Thawing and Opening Accounting Periods" />
+    <para id="Para612761"><anchor id="Anchor17632" role="Cross-Ref" xreflabel="17632: Figure: Figure 11.9:  Thawing and Opening Accounting Periods"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_070_AcctPerThawOpen.png"
-                       id="Graphic612759" />
+            <imagedata fileref="images/Topic_acctClose_070_AcctPerThawOpen.png" id="Graphic612759"/>
           </imageobject>
           <caption id="Caption612763">Thawed and Opened Accounting
           Period</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para612766">When we examine <link endterm="Anchor17632"
-    id="XRef612765" linkend="Anchor17632"> Thawing and Opening Accounting
-    Periods</link>Figure 15.20, we can see our actions have caused the
+    <para id="Para612766">When we examine <xref endterm="Anchor17632" linkend="Anchor17632"/>
+    FINDME
+  Figure 15.20, we can see our actions have caused the
     "Closed" and "Frozen" columns to read "No" for the 2006-January Accounting
     Period. We are now able to post the simple Journal Entry again--and it
     will be distributed successfully to the G/L.</para>
@@ -342,8 +331,7 @@
     <para id="Para612773"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_075_Warning.png"
-                       id="Graphic612771" />
+            <imagedata fileref="images/Topic_acctClose_075_Warning.png" id="Graphic612771"/>
           </imageobject>
           <caption id="Caption612774">Pending Transactions Warning
           Message</caption>
@@ -369,19 +357,17 @@
       </listitem>
     </itemizedlist>
     <para id="Para612779">Forward-Updating Required for Trial Balances</para>
-    <para id="Para612782">Looking at the Trial Balances display shown in <link
-    endterm="Anchor22529" id="XRef612781" linkend="Anchor22529"> Thawing and
-    Opening Accounting Periods</link>Figure 15.22, we see that the ending
+    <para id="Para612782">Looking at the Trial Balances display shown in <xref endterm="Anchor22529" linkend="Anchor22529"/>
+    FINDME
+  Figure 15.22, we see that the ending
     balance for the 2006-January Period is displayed in yellow type. This
     color-coding indicates that forward-updating is required to update the
     balances for all succeeding Periods:</para>
-    <para id="Para612787"><anchor id="Anchor22529" role="Cross-Ref"
-    xreflabel="22529: Figure: Figure 11.11:  Thawing and Opening Accounting Periods" />
+    <para id="Para612787"><anchor id="Anchor22529" role="Cross-Ref" xreflabel="22529: Figure: Figure 11.11:  Thawing and Opening Accounting Periods"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_090_TrialBal_Needed.png"
-                       id="Graphic612785" />
+            <imagedata fileref="images/Topic_acctClose_090_TrialBal_Needed.png" id="Graphic612785"/>
           </imageobject>
           <caption id="Caption612789">Forward Update Required in Trial
           Balance</caption>
@@ -432,8 +418,7 @@
     <para id="Para612804"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_100_PeriodClosed.png"
-                       id="Graphic612802" />
+            <imagedata fileref="images/Topic_acctClose_100_PeriodClosed.png" id="Graphic612802"/>
           </imageobject>
           <caption id="Caption612806">Accounting Period Closed</caption>
         </mediaobject>
@@ -453,24 +438,23 @@
     <para id="Para612812">Returning to the Trial Balances display, we can see
     that the ending balance for all Periods up through the current Period have
     been updated:</para>
-    <para id="Para612816"><anchor id="Anchor59726" role="Cross-Ref"
-    xreflabel="59726: Figure: Figure 11.14:  Forward Update Required in Trial Balance" />
+    <para id="Para612816"><anchor id="Anchor59726" role="Cross-Ref" xreflabel="59726: Figure: Figure 11.14:  Forward Update Required in Trial Balance"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_110_TrailBalDone.png"
-                       id="Graphic612814" />
+            <imagedata fileref="images/Topic_acctClose_110_TrailBalDone.png" id="Graphic612814"/>
           </imageobject>
           <caption id="Caption612818">Update Trial Balances</caption>
         </mediaobject>
       </screenshot></para>
     <para id="Para612819">Notice how the ending balance for the 2006-January
     Period is no longer yellow. And to verify that forward updates have
-    occurred, compare the ending balance amounts shown in <link
-    endterm="Anchor59726" id="XRef612821" linkend="Anchor59726"> Forward
-    Update Required in Trial Balance</link>Figure 15.24 with those we saw in
-    <link endterm="Anchor22529" id="XRef612824" linkend="Anchor22529"> Thawing
-    and Opening Accounting Periods</link>Figure 15.22 earlier before we closed
+    occurred, compare the ending balance amounts shown in <xref endterm="Anchor59726" linkend="Anchor59726"/>
+    FINDME
+  Figure 15.24 with those we saw in
+    <xref endterm="Anchor22529" linkend="Anchor22529"/>
+    FINDME
+  Figure 15.22 earlier before we closed
     the Accounting Period. Again, forward-updating occurred automatically when
     the 2006-January Accounting Period was closed.</para>
   </section>
@@ -551,8 +535,7 @@
     <para id="Para612848"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_120_FYs.png"
-                       id="Graphic612846" />
+            <imagedata fileref="images/Topic_acctClose_120_FYs.png" id="Graphic612846"/>
           </imageobject>
           <caption id="Caption612850">Master List of Fiscal Years</caption>
         </mediaobject>
@@ -572,8 +555,7 @@
     <para id="Para612857"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_130_Conf_GL.png"
-                       id="Graphic612855" />
+            <imagedata fileref="images/Topic_acctClose_130_Conf_GL.png" id="Graphic612855"/>
           </imageobject>
           <caption id="Caption612859">G/L Configuration of Year End Equity
           Account</caption>
@@ -591,21 +573,19 @@
     illustrates how the beginning balance for one Revenue Account has been
     reset to $0.00 for the month of January 2006--which is the first Period in
     a new Fiscal Year:</para>
-    <para id="Para612866"><anchor id="Anchor19381" role="Cross-Ref"
-    xreflabel="19381: Figure: Figure 11.18:  Begging Balances in the Trail Balance of a Revenue Account" />
+    <para id="Para612866"><anchor id="Anchor19381" role="Cross-Ref" xreflabel="19381: Figure: Figure 11.18:  Begging Balances in the Trail Balance of a Revenue Account"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_acctClose_140_FY_Forwar_Rev.png"
-                       id="Graphic612864" />
+            <imagedata fileref="images/Topic_acctClose_140_FY_Forwar_Rev.png" id="Graphic612864"/>
           </imageobject>
           <caption id="Caption612868">Revenue and Expense Accounts After
           Fiscal Year Closing</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para612871">You can see in <link endterm="Anchor19381"
-    id="XRef612870" linkend="Anchor19381"> Begging Balances in the Trail
-    Balance of a Revenue Account</link>Figure 15.27 that the beginning balance
+    <para id="Para612871">You can see in <xref endterm="Anchor19381" linkend="Anchor19381"/>
+    FINDME
+  Figure 15.27 that the beginning balance
     for our Revenue Account is $0.00 for all Periods that start in January,
     that being the first Accounting Period in each Fiscal Year.</para>
     <para id="Para612873">Year-End Closing Considerations</para>

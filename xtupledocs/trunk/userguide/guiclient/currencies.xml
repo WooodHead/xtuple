@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section966198">
   <title><indexterm significance="normal">
       <primary>currencies</primary>
@@ -40,15 +39,16 @@
   <para id="Para965907"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_currList.png" id="Graphic965905" />
+          <imagedata fileref="images/Sys_currList.png" id="Graphic965905"/>
         </imageobject>
         <caption id="Caption966176">Currencies Master List</caption>
       </mediaobject>
     </screenshot></para>
   <tip>
     <para id="Para972895">Standard Currency information for most Countries is
-    provided by default as part of the <link endterm="Anchor62146"
-    id="XRef972897" linkend="Anchor62146"> Countries</link>"Countries" list.
+    provided by default as part of the <xref endterm="Anchor62146" linkend="Anchor62146"/>
+    FINDME
+  "Countries" list.
     Simply select this information by Country when setting up multiple
     Currencies.</para>
   </tip>
@@ -102,16 +102,12 @@
   <variablelist>
     <varlistentry>
       <term id="Para965920">View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x184ad10)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x184ad10)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para965921">Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x184ad58)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x184ad58)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

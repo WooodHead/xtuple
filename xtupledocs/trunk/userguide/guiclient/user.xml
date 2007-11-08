@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="user">
   <title><indexterm significance="normal">
       <primary>users</primary>
@@ -17,11 +16,10 @@
     </indexterm>User</title>
   <para id="Para530966">To create a new user, select the NEW button. The
   following screen will appear:</para>
-  <para id="Para519261"><anchor id="Anchor95444" role="Cross-Ref"
-  xreflabel="95444: Figure: Figure 13.28:  User Information" /> <screenshot>
+  <para id="Para519261"><anchor id="Anchor95444" role="Cross-Ref" xreflabel="95444: Figure: Figure 13.28:  User Information"/> <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_maintUserNew.png" id="Graphic522185" />
+          <imagedata fileref="images/Sys_maintUserNew.png" id="Graphic522185"/>
         </imageobject>
         <caption id="Caption519262">User Information</caption>
       </mediaobject>
@@ -78,9 +76,9 @@
         </indexterm>Password</term>
       <listitem id="listitemN0x180ac00N0x18c428c">
         <para>User passwords are established to ensure application and system
-        security. Passwords are case-sensitive. As you can see in <link
-        endterm="Anchor95444" id="XRef917997" linkend="Anchor95444"> User
-        Information</link>Figure System.66, this field does not display the
+        security. Passwords are case-sensitive. As you can see in <xref endterm="Anchor95444" linkend="Anchor95444"/>
+    FINDME
+  Figure System.66, this field does not display the
         values entered on the screen. Instead, individual keystrokes are
         replaced by asterisks (*) to protect the password from being viewed.
         Once the user's password is entered, it can only be reset by an system
@@ -124,9 +122,9 @@
         "USEnglish", but multinational companies may have multiple Locales
         defined. Only users who have been granted the "MaintainLocales"
         privilege can define and maintain Locale settings. For more
-        information on Locales and Locale settings, see the <link
-        endterm="Anchor54109" id="XRef918037" linkend="Anchor54109">
-        Locales</link>"Locales" section earlier in this chapter.</para>
+        information on Locales and Locale settings, see the <xref endterm="Anchor54109" linkend="Anchor54109"/>
+    FINDME
+  "Locales" section earlier in this chapter.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

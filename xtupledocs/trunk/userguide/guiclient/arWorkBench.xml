@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570079">
   <title><indexterm significance="normal">
       <primary>accounts receivable</primary>
@@ -22,8 +21,7 @@
   <para id="Para559370"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_arWorkbench.png"
-                     id="Graphic559368" />
+          <imagedata fileref="images/AR_Disp_arWorkbench.png" id="Graphic559368"/>
         </imageobject>
         <caption id="Caption559371">A/R Workbench</caption>
       </mediaobject>
@@ -67,9 +65,9 @@
       <term>NEW</term>
       <listitem>
         <para>Opens screen for creating a new Cash Receipt. For more
-        information on entering Cash Receipts, see the <link
-        endterm="Anchor39275" id="XRef559382" linkend="Anchor39275">Enter Cash
-        Receipt</link>"Enter Cash Receipt" section.</para>
+        information on entering Cash Receipts, see the <xref endterm="Anchor39275" linkend="Anchor39275"/>
+    FINDME
+  "Enter Cash Receipt" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -109,27 +107,21 @@
   <variablelist>
     <varlistentry>
       <term id="Para565759">Edit Cash Receipt</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/9/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/9/2/2)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para565765">View Cash Receipt</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/9/3/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/9/3/2)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para565769">Delete Cash Receipt</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/9/4/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/9/4/2)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para565773">Post Cash Receipt</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/9/5/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/9/5/2)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
     <varlistentry>
       <term id="Para559390">A/R Open Credit Memos and Deposits</term>
       <listitem id="listitemN0x180ac00N0x187f43c">
@@ -150,9 +142,9 @@
       <term>APPLY</term>
       <listitem>
         <para>Highlight an unapplied Credit Memo and then select this button
-        to apply an amount, as described in the <link endterm="Anchor30541"
-        id="XRef559393" linkend="Anchor30541">List Unapplied Credit
-        Memos</link>"List Unapplied Credit Memos" section.</para>
+        to apply an amount, as described in the <xref endterm="Anchor30541" linkend="Anchor30541"/>
+    FINDME
+  "List Unapplied Credit Memos" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -179,22 +171,17 @@
   <variablelist>
     <varlistentry>
       <term id="Para565807">Apply Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/14/1/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/14/1/2)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para565862">Edit Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/14/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/14/2/2)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para565866">View Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(Section570079/14/3/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section570079/14/3/2)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
     <varlistentry>
       <term id="Para559397">A/R Open Items</term>
       <listitem id="listitemN0x180ac00N0x1886a6c">
@@ -229,12 +216,10 @@
     <varlistentry>
       <term id="Para565828">View Apply-To Invoice</term>
       <listitem id="listitemN0x180ac00N0x1886b44">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
     <varlistentry>
       <term id="Para559402">Pre-auth Credit Card Charges</term>
       <listitem id="listitemN0x180ac00N0x1886bd4">

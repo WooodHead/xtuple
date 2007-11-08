@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518698">
-  <title><anchor id="Anchor54109" role="Cross-Ref"
-  xreflabel="54109: Heading2: Locales" /><indexterm significance="normal">
+  <title><anchor id="Anchor54109" role="Cross-Ref" xreflabel="54109: Heading2: Locales"/><indexterm significance="normal">
       <primary>locales</primary>
       <secondary>master list of</secondary>
     </indexterm>List Locales</title>
@@ -27,9 +25,9 @@
     database.</para>
   </note>
   <para id="Para969077">The following two tables illustrate a range of Locale
-  formats available for both time/date and numeric fields. <link
-  endterm="Anchor66016" id="XRef969079" linkend="Anchor66016"> Date &amp; Time
-  Formats </link>Table System.1 describes valid date/time formats. These
+  formats available for both time/date and numeric fields. <xref endterm="Anchor66016" linkend="Anchor66016"/>
+    FINDME
+  Table System.1 describes valid date/time formats. These
   formats would apply to any fields displaying dates, times, or
   timestamps.</para>
   <note>
@@ -38,8 +36,7 @@
     numeric formats.</para>
   </note>
   <para id="Para969223"><table id="Table969083">
-      <title><anchor id="Anchor66016" role="Cross-Ref"
-      xreflabel="66016: TableTitle: Table System.1: Date &amp; Time Formats " />
+      <title><anchor id="Anchor66016" role="Cross-Ref" xreflabel="66016: TableTitle: Table System.1: Date &amp; Time Formats "/>
       Date &amp; Time Formats</title>
       <tgroup cols="2">
         <thead>
@@ -117,13 +114,11 @@
           </row>
           <row>
             <entry><para id="Para969156">MONTH</para></entry>
-            <entry><para id="Para969158">Month name</para> <para
-            id="Para969159">Supports mixed case (e.g., Month)</para></entry>
+            <entry><para id="Para969158">Month name</para> <para id="Para969159">Supports mixed case (e.g., Month)</para></entry>
           </row>
           <row>
             <entry><para id="Para969161">MON</para></entry>
-            <entry><para id="Para969163">Abbreviated month name</para> <para
-            id="Para969164">Supports mixed case (e.g., Mon)</para></entry>
+            <entry><para id="Para969163">Abbreviated month name</para> <para id="Para969164">Supports mixed case (e.g., Mon)</para></entry>
           </row>
           <row>
             <entry><para id="Para969166">MM</para></entry>
@@ -131,13 +126,11 @@
           </row>
           <row>
             <entry><para id="Para969170">DAY</para></entry>
-            <entry><para id="Para969172">Day name</para> <para
-            id="Para969173">Supports mixed case (e.g., Day)</para></entry>
+            <entry><para id="Para969172">Day name</para> <para id="Para969173">Supports mixed case (e.g., Day)</para></entry>
           </row>
           <row>
             <entry><para id="Para969175">DY</para></entry>
-            <entry><para id="Para969177">Abbreviated day name</para> <para
-            id="Para969178">Supports mixed case (e.g., Dy)</para></entry>
+            <entry><para id="Para969177">Abbreviated day name</para> <para id="Para969178">Supports mixed case (e.g., Dy)</para></entry>
           </row>
           <row>
             <entry><para id="Para969180">DDD</para></entry>
@@ -192,9 +185,9 @@
         </tbody>
       </tgroup>
     </table></para>
-  <para id="Para969227">The numeric formats shown in <link
-  endterm="Anchor43955" id="XRef969225" linkend="Anchor43955"> Numeric Formats
-  </link>Table System.2 would apply to any fields displaying quantity,
+  <para id="Para969227">The numeric formats shown in <xref endterm="Anchor43955" linkend="Anchor43955"/>
+    FINDME
+  Table System.2 would apply to any fields displaying quantity,
   quantity per, Cost, currency, Price, or Extended Price information.</para>
   <note>
     <para id="Para969229">Locale fields featuring numeric values are required
@@ -202,8 +195,7 @@
     point.</para>
   </note>
   <para id="Para969278"><table id="Table969230">
-      <title><anchor id="Anchor43955" role="Cross-Ref"
-      xreflabel="43955: TableTitle: Table System.2: Numeric Formats " />
+      <title><anchor id="Anchor43955" role="Cross-Ref" xreflabel="43955: TableTitle: Table System.2: Numeric Formats "/>
       Numeric Formats</title>
       <tgroup cols="2">
         <thead>
@@ -263,7 +255,7 @@
   <para id="Para518705"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_localesList.png" id="Graphic521998" />
+          <imagedata fileref="images/Sys_localesList.png" id="Graphic521998"/>
         </imageobject>
         <caption id="Caption518706">Locales Master List</caption>
       </mediaobject>

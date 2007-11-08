@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section554837" role="openmfg">
    <title>Topic: Buffer Management Basics</title>
    <para id="Para554838">What is a buffer? In short, a buffer is a little
@@ -250,8 +249,7 @@
          </listitem>
       </itemizedlist>
       <para id="Para554889">
-         <anchor id="Anchor11420" role="Cross-Ref"
-                 xreflabel="11420: Figure: Figure B.1:  Inventory Buffer Status by Class Code Display"/>
+         <anchor id="Anchor11420" role="Cross-Ref" xreflabel="11420: Figure: Figure B.1:  Inventory Buffer Status by Class Code Display"/>
          <screenshot>
             <mediaobject>
                <imageobject>
@@ -269,8 +267,9 @@
         attention. The best remedy for red hot Item Sites is to expedite any
         associated Work Orders or Purchase Orders.</para>
       </note>
-      <para id="Para554896">As you can see in <link endterm="Anchor11420" id="XRef554895" linkend="Anchor11420"> Inventory Buffer Status by Class
-      Code Display</link>Figure 2.25, the buffer status calculation is shown
+      <para id="Para554896">As you can see in <xref endterm="Anchor11420" linkend="Anchor11420"/>
+    FINDME
+  Figure 2.25, the buffer status calculation is shown
       in the "Status" column. If an Item has a buffer status of 66 or greater,
       it will display in red. The buffer status for Item TBODY1 = 70. To
       review how this number was arrived at, we use the following
@@ -397,8 +396,7 @@
          </listitem>
       </itemizedlist>
       <para id="Para554929">
-         <anchor id="Anchor63001" role="Cross-Ref"
-                 xreflabel="63001: Figure: Figure B.2:  W/O Buffer Status by Class Code Display"/>
+         <anchor id="Anchor63001" role="Cross-Ref" xreflabel="63001: Figure: Figure B.2:  W/O Buffer Status by Class Code Display"/>
          <screenshot>
             <mediaobject>
                <imageobject>
@@ -409,8 +407,9 @@
             </mediaobject>
          </screenshot>
       </para>
-      <para id="Para554934">As you can see in <link endterm="Anchor63001" id="XRef554933" linkend="Anchor63001"> W/O Buffer Status by Class Code
-      Display</link>Figure 2.26, the next-to last column "Buffer Type" shows
+      <para id="Para554934">As you can see in <xref endterm="Anchor63001" linkend="Anchor63001"/>
+    FINDME
+  Figure 2.26, the next-to last column "Buffer Type" shows
       that OpenMFG has calculated a "Time" buffer for our Work Order. The
       value of this time buffer is shown in the "Buffer Status" column.
       Because the buffer status for the Work Order = 0, there is no need to

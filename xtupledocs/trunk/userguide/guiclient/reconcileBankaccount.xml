@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563102">
   <title><indexterm significance="normal">
       <primary>bank accounts</primary>
@@ -14,7 +13,7 @@
   <para id="Para563107"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_BR_bankRec.png" id="Graphic605407" />
+          <imagedata fileref="images/GL_BR_bankRec.png" id="Graphic605407"/>
         </imageobject>
         <caption id="Caption563108">Reconcile Bank Account</caption>
       </mediaobject>
@@ -127,8 +126,9 @@
         <para id="Para563143">Bank Adjustments marked as "Cleared" will
         automatically be posted to the General Ledger (G/L) when a Bank
         Account is reconciled. For more information on entering Bank
-        Adjustments, see the <link endterm="Anchor70925" id="XRef563145"
-        linkend="Anchor70925"> Enter Adjustment</link>"Enter Adjustment"
+        Adjustments, see the <xref endterm="Anchor70925" linkend="Anchor70925"/>
+    FINDME
+  "Enter Adjustment"
         section.</para>
       </listitem>
     </varlistentry>

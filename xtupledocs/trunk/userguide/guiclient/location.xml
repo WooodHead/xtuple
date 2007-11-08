@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="location">
   <title><indexterm significance="normal">
       <primary>warehouse locations</primary>
@@ -11,8 +10,7 @@
   <para id="Para518605"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseLocationNew.png"
-                     id="Graphic525455" />
+          <imagedata fileref="images/IM_MI_warehouseLocationNew.png" id="Graphic525455"/>
         </imageobject>
         <caption id="Caption518606">Create New Warehouse Location</caption>
       </mediaobject>
@@ -96,8 +94,9 @@
         whether the specified Warehouse enforces the aisle, rack, bin,
         Location (ARBL) naming convention. If the convention is enforced, then
         the name for the Location may also include aisle, rack, or bin
-        information, as shown in <link endterm="Anchor71321" id="XRef579560"
-        linkend="Anchor71321"> Create New Warehouse Location</link>Figure
+        information, as shown in <xref endterm="Anchor71321" linkend="Anchor71321"/>
+    FINDME
+  Figure
         6.10. If ARBL is not enforced, then the Location name will consist of
         only one field.</para>
       </listitem>

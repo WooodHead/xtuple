@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524372">
   <title><indexterm significance="normal">
       <primary>series</primary>
@@ -17,8 +16,7 @@
   <para id="Para524949"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_Ent_seriesEntry.png"
-                     id="Graphic524947" />
+          <imagedata fileref="images/GL_Ent_seriesEntry.png" id="Graphic524947"/>
         </imageobject>
         <caption id="Caption524950">Create Series G/L Journal Entry</caption>
       </mediaobject>
@@ -38,9 +36,9 @@
         <para>Specify a General Ledger Transaction Type for classifying the
         series entry.</para>
         <para id="Para606015">By default, the Journal Entry (JE) Transaction
-        Type will be used. However, you may select a different type. See <link
-        endterm="Anchor80421" id="XRef606019" linkend="Anchor80421"> Appendix
-        A</link>Appendix A for a complete list of General Ledger Transaction
+        Type will be used. However, you may select a different type. See <xref endterm="Anchor80421" linkend="Anchor80421"/>
+    FINDME
+  Appendix A for a complete list of General Ledger Transaction
         Types.</para>
       </listitem>
     </varlistentry>
@@ -159,7 +157,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="glSeriesItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="glSeriesItem.xml" xpointer="element(/1)"/>
 </section>

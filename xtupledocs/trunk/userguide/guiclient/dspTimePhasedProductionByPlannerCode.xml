@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518753" role="openmfg">
   <title>Time-Phased Production by Planner Code</title>
   <para id="Para519986">To view time-phased production by Planner Code, select
@@ -9,8 +8,7 @@
   <para id="Para519990"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CP_Disp_tpProdByPCode.png"
-                     id="Graphic519988" />
+          <imagedata fileref="images/CP_Disp_tpProdByPCode.png" id="Graphic519988"/>
         </imageobject>
         <caption id="Caption519991">Time-Phased Production by Planner
         Code</caption>
@@ -53,9 +51,9 @@
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
         <para id="Para530064">Refine your search using Regular Expressions, as
-        described in <link endterm="Anchor77806" id="XRef530063"
-        linkend="Anchor77806"> Pattern Matching with Regular
-        Expressions</link>"Topic: Pattern Matching with Regular
+        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
         Expressions".</para>
       </listitem>
     </varlistentry>
@@ -149,9 +147,9 @@
       <term id="Para529115">SUBMIT</term>
       <listitem>
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <link endterm="Anchor61009" id="XRef529117"
-        linkend="Anchor61009"> Submitting Reports and Jobs to the Batch
-        Manager</link>"Topic: Submitting Reports and Jobs to the Batch
+        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
+    FINDME
+  "Topic: Submitting Reports and Jobs to the Batch
         Manager".</para>
       </listitem>
     </varlistentry>
@@ -159,11 +157,7 @@
   <para id="Para522915">Right-clicking on a Planner Code in the Production
   list enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/8/2/32)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/32)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section611231">
   <title><indexterm significance="normal">
       <primary>taxes</primary>
@@ -68,8 +67,7 @@
     <para id="Para611244"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0100_GL.png"
-                       id="Graphic611242" />
+            <imagedata fileref="images/Topic_tax_0100_GL.png" id="Graphic611242"/>
           </imageobject>
           <caption id="Caption611246">G/L Account Definitions</caption>
         </mediaobject>
@@ -112,8 +110,7 @@
     <para id="Para611261"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0130_Accnt.png"
-                       id="Graphic611259" />
+            <imagedata fileref="images/Topic_tax_0130_Accnt.png" id="Graphic611259"/>
           </imageobject>
           <caption id="Caption611263">Tax Authority CRM Account
           Definition</caption>
@@ -142,16 +139,15 @@
     <para id="Para611274"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0160_Shi-To.png"
-                       id="Graphic611272" />
+            <imagedata fileref="images/Topic_tax_0160_Shi-To.png" id="Graphic611272"/>
           </imageobject>
           <caption id="Caption611276">Customer Ship-To Tax
           Definition</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para611279">The critical field for taxation in <link
-    endterm="Anchor74917" id="XRef611278" linkend="Anchor74917"> G/L Account
-    Settings</link>Figure 15.15 is the "Tax Authority" field. In this case we
+    <para id="Para611279">The critical field for taxation in <xref endterm="Anchor74917" linkend="Anchor74917"/>
+    FINDME
+  Figure 15.15 is the "Tax Authority" field. In this case we
     see that Store 1 falls under the Tax jurisdiction of TAXZONE1. Store 2
     (not shown) falls under TAXZONE2.</para>
   </section>
@@ -163,15 +159,14 @@
     <para id="Para611286"><screenshot id="Figure611284">
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png"
-                       id="Graphic611284" />
+            <imagedata fileref="images/Topic_tax_0190_Tax Codes.png" id="Graphic611284"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
     <para id="Para611288"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="" id="Graphic" />
+            <imagedata fileref="" id="Graphic"/>
           </imageobject>
         </mediaobject>
       </screenshot></para>
@@ -198,8 +193,7 @@
     <para id="Para611297"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_230_TaxTypes.png"
-                       id="Graphic611295" />
+            <imagedata fileref="images/Topic_tax_230_TaxTypes.png" id="Graphic611295"/>
           </imageobject>
           <caption id="Caption611298">Tax Types</caption>
         </mediaobject>
@@ -225,8 +219,7 @@
     <para id="Para611306"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_260_TaxTypes.png"
-                       id="Graphic611304" />
+            <imagedata fileref="images/Topic_tax_260_TaxTypes.png" id="Graphic611304"/>
           </imageobject>
           <caption id="Caption611308">Tax Selections</caption>
         </mediaobject>
@@ -259,8 +252,7 @@
     <para id="Para611318"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_290_ItemTax.png"
-                       id="Graphic611316" />
+            <imagedata fileref="images/Topic_tax_290_ItemTax.png" id="Graphic611316"/>
           </imageobject>
           <caption id="Caption611320">Item Tax Types Assignments</caption>
         </mediaobject>
@@ -279,8 +271,9 @@
     <para id="Para611323">Because we are charging Customers Tax that we must
     ultimately pay to Tax Authorities, it is important to have a mechanism for
     making payments to Tax Authorities. Sales Tax is a liability that must be
-    settled. As we saw in <link endterm="Anchor33178" id="XRef611325"
-    linkend="Anchor33178"> Tax Codes</link>Figure 15.36, our sample Tax Code
+    settled. As we saw in <xref endterm="Anchor33178" linkend="Anchor33178"/>
+    FINDME
+  Figure 15.36, our sample Tax Code
     references a liability Account. By creating an Expense Category that links
     to the same liability Account, we can clear our Tax liability when we post
     Vouchers that pay Tax Authorities.</para>
@@ -289,8 +282,7 @@
     <para id="Para611331"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png"
-                       id="Graphic611329" />
+            <imagedata fileref="images/Topic_tax_320_ExpenseCat.png" id="Graphic611329"/>
           </imageobject>
           <caption id="Caption611333">Expense Categories for Tax</caption>
         </mediaobject>
@@ -317,8 +309,7 @@
     <para id="Para611343"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png"
-                       id="Graphic611341" />
+            <imagedata fileref="images/Topic_tax_350_SO-Line-TaxDetail.png" id="Graphic611341"/>
           </imageobject>
           <caption id="Caption611345">Sales Order Line Showing Tax
           Detail</caption>
@@ -334,8 +325,7 @@
     <para id="Para611352"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png"
-                       id="Graphic611350" />
+            <imagedata fileref="images/Topic_tax_380_SO-TaxBreak.png" id="Graphic611350"/>
           </imageobject>
           <caption id="Caption611354">Sales Order Line Items Showing Tax
           Breakdown</caption>
@@ -363,8 +353,7 @@
     <para id="Para611363"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_410_SO-GL.png"
-                       id="Graphic611361" />
+            <imagedata fileref="images/Topic_tax_410_SO-GL.png" id="Graphic611361"/>
           </imageobject>
           <caption id="Caption611364">Summarized G/L Transactions for Sales
           Tax on an Invoice</caption>
@@ -386,8 +375,7 @@
     <para id="Para611372"><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png"
-                       id="Graphic611370" />
+            <imagedata fileref="images/Topic_tax_430_AP-Voucher.png" id="Graphic611370"/>
           </imageobject>
           <caption id="Caption611373">Voucher for Tax Payment</caption>
         </mediaobject>
@@ -401,21 +389,19 @@
     <para id="Para611375">In the following screen you can see a summary of the
     G/L transactions which resulted from out posting of the Miscellaneous
     Voucher:</para>
-    <para id="Para611379"><anchor id="Anchor74253" role="Cross-Ref"
-    xreflabel="74253: Figure: Figure 15.13:  G/L Postings After Voucher Posting" />
+    <para id="Para611379"><anchor id="Anchor74253" role="Cross-Ref" xreflabel="74253: Figure: Figure 15.13:  G/L Postings After Voucher Posting"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png"
-                       id="Graphic611377" />
+            <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png" id="Graphic611377"/>
           </imageobject>
           <caption id="Caption611381">G/L Postings After Voucher
           Posting</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para611384">As you can see in <link endterm="Anchor74253"
-    id="XRef611383" linkend="Anchor74253"> G/L Postings After Voucher
-    Posting</link>Figure 15.45, posting the Voucher cleared the liability
+    <para id="Para611384">As you can see in <xref endterm="Anchor74253" linkend="Anchor74253"/>
+    FINDME
+  Figure 15.45, posting the Voucher cleared the liability
     Accounts associated with the Expense Categories used on the Voucher. The
     A/P liability will subsequently be cleared when a Check paying the Voucher
     is posted.</para>
@@ -429,40 +415,36 @@
     Expense Categories to record purchasing Tax.</para>
     <para id="Para611388">The following screen shows a sample Expense Category
     we have established to record Tax on purchases:</para>
-    <para id="Para611392"><anchor id="Anchor70062" role="Cross-Ref"
-    xreflabel="70062: Figure: Figure Appendix X.14:  Expense Category for Taxes on Purchased Items" />
+    <para id="Para611392"><anchor id="Anchor70062" role="Cross-Ref" xreflabel="70062: Figure: Figure Appendix X.14:  Expense Category for Taxes on Purchased Items"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png"
-                       id="Graphic611390" />
+            <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png" id="Graphic611390"/>
           </imageobject>
           <caption id="Caption611394">Expense Category for Taxes on Purchased
           Items</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para611397">We will use the Expense Category shown in <link
-    endterm="Anchor70062" id="XRef611396" linkend="Anchor70062"> Expense
-    Category for Taxes on Purchased Items</link>Figure 15.46 during a
+    <para id="Para611397">We will use the Expense Category shown in <xref endterm="Anchor70062" linkend="Anchor70062"/>
+    FINDME
+  Figure 15.46 during a
     vouchering scenario. In our example, the Vendor is charging us Tax on one
     or more Items of Type 1. The following screen shows the Voucher for this
     purchase, as well as the Miscellaneous Distribution for Tax
     purposes:</para>
-    <para id="Para611402"><anchor id="Anchor59557" role="Cross-Ref"
-    xreflabel="59557: Figure: Figure Appendix X.15:  Miscellaneious Distribution onf Voucher to Pay Tax" />
+    <para id="Para611402"><anchor id="Anchor59557" role="Cross-Ref" xreflabel="59557: Figure: Figure Appendix X.15:  Miscellaneious Distribution onf Voucher to Pay Tax"/>
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png"
-                       id="Graphic611400" />
+            <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png" id="Graphic611400"/>
           </imageobject>
           <caption id="Caption611404">Miscellaneous Distribution of Voucher to
           Pay Tax</caption>
         </mediaobject>
       </screenshot></para>
-    <para id="Para611407">The Purchase Order we are vouchering in <link
-    endterm="Anchor59557" id="XRef611406" linkend="Anchor59557">
-    Miscellaneious Distribution onf Voucher to Pay Tax</link>Figure 15.47 is
+    <para id="Para611407">The Purchase Order we are vouchering in <xref endterm="Anchor59557" linkend="Anchor59557"/>
+    FINDME
+  Figure 15.47 is
     for a Vendor invoice totaling $220.00. Of this amount, $200.00 is for the
     product and $20.00 is for Tax. The Tax is accounted for using the Expense
     Category corresponding to the type of Tax being paid. Because Expense

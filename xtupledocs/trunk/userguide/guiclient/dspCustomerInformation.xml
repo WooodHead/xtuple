@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section631832">
   <title><indexterm significance="normal">
       <primary>customer information</primary>
@@ -27,7 +26,7 @@
   <para id="Para631837"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfo.png" id="Graphic631835" />
+          <imagedata fileref="images/SO_Disp_custInfo.png" id="Graphic631835"/>
         </imageobject>
         <caption id="Caption631838">Notes on the Workbench</caption>
       </mediaobject>
@@ -143,8 +142,7 @@
   <para id="Para631862"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoComm.png"
-                     id="Graphic631860" />
+          <imagedata fileref="images/SO_Disp_custInfoComm.png" id="Graphic631860"/>
         </imageobject>
         <caption id="Caption631863">Comments on the Workbench</caption>
       </mediaobject>
@@ -178,7 +176,7 @@
   <para id="Para631873"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic631871" />
+          <imagedata fileref="images/CommentNew.png" id="Graphic631871"/>
         </imageobject>
         <caption id="Caption631874">Create New Comment</caption>
       </mediaobject>
@@ -220,8 +218,7 @@
   <para id="Para631884"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoQuote.png"
-                     id="Graphic631882" />
+          <imagedata fileref="images/SO_Disp_custInfoQuote.png" id="Graphic631882"/>
         </imageobject>
         <caption id="Caption631885">Quotes on the Workbench</caption>
       </mediaobject>
@@ -245,9 +242,9 @@
     <varlistentry>
       <term id="Para631893">NEW</term>
       <listitem id="listitemN0x180ac00N0x18c6598">
-        <para>Opens screen for creating a new Quote, as described in the <link
-        endterm="Anchor51214" id="XRef631891" linkend="Anchor51214"> New
-        Quote</link>"New Quote" section.</para>
+        <para>Opens screen for creating a new Quote, as described in the <xref endterm="Anchor51214" linkend="Anchor51214"/>
+    FINDME
+  "New Quote" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -278,27 +275,21 @@
   <variablelist>
     <varlistentry>
       <term id="Para631899">New Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c6598)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c6598)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631900">Edit Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c65e0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c65e0)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631901">View Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c6628)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c6628)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631902">Convert Quote</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c6670)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c6670)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para631904">To view open Sales Orders associated with the
   Customer, select the "Sales Orders" tab at the bottom of the screen. The
@@ -306,8 +297,7 @@
   <para id="Para631908"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoOrders.png"
-                     id="Graphic631906" />
+          <imagedata fileref="images/SO_Disp_custInfoOrders.png" id="Graphic631906"/>
         </imageobject>
         <caption id="Caption631909">Open Sales Orders on the
         Workbench</caption>
@@ -334,8 +324,9 @@
       <term id="Para631916">NEW</term>
       <listitem id="listitemN0x180ac00N0x18c6940">
         <para>Opens screen for creating a new Sales Order, as described in the
-        <link endterm="Anchor23923" id="XRef631915" linkend="Anchor23923"> New
-        Sales Order</link>"New Sales Order" section.</para>
+        <xref endterm="Anchor23923" linkend="Anchor23923"/>
+    FINDME
+  "New Sales Order" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -361,22 +352,17 @@
   <variablelist>
     <varlistentry>
       <term id="Para631922">New Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c6940)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c6940)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631923">Edit Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c6988)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c6988)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631924">View Order</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18c69d0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18c69d0)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para631926">To view Invoices associated with the Customer, select
   the "Invoices" tab at the bottom of the screen. The following screen will
@@ -384,8 +370,7 @@
   <para id="Para631930"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoInv.png"
-                     id="Graphic631928" />
+          <imagedata fileref="images/SO_Disp_custInfoInv.png" id="Graphic631928"/>
         </imageobject>
         <caption id="Caption631931">Invoice History on the Workbench</caption>
       </mediaobject>
@@ -432,22 +417,17 @@
   <variablelist>
     <varlistentry>
       <term id="Para631948">New Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cd848)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cd848)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631949">Edit Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cd890)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cd890)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631950">View Invoice</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cd8d8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cd8d8)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para631952">To view Credit Memos associated with the Customer,
   select the "Credit Memos" tab at the bottom of the screen. The following
@@ -455,8 +435,7 @@
   <para id="Para631956"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoCMems.png"
-                     id="Graphic631954" />
+          <imagedata fileref="images/SO_Disp_custInfoCMems.png" id="Graphic631954"/>
         </imageobject>
         <caption id="Caption631957">Credit Memos on the Workbench</caption>
       </mediaobject>
@@ -479,8 +458,9 @@
       <term id="Para631962">NEW</term>
       <listitem id="listitemN0x180ac00N0x18cdb60">
         <para>Opens screen for creating a new Sales Order Credit Memo, as
-        described in the <link endterm="Anchor94106" id="XRef631964"
-        linkend="Anchor94106"> New Credit Memo</link>"New Credit Memo"
+        described in the <xref endterm="Anchor94106" linkend="Anchor94106"/>
+    FINDME
+  "New Credit Memo"
         section.</para>
       </listitem>
     </varlistentry>
@@ -506,22 +486,17 @@
   <variablelist>
     <varlistentry>
       <term id="Para631970">New Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cdb60)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cdb60)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631971">Edit Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cdba8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cdba8)"/>
     </varlistentry>
     <varlistentry>
       <term id="Para631972">View Credit Memo</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18cdbf0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18cdbf0)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para631974">To view sales history for the Customer, select the
   "A/R History" tab at the bottom of the screen. The following screen will
@@ -529,8 +504,7 @@
   <para id="Para631978"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoHist.png"
-                     id="Graphic631976" />
+          <imagedata fileref="images/SO_Disp_custInfoHist.png" id="Graphic631976"/>
         </imageobject>
         <caption id="Caption631979">A/R History on the Workbench</caption>
       </mediaobject>
@@ -565,15 +539,9 @@
   <para id="Para631987">Right-clicking on an Item in the A/R History list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/10/2/2)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/10/2/6)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/10/2/2)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/10/2/6)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para id="Para631991">To view Credit Card activity associated with the
   Customer, select the "CC Payments" tab at the bottom of the screen. The
@@ -581,8 +549,7 @@
   <para id="Para631995"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_custInfoCC.png"
-                     id="Graphic631993" />
+          <imagedata fileref="images/SO_Disp_custInfoCC.png" id="Graphic631993"/>
         </imageobject>
         <caption id="Caption631996">Credit Card Activity on the
         Workbench</caption>

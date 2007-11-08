@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section549746">
    <title>
        
@@ -45,8 +44,9 @@
    <tip>
       <para id="Para626651">The "Order #" field supports pattern matching with
       Regular Expressions. For more information on matching patterns using
-      Regular Expressions, see <link endterm="Anchor77806" id="XRef626653" linkend="Anchor77806"> Pattern Matching with Regular
-      Expressions</link>"Topic: Pattern Matching with Regular
+      Regular Expressions, see <xref endterm="Anchor77806" linkend="Anchor77806"/>
+    FINDME
+  "Topic: Pattern Matching with Regular
       Expressions".</para>
    </tip>
    <variablelist>
@@ -141,7 +141,6 @@
             <para/>
          </listitem>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>
