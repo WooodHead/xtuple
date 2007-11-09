@@ -181,7 +181,7 @@ BEGIN
 
     END IF;
 
-  END IF; 
+  END IF;
 
   IF (TG_OP = ''DELETE'') THEN
     RETURN OLD;
@@ -201,6 +201,7 @@ CREATE OR REPLACE FUNCTION _soitemAfterTrigger() RETURNS TRIGGER AS '
 DECLARE
   _check NUMERIC;
   _itemNumber TEXT;
+  _r RECORD;
 BEGIN
   -- If this is imported, go ahead and insert default characteristics
    IF ((TG_OP = ''INSERT'') AND NEW.coitem_imported) THEN
@@ -245,6 +246,46 @@ BEGIN
     FROM cohead
     WHERE (cohead_id=NEW.coitem_cohead_id);
   END IF;
+
+  IF (TG_OP = ''UPDATE'') THEN
+--  Handle links to Return Authorization
+    IF (fetchMetricBool(''EnableReturnAuth'')) THEN 
+      SELECT * INTO _r 
+      FROM raitem,rahead 
+      WHERE ((raitem_new_coitem_id=NEW.coitem_id)
+      AND (rahead_id=raitem_rahead_id));
+      IF (FOUND) THEN
+        IF (OLD.coitem_qtyord <> NEW.coitem_qtyord OR
+            OLD.coitem_qty_uom_id <> NEW.coitem_qty_uom_id OR
+            OLD.coitem_qty_invuomratio <> NEW.coitem_qty_invuomratio OR
+            OLD.coitem_price_uom_id <> NEW.coitem_price_uom_id OR
+            OLD.coitem_price_invuomratio <> NEW.coitem_price_invuomratio) THEN
+          RAISE EXCEPTION ''Quantities for line item % may only be changed on the Return Authorization that created it.'',NEW.coitem_linenumber;
+        END IF;
+        UPDATE raitem SET raitem_warranty = NEW.coitem_warranty
+        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
+         AND (raitem_warranty != NEW.coitem_warranty));
+        UPDATE raitem SET raitem_cos_accnt_id = NEW.coitem_cos_accnt_id
+        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
+         AND (raitem_cos_accnt_id != NEW.coitem_cos_accnt_id));
+        UPDATE raitem SET raitem_tax_id = NEW.coitem_tax_id
+        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
+         AND (raitem_tax_id != NEW.coitem_tax_id));
+        UPDATE raitem SET raitem_scheddate = NEW.coitem_scheddate
+        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
+         AND (raitem_scheddate != NEW.coitem_scheddate));
+        IF ((OLD.coitem_qtyshipped <> NEW.coitem_qtyshipped) AND 
+           (NEW.coitem_qtyshipped >= _r.raitem_qtyauthorized) AND
+           (_r.raitem_status = ''O'') AND
+           (_r.raitem_disposition IN (''P'',''V'')) AND
+           (((_r.rahead_timing=''R'') AND (_r.raitem_qtyreceived >= _r.raitem_qtyauthorized))
+           OR (_r.rahead_timing=''I''))) THEN
+          UPDATE raitem SET raitem_status = ''C'' 
+          WHERE (raitem_new_coitem_id=NEW.coitem_id);
+        END IF;
+      END IF;
+    END IF; 
+  END IF; 
 
   RETURN NEW;
 END;
