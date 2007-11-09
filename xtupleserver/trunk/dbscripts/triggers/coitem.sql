@@ -267,10 +267,10 @@ BEGIN
          AND (raitem_warranty != NEW.coitem_warranty));
         UPDATE raitem SET raitem_cos_accnt_id = NEW.coitem_cos_accnt_id
         WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (raitem_cos_accnt_id != NEW.coitem_cos_accnt_id));
+         AND (COALESCE(raitem_cos_accnt_id,-1) != COALESCE(NEW.coitem_cos_accnt_id,-1)));
         UPDATE raitem SET raitem_tax_id = NEW.coitem_tax_id
         WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (raitem_tax_id != NEW.coitem_tax_id));
+         AND (COALESCE(raitem_tax_id,-1) != COALESCE(NEW.coitem_tax_id,-1)));
         UPDATE raitem SET raitem_scheddate = NEW.coitem_scheddate
         WHERE ((raitem_new_coitem_id=NEW.coitem_id)
          AND (raitem_scheddate != NEW.coitem_scheddate));
