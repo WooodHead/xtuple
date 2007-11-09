@@ -17,7 +17,7 @@ BEGIN
     FROM item
    WHERE(item_id=pItemid);
   IF(NOT FOUND) THEN
-    RAISE EXCEPTION ''No item record was found for item id %'', _pItemid;
+    RAISE EXCEPTION ''No item record was found for item id %'', pItemid;
   END IF;
 
   _uomidFrom := COALESCE(pUomidFrom, _item.item_inv_uom_id);
