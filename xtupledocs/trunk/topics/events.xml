@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section980808">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>topics</primary>
       <secondary>event management</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>events</primary>
       <secondary>explained</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>events</primary>
       <secondary>management of</secondary>
     </indexterm>Topic: How Events Work</title>
-  <para id="Para980809">This section is designed to illustrate the powerful
+  <para>This section is designed to illustrate the powerful
   features of the OpenMFG Event Management system. To take full advantage of
   these features, it's important to have an understanding of how Events
   work.</para>
-  <para id="Para980810">Let's begin with a few definitions:</para>
+  <para>Let's begin with a few definitions:</para>
   <itemizedlist>
     <listitem>
-      <para id="Para980811">Event: Any one of a limited set of possible
+      <para>Event: Any one of a limited set of possible
       occurrences precipitated by user activity which OpenMFG defines as
       having special importance. For a complete list of system-defined Events,
       see <xref endterm="Anchor80421" linkend="Anchor80421"/>
@@ -26,28 +29,30 @@
   .</para>
     </listitem>
     <listitem>
-      <para id="Para980815">Event notification: A system-generated alert sent
+      <para>Event notification: A system-generated alert sent
       to a user whenever an Event the user subscribes to occurs.</para>
     </listitem>
     <listitem>
-      <para id="Para980816">Event Fence: A setting on the Item Site master
+      <para>Event Fence: A setting on the Item Site master
       specifying the period of time, measured in days, within which Event
       notifications related to the Item Site should be issued.</para>
     </listitem>
   </itemizedlist>
   <section id="Section980818">
-    <title><indexterm significance="normal">
+    <title>
+<indexterm significance="normal">
         <primary>events</primary>
         <secondary>initiation of</secondary>
       </indexterm>Initiating an Event</title>
-    <para id="Para980819">If these terms seem confusing now, they shouldn"t by
+    <para>If these terms seem confusing now, they shouldn"t by
     the time you finish reading. The aim of this section is to clarify these
     definitions with concrete examples showing just how Events work. Perhaps
     the best way to begin is to imagine a manufacturing scenario. For the
     purpose of this exercise, let's say we manufacture plastic flowers. One of
     our bestsellers is Item BOQ-002, whose Bill of Materials appears
     below:</para>
-    <para id="Para980823"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_bomBOQ-002.png" id="Graphic980821"/>
@@ -55,14 +60,16 @@
           <caption id="Caption980824">Bill of Materials for Manufactured
           Item</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para980825">Rather than consider all the available Events at
+      </screenshot>
+</para>
+    <para>Rather than consider all the available Events at
     once, let's look at one which might affect Item BOQ-002. Let's consider
     the Event called "WoQtyChanged." This Event occurs, or is triggered, if a
     user ever changes the quantity of a Work Order. To see this Event in
     action, we will create a Work Order for 100 units of Item BOQ-002. The
     following screenshot shows the Work Order we are creating:</para>
-    <para id="Para980829"><anchor id="Anchor10794" role="Cross-Ref" xreflabel="10794: Figure: Figure 1.2:  Work Order for Item BOQ-002"/>
+    <para>
+<anchor id="Anchor10794" role="Cross-Ref" xreflabel="10794: Figure: Figure 1.2:  Work Order for Item BOQ-002"/>
     <screenshot>
         <mediaobject>
           <imageobject>
@@ -71,22 +78,24 @@
           <caption id="Caption980831">Work Order for Manufactured
           Item</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para980832">To initiate the Event, we will need to change the
+      </screenshot>
+</para>
+    <para>To initiate the Event, we will need to change the
     Work Order quantity from 100 units to some other quantity. But before we
     do that, let's make sure our test user is subscribed to this Event within
     the Work Order's supplying Warehouse (i.e., Warehouse EAST). Users must be
     subscribed to an Event if they are to be notified when the Event
     occurs.</para>
     <note>
-      <para id="Para980834">Users must be subscribed to an Event if they are
+      <para>Users must be subscribed to an Event if they are
       to be notified when the Event occurs.</para>
     </note>
-    <para id="Para980835">We can verify which Events our user is subscribed to
+    <para>We can verify which Events our user is subscribed to
     by opening the User Preferences screen found in the System Module. On the
     User Preferences screen, select the EVENTS button. The following screen
     will appear:</para>
-    <para id="Para980839"><anchor id="Anchor84078" role="Cross-Ref" xreflabel="84078: Figure: Figure 1.3:  User Event Screen Showing No Subscriptions"/>
+    <para>
+<anchor id="Anchor84078" role="Cross-Ref" xreflabel="84078: Figure: Figure 1.3:  User Event Screen Showing No Subscriptions"/>
     <screenshot>
         <mediaobject>
           <imageobject>
@@ -94,14 +103,16 @@
           </imageobject>
           <caption id="Caption980841">User Event Notification Screen</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
   </section>
   <section id="Section980843">
-    <title><indexterm significance="normal">
+    <title>
+<indexterm significance="normal">
         <primary>events</primary>
         <secondary>notification options for</secondary>
       </indexterm>Notification Options</title>
-    <para id="Para980844">The User Event Notification screen is where we check
+    <para>The User Event Notification screen is where we check
     on user Event subscriptions. If a user is subscribed to an Event, the user
     will be notified whenever that Event occurs. For this exercise we are
     interested specifically in the Event "WoQtyChanged". As you can see in
@@ -109,7 +120,7 @@
     FINDME
   , this Event has been
     highlighted. Simply click your mouse on an Event to highlight it.</para>
-    <para id="Para980848">Once the desired Event has been highlighted, we look
+    <para>Once the desired Event has been highlighted, we look
     next to the list of Warehouses found on the right-hand side of the screen.
     If a Warehouse has been subscribed to the Event, the "Notify" column next
     to the Warehouse will read "Yes." If not subscribed, the "Notify" column
@@ -118,11 +129,11 @@
     subscribed to it. To link a Warehouse to the Event, simply double-click on
     the Warehouse after the desired Event has been highlighted.</para>
     <tip>
-      <para id="Para980850">If you double-click on an Event, you can change
+      <para>If you double-click on an Event, you can change
       the notification status for all Warehouses simultaneously. This
       technique avoids having to select each Warehouse individually.</para>
     </tip>
-    <para id="Para980851">Remembering that the EAST Warehouse is specified as
+    <para>Remembering that the EAST Warehouse is specified as
     the supplying Warehouse on the Work Order we created for Item
     BOQ-002--meaning this is the Warehouse where a change in Work Order
     quantity would occur, triggering an Event--we double-click on Warehouse
@@ -131,7 +142,8 @@
     FINDME
   . The user is now subscribed to the "WoQtyChanged"
     Event.</para>
-    <para id="Para980858"><anchor id="Anchor79592" role="Cross-Ref" xreflabel="79592: Figure: Figure 1.4:  Event Subscription Now Showing on User Events Screen"/>
+    <para>
+<anchor id="Anchor79592" role="Cross-Ref" xreflabel="79592: Figure: Figure 1.4:  Event Subscription Now Showing on User Events Screen"/>
     <screenshot>
         <mediaobject>
           <imageobject>
@@ -140,24 +152,28 @@
           <caption id="Caption980860">Event Notification Established for
           Warehouse</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
   </section>
   <section id="Section980862">
-    <title><indexterm significance="normal">
+    <title>
+<indexterm significance="normal">
         <primary>events</primary>
         <secondary>fences for</secondary>
-      </indexterm><indexterm significance="normal">
+      </indexterm>
+<indexterm significance="normal">
         <primary>item sites</primary>
         <secondary>event fences explained</secondary>
       </indexterm>Event Fences</title>
-    <para id="Para980863">Before we change the Work Order quantity, let's
+    <para>Before we change the Work Order quantity, let's
     first examine how Event Fences fit into the equation. As you recall from
     the initial definition, an Event Fence is a setting on the Item Site
     master specifying the period of time, measured in days, within which Event
     notifications related to the Item Site should be issued. Looking at the
     Item Site master for Item BOQ-002, we see that the Event Fence is set to
     five ("5") days, as shown below:</para>
-    <para id="Para980867"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_itemSiteBOQ-002.png" id="Graphic980865"/>
@@ -165,15 +181,16 @@
           <caption id="Caption980868">Event Fence for Manufactured
           Item</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para980869">Given their measurement in days, Event Fences relate
+      </screenshot>
+</para>
+    <para>Given their measurement in days, Event Fences relate
     to the timing of Events. You might ask, How does timing relate to Events?
     Well, if you look at the complete list of Events found in <xref endterm="Anchor80421" linkend="Anchor80421"/>
     FINDME
   , you will see that the majority of Events are tied to Sales
     Orders or Work Orders. Because Orders have definite due dates and start
     dates, they are time-sensitive.</para>
-    <para id="Para980873">Let's return to our specific example now. Look back
+    <para>Let's return to our specific example now. Look back
     at the Work Order we created for Item BOQ-002 in <xref endterm="Anchor10794" linkend="Anchor10794"/>
     FINDME
   . The start date is "01/09/2004". We recall that
@@ -184,7 +201,7 @@
     subscribed to that Event in the correct Warehouse, you will receive
     notification that the Event has occurred. If the Event occurs prior to the
     Event Fence, no notification will be issued.</para>
-    <para id="Para980877">Now let's initiate the "WoQtyChanged" Event and
+    <para>Now let's initiate the "WoQtyChanged" Event and
     track the results. Today's date is 01/08/2004, so we are within the
     specified Event Fence for the BOQ-002 Item Site. All we have to do is open
     the Change Work Order Quantity screen, which is found in the Work Order
@@ -192,7 +209,8 @@
     FINDME
   , we will change the
     original Work Order quantity from 100 units to 75 units:</para>
-    <para id="Para980884"><anchor id="Anchor52867" role="Cross-Ref" xreflabel="52867: Figure: Figure 1.6:  Event Initiated by Change in Work Order Quantity"/>
+    <para>
+<anchor id="Anchor52867" role="Cross-Ref" xreflabel="52867: Figure: Figure 1.6:  Event Initiated by Change in Work Order Quantity"/>
     <screenshot>
         <mediaobject>
           <imageobject>
@@ -201,26 +219,30 @@
           <caption id="Caption980886">Event Initiated by Change in Work Order
           Quantity</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
   </section>
   <section id="Section980887">
     <title>The Event Manager</title>
-    <para id="Para980888">After initiating the Event, a couple of things
+    <para>After initiating the Event, a couple of things
     happen. For starters, the Event notification button will pop up in the
     lower left-hand corner of your desktop. This button alerts you that an
     Event you are subscribed to has occurred:</para>
-    <para id="Para980892"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_eventAlert.png" id="Graphic980890"/>
           </imageobject>
           <caption id="Caption980893">Event Notification Alert</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para980894">To see details about the Event, we double-click on
+      </screenshot>
+</para>
+    <para>To see details about the Event, we double-click on
     the alert button. Doing so opens the OpenMFG Event Manager, as shown in
     the following screen:</para>
-    <para id="Para980898"><anchor id="Anchor49980" role="Cross-Ref" xreflabel="49980: Figure: Figure 1.8:  Event Shown in Event Manager"/>
+    <para>
+<anchor id="Anchor49980" role="Cross-Ref" xreflabel="49980: Figure: Figure 1.8:  Event Shown in Event Manager"/>
     <screenshot>
         <mediaobject>
           <imageobject>
@@ -228,13 +250,14 @@
           </imageobject>
           <caption id="Caption980900">Event Shown in Event Manager</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
     <note>
-      <para id="Para980902">The Event Manager can be accessed regardless of
+      <para>The Event Manager can be accessed regardless of
       whether the Event notification button has appeared. Simply select the
       Event Manager option from the System Module menu.</para>
     </note>
-    <para id="Para980905">As you can see in <xref endterm="Anchor49980" linkend="Anchor49980"/>
+    <para>As you can see in <xref endterm="Anchor49980" linkend="Anchor49980"/>
     FINDME
   , the Event for the current user is displayed. If you are a
     manager with permission to view Event details pertaining to other users,
@@ -245,7 +268,8 @@
     select the Acknowledge option from the right-click menu. Finally, to
     confirm the time and date of acknowledgement, we select the Show
     Acknowledged Events option, as shown in the following screen:</para>
-    <para id="Para980910"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_eventManager2.png" id="Graphic980908"/>
@@ -253,8 +277,9 @@
           <caption id="Caption980911">Event Acknowledged in Event
           Manager</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para980912">We have now followed a complete life cycle for the
+      </screenshot>
+</para>
+    <para>We have now followed a complete life cycle for the
     Event "WoQtyChanged." Apply the same techniques discussed in this example
     when subscribing to and tracking other system-defined Events.</para>
   </section>

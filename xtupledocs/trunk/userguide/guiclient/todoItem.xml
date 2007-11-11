@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560396">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>to-do lists</primary>
       <secondary>creating new to-dos</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>customer relationship management</primary>
       <secondary>creating to-dos for</secondary>
     </indexterm>New To-Do List Item</title>
-  <para id="Para569931">To enter a new To-Do List item, select the "New To-Do
+  <para>To enter a new To-Do List item, select the "New To-Do
   List Item" option. The following screen will appear:</para>
-  <para id="Para567406"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_TD_toDoItem.png" id="Graphic567404" />
+          <imagedata fileref="images/CRM_TD_toDoItem.png" id="Graphic567404"/>
         </imageobject>
         <caption id="Caption567407">To-Do List Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para567401">When entering a new To-Do List item, you are presented
+    </screenshot>
+</para>
+  <para>When entering a new To-Do List item, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para560393">Assigned to</term>
+      <term>Assigned to</term>
       <listitem id="listitemN0x180ac00N0x188a5c8">
         <para>By default, a new To-Do List item is assigned to the user who
         creates it. Once a To-Do List item has been created, it may be
@@ -31,14 +34,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569961">Task Name</term>
+      <term>Task Name</term>
       <listitem id="listitemN0x180ac00N0x188ee00">
         <para>Enter a name to describe the Task.</para>
-        <para id="Para570968">Duplicate Task Names are allowed.</para>
+        <para>Duplicate Task Names are allowed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569962">Sequence #</term>
+      <term>Sequence #</term>
       <listitem id="listitemN0x180ac00N0x188ee48">
         <para>Enter a sequence number to help you prioritize your To-Do List
         items. Sequence numbers are manually entered and may be changed at any
@@ -46,105 +49,105 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569963">Incident</term>
+      <term>Incident</term>
       <listitem id="listitemN0x180ac00N0x188ee90">
         <para>Select an Incident (if applicable) to associate with the To-Do
         List item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para574292">Account</term>
+      <term>Account</term>
       <listitem id="listitemN0x180ac00N0x188eed8">
         <para>Specify the CRM Account the To-Do item is associated with (if
         any).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para574282">Reassign to User</term>
+      <term>Reassign to User</term>
       <listitem id="listitemN0x180ac00N0x188ef20">
         <para>To reassign the To-Do List item to another user, use the browse
         button located to the right of the field.</para>
-        <para id="Para577294">By default, To-Do List items are assigned
+        <para>By default, To-Do List items are assigned
         originally to the user who creates them.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569964">Date Due</term>
+      <term>Date Due</term>
       <listitem id="listitemN0x180ac00N0x188ef68">
         <para>Specify the date when the To-Do List item is due.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569965">Date Assigned</term>
+      <term>Date Assigned</term>
       <listitem id="listitemN0x180ac00N0x188efb0">
         <para>Specify the date when the To-Do List item was assigned--or
         reassigned.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569966">Date Started</term>
+      <term>Date Started</term>
       <listitem id="listitemN0x180ac00N0x188eff8">
         <para>Specify the date when work on the To-Do List item was
         started.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569967">Date Completed</term>
+      <term>Date Completed</term>
       <listitem id="listitemN0x180ac00N0x188f040">
         <para>Specify the date when work on the To-Do List item was
         completed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para569968">Status</term>
+      <term>Status</term>
       <listitem id="listitemN0x180ac00N0x188f088">
         <para>Specify one of the following statuses to assign to the To-Do
         List item:</para>
-        <para id="Para569991">Pending Input: Select to indicate the To-Do List
+        <para>Pending Input: Select to indicate the To-Do List
         item is pending input. To-Do List items having this status will
         display a "P" in the status column when they appear on the To-Do
         List.</para>
-        <para id="Para569996">Deferred: Select to indicate the To-Do List item
+        <para>Deferred: Select to indicate the To-Do List item
         is deferred. To-Do List items having this status will display a "D" in
         the status column when they appear on the To-Do List.</para>
-        <para id="Para569997">Neither: Select to indicate the To-Do List item
+        <para>Neither: Select to indicate the To-Do List item
         is neither pending input nor deferred. To-Do List items having this
         status will display an "I" in the status column when they appear on
         the To-Do List.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para570273">Active</term>
+      <term>Active</term>
       <listitem id="listitemN0x180ac00N0x188f0d0">
         <para>Select to indicate the To-Do List item is active.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para570319">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x188f118">
         <para>Enter a brief description of the To-Do List item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para570305">Notes</term>
+      <term>Notes</term>
       <listitem id="listitemN0x180ac00N0x188f160">
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the To-Do List item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para570017">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para570018">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x188f1cc">
         <para>Closes the screen without creating a To-Do List item, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para570019">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x188f214">
         <para>Creates the To-Do List item and adds it to the To-Do
         List.</para>

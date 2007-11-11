@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518698">
-  <title><anchor id="Anchor54109" role="Cross-Ref" xreflabel="54109: Heading2: Locales"/><indexterm significance="normal">
+  <title>
+<anchor id="Anchor54109" role="Cross-Ref" xreflabel="54109: Heading2: Locales"/>
+<indexterm significance="normal">
       <primary>locales</primary>
       <secondary>master list of</secondary>
     </indexterm>List Locales</title>
-  <para id="Para939539"><indexterm significance="normal">
+  <para>
+<indexterm significance="normal">
       <primary>locales</primary>
       <secondary>linguistic flexibility using</secondary>
     </indexterm>Locales provide a mechanism for defining certain display
@@ -18,268 +21,444 @@
   assigned a "French" Locale setting will see dates displayed as
   "DD/MM/YY".</para>
   <note>
-    <para id="Para957781">There is a difference between Locale settings and
+    <para>There is a difference between Locale settings and
     the data entry formats used to store data in an database. Locale settings
     control the manner in which data is displayed on screen within the
     application. Data entry formats control the format of data stored in the
     database.</para>
   </note>
-  <para id="Para969077">The following two tables illustrate a range of Locale
+  <para>The following two tables illustrate a range of Locale
   formats available for both time/date and numeric fields. <xref endterm="Anchor66016" linkend="Anchor66016"/>
     FINDME
   Table System.1 describes valid date/time formats. These
   formats would apply to any fields displaying dates, times, or
   timestamps.</para>
   <note>
-    <para id="Para969082">In most instances, the system will accept either
+    <para>In most instances, the system will accept either
     upper case or lower case characters for the majority of date, time, and
     numeric formats.</para>
   </note>
-  <para id="Para969223"><table id="Table969083">
-      <title><anchor id="Anchor66016" role="Cross-Ref" xreflabel="66016: TableTitle: Table System.1: Date &amp; Time Formats "/>
+  <para>
+<table id="Table969083">
+      <title>
+<anchor id="Anchor66016" role="Cross-Ref" xreflabel="66016: TableTitle: Table System.1: Date &amp; Time Formats "/>
       Date &amp; Time Formats</title>
       <tgroup cols="2">
         <thead>
           <row>
-            <entry><para id="Para969092">Date/Time Format</para></entry>
-            <entry><para id="Para969094">Description</para></entry>
+            <entry>
+<para>Date/Time Format</para>
+</entry>
+            <entry>
+<para>Description</para>
+</entry>
           </row>
         </thead>
         <tbody>
           <row>
-            <entry><para id="Para969096">HH</para></entry>
-            <entry><para id="Para969098">Hour of day (01-12)</para></entry>
+            <entry>
+<para>HH</para>
+</entry>
+            <entry>
+<para>Hour of day (01-12)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969100">HH12</para></entry>
-            <entry><para id="Para969102">hour of day (01-12)</para></entry>
+            <entry>
+<para>HH12</para>
+</entry>
+            <entry>
+<para>hour of day (01-12)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969104">HH24</para></entry>
-            <entry><para id="Para969106">hour of day (00-23)</para></entry>
+            <entry>
+<para>HH24</para>
+</entry>
+            <entry>
+<para>hour of day (00-23)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969108">MI</para></entry>
-            <entry><para id="Para969110">minute (00-59)</para></entry>
+            <entry>
+<para>MI</para>
+</entry>
+            <entry>
+<para>minute (00-59)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969112">SS</para></entry>
-            <entry><para id="Para969114">second (00-59)</para></entry>
+            <entry>
+<para>SS</para>
+</entry>
+            <entry>
+<para>second (00-59)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969116">MS</para></entry>
-            <entry><para id="Para969118">Millisecond (000-999)</para></entry>
+            <entry>
+<para>MS</para>
+</entry>
+            <entry>
+<para>Millisecond (000-999)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969120">US</para></entry>
-            <entry><para id="Para969122">microsecond
-            (000000-999999)</para></entry>
+            <entry>
+<para>US</para>
+</entry>
+            <entry>
+<para>microsecond
+            (000000-999999)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969124">SSSS</para></entry>
-            <entry><para id="Para969126">seconds past midnight
-            (0-86399)</para></entry>
+            <entry>
+<para>SSSS</para>
+</entry>
+            <entry>
+<para>seconds past midnight
+            (0-86399)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969128">AM or A.M. or PM or
-            P.M.</para></entry>
-            <entry><para id="Para969130">Meridian indicator</para></entry>
+            <entry>
+<para>AM or A.M. or PM or
+            P.M.</para>
+</entry>
+            <entry>
+<para>Meridian indicator</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969132">Y,YYY</para></entry>
-            <entry><para id="Para969134">Year (4 digits with
-            comma)</para></entry>
+            <entry>
+<para>Y,YYY</para>
+</entry>
+            <entry>
+<para>Year (4 digits with
+            comma)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969136">YYYY</para></entry>
-            <entry><para id="Para969138">Year (4 digits no
-            comma)</para></entry>
+            <entry>
+<para>YYYY</para>
+</entry>
+            <entry>
+<para>Year (4 digits no
+            comma)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969140">YYY</para></entry>
-            <entry><para id="Para969142">Last 3 digits of year</para></entry>
+            <entry>
+<para>YYY</para>
+</entry>
+            <entry>
+<para>Last 3 digits of year</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969144">YY</para></entry>
-            <entry><para id="Para969146">Last 2 digits of year</para></entry>
+            <entry>
+<para>YY</para>
+</entry>
+            <entry>
+<para>Last 2 digits of year</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969148">Y</para></entry>
-            <entry><para id="Para969150">Last digit of year</para></entry>
+            <entry>
+<para>Y</para>
+</entry>
+            <entry>
+<para>Last digit of year</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969152">BC or B.C. or AD or
-            A.D.</para></entry>
-            <entry><para id="Para969154">Era indicator</para></entry>
+            <entry>
+<para>BC or B.C. or AD or
+            A.D.</para>
+</entry>
+            <entry>
+<para>Era indicator</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969156">MONTH</para></entry>
-            <entry><para id="Para969158">Month name</para> <para id="Para969159">Supports mixed case (e.g., Month)</para></entry>
+            <entry>
+<para>MONTH</para>
+</entry>
+            <entry>
+<para>Month name</para> <para>Supports mixed case (e.g., Month)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969161">MON</para></entry>
-            <entry><para id="Para969163">Abbreviated month name</para> <para id="Para969164">Supports mixed case (e.g., Mon)</para></entry>
+            <entry>
+<para>MON</para>
+</entry>
+            <entry>
+<para>Abbreviated month name</para> <para>Supports mixed case (e.g., Mon)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969166">MM</para></entry>
-            <entry><para id="Para969168">Month number (01-12)</para></entry>
+            <entry>
+<para>MM</para>
+</entry>
+            <entry>
+<para>Month number (01-12)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969170">DAY</para></entry>
-            <entry><para id="Para969172">Day name</para> <para id="Para969173">Supports mixed case (e.g., Day)</para></entry>
+            <entry>
+<para>DAY</para>
+</entry>
+            <entry>
+<para>Day name</para> <para>Supports mixed case (e.g., Day)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969175">DY</para></entry>
-            <entry><para id="Para969177">Abbreviated day name</para> <para id="Para969178">Supports mixed case (e.g., Dy)</para></entry>
+            <entry>
+<para>DY</para>
+</entry>
+            <entry>
+<para>Abbreviated day name</para> <para>Supports mixed case (e.g., Dy)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969180">DDD</para></entry>
-            <entry><para id="Para969182">Day of year (001-366)</para></entry>
+            <entry>
+<para>DDD</para>
+</entry>
+            <entry>
+<para>Day of year (001-366)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969184">DD</para></entry>
-            <entry><para id="Para969186">Day of month (01-31)</para></entry>
+            <entry>
+<para>DD</para>
+</entry>
+            <entry>
+<para>Day of month (01-31)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969188">D</para></entry>
-            <entry><para id="Para969190">Day of week (1-7;
-            Sunday=1)</para></entry>
+            <entry>
+<para>D</para>
+</entry>
+            <entry>
+<para>Day of week (1-7;
+            Sunday=1)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969192">W</para></entry>
-            <entry><para id="Para969194">Week of month (1-5) where first week
-            starts on the first day of the month</para></entry>
+            <entry>
+<para>W</para>
+</entry>
+            <entry>
+<para>Week of month (1-5) where first week
+            starts on the first day of the month</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969196">WW</para></entry>
-            <entry><para id="Para969198">Week number of year (1-53) where
-            first week starts on the first day of the year</para></entry>
+            <entry>
+<para>WW</para>
+</entry>
+            <entry>
+<para>Week number of year (1-53) where
+            first week starts on the first day of the year</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969200">IW</para></entry>
-            <entry><para id="Para969202">ISO week number of year (The first
-            Thursday of the new year is in week 1.)</para></entry>
+            <entry>
+<para>IW</para>
+</entry>
+            <entry>
+<para>ISO week number of year (The first
+            Thursday of the new year is in week 1.)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969204">CC</para></entry>
-            <entry><para id="Para969206">Century (2 digits)</para></entry>
+            <entry>
+<para>CC</para>
+</entry>
+            <entry>
+<para>Century (2 digits)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969208">J</para></entry>
-            <entry><para id="Para969210">Julian Day (days since January 1,
-            4712 BC)</para></entry>
+            <entry>
+<para>J</para>
+</entry>
+            <entry>
+<para>Julian Day (days since January 1,
+            4712 BC)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969212">Q</para></entry>
-            <entry><para id="Para969214">Quarter</para></entry>
+            <entry>
+<para>Q</para>
+</entry>
+            <entry>
+<para>Quarter</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969216">RM</para></entry>
-            <entry><para id="Para969218">Month in Roman Numerals (I-XII;
-            I=January)</para></entry>
+            <entry>
+<para>RM</para>
+</entry>
+            <entry>
+<para>Month in Roman Numerals (I-XII;
+            I=January)</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969220">TZ</para></entry>
-            <entry><para id="Para969222">Time zone name</para></entry>
+            <entry>
+<para>TZ</para>
+</entry>
+            <entry>
+<para>Time zone name</para>
+</entry>
           </row>
         </tbody>
       </tgroup>
-    </table></para>
-  <para id="Para969227">The numeric formats shown in <xref endterm="Anchor43955" linkend="Anchor43955"/>
+    </table>
+</para>
+  <para>The numeric formats shown in <xref endterm="Anchor43955" linkend="Anchor43955"/>
     FINDME
   Table System.2 would apply to any fields displaying quantity,
   quantity per, Cost, currency, Price, or Extended Price information.</para>
   <note>
-    <para id="Para969229">Locale fields featuring numeric values are required
+    <para>Locale fields featuring numeric values are required
     to contain a minimum of nine characters to the left of the decimal
     point.</para>
   </note>
-  <para id="Para969278"><table id="Table969230">
-      <title><anchor id="Anchor43955" role="Cross-Ref" xreflabel="43955: TableTitle: Table System.2: Numeric Formats "/>
+  <para>
+<table id="Table969230">
+      <title>
+<anchor id="Anchor43955" role="Cross-Ref" xreflabel="43955: TableTitle: Table System.2: Numeric Formats "/>
       Numeric Formats</title>
       <tgroup cols="2">
         <thead>
           <row>
-            <entry><para id="Para969239">Transaction Type Code</para></entry>
-            <entry><para id="Para969241">Description</para></entry>
+            <entry>
+<para>Transaction Type Code</para>
+</entry>
+            <entry>
+<para>Description</para>
+</entry>
           </row>
         </thead>
         <tbody>
           <row>
-            <entry><para id="Para969243">9</para></entry>
-            <entry><para id="Para969245">Value with the specified number of
-            digits</para></entry>
+            <entry>
+<para>9</para>
+</entry>
+            <entry>
+<para>Value with the specified number of
+            digits</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969247">0</para></entry>
-            <entry><para id="Para969249">Value with leading
-            zeros</para></entry>
+            <entry>
+<para>0</para>
+</entry>
+            <entry>
+<para>Value with leading
+            zeros</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969251">. (period)</para></entry>
-            <entry><para id="Para969253">Decimal point</para></entry>
+            <entry>
+<para>. (period)</para>
+</entry>
+            <entry>
+<para>Decimal point</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969255">, (comma)</para></entry>
-            <entry><para id="Para969257">Group (thousand)
-            separator</para></entry>
+            <entry>
+<para>, (comma)</para>
+</entry>
+            <entry>
+<para>Group (thousand)
+            separator</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969259">S</para></entry>
-            <entry><para id="Para969261">Plus sign (+) at front of
-            value</para></entry>
+            <entry>
+<para>S</para>
+</entry>
+            <entry>
+<para>Plus sign (+) at front of
+            value</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969263">PL</para></entry>
-            <entry><para id="Para969265">Plus sign (+) in specified
-            position</para></entry>
+            <entry>
+<para>PL</para>
+</entry>
+            <entry>
+<para>Plus sign (+) in specified
+            position</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969267">D</para></entry>
-            <entry><para id="Para969269">Decimal point</para></entry>
+            <entry>
+<para>D</para>
+</entry>
+            <entry>
+<para>Decimal point</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969271">G</para></entry>
-            <entry><para id="Para969273">Group separator</para></entry>
+            <entry>
+<para>G</para>
+</entry>
+            <entry>
+<para>Group separator</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para969275">L</para></entry>
-            <entry><para id="Para969277">Dollar sign ($) in specified
-            position</para></entry>
+            <entry>
+<para>L</para>
+</entry>
+            <entry>
+<para>Dollar sign ($) in specified
+            position</para>
+</entry>
           </row>
         </tbody>
       </tgroup>
-    </table></para>
-  <para id="Para969075">To access the master list of Locales, select the
+    </table>
+</para>
+  <para>To access the master list of Locales, select the
   "Locales" option. The following screen will appear:</para>
-  <para id="Para518705"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/Sys_localesList.png" id="Graphic521998"/>
         </imageobject>
         <caption id="Caption518706">Locales Master List</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para518707">The "Locales" screen displays information on all
+    </screenshot>
+</para>
+  <para>The "Locales" screen displays information on all
   existing Locales, including Locale name and Locale description.</para>
-  <para id="Para518708">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518709">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1876d2c">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518710">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x1876d74">
         <para>Opens screen for creating a new Locale.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518711">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x1876dbc">
         <para>Enables you to edit highlighted Locale definitions. The edit
         screen is the same as that for creating a new Locale
@@ -289,14 +468,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para944943">COPY</term>
+      <term>COPY</term>
       <listitem id="listitemN0x180ac00N0x1876e04">
         <para>Highlight a Locale and then select this button to reach a screen
         for copying the Locale's definition.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518712">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x1876e4c">
         <para>Highlight a Locale definition and then select this button to
         remove the Locale from the list.</para>

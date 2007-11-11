@@ -3,11 +3,11 @@
 <section id="Section644173" role="openmfg">
     <title>Schedule S/O for Email Delivery</title>
 
-    <para id="Para644181">To schedule a Sales Order for email delivery, select
+    <para>To schedule a Sales Order for email delivery, select
     the "ScheduleS/O for Email Delivery" option. The following screen will
     appear:</para>
 
-    <para id="Para644185">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -20,12 +20,12 @@
       </screenshot>
    </para>
 
-    <para id="Para644187">When scheduling a Sales Order for email delivery,
+    <para>When scheduling a Sales Order for email delivery,
     you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para644188">Sales Order #</term>
+        <term>Sales Order #</term>
 
         <listitem id="listitemN0x180ac00N0x18d5da8">
             <para>Enter the Sales Order Number of the Sales Order you want to
@@ -35,14 +35,14 @@
     </variablelist>
 
     <note>
-      <para id="Para644191">Customers are set up to receive email deliveries
+      <para>Customers are set up to receive email deliveries
       of information using the "S/O EDI" (Electronic Data Interchange) tab on
       the Customer master.</para>
     </note>
 
     <variablelist>
       <varlistentry>
-        <term id="Para644313">Report Name</term>
+        <term>Report Name</term>
 
         <listitem id="listitemN0x180ac00N0x18d5e38">
             <para>Specify the Order Form you want to email to the
@@ -51,54 +51,54 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644195">From</term>
+        <term>From</term>
 
         <listitem id="listitemN0x180ac00N0x18d5e80">
             <para>The default address appearing in the "From" field will
           automatically be pre-populated with the email address of the user
           who is currently logged in to the application.</para>
 
-            <para id="Para644324">User email addresses are stored with user
+            <para>User email addresses are stored with user
           records at the system level. You may change the address in this
           field manually at run time.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644196">Send To</term>
+        <term>Send To</term>
 
         <listitem id="listitemN0x180ac00N0x18d5ec8">
             <para>If the Customer associated with the selected Sales Order has
           been set up to receive email, then the default email address for
           that Customer will be automatically pre-populated here.</para>
 
-            <para id="Para644336">Because this is an editable field, you may
+            <para>Because this is an editable field, you may
           change the email address.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644197">Subject</term>
+        <term>Subject</term>
 
         <listitem id="listitemN0x180ac00N0x18d5f10">
             <para>If EDI is set up for the Customer, then the default subject
           line found on the Customer master will be automatically
           pre-populated here.</para>
 
-            <para id="Para644332">Because this is an editable field, you may
+            <para>Because this is an editable field, you may
           modify the subject line.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644198">Filename</term>
+        <term>Filename</term>
 
         <listitem id="listitemN0x180ac00N0x18d5f58">
             <para>If EDI is set up for the Customer, then the default filename
           found on the Customer master will be automatically pre-populated
           here.</para>
 
-            <para id="Para644328">Because this is an editable field, you may
+            <para>Because this is an editable field, you may
           modify the filename line. XML tags may be used in this field to
           dynamically generate filename text. In the example shown in the
           screenshot above, the filename will include the Document Type (i.e.,
@@ -108,25 +108,25 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644199">Email Body</term>
+        <term>Email Body</term>
 
         <listitem id="listitemN0x180ac00N0x18d5fa0">
             <para>If EDI is set up for the Customer, then the default email body
           found on the Customer master will be automatically pre-populated
           here.</para>
 
-            <para id="Para644340">This is a scrolling text field with
+            <para>This is a scrolling text field with
           word-wrapping. You may edit the default email body.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para id="Para644201">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para644202">CANCEL</term>
+        <term>CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18d600c">
             <para>Closes the screen without scheduling a Sales Order for email
@@ -135,7 +135,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para644203">SUBMIT</term>
+        <term>SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x18d6054">
             <para>Select to submit requested action to the Batch Manager for

@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section533843">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>history by class code</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>work order history for</secondary>
     </indexterm>Work Order History by Class Code</title>
-  <para id="Para533969">To view Work Order history by Class Code, select the
+  <para>To view Work Order history by Class Code, select the
   "Work Order History by Class Code" option. The following screen will
   appear:</para>
-  <para id="Para533973"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/WO_Disp_histByClass.png" id="Graphic533971"/>
         </imageobject>
         <caption id="Caption533999">Work Order History by Class Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para560622">Work Order Materials and Operations history is saved
+    <para>Work Order Materials and Operations history is saved
     in the database after a Work Order is closed. Reports can be written to
     retrieve this information.</para>
   </note>
-  <para id="Para545871">When displaying Work Order history by Class Code, you
+  <para>When displaying Work Order history by Class Code, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para545872">All Class Codes</term>
+      <term>All Class Codes</term>
       <listitem>
         <para>Select to display Work Order history for all Class Codes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para545873">Selected</term>
+      <term>Selected</term>
       <listitem>
         <para>Specify Class Code whose Work Order history you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para534074">Pattern</term>
+      <term>Pattern</term>
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
-        <para id="Para569526">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -53,67 +57,67 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para562332">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem>
         <para>Select to display Work Order history by Class Code for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para534120">Selected</term>
+      <term>Selected</term>
       <listitem>
         <para>Specify Warehouse whose Work Order history by Class Code you
         want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para534165">Only Show Top Level Work Orders</term>
+      <term>Only Show Top Level Work Orders</term>
       <listitem>
         <para>Select to display only top level Work Orders.</para>
-        <para id="Para534166">Top level Work Orders are Work Orders that have
+        <para>Top level Work Orders are Work Orders that have
         not been created to meet the component demands of a parent Work
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para534171">Show W/O Cost</term>
+      <term>Show W/O Cost</term>
       <listitem>
         <para>Select to show Work Order Cost in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para534167">Work Orders</term>
+      <term>Work Orders</term>
       <listitem>
         <para>Display lists Work Order history by Class Code, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para534455">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para534456">CLOSE</term>
+      <term>CLOSE</term>
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para545151">QUERY</term>
+      <term>QUERY</term>
       <listitem>
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para534458">PRINT</term>
+      <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para534572">Right-clicking on a Work Order in the Work Orders"
+  <para>Right-clicking on a Work Order in the Work Orders"
   list enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>

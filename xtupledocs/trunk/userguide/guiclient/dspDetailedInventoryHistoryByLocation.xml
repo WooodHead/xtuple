@@ -1,80 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677207">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>detailed by location</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>locations</primary>
       <secondary>detailed inventory history of</secondary>
     </indexterm>Detailed Inventory History by Location</title>
-  <para id="Para520536">To view detailed Inventory history by Location, select
+  <para>To view detailed Inventory history by Location, select
   the "Detailed Inventory History by Location" option. The following screen
   will appear:</para>
-  <para id="Para520540"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_detailedInvHistLoc.png"
-                     id="Graphic526852" />
+          <imagedata fileref="images/IM_Disp_detailedInvHistLoc.png" id="Graphic526852"/>
         </imageobject>
         <caption id="Caption520541">Detailed Inventory History by
         Location</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para524665">The display will only list Inventory history for
+    <para>The display will only list Inventory history for
     Multiple Location Control Items. Items without Multiple Location Control
     turned on will not be listed in the display. Multiple Location Control is
     set in the Item Site record.</para>
   </note>
-  <para id="Para670692">When displaying detailed Inventory history by
+  <para>When displaying detailed Inventory history by
   Location, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para670693">Location</term>
+      <term>Location</term>
       <listitem id="listitemN0x180ac00N0x1991488">
         <para>Specify the Location whose detailed Inventory History you want
         to display.</para>
-        <para id="Para670694">Displays detailed Inventory history for selected
+        <para>Displays detailed Inventory history for selected
         Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para621478">Netable</term>
+      <term>Netable</term>
       <listitem id="listitemN0x180ac00N0x19914d0">
         <para>Indicates whether the Location is Netable or not.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para621479">Restricted</term>
+      <term>Restricted</term>
       <listitem id="listitemN0x180ac00N0x1991518">
         <para>Indicates whether the Location is Restricted or not.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para621460">Trans. Types</term>
+      <term>Trans. Types</term>
       <listitem id="listitemN0x180ac00N0x1991560">
         <para>Select one of the available transaction types:</para>
-        <para id="Para621464">All Transactions: Displays all Inventory
+        <para>All Transactions: Displays all Inventory
         transactions.</para>
-        <para id="Para621465">Receipts: Displays receipts into Inventory from
+        <para>Receipts: Displays receipts into Inventory from
         Manufacturing, purchases, or miscellaneous receipts.</para>
-        <para id="Para621466">Issues: Displays issues from Inventory to
+        <para>Issues: Displays issues from Inventory to
         Manufacturing.</para>
-        <para id="Para621467">Shipments: Displays shipments to
+        <para>Shipments: Displays shipments to
         customers.</para>
-        <para id="Para621468">Adjustments and Counts: Displays Inventory
+        <para>Adjustments and Counts: Displays Inventory
         adjustments and counts.</para>
-        <para id="Para621469">Transfers: Displays Inter-Warehouse Transfers
+        <para>Transfers: Displays Inter-Warehouse Transfers
         and Location and Lot/Serial Number reassignments.</para>
-        <para id="Para621470">Scraps: Displays Scrap removed from
+        <para>Scraps: Displays Scrap removed from
         Inventory.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para621472">The system prefixes Order Numbers with letters
+    <para>The system prefixes Order Numbers with letters
     indicating the Order type. For example, Work Orders are prefixed with
     "WO", Purchase Orders with "PO", and Sales Orders with "SO". These letters
     are for display purposes only and are not considered part of the Order
@@ -82,21 +84,21 @@
   </note>
   <variablelist>
     <varlistentry role="openmfg">
-      <term id="Para520544">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x19915cc">
         <para>Select to display detailed Inventory history by Location for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para520546">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x19915f0">
         <para>Specify Warehouse whose detailed Inventory history by Location
         you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520551">Start Date</term>
+      <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x1991638">
         <para>Inventory transactions conducted on and after this date will be
         displayed. Start date and end date must be entered for calculation to
@@ -104,7 +106,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520556">End Date</term>
+      <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x1991680">
         <para>Inventory transactions conducted on and before this date will be
         displayed. Start date and end date must be entered for calculation to
@@ -112,35 +114,35 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520572">Inventory History</term>
+      <term>Inventory History</term>
       <listitem id="listitemN0x180ac00N0x19916c8">
         <para>Display lists detailed Inventory history by Location, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para520575">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para520576">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1991734">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para578714">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x199177c">
         <para>Select to generate the display, using the specified
         parameters.</para>
-        <para id="Para520578">Start date and end date must be entered for
+        <para>Start date and end date must be entered for
         calculation to proceed. Results will be displayed in the "Inventory
         History" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520579">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x19917c4">
         <para>Runs the report associated with this screen.</para>
       </listitem>

@@ -1,44 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section596450">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>backlog</primary>
       <secondary>by customer group</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>customer groups</primary>
       <secondary>backlog for</secondary>
     </indexterm>Backlog by Customer Group</title>
-  <para id="Para596451">To view Backlog by Customer Group, select the "Backlog
+  <para>To view Backlog by Customer Group, select the "Backlog
   by Customer Group" option. The following screen will appear:</para>
-  <para id="Para598931"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SO_Disp_backlogByCustGrp.png" id="Graphic598929"/>
         </imageobject>
         <caption id="Caption598932">Backlog by Customer Group</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para598933">When displaying Backlog by Customer Group, you are
+    </screenshot>
+</para>
+  <para>When displaying Backlog by Customer Group, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para598934">All Customer Groups</term>
+      <term>All Customer Groups</term>
       <listitem id="listitemN0x180ac00N0x19854ec">
         <para>Select to display Backlog for all Customer Groups.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598935">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x1985534">
         <para>Specify Customer Group whose Backlog you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598936">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x198557c">
         <para>Enter a Customer Group pattern to select a range of Customer
         Groups.</para>
-        <para id="Para656142">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -46,45 +50,45 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598947">Start Date</term>
+      <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x19855c4">
         <para>Backlog by Customer Group entered on and after this date will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598952">End Date</term>
+      <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x198560c">
         <para>Backlog by Customer Group entered on and before this date will
         be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598954">Show Prices</term>
+      <term>Show Prices</term>
       <listitem id="listitemN0x180ac00N0x1985654">
         <para>Select to include pricing information in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para599056">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x1985678">
         <para>Select to display Backlog by Customer Group for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para599057">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x198569c">
         <para>Specify Warehouse whose Backlog by Customer Group you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598957">Backlog</term>
+      <term>Backlog</term>
       <listitem id="listitemN0x180ac00N0x19856e4">
         <para>Display lists Backlog by Customer Group, using the specified
         parameters.</para>
-        <para id="Para654211">This display is a nested list, with a plus ("+")
+        <para>This display is a nested list, with a plus ("+")
         sign located to the far left of the display next to each line that may
         be expanded to lower levels. By clicking your mouse on a plus sign,
         you reveal lower levels of information related to the Documents. If
@@ -94,31 +98,31 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para598959">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para598960">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1985750">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598961">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x1985798">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para653785">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x19857e0">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para598964">Right-clicking on a Sales Order Line Item in the
+  <para>Right-clicking on a Sales Order Line Item in the
   Backlog list enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/7)"/>

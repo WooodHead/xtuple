@@ -1,45 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>adding line items to</secondary>
     </indexterm>Credit Memo Item</title>
-  <para id="Para551867">To create a new Credit Memo Line Item, select the NEW
+  <para>To create a new Credit Memo Line Item, select the NEW
   button. The following screen will appear:</para>
-  <para id="Para551871"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_creditMemoItem.png"
-                     id="Graphic551869" />
+          <imagedata fileref="images/SO_Bill_creditMemoItem.png" id="Graphic551869"/>
         </imageobject>
         <caption id="Caption551872">Create New Credit Memo Line Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para571704">When creating a new Credit Memo Line Item, you are
+    </screenshot>
+</para>
+  <para>When creating a new Credit Memo Line Item, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para571705">Order #</term>
+      <term>Order #</term>
       <listitem id="listitemN0x180ac00N0x1930d44">
         <para>Displays the Credit Memo number for the current Credit
         Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para571706">Line #</term>
+      <term>Line #</term>
       <listitem id="listitemN0x180ac00N0x1930d8c">
         <para>Displays the line number assigned to the Credit Memo
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551878">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1930dd4">
         <para>Enter the Item Number of the Item you want to add to the Credit
         Memo.</para>
-        <para id="Para558729">If the Credit Memo is being applied to an
+        <para>If the Credit Memo is being applied to an
         Invoice, only those Line Items which appeared on the Invoice will be
         available for selection--that is, if the appropriate setting is
         selected at the system level. Invoices are selected for application by
@@ -49,7 +50,7 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para595604">The system-level configuration which determines
+    <para>The system-level configuration which determines
     whether Credit Memo Items will be restricted to relevant Invoice Items is
     the setting "Restrict Credit Memos to Items that appear on their Apply-To
     Document." Selecting this option narrows the Credit Memo Item selection
@@ -61,25 +62,25 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para652601">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1930e64">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551888">Qty. Shipped</term>
+      <term>Qty. Shipped</term>
       <listitem id="listitemN0x180ac00N0x1930eac">
         <para>Displays the quantity of the Item shipped to date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551892">Qty. Returned</term>
+      <term>Qty. Returned</term>
       <listitem id="listitemN0x180ac00N0x1930ef4">
         <para>Enter the quantity of the Item returned for credit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551897">Qty. To Credit</term>
+      <term>Qty. To Credit</term>
       <listitem id="listitemN0x180ac00N0x1930f3c">
         <para>Enter the quantity of the Item you plan to give the Customer
         credit for. The quantity entered here may equal the quantity returned.
@@ -90,14 +91,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para590340"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>pricing of</secondary>
         </indexterm>Net Unit Price</term>
       <listitem id="listitemN0x180ac00N0x1930fcc">
         <para>Specify the Net Unit Price to assign the quantity being
         credited.</para>
-        <para id="Para635362">If the Credit Memo is being applied to a
+        <para>If the Credit Memo is being applied to a
         specific Invoice, then the system will automatically enter the Item's
         Net Unit Price as it appeared on the referring Invoice. If no Invoice
         is being applied-to, then select the appropriate Net Unit Price from
@@ -107,24 +109,24 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para639748">If there is only one Unit Price available for the
+    <para>If there is only one Unit Price available for the
     Item, then that Price will be entered automatically when you select the
     browse button located to the right of the field.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para635363">Extended Price</term>
+      <term>Extended Price</term>
       <listitem id="listitemN0x180ac00N0x193105c">
         <para>Displays the Extended Price.</para>
-        <para id="Para571766">The Extended Price for a Credit Memo Item is
+        <para>The Extended Price for a Credit Memo Item is
         based on the quantity credited multiplied by the Price.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para639679">Tax Type</term>
+      <term>Tax Type</term>
       <listitem id="listitemN0x180ac00N0x19310a4">
         <para>Specify the Tax Type for the Credit Memo Item.</para>
-        <para id="Para639680">By default, the Item's Tax Type corresponding to
+        <para>By default, the Item's Tax Type corresponding to
         the Credit Memo's Tax Authority will be presented here. The link
         between Tax Types and Tax Authorities is made on the Item master. If
         the Item master does not have a Tax Type for the Credit Memo's Tax
@@ -132,11 +134,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para639681">Tax Code</term>
+      <term>Tax Code</term>
       <listitem id="listitemN0x180ac00N0x19310ec">
         <para>Specify the Tax Code to be applied to the Credit Memo
         Item.</para>
-        <para id="Para639682">By default, the Tax Code specified in the Tax
+        <para>By default, the Tax Code specified in the Tax
         Selection matrix will be displayed here. For a Tax Code to be used,
         the matrix must have an entry which matches both the Item's Tax Type
         definition and the Tax Authority specified on the Credit Memo header.
@@ -146,22 +148,22 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para639684">The relationship between Tax Authorities, Tax Types,
+    <para>The relationship between Tax Authorities, Tax Types,
     and Tax Codes is established in the Tax Selection matrix.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para639685">Tax</term>
+      <term>Tax</term>
       <listitem id="listitemN0x180ac00N0x193117c">
         <para>Displays the amount of Tax to be charged for the Credit Memo
         Line Item quantity.</para>
-        <para id="Para639686">Sales Tax is calculated at the Credit Memo Line
+        <para>Sales Tax is calculated at the Credit Memo Line
         Item level. To get a detailed view of the Tax calculation, click on
         the Tax link using your mouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para616641">Reason Code</term>
+      <term>Reason Code</term>
       <listitem id="listitemN0x180ac00N0x19311c4">
         <para>Specify the reason why an adjustment is being made to a
         Customer's account.</para>
@@ -169,54 +171,55 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para616670">By default, the Reason Code on the Credit Memo
+    <para>By default, the Reason Code on the Credit Memo
     header will be used at the Line Item level. However, you may change the
     Reason Code for individual Line Items.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para571775">Pricing UOM</term>
+      <term>Pricing UOM</term>
       <listitem id="listitemN0x180ac00N0x1931254">
         <para>Displays the Item's Price UOM.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para571776">Ratio</term>
+      <term>Ratio</term>
       <listitem id="listitemN0x180ac00N0x193129c">
         <para>Displays the Item's Price/Inventory UOM ratio.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551914">Unit Cost</term>
+      <term>Unit Cost</term>
       <listitem id="listitemN0x180ac00N0x19312e4">
         <para>Displays the Standard Cost per unit.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551916">List Price</term>
+      <term>List Price</term>
       <listitem id="listitemN0x180ac00N0x193132c">
         <para>Displays the Item's List Price per unit displays.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para554520">Sale Price</term>
+      <term>Sale Price</term>
       <listitem id="listitemN0x180ac00N0x1931374">
         <para>Displays the sold Price for the Item at the time of sale.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551920"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>discount pricing for</secondary>
         </indexterm>Discount % from List</term>
       <listitem id="listitemN0x180ac00N0x1931404">
         <para>The default Customer discount (if any) will display here.</para>
-        <para id="Para590296">Default Customer discount percentages are
+        <para>Default Customer discount percentages are
         defined in the Customer master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551925">Discount % from Sale</term>
+      <term>Discount % from Sale</term>
       <listitem id="listitemN0x180ac00N0x193144c">
         <para>Specify a percentage to reduce the credited amount by. The
         discount will be deducted from the sale Price, thereby reducing the
@@ -224,11 +227,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para639668">Receiving Whse</term>
+      <term>Receiving Whse</term>
       <listitem id="listitemN0x180ac00N0x1931494">
         <para>Specify the Warehouse returned Inventory will be received
         into.</para>
-        <para id="Para639669">Items designated as Multiple Location Control
+        <para>Items designated as Multiple Location Control
         Items may be received into multiple Warehouses. If this is the case,
         be sure to specify the correct receiving Warehouse when entering a
         Credit Memo Line Item. The receiving Warehouse will not necessarily be
@@ -236,25 +239,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551930">Notes</term>
+      <term>Notes</term>
       <listitem id="listitemN0x180ac00N0x19314dc">
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Credit Memo Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para551932">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para551933">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1931548">
         <para>Closes the screen without creating a new Credit Memo Item,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551934">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1931590">
         <para>Creates the new Credit Memo Item and adds it to the list of
         Credit Memo Line Items.</para>

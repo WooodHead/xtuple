@@ -1,63 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="shippingChargeType">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>new charge types for</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>charge types</primary>
       <secondary>creating new</secondary>
     </indexterm>Shipping Charge Type</title>
-  <para id="Para575851">To create a new Shipping Charge Type, select the NEW
+  <para>To create a new Shipping Charge Type, select the NEW
   button. The following screen will appear:</para>
-  <para id="Para575855"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_shipChgTypeNew.png"
-                     id="Graphic575853" />
+          <imagedata fileref="images/SO_MI_shipChgTypeNew.png" id="Graphic575853"/>
         </imageobject>
         <caption id="Caption575856">Create New Shipping Charge Type</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para575857">When creating a new Shipping Charge Type, you are
+    </screenshot>
+</para>
+  <para>When creating a new Shipping Charge Type, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para575861">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x1870418">
         <para>Enter a name to identify the Shipping Charge Type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para575866">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x1870460">
         <para>Enter a description to identify the Shipping Charge Type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para575871">Customer may pay Freight Charges</term>
+      <term>Customer may pay Freight Charges</term>
       <listitem id="listitemN0x180ac00N0x18704a8">
         <para>Select to allow free-form Freight Charges to be added to a Sales
         Order.</para>
-        <para id="Para587636">If not selected, you are indicating that
+        <para>If not selected, you are indicating that
         free-form Freight Charges may not be added to Sales Orders which
         specify the Shipping Charge Type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para575877">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para575878">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1870514">
         <para>Closes the screen without creating a Shipping Charge Type,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para575879">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x187055c">
         <para>Creates the Shipping Charge Type and adds it to the master list
         of Shipping Charge Types.</para>

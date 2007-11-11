@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537828" role="openmfg">
    <title>Run MRP by Item</title>
-   <para id="Para537829">When you run MRP by Item, you are running the
+   <para>When you run MRP by Item, you are running the
     Material Requirements Planning (MRP) system. This utility creates Planned
     Replenishment Orders to meet existing Sales Order and Work Order demand.
     Replenishment Orders will be created whenever a Planned Availability for
@@ -12,15 +11,15 @@
     the Reorder Level--or to the Order Up To (OUT) Level, if the OUT Level is
     greater.</para>
    <tip>
-      <para id="Para537831">When running MRP by Item for manufactured Items,
+      <para>When running MRP by Item for manufactured Items,
       the system generates Planned Work Orders only. If you want to also
       generate Planned Orders for purchased requirements, you should run MRP
       by Planner Code. Only Items designated as MRP Items will be affected by
       an MRP run.</para>
    </tip>
-   <para id="Para537832">To run MRP for an individual Item, select the "Run
+   <para>To run MRP for an individual Item, select the "Run
     MRP by Item" option. The following screen will appear:</para>
-   <para id="Para537836">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -31,44 +30,44 @@
       </screenshot>
    </para>
    <note>
-      <para id="Para537839">The system deletes any non-firmed Planned Orders
+      <para>The system deletes any non-firmed Planned Orders
       when MRP is run. If demand for the deleted Planned Orders still exists,
       the Orders will be replaced by new Replenishment Orders having new
       Planned Order Numbers. Order quantities will also be updated if demand
       levels have changed since MRP was last run.</para>
    </note>
-   <para id="Para537840">When running MRP by Item, you are presented with the
+   <para>When running MRP by Item, you are presented with the
     following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para537841">Item Number</term>
+         <term>Item Number</term>
          <listitem>
             <para>Enter the Item Number of the Item you want to create a Planned
           Order for.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para553577">UOM</term>
+         <term>UOM</term>
          <listitem>
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para537844">Warehouse</term>
+         <term>Warehouse</term>
          <listitem>
             <para>Specify Warehouse Planned Replenishment Orders should be
           created for.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para537845">Cutoff Date</term>
+         <term>Cutoff Date</term>
          <listitem>
             <para>Specify how far into the future the MPS run should look for
           demand.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para537847">
+         <term>
              
             <indexterm significance="normal">
                <primary>firmed orders</primary>
@@ -77,7 +76,7 @@
          <listitem>
             <para>Firmed MRP Orders: Select to delete existing Firmed
           Orders.</para>
-            <para id="Para537848">A firm Planned Order is a Planned Order that
+            <para>A firm Planned Order is a Planned Order that
           has been solidified in the schedule. By default, firm Planned Orders
           are not deleted when MRP is run. Selecting this option overrides
           that default behavior. If firm Planned Orders are deleted when MRP
@@ -88,21 +87,21 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para545167">Unposted Purchase Orders and Purchase Requests are
+      <para>Unposted Purchase Orders and Purchase Requests are
       considered as valid sources of supply when MRP is run.</para>
    </tip>
-   <para id="Para537849">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para537850">CANCEL</term>
+         <term>CANCEL</term>
          <listitem>
             <para>Closes the screen without creating Planned Replenishment
           Orders by Item, returning you to the application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para537851">CREATE</term>
+         <term>CREATE</term>
          <listitem>
             <para>Creates Planned Replenishment Orders by Item, using the
           specified parameters.</para>

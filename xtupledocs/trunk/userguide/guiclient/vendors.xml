@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972583">
    <title>
        
@@ -8,9 +7,9 @@
          <primary>vendors</primary>
          <secondary>master list of</secondary>
       </indexterm>List Vendors</title>
-   <para id="Para972584">To access the master list of Vendors, select the
+   <para>To access the master list of Vendors, select the
   "Vendors" option. The following screen will appear:</para>
-   <para id="Para972588">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,33 +19,33 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para972590">The "Vendors" screen displays information on all
+   <para>The "Vendors" screen displays information on all
   existing Vendors, including Vendor Type, Vendor Number, and Vendor
   name.</para>
-   <para id="Para972591">To the far right of the screen, the following buttons
+   <para>To the far right of the screen, the following buttons
   are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para972592">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x1841c70">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972593">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x1841cb8">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972594">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x1841d00">
             <para>Opens screen for creating a new Vendor.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972595">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x1841d48">
             <para>Enables you to edit highlighted Vendor. The edit screen is the
         same as that for creating a new Vendor--except that when editing, the
@@ -55,39 +54,35 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972596">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x1841d90">
             <para>Highlight a Vendor and then select this button to reach a
         read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972597">DELETE</term>
+         <term>DELETE</term>
          <listitem id="listitemN0x180ac00N0x1841dd8">
             <para>Highlight a Vendor and then select this button to remove the
         Vendor from the list.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para972598">Right-clicking on a Vendor in the Vendor master list
+   <para>Right-clicking on a Vendor in the Vendor master list
   enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para972599">Edit Vendor</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x1841d48)"/>
+         <term>Edit Vendor</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1841d48)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para972600">View Vendor</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x1841d90)"/>
+         <term>View Vendor</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1841d90)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para972601">Delete Vendor</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x1841dd8)"/>
+         <term>Delete Vendor</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1841dd8)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

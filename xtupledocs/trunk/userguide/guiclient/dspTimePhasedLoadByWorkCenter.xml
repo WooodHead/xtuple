@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518742" role="openmfg">
   <title>Time-Phased Load by Work Center</title>
-  <para id="Para519924">To view time-phased load by Work Center, select the
+  <para>To view time-phased load by Work Center, select the
   "Time-Phased Load by Work Center" option. The following screen will
   appear:</para>
-  <para id="Para519928"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CP_Disp_tpLoadByWCenter.png"
-                     id="Graphic519926" />
+          <imagedata fileref="images/CP_Disp_tpLoadByWCenter.png" id="Graphic519926"/>
         </imageobject>
         <caption id="Caption519929">Time-Phased Load by Work Center</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519930">When displaying time-phased load by Work Center, you
+    </screenshot>
+</para>
+  <para>When displaying time-phased load by Work Center, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para520884">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem>
         <para>Select to display time-phased load by Work Center for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para524584">Selected</term>
+      <term>Selected</term>
       <listitem>
         <para>Specify Warehouse whose time-phased load by Work Center you want
         to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para529471">Calendar</term>
+      <term>Calendar</term>
       <listitem>
         <para>Select the Calendar you want to use for the report.</para>
-        <para id="Para529472">Associated Calendar periods will be
+        <para>Associated Calendar periods will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520890">Name/Selected Periods</term>
+      <term>Name/Selected Periods</term>
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para id="Para523041">Select individual periods or groups of periods
+        <para>Select individual periods or groups of periods
         together. To select an individual period, highlight the period using
         your mouse button. The period is now selected. To select a sequence of
         periods, highlight the first in the sequence using your mouse button.
@@ -60,48 +60,44 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para520892">Load</term>
+      <term>Load</term>
       <listitem>
         <para>Display lists time-phased load by Work Center, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para520894">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para520895">CLOSE</term>
+      <term>CLOSE</term>
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para525491">QUERY</term>
+      <term>QUERY</term>
       <listitem>
         <para>Select to generate the display, using the specified
         parameters.</para>
-        <para id="Para520897">Start date and end date must be entered for
+        <para>Start date and end date must be entered for
         calculation to proceed. Results will be displayed in the "Load"
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para529851">PRINT</term>
+      <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para524611">Right-clicking on an Item in the Load list enables you
+  <para>Right-clicking on an Item in the Load list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/5/2/7)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/7)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

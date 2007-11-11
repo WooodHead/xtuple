@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="incidentSeverity">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>incidents</primary>
       <secondary>creating new priorities for</secondary>
     </indexterm>Incident Severity</title>
-  <para id="Para561973">To create a new Incident Severity, select the NEW
+  <para>To create a new Incident Severity, select the NEW
   button. The following screen will appear:</para>
-  <para id="Para561977"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_MI_incidSevNew.png"
-                     id="Graphic561975" />
+          <imagedata fileref="images/CRM_MI_incidSevNew.png" id="Graphic561975"/>
         </imageobject>
         <caption id="Caption561978">Create New Incident Severity</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para561979">When creating a new Incident Severity, you are
+    </screenshot>
+</para>
+  <para>When creating a new Incident Severity, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para561980">Incident Priority</term>
+      <term>Incident Priority</term>
       <listitem id="listitemN0x180ac00N0x182bf40">
         <para>Enter a name to define the Severity (e.g., High, Medium, Low,
         etc.).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para561981">Order</term>
+      <term>Order</term>
       <listitem id="listitemN0x180ac00N0x182bf88">
         <para>Specify the order in which the Severity should appear when using
         the drop-down list on the Incident screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para561982">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x182bfd0">
         <para>Enter a brief description of the Incident Severity.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para561983">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para561984">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x182c03c">
         <para>Closes the screen without creating an Incident Severity,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para561985">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x182c084">
         <para>Creates the Incident Severity and adds it to the master list of
         Incident Severities.</para>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563769">
    <title>
        
@@ -8,10 +7,10 @@
          <primary>standard journals</primary>
          <secondary>posting history of</secondary>
       </indexterm>Standard Journal History</title>
-   <para id="Para564076">To view detailed information on past Standard
+   <para>To view detailed information on past Standard
     Journal postings, select the "Standard Journal History" option. The
     following screen will appear:</para>
-   <para id="Para564080">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,30 +20,30 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para564082">When displaying detailed information on past
+   <para>When displaying detailed information on past
     Standard Journal postings, you are presented with the following
     options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para564344">Start Date</term>
+         <term>Start Date</term>
          <listitem id="listitemN0x180ac00N0x191cca4">
             <para>Standard Journals posted on and after this date will be
           displayed. This is a required field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para564349">End Date</term>
+         <term>End Date</term>
          <listitem id="listitemN0x180ac00N0x191ccec">
             <para>Standard Journals posted on and before this date will be
           displayed. This is a required field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para564197">G/L Transactions</term>
+         <term>G/L Transactions</term>
          <listitem id="listitemN0x180ac00N0x191cd34">
             <para>Display lists Standard Journal posting history based on the
           specified parameters.</para>
-            <para id="Para610899">This display is a nested list, with a plus
+            <para>This display is a nested list, with a plus
           ("+") sign located to the far left of the display next to each
           transaction that may be expanded to lower levels. By clicking your
           mouse on a plus sign, you reveal lower levels of information related
@@ -52,43 +51,41 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para564184">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para564185">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x191cda0">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para564186">QUERY</term>
+         <term>QUERY</term>
          <listitem id="listitemN0x180ac00N0x191cde8">
             <para>Select to generate the display, using the specified
           parameters.</para>
-            <para id="Para564187">Start date and end date must be entered for
+            <para>Start date and end date must be entered for
           request to proceed. Results will be displayed in the "G/L
           Transactions" list.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para564188">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x191ce30">
             <para>Prints a copy of the contents displayed on the screen.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para583797">Right-clicking on a Standard Journal number in the
+   <para>Right-clicking on a Standard Journal number in the
     transactions list enables you to select from the following menu
     options:</para>
    <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/9/2/3)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/9/2/3)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
-   <para id="Para583800">You may only reverse transactions which result from
+   <para>You may only reverse transactions which result from
     the posting of the following: Simple Journal Entry, Series Journal Entry,
     Standard Journal, or Standard Journal Group.</para>
 </section>

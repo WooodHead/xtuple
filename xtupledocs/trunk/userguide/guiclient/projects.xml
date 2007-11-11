@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556039">
   <title>List Projects</title>
 
-  <para id="Para556142">To access the master list of Projects, select the
+  <para>To access the master list of Projects, select the
   "Projects" option. The following screen will appear:</para>
 
-  <para id="Para556155">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -19,16 +18,16 @@
       </screenshot>
    </para>
 
-  <para id="Para556157">The "Projects" screen displays information on all
+  <para>The "Projects" screen displays information on all
   existing Projects, including Project Number, Project name, and Project
   status.</para>
 
-  <para id="Para556158">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para556159">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem id="listitemN0x180ac00N0x181ab14">
             <para>Closes the screen, returning you to the application
@@ -37,7 +36,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556180">NEW</term>
+         <term>NEW</term>
 
          <listitem id="listitemN0x180ac00N0x181ab5c">
             <para>Opens screen for creating a new Project.</para>
@@ -45,7 +44,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556181">EDIT</term>
+         <term>EDIT</term>
 
          <listitem id="listitemN0x180ac00N0x181aba4">
             <para>Enables you to edit highlighted Projects. The edit screen is the
@@ -56,7 +55,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556182">VIEW</term>
+         <term>VIEW</term>
 
          <listitem id="listitemN0x180ac00N0x181abec">
             <para>Highlight a Project and then select this button to reach a
@@ -65,7 +64,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556183">DELETE</term>
+         <term>DELETE</term>
 
          <listitem id="listitemN0x180ac00N0x182fa24">
             <para>Highlight a Project and then select this button to remove the
@@ -74,32 +73,28 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para556220">Right-clicking on a Project in the Project master list
+  <para>Right-clicking on a Project in the Project master list
   enables you to select from the following menu options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para556221">View</term>
+         <term>View</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x181abec)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x181abec)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556222">Edit</term>
+         <term>Edit</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x181aba4)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x181aba4)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para556223">Delete</term>
+         <term>Delete</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x182fa24)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x182fa24)"/>
       </varlistentry>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

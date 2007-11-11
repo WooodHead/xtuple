@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="taxAuthority">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>tax authorities</primary>
       <secondary>creating new</secondary>
     </indexterm>Tax Authority</title>
-  <para id="Para586978">To create a new Tax Authority, select the NEW button.
+  <para>To create a new Tax Authority, select the NEW button.
   The following screen will appear:</para>
-  <para id="Para587786"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_taxAuthNew.png" id="Graphic587784" />
+          <imagedata fileref="images/GL_MI_taxAuthNew.png" id="Graphic587784"/>
         </imageobject>
         <caption id="Caption587787">Create New Tax Authority</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para587788">When creating a new Tax Authority, you are presented
+    </screenshot>
+</para>
+  <para>When creating a new Tax Authority, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para587822">Code</term>
+      <term>Code</term>
       <listitem id="listitemN0x180ac00N0x1896cd0">
         <para>Enter a code to identify the Tax Authority.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587789">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x1896d18">
         <para>Enter a name to describe the Tax Authority.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587959">CRM Account</term>
+      <term>CRM Account</term>
       <listitem id="listitemN0x180ac00N0x1896d60">
         <para>Displays the CRM Account Number associated with the Tax
         Authority.</para>
-        <para id="Para587966">Tax Authorities are a form of CRM Account. If a
+        <para>Tax Authorities are a form of CRM Account. If a
         Tax Authority is created from the Accounting module, a linked CRM
         Account will automatically be created. To view the CRM Account
         information for the Tax Authority, select the "?" symbol next to the
@@ -44,18 +46,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587790">Ext. Ref</term>
+      <term>Ext. Ref</term>
       <listitem id="listitemN0x180ac00N0x1896da8">
         <para>Use this field to record any external accounting references for
         the Tax Authority--if applicable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587902">Currency</term>
+      <term>Currency</term>
       <listitem id="listitemN0x180ac00N0x1896df0">
         <para>Specify the Currency to be used for Tax calculations when
         transactions are governed by the Tax Authority.</para>
-        <para id="Para587903">The Currency selection affects only Tax
+        <para>The Currency selection affects only Tax
         calculations for transactions governed by the Tax Authority. It has no
         impact on the Currency used for Line Items, etc. on an Order. If the
         Tax Authority requires Tax to be collected in the base Currency, then
@@ -66,48 +68,48 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para587946">If a Tax Authority collects Tax in your base
+    <para>If a Tax Authority collects Tax in your base
     Currency, then leave the Currency selection blank.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para587870">County</term>
+      <term>County</term>
       <listitem id="listitemN0x180ac00N0x1896e80">
         <para>Enter the County which the Tax Authority has jurisdiction
         over--if applicable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587871">Address</term>
+      <term>Address</term>
       <listitem id="listitemN0x180ac00N0x1896ec8">
         <para>Manually enter Tax Authority's Address information in the fields
         below--or use the browse button to select pre-existing Address
         information.</para>
-        <para id="Para587857">Street Address: Enter the street Address for the
+        <para>Street Address: Enter the street Address for the
         Tax Authority.</para>
-        <para id="Para587858">City: Enter the city where the Contact is Tax
+        <para>City: Enter the city where the Contact is Tax
         Authority.</para>
-        <para id="Para587859">State: Enter the state where the Contact is Tax
+        <para>State: Enter the state where the Contact is Tax
         Authority.</para>
-        <para id="Para587860">Postal Code: Enter the Postal Code for the Tax
+        <para>Postal Code: Enter the Postal Code for the Tax
         Authority.</para>
-        <para id="Para587861">Country: Enter the country where the Tax
+        <para>Country: Enter the country where the Tax
         Authority is located.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para587791">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para587792">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1896f34">
         <para>Closes the screen without creating a Tax Authority, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para587793">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1896f7c">
         <para>Creates the Tax Authority and adds it to the master list of Tax
         Authorities.</para>

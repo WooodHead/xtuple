@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600552">
   <title>Billing Selections</title>
 
-  <para id="Para600874">To edit Orders selected for billing and to create
+  <para>To edit Orders selected for billing and to create
   Invoices for these Orders, select the "Billing Selections" option. The
   following screen will appear:</para>
 
-  <para id="Para600557">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,21 +20,21 @@
    </para>
 
   <tip>
-      <para id="Para600572">Because less detailed information is shown, the
+      <para>Because less detailed information is shown, the
     Billing Selections list will load more quickly than the Billing Edit List.
     The amount of detail is the only difference between the two lists. Both
     show the same Orders selected for billing.</para>
   </tip>
 
-  <para id="Para600573">The Billing Selections list displays Orders selected
+  <para>The Billing Selections list displays Orders selected
   for billing.</para>
 
-  <para id="Para599491">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para599492">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem id="listitemN0x180ac00N0x190b510">
             <para>Closes the screen, returning you to the application
@@ -44,7 +43,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para653665">PRINT</term>
+         <term>PRINT</term>
 
          <listitem id="listitemN0x180ac00N0x190b558">
             <para>Runs the report associated with this screen.</para>
@@ -52,7 +51,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para599494">CREATE ALL</term>
+         <term>CREATE ALL</term>
 
          <listitem id="listitemN0x180ac00N0x190b5a0">
             <para>Select to create Invoices for all Orders on the list.</para>
@@ -61,7 +60,7 @@
   </variablelist>
 
   <note>
-      <para id="Para600698">When you convert an Order selected for billing to an
+      <para>When you convert an Order selected for billing to an
     Invoice, you create an unposted Invoice. Unposted Invoices must in turn be
     posted to generate associated General Ledger (G/L) transaction records.
     You can reverse the process of Invoice creation by deleting the unposted
@@ -70,7 +69,7 @@
 
   <variablelist>
       <varlistentry>
-         <term id="Para600633">CREATE INVOICE</term>
+         <term>CREATE INVOICE</term>
 
          <listitem id="listitemN0x180ac00N0x190b630">
             <para>Highlight an individual Order, then select this button to create
@@ -79,7 +78,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para600639">NEW</term>
+         <term>NEW</term>
 
          <listitem id="listitemN0x180ac00N0x190b678">
             <para>Opens screen for selecting a new Order for billing.</para>
@@ -87,7 +86,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para600640">EDIT</term>
+         <term>EDIT</term>
 
          <listitem id="listitemN0x180ac00N0x190b6c0">
             <para>Enables you to edit highlighted billing selections. The edit
@@ -100,14 +99,14 @@
   </variablelist>
 
   <note>
-      <para id="Para616086">Users may be restricted from editing billing
+      <para>Users may be restricted from editing billing
     selections if they are granted the privilege
     "RestrictSelectOrderEditing."</para>
   </note>
 
   <variablelist>
       <varlistentry>
-         <term id="Para600654">CANCEL</term>
+         <term>CANCEL</term>
 
          <listitem id="listitemN0x180ac00N0x190b750">
             <para>Highlight an Order and then select this button to cancel the
@@ -118,32 +117,28 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para599496">Right-clicking on an Order in the Billing list enables
+  <para>Right-clicking on an Order in the Billing list enables
   you to select from the following menu options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para599497">Edit</term>
+         <term>Edit</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x190b6c0)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x190b6c0)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para599498">Cancel</term>
+         <term>Cancel</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x190b750)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x190b750)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para600740">Create Invoice</term>
+         <term>Create Invoice</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x190b630)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x190b630)"/>
       </varlistentry>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

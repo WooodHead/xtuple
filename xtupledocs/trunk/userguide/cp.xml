@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter528777">
    <title>Capacity Planning (C/P) Module</title>
-   <para id="Para523501">This module enables you to analyze the impact of the
+   <para>This module enables you to analyze the impact of the
    
       <indexterm significance="normal">
          <primary>production plans</primary>
@@ -12,47 +11,31 @@
   categories will be covered:</para>
    <itemizedlist>
       <listitem>
-         <para id="Para523502">Work Center Capacity and Load</para>
+         <para>Work Center Capacity and Load</para>
       </listitem>
       <listitem>
-         <para id="Para523503">Planner Code Analysis</para>
+         <para>Planner Code Analysis</para>
       </listitem>
       <listitem>
-         <para id="Para523514">Item Production</para>
+         <para>Item Production</para>
       </listitem>
    </itemizedlist>
    <section id="Section529609" role="openmfg">
       <title>Master Information</title>
-      <para id="Para529610">This is the section where you define Master
+      <para>This is the section where you define Master
     Information for the module.</para>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/workCenters.xml"
-                  xpointer="element(/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/workCenter.xml"
-                  xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/workCenters.xml" xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/workCenter.xml" xpointer="element(/1)"/>
    </section>
    <section>
       <title>C/P Reports</title>
       <para>This module offers a number of reports.</para>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
-                  xpointer="element(/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml"
-                  xpointer="element(/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedLoadByWorkCenter.xml"
-                  xpointer="element(/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedDemandByPlannerCode.xml"
-                  xpointer="element(Section518743)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedProductionByItem.xml"
-                  xpointer="element(Section518748)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
-                  xpointer="element(Section518753)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
-                  xpointer="element(Section530193)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedCapacityByWorkCenter.xml" xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml" xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedLoadByWorkCenter.xml" xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedDemandByPlannerCode.xml" xpointer="element(Section518743)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedProductionByItem.xml" xpointer="element(Section518748)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspTimePhasedProductionByPlannerCode.xml" xpointer="element(Section518753)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspCapacityBufferStatusByWorkCenter.xml" xpointer="element(Section530193)"/>
    </section>
 </chapter>

@@ -1,59 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherMiscDistrib">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>miscellaneous distributions for</secondary>
     </indexterm>Voucher Misc. Distribution</title>
-  <para id="Para972188">In addition to Line Item specific distributions, you
+  <para>In addition to Line Item specific distributions, you
   may also enter miscellaneous distributions to affect the Voucher as a whole.
   To enter a miscellaneous distribution, select the NEW button from the main
   Voucher screen. The following screen will appear:</para>
-  <para id="Para972192"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_miscVouchDistr.png"
-                     id="Graphic972190" />
+          <imagedata fileref="images/PO_Vouch_miscVouchDistr.png" id="Graphic972190"/>
         </imageobject>
         <caption id="Caption972193">Miscellaneous Voucher
         Distribution</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972194">When entering a miscellaneous Voucher distribution,
+    </screenshot>
+</para>
+  <para>When entering a miscellaneous Voucher distribution,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972195">Distribution Options</term>
+      <term>Distribution Options</term>
       <listitem id="listitemN0x180ac00N0x18897bc">
         <para>Select one of the following distribution options:</para>
-        <para id="Para972196">Account: Select a General Ledger Account to use
+        <para>Account: Select a General Ledger Account to use
         for the distribution.</para>
-        <para id="Para972197">Expense Category: Select an Expense Category to
+        <para>Expense Category: Select an Expense Category to
         use for the distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972198">Amount to Distribute</term>
+      <term>Amount to Distribute</term>
       <listitem id="listitemN0x180ac00N0x1889804">
         <para>Specify the amount of the miscellaneous distribution.</para>
-        <para id="Para972199">If there is a balance still to be distributed
+        <para>If there is a balance still to be distributed
         once all Voucher Items have been distributed, then that remaining
         amount will be entered here by default.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972200">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972201">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1889870">
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972202">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18898b8">
         <para>Saves the information and adds it to the list of miscellaneous
         distributions, simultaneously adjusting both the Voucher amount

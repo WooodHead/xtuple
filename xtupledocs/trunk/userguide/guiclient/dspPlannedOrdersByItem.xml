@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518747" role="openmfg">
   <title>Planned Orders by Item</title>
 
-  <para id="Para518748">To view Planned Orders by Item, select the "Planned
+  <para>To view Planned Orders by Item, select the "Planned
   Orders by Item" option. The following screen will appear:</para>
 
-  <para id="Para518752">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,18 +19,18 @@
    </para>
 
   <note>
-      <para id="Para533953">When a Planned Work Order is released, the Create
+      <para>When a Planned Work Order is released, the Create
     Work Order screen will appear with Work Order details automatically filled
     in. Releasing a Planned Purchase Order results in a Purchase Request,
     which may in turn be released from the Purchase Request reports.</para>
   </note>
 
-  <para id="Para518759">When displaying Planned Orders by Item, you are
+  <para>When displaying Planned Orders by Item, you are
   presented with the following options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para518760">Item Number</term>
+         <term>Item Number</term>
 
          <listitem>
             <para>Enter the Item Number of the Item whose Planned Orders you want
@@ -40,7 +39,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para553593">UOM</term>
+         <term>UOM</term>
 
          <listitem>
             <para>Inventory Unit of Measure.</para>
@@ -49,7 +48,7 @@
   </variablelist>
 
   <note>
-      <para id="Para537206">In the case of Planned Purchase Orders, the quantity
+      <para>In the case of Planned Purchase Orders, the quantity
     will always be represented in the Inventory Unit of Measure
     (UOM)--regardless of the Vendor UOM used on any existing Purchase
     Orders.</para>
@@ -57,7 +56,7 @@
 
   <variablelist>
       <varlistentry>
-         <term id="Para518764">All Warehouses</term>
+         <term>All Warehouses</term>
 
          <listitem>
             <para>Select to display Planned Orders by Item for all
@@ -66,7 +65,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para518766">Selected</term>
+         <term>Selected</term>
 
          <listitem>
             <para>Specify Warehouse whose Planned Orders by Item you want to
@@ -75,7 +74,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para518768">Planned Orders</term>
+         <term>Planned Orders</term>
 
          <listitem>
             <para>Display will show Planned Orders by Item, using the specified
@@ -85,17 +84,17 @@
   </variablelist>
 
   <tip>
-      <para id="Para534270">Planned Orders must be firm before they will be
+      <para>Planned Orders must be firm before they will be
     considered as a valid source of supply by Material Requirements Planning
     (MRP) when MRP is run.</para>
   </tip>
 
-  <para id="Para534257">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para518771">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem>
             <para>Closes the screen, returning you to the application
@@ -104,7 +103,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para532588">QUERY</term>
+         <term>QUERY</term>
 
          <listitem>
             <para>Select to generate the display, using the specified
@@ -113,7 +112,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para553760">PRINT</term>
+         <term>PRINT</term>
 
          <listitem>
             <para>Runs the report associated with this screen.</para>
@@ -121,31 +120,25 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para530963">Right-clicking on an Order in the Planned Orders
+  <para>Right-clicking on an Order in the Planned Orders
   display enables you to select from the following menu options:</para>
 
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/4)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/4)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/1)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para530987">If the selected Order is firmed, the following option
+  <para>If the selected Order is firmed, the following option
   will be available:</para>
 
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/6)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/6)"/>
   </variablelist>
 </section>

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548558">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>reorder levels</primary>
       <secondary>updating by planner code</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>updating reorder levels using</secondary>
     </indexterm>Update Reorder Levels by Planner Code</title>
-  <para id="Para549140">To update Reorder Levels by Planner Code, select the
+  <para>To update Reorder Levels by Planner Code, select the
   "Reorder Levels by Planner Code" option. The following screen will
   appear:</para>
-  <para id="Para549144"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_Utilities_upReordbyPCode.png" id="Graphic549142"/>
@@ -19,43 +22,44 @@
         <caption id="Caption549145">Update Reorder Levels by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para549146">When updating Reorder Levels by Planner Code, you are
+    </screenshot>
+</para>
+  <para>When updating Reorder Levels by Planner Code, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry role="openmfg">
-      <term id="Para549251">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x19a915c">
         <para>Select to update Reorder Levels by Planner Code for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para549253">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x19a9180">
         <para>Specify Warehouse where Reorder Levels by Planner Code are to be
         updated.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549237">All Planner Codes</term>
+      <term>All Planner Codes</term>
       <listitem id="listitemN0x180ac00N0x19a91c8">
         <para>Select to update Reorder Levels for all Planner Codes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549222">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x19b0e00">
         <para>Specify Planner Code whose Reorder Levels you want to
         update.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549224">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19b0e48">
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-        <para id="Para677293">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -63,28 +67,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para566631">Days of Stock at Reorder Level</term>
+      <term>Days of Stock at Reorder Level</term>
       <listitem id="listitemN0x180ac00N0x19b0e90">
         <para>Specify number of days using one of the following
         options:</para>
-        <para id="Para566632">Item Site Lead Time +: Select a number using the
+        <para>Item Site Lead Time +: Select a number using the
         arrow buttons, or manually enter a value up to a maximum of 99.
         Average daily usage calculated using selected Calendar periods will be
         multiplied by this value to determine Reorder Level.</para>
-        <para id="Para566633">Fixed Days: Select a number using the arrow
+        <para>Fixed Days: Select a number using the arrow
         buttons, or manually enter a value up to a maximum of 999. Average
         daily usage calculated using selected Calendar periods will be
         multiplied by this value to determine Reorder Level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para566634">Periods to Include in Analysis</term>
+      <term>Periods to Include in Analysis</term>
       <listitem id="listitemN0x180ac00N0x19b0ed8">
         <para>Specify the periods to include in the analysis using the
         following Calendar options:</para>
-        <para id="Para670721">Calendar: Select the Calendar you want to use
+        <para>Calendar: Select the Calendar you want to use
         for the analysis.</para>
-        <para id="Para566636">Name/Selected Periods: Select as many periods as
+        <para>Name/Selected Periods: Select as many periods as
         you want to include in the analysis. Selected periods correspond to
         Calendar specified in the "Calendar" field. Select individual periods
         or groups of periods together. To select an individual period,
@@ -101,25 +105,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para549169">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para549170">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x19b0f44">
         <para>Closes the screen without updating Reorder Levels by Planner
         Code, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549171">UPDATE</term>
+      <term>UPDATE</term>
       <listitem id="listitemN0x180ac00N0x19b0f8c">
         <para>Updates Reorder Levels by Planner Code, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para566666">SUBMIT</term>
+      <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x19b0fb0">
         <para>Select to submit requested action to the Batch Manager for
         processing. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>

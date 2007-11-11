@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657140">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>email delivery of</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>invoice delivery using</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>EDI</primary>
       <see>electronic data interchange</see>
     </indexterm>Schedule Invoice for Email Delivery</title>
-  <para id="Para657141">To schedule an Invoice for email delivery, select the
+  <para>To schedule an Invoice for email delivery, select the
   "Schedule Invoice for Email Delivery" option. The following screen will
   appear:</para>
-  <para id="Para657145"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_schedInvEmail.png"
-                     id="Graphic657143" />
+          <imagedata fileref="images/SO_Bill_schedInvEmail.png" id="Graphic657143"/>
         </imageobject>
         <caption id="Caption657146">Schedule Invoice for Email
         Delivery</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para657147">When scheduling an Invoice for email delivery, you are
+    </screenshot>
+</para>
+  <para>When scheduling an Invoice for email delivery, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para657148">Invoices</term>
+      <term>Invoices</term>
       <listitem id="listitemN0x180ac00N0x191caa4">
         <para>Display lists all Invoices available for email delivery.</para>
-        <para id="Para657149">Highlight the Invoice you want to schedule for
+        <para>Highlight the Invoice you want to schedule for
         email delivery using your mouse button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para657151">Customers are set up to receive email deliveries of
+    <para>Customers are set up to receive email deliveries of
     information using the Electronic Data Interchange (EDI) tab on the
     Customer master.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para657152">From</term>
+      <term>From</term>
       <listitem id="listitemN0x180ac00N0x191cb34">
         <para>The default address appearing in the "From" field will belong to
         the user who is currently logged in to the application. This address
@@ -53,7 +56,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657153">Send To</term>
+      <term>Send To</term>
       <listitem id="listitemN0x180ac00N0x191cb7c">
         <para>If the Customer associated with the selected Invoice has been
         set up to receive email, then the default email address for that
@@ -62,7 +65,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657154">Subject</term>
+      <term>Subject</term>
       <listitem id="listitemN0x180ac00N0x191cbc4">
         <para>If EDI is set up for the Customer, then the default subject line
         found on the Customer master will be automatically pre-populated here.
@@ -71,7 +74,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657155">Filename</term>
+      <term>Filename</term>
       <listitem id="listitemN0x180ac00N0x191cc0c">
         <para>If EDI is set up for the Customer, then the default filename
         found on the Customer master will be automatically pre-populated here.
@@ -83,7 +86,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657156">Email Body</term>
+      <term>Email Body</term>
       <listitem id="listitemN0x180ac00N0x191cc54">
         <para>If EDI is set up for the Customer, then the default email body
         found on the Customer master will be automatically pre-populated here.
@@ -92,25 +95,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657157">Mark Invoice as having been Printed</term>
+      <term>Mark Invoice as having been Printed</term>
       <listitem id="listitemN0x180ac00N0x191cc9c">
         <para>Select to mark highlighted Invoice as having been
         printed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para657158">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para657159">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x191cd08">
         <para>Closes the screen without scheduling an Invoice for email
         delivery, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para657160">SUBMIT</term>
+      <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x191cd50">
         <para>Select to submit requested action to the Batch Manager for
         processing.</para>

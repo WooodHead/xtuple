@@ -7,9 +7,9 @@
          <primary>planner codes</primary>
          <secondary>creating new</secondary>
       </indexterm>Planner Code</title>
-   <para id="Para555017">To create a new Planner Code, select the NEW button.
+   <para>To create a new Planner Code, select the NEW button.
   The following screen will appear:</para>
-   <para id="Para555021">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,7 +20,7 @@
       </screenshot>
    </para>
    <tip>
-      <para id="Para555024">Create your Planner Codes using a logical,
+      <para>Create your Planner Codes using a logical,
     hierarchical structure. This will make it easier to retrieve Planner Code
     information in the future. For more information on matching patterns using
     Regular Expressions, see <xref endterm="Anchor77806" linkend="Anchor77806"/>
@@ -28,24 +28,24 @@
   "Topic: Pattern Matching with Regular
     Expressions".</para>
    </tip>
-   <para id="Para555028">When creating a new Planner Code, you are presented
+   <para>When creating a new Planner Code, you are presented
   with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para555029">Code</term>
+         <term>Code</term>
          <listitem>
             <para>Enter a code to identify the Planner Code.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para555030">Description</term>
+         <term>Description</term>
          <listitem>
             <para>Enter a brief description of the Planner Code.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para555032">If you want requirements to be created for Planned
+      <para>If you want requirements to be created for Planned
     Work Orders, the option "Automatically Explode Planned Orders" must be
     selected. If not selected, Planned Work Orders will not be exploded. This
     means that Planned Orders for lower level material requirements will not
@@ -53,7 +53,7 @@
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para555034">
+         <term>
             
             <indexterm significance="normal">
                <primary>explosion</primary>
@@ -66,35 +66,35 @@
          <listitem>
             <para>Select one of the following if you want Planned Work Orders to
         be exploded automatically:</para>
-            <para id="Para555035">Single Level Explosion - This option specifies
+            <para>Single Level Explosion - This option specifies
         that when Planned Work Orders are exploded, requirements should be
         created for the parent Planned Work Order only.</para>
-            <para id="Para555036">Multiple Level Explosion - This option specifies
+            <para>Multiple Level Explosion - This option specifies
         that requirements should be created for both parent and child Planned
         Work Orders.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para555038">If you"re running MRP by Planner Code, the explosion
+      <para>If you"re running MRP by Planner Code, the explosion
     level setting may not make a difference--depending on how your Planner
     Codes are assigned. For example, if all your Items fall within the same
     Planner Code, Planned Orders will be generated for all levels of
     requirements--regardless of whether single or multiple level explosion is
     set. The same does not hold true when running MRP by Item.</para>
    </note>
-   <para id="Para555039">To the far right of the screen, the following buttons
+   <para>To the far right of the screen, the following buttons
   are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para555040">CANCEL</term>
+         <term>CANCEL</term>
          <listitem>
             <para>Closes the screen without creating a Planner Code, returning you
         to the previous screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para555041">SAVE</term>
+         <term>SAVE</term>
          <listitem>
             <para>Creates the Planner Code and adds it to the master list of
         Planner Codes.</para>

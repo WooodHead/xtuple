@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520380">
    <title>
       
@@ -8,12 +7,12 @@
          <primary>bills of materials</primary>
          <secondary>single level where used view of</secondary>
       </indexterm>Single Level Where Used</title>
-   <para id="Para520381">The Single Where Used display will indicate every
+   <para>The Single Where Used display will indicate every
     manufactured Item that directly uses a specified Item as a component Item.
     To view a display showing parent Items which use a specified component
     Item, select the "Single Level Where Used" option. The following screen
     will appear:</para>
-   <para id="Para520385">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -23,25 +22,25 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para610838">When displaying a view showing parent Items which
+   <para>When displaying a view showing parent Items which
     use a specified component Item, you are presented with the following
     options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para520393">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x1932c3c">
             <para>Enter the Item Number of the Item you would like to
           display.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663367">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x1932c84">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520400">Effective</term>
+         <term>Effective</term>
          <listitem id="listitemN0x180ac00N0x1932ccc">
             <para>Indicate the effective date to use when searching through Bill
           of Material components to determine the selected Item's
@@ -49,58 +48,57 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520402">Bill of Materials Items</term>
+         <term>Bill of Materials Items</term>
          <listitem id="listitemN0x180ac00N0x1932d14">
             <para>Display lists parent Items whose Bill of Materials includes
           the specified component Item, using the specified parameters.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para520404">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para520405">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x1932d80">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para667003">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x1932dc8">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para667004">Right-clicking on an Item in the Bill of Materials
+   <para>Right-clicking on an Item in the Bill of Materials
     Items list enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para667005">Edit Bill of Materials</term>
+         <term>Edit Bill of Materials</term>
          <listitem id="listitemN0x180ac00N0x1939824">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520409">Edit Bill of Operations</term>
+         <term>Edit Bill of Operations</term>
          <listitem id="listitemN0x180ac00N0x193986c">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520410">Edit Item Master</term>
+         <term>Edit Item Master</term>
          <listitem id="listitemN0x180ac00N0x19398b4">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520411">View Item Inventory History</term>
+         <term>View Item Inventory History</term>
          <listitem id="listitemN0x180ac00N0x19398fc">
             <para/>
          </listitem>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

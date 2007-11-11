@@ -1,130 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherItem">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>distributing quantities to</secondary>
     </indexterm>Voucher Item</title>
-  <para id="Para972128">To distribute quantities from Purchase Order Line
+  <para>To distribute quantities from Purchase Order Line
   Items to the Voucher, highlight a Line Item and then select the
   DISTRIBUTIONS button. The following screen will appear:</para>
-  <para id="Para972132"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_voucherItem.png"
-                     id="Graphic972130" />
+          <imagedata fileref="images/PO_Vouch_voucherItem.png" id="Graphic972130"/>
         </imageobject>
         <caption id="Caption972133">Voucher Item Distribution</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para972135">An Item's per unit Actual Cost will be automatically
+    <para>An Item's per unit Actual Cost will be automatically
     updated after a Voucher is posted if the vouchered Cost differs from the
     Item's current Actual Cost. The vouchered Cost for an Item is determined
     by dividing the amount to distribute by the quantity to voucher.</para>
   </note>
-  <para id="Para972136">When distributing quantities from a Purchase Order
+  <para>When distributing quantities from a Purchase Order
   Line Item to the Voucher, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972137">P/O Number</term>
+      <term>P/O Number</term>
       <listitem id="listitemN0x180ac00N0x1882a68">
         <para>Displays Purchase Order Number specified on previous
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972138">Line #</term>
+      <term>Line #</term>
       <listitem id="listitemN0x180ac00N0x1882ab0">
         <para>Displays Line Item selected for distribution on previous
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972139">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1882af8">
         <para>Displays Item Number associated with specified Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972140">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1882b40">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972141">P/O Item Price Info</term>
+      <term>P/O Item Price Info</term>
       <listitem id="listitemN0x180ac00N0x1882b88">
         <para>Displays the Unit Price, Extended Price, and Line Item Freight
         for the Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972142">Vend. Item Number</term>
+      <term>Vend. Item Number</term>
       <listitem id="listitemN0x180ac00N0x1882bd0">
         <para>Displays Item number the Vendor assigns to the specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972143">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1882c18">
         <para>Displays the Unit of Measure used by the Vendor for specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972144">Vend. Item Descrip.</term>
+      <term>Vend. Item Descrip.</term>
       <listitem id="listitemN0x180ac00N0x1882c60">
         <para>Displays description the Vendor uses to describe the specified
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972145">Due Date</term>
+      <term>Due Date</term>
       <listitem id="listitemN0x180ac00N0x1882ca8">
         <para>Displays the date Line Item was expected to be received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972146">Total Quantity Ordered</term>
+      <term>Total Quantity Ordered</term>
       <listitem id="listitemN0x180ac00N0x1882cf0">
         <para>Displays the quantity ordered in the specified Purchase Order
         Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972147">Total Quantity Received</term>
+      <term>Total Quantity Received</term>
       <listitem id="listitemN0x180ac00N0x1882d38">
         <para>Displays the quantity received to date of the specified Line
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972148">Total Quantity Rejected</term>
+      <term>Total Quantity Rejected</term>
       <listitem id="listitemN0x180ac00N0x1882d80">
         <para>Displays the quantity rejected to date of the specified Line
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972149">Uninvoiced Qty. Received</term>
+      <term>Uninvoiced Qty. Received</term>
       <listitem id="listitemN0x180ac00N0x1882dc8">
         <para>Displays the uninvoiced quantity received to date of the
         specified Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972150">Uninvoiced Qty. Rejected</term>
+      <term>Uninvoiced Qty. Rejected</term>
       <listitem id="listitemN0x180ac00N0x1889000">
         <para>Displays the uninvoiced quantity rejected to date of the
         specified Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972152"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Qty. to Voucher</term>
@@ -132,7 +134,7 @@
         <para>This is a read-only field displaying the Purchase Order Line
         Item quantity tagged to be vouchered for the given Voucher
         Item.</para>
-        <para id="Para972153">The quantity displayed equals the tagged
+        <para>The quantity displayed equals the tagged
         received qty. minus any returned qty. which may also have been tagged.
         The quantity to voucher is a divisor applied to the distribution
         amount. The resulting amount--that is, the Voucher Item distribution
@@ -144,7 +146,7 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para972155">If you want to partially pay for a Receipt--but find
+    <para>If you want to partially pay for a Receipt--but find
     you cannot edit the value in the "Qty. to Voucher" field--you should first
     correct the quantity on the original Receipt to be the amount you want to
     pay for, then enter a second Receipt for the balance. To correct Receipt
@@ -153,11 +155,11 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para972156">PO Line Freight to Voucher</term>
+      <term>PO Line Freight to Voucher</term>
       <listitem id="listitemN0x180ac00N0x1889120">
         <para>Enter the amount of any Purchase Order Line Item freight
         charges.</para>
-        <para id="Para972157">The freight amount entered in this field will be
+        <para>The freight amount entered in this field will be
         added to the total amount for the Voucher Item. If you are vouchering
         for less than the original quantity ordered--and if Line Item freight
         was entered when the Purchase Order was created--then you should
@@ -169,16 +171,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972158">Close P/O Item</term>
+      <term>Close P/O Item</term>
       <listitem id="listitemN0x180ac00N0x1889168">
         <para>Select to close specified Line Item.</para>
-        <para id="Para972159">This flag will be selected automatically if the
+        <para>This flag will be selected automatically if the
         received quantity tagged for vouchering is equal to or greater than
         the Order quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972160">Uninvoiced Receipts and Returns</term>
+      <term>Uninvoiced Receipts and Returns</term>
       <listitem id="listitemN0x180ac00N0x18891b0">
         <para>Display lists uninvoiced Receipts and Returns for the specified
         Line Item. To change the tagged status for a Line Item, double-click
@@ -188,7 +190,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972161">Distribution List</term>
+      <term>Distribution List</term>
       <listitem id="listitemN0x180ac00N0x18891f8">
         <para>Display lists Costing Elements used for distributing Voucher
         Costs. At the bottom of the display the total amount distributed will
@@ -197,31 +199,31 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972162">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972163">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1889264">
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972164">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18892ac">
         <para>Saves the Line Item information and adds it to the
         Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972165">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18892f4">
         <para>Opens screen for adding a new Costing Element to the
         distribution list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972166">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x188933c">
         <para>Enables you to edit highlighted Costing Element. The edit screen
         is the same as that for adding a new Costing Element--except that when
@@ -231,14 +233,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972167">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x1889384">
         <para>Highlight a Costing Element and then select this button to
         remove the Costing Element from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherItemDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherItemDistrib.xml" xpointer="element(/1)"/>
 </section>

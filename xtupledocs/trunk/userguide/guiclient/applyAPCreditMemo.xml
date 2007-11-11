@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="applyAPCreditMemo">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>credit memos</primary>
 
       <secondary>applying unapplied</secondary>
     </indexterm>Apply A/P Credit Memo</title>
 
-  <para id="Para539726">To apply a Credit Memo amount, select the APPLY
+  <para>To apply a Credit Memo amount, select the APPLY
   button. The following screen will appear:</para>
 
-  <para id="Para539730"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_DCMems_applyCrMemo.png"
-                     id="Graphic539728" />
+          <imagedata fileref="images/AP_DCMems_applyCrMemo.png" id="Graphic539728"/>
         </imageobject>
 
         <caption id="Caption539731">Apply A/P Credit Memo</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <note>
-    <para id="Para539733">Credit Memo amounts may be applied to either open
+    <para>Credit Memo amounts may be applied to either open
     Vouchers or open miscellaneous Debit Memos.</para>
   </note>
 
-  <para id="Para539734">When applying a Credit Memo amount, you are presented
+  <para>When applying a Credit Memo amount, you are presented
   with the following options:</para>
 
   <variablelist>
     <varlistentry>
-      <term id="Para539735">Vendor #</term>
+      <term>Vendor #</term>
 
       <listitem>
         <para>Displays the Vendor number of the Vendor associated with the
@@ -42,7 +43,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539736">Available to Apply</term>
+      <term>Available to Apply</term>
 
       <listitem>
         <para>Displays the Credit Memo amount which is available to be
@@ -51,7 +52,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539737">Applied</term>
+      <term>Applied</term>
 
       <listitem>
         <para>Displays the amount of the Credit Memo applied to the specified
@@ -60,7 +61,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539738">Balance</term>
+      <term>Balance</term>
 
       <listitem>
         <para>Displays the amount of the Credit Memo remaining to be applied,
@@ -69,7 +70,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539739">Document #</term>
+      <term>Document #</term>
 
       <listitem>
         <para>Displays the Credit Memo Number.</para>
@@ -77,7 +78,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539740">Distribution Date</term>
+      <term>Distribution Date</term>
 
       <listitem>
         <para>Displays the date the Credit Memo applied amount was
@@ -86,7 +87,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539741">Items</term>
+      <term>Items</term>
 
       <listitem>
         <para>Display lists A/P open items for the specified Customer.</para>
@@ -94,12 +95,12 @@
     </varlistentry>
   </variablelist>
 
-  <para id="Para539743">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
     <varlistentry>
-      <term id="Para539744">CANCEL</term>
+      <term>CANCEL</term>
 
       <listitem>
         <para>Closes the screen without applying an amount to the Debit/Credit
@@ -108,7 +109,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539745">POST</term>
+      <term>POST</term>
 
       <listitem>
         <para>Posts the applied amount to the General Ledger.</para>
@@ -116,7 +117,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539746">APPLY TO BALANCE</term>
+      <term>APPLY TO BALANCE</term>
 
       <listitem>
         <para>Select to apply the available balance to the A/P open items. If
@@ -126,7 +127,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539747">APPLY</term>
+      <term>APPLY</term>
 
       <listitem>
         <para>Highlight an Item and then select this button to apply an amount
@@ -135,7 +136,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para539748">CLEAR APPLICATTION</term>
+      <term>CLEAR APPLICATTION</term>
 
       <listitem>
         <para>Highlight an Item and then select this button to remove any
@@ -144,7 +145,5 @@
     </varlistentry>
   </variablelist>
 
-  <xi:include href="apCreditMemoApplication.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="apCreditMemoApplication.xml" xpointer="element(/1)"/>
 </section>

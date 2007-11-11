@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972204">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>creating new miscellaneous</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>miscellaneous vouchers</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Miscellaneous Voucher</title>
-  <para id="Para972205">Miscellaneous Vouchers can be used to authorize
+  <para>Miscellaneous Vouchers can be used to authorize
   payments for non-Inventory goods or services. You might use a miscellaneous
   Voucher, for example, to authorize payment for Utility bills or other
   non-Inventory expenses. To enter a Miscellaneous Voucher, select the "Enter
   New Miscellaneous Voucher" option. The following screen will appear:</para>
-  <para id="Para972209"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_miscVouch.png"
-                     id="Graphic972207" />
+          <imagedata fileref="images/PO_Vouch_miscVouch.png" id="Graphic972207"/>
         </imageobject>
         <caption id="Caption972210">Enter Miscellaneous Voucher</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para972212">A Voucher posts to the General Ledger effective on
+    <para>A Voucher posts to the General Ledger effective on
     the Invoice Date entered on the Voucher--not on the date it is posted, as
     might be assumed.</para>
   </note>
-  <para id="Para972213">When entering a new Voucher, you are presented with
+  <para>When entering a new Voucher, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972214">Voucher #</term>
+      <term>Voucher #</term>
       <listitem id="listitemN0x180ac00N0x1889a68">
         <para>Next available Voucher Number will automatically display, unless
         your system requires you to enter Voucher Numbers manually.</para>
-        <para id="Para972215">Default values and input parameters for Voucher
+        <para>Default values and input parameters for Voucher
         Numbers are configurable at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972216">Vendor #</term>
+      <term>Vendor #</term>
       <listitem id="listitemN0x180ac00N0x1889ab0">
         <para>Enter the Vendor number of the Vendor you want to enter a
         Miscellaneous Voucher for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972218"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
@@ -58,34 +61,34 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972219">Amount Distributed</term>
+      <term>Amount Distributed</term>
       <listitem id="listitemN0x180ac00N0x1889b88">
         <para>Displays sum of all miscellaneous distributions for the
         Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972220">Balance</term>
+      <term>Balance</term>
       <listitem id="listitemN0x180ac00N0x1889bd0">
         <para>Displays the difference between amount to distribute and amount
         distributed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972221">Flag for 1099</term>
+      <term>Flag for 1099</term>
       <listitem id="listitemN0x180ac00N0x1889c18">
         <para>Select to flag transaction for Form 1099 Tax reporting.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972222">Invoice Date</term>
+      <term>Invoice Date</term>
       <listitem id="listitemN0x180ac00N0x1889c60">
         <para>Enter an Invoice date for the Voucher. The Invoice date is used
         for determining the due date, based on the specified Terms.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972223">Distribution Date</term>
+      <term>Distribution Date</term>
       <listitem id="listitemN0x180ac00N0x1889ca8">
         <para>Enter the date of the current distribution. When the Voucher is
         posted, this is the date when the posting will be recorded in the
@@ -93,64 +96,64 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972224">Due Date</term>
+      <term>Due Date</term>
       <listitem id="listitemN0x180ac00N0x1889cf0">
         <para>Enter the date payment is due to the Vendor. The due date is
         derived when the specified Terms are added to the Invoice date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972225">Terms</term>
+      <term>Terms</term>
       <listitem id="listitemN0x180ac00N0x1889d38">
         <para>Specify the billing Terms for the Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972226">Vendor Invoice #</term>
+      <term>Vendor Invoice #</term>
       <listitem id="listitemN0x180ac00N0x1889d80">
         <para>Enter the Vendor Invoice Number associated with the
         Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972227">Reference</term>
+      <term>Reference</term>
       <listitem id="listitemN0x180ac00N0x1889dc8">
         <para>Use this field to enter any notation or reference required for
         further identification.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972228">Miscellaneous Distributions</term>
+      <term>Miscellaneous Distributions</term>
       <listitem id="listitemN0x180ac00N0x1890c00">
         <para>Display lists miscellaneous Cost distributions related to the
         Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972229">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972230">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1890c6c">
         <para>Closes the screen without entering a new Miscellaneous Voucher,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972231">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1890cb4">
         <para>Creates the Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972232">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x1890cfc">
         <para>Select to distribute Costs for the Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972233">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x1890d44">
         <para>Enables you to edit highlighted miscellaneous distributions. The
         edit screen is the same as that for creating a new miscellaneous
@@ -161,14 +164,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972234">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x1890d8c">
         <para>Highlight a miscellaneous distribution and then select this
         button to remove the miscellaneous distribution from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherMiscDistrib.xml" xpointer="element(/1)"/>
 </section>

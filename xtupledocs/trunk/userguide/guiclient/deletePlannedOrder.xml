@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537947" role="openmfg">
     <title>Delete Planned Order</title>
 
-    <para id="Para537948">To delete a Planned Order, select the "Delete
+    <para>To delete a Planned Order, select the "Delete
     Planned Order" option. The following screen will appear:</para>
 
-    <para id="Para537952">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -20,16 +19,16 @@
    </para>
 
     <note>
-      <para id="Para537955">Planned Orders that have been firmed in the system
+      <para>Planned Orders that have been firmed in the system
       will not be deleted when this utility is run.</para>
     </note>
 
-    <para id="Para537956">When deleting a Planned Order, you are presented
+    <para>When deleting a Planned Order, you are presented
     with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para537957">Planned Order #</term>
+        <term>Planned Order #</term>
 
         <listitem>
             <para>Enter the Planned Order Number of the Planned Order you want
@@ -38,7 +37,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para537959">Item Number</term>
+        <term>Item Number</term>
 
         <listitem>
             <para>Indicates Item whose Planned Order will be deleted.</para>
@@ -46,7 +45,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para553582">UOM</term>
+        <term>UOM</term>
 
         <listitem>
             <para>Inventory Unit of Measure.</para>
@@ -54,7 +53,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para537961">Status</term>
+        <term>Status</term>
 
         <listitem>
             <para>Indicates Planned Order status.</para>
@@ -62,32 +61,32 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para537962">Delete Child Orders</term>
+        <term>Delete Child Orders</term>
 
         <listitem>
             <para>Select to simultaneously delete child Orders for the parent
           Planned Order.</para>
 
-            <para id="Para537963">Child Planned Orders having a clearly defined
+            <para>Child Planned Orders having a clearly defined
           relationship to their parent Planned Order will be deleted.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <tip>
-      <para id="Para537965">In some cases, the "Delete Child Orders" option
+      <para>In some cases, the "Delete Child Orders" option
       will not remove all the records you may assume it should. To ensure all
       child Orders are deleted after a parent Planned Order is deleted, re-run
       MRP by Planner Code. Doing so will delete any remaining orphan
       Orders.</para>
     </tip>
 
-    <para id="Para537966">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para539266">CANCEL</term>
+        <term>CANCEL</term>
 
         <listitem>
             <para>Closes the screen without deleting the Planned Order,
@@ -96,7 +95,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para539267">DELETE</term>
+        <term>DELETE</term>
 
         <listitem>
             <para>Deletes the specified Planned Order.</para>

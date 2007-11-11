@@ -1,101 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519877">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>variances</primary>
       <secondary>material usage by BOM item</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>material usage variances from</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>material usage variances</primary>
       <secondary>BOM item details for</secondary>
     </indexterm>Material Usage Variance by BOM Item</title>
-  <para id="Para519878">To view material usage variances by Bill of Materials
+  <para>To view material usage variances by Bill of Materials
   Item, select the "Material Usage Variance by BOM Item" option. The following
   screen will appear:</para>
-  <para id="Para519882"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Disp_matVarBOMItem.png"
-                     id="Graphic524071" />
+          <imagedata fileref="images/WO_Disp_matVarBOMItem.png" id="Graphic524071"/>
         </imageobject>
         <caption id="Caption519883">Material Usage Variance by Bill of
         Materials Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519889">When viewing material usage variances by Bill of
+    </screenshot>
+</para>
+  <para>When viewing material usage variances by Bill of
   Materials Item, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519890">Item Number</term>
+      <term>Item Number</term>
       <listitem>
         <para>Enter the Item Number of the Item whose component Items will
         have their material usage variances displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para568825">UOM</term>
+      <term>UOM</term>
       <listitem>
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519894">Component Item</term>
+      <term>Component Item</term>
       <listitem>
         <para>Select desired component Item listed on the parent Item's Bill
         of Materials.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para519896">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem>
         <para>Select to display material usage variances by Bill of Materials
         Item for all Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para519898">Selected</term>
+      <term>Selected</term>
       <listitem>
         <para>Specify Warehouse whose material usage variances by Bill of
         Materials Item you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519903">Start Date</term>
+      <term>Start Date</term>
       <listitem>
         <para>Material usage variances by Bill of Materials Item generated on
         or after this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519908">End Date</term>
+      <term>End Date</term>
       <listitem>
         <para>Material usage variances by Bill of Materials Item generated on
         or before this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519910">Material Usage Variance</term>
+      <term>Material Usage Variance</term>
       <listitem>
         <para>Display lists material usage variances by Bill of Materials
         Item, using the specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519912">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519913">CLOSE</term>
+      <term>CLOSE</term>
       <listitem>
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519914">PRINT</term>
+      <term>PRINT</term>
       <listitem>
         <para>Runs the report associated with this screen.</para>
       </listitem>

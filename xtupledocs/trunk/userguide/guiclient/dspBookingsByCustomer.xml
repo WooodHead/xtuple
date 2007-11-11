@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518683">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by customer</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>customers</primary>
       <secondary>bookings for</secondary>
     </indexterm>Bookings by Customer</title>
-  <para id="Para518684">To view Bookings by Customer, select the "Bookings by
+  <para>To view Bookings by Customer, select the "Bookings by
   Customer" option. The following screen will appear:</para>
-  <para id="Para518688"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SA_Disp_bookByCust.png" id="Graphic521631"/>
         </imageobject>
         <caption id="Caption518689">Bookings by Customer</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para518690">When displaying Bookings by Customer, you are
+    </screenshot>
+</para>
+  <para>When displaying Bookings by Customer, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518691">Customer #</term>
+      <term>Customer #</term>
       <listitem id="listitemN0x180ac00N0x184fcdc">
         <para>Enter the Customer Number of the Customer whose Bookings you
         want to display.</para>
-        <para id="Para518692">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a searchable Customers list. You may also access this
         list using the keyboard shortcut "CTRL + L". Once a Customer Number is
         entered, the Customer name and billing address will display. Select
@@ -39,39 +43,39 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para518693">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x184fd00">
         <para>Select to display Bookings by Customer for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para518695">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x184fd24">
         <para>Specify Warehouse whose Bookings by Customer you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518707">All Product Categories</term>
+      <term>All Product Categories</term>
       <listitem id="listitemN0x180ac00N0x184fd6c">
         <para>Select to display Bookings by Customer for all Product
         Categories.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para539807">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x184fdb4">
         <para>Specify Product Category whose Bookings by Customer you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para528090">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x184fdfc">
         <para>Enter a Product Category pattern to select a range of Product
         Categories.</para>
-        <para id="Para555579">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -79,46 +83,46 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549662">Start Date</term>
+      <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x184fe44">
         <para>Bookings by Customer generated on or after this date will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549667">End Date</term>
+      <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x184fe8c">
         <para>Bookings by Customer generated on or before this date will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549679">Bookings</term>
+      <term>Bookings</term>
       <listitem id="listitemN0x180ac00N0x184fed4">
         <para>Display lists Bookings by Customer, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para518714">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518715">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x184ff40">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541800">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x184ff88">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para554975">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x184ffd0">
         <para>Runs the report associated with this screen.</para>
       </listitem>

@@ -3,12 +3,12 @@
 <section id="Section537991" role="openmfg">
     <title>Run Buffer Status by Item</title>
 
-    <para id="Para542133">When you run buffer status by Item, you are running
+    <para>When you run buffer status by Item, you are running
     the Buffer Management system. This utility, when it is run, scans through
     your data and then updates the buffer status for the specified Item using
     the most current information.</para>
 
-    <para id="Para543908">Because buffer status information is time-sensitive,
+    <para>Because buffer status information is time-sensitive,
     you must run the system frequently (i.e., daily) to keep your statuses
     up-to-date. In fact, the various buffer status displays will not even show
     status information if Buffer Management has not been run on the day when
@@ -16,7 +16,7 @@
     prevents you from using information that is not current.</para>
 
     <note>
-      <para id="Para542121">The critical buffer status in the Buffer
+      <para>The critical buffer status in the Buffer
       Management system is 66%. In other words, any time you consume 66% of a
       buffer, then it\qs time to act immediately to resolve the situation. The
       66% value is a percentage that is widely used in academic research and
@@ -24,15 +24,15 @@
       theory pioneered by Eliyahu Goldratt.</para>
     </note>
 
-    <para id="Para542110">After the buffer status utility has been run, you
+    <para>After the buffer status utility has been run, you
     may view the Buffer Management displays which pertain to the Item--and
     then decide whether to take immediate action based on the newly-updated
     status value.</para>
 
-    <para id="Para542172">To run buffer status by Item, select the "Run Buffer
+    <para>To run buffer status by Item, select the "Run Buffer
     Status by Item" option. The following screen will appear:</para>
 
-    <para id="Para542044">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -44,12 +44,12 @@
       </screenshot>
    </para>
 
-    <para id="Para542039">When running buffer status by Item, you are
+    <para>When running buffer status by Item, you are
     presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para542238">Item Number</term>
+        <term>Item Number</term>
 
         <listitem>
             <para>Enter the Item Number of the Item whose buffer status you want
@@ -58,7 +58,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para553588">UOM</term>
+        <term>UOM</term>
 
         <listitem>
             <para>Inventory Unit of Measure.</para>
@@ -66,7 +66,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para542241">Warehouse</term>
+        <term>Warehouse</term>
 
         <listitem>
             <para>Specify Warehouse where buffer status update should
@@ -75,12 +75,12 @@
       </varlistentry>
     </variablelist>
 
-    <para id="Para542246">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para542247">CANCEL</term>
+        <term>CANCEL</term>
 
         <listitem>
             <para>Closes the screen without updating buffer status by Item,
@@ -89,7 +89,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para542248">CREATE</term>
+        <term>CREATE</term>
 
         <listitem>
             <para>Runs the buffer status update by Item, using the specified
@@ -98,7 +98,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para542257">SUBMIT</term>
+        <term>SUBMIT</term>
 
         <listitem>
             <para>Select to submit the buffer status update to the Batch

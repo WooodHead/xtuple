@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519256" role="openmfg">
   <title>Maintain W/O Operations</title>
 
-  <para id="Para519257">To maintain Work Order Operations, select the
+  <para>To maintain Work Order Operations, select the
   "Maintain W/O Operations" option. The following screen will appear:</para>
 
-  <para id="Para519261">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -19,12 +18,12 @@
       </screenshot>
    </para>
 
-  <para id="Para519263">When maintaining Work Order Operations, you are
+  <para>When maintaining Work Order Operations, you are
   presented with the following options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para519264">Work Order #</term>
+         <term>Work Order #</term>
 
          <listitem>
             <para>Enter the Work Order Number of the Work Order whose Operations
@@ -33,7 +32,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519266">Whs.</term>
+         <term>Whs.</term>
 
          <listitem>
             <para>Displays Warehouse code automatically when Work Order Number is
@@ -42,7 +41,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519268">Item Number</term>
+         <term>Item Number</term>
 
          <listitem>
             <para>Displays Item Number automatically when Work Order Number is
@@ -51,7 +50,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para568755">UOM</term>
+         <term>UOM</term>
 
          <listitem>
             <para>Inventory Unit of Measure.</para>
@@ -59,7 +58,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519272">Status</term>
+         <term>Status</term>
 
          <listitem>
             <para>Displays Work Order Status automatically when Work Order Number
@@ -68,7 +67,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519274">Operations</term>
+         <term>Operations</term>
 
          <listitem>
             <para>Display lists Operations associated with specified Work
@@ -77,12 +76,12 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para519276">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para519277">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem>
             <para>Closes the screen, returning you to the application
@@ -91,7 +90,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519278">NEW</term>
+         <term>NEW</term>
 
          <listitem>
             <para>Opens screen for creating a new Work Order Operation.</para>
@@ -99,7 +98,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519279">EDIT</term>
+         <term>EDIT</term>
 
          <listitem>
             <para>Enables you to edit highlighted Operations. The edit screen is
@@ -113,7 +112,7 @@
   </variablelist>
 
   <tip>
-      <para id="Para542844">Use the edit feature to make temporary adjustments
+      <para>Use the edit feature to make temporary adjustments
     to the original Operation found in the specified Item's Bill of
     Operations. Any changes made here are valid for the life of the Work Order
     only. The original Bill of Operations is not affected.</para>
@@ -121,7 +120,7 @@
 
   <variablelist>
       <varlistentry>
-         <term id="Para519280">VIEW</term>
+         <term>VIEW</term>
 
          <listitem>
             <para>Highlight an Operation and then select this button to reach a
@@ -130,7 +129,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519281">DELETE</term>
+         <term>DELETE</term>
 
          <listitem>
             <para>Highlight an Operation and then select this button to remove the
@@ -139,13 +138,13 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519282">MOVE UP</term>
+         <term>MOVE UP</term>
 
          <listitem>
             <para>Moves an Operation sequence up the Work Order Operations
         list.</para>
 
-            <para id="Para519283">Moving an Operation up or down the Work Order
+            <para>Moving an Operation up or down the Work Order
         Operations list constitutes a production override. Changes made here
         do not affect the original Bill of Operations sequence. Sequence
         numbers, which are incremented in multiples of ten, are automatically
@@ -154,13 +153,13 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519284">MOVE DOWN</term>
+         <term>MOVE DOWN</term>
 
          <listitem>
             <para>Moves an Operation sequence down the Work Order Operations
         list.</para>
 
-            <para id="Para519285">Moving an Operation up or down the Work Order
+            <para>Moving an Operation up or down the Work Order
         Operations list constitutes a production override. Changes made here
         do not affect the original Bill of Operations sequence. Sequence
         numbers, which are incremented in multiples of ten, are automatically
@@ -169,32 +168,28 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para522778">Right-clicking on an Operation in the Operations list
+  <para>Right-clicking on an Operation in the Operations list
   enables you to select from the following menu options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para519287">View Operation</term>
+         <term>View Operation</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section519256/9/1/2)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(Section519256/9/1/2)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519288">Edit Operation</term>
+         <term>Edit Operation</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section519256/7/3/2)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(Section519256/7/3/2)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519289">Delete Operation</term>
+         <term>Delete Operation</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(Section519256/9/2/2)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(Section519256/9/2/2)"/>
       </varlistentry>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

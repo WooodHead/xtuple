@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section535124">
    <title>
        
@@ -8,9 +7,9 @@
          <primary>companies</primary>
          <secondary>master list of</secondary>
       </indexterm>List Companies</title>
-   <para id="Para535405">To access the master list of Companies, select the
+   <para>To access the master list of Companies, select the
   "Companies" option. The following screen will appear:</para>
-   <para id="Para535198">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,30 +19,30 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para535450">The "Companies" screen displays information on all
+   <para>The "Companies" screen displays information on all
   existing Companies, including Company number and Company description.</para>
    <note>
-      <para id="Para537387">The use of Companies can be enabled or disabled by
+      <para>The use of Companies can be enabled or disabled by
     default at the system level.</para>
    </note>
-   <para id="Para535451">To the far right of the screen, the following buttons
+   <para>To the far right of the screen, the following buttons
   are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para535452">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x181a118">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para535454">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x181a160">
             <para>Opens screen for creating a new Company.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para535455">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x181a1a8">
             <para>Enables you to edit highlighted Company. The edit screen is the
         same as that for creating a new Company--except that when editing, the
@@ -52,39 +51,35 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para535676">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x181a1f0">
             <para>Highlight a Company and then select this button to reach a
         read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para535456">DELETE</term>
+         <term>DELETE</term>
          <listitem id="listitemN0x180ac00N0x181a238">
             <para>Highlight a Company and then select this button to remove the
         Company from the list.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para538364">Right-clicking on a Company in the Companies list
+   <para>Right-clicking on a Company in the Companies list
   enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para538365">View</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x181a1f0)"/>
+         <term>View</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x181a1f0)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para538373">Edit</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x181a1a8)"/>
+         <term>Edit</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x181a1a8)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para538374">Delete</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x181a238)"/>
+         <term>Delete</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x181a238)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

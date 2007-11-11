@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519487" role="openmfg">
    <title>Enter New Bill of Operations</title>
-   <para id="Para519488">To enter a new Bill of Operations, select the "Enter
+   <para>To enter a new Bill of Operations, select the "Enter
   New Bill of Operations" option. The following screen will appear:</para>
-   <para id="Para562239">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -15,24 +14,24 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519498">When creating a new Bill of Operations, you are
+   <para>When creating a new Bill of Operations, you are
   presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519499">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x18b1d68">
             <para>Enter the Item Number of the manufactured Item you want to
         create a Bill of Operations for.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663225">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x18b1db0">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para598080">
+         <term>
             
             <indexterm significance="normal">
                <primary>operations</primary>
@@ -49,12 +48,12 @@
          <listitem id="listitemN0x180ac00N0x18b1ed0">
             <para>Expired Operations: Select to display expired Operations in the
         "Bill of Operations" display.</para>
-            <para id="Para606793">Expired Operations are Operations that have been
+            <para>Expired Operations are Operations that have been
         expired from the Bill of Operations.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para598081">
+         <term>
             
             <indexterm significance="normal">
                <primary>operations</primary>
@@ -71,25 +70,25 @@
          <listitem id="listitemN0x180ac00N0x18b1ff0">
             <para>Future Operations: Select to display future Operations in the
         "Bill of Operations" display.</para>
-            <para id="Para606780">Future Operations are Operations that will be
+            <para>Future Operations are Operations that will be
         added to the Bill of Operations at a future point in time.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519506">Document #</term>
+         <term>Document #</term>
          <listitem id="listitemN0x180ac00N0x18b2038">
             <para>If desired, enter a document number to further identify the Bill
         of Materials.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519510">Revision</term>
+         <term>Revision</term>
          <listitem id="listitemN0x180ac00N0x18b2080">
             <para>Enter text to describe the revision--if any.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519514">Revision Date</term>
+         <term>Revision Date</term>
          <listitem id="listitemN0x180ac00N0x18b20c8">
             <para>Indicates the date of the revision. This field updates every
         time the Bill of Operations is saved.</para>
@@ -97,14 +96,14 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para617345">Once a revision date has been entered, the date
+      <para>Once a revision date has been entered, the date
     field cannot be erased. The specific date may be updated to reflect
     subsequent revisions, but the field will never be null as long as the Bill
     of Materials exists.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para645997">
+         <term>
             
             <indexterm significance="normal">
                <primary>work in process</primary>
@@ -116,7 +115,7 @@
             </indexterm>Final Location</term>
          <listitem id="listitemN0x180ac00N0x18b21e8">
             <para>Select a final work-in-process (WIP) Location.</para>
-            <para id="Para646001">This is an optional selection which may be used
+            <para>This is an optional selection which may be used
         for tracking the Warehouse Locations of finished goods Inventory as it
         moves through the manufacturing process. The feature applies only to
         top-level, Multiple Location Control (MLC) Items whose production is
@@ -128,7 +127,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para606815">
+         <term>
             
             <indexterm significance="normal">
                <primary>bills of operations</primary>
@@ -141,7 +140,7 @@
          <listitem id="listitemN0x180ac00N0x18b22c0">
             <para>Lead Time: Displays production Lead Time for the specified
         Item.</para>
-            <para id="Para628685">The production Lead Time value is equal to the
+            <para>The production Lead Time value is equal to the
         maximum Execution Day value specified for listed Operations. Each
         Operation must have an Execution Day specified. Based on values
         entered for all listed Operations, whichever Execution Day value is
@@ -150,44 +149,44 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519520">Bill of Operations</term>
+         <term>Bill of Operations</term>
          <listitem id="listitemN0x180ac00N0x18b2308">
             <para>Display lists all Operations for the selected Bill of
         Operations.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519522">To the far right of the screen, the following buttons
+   <para>To the far right of the screen, the following buttons
   are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519523">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18b2374">
             <para>Saves the new Bill of Operations to the master list of Bills of
         Operations.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519524">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x18b23bc">
             <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663923">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x18b2404">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519526">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x18b244c">
             <para>Opens screen for creating a new Operation.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519527">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x18b2494">
             <para>Enables you to edit highlighted Operations. The edit screen is
         the same as that for creating a new Operation--except that when
@@ -197,14 +196,14 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519528">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x18b24dc">
             <para>Highlight an Operation and then select this button to reach a
         read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519529">EXPIRE</term>
+         <term>EXPIRE</term>
          <listitem id="listitemN0x180ac00N0x18b2524">
             <para>Highlight an Operation and then select this button to expire the
         Operation, causing it to be hidden from view on the list--unless the
@@ -213,7 +212,7 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para652414">If the Operation is expired on the current day, the
+      <para>If the Operation is expired on the current day, the
     Operation will still appear as an option when selecting "Used At"
     Operations on a Bill of Materials (BOM) if done during the same current
     day. Once a day passes, however, the expired Operation will no longer
@@ -221,7 +220,7 @@
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para519530">MOVE UP</term>
+         <term>MOVE UP</term>
          <listitem id="listitemN0x180ac00N0x18b25b4">
             <para>Highlight an Operation and then select this button to move the
         Operation up the Bill of Operations list. Sequence numbers, which are
@@ -230,7 +229,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519532">MOVE DOWN</term>
+         <term>MOVE DOWN</term>
          <listitem id="listitemN0x180ac00N0x18b25fc">
             <para>Highlight an Operation and then select this button to move the
         Operation down the Bill of Operations list. Sequence numbers, which
@@ -239,37 +238,30 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para551984">Right-clicking on an Item in the Bill of Materials
+   <para>Right-clicking on an Item in the Bill of Materials
   Item list enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519535">View</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18b24dc)"/>
+         <term>View</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18b24dc)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para519536">Edit</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18b2494)"/>
+         <term>Edit</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18b2494)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para519537">Expire</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
-                     xpointer="element(listitemN0x180ac00N0x18b2524)"/>
+         <term>Expire</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18b2524)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para519538">Move Up</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18b25b4)"/>
+         <term>Move Up</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18b25b4)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para519539">Move Down</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18b25fc)"/>
+         <term>Move Down</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18b25fc)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
-   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="booItem.xml"
-               xpointer="element(/1)"/>
+   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="booItem.xml" xpointer="element(/1)"/>
 </section>

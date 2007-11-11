@@ -3,7 +3,7 @@
 <section id="Section556281" role="openmfg">
   <title>Work Order Buffer Status by Item Group</title>
 
-  <para id="Para556282">The Work Order buffer status displays provide
+  <para>The Work Order buffer status displays provide
   information on your current stock and time buffer levels for those Items
   having current Work Orders. Stock buffers apply to make-to-stock Items;
   whereas time buffers apply to Items which are make-to-order. Keep in mind
@@ -11,11 +11,12 @@
   Buffer Management system is run. If you find your displays show no
   information, this probably means Buffer Management has not been run.</para>
 
-  <para id="Para556283">To view Work Order buffer status by Item Group, select
+  <para>To view Work Order buffer status by Item Group, select
   the "Work Order Buffer Status by Item Group" option. The following screen
   will appear:</para>
 
-  <para id="Para556287"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/MS_Buff_woStatusByItemGroup.png" id="Graphic556285"/>
@@ -24,22 +25,23 @@
         <caption id="Caption556288">Work Order Buffer Status by Item
         Group</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <note>
-    <para id="Para556290">When the buffer status for an Item hits 66 or
+    <para>When the buffer status for an Item hits 66 or
     higher, the status number will become red. By highlighting Items which are
     "red hot," the system is informing you which Items should be acted on
     immediately. The best remedy for red hot Item Sites is to expedite any
     associated Work Orders or Purchase Orders.</para>
   </note>
 
-  <para id="Para556291">When displaying Work Order buffer status by Item
+  <para>When displaying Work Order buffer status by Item
   Group, you are presented with the following options:</para>
 
   <variablelist>
     <varlistentry>
-      <term id="Para556292">All Item Groups</term>
+      <term>All Item Groups</term>
 
       <listitem>
         <para>Select to display Work Order buffer statuses for all Item
@@ -48,7 +50,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556293">Selected</term>
+      <term>Selected</term>
 
       <listitem>
         <para>Specify Item Group whose Work Order buffer statuses you want to
@@ -57,13 +59,13 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556294">Item Group Pattern</term>
+      <term>Item Group Pattern</term>
 
       <listitem>
         <para>Enter an Item Group pattern to select a range of Item
         Groups.</para>
 
-        <para id="Para556297">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -72,7 +74,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556299">All Warehouses</term>
+      <term>All Warehouses</term>
 
       <listitem>
         <para>Select to display Work Order buffer statuses for all
@@ -81,7 +83,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556300">Selected</term>
+      <term>Selected</term>
 
       <listitem>
         <para>Specify Warehouse whose Work Order buffer statuses you want to
@@ -91,7 +93,7 @@
   </variablelist>
 
   <note>
-    <para id="Para556302">By default, the display will sort Work Orders by
+    <para>By default, the display will sort Work Orders by
     buffer status in descending order. In other words, Work Orders with the
     highest buffer status will appear at the top of the list; Work Orders with
     the lowest buffer status will appear at the bottom.</para>
@@ -99,32 +101,32 @@
 
   <variablelist>
     <varlistentry>
-      <term id="Para556303">Only Show Released and In-Process W/O"s</term>
+      <term>Only Show Released and In-Process W/O"s</term>
 
       <listitem>
         <para>Select to display only released and in-process Work Order
         schedules.</para>
 
-        <para id="Para556304">Selecting this option means only Work Orders
+        <para>Selecting this option means only Work Orders
         whose Status is released ("R") or in-process ("I") will be
         displayed.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556305">Only Show Top Level Work Orders</term>
+      <term>Only Show Top Level Work Orders</term>
 
       <listitem>
         <para>Select to display only top level Work Orders.</para>
 
-        <para id="Para556306">Top level Work Orders are Work Orders that have
+        <para>Top level Work Orders are Work Orders that have
         not been created to meet the component demands of a parent Work
         Order.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556307">Work Orders</term>
+      <term>Work Orders</term>
 
       <listitem>
         <para>Display lists Work Order buffer statuses by Item Group, using
@@ -133,7 +135,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556308">Automatically Update</term>
+      <term>Automatically Update</term>
 
       <listitem>
         <para>Select to automatically update the display every five
@@ -142,12 +144,12 @@
     </varlistentry>
   </variablelist>
 
-  <para id="Para556309">To the far right and at the bottom of the screen, the
+  <para>To the far right and at the bottom of the screen, the
   following buttons are available:</para>
 
   <variablelist>
     <varlistentry>
-      <term id="Para556310">CLOSE</term>
+      <term>CLOSE</term>
 
       <listitem>
         <para>Closes the screen, returning you to the application
@@ -156,7 +158,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556311">QUERY</term>
+      <term>QUERY</term>
 
       <listitem>
         <para>Select to generate the display, using the specified
@@ -165,7 +167,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term id="Para556312">PRINT</term>
+      <term>PRINT</term>
 
       <listitem>
         <para>Runs the report associated with this screen.</para>
@@ -173,7 +175,7 @@
     </varlistentry>
   </variablelist>
 
-  <para id="Para556313">Right-clicking on a Work Order in the Work Orders list
+  <para>Right-clicking on a Work Order in the Work Orders list
   enables you to select a number of context-sensitive menu options. If the
   Work Order's Status is open "O," the following options will appear when you
   right-click on the Work Order:</para>
@@ -194,7 +196,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para556321">If the Work Order's Status is exploded "E," the
+  <para>If the Work Order's Status is exploded "E," the
   following options will appear when you right-click on the Work Order:</para>
 
   <variablelist>
@@ -227,7 +229,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para556336">If the Work Order's Status is released "R", the
+  <para>If the Work Order's Status is released "R", the
   following options will appear when you right-click on the Work Order:</para>
 
   <variablelist>
@@ -256,7 +258,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para556349">If the Work Order's Status is in-process "I," the
+  <para>If the Work Order's Status is in-process "I," the
   following options will appear when you right-click on the Work Order:</para>
 
   <variablelist>
@@ -283,7 +285,7 @@
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para556361">If the Work Order is a child Work Order, the following
+  <para>If the Work Order is a child Work Order, the following
   additional option will appear:</para>
 
   <variablelist>

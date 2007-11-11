@@ -1,76 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519086">
-  <title><anchor id="Anchor19758" role="Cross-Ref"
-  xreflabel="19758: Heading2: Configure I/M" /><indexterm
-      significance="normal">
+  <title>
+<anchor id="Anchor19758" role="Cross-Ref" xreflabel="19758: Heading2: Configure I/M"/>
+<indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>of i/m module</secondary>
     </indexterm>Configure I/M</title>
-  <para id="Para519087">To configure the Inventory Management (I/M) module,
+  <para>To configure the Inventory Management (I/M) module,
   select the "Configure I/M" option. The following screen will appear</para>
-  <para id="Para519091"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configIM.png" id="Graphic522092" />
+          <imagedata fileref="images/Sys_configIM.png" id="Graphic522092"/>
         </imageobject>
         <caption id="Caption519092">Configure I/M Module</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para933434">When configuring the I/M module, you are presented
+    </screenshot>
+</para>
+  <para>When configuring the I/M module, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para943933"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>event fences</primary>
           <secondary>default for item sites</secondary>
         </indexterm>Defaults</term>
       <listitem id="listitemN0x180ac00N0x189a2d0">
         <para>Specify a default Event Fence:</para>
-        <para id="Para934093">Event Fence: Select a value between 0 and 999
+        <para>Event Fence: Select a value between 0 and 999
         using the arrow buttons located to the right of the field. Indicates
         the Event Fence value that will appear by default whenever a new Item
         Site is created. The value is measured in days.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para948599">Post Item Site Changes to the Change Log</term>
+      <term>Post Item Site Changes to the Change Log</term>
       <listitem id="listitemN0x180ac00N0x189a318">
         <para>Select to post to the Change Log any changes made to Item Site
         masters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para976261">Post Warehouse Changes to the Change Log</term>
+      <term>Post Warehouse Changes to the Change Log</term>
       <listitem id="listitemN0x180ac00N0x189a360">
         <para>Select to post to the Change Log any changes made to Warehouse
         masters.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para976465">Enable Multiple Warehouses</term>
+      <term>Enable Multiple Warehouses</term>
       <listitem id="listitemN0x180ac00N0x189a384">
         <para>Select to allow more than one Warehouse to be entered in the
         system.</para>
-        <para id="Para976471">If multiple Warehouses are not enabled, your
+        <para>If multiple Warehouses are not enabled, your
         system will be single Warehouse only. Users will be prevented from
         creating more than one Warehouse. If your system has multiple
         Warehouses defined, this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para976467">Transfer Order # Generation</term>
+      <term>Transfer Order # Generation</term>
       <listitem id="listitemN0x180ac00N0x189a3a8">
         <para>If multiple Warehouses are enabled, select one of the available
         Transfer Order Number generation methods:</para>
-        <para id="Para976378">Automatic - Transfer Order Numbers will be
+        <para>Automatic - Transfer Order Numbers will be
         automatically incremented by 1 each time a new Transfer Order is
         created. These automatically-generated numbers may not be edited. They
         are read-only.</para>
-        <para id="Para976359">Manual - Transfer Order Numbers must be entered
+        <para>Manual - Transfer Order Numbers must be entered
         manually whenever you create a new Transfer Order.</para>
-        <para id="Para976360">Automatic, Allow Override - Transfer Order
+        <para>Automatic, Allow Override - Transfer Order
         Numbers will be automatically generated and incremented, as under the
         "Automatic" option described above. However, this option also allows
         you to manually override the Transfer Order Number at the time of
@@ -78,7 +80,7 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para976361">Next #</term>
+      <term>Next #</term>
       <listitem id="listitemN0x180ac00N0x189a3cc">
         <para>The next sequentially available Transfer Order Number will
         display here. You may change the number--creating a new basis for the
@@ -88,20 +90,20 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para976331">Default Transit Warehouse</term>
+      <term>Default Transit Warehouse</term>
       <listitem id="listitemN0x180ac00N0x189a3f0">
         <para>If multiple Warehouses are enabled, specify the default Transit
         Warehouse.</para>
-        <para id="Para976446">The specified Warehouse will be pre-selected by
+        <para>The specified Warehouse will be pre-selected by
         default whenever Transfer Orders are entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para976271">Enable Lot/Serial Control</term>
+      <term>Enable Lot/Serial Control</term>
       <listitem id="listitemN0x180ac00N0x189a414">
         <para>Select to enable Lot/Serial tracking capability in the
         system.</para>
-        <para id="Para976277">If not selected, users will be prevented from
+        <para>If not selected, users will be prevented from
         creating Item Sites having either the Lot or Serial control method.
         Without the ability to create Lot/Serial Item Sites, the Lot/Serial
         tracking capability is disabled. If your system has Lot/Serial Item
@@ -109,7 +111,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para934062"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>count tags</primary>
           <secondary>count slip discrepancies and</secondary>
         </indexterm> <indexterm significance="normal">
@@ -119,64 +122,65 @@
       <listitem id="listitemN0x180ac00N0x189a4ec">
         <para>Select one of the following options for handling discrepancies
         in count quantities:</para>
-        <para id="Para913626">Post Difference to Default Location, if any -
+        <para>Post Difference to Default Location, if any -
         Select to post excess Count Tag quantity to an Item's default location
         if the Item's Count Tag quantity exceeds its Count Slip quantity.
         Applies only if a default location has been defined for the Item.
         Default locations are defined for an Item in the Item Site
         record.</para>
-        <para id="Para519100">Do Not Post Count Tag - Select to prevent Count
+        <para>Do Not Post Count Tag - Select to prevent Count
         Tag quantity from being posted if it exceeds the Item's Count Slip
         quantity.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para946902">By default, the system allows only one unposted
+    <para>By default, the system allows only one unposted
     Count Tag per Item Site. If an unposted Count Tag already exists for an
     Item Site, then an additional duplicate Count Tag may not be added.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para934050"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>count slips</primary>
           <secondary>auditing of</secondary>
         </indexterm>Count Slip # Auditing</term>
       <listitem id="listitemN0x180ac00N0x189a5c4">
         <para>Select one of the following Count Slip number auditing
         methods:</para>
-        <para id="Para519102">No Slip # Checks, allow Duplications - Allows
+        <para>No Slip # Checks, allow Duplications - Allows
         any Count Slip numbers to be used. Duplicate Count Slip numbers will
         also be allowed.</para>
-        <para id="Para519103">Disallow Unposted Slip # Duplications within a
+        <para>Disallow Unposted Slip # Duplications within a
         Warehouse - Prevents duplicate "Unposted" Count Slip numbers from
         existing within a given Warehouse. However, duplicate "Unposted" Count
         Slip numbers may exist within multiple Warehouses.</para>
-        <para id="Para519104">Disallow All Unposted Slip # Duplications -
+        <para>Disallow All Unposted Slip # Duplications -
         Prevents duplicate "Unposted" Count Slip numbers from existing within
         multiple Warehouses.</para>
-        <para id="Para519105">Disallow All Slip # Duplications within a
+        <para>Disallow All Slip # Duplications within a
         Warehouse - Prevents duplicate Count Slip numbers from existing within
         a given Warehouse. However, duplicate Count Slip numbers may exist
         within multiple Warehouses.</para>
-        <para id="Para519106">Disallow All Slip # Duplications - Prevents
+        <para>Disallow All Slip # Duplications - Prevents
         duplicate Count Slip Numbers from existing within multiple
         Warehouses.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519107">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519108">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x189a630">
         <para>Cancels any configuration settings, returning you to the
         application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519109">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x189a678">
         <para>Saves the configuration settings, returning you to the
         application desktop.</para>

@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section629436">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>count tags</primary>
       <secondary>creating by planner code</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>creating count tags</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>count tags created by</secondary>
     </indexterm>Create Count Tags by Planner Code</title>
-  <para id="Para629518">Count Tags are used to spearhead Inventory counts.
+  <para>Count Tags are used to spearhead Inventory counts.
   They are created manually and on-demand, and they are not tied to any
   particular cycle or frequency, as Cycle Count Tags are. To create Count Tags
   by Planner Code, select the "Create Count Tags by Planner Code" option. The
   following screen will appear:</para>
-  <para id="Para629522"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_PI_createCTByPlanCode.png" id="Graphic629520"/>
@@ -24,33 +28,34 @@
         <caption id="Caption629523">Create Count Tags by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para629524">When creating Count Tags by Planner Code, you are
+    </screenshot>
+</para>
+  <para>When creating Count Tags by Planner Code, you are
   presented with the following options:</para>
   <tip>
-    <para id="Para629613">By default, the system allows only one unposted
+    <para>By default, the system allows only one unposted
     Count Tag per Item Site. To view all unposted Count Tags in your system,
     see the Count Tag Edit List.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para629614">All Planner Codes</term>
+      <term>All Planner Codes</term>
       <listitem id="listitemN0x180ac00N0x18d9b88">
         <para>Select to create Count Tags for all Planner Codes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629615">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x18d9bd0">
         <para>Specify Planner Code you want to create Count Tags for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629529">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18d9c18">
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-        <para id="Para677044">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -58,23 +63,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629537">Warehouse</term>
+      <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x18d9c60">
         <para>Specify Warehouse the Count Tags are to be created for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629539">Mark Created Count Tag as Priority</term>
+      <term>Mark Created Count Tag as Priority</term>
       <listitem id="listitemN0x180ac00N0x18d9ca8">
         <para>Select to give priority status to Count Tag.</para>
-        <para id="Para629540">Count Tags marked as having priority status are
+        <para>Count Tags marked as having priority status are
         listed first in any prioritized lists. For example, priority Count
         Tags will appear at the top of the Count Tag Edit List; whereas,
         non-priority Count Tags will appear at the bottom of the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629542"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>freezing</primary>
           <secondary>of inventory</secondary>
         </indexterm> <indexterm significance="normal">
@@ -83,7 +89,7 @@
         </indexterm>Freeze Inventory</term>
       <listitem id="listitemN0x180ac00N0x18d9d80">
         <para>Select to freeze Inventory.</para>
-        <para id="Para629543">The Quantity on Hand value is not updated when a
+        <para>The Quantity on Hand value is not updated when a
         transaction is posted against a frozen Item Site. Instead, Inventory
         transactions are pooled and then posted later when the Item Site is
         unfrozen--or thawed. The Quantity on Hand is later updated when the
@@ -96,26 +102,26 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para629548">When an Item Site is frozen, any Inventory
+    <para>When an Item Site is frozen, any Inventory
     transactions entered against that Item Site--including Work Orders--will
     not change Quantity on Hand until after the Item Site is thawed.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para629549">Ignore Zero Balance Item Sites</term>
+      <term>Ignore Zero Balance Item Sites</term>
       <listitem id="listitemN0x180ac00N0x18e2400">
         <para>Select to ignore Item Sites which have a Quantity on Hand
         balance of zero.</para>
-        <para id="Para629550">If selected, Count Tags will not be created for
+        <para>If selected, Count Tags will not be created for
         any Item Site having a Quantity on Hand balance of zero.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629551">Only for Specified Location</term>
+      <term>Only for Specified Location</term>
       <listitem id="listitemN0x180ac00N0x18e2448">
         <para>Select if you want to create Count Tags for an individual
         Warehouse Location.</para>
-        <para id="Para629552">If selected, you will have the option to specify
+        <para>If selected, you will have the option to specify
         which Warehouse Location you want to have Count Tags created for. This
         option enables you to count individual Warehouse Locations separately,
         without having to post counts for an entire Warehouse all at
@@ -123,7 +129,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629554"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -138,21 +145,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para629555">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para629556">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18e258c">
         <para>Closes the screen without creating Count Tags, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para629557">CREATE TAGS</term>
+      <term>CREATE TAGS</term>
       <listitem id="listitemN0x180ac00N0x18e25d4">
         <para>Creates Count Tags.</para>
-        <para id="Para629558">Count Tag Numbers are generated automatically in
+        <para>Count Tag Numbers are generated automatically in
         an ordered sequence.</para>
       </listitem>
     </varlistentry>

@@ -1,89 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-  <section id="Section940919">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="Section940919">
     <title>Add Comment to Purchase Order</title>
-    <para id="Para940924">To add a Comment to a Purchase Order, select the
+    <para>To add a Comment to a Purchase Order, select the
     "Add Comment to Purchase Order" option. The following screen will
     appear:</para>
-    <para id="Para942023"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/PO_PO_addPOComm.png" id="Graphic942021" />
+            <imagedata fileref="images/PO_PO_addPOComm.png" id="Graphic942021"/>
           </imageobject>
           <caption id="Caption942024">Purchase Order Comments</caption>
         </mediaobject>
-      </screenshot></para>
-    <para id="Para942065">When adding Comments related to a Purchase Order,
+      </screenshot>
+</para>
+    <para>When adding Comments related to a Purchase Order,
     you are presented with the following options:</para>
     <variablelist>
       <varlistentry>
-        <term id="Para942066">Comments</term>
+        <term>Comments</term>
         <listitem id="listitemN0x180ac00N0x18788a8">
           <para>Display lists Comments for the specified Purchase
           Order.</para>
         </listitem>
       </varlistentry>
     </variablelist>
-    <para id="Para942068">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
     <variablelist>
       <varlistentry>
-        <term id="Para942188">CLOSE</term>
+        <term>CLOSE</term>
         <listitem id="listitemN0x180ac00N0x1878914">
           <para>Closes the screen, returning you to the application
           desktop.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term id="Para942069">NEW</term>
+        <term>NEW</term>
         <listitem id="listitemN0x180ac00N0x187895c">
           <para>Opens screen for creating a new Comment.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term id="Para942070">VIEW</term>
+        <term>VIEW</term>
         <listitem id="listitemN0x180ac00N0x18789a4">
           <para>Highlight a Comment and then select this button to reach a
           read-only view of the Comment.</para>
         </listitem>
       </varlistentry>
     </variablelist>
-    <para id="Para942072">To create a new Purchase Order Comment, select the
+    <para>To create a new Purchase Order Comment, select the
     NEW button. The following screen will appear:</para>
-    <para id="Para942076"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/CommentNew.png" id="Graphic942074" />
+            <imagedata fileref="images/CommentNew.png" id="Graphic942074"/>
           </imageobject>
           <caption id="Caption942077">Create New Comment</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
     <variablelist>
       <varlistentry>
-        <term id="Para942078">Comment Type</term>
+        <term>Comment Type</term>
         <listitem id="listitemN0x180ac00N0x187ac6c">
           <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
-          <para id="Para942079">Comment Types are used to categorize Comments.
+          <para>Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
         </listitem>
       </varlistentry>
     </variablelist>
-    <para id="Para942080">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
     <variablelist>
       <varlistentry>
-        <term id="Para942081">CANCEL</term>
+        <term>CANCEL</term>
         <listitem id="listitemN0x180ac00N0x187acd8">
           <para>Closes the screen without creating a new Comment, returning
           you to the previous screen.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term id="Para959107">SAVE</term>
+        <term>SAVE</term>
         <listitem id="listitemN0x180ac00N0x187ad20">
           <para>Creates the Comment and adds it to the list of Purchase Order
           Comments.</para>

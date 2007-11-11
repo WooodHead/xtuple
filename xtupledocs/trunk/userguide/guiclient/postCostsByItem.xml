@@ -11,16 +11,16 @@
          <primary>items</primary>
          <secondary>updating standard costs for</secondary>
       </indexterm>Update Standard Costs by Item</title>
-   <para id="Para647941">Standard Costs are the Costs which are recorded in
+   <para>Standard Costs are the Costs which are recorded in
     the General Ledger (G/L) whenever transactions are posted. As such, they
     are the Costs of record. Typically, a company will update its Standard
     Costs on a periodic basis--for example, annually or quarterly.</para>
-   <para id="Para647951">If you introduce new products into production
+   <para>If you introduce new products into production
     between Standard Cost updates, you may want to roll up existing Standard
     Costs into the cost of your new manufactured Items. To update Standard
     Costs individually by Item, select the "Update Standard Costs by Item"
     option. The following screen will appear:</para>
-   <para id="Para647511">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -31,35 +31,35 @@
       </screenshot>
    </para>
    <note>
-      <para id="Para647963">Updating Standard Costs has absolutely no impact
+      <para>Updating Standard Costs has absolutely no impact
       on an Item's Actual Costs. The only Costs affected will be Standard
       Costs.</para>
    </note>
-   <para id="Para647513">When updating Standard Costs by Item, you are
+   <para>When updating Standard Costs by Item, you are
     presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para647514">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x19075e0">
             <para>Enter the Item Number of the Item whose Standard Costs you
           want to update.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663284">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x1907628">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para647814">For manufactured Items, rolling up Standard Costs
+      <para>For manufactured Items, rolling up Standard Costs
       ensures that lower level Costs are reflected in the Cost for the parent
       Item.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para647816">
+         <term>
              
             <indexterm significance="normal">
                <primary>standard costs</primary>
@@ -67,7 +67,7 @@
             </indexterm>Roll Up Standard Costs</term>
          <listitem id="listitemN0x180ac00N0x1907700">
             <para>Select to roll up Standard Costs.</para>
-            <para id="Para647817">When this option is specified, all selected
+            <para>When this option is specified, all selected
           Costs will be added together to establish a revised total Standard
           Cost for the Item. This revised total goes into effect after the
           UPDATE button is selected. If all Costs are selected, all Costs will
@@ -78,7 +78,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para647523">
+         <term>
             
             <indexterm significance="normal">
                <primary>material costs</primary>
@@ -94,65 +94,65 @@
             </indexterm>Update Lower Level Material Costs</term>
          <listitem id="listitemN0x180ac00N0x1907820">
             <para>Select to update lower level material Costs.</para>
-            <para id="Para647524">Not selecting means lower level material Costs
+            <para>Not selecting means lower level material Costs
           will not be included in the Cost update.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para647526">Update Direct Labor Cost</term>
+         <term>Update Direct Labor Cost</term>
          <listitem id="listitemN0x180ac00N0x1907844">
             <para>Select to update direct labor Cost.</para>
-            <para id="Para647527">Not selecting means the direct labor Cost will
+            <para>Not selecting means the direct labor Cost will
           not be included in the Cost update.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para647528">Update Lower Level Direct Labor Cost</term>
+         <term>Update Lower Level Direct Labor Cost</term>
          <listitem id="listitemN0x180ac00N0x1907868">
             <para>Select to update lower level direct labor Cost.</para>
-            <para id="Para647529">Not selecting means the lower level direct
+            <para>Not selecting means the lower level direct
           labor Cost will not be included in the Cost update.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para647531">You have the flexibility of updating all or only a
+      <para>You have the flexibility of updating all or only a
       subset of the listed Costs. Updating a subset might be desirable if only
       Material or User Costs have changed, for example.</para>
    </note>
    <variablelist>
       <varlistentry role="openmfg">
-         <term id="Para647533">Update Overhead Cost</term>
+         <term>Update Overhead Cost</term>
          <listitem id="listitemN0x180ac00N0x19078d4">
             <para>Select to update overhead Cost.</para>
-            <para id="Para647534">Not selecting means the overhead Cost will not
+            <para>Not selecting means the overhead Cost will not
           be included in the Cost update.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para647535">Update Lower Level Overhead Cost</term>
+         <term>Update Lower Level Overhead Cost</term>
          <listitem id="listitemN0x180ac00N0x19078f8">
             <para>Select to update lower level overhead Cost.</para>
-            <para id="Para647536">Not selecting means the lower level overhead
+            <para>Not selecting means the lower level overhead
           Cost will not be included in the Cost update.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para647537">Update Machine Overhead</term>
+         <term>Update Machine Overhead</term>
          <listitem id="listitemN0x180ac00N0x190791c">
             <para>Select to update machine overhead Cost.</para>
-            <para id="Para647538">This option is selected by default.</para>
+            <para>This option is selected by default.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para647539">Update Lower Machine Overhead</term>
+         <term>Update Lower Machine Overhead</term>
          <listitem id="listitemN0x180ac00N0x1907940">
             <para>Select to update lower level machine overhead Cost.</para>
-            <para id="Para647540">This option is selected by default.</para>
+            <para>This option is selected by default.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para647542">
+         <term>
             
             <indexterm significance="normal">
                <primary>user costs</primary>
@@ -168,40 +168,40 @@
             </indexterm>Update User Costs</term>
          <listitem id="listitemN0x180ac00N0x1907a60">
             <para>Select to update user Costs.</para>
-            <para id="Para647543">Not selecting means user Costs will not be
+            <para>Not selecting means user Costs will not be
           included in the Cost update.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para647544">Update Lower Level User Costs</term>
+         <term>Update Lower Level User Costs</term>
          <listitem id="listitemN0x180ac00N0x1907aa8">
             <para>Select to update lower level user Costs.</para>
-            <para id="Para647545">Not selecting means lower level user Costs
+            <para>Not selecting means lower level user Costs
           will not be included in the Cost update.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para647546">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para647547">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x1907b14">
             <para>Closes the screen without updating selected Costs, returning
           you to the application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para647548">UPDATE</term>
+         <term>UPDATE</term>
          <listitem id="listitemN0x180ac00N0x1907b5c">
             <para>Updates all selected Costs for the specified Item.</para>
-            <para id="Para657367">If the option "Roll Up Standard Costs" has
+            <para>If the option "Roll Up Standard Costs" has
           been selected, the total Standard Cost for the specified Item will
           be updated.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para657368">SUBMIT</term>
+         <term>SUBMIT</term>
          <listitem id="listitemN0x180ac00N0x1907b80">
             <para>Select to submit requested action to the Batch Manager for
           processing. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
@@ -211,10 +211,10 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para647551">SELECT ALL COSTS</term>
+         <term>SELECT ALL COSTS</term>
          <listitem id="listitemN0x180ac00N0x1907bc8">
             <para>Selects all Costs for updating.</para>
-            <para id="Para647552">Use this option to save time when selecting
+            <para>Use this option to save time when selecting
           all Costs for updating. The option "Roll Up Standard Costs" must be
           selected separately if you want to include a rolled up total for the
           parent Item in the Cost update.</para>

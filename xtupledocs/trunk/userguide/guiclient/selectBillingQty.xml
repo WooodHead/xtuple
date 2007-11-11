@@ -1,107 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="selectBillingQty">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>billing</primary>
       <secondary>controlling quantity for</secondary>
     </indexterm>Select Billing Quantity</title>
-  <para id="Para519304">To specify billing quantities for Line Items in the
+  <para>To specify billing quantities for Line Items in the
   "Select Order for Billing" screen, double-click on a Line Item in the "Line
   Items" display--or highlight the Line Item and select the EDIT SELECTION
   button. The following screen will appear:</para>
-  <para id="Para519308"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_selectBillQty.png"
-                     id="Graphic523439" />
+          <imagedata fileref="images/SO_Bill_selectBillQty.png" id="Graphic523439"/>
         </imageobject>
         <caption id="Caption519309">Select Billing Quantity for Line
         Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519310">When selecting the billing quantity for a Line Item,
+    </screenshot>
+</para>
+  <para>When selecting the billing quantity for a Line Item,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519311">Sales Order #</term>
+      <term>Sales Order #</term>
       <listitem id="listitemN0x180ac00N0x1903dac">
         <para>Displays Sales Order Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519312">Line #</term>
+      <term>Line #</term>
       <listitem id="listitemN0x180ac00N0x1903df4">
         <para>Displays Sales Order Line Item Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519313">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1903e3c">
         <para>Displays Item Number of Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para652592">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1903e84">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519315">Ordered</term>
+      <term>Ordered</term>
       <listitem id="listitemN0x180ac00N0x1903ecc">
         <para>Displays quantity ordered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519316">Shipped</term>
+      <term>Shipped</term>
       <listitem id="listitemN0x180ac00N0x1903f14">
         <para>Displays quantity shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519317">Balance</term>
+      <term>Balance</term>
       <listitem id="listitemN0x180ac00N0x1903f5c">
         <para>Displays remaining quantity to-be-shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519318">Uninvoiced</term>
+      <term>Uninvoiced</term>
       <listitem id="listitemN0x180ac00N0x1903fa4">
         <para>Displays uninvoiced quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519322">To Bill</term>
+      <term>To Bill</term>
       <listitem id="listitemN0x180ac00N0x1903fec">
         <para>Enter the quantity you want to select for billing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519324">Close this Line After Billing</term>
+      <term>Close this Line After Billing</term>
       <listitem id="listitemN0x180ac00N0x190b024">
         <para>Select to close the specified Line Item after billing.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para595202">If you are shipping a partial quantity to a
+    <para>If you are shipping a partial quantity to a
     Customer, be sure to leave the "Close this Line After Billing" option
     unchecked. This will ensure the Sales Order Item remains open until the
     full quantity has been shipped.</para>
   </tip>
-  <para id="Para519325">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519326">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x190b0b4">
         <para>Closes the screen without selecting a billing quantity,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519327">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x190b0fc">
         <para>Selects the specified quantity for billing, returning you to the
         previous screen.</para>

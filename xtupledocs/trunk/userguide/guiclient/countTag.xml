@@ -1,71 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519313">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>count tags</primary>
       <secondary>entering of</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>entering count tags</secondary>
     </indexterm>Enter Count Tag</title>
-  <para id="Para519314">Once a Count Tag has been created, the Count Tag is
+  <para>Once a Count Tag has been created, the Count Tag is
   ready to have Inventory quantities entered into it. To enter a Count Tag,
   select the "Enter Count Tag" option. The following screen will
   appear:</para>
-  <para id="Para519318"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_enterCountTag.png"
-                     id="Graphic526054" />
+          <imagedata fileref="images/IM_PI_enterCountTag.png" id="Graphic526054"/>
         </imageobject>
         <caption id="Caption519319">Enter Count Tag</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519320">When entering a Count Tag, you are presented with the
+    </screenshot>
+</para>
+  <para>When entering a Count Tag, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519324">Count Tag #</term>
+      <term>Count Tag #</term>
       <listitem id="listitemN0x180ac00N0x19078f8">
         <para>Enter the Count Tag Number of the Count Tag you want to enter
         details for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519326">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1907940">
         <para>Displays Item Number automatically when Count Tag Number is
         entered into "Count Tag #" field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para672011">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1907988">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519330">Warehouse</term>
+      <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x19079d0">
         <para>Displays Warehouse where count will take place.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519335">Count Qty.</term>
+      <term>Count Qty.</term>
       <listitem id="listitemN0x180ac00N0x1907a18">
         <para>Enter the Physical Count total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519337">Current Comments</term>
+      <term>Current Comments</term>
       <listitem id="listitemN0x180ac00N0x1907a60">
         <para>Display lists all Comments added prior to the current
         session.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para530177"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -80,18 +83,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519344">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519345">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1907ba4">
         <para>Closes the screen without creating a Count Tag, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519346">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1907bec">
         <para>Creates Count Tag and adds specified quantity to the Count Tag
         total.</para>

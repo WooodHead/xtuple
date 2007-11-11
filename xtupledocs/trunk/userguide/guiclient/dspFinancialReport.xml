@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600352">
    <title>
        
@@ -8,11 +7,11 @@
          <primary>financial reports</primary>
          <secondary>viewing of</secondary>
       </indexterm>View Financial Report</title>
-   <para id="Para600353">Once a Financial Report has been created using the
+   <para>Once a Financial Report has been created using the
     Financial Reporting Engine, you may then generate it using time-phased
     information. To view a Financial Report, select the "View Financial
     Report" option. The following screen will appear:</para>
-   <para id="Para534305">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -22,20 +21,20 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para538200">When viewing a Financial Report, you are presented
+   <para>When viewing a Financial Report, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para572775">Financial Report</term>
+         <term>Financial Report</term>
          <listitem id="listitemN0x180ac00N0x19080b4">
             <para>Specify the Financial Report you want to generate.</para>
-            <para id="Para572776">The list will include both system-defined
+            <para>The list will include both system-defined
           Financial Reports (e.g., basic Income Statement and basic Balance
           Sheet) and also any other reports you may have created.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para596076">Report Type</term>
+         <term>Report Type</term>
          <listitem id="listitemN0x180ac00N0x19080fc">
             <para>Displays the report type for the Financial Report you select:
           Balance Sheet, Income Statement, Cash Flow, or Ad Hoc.</para>
@@ -43,18 +42,18 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para596852">The options available on the screen will vary,
+      <para>The options available on the screen will vary,
       depending on the report type selected. For example, column layouts are
       not available for Ad Hoc reports.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para596831">Column Layout</term>
+         <term>Column Layout</term>
          <listitem id="listitemN0x180ac00N0x190818c">
             <para>Select the column layout you want the Financial Report to use.
           This feature may not be used in conjunction with the "Trend Report"
           option.</para>
-            <para id="Para596855">When defining a Financial Report using one of
+            <para>When defining a Financial Report using one of
           the standard report types (i.e., Balance Sheet, Income Statement, or
           Cash Flow), you must define a column layout to specify the time
           buckets financial information will be sorted into. A standard
@@ -66,11 +65,11 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para538207">Periods</term>
+         <term>Periods</term>
          <listitem id="listitemN0x180ac00N0x19081d4">
             <para>Specify the Accounting Period(s) whose details you want to
           display.</para>
-            <para id="Para572782">For Financial Reports created using one of the
+            <para>For Financial Reports created using one of the
           standard report types (i.e., Balance Sheet, Income Statement, or
           Cash Flow), you can only select a single Accounting Period--unless
           you are running a Trend Report, in which case multiple Periods may
@@ -90,13 +89,13 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para572413">You can export the generated financial data in
+      <para>You can export the generated financial data in
       tab-delimited format using the "Export Contents" option from the
       right-click menu.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para572813">Show Columns</term>
+         <term>Show Columns</term>
          <listitem id="listitemN0x180ac00N0x1908264">
             <para>For Ad Hoc reports (which do not use column layouts), specify
           the columns of information you want to include in the Financial
@@ -221,7 +220,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para596953">Trend Report</term>
+         <term>Trend Report</term>
          <listitem id="listitemN0x180ac00N0x19082ac">
             <para>Select to generate a Financial Report which groups information
           across multiple time periods. This option may be used regardless of
@@ -262,14 +261,14 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para596955">There is no relationship between the selected
+      <para>There is no relationship between the selected
       Periods in a column layout and the Trend Report options available when
       viewing a Financial Report. Trend Reporting ignores column
       layouts.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para596956">Options</term>
+         <term>Options</term>
          <listitem id="listitemN0x180ac00N0x190833c">
             <para>You may optionally select one or both of the following
           options:</para>
@@ -294,7 +293,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para596957">Layout</term>
+         <term>Layout</term>
          <listitem id="listitemN0x180ac00N0x1908384">
             <para>Display lists Financial Report details for the selected
           Financial Report, using the specified parameters. This display is a
@@ -305,25 +304,25 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para538129">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para538116">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x19083f0">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para538117">QUERY</term>
+         <term>QUERY</term>
          <listitem id="listitemN0x180ac00N0x1908438">
             <para>Select to generate the display, using the specified
           parameters.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para610755">
+         <term>
              
             <indexterm significance="normal">
                <primary>financial reports</primary>

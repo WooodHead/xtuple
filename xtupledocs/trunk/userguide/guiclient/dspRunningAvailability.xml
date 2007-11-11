@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518986" role="openmfg">
   <title>Running Availability</title>
 
-  <para id="Para518987">To view Running Availability, select the "Running
+  <para>To view Running Availability, select the "Running
   Availability" option. The following screen will appear:</para>
 
-  <para id="Para518991">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -19,12 +18,12 @@
       </screenshot>
    </para>
 
-  <para id="Para518998">When displaying Running Availability, you are
+  <para>When displaying Running Availability, you are
   presented with the following options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para518999">Item Number</term>
+         <term>Item Number</term>
 
          <listitem>
             <para>Enter the Item Number of the Item whose Running Availability you
@@ -33,7 +32,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para553599">UOM</term>
+         <term>UOM</term>
 
          <listitem>
             <para>Inventory Unit of Measure.</para>
@@ -42,7 +41,7 @@
   </variablelist>
 
   <note>
-      <para id="Para537275">When quantity appears in the "Ordered" column, this
+      <para>When quantity appears in the "Ordered" column, this
     refers to quantity that is on order through either a Work Order or
     Purchase Order. In the case of Purchase Orders, the quantity will always
     be represented in the Inventory Unit of Measure (UOM)--regardless of the
@@ -51,7 +50,7 @@
 
   <variablelist>
       <varlistentry>
-         <term id="Para519003">Warehouse</term>
+         <term>Warehouse</term>
 
          <listitem>
             <para>Specify Warehouse whose Running Availability you want to
@@ -60,17 +59,17 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para528257">Show Planned Orders</term>
+         <term>Show Planned Orders</term>
 
          <listitem>
             <para>Select to show Planned Orders in the display.</para>
 
-            <para id="Para528258">Planned Orders will display in blue type.</para>
+            <para>Planned Orders will display in blue type.</para>
          </listitem>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519005">QOH</term>
+         <term>QOH</term>
 
          <listitem>
             <para>Displays Quantity on Hand for specified Item.</para>
@@ -78,7 +77,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519007">Order Multiple</term>
+         <term>Order Multiple</term>
 
          <listitem>
             <para>Displays Order Multiple specifying the increments the Item must
@@ -88,7 +87,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519009">Reorder Level</term>
+         <term>Reorder Level</term>
 
          <listitem>
             <para>Displays the Reorder Level specifying the minimum Quantity on
@@ -98,7 +97,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519011">Order Up To Qty</term>
+         <term>Order Up To Qty</term>
 
          <listitem>
             <para>Indicates the quantity level that MRP Planned Replenishment
@@ -107,24 +106,24 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para519014">Running Availability</term>
+         <term>Running Availability</term>
 
          <listitem>
             <para>Display lists Running Availability for the selected Item, using
         the specified parameters.</para>
 
-            <para id="Para553929">Red lettering indicates the due date has passed
+            <para>Red lettering indicates the due date has passed
         or Running Availability has dropped below 0.</para>
          </listitem>
       </varlistentry>
   </variablelist>
 
-  <para id="Para519016">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para519017">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem>
             <para>Closes the screen, returning you to the application
@@ -133,7 +132,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para553813">PRINT</term>
+         <term>PRINT</term>
 
          <listitem>
             <para>Runs the report associated with this screen.</para>
@@ -141,29 +140,24 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para537017">Right-clicking on a Work Order in the Running
+  <para>Right-clicking on a Work Order in the Running
   Availability display enables you to select from the following
   options:</para>
 
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/8/2/31)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/31)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para537020">If you right-click on a Planned Order, the following
+  <para>If you right-click on a Planned Order, the following
   additional option will also be available:</para>
 
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/4)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/4)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/5/2/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/1)"/>
   </variablelist>
 </section>

@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572703">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>reorder levels</primary>
       <secondary>updating by class code</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>updating reorder levels using</secondary>
     </indexterm>Update Reorder Levels by Class Code</title>
-  <para id="Para572704">To update Reorder Levels by Class Code, select the
+  <para>To update Reorder Levels by Class Code, select the
   "Reorder Levels by Class Code" option. The following screen will
   appear:</para>
-  <para id="Para572707"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_Utilities_upReordbyClass.png" id="Graphic572706"/>
@@ -19,43 +22,44 @@
         <caption id="Caption572708">Update Reorder Levels by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para572709">When updating Reorder Levels by Class Code, you are
+    </screenshot>
+</para>
+  <para>When updating Reorder Levels by Class Code, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry role="openmfg">
-      <term id="Para572883">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x19b1118">
         <para>Select to update Reorder Levels by Class Code for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para572884">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x19b113c">
         <para>Specify Warehouse where Reorder Levels by Class Code are to be
         updated.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572886">All Class Codes</term>
+      <term>All Class Codes</term>
       <listitem id="listitemN0x180ac00N0x19b1184">
         <para>Select to update Reorder Levels for all Class Codes.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572887">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x19b11cc">
         <para>Specify Class Code whose Reorder Levels you want to
         update.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572889">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19b1214">
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
-        <para id="Para677283">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -63,28 +67,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572897">Days of Stock at Reorder Level</term>
+      <term>Days of Stock at Reorder Level</term>
       <listitem id="listitemN0x180ac00N0x19b125c">
         <para>Specify number of days using one of the following
         options:</para>
-        <para id="Para572898">Item Site Lead Time +: Select a number using the
+        <para>Item Site Lead Time +: Select a number using the
         arrow buttons, or manually enter a value up to a maximum of 99.
         Average daily usage calculated using selected Calendar periods will be
         multiplied by this value to determine Reorder Level.</para>
-        <para id="Para572899">Fixed Days: Select a number using the arrow
+        <para>Fixed Days: Select a number using the arrow
         buttons, or manually enter a value up to a maximum of 999. Average
         daily usage calculated using selected Calendar periods will be
         multiplied by this value to determine Reorder Level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572900">Periods to Include in Analysis</term>
+      <term>Periods to Include in Analysis</term>
       <listitem id="listitemN0x180ac00N0x19b12a4">
         <para>Specify the periods to include in the analysis using the
         following Calendar options:</para>
-        <para id="Para670732">Calendar: Select the Calendar you want to use
+        <para>Calendar: Select the Calendar you want to use
         for the analysis.</para>
-        <para id="Para572902">Name/Selected Periods: Select as many periods as
+        <para>Name/Selected Periods: Select as many periods as
         you want to include in the analysis. Selected periods correspond to
         Calendar specified in the "Calendar" field. Select individual periods
         or groups of periods together. To select an individual period,
@@ -101,25 +105,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para572903">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para572904">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x19b1310">
         <para>Closes the screen without updating Reorder Levels by Class Code,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para572905">UPDATE</term>
+      <term>UPDATE</term>
       <listitem id="listitemN0x180ac00N0x19b1358">
         <para>Updates Reorder Levels by Class Code, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para572906">SUBMIT</term>
+      <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x19b137c">
         <para>Select to submit requested action to the Batch Manager for
         processing. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>

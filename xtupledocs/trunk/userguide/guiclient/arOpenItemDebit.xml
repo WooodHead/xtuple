@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section543516">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>debit memos</primary>
       <secondary>entering new</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>entering debit memos for</secondary>
     </indexterm>Enter Miscellaneous Debit Memo</title>
-  <para id="Para543517">A miscellaneous Debit Memo is like an Invoice--the
+  <para>A miscellaneous Debit Memo is like an Invoice--the
   main difference being that a miscellaneous Debit Memo is not necessarily
   linked to a Sales Order. To enter a miscellaneous Debit Memo, select the
   "Enter Misc. Debit Memo" option. The following screen will appear:</para>
-  <para id="Para543520"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_DCMems_enterDM.png" id="Graphic543611" />
+          <imagedata fileref="images/AR_DCMems_enterDM.png" id="Graphic543611"/>
         </imageobject>
         <caption id="Caption543521">Enter Miscellaneous Debit Memo</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para543522">When entering a miscellaneous Debit Memo, you are
+    </screenshot>
+</para>
+  <para>When entering a miscellaneous Debit Memo, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para543952">Customer #</term>
+      <term>Customer #</term>
       <listitem id="listitemN0x180ac00N0x18a85c8">
         <para>Enter the Customer Number of the Customer you want to enter a
         miscellaneous Debit Memo for.</para>
-        <para id="Para543953">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a searchable Customers list. You may also access this
         list using the keyboard shortcut "CTRL + L". Once a Customer Number is
         entered, the Customer name and billing address will display. Select
@@ -42,35 +45,35 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543957">Document Date</term>
+      <term>Document Date</term>
       <listitem id="listitemN0x180ac00N0x18af000">
         <para>Specify a date to associate with the miscellaneous Debit
         Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543959">Due Date</term>
+      <term>Due Date</term>
       <listitem id="listitemN0x180ac00N0x18af048">
         <para>Displays the due date for the miscellaneous Debit Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543960">Document Type</term>
+      <term>Document Type</term>
       <listitem id="listitemN0x180ac00N0x18af090">
         <para>Displays the Document Type, namely "Debit Memo."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543961">Doc. Number</term>
+      <term>Doc. Number</term>
       <listitem id="listitemN0x180ac00N0x18af0d8">
         <para>Displays the next available miscellaneous Debit Memo
         Number.</para>
-        <para id="Para543962">The value for the next available Debit Memo
+        <para>The value for the next available Debit Memo
         Number is configured at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543966">Order #</term>
+      <term>Order #</term>
       <listitem id="listitemN0x180ac00N0x18af120">
         <para>Enter the Order Number you want to associate with the Debit
         Memo. You may leave this field blank if you do not want to enter an
@@ -78,113 +81,113 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543968">Journal #</term>
+      <term>Journal #</term>
       <listitem id="listitemN0x180ac00N0x18af168">
         <para>Displays the Journal number if any amount has been
         applied.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543969">Terms</term>
+      <term>Terms</term>
       <listitem id="listitemN0x180ac00N0x18af1b0">
         <para>Displays Invoice Terms if any amount has been applied to an
         Invoice.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543970">Sales Rep.</term>
+      <term>Sales Rep.</term>
       <listitem id="listitemN0x180ac00N0x18af1f8">
         <para>Displays the Sales Representative associated with the Invoice if
         any amount has been applied to an Invoice.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543971">Commission Due</term>
+      <term>Commission Due</term>
       <listitem id="listitemN0x180ac00N0x18af240">
         <para>Displays the amount of the commission due to the associated
         Sales Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543972">Commission Paid</term>
+      <term>Commission Paid</term>
       <listitem id="listitemN0x180ac00N0x18af288">
         <para>Displays the amount of the commission paid to the associated
         Sales Representative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543976">Amount</term>
+      <term>Amount</term>
       <listitem id="listitemN0x180ac00N0x18af2d0">
         <para>Specify the amount of the miscellaneous Debit Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543978">Paid</term>
+      <term>Paid</term>
       <listitem id="listitemN0x180ac00N0x18af318">
         <para>Displays the amount applied to date for the miscellaneous Debit
         Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543979">Balance</term>
+      <term>Balance</term>
       <listitem id="listitemN0x180ac00N0x18af360">
         <para>Displays the remaining amount still available to apply for the
         miscellaneous Debit Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551688">Reason Code</term>
+      <term>Reason Code</term>
       <listitem id="listitemN0x180ac00N0x18af3a8">
         <para>Specify the reason for the Debit Memo.</para>
-        <para id="Para551689">Reason codes are used to explain why an
+        <para>Reason codes are used to explain why an
         adjustment is being made to a Customer's account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para552199">Use Alternate Prepaid Account</term>
+      <term>Use Alternate Prepaid Account</term>
       <listitem id="listitemN0x180ac00N0x18af3f0">
         <para>Select one of the following optional Prepaid Accounts:</para>
-        <para id="Para552200">From Sales Category: Specify a Sales Category
+        <para>From Sales Category: Specify a Sales Category
         whose Prepaid Account option you want to use instead of the default
         Prepaid Account.</para>
-        <para id="Para552201">Account Number: Specify an alternate Account
+        <para>Account Number: Specify an alternate Account
         Number to use for the transaction.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para552203">If an alternate Prepaid Account is not specified,
+    <para>If an alternate Prepaid Account is not specified,
     the system will use the default Prepaid Account specified for the Customer
     Type under A/R Account Assignments.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para543983">Notes</term>
+      <term>Notes</term>
       <listitem id="listitemN0x180ac00N0x18af480">
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the miscellaneous Debit Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543985">Applications</term>
+      <term>Applications</term>
       <listitem id="listitemN0x180ac00N0x18af4c8">
         <para>Display lists the history of applications related to the
         miscellaneous Debit Memo, if any.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para543987">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para543988">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18af534">
         <para>Closes the screen without entering a miscellaneous Debit Memo,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para543989">POST</term>
+      <term>POST</term>
       <listitem id="listitemN0x180ac00N0x18af57c">
         <para>Posts the miscellaneous Debit Memo, using the amount
         specified.</para>

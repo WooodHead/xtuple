@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="location">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>warehouse locations</primary>
       <secondary>creating new</secondary>
     </indexterm>Warehouse Location</title>
-  <para id="Para518601">To create a new Warehouse Location, select the NEW
+  <para>To create a new Warehouse Location, select the NEW
   button. The following screen will appear:</para>
-  <para id="Para518605"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_MI_warehouseLocationNew.png" id="Graphic525455"/>
         </imageobject>
         <caption id="Caption518606">Create New Warehouse Location</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para581452">When creating a new Warehouse Location, you are
+    </screenshot>
+</para>
+  <para>When creating a new Warehouse Location, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para581453">Warehouse</term>
+      <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x1844448">
         <para>Specify Warehouse for the Warehouse Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para579520"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse locations</primary>
           <secondary>netable</secondary>
         </indexterm> <indexterm significance="normal">
@@ -38,14 +42,14 @@
       <listitem id="listitemN0x180ac00N0x1844568">
         <para>Select if you want Items in the Location to be included in
         Quantity on Hand and Availability calculations.</para>
-        <para id="Para579521">Not selecting means Items in the Location are
+        <para>Not selecting means Items in the Location are
         non-netable. Items stored in a non-netable Location are not included
         in Quantity on Hand or Availability totals.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para610620">When an Item is received into a non-netable
+    <para>When an Item is received into a non-netable
     Location, the Inventory transaction history will reflect a two-step
     process. First, the Quantity on Hand for the Item will be increased in the
     quantity received. Second, a non-netable (NN) correction will occur. This
@@ -57,7 +61,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para579523"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse locations</primary>
           <secondary>restricted</secondary>
         </indexterm> <indexterm significance="normal">
@@ -67,12 +72,13 @@
       <listitem id="listitemN0x180ac00N0x1844688">
         <para>Select if only a restricted set of Items may be placed in this
         Location.</para>
-        <para id="Para579524">Not selecting means any Item that exists in the
+        <para>Not selecting means any Item that exists in the
         same Warehouse as this Location may be placed into it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para579500"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse zones</primary>
           <secondary>locations within</secondary>
         </indexterm> <indexterm significance="normal">
@@ -82,15 +88,15 @@
       <listitem id="listitemN0x180ac00N0x1844760">
         <para>Specify the Warehouse Zone you want to associate with the
         Location, if any.</para>
-        <para id="Para579501">Zone selection will be activated only if
+        <para>Zone selection will be activated only if
         Warehouse Zones have been defined for the specified Warehouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518613">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18447a8">
         <para>Enter a name to identify the Location.</para>
-        <para id="Para518614">The name of the Location will vary, depending on
+        <para>The name of the Location will vary, depending on
         whether the specified Warehouse enforces the aisle, rack, bin,
         Location (ARBL) naming convention. If the convention is enforced, then
         the name for the Location may also include aisle, rack, or bin
@@ -103,21 +109,22 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para604070">The parameters for the ARBL naming convention are
+    <para>The parameters for the ARBL naming convention are
     set within a Warehouse master. These parameters include the maximum length
     allowed for names and whether alpha characters or numeric only may be
     used.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para604074">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x1844838">
         <para>This is a scrolling text field with word-wrapping for entering a
         description of the Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518627"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>allowable items</primary>
           <secondary>in warehouse locations</secondary>
         </indexterm> <indexterm significance="normal">
@@ -131,32 +138,32 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para518629">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para579588">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x184497c">
         <para>Closes the screen without creating the Warehouse Location,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para579589">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18449c4">
         <para>Creates the Warehouse Location and adds it to the master list of
         Warehouse Locations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para555787">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x1844a0c">
         <para>Select to pick an Item from the master list of Items and
         designate it as allowed within the restricted Location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para560688">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x1844a54">
         <para>Highlight an Item and then select this button to remove the Item
         from the list of allowable items.</para>

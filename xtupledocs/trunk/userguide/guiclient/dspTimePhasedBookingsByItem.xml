@@ -1,61 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519034">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>time-phased by item</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>items</primary>
       <secondary>time-phased bookings for</secondary>
     </indexterm>Time-Phased Bookings by Item</title>
-  <para id="Para519035">To view time-phased Bookings by Item, select the
+  <para>To view time-phased Bookings by Item, select the
   "Time-Phased Bookings by Item" option. The following screen will
   appear:</para>
-  <para id="Para519039"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SA_Disp_timePhBookByItem.png" id="Graphic521765"/>
         </imageobject>
         <caption id="Caption519040">Time-Phased Bookings by Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519041">When displaying time-phased Bookings by Item, you are
+    </screenshot>
+</para>
+  <para>When displaying time-phased Bookings by Item, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry role="openmfg">
-      <term id="Para519042">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x1870f5c">
         <para>Select to display time-phased Bookings by Item for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para519044">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x1870f80">
         <para>Specify Warehouse whose time-phased Bookings by Item you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519046">All Product Categories</term>
+      <term>All Product Categories</term>
       <listitem id="listitemN0x180ac00N0x1870fc8">
         <para>Select to display time-phased Bookings by Item for all Product
         Categories.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para539905">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x1877200">
         <para>Specify Product Category whose time-phased Bookings by Item you
         want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para528138">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1877248">
         <para>Enter a Product Category pattern to select a range of Product
         Categories.</para>
-        <para id="Para555702">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -63,31 +67,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519051">Inventory Units</term>
+      <term>Inventory Units</term>
       <listitem id="listitemN0x180ac00N0x1877290">
         <para>Select to display Inventory Units of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519052">Sales Dollars</term>
+      <term>Sales Dollars</term>
       <listitem id="listitemN0x180ac00N0x18772d8">
         <para>Select to display sales dollars.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para554459">Calendar</term>
+      <term>Calendar</term>
       <listitem id="listitemN0x180ac00N0x1877320">
         <para>Select the Calendar you want to use for the report.</para>
-        <para id="Para554460">Associated Calendar periods will be
+        <para>Associated Calendar periods will be
         displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para526134">Name/Selected Periods</term>
+      <term>Name/Selected Periods</term>
       <listitem id="listitemN0x180ac00N0x1877368">
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para id="Para530184">Select individual periods or groups of periods
+        <para>Select individual periods or groups of periods
         together. To select an individual period, highlight the period using
         your mouse button. The period is now selected. To select a sequence of
         periods, highlight the first in the sequence using your mouse button.
@@ -102,38 +106,38 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519057">Bookings</term>
+      <term>Bookings</term>
       <listitem id="listitemN0x180ac00N0x18773b0">
         <para>Display lists time-phased Bookings by Item, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519059">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519060">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x187741c">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541923">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x1877464">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para555056">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x18774ac">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para553173">SUBMIT</term>
+      <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x18774d0">
         <para>Select to submit report to the Batch Manager. For additional
         information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
@@ -143,7 +147,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para521117">Right-clicking on a Customer in the Sales history list
+  <para>Right-clicking on a Customer in the Sales history list
   enables you to select from the following menu options:</para>
   <variablelist>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/19)"/>

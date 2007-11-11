@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518517">
    <title>
        
@@ -8,9 +7,9 @@
          <primary>work orders</primary>
          <secondary>creating new</secondary>
       </indexterm>Create New Work Order</title>
-   <para id="Para570023">To create a new Work Order, select the "Create New
+   <para>To create a new Work Order, select the "Create New
     Work Order" option. The following screen will appear:</para>
-   <para id="Para518522">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,47 +20,47 @@
       </screenshot>
    </para>
    <tip>
-      <para id="Para560251">To edit a Work Order after it has been created,
+      <para>To edit a Work Order after it has been created,
       use the right-click menu in any of the "Work Order Schedule by..."
       displays. There you will find an "Edit W/O" option.</para>
    </tip>
-   <para id="Para560240">When creating a new Work Order, you are presented
+   <para>When creating a new Work Order, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para547948">Work Order #</term>
+         <term>Work Order #</term>
          <listitem>
             <para>Next available Work Order Number will automatically display,
           unless your system requires you to enter Work Order Numbers
           manually.</para>
-            <para id="Para518530">Default values and input parameters for Work
+            <para>Default values and input parameters for Work
           Order Numbers are configurable at the system level.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518532">Item Number</term>
+         <term>Item Number</term>
          <listitem>
             <para>Enter the Item Number of the manufactured Item you want to
           create a Work Order for.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para568584">UOM</term>
+         <term>UOM</term>
          <listitem>
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518536">Warehouse</term>
+         <term>Warehouse</term>
          <listitem>
             <para>Specify supplying Warehouse for selected Item.</para>
-            <para id="Para547717">Only Warehouses that contain supplying Item
+            <para>Only Warehouses that contain supplying Item
           Sites for the selected Item may be chosen.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para547681">Order Parameters may have an impact on Work Order
+      <para>Order Parameters may have an impact on Work Order
       quantity if the "on Manual Orders" option is selected in the Item Site
       master for a manufactured Item. If Order Parameters are in effect, the
       Work Order must conform to those restrictions. Both Minimum Order size
@@ -69,31 +68,31 @@
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para551005">Priority</term>
+         <term>Priority</term>
          <listitem>
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 99.</para>
-            <para id="Para551006">Value entered assigns a priority to the
+            <para>Value entered assigns a priority to the
           selected Work Order. By assigning a priority to a Work Order, you
           can indicate the relative importance of a Work Order in comparison
           to other Work Orders.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para550995">Qty. Ordered</term>
+         <term>Qty. Ordered</term>
          <listitem>
             <para>Value entered specifies the number of Item units to be
           processed by the Work Order.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518546">Due Date</term>
+         <term>Due Date</term>
          <listitem>
             <para>Enter the date the Work Order must be completed by.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518551">Start Date</term>
+         <term>Start Date</term>
          <listitem>
             <para>Enter the date the Work Order must be started by. By default,
           this date will be the due date less the Lead Time. The start date
@@ -101,7 +100,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518553">
+         <term>
              
             <indexterm significance="normal">
                <primary>work orders</primary>
@@ -110,7 +109,7 @@
          <listitem>
             <para>Select a number using the arrow buttons, or manually enter a
           value up to a maximum of 999.</para>
-            <para id="Para518554">Value entered specifies the manufacturing Lead
+            <para>Value entered specifies the manufacturing Lead
           Time required between the date the Work Order starts and the date it
           is due. Lead Times for Items are specified in the Item Site master,
           but may be modified on this screen.</para>
@@ -118,17 +117,17 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para555522">The option to associate a Project with a Work
+      <para>The option to associate a Project with a Work
       Order will only be visible if your site is configured to use
       Projects.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para555523">Project #</term>
+         <term>Project #</term>
          <listitem>
             <para>Select a Project Number to associate with the Work
           Order.</para>
-            <para id="Para555524">If the Work Order was created from Sales Order
+            <para>If the Work Order was created from Sales Order
           demand--and the parent Sales Order had a Project Number associated
           with it--then the Project Number from the parent Sales Order will
           automatically be entered here. In this way, Sales Orders and Work
@@ -136,7 +135,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518558">Production Notes</term>
+         <term>Production Notes</term>
          <listitem>
             <para>This is a scrolling text field with word-wrapping for entering
           production Notes related to the Work Order. Production Notes are
@@ -146,39 +145,39 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para553045">If a Work Order was created from a Sales Order,
+      <para>If a Work Order was created from a Sales Order,
       the Production Notes field will contain the Sales Order Number, the
       Customer Name, and any additional Sales Order Line Item Notes.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para534624">Print Traveler</term>
+         <term>Print Traveler</term>
          <listitem>
             <para>Select to print a Work Order Traveler when Work Order is
           created.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para518560">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para518561">CANCEL</term>
+         <term>CANCEL</term>
          <listitem>
             <para>Closes the screen without creating the Work Order, returning
           you to the application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para548213">CREATE</term>
+         <term>CREATE</term>
          <listitem>
             <para>Creates the Work Order.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para548250">To view Comments related to a Work Order, select the
+   <para>To view Comments related to a Work Order, select the
     "Comments" tab. The following screen will appear:</para>
-   <para id="Para548189">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -189,15 +188,15 @@
       </screenshot>
    </para>
    <note>
-      <para id="Para549184">Work Order Comments may not be added at the time
+      <para>Work Order Comments may not be added at the time
       of Work Order creation. Instead, use the Production Notes tab for
       entering Notes related to a Work Order.</para>
    </note>
-   <para id="Para549169">When viewing Comments related to a Work Order, you
+   <para>When viewing Comments related to a Work Order, you
     are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para548263">Comments</term>
+         <term>Comments</term>
          <listitem>
             <para>Display lists Comments for the specified Order.</para>
          </listitem>

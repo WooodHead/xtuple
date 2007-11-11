@@ -1,69 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section531874">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>receiving</primary>
       <secondary>entering of receipts</secondary>
-    </indexterm><anchor id="Anchor28097" role="Cross-Ref"
-  xreflabel="28097: Heading2: Enter Receipt" />Enter Receipt</title>
-  <para id="Para531875">To receive Orders into Inventory, select the "Enter
+    </indexterm>
+<anchor id="Anchor28097" role="Cross-Ref" xreflabel="28097: Heading2: Enter Receipt"/>Enter Receipt</title>
+  <para>To receive Orders into Inventory, select the "Enter
   Receipt" option. The following screen will appear:</para>
-  <para id="Para521445"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterRecpt.png"
-                     id="Graphic521443" />
+          <imagedata fileref="images/SR_Rcvg_enterRecpt.png" id="Graphic521443"/>
         </imageobject>
         <caption id="Caption520503">Enter Purchase Order Receipts</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para520504">When receiving an Order, you are presented with the
+    </screenshot>
+</para>
+  <para>When receiving an Order, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para520505">P/O #</term>
+      <term>P/O #</term>
       <listitem id="listitemN0x180ac00N0x184e548">
         <para>Enter the Order Number of the Purchase Order whose Line Item(s)
         you want to receive into Inventory.</para>
-        <para id="Para522415">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a searchable list of Purchase Orders available for
         receiving. This option will be disabled if a Transfer Order is
         specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para549061">Transfer Order #</term>
+      <term>Transfer Order #</term>
       <listitem id="listitemN0x180ac00N0x184e56c">
         <para>Enter the Order Number of the Transfer Order whose Line Item(s)
         you want to receive into Inventory.</para>
-        <para id="Para549062">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a searchable list of Transfer Orders available for
         receiving. This option will be disabled if a Purchase Order is
         specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para549066">From</term>
+      <term>From</term>
       <listitem id="listitemN0x180ac00N0x184e590">
         <para>Displays the Source Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para549070">To</term>
+      <term>To</term>
       <listitem id="listitemN0x180ac00N0x184e5b4">
         <para>Displays the Destination Warehouse if a Transfer Order is
         selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para541633">Assign all Lot Controlled Items to single Lot
+      <term>Assign all Lot Controlled Items to single Lot
       #</term>
       <listitem id="listitemN0x180ac00N0x184e5d8">
         <para>Select if you want all the Lot-controlled Items in a Receiving
         session to be assigned the same Lot Number.</para>
-        <para id="Para541642">Lot Numbers are assigned when Receipt(s) are
+        <para>Lot Numbers are assigned when Receipt(s) are
         posted. This option applies to Lot-controlled Items only. There is no
         impact on received Items which are not Lot-controlled. For perishable
         Items, you will also be given the opportunity to enter an expiration
@@ -72,7 +73,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para522416">Purchase Order Items</term>
+      <term>Purchase Order Items</term>
       <listitem id="listitemN0x180ac00N0x184e620">
         <para>Display lists Order Line Items available for receipt
         confirmation.</para>
@@ -80,36 +81,36 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para534055">Before a Purchase Order can be received
+    <para>Before a Purchase Order can be received
     successfully, A/P Account Assignments for the specified Vendor must be in
     place.</para>
   </tip>
-  <para id="Para534050">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para522403">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x184e6b0">
         <para>Closes the screen without entering a Receipt, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para523044">PRINT PAPERWORK</term>
+      <term>PRINT PAPERWORK</term>
       <listitem id="listitemN0x180ac00N0x184e6f8">
         <para>Select to print the paperwork associated with the specified
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para535874">POST</term>
+      <term>POST</term>
       <listitem id="listitemN0x180ac00N0x184e740">
         <para>Select this button to post the Receipt quantity to
         Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para546100">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x184e788">
         <para>Select this button to save the Receipt quantity for posting at a
         later time. Saved Receipts may be posted later from the List Unposted
@@ -117,7 +118,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para523045">ENTER RECEIPT</term>
+      <term>ENTER RECEIPT</term>
       <listitem id="listitemN0x180ac00N0x184e7d0">
         <para>Highlight a Line Item, then select this button to reach the
         Receipt detail screen. Double-clicking on a Line Item will also bring
@@ -126,15 +127,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para544749">RECEIVE ALL</term>
+      <term>RECEIVE ALL</term>
       <listitem id="listitemN0x180ac00N0x184e818">
         <para>Select to receive all Line Items simultaneously.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para529004">If the Item you are receiving is a <indexterm
-        significance="normal">
+    <para>If the Item you are receiving is a <indexterm significance="normal">
         <primary>multiple location control</primary>
         <secondary>impact on receiving</secondary>
       </indexterm> <indexterm significance="normal">
@@ -143,7 +143,5 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to distribute the stock to.</para>
   </note>
-  <xi:include href="enterPoitemReceipt.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterPoitemReceipt.xml" xpointer="element(/1)"/>
 </section>

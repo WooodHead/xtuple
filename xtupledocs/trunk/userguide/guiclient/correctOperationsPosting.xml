@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519346" role="openmfg">
    <title>Correct Operations Posting</title>
-   <para id="Para519347">To correct a Work Order Operations posting, select
+   <para>To correct a Work Order Operations posting, select
     the "Correct Operations Posting" option. The following screen will
     appear:</para>
-   <para id="Para519351">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -16,62 +15,62 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519353">When correcting a Work Order Operations posting, you
+   <para>When correcting a Work Order Operations posting, you
     are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519354">Work Order #</term>
+         <term>Work Order #</term>
          <listitem>
             <para>Enter the Work Order Number of the Work Order whose Operations
           posting you want to correct.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519356">Whs.</term>
+         <term>Whs.</term>
          <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519358">Item Number</term>
+         <term>Item Number</term>
          <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para568765">UOM</term>
+         <term>UOM</term>
          <listitem>
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519362">Status</term>
+         <term>Status</term>
          <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para565071">W/O Operation</term>
+         <term>W/O Operation</term>
          <listitem>
             <para>Select the individual Operation you want to post from the list
           of Work Order Operations for the specified Item.</para>
-            <para id="Para565072">After selecting an Operation, specify details
+            <para>After selecting an Operation, specify details
           for that Operation. To correct Operations posting for another
           Operation, simply select that Operation from the sequential
           list.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519369">Qty. to Correct</term>
+         <term>Qty. to Correct</term>
          <listitem>
             <para>Enter the quantity you want to correct.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519371">Post in Production UOMs</term>
+         <term>Post in Production UOMs</term>
          <listitem>
             <para>Select to post the corrected quantity in Production Units of
           Measure. Operations may be posted using either the Inventory or
@@ -86,14 +85,14 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519372">Post in Inventory UOMs</term>
+         <term>Post in Inventory UOMs</term>
          <listitem>
             <para>Select to post the corrected quantity in Inventory Units of
           Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519373">W/O Qty. Ordered</term>
+         <term>W/O Qty. Ordered</term>
          <listitem>
             <para>Ordered: Indicates the quantity of material, measures in the
           Item's Inventory UOM, that the selected Work Order is due to
@@ -101,21 +100,21 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519375">Operation Qty. Received</term>
+         <term>Operation Qty. Received</term>
          <listitem>
             <para>Indicates the quantity, measured in the Item's Inventory UOM,
           that has been completed by this Operation.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519377">Operation Balance Due</term>
+         <term>Operation Balance Due</term>
          <listitem>
             <para>Indicates the quantity remaining to be produced by the
           specified Operation.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519379">
+         <term>
              
             <indexterm significance="normal">
                <primary>components</primary>
@@ -124,13 +123,13 @@
          <listitem>
             <para>Components: Select to return components to the Work Order
           Material Requirements.</para>
-            <para id="Para519380">Option will only be enabled when Work Order
+            <para>Option will only be enabled when Work Order
           Material Requirements are linked to a selected Operation. Only Items
           whose issue method is "Pull" or "Mixed" will be displayed.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519381">
+         <term>
              
             <indexterm significance="normal">
                <primary>inventory</primary>
@@ -139,76 +138,76 @@
          <listitem>
             <para>Select of you wish to remove any Inventory issued to stock by
           the selected Operation.</para>
-            <para id="Para519382">Enabled if the selected Operation is tagged to
+            <para>Enabled if the selected Operation is tagged to
           receive Inventory.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519383">Clear Setup Complete Flag</term>
+         <term>Clear Setup Complete Flag</term>
          <listitem>
             <para>Select to clear the setup complete flag.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519384">Correct Setup Time</term>
+         <term>Correct Setup Time</term>
          <listitem>
             <para>Select to correct setup time.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519385">Correct Standard Setup Time</term>
+         <term>Correct Standard Setup Time</term>
          <listitem>
             <para>Select to correct standard setup time.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519388">Correct Specified Setup Time</term>
+         <term>Correct Specified Setup Time</term>
          <listitem>
             <para>Specify the non-standard amount of setup time used. The amount
           of time entered will be corrected.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519390">Clear Operation Complete Flag</term>
+         <term>Clear Operation Complete Flag</term>
          <listitem>
             <para>Select to clear the Operation as complete flag.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519391">Correct Run Time</term>
+         <term>Correct Run Time</term>
          <listitem>
             <para>Select to correct run time.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519392">Correct Standard Run Time</term>
+         <term>Correct Standard Run Time</term>
          <listitem>
             <para>Select to correct the standard run time for specified
           Item.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519395">Correct Specified Run Time</term>
+         <term>Correct Specified Run Time</term>
          <listitem>
             <para>Specify the non-standard amount of run time used. The amount
           of time entered will be corrected.</para>
-            <para id="Para519397">The amount of time entered will be
+            <para>The amount of time entered will be
           posted.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519398">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519399">CANCEL</term>
+         <term>CANCEL</term>
          <listitem>
             <para>Closes the screen without posting Operations, returning you to
           the application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519400">POST CORRECTION</term>
+         <term>POST CORRECTION</term>
          <listitem>
             <para>Posts the specified Operation using the values entered in the
           screen.</para>

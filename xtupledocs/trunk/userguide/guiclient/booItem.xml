@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="booItem" role="openmfg">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bills of operations</primary>
       <secondary>creating new operation in</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>operations</primary>
       <secondary>adding new to BOOs</secondary>
     </indexterm>Bill of Operations Item</title>
-  <para id="Para519541">To add a new Operation to a Bill of Operations, select
+  <para>To add a new Operation to a Bill of Operations, select
   the NEW button. The following screen will appear:</para>
-  <para id="Para519545"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_BOO_newBOOItem.png" id="Graphic563108"/>
@@ -18,38 +21,40 @@
         <caption id="Caption519546">Add New Operation to Bill of
         Operations</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519547">When adding a new Operation to a Bill of Operations,
+    </screenshot>
+</para>
+  <para>When adding a new Operation to a Bill of Operations,
   you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519548">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x18b2938">
         <para>Displays Item Number specified in "Bill of Operations"
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para663231">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x18b2980">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519552">Oper. Seq.#</term>
+      <term>Oper. Seq.#</term>
       <listitem id="listitemN0x180ac00N0x18b29c8">
         <para>Displays Operation sequence number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519553"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>execution days</primary>
           <secondary>in BOOs</secondary>
         </indexterm>Execution Day</term>
       <listitem id="listitemN0x180ac00N0x18b9448">
         <para>Select a number using the arrow buttons, or manually enter a
         value up to a maximum of 99.</para>
-        <para id="Para652139">This feature enables you to schedule Work Order
+        <para>This feature enables you to schedule Work Order
         Materials with Work Order Operations. For example, let's say we have
         an Operation with an Execution Day = 5. This means the Operation is
         scheduled to begin five days after the start date of the Work Order.
@@ -65,20 +70,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para600167"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>effectivity</primary>
           <secondary>in BOOs</secondary>
         </indexterm>Effectivity</term>
       <listitem id="listitemN0x180ac00N0x18b94d8">
         <para>Specify the operation's effectivity, using the following
         parameters:</para>
-        <para id="Para600171">Effective: The system enables you to specify
+        <para>Effective: The system enables you to specify
         when an operation can be used in a Bill of Materials. For example, the
         company's engineering department may be working on a new design for an
         existing Item--but that new design will not be available for use until
         a given date in the future. In this case, you can specify the
         "effective" date when the component will be available for use.</para>
-        <para id="Para600175">Expires: The system also enables you to specify
+        <para>Expires: The system also enables you to specify
         when an operation is planned to be obsoleted from (i.e., no longer
         used in) a Bill of Materials. As mentioned above, the company's
         engineering department may be working on a new design for an existing
@@ -92,34 +98,34 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para635202">Standard Operations are intended as initial
+    <para>Standard Operations are intended as initial
     templates used to set up Bill of Operations (BOO) Items. Any changes made
     to a Standard Operation will not automatically ripple throughout all your
     BOO Items that use the Standard Operation.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519571">Standard Oper.</term>
+      <term>Standard Oper.</term>
       <listitem id="listitemN0x180ac00N0x18b9568">
         <para>: Select a Standard Operation to use for the Operation, if
         any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519576">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x18b95b0">
         <para>Enter a description to further identify the Operation.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519577">Work Center</term>
+      <term>Work Center</term>
       <listitem id="listitemN0x180ac00N0x18b95f8">
         <para>Specify Work Center to be used for the specified
         Operation.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519582">Tooling Reference</term>
+      <term>Tooling Reference</term>
       <listitem id="listitemN0x180ac00N0x18b9640">
         <para>Use this field to briefly describe any tooling required for the
         Operation. For example, if you are making plastic products, the
@@ -128,13 +134,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519586"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>units of measure</primary>
           <secondary>in BOOs</secondary>
         </indexterm>Production UOM</term>
       <listitem id="listitemN0x180ac00N0x18b96d0">
         <para>Select a Unit of Measure (UOM)--or enter a free-form UOM.</para>
-        <para id="Para630480">Specify a UOM to be used optionally when Work
+        <para>Specify a UOM to be used optionally when Work
         Order Operations are posted for the specified Operation. Different
         Operations in a single Bill of Operations may use different Production
         UOMs. For example, if you are producing soup, you might mix the soup
@@ -144,13 +151,13 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para630498">When posting Work Order Operations, you are given
+    <para>When posting Work Order Operations, you are given
     the option to post Operations using Production UOMs or Inventory
     UOMs.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519591">Production UOM/Inventory Ratio</term>
+      <term>Production UOM/Inventory Ratio</term>
       <listitem id="listitemN0x180ac00N0x18b9760">
         <para>This is the ratio that normalizes quantities to create a
         Production UOM for use when posting Work Order Operations. The ratio
@@ -163,7 +170,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para605259">Labor and <indexterm significance="normal">
+    <para>Labor and <indexterm significance="normal">
         <primary>overhead</primary>
         <secondary>in BOOs</secondary>
       </indexterm>overhead Costs associated with setup and run times must be
@@ -173,7 +180,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519595"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>setup time</primary>
           <secondary>in BOOs</secondary>
         </indexterm>Setup Time (min)</term>
@@ -183,25 +191,26 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para662447">Report Cost as (Setup Time)</term>
+      <term>Report Cost as (Setup Time)</term>
       <listitem id="listitemN0x180ac00N0x18b98c8">
         <para>Specify whether you want to report Setup Costs as "Direct
         Labor," "Overhead," or "None."</para>
-        <para id="Para662448">Specify the "None" option if you would do not
+        <para>Specify the "None" option if you would do not
         want to track Setup Time as part of the Operation's Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519600">Report Setup Time</term>
+      <term>Report Setup Time</term>
       <listitem id="listitemN0x180ac00N0x18b9910">
         <para>Select to report setup time.</para>
-        <para id="Para519601">Must be selected for labor Costs associated with
+        <para>Must be selected for labor Costs associated with
         setup to be tracked in the G/L and elsewhere. If not selected, these
         Costs will not be reported.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519604"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>run time</primary>
           <secondary>in BOOs</secondary>
         </indexterm>Run Time (min)</term>
@@ -211,11 +220,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519609">per</term>
+      <term>per</term>
       <listitem id="listitemN0x180ac00N0x18b99e8">
         <para>Specify the standard quantity that will be produced during a
         typical run-time period.</para>
-        <para id="Para646317">The value entered here is equivalent to a run
+        <para>The value entered here is equivalent to a run
         size, batch size, or Economic Order Quantity (EOQ) for this particular
         Operation. Because Work Order Operations roll into the Actual and
         Standard Costs for manufactured Items, you should specify a per
@@ -228,70 +237,137 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para646341"><table id="Table646345">
-      <title><anchor id="Anchor15267" role="Cross-Ref" xreflabel="15267: Figure: Figure 5.51:  Affect of Batch Size on Manufactured Item Costing"/>
+  <para>
+<table id="Table646345">
+      <title>
+<anchor id="Anchor15267" role="Cross-Ref" xreflabel="15267: Figure: Figure 5.51:  Affect of Batch Size on Manufactured Item Costing"/>
       Affect of Batch Size on Manufactured Item Costing</title>
       <tgroup cols="8">
         <thead>
           <row>
-            <entry><para id="Para647051"> Setup </para> <para id="Para647052">
-            Time </para> <para id="Para647053"> (Mins) </para></entry>
-            <entry><para id="Para647055"> Run </para> <para id="Para647056">
-            Time </para> <para id="Para647206"> (Mins) </para></entry>
-            <entry><para id="Para647058"> Units </para> <para id="Para647059">
-            in Run </para> <para id="Para647309"> ("per") </para></entry>
-            <entry><para id="Para647061"> Total </para> <para id="Para647062">
-            Mins </para></entry>
-            <entry><para id="Para647064"> Mins </para> <para id="Para647065">
-            Per </para></entry>
-            <entry><para id="Para647067"> Cost @ </para> <para id="Para647068"> .10c per </para> <para id="Para647069"> Min
-            </para></entry>
-            <entry><para id="Para647071"> Material </para> <para id="Para647072"> Cost </para> <para id="Para647073"> per Unit
-            </para></entry>
-            <entry><para id="Para647075"> Total Mfg. Cost per Run
-            </para></entry>
+            <entry>
+<para> Setup </para> <para>
+            Time </para> <para> (Mins) </para>
+</entry>
+            <entry>
+<para> Run </para> <para>
+            Time </para> <para> (Mins) </para>
+</entry>
+            <entry>
+<para> Units </para> <para>
+            in Run </para> <para> ("per") </para>
+</entry>
+            <entry>
+<para> Total </para> <para>
+            Mins </para>
+</entry>
+            <entry>
+<para> Mins </para> <para>
+            Per </para>
+</entry>
+            <entry>
+<para> Cost @ </para> <para> .10c per </para> <para> Min
+            </para>
+</entry>
+            <entry>
+<para> Material </para> <para> Cost </para> <para> per Unit
+            </para>
+</entry>
+            <entry>
+<para> Total Mfg. Cost per Run
+            </para>
+</entry>
           </row>
         </thead>
         <tbody>
           <row>
-            <entry><para id="Para647077"> 60 </para></entry>
-            <entry><para id="Para647079"> 100 </para></entry>
-            <entry><para id="Para647081"> 10 </para></entry>
-            <entry><para id="Para647083"> 160 </para></entry>
-            <entry><para id="Para647085"> 16 </para></entry>
-            <entry><para id="Para647087"> $1.60 </para></entry>
-            <entry><para id="Para647089"> $5.00 </para></entry>
-            <entry><para id="Para647285"> </para> <para id="Para647290">
-            $66.00 </para></entry>
+            <entry>
+<para> 60 </para>
+</entry>
+            <entry>
+<para> 100 </para>
+</entry>
+            <entry>
+<para> 10 </para>
+</entry>
+            <entry>
+<para> 160 </para>
+</entry>
+            <entry>
+<para> 16 </para>
+</entry>
+            <entry>
+<para> $1.60 </para>
+</entry>
+            <entry>
+<para> $5.00 </para>
+</entry>
+            <entry>
+<para> </para> <para>
+            $66.00 </para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para647093"> 60 </para></entry>
-            <entry><para id="Para647095"> 1000 </para></entry>
-            <entry><para id="Para647097"> 100 </para></entry>
-            <entry><para id="Para647099"> 1060 </para></entry>
-            <entry><para id="Para647101"> 10.6 </para></entry>
-            <entry><para id="Para647103"> $1.06 </para></entry>
-            <entry><para id="Para647105"> $5.00 </para></entry>
-            <entry><para id="Para647107"> </para> <para id="Para647293">
-            $606.00 </para></entry>
+            <entry>
+<para> 60 </para>
+</entry>
+            <entry>
+<para> 1000 </para>
+</entry>
+            <entry>
+<para> 100 </para>
+</entry>
+            <entry>
+<para> 1060 </para>
+</entry>
+            <entry>
+<para> 10.6 </para>
+</entry>
+            <entry>
+<para> $1.06 </para>
+</entry>
+            <entry>
+<para> $5.00 </para>
+</entry>
+            <entry>
+<para> </para> <para>
+            $606.00 </para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para647109"> 60 </para></entry>
-            <entry><para id="Para647111"> 10 </para></entry>
-            <entry><para id="Para647113"> 1 </para></entry>
-            <entry><para id="Para647115"> 70 </para></entry>
-            <entry><para id="Para647117"> 70 </para></entry>
-            <entry><para id="Para647119"> $7.00 </para></entry>
-            <entry><para id="Para647121"> $5.00 </para></entry>
-            <entry><para id="Para647123"> </para> <para id="Para647296">
-            $12.00 </para></entry>
+            <entry>
+<para> 60 </para>
+</entry>
+            <entry>
+<para> 10 </para>
+</entry>
+            <entry>
+<para> 1 </para>
+</entry>
+            <entry>
+<para> 70 </para>
+</entry>
+            <entry>
+<para> 70 </para>
+</entry>
+            <entry>
+<para> $7.00 </para>
+</entry>
+            <entry>
+<para> $5.00 </para>
+</entry>
+            <entry>
+<para> </para> <para>
+            $12.00 </para>
+</entry>
           </row>
         </tbody>
       </tgroup>
-    </table></para>
+    </table>
+</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519614">Report Cost as (Run Time)</term>
+      <term>Report Cost as (Run Time)</term>
       <listitem id="listitemN0x180ac00N0x18ba03c">
         <para>Specify whether you want to report Setup Costs as "Direct
         Labor," "Overhead," or "None." Specify the "None" option if you would
@@ -315,7 +391,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para635820">When Operations are posted, Inventory transaction
+    <para>When Operations are posted, Inventory transaction
     records will be posted to the General Ledger if at least one of the
     Operations in the list of Work Order Operations has either or both of the
     Inventory handling options selected. If Items are backflushed at an
@@ -325,46 +401,47 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519616">Receive Inventory at this Operation</term>
+      <term>Receive Inventory at this Operation</term>
       <listitem id="listitemN0x180ac00N0x18ba114">
         <para>Select to indicate that the manufactured Item should be received
         into Inventory at this Operation.</para>
-        <para id="Para519617">The manufactured Item will be received into
+        <para>The manufactured Item will be received into
         Inventory via a Receive from Manufacturing (RM) transaction, when the
         Operation is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para635813">The "Receive Inventory" option may only be selected
+    <para>The "Receive Inventory" option may only be selected
     once per Bill of Operations. Finished Items may only be received into
     Inventory once in the Operations sequence.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519618">Auto. Issue Components at this Operation</term>
+      <term>Auto. Issue Components at this Operation</term>
       <listitem id="listitemN0x180ac00N0x18ba1a4">
         <para>Issue Components at this Operation: Select to automatically
         issue components used at this Operation.</para>
-        <para id="Para519619">This setting will only affect component Items
+        <para>This setting will only affect component Items
         whose issue method is either "Pull" or "Mixed". Component Items using
         the "Push" issue method must be issued to Work Orders using a specific
         material issue transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519620">May Overlap with Preceding Operation</term>
+      <term>May Overlap with Preceding Operation</term>
       <listitem id="listitemN0x180ac00N0x18ba1ec">
         <para>Select to allow the Operation to overlap with the preceding
         Operation.</para>
-        <para id="Para519621">If selected, you are indicating that this
+        <para>If selected, you are indicating that this
         Operation may be posted before the preceding Operation is complete. If
         not selected, the Operation may not be posted before the preceding
         Operation is complete.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para646081"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>work in process</primary>
           <secondary>boo-defined locations for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -373,7 +450,7 @@
         </indexterm>WIP Location</term>
       <listitem id="listitemN0x180ac00N0x18bfeb4">
         <para>Select a work-in-process (WIP) Location.</para>
-        <para id="Para646169">This is an optional selection which may be used
+        <para>This is an optional selection which may be used
         for tracking the Warehouse Locations of finished goods Inventory as it
         moves through the manufacturing process. The feature applies only to
         top-level, Multiple Location Control (MLC) Items whose production is
@@ -387,7 +464,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519624"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>throughput</primary>
           <secondary>at operation level</secondary>
         </indexterm>Throughput</term>
@@ -399,89 +477,93 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519633">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519634">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18bffb0">
         <para>Closes the screen without inserting an Operation into the Bill
         of Operations, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519635">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18bfff8">
         <para>Inserts the Operation into the Bill of Operations, automatically
         assigning it a sequence number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651090">To associate instructions with an Operation, select
+  <para>To associate instructions with an Operation, select
   the "Instructions" tab. The following screen will appear:</para>
-  <para id="Para651103"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_BOO_BOOInstruct.png" id="Graphic651101"/>
         </imageobject>
         <caption id="Caption651104">Operational Instructions</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para651094">When associating instructions with an Operation, you
+    </screenshot>
+</para>
+  <para>When associating instructions with an Operation, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651179">Instructions</term>
+      <term>Instructions</term>
       <listitem id="listitemN0x180ac00N0x18c00d0">
         <para>This is a scrolling text field with word-wrapping for entering
         instructions related to the Operation.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651185">Use Fixed-Width Font</term>
+      <term>Use Fixed-Width Font</term>
       <listitem id="listitemN0x180ac00N0x18c0118">
         <para>Select to display text in the "Instructions" field in
         fixed-width font.</para>
-        <para id="Para651186">This is a useful feature for displaying tables,
+        <para>This is a useful feature for displaying tables,
         matrixes, and other format-driven texts.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651191">You may associate Images with an Operation, thereby
+  <para>You may associate Images with an Operation, thereby
   making these Images available to be printed on Routings. To associate an
   Image with an Operation, select the "Images" tab. The following screen will
   appear:</para>
-  <para id="Para651115"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_BOO_BOOImages.png" id="Graphic651113"/>
         </imageobject>
         <caption id="Caption651116">Operation Images</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para651096">When associating Images with an Operation, you are
+    </screenshot>
+</para>
+  <para>When associating Images with an Operation, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651255">Images</term>
+      <term>Images</term>
       <listitem id="listitemN0x180ac00N0x18c01f0">
         <para>Display lists stored Images available for association with the
         specified Operation.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651326">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651327">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18c025c">
         <para>Opens screen for adding a new Image to the list of Operation
         Images.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651334">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x18c02a4">
         <para>Enables you to edit highlighted Operation Image definitions. The
         edit screen is the same as that for creating a new Operation Image
@@ -491,131 +573,136 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651335">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x18c02ec">
         <para>Highlight an Operation Image definition and then select this
         button to remove the Item Image from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651330">To add a new Image to the list of Operation Images,
+  <para>To add a new Image to the list of Operation Images,
   select the NEW button. The following screen will appear:</para>
-  <para id="Para651162"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_BOO_BOOImageNew.png" id="Graphic651160"/>
         </imageobject>
         <caption id="Caption651163">Associate Image with Operation</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para651152">When adding a new Image to the list of Images
+    </screenshot>
+</para>
+  <para>When adding a new Image to the list of Images
   associated with an Operation, you are presented with the following
   options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651401">Purpose</term>
+      <term>Purpose</term>
       <listitem id="listitemN0x180ac00N0x18c03c4">
         <para>Select one of the available purposes the Image might
         serve:</para>
-        <para id="Para651402">Inventory Description: Select if the Operation
+        <para>Inventory Description: Select if the Operation
         Image describes Inventory.</para>
-        <para id="Para651403">Product Description: Select if the Operation
+        <para>Product Description: Select if the Operation
         Image describes a Product.</para>
-        <para id="Para651404">Engineering Reference: Select if the Operation
+        <para>Engineering Reference: Select if the Operation
         Image serves as an engineering reference.</para>
-        <para id="Para651405">Miscellaneous: Select if the Operation Image is
+        <para>Miscellaneous: Select if the Operation Image is
         a miscellaneous Image.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para651407">An Operation may have multiple Images associated
+    <para>An Operation may have multiple Images associated
     with it, but only one Image per purpose.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para651408">Images</term>
+      <term>Images</term>
       <listitem id="listitemN0x180ac00N0x18c0454">
         <para>Display lists stored Images available for association with the
         specified Operation.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651410">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651411">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x18c04c0">
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651412">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18c0508">
         <para>Highlight an Image, then select the SAVE button to associate the
         Image with the specified Operation and purpose.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651413">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18c0550">
         <para>Opens screen for adding a new Image to the master list of stored
         Images.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651415"><indexterm significance="normal">
+  <para>
+<indexterm significance="normal">
       <primary>images</primary>
       <secondary>adding new</secondary>
     </indexterm>To add a new Image to the master list of stored Images, select
   the NEW button. The following screen will appear:</para>
-  <para id="Para651419"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/Sys_imageNew.png" id="Graphic651417"/>
         </imageobject>
         <caption id="Caption651420">Create New Image</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para651421">When adding a new Image to the master list of stored
+    </screenshot>
+</para>
+  <para>When adding a new Image to the master list of stored
   Images, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651422">File Name</term>
+      <term>File Name</term>
       <listitem id="listitemN0x180ac00N0x18c0670">
         <para>Enter the physical directory location of the Image.</para>
-        <para id="Para651423">The browse button enables you to search your
+        <para>The browse button enables you to search your
         system for the physical directory location of the Image file. Once you
         locate the file, simply select it to have it entered into the "File
         Name" field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651424">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18c06b8">
         <para>Enter a unique name for the Image.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651425">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x18c0700">
         <para>Enter a description to further identify the Image.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para651426">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para651427">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18c076c">
         <para>Closes the screen without adding a new Image to the master list
         of stored Images.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para651428">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18c07b4">
         <para>Creates the Image and adds it to the master list of stored
         Images.</para>

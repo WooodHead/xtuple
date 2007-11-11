@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="accountNumber">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>general ledger</primary>
       <secondary>adding new accounts to</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>account numbers</primary>
       <secondary>adding new to g/l</secondary>
-    </indexterm><anchor id="Anchor70374" role="Cross-Ref"
-  xreflabel="70374: Heading2: Account Numbers" />Account Number</title>
-  <para id="Para533023">To add a new G/L Account Number, select the NEW
+    </indexterm>
+<anchor id="Anchor70374" role="Cross-Ref" xreflabel="70374: Heading2: Account Numbers"/>Account Number</title>
+  <para>To add a new G/L Account Number, select the NEW
   button. The following screen will appear:</para>
-  <para id="Para533027"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_acctNumNew.png" id="Graphic533025" />
+          <imagedata fileref="images/GL_MI_acctNumNew.png" id="Graphic533025"/>
         </imageobject>
         <caption id="Caption533028">Create New G/L Account Number</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para533029">When creating a new G/L Account Number, you are
+    </screenshot>
+</para>
+  <para>When creating a new G/L Account Number, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para533033">Number</term>
+      <term>Number</term>
       <listitem id="listitemN0x180ac00N0x182b844">
         <para>Enter an Account Number for the Account.</para>
-        <para id="Para579257">Depending on how your system is configured, you
+        <para>Depending on how your system is configured, you
         may add the following segments to an Account Number in the following
         order: Company segment (optional), Profit Center segment (optional),
         main segment (required), and Subaccount Number (optional). Once a main
@@ -36,13 +39,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para533038">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x182b88c">
         <para>Enter a brief description of the Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para610304">Ext. Reference</term>
+      <term>Ext. Reference</term>
       <listitem id="listitemN0x180ac00N0x182b8d4">
         <para>Enter an optional external reference to associate with the
         Account Number. Typically this field is left blank. However, this
@@ -51,7 +54,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para610306"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>account types</primary>
           <secondary>assignment of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -61,12 +65,13 @@
       <listitem id="listitemN0x180ac00N0x182b9ac">
         <para>Specify the Account Type you want to assign the Account Number
         to.</para>
-        <para id="Para533041">The following selections are available: Asset,
+        <para>The following selections are available: Asset,
         Liability, Expense, Revenue, and Equity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549375"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>subaccount types</primary>
           <secondary>assignment of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -76,11 +81,12 @@
       <listitem id="listitemN0x180ac00N0x182ba84">
         <para>Specify the Subaccount Type you want to assign the Account
         Number to.</para>
-        <para id="Para549376">This is an optional selection.</para>
+        <para>This is an optional selection.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para549565"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>general ledger</primary>
           <secondary>options for posting to</secondary>
         </indexterm> <indexterm significance="normal">
@@ -91,7 +97,7 @@
         <para>Select to allow transactions involving the Account to update the
         Account's Trial Balance even if the transactions are posted into
         closed Accounting Periods.</para>
-        <para id="Para585693">Not selecting this option means users will be
+        <para>Not selecting this option means users will be
         prevented from posting transactions into closed Accounting Periods
         when the Account is used. To correct a situation where transaction
         posting is being prevented for this reason, either open the Accounting
@@ -101,14 +107,15 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para549608">The "Allow Posting into Closed Periods" option
+    <para>The "Allow Posting into Closed Periods" option
     applies only to Trial Balances. Account activity is always posted to the
     General Ledger (G/L) regardless of whether Accounting Periods are open or
     closed.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para549610"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>general ledger</primary>
           <secondary>trial balances and</secondary>
         </indexterm> <indexterm significance="normal">
@@ -125,7 +132,7 @@
         <para>Select to automatically forward-update Trial Balances for the
         Account whenever transaction activity is posted into an Accounting
         Period.</para>
-        <para id="Para550224">Forward-updating carries the ending balance for
+        <para>Forward-updating carries the ending balance for
         an Accounting Period forward through to the current Accounting Period.
         Balances cannot be forward-updated into future Periods. Selecting this
         option causes forward-updating to occur automatically. If not
@@ -136,31 +143,31 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para550238">The Trial Balances for an Accounting Period will
+    <para>The Trial Balances for an Accounting Period will
     automatically forward-update at the moment when the Accounting Period is
     closed.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para550230">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x183e58c">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Account Number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para533051">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para533052">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x183e5f8">
         <para>Closes the screen without creating an Account Number, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para533053">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x183e640">
         <para>Creates the Account Number and adds it to the master list of
         Account Numbers.</para>

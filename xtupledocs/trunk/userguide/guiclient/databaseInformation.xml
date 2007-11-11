@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518504">
    <title>
        
@@ -8,9 +7,9 @@
          <primary>databases</primary>
          <secondary>information about</secondary>
       </indexterm>Database Information</title>
-   <para id="Para518505">To enter information about your database, select the
+   <para>To enter information about your database, select the
     "Database Information" option. The following screen will appear:</para>
-   <para id="Para518509">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,11 +19,11 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para518511">When entering Database information, you are
+   <para>When entering Database information, you are
     presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para527539">
+         <term>
              
             <indexterm significance="normal">
                <primary>databases</primary>
@@ -39,7 +38,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para937584">
+         <term>
              
             <indexterm significance="normal">
                <primary>servers</primary>
@@ -53,7 +52,7 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para527576">The network address for the server is set using
+      <para>The network address for the server is set using
       the OPTIONS button found on the login screen you see when logging into
       the application. The server address initially assigned to a user will
       display in the "Server Address" field. If the server address is ever
@@ -62,7 +61,7 @@
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para527568">Database Name</term>
+         <term>Database Name</term>
          <listitem id="listitemN0x180ac00N0x181a2ec">
             <para>Displays the default name of the database running on your
           server.</para>
@@ -70,19 +69,19 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para520383">If you ever change or rename your database, you
+      <para>If you ever change or rename your database, you
       will need to notify all users to update their login options.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para527621">Database Version</term>
+         <term>Database Version</term>
          <listitem id="listitemN0x180ac00N0x181a37c">
             <para>Displays the version of the database running on your
           server.</para>
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para955571">Default Batch Email Address</term>
+         <term>Default Batch Email Address</term>
          <listitem id="listitemN0x180ac00N0x181a3a0">
             <para>Enter an email address to be used as the default "From"
           address in situations when no other "From" address is specified. For
@@ -92,36 +91,36 @@
          </listitem>
       </varlistentry>
       <varlistentry role="openmfg">
-         <term id="Para955574">Enable Batch Manager</term>
+         <term>Enable Batch Manager</term>
          <listitem id="listitemN0x180ac00N0x181a3c4">
             <para>Select to enable the Batch Manager for the current
           database.</para>
-            <para id="Para955545">If selected, any jobs submitted to the Batch
+            <para>If selected, any jobs submitted to the Batch
           Manager will be processed. If not selected, jobs submitted to the
           Batch Manager will not be processed.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para936650">Comments</term>
+         <term>Comments</term>
          <listitem id="listitemN0x180ac00N0x181a40c">
             <para>This is a scrolling text field with word-wrapping for entering
           Comments related to your database.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para943738">Number of Database Users</term>
+         <term>Number of Database Users</term>
          <listitem id="listitemN0x180ac00N0x181a454">
             <para>Displays the number of concurrent Database users.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para943742">Number of Server Users</term>
+         <term>Number of Server Users</term>
          <listitem id="listitemN0x180ac00N0x181a49c">
             <para>Displays the number of concurrent server users.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para943743">Number of Server Licenses</term>
+         <term>Number of Server Licenses</term>
          <listitem id="listitemN0x180ac00N0x181a4e4">
             <para>Displays the number of licenses available for your
           server.</para>
@@ -129,26 +128,26 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para943733">Only users with the appropriate privileges will be
+      <para>Only users with the appropriate privileges will be
       permitted to change Database information. For all other users, this
       screen will be view-only.</para>
    </note>
-   <para id="Para518528">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para518529">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x181a574">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518530">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x181a5bc">
             <para>Saves the specified Database information, returning you to the
           application desktop.</para>
-            <para id="Para943721">This button will not appear if you have not
+            <para>This button will not appear if you have not
           been assigned the appropriate privileges.</para>
          </listitem>
       </varlistentry>

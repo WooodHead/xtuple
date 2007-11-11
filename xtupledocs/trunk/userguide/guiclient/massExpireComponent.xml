@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section594739">
    <title>
       
@@ -16,12 +15,12 @@
          <primary>expiration</primary>
          <secondary>of component items</secondary>
       </indexterm>Mass Expire Component Item</title>
-   <para id="Para594748">The Mass Expire Component Item feature will save you
+   <para>The Mass Expire Component Item feature will save you
     time whenever you need to expire components that are used in multiple
     Bills of Materials. To perform a mass expiration of a component Item,
     select the "Mass Expire Component Item" option. The following screen will
     appear:</para>
-   <para id="Para594752">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -31,31 +30,31 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para594754">When performing a mass expiration of a component
+   <para>When performing a mass expiration of a component
     Item, you are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para594755">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x18a9bf4">
             <para>Enter the Item Number of the component Item you want to mass
           expire.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663214">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x18a9c3c">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para594778">Expire as of</term>
+         <term>Expire as of</term>
          <listitem id="listitemN0x180ac00N0x18a9c84">
             <para>The specified component Item will be expired from existing
           Bills of Materials as of the specified expiration date.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para594782">
+         <term>
             
             <indexterm significance="normal">
                <primary>engineering change notices</primary>
@@ -75,18 +74,18 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para594784">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para594785">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18b1c00">
             <para>Closes the screen without executing the expire command,
           returning you to the application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para594786">EXPIRE</term>
+         <term>EXPIRE</term>
          <listitem id="listitemN0x180ac00N0x18b1c48">
             <para>Select to expire the specified component Item from all
           existing Bills of Materials.</para>

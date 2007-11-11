@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556000" role="openmfg">
     <title>Production Time Clock by User</title>
 
-    <para id="Para556688">To view Time Clock information by user, select the
+    <para>To view Time Clock information by user, select the
     "Production Time Clock by User" option. The following screen will
     appear:</para>
 
-    <para id="Para556692">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -20,12 +19,12 @@
       </screenshot>
    </para>
 
-    <para id="Para556694">When displaying Time Clock information by User, you
+    <para>When displaying Time Clock information by User, you
     are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para556695">Username</term>
+        <term>Username</term>
 
         <listitem>
             <para>Enter the username of the user whose Time Clock information
@@ -34,7 +33,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para556753">Start W/O Start Date</term>
+        <term>Start W/O Start Date</term>
 
         <listitem>
             <para>Work Orders scheduled on and after this date will be
@@ -43,7 +42,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para556754">End W/O Start Date</term>
+        <term>End W/O Start Date</term>
 
         <listitem>
             <para>Work Orders scheduled on and before this date will be
@@ -52,7 +51,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para556760">Work Orders</term>
+        <term>Work Orders</term>
 
         <listitem>
             <para>Display lists Work Orders the user has clocked-in to, using
@@ -61,12 +60,12 @@
       </varlistentry>
     </variablelist>
 
-    <para id="Para556793">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para556783">CLOSE</term>
+        <term>CLOSE</term>
 
         <listitem>
             <para>Closes the screen, returning you to the application
@@ -75,7 +74,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para556784">QUERY</term>
+        <term>QUERY</term>
 
         <listitem>
             <para>Select to generate the display, using the specified
@@ -84,7 +83,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para556785">PRINT</term>
+        <term>PRINT</term>
 
         <listitem>
             <para>Runs the report associated with this screen.</para>
@@ -92,37 +91,29 @@
       </varlistentry>
     </variablelist>
 
-    <para id="Para556662">If the Work Order's Status is closed "C," the
+    <para>If the Work Order's Status is closed "C," the
     following options will appear when you right-click on a Work Order:</para>
 
     <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/3)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/3)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/3/2/4)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/4)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/4/2/17)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/17)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
     </variablelist>
 
-    <para id="Para556826">If the Work Order's Status is in-process "I," the
+    <para>If the Work Order's Status is in-process "I," the
     following additional options will appear:</para>
 
     <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/4/2/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/2)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/4/2/19)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/19)"/>
     </variablelist>
   </section>

@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519482">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>list of unposted</secondary>
     </indexterm>List Unposted Credit Memos</title>
-  <para id="Para519483">To view a list of unposted Credit Memos, select the
+  <para>To view a list of unposted Credit Memos, select the
   "List Unposted Credit Memos" option. The following screen will
   appear:</para>
-  <para id="Para519487"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_creditMemoUnposted.png"
-                     id="Graphic523551" />
+          <imagedata fileref="images/SO_Bill_creditMemoUnposted.png" id="Graphic523551"/>
         </imageobject>
         <caption id="Caption531871">Unposted Credit Memos Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
-    <para id="Para639508">You may select multiple Credit Memos for posting by
+    <para>You may select multiple Credit Memos for posting by
     highlighting them using your mouse--or a combination of your mouse and
     either the SHIFT or CTRL keys.</para>
   </tip>
-  <para id="Para519489">The unposted Credit Memos master list displays all
+  <para>The unposted Credit Memos master list displays all
   existing Credit Memo numbers, associated Customer names, accounting date of
   Credit Memo, and hold status. Users with the appropriate privilege will also
   see the G/L distribution date column.</para>
-  <para id="Para519490">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519491">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1931884">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541468">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x19318cc">
         <para>Opens screen for creating a new Credit Memo.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541507">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x1931914">
         <para>Enables you to edit highlighted Credit Memo. The edit screen is
         the same as that for creating a new Credit Memo--except that when
@@ -55,25 +56,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541469">VIEW</term>
+      <term>VIEW</term>
       <listitem id="listitemN0x180ac00N0x193195c">
         <para>Highlight a Credit Memo and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para639540">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x19319a4">
         <para>Highlight one--or multiple--Credit Memos, then select this
         button to print the selected Credit Memo(s).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para639548">POST</term>
+      <term>POST</term>
       <listitem id="listitemN0x180ac00N0x19319ec">
         <para>Highlight one--or multiple--Credit Memos, then select this
         button to post the selected Credit Memo(s).</para>
-        <para id="Para639549">By default, Credit Memos post to the General
+        <para>By default, Credit Memos post to the General
         Ledger (G/L) on their memo date. However, users with the appropriate
         privilege may change the G/L distribution date to an alternate date
         during the Credit Memo posting process. If used, Credit Memos will
@@ -84,34 +85,30 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para639557">If the Credit Memo has been applied to an Invoice,
+    <para>If the Credit Memo has been applied to an Invoice,
     any Credit Memo Items will be returned to Inventory when the Credit Memo
     is posted.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para595004">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x193a46c">
         <para>Highlight a Credit Memo and then select this button to remove
         the Credit Memo from the master list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para558848">Right-clicking on a Credit Memo enables you to select
+  <para>Right-clicking on a Credit Memo enables you to select
   from the following menu options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para558849">Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1931914)" />
+      <term>Edit</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1931914)"/>
     </varlistentry>
     <varlistentry>
-      <term id="Para558850">View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x193195c)" />
+      <term>View</term>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x193195c)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

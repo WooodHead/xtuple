@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section666113" role="openmfg">
     <title>Transform</title>
 
-    <para id="Para635325">Transformation is the process of converting quantity
+    <para>Transformation is the process of converting quantity
     of one Item into quantity of another Item. The Transform utility can be
     applied in multiple scenarios. For example, let's say you manufacture an
     Item--but when supplies run low, you purchase replenishment quantity from
@@ -13,14 +12,14 @@
     then be transformed into quantity of your manufactured Item.</para>
 
     <note>
-      <para id="Para623563">You may only transform an Item if the source Item
+      <para>You may only transform an Item if the source Item
       is located in the same Warehouse as the target Item.</para>
     </note>
 
-    <para id="Para623537">To transform Inventory quantity, select the
+    <para>To transform Inventory quantity, select the
     "Transform" option. The following screen will appear:</para>
 
-    <para id="Para615702">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -32,12 +31,12 @@
       </screenshot>
    </para>
 
-    <para id="Para615735">When transforming Inventory quantity, you are
+    <para>When transforming Inventory quantity, you are
     presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para615791">Item Number</term>
+        <term>Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18ab8a4">
             <para>Enter the Item Number of the source Item whose quantity you
@@ -46,7 +45,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para671979">UOM</term>
+        <term>UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18ab8ec">
             <para>Inventory Unit of Measure.</para>
@@ -54,7 +53,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para615761">Warehouse</term>
+        <term>Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x18ab934">
             <para>Specify Warehouse where desired source Item quantity is
@@ -63,25 +62,25 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para615537">Source</term>
+        <term>Source</term>
 
         <listitem id="listitemN0x180ac00N0x18ab97c">
             <para>Displays available Warehouse Locations.</para>
 
-            <para id="Para615823">Highlight the Location containing quantity you
+            <para>Highlight the Location containing quantity you
           want to transform. If the Item is multiply-located in the specified
           Warehouse, all Locations having valid quantity will display.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para616593">Target Item Number</term>
+        <term>Target Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18ab9c4">
             <para>Specify which Item you want to transform the source Item
           quantity to.</para>
 
-            <para id="Para616594">Target Item Numbers are defined using the
+            <para>Target Item Numbers are defined using the
           "Transformations" tab on the Item master for the source Item. If no
           target Item is defined on the Item master, no transformations may
           occur.</para>
@@ -89,7 +88,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para616523">Qty. to Transform</term>
+        <term>Qty. to Transform</term>
 
         <listitem id="listitemN0x180ac00N0x18aba0c">
             <para>Specify the source Item quantity you want to transform into
@@ -98,12 +97,12 @@
       </varlistentry>
     </variablelist>
 
-    <para id="Para616586">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para616587">CLOSE</term>
+        <term>CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18aba78">
             <para>Closes the screen without transforming Inventory quantity,
@@ -112,7 +111,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para616588">POST</term>
+        <term>POST</term>
 
         <listitem id="listitemN0x180ac00N0x18abac0">
             <para>Posts the Inventory transformation.</para>

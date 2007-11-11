@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="locale">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>locales</primary>
       <secondary>creating new</secondary>
     </indexterm>Locale</title>
-  <para id="Para518713">To create a new Locale, select the NEW button. The
+  <para>To create a new Locale, select the NEW button. The
   following screen will appear:</para>
-  <para id="Para518717"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_localeNew.png" id="Graphic522019" />
+          <imagedata fileref="images/Sys_localeNew.png" id="Graphic522019"/>
         </imageobject>
         <caption id="Caption518718">Create New Locale</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para968760">Locale settings only control the output displays of
+    <para>Locale settings only control the output displays of
     data--both printed and on-screen. They do not control the application's
     data entry formats.</para>
   </note>
-  <para id="Para967658">When creating a new Locale, you are presented with the
+  <para>When creating a new Locale, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518723">Code</term>
+      <term>Code</term>
       <listitem id="listitemN0x180ac00N0x1876f90">
         <para>Enter a code to uniquely identify the specified Locale setting.
         This code is referenced in the Maintain Users section, where Locales
@@ -33,21 +35,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518728">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x1876fd8">
         <para>Enter a brief description to further define the specified
         Locale.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518733"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>locales</primary>
           <secondary>language setting for</secondary>
         </indexterm>Language</term>
       <listitem id="listitemN0x180ac00N0x1877068">
         <para>Specify the name of the translation file required by the Locale,
         if a non-default translation file is being used.</para>
-        <para id="Para971898">The system supports multi-lingual translations
+        <para>The system supports multi-lingual translations
         of the product interface through the use of .QM files. Use this field
         to point to the appropriate .QM file (i.e., translation file), which
         should be located in the same directory as your xTuple executable
@@ -59,7 +62,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para971900"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>locales</primary>
           <secondary>data formats for</secondary>
         </indexterm>Date Format</term>
@@ -69,14 +73,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518744">Time Format</term>
+      <term>Time Format</term>
       <listitem id="listitemN0x180ac00N0x1877140">
         <para>The time format is used to display any time-related data within
         the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518749">Timestamp Format</term>
+      <term>Timestamp Format</term>
       <listitem id="listitemN0x180ac00N0x1877188">
         <para>The timestamp format is used to display any "timestamp" data
         within the application. Timestamps are typically used in transaction
@@ -85,94 +89,94 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para967624">Interval Format</term>
+      <term>Interval Format</term>
       <listitem id="listitemN0x180ac00N0x18771d0">
         <para>The interval format is used to define how Work Order
         clock-in/clock-out times and effort are displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518754">Currency Format</term>
+      <term>Currency Format</term>
       <listitem id="listitemN0x180ac00N0x1877218">
         <para>The currency format is used to display any currency data within
         the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para936979">Sales Price Format</term>
+      <term>Sales Price Format</term>
       <listitem id="listitemN0x180ac00N0x1877260">
         <para>The sales Price format is used to display any sales Price data
         within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para936984">Purch. Price Format</term>
+      <term>Purch. Price Format</term>
       <listitem id="listitemN0x180ac00N0x18772a8">
         <para>The purchase Price format is used to display any purchase Price
         data within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para936986">Ext. Price Format</term>
+      <term>Ext. Price Format</term>
       <listitem id="listitemN0x180ac00N0x18772f0">
         <para>The Extended Price format is used to display any Extended Price
         data within the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518769">Cost Format</term>
+      <term>Cost Format</term>
       <listitem id="listitemN0x180ac00N0x1877338">
         <para>The Cost format is used to display costing data within the
         application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536199">Qty. Format</term>
+      <term>Qty. Format</term>
       <listitem id="listitemN0x180ac00N0x1877380">
         <para>The quantity format is used to display quantity data within the
         application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536203">Qty. Per Format</term>
+      <term>Qty. Per Format</term>
       <listitem id="listitemN0x180ac00N0x18773c8">
         <para>The quantity per format is used to display quantities per within
         the application.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para944977">UOM Ratio</term>
+      <term>UOM Ratio</term>
       <listitem id="listitemN0x180ac00N0x1879a00">
         <para>The Unit of Measure ratio format is used to display Unit of
         Measure ratios within the application</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518779">Sample</term>
+      <term>Sample</term>
       <listitem id="listitemN0x180ac00N0x1879a48">
         <para>Sample data will display in this column, based on the data
         formats specified in the corresponding fields.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para535891">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x1879a90">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Locale.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para518781">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518782">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1879afc">
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518783">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1879b44">
         <para>Creates the Locale setting and adds it to the master list of
         Locales.</para>

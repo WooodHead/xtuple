@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520413">
    <title>
        
@@ -8,14 +7,14 @@
          <primary>bills of materials</primary>
          <secondary>indented where used view of</secondary>
       </indexterm>Indented Where Used</title>
-   <para id="Para610785">The Indented Where Used display will list every
+   <para>The Indented Where Used display will list every
     top-level manufactured Item that directly uses a specified Item as a
     component Item--and also any subassemblies which also use the Item as a
     component. For subassemblies, the associated top-level Items will be
     displayed in indented fashion. To view an indented display showing parent
     Items which use a specified component Item, select the "Indented Where
     Used" option. The following screen will appear:</para>
-   <para id="Para520418">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -25,37 +24,37 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para520425">When displaying an indented view of parent Items
+   <para>When displaying an indented view of parent Items
     which use a specified component Item, you are presented with the following
     options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para520426">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x1939a88">
             <para>Enter the Item Number of the component Item whose parent Items
           you would like to display.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663372">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x1939ad0">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520430">Show Expired Components</term>
+         <term>Show Expired Components</term>
          <listitem id="listitemN0x180ac00N0x1939b18">
             <para>Select to show expired components.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520431">Show Future Components</term>
+         <term>Show Future Components</term>
          <listitem id="listitemN0x180ac00N0x1939b60">
             <para>Select to show future components.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para520432">Bill of Materials Items</term>
+         <term>Bill of Materials Items</term>
          <listitem id="listitemN0x180ac00N0x1939ba8">
             <para>Display lists an indented view of parent Items whose Bill of
           Materials includes the specified component Item, using the specified
@@ -63,40 +62,39 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para520434">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para520435">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x1939c14">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para626409">QUERY</term>
+         <term>QUERY</term>
          <listitem id="listitemN0x180ac00N0x1939c5c">
             <para>Select to generate the display, using the specified
           parameters.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para664034">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x1939ca4">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para592596">Right-clicking on an Item in the Bill of Materials
+   <para>Right-clicking on an Item in the Bill of Materials
     Items list enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para592600">View Item Inventory History</term>
+         <term>View Item Inventory History</term>
          <listitem id="listitemN0x180ac00N0x1939d10">
             <para/>
          </listitem>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="financialLayoutSpecial">
   <title>Financial Report Special</title>
-  <para id="Para576197">The Financial Reporting Engine (FRE) supports the
+  <para>The Financial Reporting Engine (FRE) supports the
   addition of a limited number of Special items, which may be used to extend
   your reporting capabilities. A Special item can function as the child of a
-  Top-Level or other Group. <anchor id="Anchor576196" role="Index"
-  xreflabel="financial reports:adding special items to" /> <indexterm
-      significance="normal">
+  Top-Level or other Group. <anchor id="Anchor576196" role="Index" xreflabel="financial reports:adding special items to"/> <indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>adding special items to</secondary>
     </indexterm>To add a new Special item to a Financial Report, select the
   ADD SPECIAL button. The following screen will appear:</para>
-  <para id="Para576437"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_FR_finLaySpec.png" id="Graphic576435" />
+          <imagedata fileref="images/GL_FR_finLaySpec.png" id="Graphic576435"/>
         </imageobject>
         <caption id="Caption576202">Add Financial Report Special
         Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para576229">When adding a Special item to a Financial Report, you
+    </screenshot>
+</para>
+  <para>When adding a Special item to a Financial Report, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para577172">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18ff878">
         <para>Enter a name to identify the Special item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576170">Type</term>
+      <term>Type</term>
       <listitem id="listitemN0x180ac00N0x18ff8c0">
         <para>Select one of the Special item types from the following
         options:</para>
@@ -55,7 +54,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576453">Show Beginning Balance</term>
+      <term>Show Beginning Balance</term>
       <listitem id="listitemN0x180ac00N0x18ff908">
         <para>Select to include the Special item's beginning balance when the
         Financial Report is generated. If selected, you also have the option
@@ -65,7 +64,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576455">Show Ending Balance</term>
+      <term>Show Ending Balance</term>
       <listitem id="listitemN0x180ac00N0x18ff950">
         <para>Select to include the Special item's ending balance when the
         Financial Report is generated. If selected, you also have the option
@@ -75,7 +74,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576457">Show Debit/Credit</term>
+      <term>Show Debit/Credit</term>
       <listitem id="listitemN0x180ac00N0x18ff998">
         <para>Select to include the Special item's Debit/Credit balance when
         the Financial Report is generated. If selected, you also have the
@@ -85,7 +84,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576459">Show Budget</term>
+      <term>Show Budget</term>
       <listitem id="listitemN0x180ac00N0x18ff9e0">
         <para>Select to include the Special item's Budget balance when the
         Financial Report is generated. If selected, you also have the option
@@ -94,7 +93,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para577098">Show Difference</term>
+      <term>Show Difference</term>
       <listitem id="listitemN0x180ac00N0x18ffa28">
         <para>Select to include the difference between Debits and Credits for
         the Special item when the Financial Report is generated. If selected,
@@ -104,7 +103,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para577039">Use Group for % Total calculation</term>
+      <term>Use Group for % Total calculation</term>
       <listitem id="listitemN0x180ac00N0x18ffa70">
         <para>Indicate which group to use if percentage of group total
         calculations are specified. By default, the system will use the parent
@@ -116,7 +115,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576465">Operation</term>
+      <term>Operation</term>
       <listitem id="listitemN0x180ac00N0x18ffab8">
         <para>Specify how the Special item should operate in relation to the
         group specified under the "Use Group" option:</para>
@@ -141,7 +140,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para577433">Show Custom Column</term>
+      <term>Show Custom Column</term>
       <listitem id="listitemN0x180ac00N0x18ffb00">
         <para>Select to enable Special item information to be included in a
         Custom column when the Financial Report is generated.</para>
@@ -199,25 +198,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para576551">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para576552">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18ffb6c">
         <para>Closes the screen without adding a Special item to the Financial
         Report Group, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para576553">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18ffbb4">
         <para>Adds the Special item to the Financial Report Group.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para594023">Because Ad Hoc reports are not required to conform
+    <para>Because Ad Hoc reports are not required to conform
     to the three standard statement formats, the "Column Layouts" tab is not
     available for Ad Hoc reports. Column layouts may only be used by Financial
     Reports which conform to these standard formats.</para>

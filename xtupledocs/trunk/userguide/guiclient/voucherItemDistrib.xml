@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherItemDistrib">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>costing elements associated with</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>automatic updating of actual costs</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>actual costs</primary>
       <secondary>automatic updating of at vouchering</secondary>
     </indexterm>Voucher Item Distribution</title>
-  <para id="Para972169">To distribute purchasing Costs to specific Costing
+  <para>To distribute purchasing Costs to specific Costing
   Elements for the Item quantity being vouchered, select the NEW button. The
   following screen will appear:</para>
-  <para id="Para972173"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_voucherItemDistr.png"
-                     id="Graphic972171" />
+          <imagedata fileref="images/PO_Vouch_voucherItemDistr.png" id="Graphic972171"/>
         </imageobject>
         <caption id="Caption972174">Distributing Costs to Costing
         Element</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para972176">An Item's per unit Actual Cost will be automatically
+    <para>An Item's per unit Actual Cost will be automatically
     updated after a Voucher is posted if the vouchered Cost differs from the
     Item's current Actual Cost. The vouchered Cost for an Item is determined
     by dividing the amount to distribute by the quantity to voucher.</para>
   </note>
-  <para id="Para972177">When distributing purchasing Costs to a specific
+  <para>When distributing purchasing Costs to a specific
   Costing Element, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972178">Costing Element</term>
+      <term>Costing Element</term>
       <listitem id="listitemN0x180ac00N0x1889558">
         <para>Specify the Costing Element you want to distribute purchasing
         Costs to.</para>
-        <para id="Para972179">The "Material" Costing Element will be selected
+        <para>The "Material" Costing Element will be selected
         by default once Line Item quantity has been tagged. You may distribute
         Costs to more than one Costing Element per Voucher Item. The list of
         available Costing Elements includes the system-defined "Material"
@@ -49,37 +52,37 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para972181">Be sure to specify the amount to distribute based on
+    <para>Be sure to specify the amount to distribute based on
     the pricing found on the Purchase Order. The system will automatically
     handle any calculations required to accommodate Inventory/Vendor Unit of
     Measure (UOM) ratios which are not 1:1.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para972182">Amount to Distribute</term>
+      <term>Amount to Distribute</term>
       <listitem id="listitemN0x180ac00N0x18895e8">
         <para>Specify the purchasing amount to distribute to the specified
         Costing Element. By default, the extended Price for the Purchase Order
         Line Item will be entered here once Line Item quantity has been
         tagged.</para>
-        <para id="Para972183">Any difference between the distribution amount
+        <para>Any difference between the distribution amount
         and the current Actual Cost amount for the Costing Element will result
         in the posting of automatic updates to the current Actual Cost when
         the Voucher is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972184">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972185">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1889654">
         <para>Closes the screen, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972186">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x188969c">
         <para>Saves the distribution information and adds it to the
         distribution list.</para>

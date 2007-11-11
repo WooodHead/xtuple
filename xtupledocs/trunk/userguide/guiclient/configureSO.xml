@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923250">
    <title>
        
@@ -9,9 +8,9 @@
          <primary>configuration</primary>
          <secondary>of s/o module</secondary>
       </indexterm>Configure S/O</title>
-   <para id="Para519161">To configure the Sales Order (S/O) module, select
+   <para>To configure the Sales Order (S/O) module, select
     the "Configure S/O" option. The following screen will appear:</para>
-   <para id="Para519165">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -22,11 +21,11 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519167">When configuring the S/O module, you are presented
+   <para>When configuring the S/O module, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519168">
+         <term>
              
             <indexterm significance="normal">
                <primary>sales orders</primary>
@@ -35,13 +34,13 @@
          <listitem id="listitemN0x180ac00N0x18a62a8">
             <para>Select one of the available Sales Order Number generation
           methods:</para>
-            <para id="Para519169">Automatic - Sales Order Numbers will be
+            <para>Automatic - Sales Order Numbers will be
           automatically incremented by 1 each time a new Sales Order is
           created. These automatically-generated numbers may not be edited.
           They are read-only.</para>
-            <para id="Para519170">Manual - Sales Order Numbers must be entered
+            <para>Manual - Sales Order Numbers must be entered
           manually whenever you create a new Sales Order.</para>
-            <para id="Para519171">Automatic, Allow Override - Sales Order
+            <para>Automatic, Allow Override - Sales Order
           Numbers will be automatically generated and incremented, as under
           the "Automatic" option described above. However, this option also
           allows you to manually override the Sales Order Number at the time
@@ -49,7 +48,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519175">Next #</term>
+         <term>Next #</term>
          <listitem id="listitemN0x180ac00N0x18a62f0">
             <para>The next sequentially available Sales Order Number will
           display here. You may change the number--creating a new basis for
@@ -59,7 +58,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519177">
+         <term>
              
             <indexterm significance="normal">
                <primary>quotes</primary>
@@ -68,18 +67,18 @@
          <listitem id="listitemN0x180ac00N0x18a6380">
             <para>Select one of the available Quote Number generation
           methods:</para>
-            <para id="Para519178">Manual - Quote Numbers must be entered
+            <para>Manual - Quote Numbers must be entered
           manually whenever you create a new Quote.</para>
-            <para id="Para519179">Automatic, Use Quote #'s - Quote Numbers will
+            <para>Automatic, Use Quote #'s - Quote Numbers will
           be automatically incremented by 1 each time a new Quote is created.
           These automatically-generated numbers may not be edited. They are
           read-only.</para>
-            <para id="Para519180">Automatic, Use Quote #"s, Allow Override -
+            <para>Automatic, Use Quote #"s, Allow Override -
           Quote Numbers will be automatically generated and incremented, as
           under the "Automatic" option described above. However, this option
           also allows you to manually override the Quote Number at the time of
           Quote creation.</para>
-            <para id="Para917128">Automatic, Use S/O #'s - Quote Numbers will be
+            <para>Automatic, Use S/O #'s - Quote Numbers will be
           automatically incremented by 1 each time a new Quote is created,
           using the same number generation method specified for the creation
           of Sales Order Numbers. These automatically-generated numbers may
@@ -87,7 +86,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para917132">Next #</term>
+         <term>Next #</term>
          <listitem id="listitemN0x180ac00N0x18a63c8">
             <para>The next sequentially available Quote Number will display
           here. You may change the number--creating a new basis for the next
@@ -97,7 +96,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519187">
+         <term>
              
             <indexterm significance="normal">
                <primary>credit memos</primary>
@@ -106,18 +105,18 @@
          <listitem id="listitemN0x180ac00N0x18b1848">
             <para>Select one of the available Credit Memo Number generation
           methods:</para>
-            <para id="Para519188">Manual - Credit Memo Numbers must be entered
+            <para>Manual - Credit Memo Numbers must be entered
           manually whenever you create a new Credit Memo.</para>
-            <para id="Para519189">Automatic, Use C/M #'s - Credit Memo Numbers
+            <para>Automatic, Use C/M #'s - Credit Memo Numbers
           will be automatically incremented by 1 each time you issue a new
           Credit Memo. These automatically-generated numbers may not be
           edited. They are read-only.</para>
-            <para id="Para519190">Automatic, Use C/M #"s, Allow Override -
+            <para>Automatic, Use C/M #"s, Allow Override -
           Credit Memo Numbers will be automatically generated and incremented,
           as under the "Automatic" option described above. However, this
           option also allows you to manually override the Credit Memo Number
           at the time of Credit Memo creation.</para>
-            <para id="Para519191">Automatic, Use S/O #'s - Credit Memo Numbers
+            <para>Automatic, Use S/O #'s - Credit Memo Numbers
           will be automatically incremented by 1 each time a new Credit Memo
           is created, using the same number generation method specified for
           the creation of Sales Order Numbers. These automatically-generated
@@ -125,7 +124,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519195">Next #</term>
+         <term>Next #</term>
          <listitem id="listitemN0x180ac00N0x18b1890">
             <para>The next sequentially available Credit Memo Number will
           display here. You may change the number--creating a new basis for
@@ -135,7 +134,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519197">
+         <term>
              
             <indexterm significance="normal">
                <primary>invoices</primary>
@@ -147,7 +146,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519204">Next #</term>
+         <term>Next #</term>
          <listitem id="listitemN0x180ac00N0x18b1968">
             <para>The next sequentially available Invoice Number will display
           here. You may change the number--creating a new basis for the next
@@ -157,11 +156,11 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para961816">To establish general settings for the S/O module,
+   <para>To establish general settings for the S/O module,
     select the "General" tab. The following options will appear:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para917201">
+         <term>
              
             <indexterm significance="normal">
                <primary>sales orders</primary>
@@ -170,7 +169,7 @@
          <listitem id="listitemN0x180ac00N0x18b1a1c">
             <para>Check this option to allow pricing discounts for select
           customers.</para>
-            <para id="Para924399">This option instructs the system to verify
+            <para>This option instructs the system to verify
           whether any Pricing Discounts have been established for a Customer,
           prior to calculating the Line Item Price for of an Item within a
           Sales Order. If this option is unchecked, then the system will apply
@@ -178,21 +177,21 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para917202">Allow ASAP Schedule Dates</term>
+         <term>Allow ASAP Schedule Dates</term>
          <listitem id="listitemN0x180ac00N0x18b1a64">
             <para>Selecting this option will cause Sales Order Line Items to
           become immediately past due if no schedule date is entered.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para948823">Post Customer Changes to the Change Log</term>
+         <term>Post Customer Changes to the Change Log</term>
          <listitem id="listitemN0x180ac00N0x18b1aac">
             <para>Select to post to the Change Log any changes made to Customer
           masters.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para948816">Post Sales Order Changes to the Change
+         <term>Post Sales Order Changes to the Change
         Log</term>
          <listitem id="listitemN0x180ac00N0x18b1af4">
             <para>Select to post to the Change Log any changes made to Sales
@@ -200,12 +199,12 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para953457">Restrict Credit Memos to Items that appear on
+         <term>Restrict Credit Memos to Items that appear on
         their Apply-To Document</term>
          <listitem id="listitemN0x180ac00N0x18b1b3c">
             <para>Select if you want to restrict Credit Memo Items to their
           Apply-To Document.</para>
-            <para id="Para953461">Selecting this option narrows the Credit Memo
+            <para>Selecting this option narrows the Credit Memo
           Item selection process to only those Items which appeared on the
           Invoice the Credit Memo is being applied to. If not selected, a sold
           Item master list will appear instead when selecting Credit Memo
@@ -214,12 +213,12 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para958801">Automatically check "Select for Billing" option
+         <term>Automatically check "Select for Billing" option
         on Ship Order screen</term>
          <listitem id="listitemN0x180ac00N0x18b1b84">
             <para>Select if you want the "Select for Billing" option to be
           selected by default whenever you ship Sales Order Line Items.</para>
-            <para id="Para958812">Selecting this option reduces steps in the
+            <para>Selecting this option reduces steps in the
           billing process. Specifically, if an Order is selected for billing
           when it is shipped, you do not then have to take the extra step of
           independently selecting the Order for billing. This can save time
@@ -228,23 +227,23 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para958838">Always show "Save and Add to Packing List"
+         <term>Always show "Save and Add to Packing List"
         button on Sales Order screen</term>
          <listitem id="listitemN0x180ac00N0x18b1bcc">
             <para>Select if you want the SAVE AND ADD TO PACKING LIST button to
           always be displayed on the Sales Order header screen.</para>
-            <para id="Para958842">If this option is not selected, the SAVE AND
+            <para>If this option is not selected, the SAVE AND
           ADD TO PACKING LIST button will only be displayed for newly-entered
           Sales Orders which have not yet been saved.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para959014">Disallow Override of Sales Price on Sales Order
+         <term>Disallow Override of Sales Price on Sales Order
         Entry</term>
          <listitem id="listitemN0x180ac00N0x18b1c14">
             <para>Select to prevent all users from overriding the Sales Price
           when entering Sales Order Line Items.</para>
-            <para id="Para959023">This is a system-wide setting, affecting all
+            <para>This is a system-wide setting, affecting all
           users. Do not select this option if you want to selectively prevent
           users from overriding Sales Prices. Individual users may be granted
           the ability to override Sales Prices, use the S/O module's
@@ -252,12 +251,12 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para962053">Automatically Allocate Credit Memos to New Sales
+         <term>Automatically Allocate Credit Memos to New Sales
         Order on Save</term>
          <listitem id="listitemN0x180ac00N0x18b1c5c">
             <para>Select to have open Credit Memos for a Customer automatically
           allocated to any new Sales Orders entered for that Customer.</para>
-            <para id="Para962380">This functionality helps reduce Customer
+            <para>This functionality helps reduce Customer
           credit balances by ensuring that Customer credits are consumed when
           new Sales Orders are entered. Any available, open Credit Memos are
           eligible for allocation. The allocation of available Credit Memos
@@ -274,57 +273,57 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para962390">The allocation of available Credit Memos occurs
+      <para>The allocation of available Credit Memos occurs
       only once--when a Sales Order is saved for the first time. Subsequent
       saves will not result in additional allocations.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para961846">Hide Misc. Charges on Sales Order screen</term>
+         <term>Hide Misc. Charges on Sales Order screen</term>
          <listitem id="listitemN0x180ac00N0x18b1cec">
             <para>Select to hide all fields related to Miscellaneous Charges on
           the Sales Order Line Item tab.</para>
-            <para id="Para962036">If your site does not use Misc. Charges when
+            <para>If your site does not use Misc. Charges when
           entering Sales Orders, it may make sense to hide this functionality
           to avoid confusion.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961899">Enable Shipping interface from Sales Order
+         <term>Enable Shipping interface from Sales Order
         screen</term>
          <listitem id="listitemN0x180ac00N0x18b1d34">
             <para>Select to enable the performance of limited Shipping
           functionality from the Sales Order header.</para>
-            <para id="Para962154">If selected, users will be able to issue Stock
+            <para>If selected, users will be able to issue Stock
           to Shipping and also return Stock from Shipping directly from the
           Sales Order header. If not selected, these Shipping options will not
           be available on the Sales Order header.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para977157">Check Print S/O on Save by Default</term>
+         <term>Check Print S/O on Save by Default</term>
          <listitem id="listitemN0x180ac00N0x18b1d7c">
             <para>Select to prompt users to print Sales Orders whenever Sales
           Orders are saved.</para>
-            <para id="Para977164">If selected, users will be presented with a
+            <para>If selected, users will be presented with a
           Sales Order print screen whenever a Sales Order is saved. To bypass
           this feature, do not select this option.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para962155">Pricing on Editing Line Items</term>
+         <term>Pricing on Editing Line Items</term>
          <listitem id="listitemN0x180ac00N0x18b1dc4">
             <para>Select one of the following as your preferred response when
           users change Sales Order Line Item quantity on EDIT:</para>
-            <para id="Para971346">Update Price on Line Item Edit: If selected,
+            <para>Update Price on Line Item Edit: If selected,
           the system will automatically update the Net Unit Price for the Line
           Item, adjusting to accommodate the newly-entered quantity.</para>
-            <para id="Para971352">Prompt before Updating Price: If selected, the
+            <para>Prompt before Updating Price: If selected, the
           system will ask users if they want to update the Net Unit Price
           (YES/NO). If they answer "YES" because they do want to update the
           Price, then they will have to manually make the Price
           adjustment.</para>
-            <para id="Para971353">Do not Update Price on Line Edit: If selected,
+            <para>Do not Update Price on Line Edit: If selected,
           the Net Unit Price will not be changed when Line Item quantity is
           changed on EDIT--and users will not be prompted to consider changing
           the Price.</para>
@@ -332,30 +331,30 @@
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para971372">The Sales Order Line Item pricing options apply
+      <para>The Sales Order Line Item pricing options apply
       only when editing Line Item quantity.</para>
    </note>
-   <para id="Para971368">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para962156">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18b1e54">
             <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para913767">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18b1e9c">
             <para>Saves the configuration settings, returning you to the
           application desktop.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para962212">To establish Invoice and Credit Memo settings,
+   <para>To establish Invoice and Credit Memo settings,
     select the "Invoice" tab. The following screen will appear:</para>
-   <para id="Para961972">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -365,44 +364,44 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para961965">When establishing Invoice and Credit Memo settings,
+   <para>When establishing Invoice and Credit Memo settings,
     you are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para961966">Invoice Date Source</term>
+         <term>Invoice Date Source</term>
          <listitem id="listitemN0x180ac00N0x18b1f74">
             <para>Select one of the following Invoice date options:</para>
-            <para id="Para961863">Shipped Date: If selected, the Invoice date on
+            <para>Shipped Date: If selected, the Invoice date on
           the Invoice header will be the same date as the Sales Order ship
           date.</para>
-            <para id="Para961864">Scheduled Date: If selected, the Invoice date
+            <para>Scheduled Date: If selected, the Invoice date
           on the Invoice header will be the same date as the Sales Order
           scheduled date.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961865">Default Invoice Copies</term>
+         <term>Default Invoice Copies</term>
          <listitem id="listitemN0x180ac00N0x18b1fbc">
             <para>Indicate how you want invoice copies to print.</para>
-            <para id="Para961866"># of Copies: Indicate the number of copies you
+            <para># of Copies: Indicate the number of copies you
           want to print. Information about the specified copies will display
           below.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961867">Default Credit Memo Copies</term>
+         <term>Default Credit Memo Copies</term>
          <listitem id="listitemN0x180ac00N0x18b2004">
             <para>Indicate how you want credit memo copies to print.</para>
-            <para id="Para961868"># of Copies: Indicate the number of copies you
+            <para># of Copies: Indicate the number of copies you
           want to print. Information about the specified copies will display
           below.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para962239">To establish default settings to be used whenever
+   <para>To establish default settings to be used whenever
     new Customers are entered, select the "Customer Defaults" tab. The
     following screen will appear:</para>
-   <para id="Para962010">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -413,70 +412,70 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para962005">When establishing Customer master default settings,
+   <para>When establishing Customer master default settings,
     you are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para962325">Shipping Form</term>
+         <term>Shipping Form</term>
          <listitem id="listitemN0x180ac00N0x18b20dc">
             <para>Specify a default Shipping Form.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961872">Ship Via</term>
+         <term>Ship Via</term>
          <listitem id="listitemN0x180ac00N0x18b2124">
             <para>Specify a default Ship Via.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961873">Balance Method</term>
+         <term>Balance Method</term>
          <listitem id="listitemN0x180ac00N0x18b216c">
             <para>Specify a default procedure for handling cash receipts from
           Customers.</para>
-            <para id="Para962315">This notation is informational only. Balance
+            <para>This notation is informational only. Balance
           Forward: Select to apply cash receipts to the Customer's current
           balance due.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para962345">Customer Type</term>
+         <term>Customer Type</term>
          <listitem id="listitemN0x180ac00N0x18b21b4">
             <para>Specify a default Customer Type to be used whenever new
           Customers are created.</para>
-            <para id="Para962319">The default Customer Type may be overridden by
+            <para>The default Customer Type may be overridden by
           users having the appropriate privileges.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961878">Credit Limit</term>
+         <term>Credit Limit</term>
          <listitem id="listitemN0x180ac00N0x18b21fc">
             <para>Specify the default credit limit to be used for all
           Customers.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961882">Credit Rating</term>
+         <term>Credit Rating</term>
          <listitem id="listitemN0x180ac00N0x18b2244">
             <para>Specify the default credit rating to be used for all
           Customers.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961883">Accepts Partial Shipments</term>
+         <term>Accepts Partial Shipments</term>
          <listitem id="listitemN0x180ac00N0x18b228c">
             <para>Select to indicate Customers accept partial shipments by
           default.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para962349">Accepts Backorders</term>
+         <term>Accepts Backorders</term>
          <listitem id="listitemN0x180ac00N0x18b22d4">
             <para>Select to indicate Customers accept backorders by
           default.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para961884">Allow Free Form Ship-Tos</term>
+         <term>Allow Free Form Ship-Tos</term>
          <listitem id="listitemN0x180ac00N0x18b231c">
             <para>Select to indicate Customers allow free-form Ship-Tos by
           default. This default appears on the Customer master.</para>

@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section547322">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>archiving of</secondary>
     </indexterm>Archive Sales History</title>
-  <para id="Para549260">If your system contains Sales history which is no
+  <para>If your system contains Sales history which is no
   longer required for Sales Analysis purposes, you may archive that
   history--effectively removing it from view. Archived Sales history may be
   restored to view at any point. To archive Sales history, select the "Archive
   Sales History" option. The following screen will appear:</para>
-  <para id="Para548015"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SA_Utils_archiveSalesHist.png" id="Graphic548013"/>
         </imageobject>
         <caption id="Caption548016">Archive Sales History</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para549205">Archiving Sales history does not delete Sales
+    <para>Archiving Sales history does not delete Sales
     history. Rather, the historical data is simply relocated to a storage
     archive on the database. You may restore Sales history from the archive at
     any time.</para>
   </note>
-  <para id="Para549195">When archiving Sales history, you are presented with
+  <para>When archiving Sales history, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para548046">All Customer Types</term>
+      <term>All Customer Types</term>
       <listitem id="listitemN0x180ac00N0x188c9c4">
         <para>Select to archive Sales history for all Customer Types.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548047">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x188ca0c">
         <para>Specify Customer Type whose Sales history you want to
         archive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548048">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x188ca54">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-        <para id="Para555798">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -53,25 +56,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548056">All Product Categories</term>
+      <term>All Product Categories</term>
       <listitem id="listitemN0x180ac00N0x188ca9c">
         <para>Select to archive Sales history for all Product
         Categories.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548057">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x188cae4">
         <para>Specify Product Category whose Sales history you want to
         archive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548058">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x188cb2c">
         <para>Enter a Product Category pattern to select a range of Product
         Categories.</para>
-        <para id="Para555806">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -79,7 +82,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para551515">Archive Freight, Sales Tax and Misc. Items</term>
+      <term>Archive Freight, Sales Tax and Misc. Items</term>
       <listitem id="listitemN0x180ac00N0x188cb74">
         <para>Select to archive all the sales information which is not
         directly related to the Item Sites for a Sales Order--that is, Freight
@@ -87,45 +90,45 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para551517">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x188cb98">
         <para>Select to archive Sales history for all Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term id="Para548094">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x188cbbc">
         <para>Specify Warehouse whose Sales history you want to
         archive.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548103">Start Date</term>
+      <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x188cc04">
         <para>Sales history generated on or after this date will be
         archived.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548108">End Date</term>
+      <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x188cc4c">
         <para>Sales history by Shipping Zone by Item generated on or before
         this date will be archived.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para548033">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para548034">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x188ccb8">
         <para>Closes the screen without archiving Sales history, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para548035">SELECT</term>
+      <term>SELECT</term>
       <listitem id="listitemN0x180ac00N0x188cd00">
         <para>Archives Sales History using the specified parameters.</para>
       </listitem>

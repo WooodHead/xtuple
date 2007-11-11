@@ -1,62 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677825">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>inventory</primary>
       <secondary>availability by item</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>items</primary>
       <secondary>inventory availability for</secondary>
     </indexterm>Inventory Availability by Item</title>
-  <para id="Para677826">To view Inventory Availability by Item, select the
+  <para>To view Inventory Availability by Item, select the
   "Inventory Availability by Item" option. The following screen will
   appear:</para>
-  <para id="Para677830"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_invAvailItem.png"
-                     id="Graphic677828" />
+          <imagedata fileref="images/IM_Disp_invAvailItem.png" id="Graphic677828"/>
         </imageobject>
         <caption id="Caption677831">Inventory Availability by Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para677832">When displaying Inventory Availability by Item, you
+    </screenshot>
+</para>
+  <para>When displaying Inventory Availability by Item, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para677833">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x194ec84">
         <para>Enter the Item Number of the Item whose Inventory Availability
         you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677834">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x194eccc">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677835">Show Availability as of</term>
+      <term>Show Availability as of</term>
       <listitem id="listitemN0x180ac00N0x194ed14">
         <para>Show Availability using one of the following criteria:</para>
-        <para id="Para677836">Item Site Lead Time: Select to show projected
+        <para>Item Site Lead Time: Select to show projected
         Availability based on the Lead Time specified in the Item Site
         master.</para>
-        <para id="Para677837">Look Ahead Days: Select a number using the arrow
+        <para>Look Ahead Days: Select a number using the arrow
         buttons, or manually enter a value up to a maximum of 1000. Future
         Availability for the specified Item will be displayed based on the
         value entered here.</para>
-        <para id="Para677838">Cutoff Date: Display will show projected
+        <para>Cutoff Date: Display will show projected
         Inventory Availability as of date entered up to a maximum of 1000
         days.</para>
-        <para id="Para677839">Dates: Display will show projected Inventory
+        <para>Dates: Display will show projected Inventory
         Availability for the date range entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677840">Show Reorder Exceptions</term>
+      <term>Show Reorder Exceptions</term>
       <listitem id="listitemN0x180ac00N0x194ed5c">
         <para>Select to show Reorder Exceptions in display. Reorder Exceptions
         are an indication that an Item Site's projected Availability will drop
@@ -64,7 +66,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677841">Ignore Reorder at 0</term>
+      <term>Ignore Reorder at 0</term>
       <listitem id="listitemN0x180ac00N0x194eda4">
         <para>Select to ignore Reorder Exceptions in cases where both the Item
         Site Reorder Level and Planned Availability are equal to zero ("0").
@@ -73,32 +75,32 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677842">Show Shortages</term>
+      <term>Show Shortages</term>
       <listitem id="listitemN0x180ac00N0x194edec">
         <para>Select to only show Inventory shortages in display. A shortage
         describes Inventory quantity whose Availability is negative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677843">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x1956224">
         <para>Select to display Inventory Availability for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677844">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x195626c">
         <para>Specify Warehouse whose Inventory Availability you want to
         display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677845">Availability</term>
+      <term>Availability</term>
       <listitem id="listitemN0x180ac00N0x19562b4">
         <para>Display lists Inventory Availability by Item, using the
         specified parameters.</para>
-        <para id="Para677846">If Planned Availability displays in the color
+        <para>If Planned Availability displays in the color
         orange, this means the actual or projected Quantity on Hand is at or
         below the Reorder Level. If the color is red, the current or projected
         Quantity on Hand is below 0.</para>
@@ -106,24 +108,24 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para677848">When quantity appears in the "On Order" column, this
+    <para>When quantity appears in the "On Order" column, this
     refers to quantity that is on order through either a Work Order or
     Purchase Order. In the case of Purchase Orders, the quantity will always
     be represented in the Inventory Unit of Measure (UOM)--regardless of the
     Vendor UOM used on the Purchase Order.</para>
   </note>
-  <para id="Para677849">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para677850">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1956344">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677851">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x195638c">
         <para>Select to generate the display, using the specified
         parameters.</para>
@@ -136,70 +138,66 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para677853">Right-clicking on an Item in the Availability list
+  <para>Right-clicking on an Item in the Availability list
   enables you to select from the following context-sensitive menu
   options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para677854">View Inventory History</term>
+      <term>View Inventory History</term>
       <listitem id="listitemN0x180ac00N0x19563f8">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677855">View Allocations</term>
+      <term>View Allocations</term>
       <listitem id="listitemN0x180ac00N0x1956440">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677856">View Orders</term>
+      <term>View Orders</term>
       <listitem id="listitemN0x180ac00N0x1956488">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677857">Running Availability</term>
+      <term>Running Availability</term>
       <listitem id="listitemN0x180ac00N0x19564d0">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677858">Issue Count Tag</term>
+      <term>Issue Count Tag</term>
       <listitem id="listitemN0x180ac00N0x1956518">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/9)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/9)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <para id="Para677861">The following additional options are available for
+  <para>The following additional options are available for
   purchased Items:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para677862">Create P/R</term>
+      <term>Create P/R</term>
       <listitem id="listitemN0x180ac00N0x1956614">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para677863">Create P/O</term>
+      <term>Create P/O</term>
       <listitem id="listitemN0x180ac00N0x195665c">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para677864">The following additional option is available for
+  <para>The following additional option is available for
   manufactured Items:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para677865">Create W/O</term>
+      <term>Create W/O</term>
       <listitem id="listitemN0x180ac00N0x19566c8">
-        <para></para>
+        <para/>
       </listitem>
     </varlistentry>
   </variablelist>

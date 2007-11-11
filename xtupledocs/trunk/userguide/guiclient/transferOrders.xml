@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section658623" role="openmfg">
   <title>List Transfer Orders</title>
 
-  <para id="Para658785">Transfer Orders are used to move Inventory between
+  <para>Transfer Orders are used to move Inventory between
   Warehouses. They are distinct from Inter-Warehouse Transfers in three
   primary ways: 1) you can add multiple Items to a single Transfer Order and
   transfer all the Items at once; 2) all Transfer Order transfers involve a
@@ -13,7 +12,7 @@
   access the master list of Transfer Orders, select the "List Transfer Orders"
   option. The following screen will appear:</para>
 
-  <para id="Para658653">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -25,42 +24,42 @@
       </screenshot>
    </para>
 
-  <para id="Para658755">When displaying the master list of Transfer Orders,
+  <para>When displaying the master list of Transfer Orders,
   you are presented with the following options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para658636">Source Warehouse</term>
+         <term>Source Warehouse</term>
 
          <listitem id="listitemN0x180ac00N0x18abbbc">
             <para>Specify the source Warehouse(s) you want to display in the
         list:</para>
 
-            <para id="Para658820">All Warehouses: Select to display Transfer
+            <para>All Warehouses: Select to display Transfer
         Orders for all source Warehouses.</para>
 
-            <para id="Para658824">Selected: Specify source Warehouse whose
+            <para>Selected: Specify source Warehouse whose
         Transfer Orders you want to display.</para>
          </listitem>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para658804">Destination Warehouse</term>
+         <term>Destination Warehouse</term>
 
          <listitem id="listitemN0x180ac00N0x18abc04">
             <para>Specify the destination Warehouse(s) you want to display in the
         list:</para>
 
-            <para id="Para658858">All Warehouses: Select to display Transfer
+            <para>All Warehouses: Select to display Transfer
         Orders for all destination Warehouses.</para>
 
-            <para id="Para658859">Selected: Specify destination Warehouse whose
+            <para>Selected: Specify destination Warehouse whose
         Transfer Orders you want to display.</para>
          </listitem>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para658805">Transfer Orders</term>
+         <term>Transfer Orders</term>
 
          <listitem id="listitemN0x180ac00N0x18abc4c">
             <para>Display lists Transfer Orders for the specified
@@ -69,12 +68,12 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para659119">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para659120">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem id="listitemN0x180ac00N0x18abcb8">
             <para>Closes the screen, returning you to the application
@@ -83,7 +82,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659121">PRINT</term>
+         <term>PRINT</term>
 
          <listitem id="listitemN0x180ac00N0x18abd00">
             <para>Runs the report associated with this screen.</para>
@@ -91,7 +90,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659122">NEW</term>
+         <term>NEW</term>
 
          <listitem id="listitemN0x180ac00N0x18abd48">
             <para>Opens screen for creating a new Transfer Order.</para>
@@ -99,7 +98,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659123">EDIT</term>
+         <term>EDIT</term>
 
          <listitem id="listitemN0x180ac00N0x18abd90">
             <para>Enables you to edit highlighted Transfer Order. The edit screen
@@ -111,7 +110,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659152">VIEW</term>
+         <term>VIEW</term>
 
          <listitem id="listitemN0x180ac00N0x18abdd8">
             <para>Highlight a Transfer Order and then select this button to view
@@ -120,7 +119,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659124">DELETE</term>
+         <term>DELETE</term>
 
          <listitem id="listitemN0x180ac00N0x18abe20">
             <para>Highlight a Transfer Order and then select this button to remove
@@ -129,7 +128,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659125">ISSUE STOCK</term>
+         <term>ISSUE STOCK</term>
 
          <listitem id="listitemN0x180ac00N0x18abe68">
             <para>Highlight a Transfer Order and then select this button to issue
@@ -138,7 +137,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659127">COPY</term>
+         <term>COPY</term>
 
          <listitem id="listitemN0x180ac00N0x18abeb0">
             <para>Highlight a Transfer Order and then select this button to create
@@ -147,48 +146,40 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para659129">Right-clicking on a Transfer Order in the Transfer
+  <para>Right-clicking on a Transfer Order in the Transfer
   Orders list enables you to select from the following menu options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para659133">Edit</term>
+         <term>Edit</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18abd90)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18abd90)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659190">View</term>
+         <term>View</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18abdd8)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18abdd8)"/>
       </varlistentry>
 
       <varlistentry>
-         <term id="Para659199">Delete</term>
+         <term>Delete</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18abe20)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18abe20)"/>
       </varlistentry>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/6/2/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/6/2/1)"/>
 
       <varlistentry>
-         <term id="Para659209">Copy</term>
+         <term>Copy</term>
 
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                     xpointer="element(listitemN0x180ac00N0x18abeb0)"/>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18abeb0)"/>
       </varlistentry>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/11)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/11)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/1)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972680">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>creating new</secondary>
-    </indexterm><anchor id="Anchor55000" role="Cross-Ref"
-  xreflabel="55000: Heading2: New Vendor" />Vendor</title>
-  <para id="Para972681">To create a new Vendor, select the "New Vendor"
+    </indexterm>
+<anchor id="Anchor55000" role="Cross-Ref" xreflabel="55000: Heading2: New Vendor"/>Vendor</title>
+  <para>To create a new Vendor, select the "New Vendor"
   option. The following screen will appear:</para>
-  <para id="Para972685"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorNew.png" id="Graphic972683" />
+          <imagedata fileref="images/PO_MI_vendorNew.png" id="Graphic972683"/>
         </imageobject>
         <caption id="Caption972686">Create New Vendor</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
-    <para id="Para972688">Vendors can also be created from the CRM Account
+    <para>Vendors can also be created from the CRM Account
     screen. Simply enter a new CRM Account, selecting the "Vendor"
     Relationship option.</para>
   </tip>
-  <para id="Para972689">When creating a new Vendor, you are presented with the
+  <para>When creating a new Vendor, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972690">Vendor #</term>
+      <term>Vendor #</term>
       <listitem id="listitemN0x180ac00N0x181a0ac">
         <para>Enter a number to identify the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972691">Vendor Type</term>
+      <term>Vendor Type</term>
       <listitem id="listitemN0x180ac00N0x181a0f4">
         <para>Specify the Vendor Type of the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972692">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x181a13c">
         <para>Enter the name of the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972693">Active</term>
+      <term>Active</term>
       <listitem id="listitemN0x180ac00N0x181a184">
         <para>Select if you are actively doing business with this
         Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972694">Number</term>
+      <term>Number</term>
       <listitem id="listitemN0x180ac00N0x181a1cc">
         <para>Use this field to indicate the Account number the Vendor assigns
         to your site.</para>
@@ -59,53 +61,54 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para972696">If a new Address is manually entered here, that
+    <para>If a new Address is manually entered here, that
     Address will be added automatically to the master list of
     Addresses.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para972697">Address</term>
+      <term>Address</term>
       <listitem id="listitemN0x180ac00N0x181a25c">
         <para>Manually enter Address information in the fields below--or use
         the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
-        <para id="Para972698">Street Address: Enter the street Address for the
+        <para>Street Address: Enter the street Address for the
         Vendor.</para>
-        <para id="Para972699">City: Enter the city where the Vendor is
+        <para>City: Enter the city where the Vendor is
         located.</para>
-        <para id="Para972700">State: Enter the state where the Vendor is
+        <para>State: Enter the state where the Vendor is
         located.</para>
-        <para id="Para972701">Postal Code: Enter the Postal Code for the
+        <para>Postal Code: Enter the Postal Code for the
         Vendor.</para>
-        <para id="Para972702">Country: Enter the country where the Vendor is
+        <para>Country: Enter the country where the Vendor is
         located.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972703">Default Terms</term>
+      <term>Default Terms</term>
       <listitem id="listitemN0x180ac00N0x181a2a4">
         <para>Specify the default billing Terms for the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972704">Default Ship Via</term>
+      <term>Default Ship Via</term>
       <listitem id="listitemN0x180ac00N0x181a2ec">
         <para>Specify default Ship Via for Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972705">Default Currency</term>
+      <term>Default Currency</term>
       <listitem id="listitemN0x180ac00N0x181a334">
         <para>Specify the Currency to be used when conducting business
         transactions with the Vendor.</para>
-        <para id="Para972706">This option will only be visible in systems
+        <para>This option will only be visible in systems
         configured to use multiple Currencies.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972709"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vendors</primary>
           <secondary>FOB terms for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -121,42 +124,42 @@
       <listitem id="listitemN0x180ac00N0x181a49c">
         <para>Indicate the default Free on Board (FOB) destination by
         selecting one of the following options:</para>
-        <para id="Para972710">Receiving Warehouse FOB: Select if receiving
+        <para>Receiving Warehouse FOB: Select if receiving
         warehouse is default FOB destination.</para>
-        <para id="Para972711">Vendor Specific FOB: Select if Vendor specifies
+        <para>Vendor Specific FOB: Select if Vendor specifies
         an FOB destination other than the receiving Warehouse. Enter alternate
         FOB details in space provided.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972712">Sells Purchase Order Items</term>
+      <term>Sells Purchase Order Items</term>
       <listitem id="listitemN0x180ac00N0x181a4e4">
         <para>Select if Vendor accepts Purchase Orders to render goods.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972713">May only Sell Items defined by an Item
+      <term>May only Sell Items defined by an Item
       Source</term>
       <listitem id="listitemN0x180ac00N0x181a52c">
         <para>Select if you want to restrict Items purchased from the Vendor
         to Items having a defined Item Source.</para>
-        <para id="Para972714">If not selected, you may choose from all
+        <para>If not selected, you may choose from all
         purchased Items when entering a Purchase Order Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972715">Qualified</term>
+      <term>Qualified</term>
       <listitem id="listitemN0x180ac00N0x181a574">
         <para>Select this flag to indicate that the Vendor is a trusted
         Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972716">Check for matching V/O and P/O amounts</term>
+      <term>Check for matching V/O and P/O amounts</term>
       <listitem id="listitemN0x180ac00N0x181a5bc">
         <para>Select to perform Voucher matching when entering Voucher Items
         for the Vendor.</para>
-        <para id="Para972717">If selected, users will be presented with a
+        <para>If selected, users will be presented with a
         warning message whenever a Voucher Item amount does not match the
         corresponding Purchase Order Item amount for the Vendor. This option
         will not prevent users from proceeding. Instead, the warning message
@@ -164,49 +167,52 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972718">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972719">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x181a628">
         <para>Closes the screen without creating a new Vendor, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972720">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x181a670">
         <para>Creates the Vendor and enters the Vendor into the master list of
         Vendors.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972721">NEXT</term>
+      <term>NEXT</term>
       <listitem id="listitemN0x180ac00N0x181a6b8">
         <para>Select to open the Vendor master whose Vendor Number immediately
         follows the current Vendor Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972722">PREVIOUS</term>
+      <term>PREVIOUS</term>
       <listitem id="listitemN0x180ac00N0x181a700">
         <para>Select to open the Vendor master whose Vendor Number immediately
         precedes the current Vendor Number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972723">To view or enter Vendor Tax information, select the
+  <para>To view or enter Vendor Tax information, select the
   "Tax" tab. The following screen will appear:</para>
-  <para id="Para972727"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorTax.png" id="Graphic972725" />
+          <imagedata fileref="images/PO_MI_vendorTax.png" id="Graphic972725"/>
         </imageobject>
         <caption id="Caption972728">Vendor Tax Information</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972730"><indexterm significance="normal">
+    </screenshot>
+</para>
+  <para>
+<indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>tax information for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -216,13 +222,14 @@
   following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972731">Receives a 1099</term>
+      <term>Receives a 1099</term>
       <listitem id="listitemN0x180ac00N0x181a868">
         <para>Select if Vendor receives a 1099 federal Tax form.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972733"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>tax authorities</primary>
           <secondary>default for vendors</secondary>
         </indexterm>Default Tax Authority</term>
@@ -232,25 +239,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972734">Tax Registration Numbers</term>
+      <term>Tax Registration Numbers</term>
       <listitem id="listitemN0x180ac00N0x181a940">
         <para>Display lists Tax Registration Numbers for the specified
         Vendor.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972735">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972736">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x181a9ac">
         <para>Opens screen for creating a new Vendor Tax Registration
         Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972737">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x181a9f4">
         <para>Enables you to edit highlighted Vendor Tax Registration Numbers.
         The edit screen is the same as that for creating a new Vendor Tax
@@ -261,14 +268,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972738">VIEW</term>
+      <term>VIEW</term>
       <listitem id="listitemN0x180ac00N0x181aa3c">
         <para>Highlight a Vendor Tax Registration Number and then select this
         button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972739">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x181aa84">
         <para>Highlight a Vendor Tax Registration Number and then select this
         button to remove the Vendor Tax Registration Number from the
@@ -276,19 +283,21 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972740">To add a new Vendor Tax Registration Number, select
+  <para>To add a new Vendor Tax Registration Number, select
   the NEW button. The following screen will appear:</para>
-  <para id="Para972744"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorTaxReg.png"
-                     id="Graphic972742" />
+          <imagedata fileref="images/PO_MI_vendorTaxReg.png" id="Graphic972742"/>
         </imageobject>
         <caption id="Caption972745">Vendor Tax Registration
         Information</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972747"><indexterm significance="normal">
+    </screenshot>
+</para>
+  <para>
+<indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>tax registration for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -298,24 +307,24 @@
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972748">Vendor #</term>
+      <term>Vendor #</term>
       <listitem id="listitemN0x180ac00N0x181abec">
         <para>Displays the Vendor Number for the specified Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972749">Tax Authority</term>
+      <term>Tax Authority</term>
       <listitem id="listitemN0x180ac00N0x182d424">
         <para>Specify the Tax Authority associated with the Tax Registration
         Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972750">Registration Number</term>
+      <term>Registration Number</term>
       <listitem id="listitemN0x180ac00N0x182d46c">
         <para>Enter the Vendor's Tax Registration Number for the specified Tax
         Authority.</para>
-        <para id="Para972751">The registration number is used by Tax
+        <para>The registration number is used by Tax
         Authorities to identify businesses and/or individuals. An Employer
         Identification Numbers (EIN) is an example of a Tax Registration
         Number.</para>
@@ -323,119 +332,122 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para972753">The Vendor's Tax Registration Number is used for
+    <para>The Vendor's Tax Registration Number is used for
     identifying the Vendor to relevant Tax Authorities. This information
     should not be confused with the Tax Registration Numbers, which are used
     to identify your company to relevant Tax Authorities.</para>
   </tip>
-  <para id="Para972754">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972755">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x182d4fc">
         <para>Closes the screen without creating a new Vendor Tax Registration
         Number, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972756">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x182d544">
         <para>Creates the Vendor Tax Registration Number and adds it to the
         master list of Vendor Tax Registration Numbers.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972757">To view or enter Vendor contact information, select
+  <para>To view or enter Vendor contact information, select
   the "Contact Information" tab. The following screen will appear:</para>
-  <para id="Para972761"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorContact.png"
-                     id="Graphic972759" />
+          <imagedata fileref="images/PO_MI_vendorContact.png" id="Graphic972759"/>
         </imageobject>
         <caption id="Caption972762">Vendor Contact Information</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972764"><indexterm significance="normal">
+    </screenshot>
+</para>
+  <para>
+<indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>contact information for</secondary>
     </indexterm>When adding Vendor contact information, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972765">Primary Contact</term>
+      <term>Primary Contact</term>
       <listitem id="listitemN0x180ac00N0x182d664">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para id="Para972766">Title: Select a Title from the list of available
+        <para>Title: Select a Title from the list of available
         Titles.</para>
-        <para id="Para972767">First: Enter the Contact's first name.</para>
-        <para id="Para972768">Last: Enter the Contact's last name.</para>
-        <para id="Para972769">Job Title: Enter the Contact's job title.</para>
-        <para id="Para972770">Voice: Enter the Contact's phone number.</para>
-        <para id="Para972771">Fax: Enter the Contact's fax number.</para>
-        <para id="Para972772">E-Mail: Enter the Contact's e-mail
+        <para>First: Enter the Contact's first name.</para>
+        <para>Last: Enter the Contact's last name.</para>
+        <para>Job Title: Enter the Contact's job title.</para>
+        <para>Voice: Enter the Contact's phone number.</para>
+        <para>Fax: Enter the Contact's fax number.</para>
+        <para>E-Mail: Enter the Contact's e-mail
         address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972773">Secondary Contact</term>
+      <term>Secondary Contact</term>
       <listitem id="listitemN0x180ac00N0x182d6ac">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para id="Para972774">Title: Select a Title from the list of available
+        <para>Title: Select a Title from the list of available
         Titles.</para>
-        <para id="Para972775">First: Enter the Contact's first name.</para>
-        <para id="Para972776">Last: Enter the Contact's last name.</para>
-        <para id="Para972777">Job Title: Enter the Contact's job title.</para>
-        <para id="Para972778">Voice: Enter the Contact's phone number.</para>
-        <para id="Para972779">Fax: Enter the Contact's fax number.</para>
-        <para id="Para972780">E-Mail: Enter the Contact's e-mail
+        <para>First: Enter the Contact's first name.</para>
+        <para>Last: Enter the Contact's last name.</para>
+        <para>Job Title: Enter the Contact's job title.</para>
+        <para>Voice: Enter the Contact's phone number.</para>
+        <para>Fax: Enter the Contact's fax number.</para>
+        <para>E-Mail: Enter the Contact's e-mail
         address.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972781">Just as Customers may have multiple Ship-To addresses,
+  <para>Just as Customers may have multiple Ship-To addresses,
   Vendors may also maintain multiple Ship-From addresses. A Vendor address is
   a Ship-From address. To add Vendor Addresses to a Vendor master, select the
   "Addresses" tab. The following screen will appear:</para>
-  <para id="Para972785"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorAddress.png"
-                     id="Graphic972783" />
+          <imagedata fileref="images/PO_MI_vendorAddress.png" id="Graphic972783"/>
         </imageobject>
         <caption id="Caption972786">Add Vendor Addresses</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972787">When adding Vendor Addresses, you are presented with
+    </screenshot>
+</para>
+  <para>When adding Vendor Addresses, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972788">Vendor Addresses</term>
+      <term>Vendor Addresses</term>
       <listitem id="listitemN0x180ac00N0x182d784">
         <para>Display lists Vendor Addresses for the specified Vendor.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972789">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972790">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x182d7f0">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972791">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x182d838">
         <para>Opens screen for creating a new Vendor Address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972792">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x182d880">
         <para>Enables you to edit highlighted Vendor Address. The edit screen
         is the same as that for creating a new Vendor Address--except that
@@ -445,215 +457,223 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972793">VIEW</term>
+      <term>VIEW</term>
       <listitem id="listitemN0x180ac00N0x182d8c8">
         <para>Highlight a Vendor Address and then select this button to reach
         a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972794">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x182d910">
         <para>Highlight a Vendor Address and then select this button to remove
         the Vendor from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972796"><indexterm significance="normal">
+  <para>
+<indexterm significance="normal">
       <primary>vendor addresses</primary>
       <secondary>creating new</secondary>
     </indexterm>To create a new Vendor Address, select the NEW button. The
   following screen will appear:</para>
-  <para id="Para972800"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendAddressNew.png"
-                     id="Graphic972798" />
+          <imagedata fileref="images/PO_MI_vendAddressNew.png" id="Graphic972798"/>
         </imageobject>
         <caption id="Caption972801">Create New Vendor Address</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972802">When creating a new Vendor Address, you are presented
+    </screenshot>
+</para>
+  <para>When creating a new Vendor Address, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972803">Number</term>
+      <term>Number</term>
       <listitem id="listitemN0x180ac00N0x182da30">
         <para>Enter a number or code to identify the Vendor Address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972804">Name</term>
+      <term>Name</term>
       <listitem id="listitemN0x180ac00N0x182da78">
         <para>Enter the name of the Vendor Address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972805">Address</term>
+      <term>Address</term>
       <listitem id="listitemN0x180ac00N0x182dac0">
         <para>Manually enter Address information in the fields below--or use
         the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
-        <para id="Para972806">Street Address: Enter the street Address for the
+        <para>Street Address: Enter the street Address for the
         Vendor.</para>
-        <para id="Para972807">City: Enter the city where the Vendor is
+        <para>City: Enter the city where the Vendor is
         located.</para>
-        <para id="Para972808">State: Enter the state where the Vendor is
+        <para>State: Enter the state where the Vendor is
         located.</para>
-        <para id="Para972809">Postal Code: Enter the Postal Code for the
+        <para>Postal Code: Enter the Postal Code for the
         Vendor.</para>
-        <para id="Para972810">Country: Enter the country where the Vendor is
+        <para>Country: Enter the country where the Vendor is
         located.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972811">Contact</term>
+      <term>Contact</term>
       <listitem id="listitemN0x180ac00N0x182db08">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para id="Para972812">Title: Select a Title from the list of available
+        <para>Title: Select a Title from the list of available
         Titles.</para>
-        <para id="Para972813">First: Enter the Contact's first name.</para>
-        <para id="Para972814">Last: Enter the Contact's last name.</para>
-        <para id="Para972815">Job Title: Enter the Contact's job title.</para>
-        <para id="Para972816">Voice: Enter the Contact's phone number.</para>
-        <para id="Para972817">Fax: Enter the Contact's fax number.</para>
-        <para id="Para972818">E-Mail: Enter the Contact's e-mail
+        <para>First: Enter the Contact's first name.</para>
+        <para>Last: Enter the Contact's last name.</para>
+        <para>Job Title: Enter the Contact's job title.</para>
+        <para>Voice: Enter the Contact's phone number.</para>
+        <para>Fax: Enter the Contact's fax number.</para>
+        <para>E-Mail: Enter the Contact's e-mail
         address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972819">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x182db50">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Vendor Address.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972820">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972821">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x182dbbc">
         <para>Closes the screen without creating a new Vendor Address,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972822">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x182dc04">
         <para>Creates the Vendor Address and adds it to the master list of
         Vendor Addresses.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972823">To add Notes related to a Vendor, select the "Notes"
+  <para>To add Notes related to a Vendor, select the "Notes"
   tab. The following screen will appear:</para>
-  <para id="Para972827"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorNotes.png" id="Graphic972825" />
+          <imagedata fileref="images/PO_MI_vendorNotes.png" id="Graphic972825"/>
         </imageobject>
         <caption id="Caption972828">Add Vendor Notes</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972829">To add Comments related to a Vendor, select the
+    </screenshot>
+</para>
+  <para>To add Comments related to a Vendor, select the
   "Comments" tab. The following screen will appear:</para>
-  <para id="Para972833"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorComment.png"
-                     id="Graphic972831" />
+          <imagedata fileref="images/PO_MI_vendorComment.png" id="Graphic972831"/>
         </imageobject>
         <caption id="Caption972834">Add Vendor Comments</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972835">When adding Comments related to a Vendor, you are
+    </screenshot>
+</para>
+  <para>When adding Comments related to a Vendor, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972836">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x182dd48">
         <para>Display lists Comments for the specified Vendor.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972837">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972838">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x182ddb4">
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972839">VIEW</term>
+      <term>VIEW</term>
       <listitem id="listitemN0x180ac00N0x182ddfc">
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972840">To create a new Vendor Comment, select the NEW button.
+  <para>To create a new Vendor Comment, select the NEW button.
   The following screen will appear:</para>
-  <para id="Para972844"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic972842" />
+          <imagedata fileref="images/CommentNew.png" id="Graphic972842"/>
         </imageobject>
         <caption id="Caption972845">Create New Comment</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972846">Comment Type</term>
+      <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x182ded4">
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General.</para>
-        <para id="Para972847">Comment Types are used to categorize Comments.
+        <para>Comment Types are used to categorize Comments.
         Once you have specified a Comment Type, you may type your Comment in
         the main text area. The text area features word-wrapping and
         scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972848">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972849">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x182df40">
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972850">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x182df88">
         <para>Creates the Comment and adds it to the list of Vendor
         Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972851">To add purchasing Notes related to a Vendor, select
+  <para>To add purchasing Notes related to a Vendor, select
   the "P/O Notes" tab. The following screen will appear:</para>
-  <para id="Para972855"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorPONotes.png"
-                     id="Graphic972853" />
+          <imagedata fileref="images/PO_MI_vendorPONotes.png" id="Graphic972853"/>
         </imageobject>
         <caption id="Caption972856">Add Purchasing Notes</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972857">When adding purchasing Notes related to a Vendor, you
+    </screenshot>
+</para>
+  <para>When adding purchasing Notes related to a Vendor, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972858">P/O Notes</term>
+      <term>P/O Notes</term>
       <listitem id="listitemN0x180ac00N0x182e060">
         <para>Select the "P/O Notes" tab to access this scrolling text field
         with word-wrapping for entering purchasing Notes related to the
@@ -661,41 +681,43 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972859">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972860">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x182e0cc">
         <para>Closes the screen without creating new purchasing Notes,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972861">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x182e114">
         <para>Creates the purchasing Notes and adds them to the Vendor
         master.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972866" role="openmfg">The Electronic Data Interchange (EDI)
+  <para role="openmfg">The Electronic Data Interchange (EDI)
   system enables you to exchange information electronically with your Vendors.
   To set up a Vendor to receive Purchase Orders via email, select the "EDI"
   tab. The following screen will appear:</para>
-  <para id="Para972870"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_vendorEDI.png" id="Graphic972868" />
+          <imagedata fileref="images/PO_MI_vendorEDI.png" id="Graphic972868"/>
         </imageobject>
         <caption id="Caption972871">Add Vendor EDI Information</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972872">When setting up a Vendor to receive Purchase Orders
+    </screenshot>
+</para>
+  <para>When setting up a Vendor to receive Purchase Orders
   via email, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972873">Allow Email P/O Delivery</term>
+      <term>Allow Email P/O Delivery</term>
       <listitem id="listitemN0x180ac00N0x182e1ec">
         <para>Select to enable Vendor to receive Purchase Orders via
         email.</para>
@@ -703,13 +725,13 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para972875">EDI details entered on the Vendor master will
+    <para>EDI details entered on the Vendor master will
     transfer to the Schedule P/O for Email Delivery screen when a Purchase
     Order for the Vendor is selected for email delivery.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para972876">EDI Email</term>
+      <term>EDI Email</term>
       <listitem id="listitemN0x180ac00N0x184146c">
         <para>Enter the Vendor email address to be used as the default
         recipient address whenever Purchase Orders are emailed to the
@@ -718,28 +740,28 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para972878">Send Purchase Orders to multiple recipients by
+    <para>Send Purchase Orders to multiple recipients by
     separating email addresses with a comma. Be sure to omit any spaces
     between addresses when using commas to send copies to multiple
     recipients.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para972879">Cc</term>
+      <term>Cc</term>
       <listitem id="listitemN0x180ac00N0x18414fc">
         <para>Enter the email address to be used as the default carbon copy
         address whenever Purchase Orders are emailed to the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972880">Subject</term>
+      <term>Subject</term>
       <listitem id="listitemN0x180ac00N0x1841544">
         <para>Enter a default email subject line to be used whenever Purchase
         Orders are emailed to the Vendor.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972881">Filename</term>
+      <term>Filename</term>
       <listitem id="listitemN0x180ac00N0x184158c">
         <para>XML tags may be used in this field to dynamically generate
         filename text. In the example shown in the screenshot above, the
@@ -748,18 +770,18 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972882">EDI Email Body</term>
+      <term>EDI Email Body</term>
       <listitem id="listitemN0x180ac00N0x18415d4">
         <para>Use this text field to enter the default message that will
         accompany any Purchase Orders emailed to the Vendor.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972883">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972884">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1841640">
         <para>Closes the screen without setting up a Vendor to receive
         Purchase Orders via email, returning you to the application
@@ -767,7 +789,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972885">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1841688">
         <para>Enables a Vendor to receive Purchase Orders via email.</para>
       </listitem>

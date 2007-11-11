@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section607081">
    <title>
       
@@ -12,13 +11,12 @@
          <primary>items</primary>
          <secondary>costing maintenance for</secondary>
       </indexterm> 
-      <anchor id="Anchor31787" role="Cross-Ref"
-              xreflabel="31787: Heading2: Maintain Item Costs"/>Maintain Item
+      <anchor id="Anchor31787" role="Cross-Ref" xreflabel="31787: Heading2: Maintain Item Costs"/>Maintain Item
     Costs</title>
-   <para id="Para607082">For visibility into Costs associated with Items--and
+   <para>For visibility into Costs associated with Items--and
     to perform routine Cost maintenance--select the "Maintain Item Costs"
     option. The following screen will appear:</para>
-   <para id="Para519774">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -28,24 +26,24 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519781">When maintaining Item Costs, you are presented with
+   <para>When maintaining Item Costs, you are presented with
     the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519782">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x18d053c">
             <para>Enter the Item Number of the Item whose Costs you want to
           maintain.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663257">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x18d0584">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519786">Costing Elements</term>
+         <term>Costing Elements</term>
          <listitem id="listitemN0x180ac00N0x18d05cc">
             <para>Display lists Item Costs for the specified Item using various
           categories--or Costing Elements--to distinguish one type of Cost
@@ -53,25 +51,25 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519788">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519789">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x18d0638">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519790">NEW COST</term>
+         <term>NEW COST</term>
          <listitem id="listitemN0x180ac00N0x18d0680">
             <para>Opens screen for creating a new Item Cost, as shown
           below.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para648500">EDIT COST</term>
+         <term>EDIT COST</term>
          <listitem id="listitemN0x180ac00N0x18d06c8">
             <para>Enables you to edit highlighted Costing Elements. The edit
           screen is the same as that for creating a new Item Cost--except that
@@ -81,32 +79,32 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519791">DELETE COST</term>
+         <term>DELETE COST</term>
          <listitem id="listitemN0x180ac00N0x18d0710">
             <para>Highlight an Item Cost and then select this button to remove
           the Cost from the list.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para551998">Right-clicking on an Item Cost in the Costing
+   <para>Right-clicking on an Item Cost in the Costing
     Elements list enables you to select from the following menu options. If
     the Costing Element does not contain lower level Costs, you will not be
     given the option to view Costing detail.</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519793">View Costing Detail</term>
+         <term>View Costing Detail</term>
          <listitem id="listitemN0x180ac00N0x18d077c">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519794">Update Actual Cost</term>
+         <term>Update Actual Cost</term>
          <listitem id="listitemN0x180ac00N0x18d07c4">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519795">
+         <term>
             
             <indexterm significance="normal">
                <primary>actual costs</primary>
@@ -121,21 +119,20 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519796">Edit Actual Cost</term>
+         <term>Edit Actual Cost</term>
          <listitem id="listitemN0x180ac00N0x18d08e4">
             <para/>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519797">Create User Cost</term>
+         <term>Create User Cost</term>
          <listitem id="listitemN0x180ac00N0x18d092c">
             <para/>
          </listitem>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
-   <para id="Para591919">
+   <para>
        
       <indexterm significance="normal">
          <primary>item costs</primary>
@@ -146,7 +143,7 @@
          <secondary>costing of</secondary>
       </indexterm>To create a new Item Cost, select the NEW COST button. The
     following screen will appear:</para>
-   <para id="Para591888">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -156,25 +153,25 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para591890">When creating a new Item Cost, you are presented
+   <para>When creating a new Item Cost, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519806">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x18d0adc">
             <para>The Item Number specified on the referring screen will display
           here.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para663262">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x18d0b24">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para625374">
+      <para>
           
          <indexterm significance="normal">
             <primary>item costs</primary>
@@ -183,24 +180,24 @@
       Material Costs for manufactured Items are absorbed by lower level
       component Items. The following system-defined Costing Elements are
       available for manufactured Items:</para>
-      <para id="Para625384">Direct Labor</para>
-      <para id="Para625392">Machine Overhead</para>
-      <para id="Para625394">Overhead</para>
-      <para id="Para625395">
+      <para>Direct Labor</para>
+      <para>Machine Overhead</para>
+      <para>Overhead</para>
+      <para>
           
          <indexterm significance="normal">
             <primary>item costs</primary>
             <secondary>for purchased items</secondary>
          </indexterm>For purchased Items, the following system-defined Costing
       Elements is available:</para>
-      <para id="Para625409">Material</para>
-      <para id="Para625414">If you require additional Elements to describe
+      <para>Material</para>
+      <para>If you require additional Elements to describe
       Costs associated with manufactured or purchased Items, you may create
       user-defined Costing Elements.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para625365">
+         <term>
              
             <indexterm significance="normal">
                <primary>costing elements</primary>
@@ -209,19 +206,19 @@
          <listitem id="listitemN0x180ac00N0x18d0c8c">
             <para>Select a Costing Element to associate with the specified
           Item.</para>
-            <para id="Para607198">The list of Elements will include all
+            <para>The list of Elements will include all
           system-defined Costing Elements, as well as any user-defined Costing
           Elements that may have been added.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para607223">Use the right-click menu from the Maintain Item
+      <para>Use the right-click menu from the Maintain Item
       Costs screen to post Actual Cost to Standard Cost.</para>
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para607210">
+         <term>
             
             <indexterm significance="normal">
                <primary>item costs</primary>
@@ -250,7 +247,7 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519816">
+         <term>
             
             <indexterm significance="normal">
                <primary>actual costs</primary>
@@ -263,7 +260,7 @@
          <listitem id="listitemN0x180ac00N0x18d0f14">
             <para>Select to post the Actual Cost for the specified Costing
           Element to its Standard Cost.</para>
-            <para id="Para625438">This option brings the Actual Cost and the
+            <para>This option brings the Actual Cost and the
           Standard Cost for the Costing Element into alignment with each
           other. Standard Cost is the Cost used for posting General Ledger
           transactions. Standard Cost is distinguished from Actual Cost in the
@@ -274,18 +271,18 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519817">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519818">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18d0f80">
             <para>Closes the screen without creating a new Item Cost, returning
           you to the previous screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519819">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18d0fc8">
             <para>Adds the Item Cost to the list of Costs for the specified
           Item.</para>

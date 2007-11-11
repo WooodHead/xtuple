@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section578361">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customers</primary>
       <secondary>exporting information for</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>exporting</primary>
       <secondary>of customer information</secondary>
     </indexterm>Customer Information Export</title>
-  <para id="Para578362">The Customer Information Export utility enables you to
+  <para>The Customer Information Export utility enables you to
   selectively identify Customer information, which you may then export into a
   plain-text, TAB-delimited file. The exporting of selected information is
   handled using the "Export Contents" option in the screen's right-click menu.
   To specify the Customer information you want to tag for export, select the
   "Customer Information Export" option. The following screen will
   appear:</para>
-  <para id="Para578386"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SO_Utils_custInfoExp.png" id="Graphic578384"/>
         </imageobject>
         <caption id="Caption578387">Customer Information Export</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para578371">When specifying Customer information you want to tag
+    </screenshot>
+</para>
+  <para>When specifying Customer information you want to tag
   for export, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para599417">All Customer Types</term>
+      <term>All Customer Types</term>
       <listitem id="listitemN0x180ac00N0x199a6fc">
         <para>Select to tag all Customer Types for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para599418">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x199a744">
         <para>Specify Customer Type you want to tag for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para599419">Pattern</term>
+      <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x199a78c">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-        <para id="Para656150">Refine your search using Regular Expressions, as
+        <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -51,44 +55,44 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para578524">General</term>
+      <term>General</term>
       <listitem id="listitemN0x180ac00N0x199a7d4">
         <para>Select from the following general information categories:</para>
-        <para id="Para578536">Number: Select to tag the Customer Number for
+        <para>Number: Select to tag the Customer Number for
         export.</para>
-        <para id="Para578563">Name: Select to tag the Customer name for
+        <para>Name: Select to tag the Customer name for
         export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para578528">Billing Address</term>
+      <term>Billing Address</term>
       <listitem id="listitemN0x180ac00N0x199a81c">
         <para>Select from the following billing address categories:</para>
-        <para id="Para578540">Address 1: Select to tag the first address line
+        <para>Address 1: Select to tag the first address line
         for export.</para>
-        <para id="Para578564">Address 2: Select to tag the second address line
+        <para>Address 2: Select to tag the second address line
         for export.</para>
-        <para id="Para578565">Address 3: Select to tag the third address line
+        <para>Address 3: Select to tag the third address line
         for export.</para>
-        <para id="Para578566">City: Select to tag the city for export.</para>
-        <para id="Para578567">State: Select to tag the state for
+        <para>City: Select to tag the city for export.</para>
+        <para>State: Select to tag the state for
         export.</para>
-        <para id="Para578568">Zip Code: Select to tag the zip code for
+        <para>Zip Code: Select to tag the zip code for
         export.</para>
-        <para id="Para630245">Country: Select to tag the country for
+        <para>Country: Select to tag the country for
         export.</para>
-        <para id="Para578569">Contact: Select to tag the contact name for
+        <para>Contact: Select to tag the contact name for
         export.</para>
-        <para id="Para578570">Phone: Select to tag the contact's phone number
+        <para>Phone: Select to tag the contact's phone number
         for export.</para>
-        <para id="Para578571">FAX: Select to tag the contact's fax number for
+        <para>FAX: Select to tag the contact's fax number for
         export.</para>
-        <para id="Para578572">Email: Select to tag the contact's email address
+        <para>Email: Select to tag the contact's email address
         for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para599376">Correspondence Address</term>
+      <term>Correspondence Address</term>
       <listitem id="listitemN0x180ac00N0x199a864">
         <para>Select from the following correspondence address
         categories:</para>
@@ -165,38 +169,38 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para599434">Show Inactive</term>
+      <term>Show Inactive</term>
       <listitem id="listitemN0x180ac00N0x199a8ac">
         <para>Select to include inactive Customers in the list of Customers
         tagged for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para599435">Information</term>
+      <term>Information</term>
       <listitem id="listitemN0x180ac00N0x199a8f4">
         <para>Display lists Customer information tagged for export.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para578544">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para578545">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x199a960">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para578552">QUERY</term>
+      <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x199a9a8">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para630232">Right-clicking on the Customer Information list
+  <para>Right-clicking on the Customer Information list
   enables you to select from the following menu option:</para>
   <variablelist>
     <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>

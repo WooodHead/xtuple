@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section979997" role="openmfg">
-  <title>Topic: Submitting Reports and Jobs to the Batch Manager<anchor
-  id="Anchor61009" /></title>
+  <title>Topic: Submitting Reports and Jobs to the Batch Manager<anchor id="Anchor61009"/>
+</title>
 
-  <para id="Para979998">While the majority of OpenMFG reports and other jobs
+  <para>While the majority of OpenMFG reports and other jobs
   run quickly and easily, some require more time to generate. In some cases,
   it may make sense to submit these longer, more complex reports or jobs to
   the OpenMFG Batch Manager for processing. Submitting a job or report to the
@@ -14,7 +13,7 @@
   demand for server resources is lowest.</para>
 
   <note>
-    <para id="Para980000">Some reports and jobs may place a heavy load on
+    <para>Some reports and jobs may place a heavy load on
     Server resources. Not only will these reports and jobs take extra time to
     generate, they may also slow down performance for other users attached to
     the same Server.</para>
@@ -23,66 +22,68 @@
   <section id="Section980001">
     <title>Submitting Reports</title>
 
-    <para id="Para980002">To understand how reports are sent to the Batch
+    <para>To understand how reports are sent to the Batch
     Manager, consider the I/M Module report "Time-Phased Item Usage Statistics
     by Item," as shown below:</para>
 
-    <para id="Para980006"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_tpItemStats.png"
-                       id="Graphic980004" />
+            <imagedata fileref="images/Topic_tpItemStats.png" id="Graphic980004"/>
           </imageobject>
 
           <caption id="Caption980007">I/M Report: Time-Phased Item Usage
           Statistics by Item</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
 
     <note>
-      <para id="Para980009">For details on installing and setting up the Batch
+      <para>For details on installing and setting up the Batch
       Manager at your site, please see the Batch Manager documentation
       available in the Downloads area of the OpenMFG community website.</para>
     </note>
 
-    <para id="Para980010">This is a report with the potential to place a heavy
+    <para>This is a report with the potential to place a heavy
     load on Server resources. As you can see in the screen shot, the report is
     asking the Database to provide all records of Item Usage for Item Number
     COPY21 over the past three years. If this is a routinely used Item, the
     records indicating Item usage could be extensive.</para>
 
-    <para id="Para980011">So, rather than run the report immediately by
+    <para>So, rather than run the report immediately by
     selecting the PRINT button, it might be wiser to schedule the report for
     printing during off-peak hours. To schedule an alternate time for
     generating the report, select the SUBMIT button. The following screen will
     appear:</para>
 
-    <para id="Para980015"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_submitReportBatch.png"
-                       id="Graphic980013" />
+            <imagedata fileref="images/Topic_submitReportBatch.png" id="Graphic980013"/>
           </imageobject>
 
           <caption id="Caption980016">Submit Report to Batch Manager</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
 
-    <para id="Para980017">When submitting a report to the Batch Manager for
+    <para>When submitting a report to the Batch Manager for
     printing, you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para980018">Scheduled</term>
+        <term>Scheduled</term>
 
         <listitem id="listitemN0x180ac00N0x18eba30">
-          <para id="Para">Specify when you would like the report to be
+          <para>Specify when you would like the report to be
           run.</para>
 
-          <para id="Para980019">ASAP: Select to have the report run as soon as
+          <para>ASAP: Select to have the report run as soon as
           possible.</para>
 
-          <para id="Para980020">Scheduled: Schedule a date and time to run the
+          <para>Scheduled: Schedule a date and time to run the
           report. Specify a date in the first field using a standard date
           format. Use the arrow buttons in the second field to specify a time
           of day.</para>
@@ -90,7 +91,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980021">Document Name</term>
+        <term>Document Name</term>
 
         <listitem id="listitemN0x180ac00N0x18eba78">
           <para>Displays the name of the report being submitted to the Batch
@@ -99,32 +100,32 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980022">Email From</term>
+        <term>Email From</term>
 
         <listitem id="listitemN0x180ac00N0x18ebac0">
           <para>Enter the email address of the person who is sending the
           email.</para>
 
-          <para id="Para980023">The Batch Manager will print the report to
+          <para>The Batch Manager will print the report to
           .PDF format and then email it to the person whose email address
           appears in the "Response Email To" field.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980024">Response Email To</term>
+        <term>Response Email To</term>
 
         <listitem id="listitemN0x180ac00N0x18ebb08">
           <para>Enter the email address where you want the report to be sent
           once it has been generated and printed.</para>
 
-          <para id="Para980025">The recipient will receive an email with the
+          <para>The recipient will receive an email with the
           submitted report attached in.PDF format.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980026">Response Body</term>
+        <term>Response Body</term>
 
         <listitem id="listitemN0x180ac00N0x18ebb50">
           <para>Enter text to be included in the body of the email sent to the
@@ -134,7 +135,7 @@
     </variablelist>
 
     <note>
-      <para id="Para980028">When a report or other job is submitted to the
+      <para>When a report or other job is submitted to the
       Batch Manager with a scheduled time of ASAP, the Batch Manager sets the
       scheduled time to the current time. However, a job will not necessarily
       be run immediately if it is scheduled for the current time. Any
@@ -143,12 +144,12 @@
       immediately. Previously scheduled jobs will be run first.</para>
     </note>
 
-    <para id="Para980029">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para980030">CANCEL</term>
+        <term>CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18ebbe0">
           <para>Closes the screen without generating a report, returning you
@@ -157,7 +158,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980031">SUBMIT</term>
+        <term>SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x18ebc28">
           <para>Submits the report to the Batch Manager, using the specified
@@ -170,64 +171,66 @@
   <section id="Section980032">
     <title>Submitting Jobs</title>
 
-    <para id="Para980033">To understand how jobs are sent to the Batch
+    <para>To understand how jobs are sent to the Batch
     Manager, consider the P/D Module job "Update Actual Costs by Class Code,"
     as shown below:</para>
 
     <tip>
-      <para id="Para980035">If you schedule an MRP or MPS job submitted to the
+      <para>If you schedule an MRP or MPS job submitted to the
       Batch Manager to run on a periodic basis--daily, weekly, monthly--the
       cutoff date used for the run will automatically be updated by the number
       of days in the specified reschedule interval (Day = +1, Week = +7, and
       Month = +30).</para>
     </tip>
 
-    <para id="Para980039"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_batchUpdateActual.png"
-                       id="Graphic980037" />
+            <imagedata fileref="images/Topic_batchUpdateActual.png" id="Graphic980037"/>
           </imageobject>
 
           <caption id="Caption980040">Update Actual Costs by Class
           Code</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
 
     <note>
-      <para id="Para980042">For details on installing and setting up the Batch
+      <para>For details on installing and setting up the Batch
       Manager at your site, please see the Batch Manager documentation
       available in the Downloads area of the OpenMFG community website.</para>
     </note>
 
-    <para id="Para980043">This is a job with the potential to place a heavy
+    <para>This is a job with the potential to place a heavy
     load on Server resources. As you can see in the screen shot, the job is
     asking the Database to update all Actual Costs for all Class Codes. If
     there are hundreds or thousands of Items on file, the amount of work
     required to complete this request could be extensive.</para>
 
-    <para id="Para980044">So, rather than run the job immediately by selecting
+    <para>So, rather than run the job immediately by selecting
     the UPDATE button, it might be wiser to schedule the job for processing
     during off-peak hours. To schedule an alternate time for processing the
     job, select the SUBMIT button. The following screen will appear:</para>
 
-    <para id="Para980048"><screenshot>
+    <para>
+<screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_submitJobBatch.png"
-                       id="Graphic980046" />
+            <imagedata fileref="images/Topic_submitJobBatch.png" id="Graphic980046"/>
           </imageobject>
 
           <caption id="Caption980049">Submit Job to Batch Manager</caption>
         </mediaobject>
-      </screenshot></para>
+      </screenshot>
+</para>
 
-    <para id="Para980050">When submitting a job to the Batch Manager for
+    <para>When submitting a job to the Batch Manager for
     processing, you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para980051">Action</term>
+        <term>Action</term>
 
         <listitem id="listitemN0x180ac00N0x18ebdd8">
           <para>Displays the name of the job being submitted to the Batch
@@ -236,27 +239,27 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980052">Response Email</term>
+        <term>Response Email</term>
 
         <listitem id="listitemN0x180ac00N0x18ebe20">
           <para>Enter the email address where you want notification that the
           job is complete to be sent once it has been completed.</para>
 
-          <para id="Para980053">The recipient will receive an email letting
+          <para>The recipient will receive an email letting
           them know the submitted job has been completed.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980054">Scheduled</term>
+        <term>Scheduled</term>
 
         <listitem id="listitemN0x180ac00N0x18ebe68">
           <para>Specify when you would like the job to be run.</para>
 
-          <para id="Para980055">ASAP: Select to have the job run as soon as
+          <para>ASAP: Select to have the job run as soon as
           possible.</para>
 
-          <para id="Para980056">Scheduled: Schedule a date and time to run the
+          <para>Scheduled: Schedule a date and time to run the
           job. Specify a date in the first field using a standard date format.
           Use the arrow buttons in the second field to specify a time of
           day.</para>
@@ -265,7 +268,7 @@
     </variablelist>
 
     <note>
-      <para id="Para980058">When a report or other job is submitted to the
+      <para>When a report or other job is submitted to the
       Batch Manager with a scheduled time of ASAP, the Batch Manager sets the
       scheduled time to the current time. However, a job will not necessarily
       be run immediately if it is scheduled for the current time. Any
@@ -274,12 +277,12 @@
       immediately. Previously scheduled jobs will be run first.</para>
     </note>
 
-    <para id="Para980059">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para980060">CANCEL</term>
+        <term>CANCEL</term>
 
         <listitem id="listitemN0x180ac00N0x18ebef8">
           <para>Closes the screen without submitting the job, returning you to
@@ -288,7 +291,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para980061">SUBMIT</term>
+        <term>SUBMIT</term>
 
         <listitem id="listitemN0x180ac00N0x18ebf40">
           <para>Submits the job to the Batch Manager, using the specified

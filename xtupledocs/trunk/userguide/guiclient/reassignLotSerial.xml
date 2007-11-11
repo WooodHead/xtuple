@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section676279" role="openmfg">
     <title>Reassign Lot/Serial Number</title>
 
-    <para id="Para652394">To reassign the Lot/Serial Number for a Lot/Serial
+    <para>To reassign the Lot/Serial Number for a Lot/Serial
     Item--or to assign a Lot/Serial Number to a quantity located in a
     Lot/Serial Number controlled Item Site--select the "Reassign Lot/Serial
     Number" option. The following screen will appear:</para>
 
-    <para id="Para652398">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -21,12 +20,12 @@
       </screenshot>
    </para>
 
-    <para id="Para652388">When reassigning the Lot/Serial Number for a
+    <para>When reassigning the Lot/Serial Number for a
     Lot/Serial Item, you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para652217">Item Number</term>
+        <term>Item Number</term>
 
         <listitem id="listitemN0x180ac00N0x18d9048">
             <para>Enter the Item Number of the Item whose Lot/Serial Number you
@@ -35,7 +34,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para671995">UOM</term>
+        <term>UOM</term>
 
         <listitem id="listitemN0x180ac00N0x18d9090">
             <para>Inventory Unit of Measure.</para>
@@ -43,7 +42,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652220">Warehouse</term>
+        <term>Warehouse</term>
 
         <listitem id="listitemN0x180ac00N0x18d90d8">
             <para>Specify Warehouse where Inventory is located.</para>
@@ -51,19 +50,19 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652221">Source</term>
+        <term>Source</term>
 
         <listitem id="listitemN0x180ac00N0x18d9120">
             <para>Display lists source Locations for the specified Item.</para>
 
-            <para id="Para675862">Select the Location containing Inventory whose
+            <para>Select the Location containing Inventory whose
           Lot/Serial Number you want to reassign by highlighting the line
           using your mouse.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652223">Qty. to Reassign</term>
+        <term>Qty. to Reassign</term>
 
         <listitem id="listitemN0x180ac00N0x18d9168">
             <para>to Reassign: Enter the quantity of the specified Item whose
@@ -72,7 +71,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652224">New Lot Number</term>
+        <term>New Lot Number</term>
 
         <listitem id="listitemN0x180ac00N0x18d91b0">
             <para>Enter the new Lot Number for the quantity of the specified
@@ -81,7 +80,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652225">New Expiration Date</term>
+        <term>New Expiration Date</term>
 
         <listitem id="listitemN0x180ac00N0x18d91f8">
             <para>Specify the date when the Lot/Serial quantity expires.</para>
@@ -90,16 +89,16 @@
     </variablelist>
 
     <note>
-      <para id="Para652227">The expiration option is only required and
+      <para>The expiration option is only required and
       available for Item Sites designated as perishable.</para>
     </note>
 
-    <para id="Para652228">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para652229">CLOSE</term>
+        <term>CLOSE</term>
 
         <listitem id="listitemN0x180ac00N0x18d9288">
             <para>Closes the screen without reassigning the Lot/Serial Number,
@@ -108,13 +107,13 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para652230">REASSIGN</term>
+        <term>REASSIGN</term>
 
         <listitem id="listitemN0x180ac00N0x18d92d0">
             <para>Reassigns the Lot/Serial Number for the quantity of the
           specified Item.</para>
 
-            <para id="Para652231">Additional steps will be necessary if the
+            <para>Additional steps will be necessary if the
           specified Item is stored in multiple Locations. For more
           information, see the "Topic: Distributing Multiple Location Control
           (MLC) Items" section.</para>

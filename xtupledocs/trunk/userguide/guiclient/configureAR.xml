@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section953736">
    <title>
        
@@ -8,10 +7,10 @@
          <primary>configuration</primary>
          <secondary>of a/r module</secondary>
       </indexterm>Configure A/R</title>
-   <para id="Para942539">To configure the Accounts Receivable (A/R) module,
+   <para>To configure the Accounts Receivable (A/R) module,
     select the "Configure A/R" option. The following screen will
     appear:</para>
-   <para id="Para942543">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,11 +20,11 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para942545">When configuring the A/R module, you are presented
+   <para>When configuring the A/R module, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para945160">Next A/R Memo #</term>
+         <term>Next A/R Memo #</term>
          <listitem id="listitemN0x180ac00N0x18ba92c">
             <para>The next sequentially available Accounts Receivable Memo
           Number will display here. You may change the number--creating a new
@@ -34,21 +33,21 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para962402">Hide \xd4 Apply to Balance" button</term>
+         <term>Hide \xd4 Apply to Balance" button</term>
          <listitem id="listitemN0x180ac00N0x18ba974">
             <para>Select if you want to hide the APPLY TO BALANCE button on the
           "Enter Cash Receipt" screen.</para>
-            <para id="Para962406">If this option is selected, users will be
+            <para>If this option is selected, users will be
           required to apply Cash Receipts manually to individual open A/R
           items.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para977516">Enable Customer Deposits</term>
+         <term>Enable Customer Deposits</term>
          <listitem id="listitemN0x180ac00N0x18ba9bc">
             <para>Select if you want unapplied Cash Receipts from Customers to
           be handled by a Deferred Revenue Account.</para>
-            <para id="Para977523">If selected, the A/R Account Assignments
+            <para>If selected, the A/R Account Assignments
           screen will include a Deferred Revenue Account option. Not selecting
           this option will hide the Deferred Revenue Account option on the A/R
           Account assignments screen. Also hidden will be Customer Deposit
@@ -58,32 +57,32 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para945149">Remit-To Address</term>
+         <term>Remit-To Address</term>
          <listitem id="listitemN0x180ac00N0x18baa04">
             <para>The Remit-To Address is used in multiple report definitions.
           Specify details to be used for your site's default Remit-To
           Address:</para>
-            <para id="Para942644">Name: Specify the name to be used on the
+            <para>Name: Specify the name to be used on the
           default Remit-To Address.</para>
-            <para id="Para942642">Address: Specify the address to be used on the
+            <para>Address: Specify the address to be used on the
           default Remit-To Address.</para>
-            <para id="Para942643">Phone: Specify the phone number to be used on
+            <para>Phone: Specify the phone number to be used on
           the default Remit-To Address.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para942634">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para942635">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18baa70">
             <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para942636">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18baab8">
             <para>Saves the configuration settings, returning you to the
           application desktop.</para>

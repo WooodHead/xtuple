@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section530193" role="openmfg">
     <title>Capacity Buffer Status by Work Center</title>
 
-    <para id="Para530194">The capacity buffer status display provides
+    <para>The capacity buffer status display provides
     information on your current capacity buffer levels. Capacity buffers apply
     to Work Centers. The capacity buffer screen enables us to view the current
     load in relation to a definable number of days of capacity. Keep in mind
@@ -13,11 +12,11 @@
     information, this probably means Buffer Management has not been
     run.</para>
 
-    <para id="Para530195">To view capacity buffer status by Work Center,
+    <para>To view capacity buffer status by Work Center,
     select the "Capacity Buffer Status by Work Center" option. The following
     screen will appear:</para>
 
-    <para id="Para530199">
+    <para>
       <screenshot>
         <mediaobject>
             <imageobject>
@@ -31,19 +30,19 @@
    </para>
 
     <note>
-      <para id="Para530202">When the buffer status for a Work Center hits 66
+      <para>When the buffer status for a Work Center hits 66
       or higher, the status number will become red. By highlighting lines
       which are "red hot," the system is informing you which should be acted
       on immediately. The best remedy for red hot Item Sites is to expedite
       any associated Work Orders or Purchase Orders.</para>
     </note>
 
-    <para id="Para530203">When displaying capacity buffer statuses by Work
+    <para>When displaying capacity buffer statuses by Work
     Center, you are presented with the following options:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para530204">All Work Centers</term>
+        <term>All Work Centers</term>
 
         <listitem>
             <para>Select to display capacity buffer statuses for all Work
@@ -52,7 +51,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530205">Selected</term>
+        <term>Selected</term>
 
         <listitem>
             <para>Specify Work Center whose Inventory buffer status you want to
@@ -61,7 +60,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530206">All Warehouses</term>
+        <term>All Warehouses</term>
 
         <listitem>
             <para>Select to display capacity buffer statuses for all
@@ -70,7 +69,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530207">Selected</term>
+        <term>Selected</term>
 
         <listitem>
             <para>Specify Warehouse whose capacity buffer statuses you want to
@@ -79,26 +78,26 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530208">Max Days Load</term>
+        <term>Max Days Load</term>
 
         <listitem>
             <para>Specify the maximum number of days worth of Work Center load
           you want to view, using the arrows to the right of the field. This
           is required information</para>
 
-            <para id="Para530209">You must enter a value greater than 0 to
+            <para>You must enter a value greater than 0 to
           generate buffer status information. The system uses the following
           equation to determine the capacity buffer status for a Work
           Center:</para>
 
-            <para id="Para530210">(Total Setup + Total Run) / (Max Days Load x
+            <para>(Total Setup + Total Run) / (Max Days Load x
           Daily Capacity) = Buffer (%)</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
     <note>
-      <para id="Para530212">By default, the display will sort Work Centers by
+      <para>By default, the display will sort Work Centers by
       buffer status in descending order. In other words, Work Centers with the
       highest buffer status will appear at the top of the list; Work Centers
       with the lowest buffer status will appear at the bottom.</para>
@@ -106,7 +105,7 @@
 
     <variablelist>
       <varlistentry>
-        <term id="Para530213">Buffer Status by Work Center</term>
+        <term>Buffer Status by Work Center</term>
 
         <listitem>
             <para>Display lists capacity buffer status by Work Center, using the
@@ -115,12 +114,12 @@
       </varlistentry>
     </variablelist>
 
-    <para id="Para530214">To the far right of the screen, the following
+    <para>To the far right of the screen, the following
     buttons are available:</para>
 
     <variablelist>
       <varlistentry>
-        <term id="Para530215">CLOSE</term>
+        <term>CLOSE</term>
 
         <listitem>
             <para>Closes the screen, returning you to the application
@@ -129,7 +128,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530216">QUERY</term>
+        <term>QUERY</term>
 
         <listitem>
             <para>Select to generate the display, using the specified
@@ -138,7 +137,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term id="Para530217">PRINT</term>
+        <term>PRINT</term>
 
         <listitem>
             <para>Runs the report associated with this screen.</para>

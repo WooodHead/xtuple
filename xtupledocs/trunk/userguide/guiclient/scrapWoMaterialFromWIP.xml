@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519031">
    <title>
        
@@ -8,11 +7,11 @@
          <primary>scrap</primary>
          <secondary>from w/o materials</secondary>
       </indexterm>Scrap W/O Material from W/O</title>
-   <para id="Para519032">To scrap Work Order Materials which have been
+   <para>To scrap Work Order Materials which have been
     specifically issued to a Work Order using a Material Issue transaction,
     select the "Scrap W/O Material from Work Order" option. The following
     screen will appear:</para>
-   <para id="Para519036">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -24,49 +23,49 @@
       </screenshot>
    </para>
    <tip>
-      <para id="Para551661">You may only scrap W/O Materials which have been
+      <para>You may only scrap W/O Materials which have been
       specifically issued to a Work Order. In other words, Material
       Requirements having the Push issue method may be scrapped.</para>
    </tip>
-   <para id="Para551656">When scrapping Work Order Materials from a Work
+   <para>When scrapping Work Order Materials from a Work
     Order, you are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519039">Work Order #</term>
+         <term>Work Order #</term>
          <listitem>
             <para>Enter the Work Order Number of the Work Order whose materials
           you want to scrap.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519041">Whs.</term>
+         <term>Whs.</term>
          <listitem>
             <para>Displays Warehouse code automatically when Work Order Number
           is entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519043">Item Number</term>
+         <term>Item Number</term>
          <listitem>
             <para>Displays Item Number automatically when Work Order Number is
           entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para568709">UOM</term>
+         <term>UOM</term>
          <listitem>
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519047">Status</term>
+         <term>Status</term>
          <listitem>
             <para>Displays Work Order Status automatically when Work Order
           Number is entered into "Work Order #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557722">Top-Level Finished Item</term>
+         <term>Top-Level Finished Item</term>
          <listitem>
             <para>Select if you want to scrap parent-level Items.</para>
          </listitem>
@@ -87,7 +86,7 @@
       </varlistentry>
    </variablelist>
    <tip>
-      <para id="Para557826">Shop Floor Workbench users should only scrap
+      <para>Shop Floor Workbench users should only scrap
       top-level Items after they have posted production sufficient to cover
       the scrap quantity. For example, if a user assembles 10 top-level Items
       successfully but significantly damages the 11th, the user should post a
@@ -95,7 +94,7 @@
    </tip>
    <variablelist>
       <varlistentry>
-         <term id="Para557747">Scrap Component</term>
+         <term>Scrap Component</term>
          <listitem>
             <para>Select if you want to scrap component Items issued to the Work
           Order.</para>
@@ -169,18 +168,18 @@
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519066">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519067">CLOSE</term>
+         <term>CLOSE</term>
          <listitem>
             <para>Closes the screen without scrapping the material from the Work
           Order.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519068">SCRAP</term>
+         <term>SCRAP</term>
          <listitem>
             <para>Scraps the specified quantity of the component Item from the
           Work Order.</para>

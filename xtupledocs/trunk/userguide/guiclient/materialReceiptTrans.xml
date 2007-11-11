@@ -1,65 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519010">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>material receipts</primary>
       <secondary>as inventory transaction</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>inventory transactions</primary>
       <secondary>receiving materials</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>receiving</primary>
       <secondary>as inventory transaction</secondary>
     </indexterm>Material Receipt</title>
-  <para id="Para519011">To record the receipt of materials into Inventory,
+  <para>To record the receipt of materials into Inventory,
   select the "Material Receipt" option. The following screen will
   appear:</para>
-  <para id="Para519015"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/IM_IT_materialReceipt.png" id="Graphic525872"/>
         </imageobject>
         <caption id="Caption519016">Enter Material Receipt</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para638248">If an Item is Lot/Serial Number controlled, you will
+    <para>If an Item is Lot/Serial Number controlled, you will
     be given the opportunity to assign a Lot/Serial Number to incoming
     material during the receiving process. For more information on receiving
     Lot-controlled Items, see the <xref endterm="Anchor81167" linkend="Anchor81167"/>
     FINDME
   "Inter-Warehouse Transfer" section.</para>
   </note>
-  <para id="Para638252">When entering a Material Receipt, you are presented
+  <para>When entering a Material Receipt, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519023">Transaction Date</term>
+      <term>Transaction Date</term>
       <listitem id="listitemN0x180ac00N0x18987c8">
         <para>Displays the current day's date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519025">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x18a0600">
         <para>Enter the Item Number of the material you are receiving into
         Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para671968">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x18a0648">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519029">Warehouse</term>
+      <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x18a0690">
         <para>Specify Warehouse where material is being received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519034">Receipt Qty.</term>
+      <term>Receipt Qty.</term>
       <listitem id="listitemN0x180ac00N0x18a06d8">
         <para>: Record the quantity of the Item being received. The Item's
         Quantity on Hand before and after the material receipt will also be
@@ -69,10 +74,10 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519036">Immediate Issue to Work Order</term>
+      <term>Immediate Issue to Work Order</term>
       <listitem id="listitemN0x180ac00N0x18a0720">
         <para>Check to issue material immediately to a Work Order.</para>
-        <para id="Para596550">Any Work Order Material Requirements having an
+        <para>Any Work Order Material Requirements having an
         issue method of either "Mixed" or "Push" may be issued to a Work Order
         using this option. Because "Pull" Items are issued to Work Orders
         using a material backflush, they may not be issued from this
@@ -81,7 +86,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para596604">The full quantity being received will be issued to
+    <para>The full quantity being received will be issued to
     the Work Order if the "Immediate Issue" option is selected. This means the
     quantity issued may exceed or fall short of the Work Order Material
     Requirement quantity. In such cases, adjustments at the Work Order level
@@ -91,43 +96,43 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term id="Para519041">Work Order #</term>
+      <term>Work Order #</term>
       <listitem id="listitemN0x180ac00N0x18a07b0">
         <para>Enter the Work Order Number of the Work Order you want to issue
         the received materials to.</para>
-        <para id="Para596496">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a searchable Work Orders list. The list will include
         Work Orders whose supplying Warehouse matches the Warehouse the
         materials are being received into.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para596497">Whs.</term>
+      <term>Whs.</term>
       <listitem id="listitemN0x180ac00N0x18a07f8">
         <para>Specifies supplying Warehouse for the Work Order's parent
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para596498">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x18a0840">
         <para>Displays Item Number for the Work Order's parent Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para671973">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x18a0888">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para596501">Status</term>
+      <term>Status</term>
       <listitem id="listitemN0x180ac00N0x18a08d0">
         <para>Displays the Status of the selected Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519054">Document #</term>
+      <term>Document #</term>
       <listitem id="listitemN0x180ac00N0x18a0918">
         <para>Creates a user-defined reference for the Material Receipt. The
         Document reference will be posted with the General Ledger (G/L)
@@ -136,28 +141,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519059">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x18a0960">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Material Receipt.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para519061">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519062">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18a09cc">
         <para>Closes the screen without posting and crediting the Material
         Receipt, returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519063">POST</term>
+      <term>POST</term>
       <listitem id="listitemN0x180ac00N0x18a0a14">
         <para>Posts and credits the Material Receipt.</para>
-        <para id="Para519064">Additional steps will be necessary if the
+        <para>Additional steps will be necessary if the
         specified Item is stored in multiple Locations. For more information,
         see the <xref endterm="Anchor81167" linkend="Anchor81167"/>
     FINDME

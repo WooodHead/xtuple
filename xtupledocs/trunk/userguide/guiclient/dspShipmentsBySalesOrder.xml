@@ -1,101 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section551091">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>shipments of</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>sales orders shipped</secondary>
     </indexterm>Shipments by Sales Order</title>
-  <para id="Para536582">To view shipments by Sales Order, select the
+  <para>To view shipments by Sales Order, select the
   "Shipments by Sales Order" option. The following screen will appear:</para>
-  <para id="Para536586"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Disp_shipBySO.png" id="Graphic536584" />
+          <imagedata fileref="images/SR_Disp_shipBySO.png" id="Graphic536584"/>
         </imageobject>
         <caption id="Caption536587">Shipments by Sales Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
-    <para id="Para541894">Get the most up-to-date tracking information
+    <para>Get the most up-to-date tracking information
     directly from the shipper's website by using the "Query Shipment Status"
     option in the "Shipments by Sales Order" report.</para>
   </tip>
-  <para id="Para541811">When displaying shipments by Sales Order, you are
+  <para>When displaying shipments by Sales Order, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para536899">Sales Order #</term>
+      <term>Sales Order #</term>
       <listitem id="listitemN0x180ac00N0x1875a3c">
         <para>Enter the Sales Order Number of the Sales Order whose shipments
         you want to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536920">Order Date</term>
+      <term>Order Date</term>
       <listitem id="listitemN0x180ac00N0x1875a84">
         <para>Displays the Order Date for the specified Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536921">Cust. Name</term>
+      <term>Cust. Name</term>
       <listitem id="listitemN0x180ac00N0x1875acc">
         <para>Displays the Customer Name associated with the specified Sales
         Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536922">Cust. Phone</term>
+      <term>Cust. Phone</term>
       <listitem id="listitemN0x180ac00N0x1875b14">
         <para>Displays the Customer's phone number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536923">P/O Number</term>
+      <term>P/O Number</term>
       <listitem id="listitemN0x180ac00N0x1875b5c">
         <para>Displays the Purchase Order Number associated with the specified
         Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para536931">Shipments</term>
+      <term>Shipments</term>
       <listitem id="listitemN0x180ac00N0x1875ba4">
         <para>Display lists shipments by Sales Order, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para536924">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para536925">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x1828000">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para550939">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x1828048">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para539203">Right-clicking on a Shipment enables you to select
+  <para>Right-clicking on a Shipment enables you to select
   from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/6/2/1)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/6/2/2)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/6/2/1)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/6/2/2)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

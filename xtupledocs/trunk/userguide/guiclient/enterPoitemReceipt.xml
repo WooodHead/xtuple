@@ -2,9 +2,10 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="enterPoitemReceipt">
   <title>Enter Receipt Item</title>
-  <para id="Para523091">To enter Receipt details, highlight a Line Item and
+  <para>To enter Receipt details, highlight a Line Item and
   select the ENTER RECEIPT button. The following screen will appear:</para>
-  <para id="Para522172"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SR_Rcvg_enterRecptItem.png" id="Graphic522572"/>
@@ -12,91 +13,92 @@
         <caption id="Caption522575">Enter Purchase Order Item
         Receipt</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para522568">When entering Receipt details, you are presented with
+    </screenshot>
+</para>
+  <para>When entering Receipt details, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para522605">P/O Number</term>
+      <term>P/O Number</term>
       <listitem id="listitemN0x180ac00N0x184e9a4">
         <para>Displays the Purchase Order Number specified on the previous
         screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para522607">Line #</term>
+      <term>Line #</term>
       <listitem id="listitemN0x180ac00N0x184e9ec">
         <para>Displays the line number for the specified Purchase Order
         Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para522609">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1856e24">
         <para>Displays the Item Number for the Purchase Order Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para550790">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1856e6c">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527024">Vend. Item Number</term>
+      <term>Vend. Item Number</term>
       <listitem id="listitemN0x180ac00N0x1856eb4">
         <para>Displays the Vendor's Item number for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527028">Vendor Item Description</term>
+      <term>Vendor Item Description</term>
       <listitem id="listitemN0x180ac00N0x1856efc">
         <para>Displays Vendor's description of specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527031">Vendor UOM</term>
+      <term>Vendor UOM</term>
       <listitem id="listitemN0x180ac00N0x1856f44">
         <para>Displays the Vendor's Item UOM for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527033">Inv./Vendor UOM Ratio</term>
+      <term>Inv./Vendor UOM Ratio</term>
       <listitem id="listitemN0x180ac00N0x1856f8c">
         <para>Displays the ratio between Inventory and Vendor Units of
         Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para545105">Date Received</term>
+      <term>Date Received</term>
       <listitem id="listitemN0x180ac00N0x1856fd4">
         <para>Enter the date you want the receiving transaction to be posted
         to the General Ledger.</para>
-        <para id="Para545106">By default, receipts will be posted on the
+        <para>By default, receipts will be posted on the
         current day. However, this feature gives you the option to post
         transactions on an alternate date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527038">Due Date</term>
+      <term>Due Date</term>
       <listitem id="listitemN0x180ac00N0x185701c">
         <para>Displays the date the Item is due to be received.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527040">Qty. Ordered</term>
+      <term>Qty. Ordered</term>
       <listitem id="listitemN0x180ac00N0x1857064">
         <para>Displays the quantity ordered of the specified Item</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527042">Qty. Received</term>
+      <term>Qty. Received</term>
       <listitem id="listitemN0x180ac00N0x18570ac">
         <para>Displays the quantity received of the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para527044">Qty. to Receive</term>
+      <term>Qty. to Receive</term>
       <listitem id="listitemN0x180ac00N0x18570f4">
         <para>Specify the Line Item quantity you want to receive into
         Inventory. Depending on how your system is configured, you may or may
@@ -104,43 +106,43 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para542374">Freight</term>
+      <term>Freight</term>
       <listitem id="listitemN0x180ac00N0x185713c">
         <para>If Line Item freight charges were specified when the Line Item
         was created, then those charges will automatically appear here.</para>
-        <para id="Para547943">If you receive a partial quantity and decrease
+        <para>If you receive a partial quantity and decrease
         the Freight amount accordingly, the system will automatically show the
         remaining Freight balance due when you go to receive the remaining
         quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para541452">Notes</term>
+      <term>Notes</term>
       <listitem id="listitemN0x180ac00N0x1857184">
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related Items being received into Inventory.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para527046">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para522648">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18571f0">
         <para>Closes the screen without receiving any of the Line Item
         quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para522649">RECEIVE</term>
+      <term>RECEIVE</term>
       <listitem id="listitemN0x180ac00N0x1857238">
         <para>Select to receive the specified Line Item quantity.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para534830">For information on the special processes required to
+    <para>For information on the special processes required to
     receive Lot-controlled Items, see the <xref endterm="Anchor58321" linkend="Anchor58321"/>
     FINDME
   "Topic: Receiving Lot/Serial Items into Inventory" section

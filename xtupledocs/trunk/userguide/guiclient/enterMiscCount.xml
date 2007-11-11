@@ -1,65 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519348">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>inventory counts</primary>
       <secondary>entering miscellaneous</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>entering miscellaneous count</secondary>
     </indexterm>Enter Miscellaneous Inventory Count</title>
-  <para id="Para519349">Miscellaneous Inventory counts can be used to enter
+  <para>Miscellaneous Inventory counts can be used to enter
   Inventory totals without engaging the Count Tag or Count Slip mechanisms.
   Entering a miscellaneous Inventory count is a simplified method for entering
   Inventory counts. To enter a miscellaneous Inventory count, select the
   "Enter Misc. Inventory Count" option. The following screen will
   appear:</para>
-  <para id="Para519353"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_enterMiscInventoryCou.png"
-                     id="Graphic526069" />
+          <imagedata fileref="images/IM_PI_enterMiscInventoryCou.png" id="Graphic526069"/>
         </imageobject>
         <caption id="Caption519354">Enter Miscellaneous Inventory
         Count</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519360">When entering a miscellaneous Inventory count, you are
+    </screenshot>
+</para>
+  <para>When entering a miscellaneous Inventory count, you are
   presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519361">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1912d68">
         <para>Enter the Item Number of the Item you want to enter a
         miscellaneous Inventory count for.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para672018">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x1912db0">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519365">Warehouse</term>
+      <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x1912df8">
         <para>Specify the Warehouse where you want to record the miscellaneous
         Inventory Count.</para>
-        <para id="Para519366">This field will remain blank until you enter an
+        <para>This field will remain blank until you enter an
         Item Number into the "Item Number" field. Once that is entered, the
         Warehouse(s) where the Item is located will display in the
         list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519370">Count Qty.</term>
+      <term>Count Qty.</term>
       <listitem id="listitemN0x180ac00N0x1912e40">
         <para>Enter the miscellaneous Count total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519375">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x1912e88">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the Count Tag.</para>
@@ -67,27 +69,27 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para568884">To view a miscellaneous Count total that has been
+    <para>To view a miscellaneous Count total that has been
     entered into the system, open any of the Physical Inventory displays
     featuring Count Tags. While a miscellaneous Count is not assigned a Count
     Tag number, its total will be shown in these Physical Inventory
     displays.</para>
   </tip>
-  <para id="Para568880">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519378">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1912f18">
         <para>Closes the screen without posting a miscellaneous Count,
         returning you to the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519379">POST COUNT</term>
+      <term>POST COUNT</term>
       <listitem id="listitemN0x180ac00N0x1912f60">
         <para>Posts miscellaneous Count.</para>
-        <para id="Para519380">Count quantity is added to the total Quantity on
+        <para>Count quantity is added to the total Quantity on
         Hand.</para>
       </listitem>
     </varlistentry>

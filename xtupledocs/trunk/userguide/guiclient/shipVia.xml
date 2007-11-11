@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="shipVia">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>ship vias</primary>
       <secondary>creating new</secondary>
     </indexterm>Ship Via</title>
-  <para id="Para518872">To create a new Ship Via, select the NEW button. The
+  <para>To create a new Ship Via, select the NEW button. The
   following screen will appear:</para>
-  <para id="Para518876"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_shipViaNew.png" id="Graphic523048" />
+          <imagedata fileref="images/SO_MI_shipViaNew.png" id="Graphic523048"/>
         </imageobject>
         <caption id="Caption518877">Create New Ship Via</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para601764">Ship Vias may be overwritten in various places
+    <para>Ship Vias may be overwritten in various places
     throughout the application--for example, on the Sales Order header. This
     functionality is intentional. Ship Vias are intended to be
     editable.</para>
   </note>
-  <para id="Para518878">When creating a new Ship Via, you are presented with
+  <para>When creating a new Ship Via, you are presented with
   the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518882">Code</term>
+      <term>Code</term>
       <listitem id="listitemN0x180ac00N0x186ff50">
         <para>Enter an identifying code for the Ship Via.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518887">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x186ff98">
         <para>Enter a description to identify the Ship Via.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para518889">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para518890">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x1870004">
         <para>Closes the screen without creating a Ship Via, returning you to
         the application desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para518891">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x187004c">
         <para>Creates the Ship Via and adds it to the master list of Ship
         Vias.</para>

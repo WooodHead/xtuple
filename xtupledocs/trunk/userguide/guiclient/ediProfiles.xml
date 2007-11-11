@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section959762" role="openmfg">
   <title>List EDI Profiles</title>
 
-  <para id="Para959763">The Electronic Data Interchange (EDI) system supports
-  the export of documents and files using either of the following two <anchor id="Anchor959764" role="Index"
-              xreflabel="electronic data interchange:delivery methods for"/> 
+  <para>The Electronic Data Interchange (EDI) system supports
+  the export of documents and files using either of the following two <anchor id="Anchor959764" role="Index" xreflabel="electronic data interchange:delivery methods for"/> 
       <indexterm significance="normal">
          <primary>electronic data interchange</primary>
 
@@ -15,21 +13,20 @@
 
   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x187a150">
-         <para id="Para959499">Email</para>
+         <para>Email</para>
       </listitem>
 
       <listitem id="listitemN0x180ac00N0x187a174">
-         <para id="Para960504">FTP</para>
+         <para>FTP</para>
       </listitem>
   </itemizedlist>
 
-  <para id="Para960505">EDI Profiles are the master records which contain
+  <para>EDI Profiles are the master records which contain
   specifications for EDI recipients--whether those recipients are Customers,
   Suppliers, or intermediaries such as VANs (Value-Added Networks).</para>
 
-  <para id="Para960497">When creating an EDI Profile, you specify recipient
-  details, delivery method, and output format. The following <anchor id="Anchor959630" role="Index"
-              xreflabel="electronic data interchange:supported formats"/> 
+  <para>When creating an EDI Profile, you specify recipient
+  details, delivery method, and output format. The following <anchor id="Anchor959630" role="Index" xreflabel="electronic data interchange:supported formats"/> 
       <indexterm significance="normal">
          <primary>electronic data interchange</primary>
 
@@ -38,29 +35,29 @@
 
   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x187a204">
-         <para id="Para959532">xTuple Report (.PDF)</para>
+         <para>xTuple Report (.PDF)</para>
       </listitem>
 
       <listitem id="listitemN0x180ac00N0x187a228">
-         <para id="Para959538">Comma Delimited (.TXT)</para>
+         <para>Comma Delimited (.TXT)</para>
       </listitem>
 
       <listitem id="listitemN0x180ac00N0x187a24c">
-         <para id="Para959563">Tab Delimited (.TXT)</para>
+         <para>Tab Delimited (.TXT)</para>
       </listitem>
   </itemizedlist>
 
-  <para id="Para960486">Using different combinations of delivery methods and
+  <para>Using different combinations of delivery methods and
   output formats, you have the flexibility to create a wide range of unique
   EDI Profiles.</para>
 
   <tip>
-      <para id="Para959548">The EDI system exports files using the Batch
+      <para>The EDI system exports files using the Batch
     Manager. The Batch Manager must be installed and running at your site for
     EDI exports to be successful.</para>
   </tip>
 
-  <para id="Para959435">
+  <para>
       <anchor id="Anchor959631" role="Index" xreflabel="profiles:master list of"/> 
       <indexterm significance="normal">
          <primary>profiles</primary>
@@ -69,7 +66,7 @@
       </indexterm>To access the master list of EDI Profiles, select the "EDI
   Profiles" option. The following screen will appear:</para>
 
-  <para id="Para959274">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -81,13 +78,13 @@
       </screenshot>
    </para>
 
-  <para id="Para959276">The "EDI Profiles" screen displays information on all
+  <para>The "EDI Profiles" screen displays information on all
   existing EDI Profiles. To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para959278">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem id="listitemN0x180ac00N0x187a390">
             <para>Closes the screen, returning you to the application
@@ -96,7 +93,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para979402">PRINT</term>
+         <term>PRINT</term>
 
          <listitem id="listitemN0x180ac00N0x187a3d8">
             <para>Runs the report associated with this screen.</para>
@@ -104,7 +101,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para959280">NEW</term>
+         <term>NEW</term>
 
          <listitem id="listitemN0x180ac00N0x187a420">
             <para>Opens screen for creating a new EDI Profile.</para>
@@ -112,7 +109,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para959284">EDIT</term>
+         <term>EDIT</term>
 
          <listitem id="listitemN0x180ac00N0x187a468">
             <para>Enables you to edit highlighted EDI Profile definitions. The
@@ -124,7 +121,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para959769">DELETE</term>
+         <term>DELETE</term>
 
          <listitem id="listitemN0x180ac00N0x187a4b0">
             <para>Highlight an EDI Profile definition and then select this button

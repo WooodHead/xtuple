@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE chapter
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter557657">
   <title>Project Management (P/M) Module</title>
 
-  <para id="Para524650">In this chapter, we describe Project Management. The
+  <para>In this chapter, we describe Project Management. The
   following topics will be covered:</para>
 
   <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1819e48">
-         <para id="Para556049">Creating Projects</para>
+         <para>Creating Projects</para>
       </listitem>
 
       <listitem id="listitemN0x180ac00N0x1819e6c">
-         <para id="Para556053">Linking Projects and Orders</para>
+         <para>Linking Projects and Orders</para>
       </listitem>
 
       <listitem id="listitemN0x180ac00N0x1819e90">
-         <para id="Para556070">Tracking Project Activity</para>
+         <para>Tracking Project Activity</para>
       </listitem>
   </itemizedlist>
 
   <section id="Section556344">
       <title>Projects</title>
 
-      <para id="Para556345">Projects provide a mechanism for linking Orders
+      <para>Projects provide a mechanism for linking Orders
     which share a common thread. Through the use of Projects, you can create
     and then track the relationship between all related Sales Orders, Work
     Orders, and Purchase Orders generated to meet Sales Order demand. At the
     Project level, you also have the ability to enter descriptive information,
     as well as to-do items (i.e., Tasks) related to the Project.</para>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/project.xml"
-                  xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/project.xml" xpointer="element(/1)"/>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/projects.xml"
-                  xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/projects.xml" xpointer="element(/1)"/>
   </section>
 
   <section id="Section556253">
       <title>P/M Reports</title>
 
-      <para id="Para556245">This section describes the reports.</para>
+      <para>This section describes the reports.</para>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  href="guiclient/dspOrderActivityByProject.xml"
-                  xpointer="element(/1)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="guiclient/dspOrderActivityByProject.xml" xpointer="element(/1)"/>
   </section>
 </chapter>

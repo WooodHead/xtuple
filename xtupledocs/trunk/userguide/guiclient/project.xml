@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556014">
    <title>
        
@@ -8,15 +7,15 @@
          <primary>projects</primary>
          <secondary>creating new</secondary>
       </indexterm>Project</title>
-   <para id="Para557886">Projects can be created manually or automatically,
+   <para>Projects can be created manually or automatically,
     depending on your needs. To have Projects created automatically whenever a
     new Sales Order or Quote is entered, choose the appropriate setting in
     your system-level configuration. Otherwise, Projects will be created
     manually. Once created, Projects can be linked to Sales Orders, Work
     Orders, and Purchase Orders.</para>
-   <para id="Para557887">To create a new Project, select the "New Project"
+   <para>To create a new Project, select the "New Project"
     option. The following screen will appear:</para>
-   <para id="Para556108">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -26,100 +25,100 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para556037">When creating a new Project, you are presented with
+   <para>When creating a new Project, you are presented with
     the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556124">Number</term>
+         <term>Number</term>
          <listitem id="listitemN0x180ac00N0x1819ff8">
             <para>Enter a code to identify the Project.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556366">Name</term>
+         <term>Name</term>
          <listitem id="listitemN0x180ac00N0x181a040">
             <para>Enter a brief name to identify the Project.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556373">Description</term>
+         <term>Description</term>
          <listitem id="listitemN0x180ac00N0x181a088">
             <para>Enter a description to identify the Project.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556374">Status</term>
+         <term>Status</term>
          <listitem id="listitemN0x180ac00N0x181a0d0">
             <para>Specify one of the following statuses to characterize the
           Project:</para>
-            <para id="Para556511">Concept: Use this status to indicate the
+            <para>Concept: Use this status to indicate the
           Project has not yet begun.</para>
-            <para id="Para556514">In-Process: Use this status to indicate the
+            <para>In-Process: Use this status to indicate the
           Project is in-process.</para>
-            <para id="Para556515">Complete: Use this status to indicate the
+            <para>Complete: Use this status to indicate the
           Project is complete.</para>
          </listitem>
       </varlistentry>
    </variablelist>
    <note>
-      <para id="Para556520">Projects generated automatically when a new Sales
+      <para>Projects generated automatically when a new Sales
       Order or Quote is entered will be assigned the status "Undefined" at
       first. To remove this initial status, simply edit a Project and assign
       an appropriate status to it.</para>
    </note>
    <variablelist>
       <varlistentry>
-         <term id="Para556375">Types of Orders that may be assigned to this
+         <term>Types of Orders that may be assigned to this
         Project</term>
          <listitem id="listitemN0x180ac00N0x181a160">
             <para>Specify which of the following Order types can be linked to
           the Project.</para>
-            <para id="Para556376">Sales Orders: Select to indicate Sales Orders
+            <para>Sales Orders: Select to indicate Sales Orders
           may be linked to the Project.</para>
-            <para id="Para556380">Work Orders: Select to indicate Work Orders
+            <para>Work Orders: Select to indicate Work Orders
           may be linked to the Project.</para>
-            <para id="Para556381">Purchase Orders: Select to indicate Purchase
+            <para>Purchase Orders: Select to indicate Purchase
           Orders may be linked to the Project.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556389">Tasks</term>
+         <term>Tasks</term>
          <listitem id="listitemN0x180ac00N0x181a1a8">
             <para>Displays any Tasks associated with the Project.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556665">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556666">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x181a214">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557823">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x181a25c">
             <para>Creates the new Project and adds it to the master list of
           Projects.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557824">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x181a2a4">
             <para>Prints a copy of the Task list.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557825">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x181a2ec">
             <para>Opens screen for creating a new Task.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557826">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x181a334">
             <para>Enables you to edit highlighted Task. The edit screen is the
           same as that for creating a new Task--except that when editing, the
@@ -128,28 +127,28 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556669">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x181a37c">
             <para>Highlight a Task and then select this button to reach a
           read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556672">DELETE</term>
+         <term>DELETE</term>
          <listitem id="listitemN0x180ac00N0x181a3c4">
             <para>Highlight a Task and then select this button to remove the
           Task from the master list.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556845">
+   <para>
        
       <indexterm significance="normal">
          <primary>tasks</primary>
          <secondary>creating new</secondary>
       </indexterm>To create a new Task, select the NEW button. The following
     screen will appear:</para>
-   <para id="Para556854">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -159,92 +158,92 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para556125">When creating a new Task, you are presented with the
+   <para>When creating a new Task, you are presented with the
     following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556876">Number</term>
+         <term>Number</term>
          <listitem id="listitemN0x180ac00N0x181a4e4">
             <para>Enter a code to identify the Task.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556881">Name</term>
+         <term>Name</term>
          <listitem id="listitemN0x180ac00N0x181a52c">
             <para>Enter a brief name to identify the Task.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556888">Status</term>
+         <term>Status</term>
          <listitem id="listitemN0x180ac00N0x181a574">
             <para>Specify one of the following statuses to characterize the
           Task:</para>
-            <para id="Para556889">Concept: Use this status to indicate the Task
+            <para>Concept: Use this status to indicate the Task
           has not yet begun.</para>
-            <para id="Para556890">In-Process: Use this status to indicate the
+            <para>In-Process: Use this status to indicate the
           Task is in-process.</para>
-            <para id="Para556891">Complete: Use this status to indicate the Task
+            <para>Complete: Use this status to indicate the Task
           is complete.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556900">Description</term>
+         <term>Description</term>
          <listitem id="listitemN0x180ac00N0x181a5bc">
             <para>Enter a description to identify the Task.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556038">Hours</term>
+         <term>Hours</term>
          <listitem id="listitemN0x180ac00N0x181a604">
             <para>Specify the number of hours associated with the Task using the
           following fields:</para>
-            <para id="Para556965">Budgeted: Enter the number of hours budgeted
+            <para>Budgeted: Enter the number of hours budgeted
           for the Task. This information may be saved and updated
           later.</para>
-            <para id="Para556976">Actual: Enter the actual number of hours
+            <para>Actual: Enter the actual number of hours
           consumed performing the Task. This information may be saved and
           updated later.</para>
-            <para id="Para556977">Balance: Displays the difference between the
+            <para>Balance: Displays the difference between the
           budgeted and actual hours.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556991">Expenses</term>
+         <term>Expenses</term>
          <listitem id="listitemN0x180ac00N0x181a64c">
             <para>Specify the Expenses associated with the Task using the
           following fields:</para>
-            <para id="Para557067">Budgeted: Enter the total Expenses budgeted
+            <para>Budgeted: Enter the total Expenses budgeted
           for the Task. This information may be saved and updated
           later.</para>
-            <para id="Para557068">Actual: Enter the actual Expenses incurred
+            <para>Actual: Enter the actual Expenses incurred
           while performing the Task. This information may be saved and updated
           later.</para>
-            <para id="Para556994">Balance: Displays the difference between the
+            <para>Balance: Displays the difference between the
           budgeted and actual Expenses.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para557022">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para557023">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x181a6b8">
             <para>Closes the screen, returning you to the previous
           screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para557024">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x181a700">
             <para>Creates the new Task and adds it to the Project's list of
           Tasks.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556907">To add Comments related to a Project, select the
+   <para>To add Comments related to a Project, select the
     "Comments" tab. The following screen will appear:</para>
-   <para id="Para556718">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -254,36 +253,36 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para556742">When adding Comments related to a Project, you are
+   <para>When adding Comments related to a Project, you are
     presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556743">Comments</term>
+         <term>Comments</term>
          <listitem id="listitemN0x180ac00N0x181a7d8">
             <para>Display lists Comments for the specified Project.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556745">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556746">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x181a844">
             <para>Opens screen for creating a new Comment.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556748">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x181a88c">
             <para>Highlight a Comment and then select this button to reach a
           read-only view of the Comment.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556749">To create a Project Comment, select the NEW button.
+   <para>To create a Project Comment, select the NEW button.
     The following screen will appear:</para>
-   <para id="Para556753">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -295,29 +294,29 @@
    </para>
    <variablelist>
       <varlistentry>
-         <term id="Para556755">Comment Type</term>
+         <term>Comment Type</term>
          <listitem id="listitemN0x180ac00N0x181a964">
             <para>Specify one of the following Comment Types from the drop-down
           list: ChangeLog or General.</para>
-            <para id="Para556756">Comment Types are used to categorize Comments.
+            <para>Comment Types are used to categorize Comments.
           Once you have specified a Comment Type, you may type your Comment in
           the main text area. The text area features word-wrapping and
           scroll-bar support for longer Comments.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para556757">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para556758">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x181a9d0">
             <para>Closes the screen without creating a new Comment, returning
           you to the previous screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para556759">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x181aa18">
             <para>Creates the Comment and adds it to the list of Project
           Comments.</para>

@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972017">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>receipts</primary>
       <secondary>uninvoiced</secondary>
     </indexterm>Uninvoiced Receipts and Returns</title>
-  <para id="Para972018">To view uninvoiced Receipts and Returns, select the
+  <para>To view uninvoiced Receipts and Returns, select the
   "Uninvoiced Receipts and Returns" option. The following screen will
   appear:</para>
-  <para id="Para972022"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_uninvoicedRecpt.png"
-                     id="Graphic972020" />
+          <imagedata fileref="images/PO_Vouch_uninvoicedRecpt.png" id="Graphic972020"/>
         </imageobject>
         <caption id="Caption972023">Uninvoiced Receipts and Returns</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para972024">When displaying uninvoiced Receipts and Returns, you
+    </screenshot>
+</para>
+  <para>When displaying uninvoiced Receipts and Returns, you
   are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972025">All Warehouses</term>
+      <term>All Warehouses</term>
       <listitem id="listitemN0x180ac00N0x187aed0">
         <para>Select to display uninvoiced Receipts and Returns for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972026">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x187af18">
         <para>Specify Warehouse whose uninvoiced Receipts and Returns you want
         to display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972027">All Purchasing Agents</term>
+      <term>All Purchasing Agents</term>
       <listitem id="listitemN0x180ac00N0x187af60">
         <para>Select to display uninvoiced Receipts and Returns for all
         Purchasing Agents.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972028">Selected</term>
+      <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x187afa8">
         <para>Specify Purchasing Agent whose uninvoiced Receipts and Returns
         you want to display.</para>
-        <para id="Para972029">Users may be designated as Purchasing Agents at
+        <para>Users may be designated as Purchasing Agents at
         the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972030">P/O Receipts</term>
+      <term>P/O Receipts</term>
       <listitem id="listitemN0x180ac00N0x187aff0">
         <para>Display lists uninvoiced Receipts and Returns, using the
         specified parameters.</para>
@@ -60,50 +61,40 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para id="Para972032">The primary path for marking Purchase Order Line
+    <para>The primary path for marking Purchase Order Line
     Items as invoiced is on the Voucher Item screen. If received (or returned)
     quantity is tagged as "Yes" on the Voucher Item screen--and the Voucher is
     then posted--the quantity will no longer appear on the "Uninvoiced
     Receipts and Returns" screen.</para>
   </tip>
-  <para id="Para972033">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para972034">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x187b080">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para972035">PRINT</term>
+      <term>PRINT</term>
       <listitem id="listitemN0x180ac00N0x187b0c8">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para972036">Right-clicking on a Receipt in the P/O Receipts list
+  <para>Right-clicking on a Receipt in the P/O Receipts list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/3)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/3)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <para id="Para972040">If you right-click on a Return, the following option
+  <para>If you right-click on a Return, the following option
   will be available:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/7/2/4)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/4)"/>
   </variablelist>
-  <xi:include href="poLiabilityDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="correctPoReceipt.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="poLiabilityDistrib.xml" xpointer="element(/1)"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="correctPoReceipt.xml" xpointer="element(/1)"/>
 </section>

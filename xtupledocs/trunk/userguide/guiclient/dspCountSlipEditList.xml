@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519519">
    <title>
        
@@ -8,10 +7,10 @@
          <primary>count slips</primary>
          <secondary>edit list for</secondary>
       </indexterm>Count Slip Edit List</title>
-   <para id="Para519520">To edit Count Slips entered for an associated Count
+   <para>To edit Count Slips entered for an associated Count
     Tag, select the "Count Slip Edit List" option. The following screen will
     appear:</para>
-   <para id="Para519524">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,68 +20,68 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519526">When displaying the Count Slip Edit List, you are
+   <para>When displaying the Count Slip Edit List, you are
     presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519530">Count Tag #</term>
+         <term>Count Tag #</term>
          <listitem id="listitemN0x180ac00N0x191aca8">
             <para>Enter the Count Tag Number of the Count Tag whose Count Slips
           you want to display.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519532">Item Number</term>
+         <term>Item Number</term>
          <listitem id="listitemN0x180ac00N0x191acf0">
             <para>Displays Item Number automatically when Count Tag Number is
           entered into "Count Tag #" field.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para672023">UOM</term>
+         <term>UOM</term>
          <listitem id="listitemN0x180ac00N0x191ad38">
             <para>Inventory Unit of Measure.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519536">Warehouse</term>
+         <term>Warehouse</term>
          <listitem id="listitemN0x180ac00N0x191ad80">
             <para>Displays Warehouse where Count Tag and Count Slips originate
           from.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519538">Count Slips</term>
+         <term>Count Slips</term>
          <listitem id="listitemN0x180ac00N0x191adc8">
             <para>Display lists the Count Slip Edit List, using the specified
           parameters.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para519540">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519541">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x1922024">
             <para>Closes the screen, returning you to the application
           desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519542">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x192206c">
             <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519543">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x19220b4">
             <para>Opens screen for creating a new Count Slip.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519544">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x19220fc">
             <para>Enables you to edit highlighted Count Slip. The edit screen is
           the same as that for creating a new Count Slip--except that when
@@ -92,46 +91,45 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519545">DELETE</term>
+         <term>DELETE</term>
          <listitem id="listitemN0x180ac00N0x1922144">
             <para>Highlight a Count Slip and then select this button to remove
           the Count Slip from the list.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519546">POST</term>
+         <term>POST</term>
          <listitem id="listitemN0x180ac00N0x192218c">
             <para>Posts individual Count Slip quantities to the associated Count
           Tag's total.</para>
-            <para id="Para519547">Highlight the individual Count Slip you want
+            <para>Highlight the individual Count Slip you want
           to post.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para519548">POST ALL</term>
+         <term>POST ALL</term>
          <listitem id="listitemN0x180ac00N0x19221d4">
             <para>Posts all Count Slip quantities displayed in the "Count Slips"
           list to the associated Count Tag's total.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para524367">Right-clicking on a Count Slip in the Count Slips
+   <para>Right-clicking on a Count Slip in the Count Slips
     list enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para519550">Edit Count Slip</term>
+         <term>Edit Count Slip</term>
          <listitem id="listitemN0x180ac00N0x1922240">
             <para/>
          </listitem>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
-   <para id="Para545825">If the Count Slip has not been posted, the following
+   <para>If the Count Slip has not been posted, the following
     additional menu option will also be available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para545826">Post Count Slip</term>
+         <term>Post Count Slip</term>
          <listitem id="listitemN0x180ac00N0x19222f4">
             <para/>
          </listitem>

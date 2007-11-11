@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="customCommand">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>custom commands</primary>
       <secondary>creating new</secondary>
     </indexterm>Custom Command</title>
-  <para id="Para965144">To create a new Custom Command, select the NEW button.
+  <para>To create a new Custom Command, select the NEW button.
   The following screen will appear:</para>
-  <para id="Para967818"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommNew.png" id="Graphic967816" />
+          <imagedata fileref="images/Sys_custCommNew.png" id="Graphic967816"/>
         </imageobject>
         <caption id="Caption967819">Enter New Custom Command</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para969554">When creating a new Custom Command, you are presented
+    </screenshot>
+</para>
+  <para>When creating a new Custom Command, you are presented
   with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para967968">Module</term>
+      <term>Module</term>
       <listitem id="listitemN0x180ac00N0x1890e0c">
         <para>Select the name of the module where you want the custom menu
         option to appear.</para>
-        <para id="Para968071">You may create Custom Commands for any of the
+        <para>You may create Custom Commands for any of the
         modules within the system. By default, a menu option named "Custom"
         will be added to the bottom of a module's menu structure when a Custom
         Command is created for that module.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968081">Menu Label</term>
+      <term>Menu Label</term>
       <listitem id="listitemN0x180ac00N0x1890e54">
         <para>Enter a name to identify the Custom Command as it will appear on
         the menu structure.</para>
-        <para id="Para968126">The menu label will become a subset of the
+        <para>The menu label will become a subset of the
         "Custom" menu option appearing at the bottom of a module's menu
         structure. Each menu label should be used to describe a separate
         Custom Command. There is no limit to the number of Custom Commands
@@ -43,11 +45,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968051">Priv. Name</term>
+      <term>Priv. Name</term>
       <listitem id="listitemN0x180ac00N0x1890e9c">
         <para>Enter a name to describe the privilege associated with the
         Custom Command.</para>
-        <para id="Para968149">By associating a privilege with a Custom
+        <para>By associating a privilege with a Custom
         Command, you gain the ability to grant or withhold access to the menu
         option on a user-by-user basis. Users who have have been granted the
         privilege will have access to the Custom Command; all others will
@@ -55,31 +57,31 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968052">Executable</term>
+      <term>Executable</term>
       <listitem id="listitemN0x180ac00N0x1890ee4">
         <para>Enter the path to the location where the executable program you
         want to launch is located.</para>
-        <para id="Para968164">The executable program specified here will be
+        <para>The executable program specified here will be
         launched when users select the associated Custom Command menu option.
         For example, if you want to run a custom report, specify the location
         for the standalone report renderer ("RPTrender"). The following
         examples illustrate how (on Windows) you can map to either local or
         network drives:</para>
-        <para id="Para971684">Local Drive: C:\\Program
+        <para>Local Drive: C:\\Program
         Files\\OpenMFG\\RPTrender.exe</para>
-        <para id="Para971701">Network URL:
+        <para>Network URL:
         \\\\drive_name\\dir_name\\OpenMFG\\RPTrender.exe</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para id="Para971803">You may encounter cross-platform conflicts when
+    <para>You may encounter cross-platform conflicts when
     placing executables on network drives. To reduce these conflicts, it may
     be necessary to create separate custom menus to support executables
     designed for different operating systems.</para>
   </note>
   <tip>
-    <para id="Para969561">Macintosh users should enter an executable path
+    <para>Macintosh users should enter an executable path
     which points all the way to the executable file located within a package's
     Contents directory. For example, to launch the report renderer, enter the
     following path: ../rptrender.app/Contents/MacOS/rptrender. Under Mac, the
@@ -88,101 +90,133 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term id="Para968053">Description</term>
+      <term>Description</term>
       <listitem id="listitemN0x180ac00N0x1890f98">
         <para>Enter text to describe the Custom Command.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para968180">If you want the system to pass parameters or other
+  <para>If you want the system to pass parameters or other
   arguments to the specified executable program when it is launched, select
   the "Arguments" tab. The following screen will appear:</para>
-  <para id="Para967847"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommArg.png" id="Graphic967845" />
+          <imagedata fileref="images/Sys_custCommArg.png" id="Graphic967845"/>
         </imageobject>
         <caption id="Caption967848">Custom Command Arguments</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
-    <para id="Para968633">While the examples shown here emphasize arguments
+    <para>While the examples shown here emphasize arguments
     passed to the report renderer, you may pass arguments to any other program
     executed from a Custom Command menu.</para>
   </note>
-  <para id="Para968628">The arguments display lists all arguments defined for
+  <para>The arguments display lists all arguments defined for
   the specified executable program. The arguments shown in the example
   illustrate typical arguments needed to run custom reports from the system.
   As the example shows, the following arguments will be passed to the
   RPTrender application when the Custom Command is executed:</para>
-  <para id="Para968300"><table id="Table968303">
+  <para>
+<table id="Table968303">
       <title>Arguments Used for Custom Reports</title>
       <tgroup cols="2">
         <thead>
           <row>
-            <entry><para id="Para968376">Syntax</para></entry>
-            <entry><para id="Para968378">Description</para></entry>
+            <entry>
+<para>Syntax</para>
+</entry>
+            <entry>
+<para>Description</para>
+</entry>
           </row>
         </thead>
         <tbody>
           <row>
-            <entry><para id="Para968380">-databaseURL</para></entry>
-            <entry><para id="Para968382">Used to specify the location of the
+            <entry>
+<para>-databaseURL</para>
+</entry>
+            <entry>
+<para>Used to specify the location of the
             database server. In the example shown, the prefix "psql://"
             indicates a connection to a PostgreSQL data base. This is followed
             by the server address, database name, and port number. When the
             report renderer (RPTrender) is launched, the program will
-            automatically connect to the database specified.</para></entry>
+            automatically connect to the database specified.</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para968384">-username</para></entry>
-            <entry><para id="Para968386">Enter the username RPTrender should
-            use to connect to the specified database.</para></entry>
+            <entry>
+<para>-username</para>
+</entry>
+            <entry>
+<para>Enter the username RPTrender should
+            use to connect to the specified database.</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para968388">-passwd</para></entry>
-            <entry><para id="Para968390">Enter the password for the specified
-            user.</para></entry>
+            <entry>
+<para>-passwd</para>
+</entry>
+            <entry>
+<para>Enter the password for the specified
+            user.</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para968392">-param</para></entry>
-            <entry><para id="Para968394">Enter any parameters you want the
+            <entry>
+<para>-param</para>
+</entry>
+            <entry>
+<para>Enter any parameters you want the
             system to pass to the report renderer. These pre-defined
             parameters will be used when RPTrender runs the specified report
-            definition.</para></entry>
+            definition.</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para968396">-print</para></entry>
-            <entry><para id="Para968398">This argument tells RPTrender to
+            <entry>
+<para>-print</para>
+</entry>
+            <entry>
+<para>This argument tells RPTrender to
             print the specified report definition using the indicated
-            parameters -- if any.</para></entry>
+            parameters -- if any.</para>
+</entry>
           </row>
           <row>
-            <entry><para id="Para968400">-close</para></entry>
-            <entry><para id="Para968402">Use this argument to close the
-            RPTrender program when its work is done.</para></entry>
+            <entry>
+<para>-close</para>
+</entry>
+            <entry>
+<para>Use this argument to close the
+            RPTrender program when its work is done.</para>
+</entry>
           </row>
         </tbody>
       </tgroup>
-    </table></para>
-  <para id="Para968487">To the far right of the screen, the following buttons
+    </table>
+</para>
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para968488">CLOSE</term>
+      <term>CLOSE</term>
       <listitem id="listitemN0x180ac00N0x18913f4">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968489">NEW</term>
+      <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x189143c">
         <para>Opens screen for creating a new argument.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968490">EDIT</term>
+      <term>EDIT</term>
       <listitem id="listitemN0x180ac00N0x1891484">
         <para>Enables you to edit highlighted argument definitions. The edit
         screen is the same as that for creating a new argument
@@ -192,14 +226,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para968491">DELETE</term>
+      <term>DELETE</term>
       <listitem id="listitemN0x180ac00N0x18914cc">
         <para>Highlight an argument definition and then select this button to
         remove the argument from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customCommandArgument.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="customCommandArgument.xml" xpointer="element(/1)"/>
 </section>

@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bbomItem" role="openmfg">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>breeder items</primary>
       <secondary>adding to breeder bill</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>components</primary>
       <secondary>adding new to breeder bill</secondary>
     </indexterm> Breeder Bill of Materials Item</title>
-  <para id="Para519708">To create a new component Item for the Breeder Bill of
+  <para>To create a new component Item for the Breeder Bill of
   Materials, select the NEW button. The following screen will appear:</para>
-  <para id="Para519712"><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BreederBOM_BrComponentNe.png"
-                     id="Graphic563208" />
+          <imagedata fileref="images/PD_BreederBOM_BrComponentNe.png" id="Graphic563208"/>
         </imageobject>
         <caption id="Caption519713">Add New Breeder Bill of Materials
         Component Item</caption>
       </mediaobject>
-    </screenshot></para>
-  <para id="Para519719">When creating a new component Item for a Breeder Bill
+    </screenshot>
+</para>
+  <para>When creating a new component Item for a Breeder Bill
   of Materials, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519720">Item Number</term>
+      <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x18ca16c">
         <para>Enter the Item Number of the component Item you want to add to
         the Breeder Bill of Materials.</para>
-        <para id="Para519721">The browse button located to the right of the
+        <para>The browse button located to the right of the
         field leads to a "Co-Products and By-Products" master list. The list
         includes all Items whose Item Type is defined as either Co-Product or
         By-Product.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para663251">UOM</term>
+      <term>UOM</term>
       <listitem id="listitemN0x180ac00N0x18ca1b4">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519727">Qty. Per</term>
+      <term>Qty. Per</term>
       <listitem id="listitemN0x180ac00N0x18ca1fc">
         <para>Per: Specify the quantity of the component Item required per
         Breeder Bill of Materials. This is a required field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519732"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
         </indexterm> <indexterm significance="normal">
@@ -61,13 +63,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para601350">Expires</term>
+      <term>Expires</term>
       <listitem id="listitemN0x180ac00N0x18ca31c">
         <para>Specify when the component Item expires, if ever.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para601354"><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>costing</primary>
           <secondary>for co-products</secondary>
         </indexterm> <indexterm significance="normal">
@@ -83,7 +86,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para615100">Unique Manufacturing Path</term>
+      <term>Unique Manufacturing Path</term>
       <listitem id="listitemN0x180ac00N0x18ca484">
         <para>Select this option to alert Material Requirements Planning (MRP)
         that the parent Breeder Item should be called for when a need arises
@@ -92,25 +95,25 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para598224">Comments</term>
+      <term>Comments</term>
       <listitem id="listitemN0x180ac00N0x18ca4cc">
         <para>This is a scrolling text field with word-wrapping for entering
         Comments related to the component Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para id="Para596589">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
   <variablelist>
     <varlistentry>
-      <term id="Para519743">CANCEL</term>
+      <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18ca538">
         <para>Closes the screen without creating the component Item, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term id="Para519744">SAVE</term>
+      <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18ca580">
         <para>Creates the component Item and adds it to the Breeder Bill of
         Materials.</para>

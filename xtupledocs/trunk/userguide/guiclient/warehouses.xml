@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518522">
    <title>
        
@@ -8,11 +7,11 @@
          <primary>warehouses</primary>
          <secondary>master list of</secondary>
       </indexterm>List Warehouses</title>
-   <para id="Para518523">Warehouses typically describe physical production and
+   <para>Warehouses typically describe physical production and
   storage facilities. Work Centers, Item Sites, and Warehouse Locations belong
   to Warehouses. To access the master list of Warehouses, select the
   "Warehouses" option. The following screen will appear:</para>
-   <para id="Para518527">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -22,34 +21,34 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para518529">The "Warehouses" screen displays information on all
+   <para>The "Warehouses" screen displays information on all
   existing Warehouses, including Warehouse code, Warehouse description, and
   Warehouse address. To include inactive Warehouses in the display, select the
   "Show Inactive Warehouses" option.</para>
-   <para id="Para518530">To the far right of the screen, the following buttons
+   <para>To the far right of the screen, the following buttons
   are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para518531">CLOSE</term>
+         <term>CLOSE</term>
          <listitem id="listitemN0x180ac00N0x181a0d0">
-            <para id="Para">Closes the screen, returning you to the application
+            <para>Closes the screen, returning you to the application
         desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518532">PRINT</term>
+         <term>PRINT</term>
          <listitem id="listitemN0x180ac00N0x181a118">
-            <para id="Para">Runs the report associated with this screen.</para>
+            <para>Runs the report associated with this screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518533">NEW</term>
+         <term>NEW</term>
          <listitem id="listitemN0x180ac00N0x181a160">
-            <para id="Para">Opens screen for creating a new Warehouse.</para>
+            <para>Opens screen for creating a new Warehouse.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518534">EDIT</term>
+         <term>EDIT</term>
          <listitem id="listitemN0x180ac00N0x181a1a8">
             <para id="ParaWarehousesEdit">Enables you to edit highlighted
         Warehouses. The edit screen is the same as that for creating a new
@@ -59,29 +58,25 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para518535">VIEW</term>
+         <term>VIEW</term>
          <listitem id="listitemN0x180ac00N0x181a1f0">
-            <para id="Para">Highlight a Warehouse and then select this button to
+            <para>Highlight a Warehouse and then select this button to
         reach a read-only view of the "Edit" screen.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para524217">Right-clicking on a Warehouse in the Warehouses list
+   <para>Right-clicking on a Warehouse in the Warehouses list
   enables you to select from the following menu options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para518537">Edit</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
-                     xpointer="element(listitemN0x180ac00N0x181a1a8)"/>
+         <term>Edit</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x181a1a8)"/>
       </varlistentry>
       <varlistentry>
-         <term id="Para518538">View</term>
-         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""
-                     xpointer="element(listitemN0x180ac00N0x181a1f0)"/>
+         <term>View</term>
+         <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x181a1f0)"/>
       </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml"
-                  xpointer="element(/1/7/2/5)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml"
-                  xpointer="element(xtreewidget.menu.exportcontents)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
    </variablelist>
 </section>

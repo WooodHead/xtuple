@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section
-  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519218">
    <title>
        
@@ -8,10 +7,10 @@
          <primary>configuration</primary>
          <secondary>of s/r module</secondary>
       </indexterm>Configure S/R</title>
-   <para id="Para519219">To configure the Shipping &amp; Receiving (S/R)
+   <para>To configure the Shipping &amp; Receiving (S/R)
     module, select the "Configure S/R" option. The following screen will
     appear:</para>
-   <para id="Para519223">
+   <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -21,21 +20,21 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para519225">When configuring the S/R module, you are presented
+   <para>When configuring the S/R module, you are presented
     with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para971930">Shipment # Generation</term>
+         <term>Shipment # Generation</term>
          <listitem id="listitemN0x180ac00N0x18b2460">
             <para>By default, Shipment Numbers are generated
           automatically.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para971934">Next #</term>
+         <term>Next #</term>
          <listitem id="listitemN0x180ac00N0x18b24a8">
             <para>Enter the next Shipment Number to be used.</para>
-            <para id="Para971951">The system assigns Shipment Numbers to Sales
+            <para>The system assigns Shipment Numbers to Sales
           Order Line Item quantities when stock is issued to Shipping. All
           stock at Shipping for an individual Sales Order is assigned the same
           Shipment Number. If no stock is already at Shipping, then a new
@@ -43,12 +42,12 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para958898">Disallow P/O Receipt of Qty greater than
+         <term>Disallow P/O Receipt of Qty greater than
         ordered</term>
          <listitem id="listitemN0x180ac00N0x18b24f0">
             <para>Select to ensure the maximum receiving quantity does not
           exceed the quantity ordered.</para>
-            <para id="Para958907">If selected, the system will prevent users
+            <para>If selected, the system will prevent users
           from receiving more Purchase Order Line Item quantity than the
           quantity ordered. Not selecting this option means users will be
           allowed to receive quantity in excess of the quantity
@@ -56,50 +55,50 @@
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972055">Warn if P/O Receipt Qty differs from receivable
+         <term>Warn if P/O Receipt Qty differs from receivable
         Qty</term>
          <listitem id="listitemN0x180ac00N0x18b2538">
             <para>Select to generate a warning message if the entered quantity
           to receive does not match the quantity remaining to be
           received.</para>
-            <para id="Para972056">The warning message will alert users that a
+            <para>The warning message will alert users that a
           difference exists. However, it will not prevent users from
           continuing.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para972057">Default Shipping Form Copies</term>
+         <term>Default Shipping Form Copies</term>
          <listitem id="listitemN0x180ac00N0x18b2580">
             <para>Indicate the number of Shipping Form copies you want to print
           by default:</para>
-            <para id="Para933648"># of Copies: Specify the number of
+            <para># of Copies: Specify the number of
           miscellaneous copies you want to print. Information about the
           specified copies will display below. To add a Watermark,
           double-click on a copy line.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para950019">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para950020">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18b25ec">
             <para>Cancels any configuration settings, returning you to the
           application desktop.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para950021">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18ba224">
             <para>Saves the configuration settings, returning you to the
           application desktop.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para949988">To add a Watermark to a Shipping Form copy,
+   <para>To add a Watermark to a Shipping Form copy,
     double-click on a copy line. The following screen will appear:</para>
-   <para id="Para949992">
+   <para>
        
       <screenshot>
          <mediaobject>
@@ -110,35 +109,35 @@
          </mediaobject>
       </screenshot>
    </para>
-   <para id="Para949995">When adding a Watermark to a Shipping Form copy, you
+   <para>When adding a Watermark to a Shipping Form copy, you
     are presented with the following options:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para949999">Watermark</term>
+         <term>Watermark</term>
          <listitem id="listitemN0x180ac00N0x18ba2fc">
             <para>Specify the name of the Watermark to be used for the selected
           copy.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para950001">Show Prices</term>
+         <term>Show Prices</term>
          <listitem id="listitemN0x180ac00N0x18ba344">
             <para>Select to show Prices in the selected copy.</para>
          </listitem>
       </varlistentry>
    </variablelist>
-   <para id="Para950002">To the far right of the screen, the following
+   <para>To the far right of the screen, the following
     buttons are available:</para>
    <variablelist>
       <varlistentry>
-         <term id="Para950003">CANCEL</term>
+         <term>CANCEL</term>
          <listitem id="listitemN0x180ac00N0x18ba3b0">
             <para>Closes the screen without adding a Watermark, returning you to
           the previous screen.</para>
          </listitem>
       </varlistentry>
       <varlistentry>
-         <term id="Para950004">SAVE</term>
+         <term>SAVE</term>
          <listitem id="listitemN0x180ac00N0x18ba3f8">
             <para>Saves the Watermark definition to the selected copy.</para>
          </listitem>

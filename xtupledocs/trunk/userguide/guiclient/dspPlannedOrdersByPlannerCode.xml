@@ -3,11 +3,11 @@
 <section id="Section518773" role="openmfg">
   <title>Planned Orders by Planner Code</title>
 
-  <para id="Para518774">To view Planned Orders by Planner Code, select the
+  <para>To view Planned Orders by Planner Code, select the
   "Planned Orders by Planner Code" option. The following screen will
   appear:</para>
 
-  <para id="Para518778">
+  <para>
       <screenshot>
          <mediaobject>
             <imageobject>
@@ -20,18 +20,18 @@
    </para>
 
   <note>
-      <para id="Para533967">When a Planned Work Order is released, the Create
+      <para>When a Planned Work Order is released, the Create
     Work Order screen will appear with Work Order details automatically filled
     in. Releasing a Planned Purchase Order results in a Purchase Request,
     which may in turn be released from the Purchase Request reports.</para>
   </note>
 
-  <para id="Para518780">When displaying Planned Orders by Planner Code, you
+  <para>When displaying Planned Orders by Planner Code, you
   are presented with the following options:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para531795">All Planner Codes</term>
+         <term>All Planner Codes</term>
 
          <listitem>
             <para>Select to display Planned Orders for all Planner Codes.</para>
@@ -39,7 +39,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para518781">Selected</term>
+         <term>Selected</term>
 
          <listitem>
             <para>Specify Planner Code whose Planned Orders you want to
@@ -48,13 +48,13 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para526346">Pattern</term>
+         <term>Pattern</term>
 
          <listitem>
             <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
 
-            <para id="Para554626">Refine your search using Regular Expressions, as
+            <para>Refine your search using Regular Expressions, as
         described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
     FINDME
   "Topic: Pattern Matching with Regular
@@ -63,7 +63,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para518785">All Warehouses</term>
+         <term>All Warehouses</term>
 
          <listitem>
             <para>Select to display Planned Orders by Planner Code for all
@@ -72,7 +72,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para518787">Selected</term>
+         <term>Selected</term>
 
          <listitem>
             <para>Specify Warehouse whose Planned Orders by Planner Code you want
@@ -82,7 +82,7 @@
   </variablelist>
 
   <note>
-      <para id="Para537233">In the case of Planned Purchase Orders, the quantity
+      <para>In the case of Planned Purchase Orders, the quantity
     will always be represented in the Inventory Unit of Measure
     (UOM)--regardless of the Vendor UOM used on any existing Purchase
     Orders.</para>
@@ -90,7 +90,7 @@
 
   <variablelist>
       <varlistentry>
-         <term id="Para518789">Planned Orders</term>
+         <term>Planned Orders</term>
 
          <listitem>
             <para>Display will show Planned Orders by Planner Code, using the
@@ -100,17 +100,17 @@
   </variablelist>
 
   <tip>
-      <para id="Para537513">Planned Orders must be firm before they will be
+      <para>Planned Orders must be firm before they will be
     considered as a valid source of supply by Material Requirements Planning
     (MRP) when MRP is run.</para>
   </tip>
 
-  <para id="Para518791">To the far right of the screen, the following buttons
+  <para>To the far right of the screen, the following buttons
   are available:</para>
 
   <variablelist>
       <varlistentry>
-         <term id="Para518792">CLOSE</term>
+         <term>CLOSE</term>
 
          <listitem>
             <para>Closes the screen, returning you to the application
@@ -119,7 +119,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para532374">QUERY</term>
+         <term>QUERY</term>
 
          <listitem>
             <para>Select to generate the display, using the specified
@@ -128,7 +128,7 @@
       </varlistentry>
 
       <varlistentry>
-         <term id="Para553766">PRINT</term>
+         <term>PRINT</term>
 
          <listitem>
             <para>Runs the report associated with this screen.</para>
@@ -136,7 +136,7 @@
       </varlistentry>
   </variablelist>
 
-  <para id="Para525521">Right-clicking on an Order in the Planned Orders
+  <para>Right-clicking on an Order in the Planned Orders
   display enables you to select from the following menu options:</para>
 
   <variablelist>
@@ -151,7 +151,7 @@
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <para id="Para525527">If the selected Order is firmed, the following option
+  <para>If the selected Order is firmed, the following option
   will be available:</para>
 
   <variablelist>
