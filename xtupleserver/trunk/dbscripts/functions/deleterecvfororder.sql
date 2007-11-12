@@ -4,23 +4,15 @@ DECLARE
   porderid	ALIAS FOR $2;
 
 BEGIN
-  IF (pordertype = ''PO'') THEN
-    DELETE FROM recv
-    USING poitem
-    WHERE ((recv_orderitem_id=poitem_id)
-      AND  (NOT recv_posted)
-      AND  (recv_order_type=pordertype)
-      AND  (poitem_pohead_id=porderid));
+  DELETE FROM recv
+  USING orderitem
+  WHERE ((recv_orderitem_id=orderitem_id)
+    AND  (recv_order_type=orderitem_orderhead_type)
+    AND  (NOT recv_posted)
+    AND  (orderitem_orderhead_id=porderid)
+    AND  (orderitem_orderhead_type=pordertype));
 
-  ELSEIF (pordertype = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
-    DELETE FROM recv
-    USING toitem
-    WHERE ((recv_orderitem_id=toitem_id)
-      AND  (NOT recv_posted)
-      AND  (recv_order_type=pordertype)
-      AND  (toitem_tohead_id=porderid));
-
-  ELSE
+  IF (NOT FOUND) THEN
     RETURN -11;
   END IF;
 
