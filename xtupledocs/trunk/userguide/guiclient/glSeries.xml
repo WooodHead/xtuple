@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524372">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>series</primary>
       <secondary>creating new</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>general ledger</primary>
       <secondary>creating new series in</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>transactions</primary>
       <secondary>creating g/l series</secondary>
     </indexterm>Series Journal Entry</title>
-  <para>To create a series of G/L transactions, select the
-  "Series Entry" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a series of G/L transactions, select the "Series Entry"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_Ent_seriesEntry.png" id="Graphic524947"/>
+          <imagedata fileref="images/GL_Ent_seriesEntry.png"
+                     id="Graphic524947" />
         </imageobject>
         <caption id="Caption524950">Create Series G/L Journal Entry</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a series of G/L transactions, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a series of G/L transactions, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Source</term>
@@ -40,11 +37,9 @@
       <listitem id="listitemN0x180ac00N0x18b7a84">
         <para>Specify a General Ledger Transaction Type for classifying the
         series entry.</para>
-        <para>By default, the Journal Entry (JE) Transaction
-        Type will be used. However, you may select a different type. See <xref endterm="Anchor80421" linkend="Anchor80421"/>
-    FINDME
-  Appendix A for a complete list of General Ledger Transaction
-        Types.</para>
+        <para>By default, the Journal Entry (JE) Transaction Type will be
+        used. However, you may select a different type. See <xref
+        endterm="Anchor80421" linkend="Anchor80421" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -63,11 +58,10 @@
       <term>Totals</term>
       <listitem id="listitemN0x180ac00N0x18b7b5c">
         <para>Displays the following information:</para>
-        <para>Debits: Displays total Debits associated with
-        the series. Totals will display in red if Debits and Credits do not
-        balance.</para>
-        <para>Credits: Displays total Credits associated with
-        the series. Totals will display in red if Debits and Credits do not
+        <para>Debits: Displays total Debits associated with the series. Totals
+        will display in red if Debits and Credits do not balance.</para>
+        <para>Credits: Displays total Credits associated with the series.
+        Totals will display in red if Debits and Credits do not
         balance.</para>
       </listitem>
     </varlistentry>
@@ -88,11 +82,11 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Your system may be configured to require Notes
-    whenever manual journal entries are posted.</para>
+    <para>Your system may be configured to require Notes whenever manual
+    journal entries are posted.</para>
   </note>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -132,8 +126,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>series</primary>
           <secondary>posting of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -149,10 +142,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Series entries are always summary posted. In other
-    words, if multiple entries are made for the same Account Number, the
-    balance or summary of these entries will be posted--not each individual
-    entry.</para>
+    <para>Series entries are always summary posted. In other words, if
+    multiple entries are made for the same Account Number, the balance or
+    summary of these entries will be posted--not each individual entry.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -163,5 +155,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="glSeriesItem.xml" xpointer="element(/1)"/>
+  <xi:include href="glSeriesItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
