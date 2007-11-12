@@ -10,6 +10,8 @@ DECLARE
 BEGIN
   IF (pordertype = ''TO'' AND NOT fetchMetricBool(''MultiWhs'')) THEN
     RETURN 0;
+  ELSIF (pordertype = ''RA'' AND NOT fetchMetricBool(''EnableReturnAuth'')) THEN
+    RETURN 0;
   END IF;
 
   SELECT SUM(COALESCE(recv_freight, 0)) INTO _freight

@@ -9,6 +9,10 @@ BEGIN
     RETURN 0;
   END IF;
 
+  IF (pordertype = ''RA'' AND NOT fetchMetricBool(''EnableReturnAuth'')) THEN
+    RETURN 0;
+  END IF;
+
   SELECT SUM(recv_qty) INTO _qty
   FROM recv
   WHERE ((recv_orderitem_id=porderitemid)

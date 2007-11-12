@@ -10,7 +10,6 @@ DECLARE
   _qty			NUMERIC;
   _invhistid		INTEGER;
   _o			RECORD;
-  _ordertype		TEXT;
   _r			RECORD;
 
 BEGIN
@@ -28,62 +27,47 @@ BEGIN
     RETURN _itemlocSeries;
   END IF;
 
-  IF (_r.recv_order_type = ''PO'') THEN
-    SELECT currToBase(pohead_curr_id, poitem_unitprice, _r.recv_date::DATE)
-		AS unitprice_base,
-	   pohead_number AS order_number,
-	   poitem_expcat_id AS expcat_id,
-	   pohead_curr_id AS freight_curr_id,
-	   poitem_invvenduomratio AS invvenduomratio INTO _o
-    FROM pohead, poitem
-    WHERE ( (_r.recv_orderitem_id=poitem_id)
-     AND (poitem_pohead_id=pohead_id));
-
-    IF (NOT FOUND) THEN
-      RETURN _itemlocSeries;
-    END IF;
-
-    _ordertype := ''PO'';
-
-  ELSEIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
-    SELECT toitem_stdcost AS unitprice_base,
-	   tohead_number AS order_number,
-	   NULL::INTEGER AS expcat_id,	-- TODO: what is the expcat here?
-	   toitem_freight_curr_id AS freight_curr_id,
-	   1 AS invvenduomratio INTO _o
-    FROM tohead, toitem
-    WHERE ( (_r.recv_orderitem_id=toitem_id)
-     AND (toitem_tohead_id=tohead_id));
-
-    IF (NOT FOUND) THEN
-      RETURN _itemlocSeries;
-    END IF;
-
-    _ordertype := ''TO'';
-
-  ELSE
+  IF (NOT _r.recv_order_type IN (''PO'', ''RA'', ''TO'')) THEN
     RETURN -11;
   END IF;
 
-  IF (_r.recv_posted) THEN
-    IF (_currid IS NULL) THEN
-      _currid := _r.recv_freight_curr_id;
-    END IF;
+  SELECT currToBase(orderitem_unitcost_curr_id, orderitem_unitcost,
+		    _r.recv_date::DATE) AS unitprice_base,
+	 orderhead_number,
+	 orderhead_curr_id AS freight_curr_id,
+	 orderitem_qty_invuomratio INTO _o
+  FROM orderhead, orderitem
+  WHERE ((orderhead_id=orderitem_orderhead_id)
+    AND  (orderhead_type=orderitem_orderhead_type)
+    AND  (orderitem_id=_r.recv_orderitem_id)
+    AND  (orderitem_orderhead_type=_r.recv_order_type));
 
+  IF (NOT FOUND) THEN
+    RETURN _itemlocSeries;
+  END IF;
+
+  IF (_r.recv_posted) THEN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
+      SELECT poitem_expcat_id FROM poitem WHERE poitem_id=orderitem_id and orderitem_orderhead_type = ''PO'';
+
       IF (_r.itemsiteid = -1) THEN
 	PERFORM insertGLTransaction( ''S/R'', _r.recv_order_type,
-				      _o.order_number,
-				      ''Receive Non-Inventory from '' || _ordertype,
-				     expcat_liability_accnt_id, expcat_exp_accnt_id, -1,
-				     ROUND((_o.unitprice_base * _qty),2),
+				      _o.orderhead_number,
+				      ''Receive Non-Inventory from '' ||
+							    _r.recv_order_type,
+				      expcat_liability_accnt_id,
+				      expcat_exp_accnt_id, -1,
+				      ROUND(_o.unitprice_base * _qty, 2),
 				      pEffective )
-	FROM expcat
-	WHERE (expcat_id=_o.expcat_id);
+	FROM poitem, expcat
+	WHERE ((poitem_expcat_id=expcat_id)
+	  AND  (poitem_id=_o.orderitem_id)
+	  AND  (_o.orderitem_orderhead_type=''PO''));
 
 	UPDATE recv
-	SET recv_qty=pQty, recv_value=(recv_value + round(_o.unitprice_base * _qty,2))
+	SET recv_qty=pQty,
+	    recv_value=(recv_value + ROUND(_o.unitprice_base * _qty, 2))
 	WHERE (recv_id=precvid);
 
       ELSE
@@ -91,19 +75,21 @@ BEGIN
 	  _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
 	END IF;
 
-	IF (_r.itemsiteid <> -1) THEN
-	  SELECT postInvTrans( itemsite_id, ''RP'', (_qty * _o.invvenduomratio),
-			       ''S/R'', _r.recv_order_type,
-			       _o.order_number, '''',
-			       ''Receive Inventory from '' || _ordertype,
-			       costcat_asset_accnt_id, costcat_liability_accnt_id, _itemlocSeries, pEffective ) INTO _invhistid
-	  FROM itemsite, costcat
-	  WHERE ( (itemsite_costcat_id=costcat_id)
-	  AND (itemsite_id=_r.itemsiteid) );
-	END IF;
+	SELECT postInvTrans( itemsite_id, ''RP'',
+			     (_qty * _o.orderitem_qty_invuomratio),
+			     ''S/R'', _r.recv_order_type,
+			     _o.orderhead_number, '''',
+			     ''Receive Inventory from '' || _r.recv_order_type,
+			     costcat_asset_accnt_id,
+			     costcat_liability_accnt_id,
+			     _itemlocSeries, pEffective ) INTO _invhistid
+	FROM itemsite, costcat
+	WHERE ((itemsite_costcat_id=costcat_id)
+	  AND  (itemsite_id=_r.itemsiteid) );
 
 	UPDATE recv
-	SET recv_qty=pQty, recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.invvenduomratio)
+	SET recv_qty=pQty,
+	    recv_value=(recv_value + stdcost(_r.itemsite_item_id) * _qty * _o.orderitem_qty_invuomratio)
 	WHERE (recv_id=precvid);
 
       END IF;
@@ -112,7 +98,11 @@ BEGIN
 	UPDATE poitem
 	SET poitem_qty_received=(poitem_qty_received + _qty)
 	WHERE (poitem_id=_r.recv_orderitem_id);
-      ELSEIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
+      ELSIF (_r.recv_order_type = ''RA'' AND fetchMetricBool(''EnableReturnAuth'')) THEN
+	UPDATE raitem
+	SET raitem_qtyreceived=(raitem_qtyreceived + _qty)
+	WHERE (raitem_id=_r.recv_orderitem_id);
+      ELSIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
 	UPDATE toitem
 	SET toitem_qty_received=(toitem_qty_received + _qty)
 	WHERE (toitem_id=_r.recv_orderitem_id);
@@ -125,19 +115,23 @@ BEGIN
 
       IF (_r.itemsiteid = -1) THEN
 	PERFORM insertGLTransaction( ''S/R'', _r.recv_order_type,
-				    _o.order_number,
-				    ''Receive Non-Inventory Freight from '' || _ordertype,
+				     _o.orderhead_number,
+				    ''Receive Non-Inventory Freight from '' || _r.recv_order_type,
 				     expcat_liability_accnt_id, expcat_freight_accnt_id, -1,
 				      ROUND(currToBase(_currid, _freight,
 						    pEffective), 2),
 				     pEffective )
-	FROM expcat
-	WHERE (expcat_id=_o.expcat_id);
+	FROM poitem, expcat
+	WHERE ((poitem_expcat_id=expcat_id)
+	  AND  (poitem_id=_o.orderitem_id)
+	  AND  (_o.orderitem_orderhead_type=''PO''));
       ELSE
 	PERFORM insertGLTransaction(''S/R'', _r.recv_order_type,
-				    _o.order_number, 
-				    ''Receive Non-Inventory Freight from '' || _ordertype,
-				   costcat_liability_accnt_id, costcat_freight_accnt_id, -1,
+				    _o.orderhead_number, 
+				    ''Receive Non-Inventory Freight from '' ||
+							    _r.recv_order_type,
+				   costcat_liability_accnt_id,
+				   costcat_freight_accnt_id, -1,
 				   round(currToBase(_currid, _freight,
 						    pEffective), 2),
 				   pEffective )
@@ -152,6 +146,8 @@ BEGIN
 				   currToCurr(_currid, _o.freight_curr_id,
 					      _freight, pEffective))
 	WHERE (poitem_id=_o.orderitem_id);
+
+      -- raitem does not track freight
 
       ELSEIF (_r.recv_order_type = ''TO'' AND fetchMetricBool(''MultiWhs'')) THEN
 	UPDATE toitem

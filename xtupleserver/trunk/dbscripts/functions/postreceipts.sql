@@ -5,36 +5,20 @@ DECLARE
   _itemlocSeries	INTEGER	:= $3;
   _qtyToRecv		NUMERIC;
   _r			RECORD;
-  _multiWhs            BOOLEAN;
+  _multiWhs             BOOLEAN;
+  _returnauth           BOOLEAN;
 
 BEGIN
 
   _multiWhs := fetchMetricBool(''MultiWhs'');
+  _returnauth := fetchMetricBool(''EnableReturnAuth'');
 
-  IF (_multiWhs) THEN
-    SELECT SUM(qtyToReceive(pordertype, recv_orderitem_id)) INTO _qtyToRecv
-    FROM recv
-    WHERE ((recv_order_type=pordertype)
-      AND  (recv_orderitem_id IN (SELECT poitem_id
-    				FROM poitem
-				WHERE ((poitem_pohead_id=porderid)
-				  AND  (pordertype=''PO''))
-				UNION
-				SELECT toitem_id
-				FROM toitem
-				WHERE ((toitem_tohead_id=porderid)
-				  AND  (pordertype=''TO''))
-			       )));
-  ELSE
-    SELECT SUM(qtyToReceive(pordertype, recv_orderitem_id)) INTO _qtyToRecv
-    FROM recv
-    WHERE ((recv_order_type=pordertype)
-      AND  (recv_orderitem_id IN (SELECT poitem_id
-    				FROM poitem
-				WHERE ((poitem_pohead_id=porderid)
-				  AND  (pordertype=''PO''))
-			       )));
-  END IF;
+  SELECT SUM(qtyToReceive(pordertype, recv_orderitem_id)) INTO _qtyToRecv
+  FROM recv, orderitem
+  WHERE ((recv_orderitem_id=orderitem_id)
+    AND  (recv_order_type=pordertype)
+    AND  (orderitem_orderhead_type=pordertype)
+    AND  (orderitem_orderhead_id=porderid));
 
   IF (_qtyToRecv <= 0) THEN
     RETURN -11;
@@ -44,32 +28,17 @@ BEGIN
     _itemlocSeries := NEXTVAL(''itemloc_series_seq'');
   END IF;
 
-  IF (pordertype = ''PO'') THEN
-    FOR _r IN SELECT postReceipt(recv_id, _itemlocSeries) AS postResult
-	    FROM recv, pohead, poitem
-	    WHERE ((recv_orderitem_id=poitem_id)
-	      AND  (poitem_pohead_id=pohead_id)
-	      AND  (pohead_id=porderid)
+  FOR _r IN SELECT postReceipt(recv_id, _itemlocSeries) AS postResult
+	    FROM recv, orderitem
+	    WHERE ((recv_orderitem_id=orderitem_id)
+	      AND  (orderitem_orderhead_id=porderid)
+	      AND  (orderitem_orderhead_type=pordertype)
 	      AND  (NOT recv_posted)
 	      AND  (recv_order_type=pordertype)) LOOP
-      IF (_r.postResult < 0 AND _r.postResult != -11) THEN
-	RETURN _r.postResult;	-- fail on first error but ignore lines with qty == 0
-      END IF;
-    END LOOP;
-
-  ELSEIF (pordertype = ''TO'' AND _multiWhs) THEN
-    FOR _r IN SELECT postReceipt(recv_id, _itemlocSeries) AS postResult
-	    FROM recv, tohead, toitem
-	    WHERE ((recv_orderitem_id=toitem_id)
-	      AND  (toitem_tohead_id=tohead_id)
-	      AND  (tohead_id=porderid)
-	      AND  (NOT recv_posted)
-	      AND  (recv_order_type=pordertype)) LOOP
-      IF (_r.postResult < 0 AND _r.postResult != -11) THEN
-	RETURN _r.postResult;	-- fail on first error but ignore lines with qty == 0
-      END IF;
-    END LOOP;
-  END IF;
+    IF (_r.postResult < 0 AND _r.postResult != -11) THEN
+      RETURN _r.postResult; -- fail on 1st error but ignore lines with qty == 0
+    END IF;
+  END LOOP;
 
   RETURN _itemlocSeries;
 END;
