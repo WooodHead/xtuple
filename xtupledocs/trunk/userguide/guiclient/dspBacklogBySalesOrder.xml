@@ -1,94 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section534676">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>backlog</primary>
+
       <secondary>by sales order</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>sales orders</primary>
+
       <secondary>backlog for</secondary>
     </indexterm>Backlog by Sales Order</title>
-  <para>To view Backlog by Sales Order, select the "Backlog by
-  Sales Order" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To view Backlog by Sales Order, select the "Backlog by Sales Order"
+  option. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_backlogBySO.png" id="Graphic548386"/>
+          <imagedata fileref="images/SO_Disp_backlogBySO.png"
+                     id="Graphic548386" />
         </imageobject>
+
         <caption id="Caption548389">Backlog by Sales Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Backlog by Sales Order, you are
-  presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When displaying Backlog by Sales Order, you are presented with the
+  following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Sales Order #</term>
+
       <listitem id="listitemN0x180ac00N0x197e2ac">
         <para>Enter the Sales Order Number of the Sales Order whose backlog
         you want to view.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Order Date</term>
+
       <listitem id="listitemN0x180ac00N0x197e2f4">
         <para>Displays the date the Sales Order was placed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Cust. Name</term>
+
       <listitem id="listitemN0x180ac00N0x197e33c">
         <para>Displays the Customer name associated with specified Sales
         Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Cust. Phone</term>
+
       <listitem id="listitemN0x180ac00N0x197e384">
         <para>Displays the Customer phone number associated with specified
         Sales Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>P/O Number</term>
+
       <listitem id="listitemN0x180ac00N0x197e3cc">
         <para>Displays the Customer Purchase Order number associated with
         specified Sales Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Shipment Status</term>
+
       <listitem id="listitemN0x180ac00N0x197e414">
         <para>Display lists Backlog by Sales Order, using the specified
         parameters.</para>
-        <para>If the available quantity falls below zero, the
-        value will display in red type.</para>
+
+        <para>If the available quantity falls below zero, the value will
+        display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x197e480">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x197e4c8">
         <para>Runs the report associated with this screen.</para>
-        <para>Right-clicking on a Sales Order Line Item in the
-        Shipment Status list enables you to select from the following menu
-        options:</para>
+
+        <para>Right-clicking on a Sales Order Line Item in the Shipment Status
+        list enables you to select from the following menu options:</para>
       </listitem>
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickFirmOrder)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

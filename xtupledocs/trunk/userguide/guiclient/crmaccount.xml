@@ -1,193 +1,243 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560293">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>accounts</primary>
+
       <secondary>creating new</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>customer relationship management</primary>
+
       <secondary>creating new accounts for</secondary>
     </indexterm>New CRM Account</title>
-  <para>Accounts are central to the CRM. An Account holds
-  information about an entity and serves to define it further as a Customer,
-  Prospect, Vendor, Competitor, or Partner. To create a new Account, select
-  the "New CRM Account" option. The following screen will appear.</para>
-  <para>
-<screenshot>
+
+  <para>Accounts are central to the CRM. An Account holds information about an
+  entity and serves to define it further as a Customer, Prospect, Vendor,
+  Competitor, or Partner. To create a new Account, select the "New CRM
+  Account" option. The following screen will appear.</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNew.png" id="Graphic563350"/>
+          <imagedata fileref="images/CRM_AB_acctNew.png" id="Graphic563350" />
         </imageobject>
+
         <caption id="Caption563353">Create New CRM Account</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Account, you are presented with
-  the following options:</para>
+    </screenshot></para>
+
+  <para>When creating a new Account, you are presented with the following
+  options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Account Number</term>
+
       <listitem id="listitemN0x180ac00N0x18496cc">
         <para>The Account Number uniquely identifies the CRM Account.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Account Name</term>
+
       <listitem id="listitemN0x180ac00N0x1849714">
         <para>Enter the name of the Account you do business with (e.g.,
         Customer Name or Vendor Name). This field should not to be confused
         with the Contact name of an individual at the company.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Active</term>
+
       <listitem id="listitemN0x180ac00N0x184975c">
         <para>Select if you are actively doing business with this Account. Not
         selecting makes the Account inactive.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Parent Account</term>
+
       <listitem id="listitemN0x180ac00N0x18497a4">
         <para>Enter the Account Number of the CRM Account (if any) which
         serves as the parent for the Account.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Type</term>
+
       <listitem id="listitemN0x180ac00N0x18497ec">
         <para>Specify one of the following Account Types:</para>
-        <para>Organization: Select if the Account is an
-        organization.</para>
-        <para>Individual: Select if the Account is an
-        individual.</para>
+
+        <para>Organization: Select if the Account is an organization.</para>
+
+        <para>Individual: Select if the Account is an individual.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Relationships</term>
+
       <listitem id="listitemN0x180ac00N0x1851a24">
         <para>Indicate how the Account relates to your business by selecting
         from the available options. You may select multiple relationships from
         the list:</para>
-        <para>Customer: Select if the Account is a Customer
-        Account. If selected, Account information--including the Account
-        Number, Account Name, and Contact information--will be used to
-        populate a Customer master. You will be prompted to edit the Customer
-        master if no Customer relationship existed previously.</para>
-        <para>Prospect: Select if the Account is a Prospect.
-        The CRM Account serves as the master record for Prospects.</para>
-        <para>Neither: Select if the Account is neither a
-        Customer nor a Prospect. The CRM Account serves as the master record
-        for Accounts falling in this category.</para>
-        <para>Vendor: Select if the Account is a Vendor
-        Account. If selected, Account information--including the Account
-        Number, Account Name, and Contact information--will be used to
-        populate a Vendor master. You will be prompted to edit the Vendor
-        master if no Vendor relationship existed previously.</para>
-        <para>Partner: Select if the Account is a Partner. The
-        CRM Account serves as the master record for Partners.</para>
-        <para>Competitor: Select if the Account is a
-        Competitor. The CRM Account serves as the master record for
-        Competitors.</para>
-        <para>Tax Authority: Select if the Account is a Tax
-        Authority. The CRM Account serves as the master record for Tax
-        Authorities.</para>
+
+        <para>Customer: Select if the Account is a Customer Account. If
+        selected, Account information--including the Account Number, Account
+        Name, and Contact information--will be used to populate a Customer
+        master. You will be prompted to edit the Customer master if no
+        Customer relationship existed previously.</para>
+
+        <para>Prospect: Select if the Account is a Prospect. The CRM Account
+        serves as the master record for Prospects.</para>
+
+        <para>Neither: Select if the Account is neither a Customer nor a
+        Prospect. The CRM Account serves as the master record for Accounts
+        falling in this category.</para>
+
+        <para>Vendor: Select if the Account is a Vendor Account. If selected,
+        Account information--including the Account Number, Account Name, and
+        Contact information--will be used to populate a Vendor master. You
+        will be prompted to edit the Vendor master if no Vendor relationship
+        existed previously.</para>
+
+        <para>Partner: Select if the Account is a Partner. The CRM Account
+        serves as the master record for Partners.</para>
+
+        <para>Competitor: Select if the Account is a Competitor. The CRM
+        Account serves as the master record for Competitors.</para>
+
+        <para>Tax Authority: Select if the Account is a Tax Authority. The CRM
+        Account serves as the master record for Tax Authorities.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>For Contacts, you have two options: 1) Associate an
-    existing Contact with the Account or 2) enter new Contact information. If
-    a new Contact is entered, that Contact will be added automatically to the
-    master list of Contacts.</para>
+    <para>For Contacts, you have two options: 1) Associate an existing Contact
+    with the Account or 2) enter new Contact information. If a new Contact is
+    entered, that Contact will be added automatically to the master list of
+    Contacts.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>Primary Contact</term>
+
       <listitem id="listitemN0x180ac00N0x1851ab4">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available
-        Titles.</para>
+
+        <para>Title: Select a Title from the list of available Titles.</para>
+
         <para>First: Enter the Contact's first name.</para>
+
         <para>Last: Enter the Contact's last name.</para>
+
         <para>Job Title: Enter the Contact's job title.</para>
+
         <para>Voice: Enter the Contact's phone number.</para>
+
         <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail
-        address.</para>
+
+        <para>E-Mail: Enter the Contact's e-mail address.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Secondary Contact</term>
+
       <listitem id="listitemN0x180ac00N0x1851afc">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available
-        Titles.</para>
+
+        <para>Title: Select a Title from the list of available Titles.</para>
+
         <para>First: Enter the Contact's first name.</para>
+
         <para>Last: Enter the Contact's last name.</para>
+
         <para>Job Title: Enter the Contact's job title.</para>
+
         <para>Voice: Enter the Contact's phone number.</para>
+
         <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail
-        address.</para>
+
+        <para>E-Mail: Enter the Contact's e-mail address.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x1851b68">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x1851bb0">
         <para>Creates the Account and adds it to the list of CRM
         Accounts.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CUSTOMER</term>
+
       <listitem id="listitemN0x180ac00N0x1851bf8">
         <para>Select to open the Customer master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Customer relationship defined.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PROSPECT</term>
+
       <listitem id="listitemN0x180ac00N0x1851c40">
         <para>Select to open the Prospect master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Prospect relationship defined.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VENDOR</term>
+
       <listitem id="listitemN0x180ac00N0x1851c88">
         <para>Select to open the Vendor master for the Account--if applicable.
         The button will be disabled if the Account does not have a Vendor
         relationship defined.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>TAX AUTHORITY</term>
+
       <listitem id="listitemN0x180ac00N0x1851cd0">
         <para>Select to open the Customer master for the Account--if
         applicable. The button will be disabled if the Account does not have a
         Customer relationship defined.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Notes</term>
+
       <listitem id="listitemN0x180ac00N0x1851d18">
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the CRM Account. Any Notes entered on this screen are
@@ -195,131 +245,161 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a CRM Account, select the
-  "Comments" tab at the bottom of the "CRM Account" screen. The following
-  screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To add Comments to a CRM Account, select the "Comments" tab at the
+  bottom of the "CRM Account" screen. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNewComm.png" id="Graphic564128"/>
+          <imagedata fileref="images/CRM_AB_acctNewComm.png"
+                     id="Graphic564128" />
         </imageobject>
+
         <caption id="Caption564131">CRM Account Comments</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Comments to a CRM Account, you are
-  presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When adding Comments to a CRM Account, you are presented with the
+  following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Comments</term>
+
       <listitem id="listitemN0x180ac00N0x1851df0">
         <para>Display lists Comments related to the CRM Account, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x1851e5c">
         <para>Opens the screen for creating a new CRM Account Comment.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x1851ea4">
         <para>Opens a read-only view of the CRM Account Comment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter a new CRM Account Comment, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To enter a new CRM Account Comment, select the NEW button. The
+  following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic564483"/>
+          <imagedata fileref="images/CommentNew.png" id="Graphic564483" />
         </imageobject>
+
         <caption id="Caption564486">Create New Comment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
+
       <listitem id="listitemN0x180ac00N0x1851f7c">
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments.
-        Once you have specified a Comment Type, you may type your Comment in
-        the main text area. The text area features word-wrapping and
-        scroll-bar support for longer Comments.</para>
+
+        <para>Comment Types are used to categorize Comments. Once you have
+        specified a Comment Type, you may type your Comment in the main text
+        area. The text area features word-wrapping and scroll-bar support for
+        longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x1851fe8">
         <para>Closes the screen without creating the CRM Account Comment,
         returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x1852030">
         <para>Creates the Comment and adds it to the list of CRM Account
         Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>CRM Account Characteristics are user-defined
-  definitions of an Account which may be used to provide additional layers of
-  description. To enter <indexterm significance="normal">
+
+  <para>CRM Account Characteristics are user-defined definitions of an Account
+  which may be used to provide additional layers of description. To enter
+  <indexterm significance="normal">
       <primary>characteristics</primary>
+
       <secondary>creating new for crm</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>characteristics</primary>
+
       <secondary>crm accounts having</secondary>
     </indexterm>Characteristics associated with a CRM Account, select the
   "Characteristics" tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNewChar.png" id="Graphic564160"/>
+          <imagedata fileref="images/CRM_AB_acctNewChar.png"
+                     id="Graphic564160" />
         </imageobject>
+
         <caption id="Caption564163">CRM Account Characteristics</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When associating Characteristics with a CRM Account,
-  you are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When associating Characteristics with a CRM Account, you are presented
+  with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Characteristics</term>
+
       <listitem id="listitemN0x180ac00N0x1852198">
         <para>Displays the Characteristics related to the CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x1852204">
         <para>Opens screen for creating a new CRM Account
         Characteristic.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x185224c">
         <para>Enables you to edit highlighted CRM Account Characteristics. The
         edit screen is the same as that for creating a new CRM Account
@@ -328,102 +408,126 @@
         Characteristic will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
+
       <listitem id="listitemN0x180ac00N0x1852294">
         <para>Highlight a CRM Account Characteristic and then select this
         button to remove the CRM Account Characteristic from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create a new CRM Account Characteristic, select the
-  NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To create a new CRM Account Characteristic, select the NEW button. The
+  following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNewCharItem.png" id="Graphic564613"/>
+          <imagedata fileref="images/CRM_AB_acctNewCharItem.png"
+                     id="Graphic564613" />
         </imageobject>
+
         <caption id="Caption564616">Create New CRM Account
         Characteristic</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new CRM Account Characteristic, you
-  are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When creating a new CRM Account Characteristic, you are presented with
+  the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Characteristic</term>
+
       <listitem id="listitemN0x180ac00N0x185236c">
         <para>Select a Characteristic from the list of Characteristics
         designated as being available for use as CRM Account
         Characteristics.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Value</term>
+
       <listitem id="listitemN0x180ac00N0x18523b4">
         <para>Enter a value to associate with the CRM Account
         Characteristic.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x1852420">
         <para>Closes the screen without creating the CRM Account
         Characteristic, returning you to the previous screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x1852468">
         <para>Creates the CRM Account Characteristic and adds it to the list
         of CRM Account Characteristics.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Contacts are people who may be associated with CRM
-  Accounts. To enter or associate Contacts with a CRM Account, select the
-  "Contacts" tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>Contacts are people who may be associated with CRM Accounts. To enter
+  or associate Contacts with a CRM Account, select the "Contacts" tab. The
+  following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNewContact.png" id="Graphic564184"/>
+          <imagedata fileref="images/CRM_AB_acctNewContact.png"
+                     id="Graphic564184" />
         </imageobject>
+
         <caption id="Caption564187">CRM Account Contacts</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+
   <variablelist>
     <varlistentry>
       <term>Contacts</term>
+
       <listitem id="listitemN0x180ac00N0x1852540">
         <para>Displays all Contacts associated with the CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x18525ac">
         <para>Opens screen for creating a new Contact.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>If a new Contact is manually entered here, that
-    Contact will be added automatically to the master list of Contacts.</para>
+    <para>If a new Contact is manually entered here, that Contact will be
+    added automatically to the master list of Contacts.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x185263c">
         <para>Enables you to edit highlighted Contacts. The edit screen is the
         same as that for creating a new Contact--except that when editing, the
@@ -431,115 +535,158 @@
         will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DETACH</term>
+
       <listitem id="listitemN0x180ac00N0x1852684">
         <para>Highlight a Contact and then select this button to remove the
         association between the Contact and the CRM Account.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>ATTACH</term>
+
       <listitem id="listitemN0x180ac00N0x18526cc">
         <para>Select to associate a new Contact with the CRM Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Contact in the Contacts list
-  enables you to select from the following menu options:</para>
+
+  <para>Right-clicking on a Contact in the Contacts list enables you to select
+  from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>New</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18525ac)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18525ac)" />
     </varlistentry>
+
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x185263c)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x185263c)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+
     <varlistentry>
       <term>Attach</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18526cc)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18526cc)" />
     </varlistentry>
+
     <varlistentry>
       <term>Detach</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x1852684)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1852684)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>To enter or associate To-Dos and/or Incidents with a
-  CRM Account, select the "To-Do List" tab. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+
+  <para>To enter or associate To-Dos and/or Incidents with a CRM Account,
+  select the "To-Do List" tab. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_acctNewToDo.png" id="Graphic573518"/>
+          <imagedata fileref="images/CRM_AB_acctNewToDo.png"
+                     id="Graphic573518" />
         </imageobject>
+
         <caption id="Caption573521">CRM Account To-Do List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering or associating To-Dos and/or Incidents
-  with a CRM Account, you are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When entering or associating To-Dos and/or Incidents with a CRM
+  Account, you are presented with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Show To-Do List</term>
+
       <listitem id="listitemN0x180ac00N0x185a168">
         <para>Select to include To-Dos in the display.</para>
-        <para>If not selected, To-Dos will not be
-        included.</para>
+
+        <para>If not selected, To-Dos will not be included.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Show Incidents</term>
+
       <listitem id="listitemN0x180ac00N0x185a1b0">
         <para>Select to include Incidents in the display.</para>
-        <para>If not selected, Incidents will not be
-        included.</para>
+
+        <para>If not selected, Incidents will not be included.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Active Only</term>
+
       <listitem id="listitemN0x180ac00N0x185a1f8">
         <para>Select to include only active To-Dos in the display.</para>
-        <para>If not selected, inactive To-Dos will not be
+
+        <para>If not selected, inactive To-Dos will not be included.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Completed</term>
+
+      <listitem id="listitemN0x180ac00N0x185a240">
+        <para>Select to include completed Incidents in the display.</para>
+
+        <para>An Incident is considered completed when its status is "Closed."
+        If this option is not selected, then completed Incidents will not be
         included.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Completed</term>
-      <listitem id="listitemN0x180ac00N0x185a240">
-        <para>Select to include completed Incidents in the display.</para>
-        <para>An Incident is considered completed when its
-        status is "Closed." If this option is not selected, then completed
-        Incidents will not be included.</para>
-      </listitem>
-    </varlistentry>
+
     <varlistentry>
       <term>To-Do List</term>
+
       <listitem id="listitemN0x180ac00N0x185a288">
         <para>Displays To-Dos associated with the Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW TO-DO ITEM</term>
+
       <listitem id="listitemN0x180ac00N0x185a2f4">
         <para>Opens screen for creating a new To-Do List item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW INCIDENT</term>
+
       <listitem id="listitemN0x180ac00N0x185a33c">
         <para>Open screen for creating a new Incident.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x185a384">
         <para>Enables you to edit highlighted To-Do List items or Incidents.
         The edit screen is the same as that for creating a new To-Do List item
@@ -548,15 +695,19 @@
         item or Incident will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x185a3cc">
         <para>Highlight a To-Do List item or Incident and then select this
         button to reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
+
       <listitem id="listitemN0x180ac00N0x185a414">
         <para>Highlight a To-Do List item or Incident and then select this
         button to remove the association between the To-Do List item/Incident

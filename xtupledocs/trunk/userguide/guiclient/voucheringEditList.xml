@@ -1,61 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972283">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchering edit list</primary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>vouchers</primary>
+
       <secondary>edit list for</secondary>
     </indexterm>Vouchering Edit List</title>
-  <para>To edit Vouchers that have been created but not yet
-  posted, select the "Vouchering Edit List" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+
+  <para>To edit Vouchers that have been created but not yet posted, select the
+  "Vouchering Edit List" option. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_vouchEditList.png" id="Graphic972286"/>
+          <imagedata fileref="images/PO_Vouch_vouchEditList.png"
+                     id="Graphic972286" />
         </imageobject>
+
         <caption id="Caption972289">Vouchering Edit List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>The "Vouchering Edit" screen displays information on
-  all existing Vouchers, including Voucher Number, Purchase Order Number,
-  Vendor number, Vendor name/description, Vendor Item UOM, quantity to
-  Voucher, and Cost. Voucher Line Items and Account distributions will display
-  in a nested manner beneath the associated parent Voucher. Select a plus "+"
-  sign to reveal lower levels of detail. To hide detail, select the minus "-"
-  sign.</para>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+    </screenshot></para>
+
+  <para>The "Vouchering Edit" screen displays information on all existing
+  Vouchers, including Voucher Number, Purchase Order Number, Vendor number,
+  Vendor name/description, Vendor Item UOM, quantity to Voucher, and Cost.
+  Voucher Line Items and Account distributions will display in a nested manner
+  beneath the associated parent Voucher. Select a plus "+" sign to reveal
+  lower levels of detail. To hide detail, select the minus "-" sign.</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x18916b0">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x18916f8">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Voucher line in the Vouchering
-  list enables you to select from the following menu options:</para>
+
+  <para>Right-clicking on a Voucher line in the Vouchering list enables you to
+  select from the following menu options:</para>
+
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+
     <varlistentry>
       <term>View</term>
+
       <listitem id="listitemN0x180ac00N0x18917ac">
-        <para/>
+        <para></para>
       </listitem>
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

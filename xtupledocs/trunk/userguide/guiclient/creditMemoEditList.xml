@@ -1,57 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section602221">
-    <title>
-<indexterm significance="normal">
-        <primary>credit memos</primary>
-        <secondary>edit list for</secondary>
-      </indexterm>Credit Memo Edit List</title>
-    <para>To edit an unposted Credit Memo, or to view detailed
-    information about unposted Credit Memos, choose the "Credit Memo Edit
-    List" option. The following screen will appear:</para>
-    <para>
-<screenshot>
-        <mediaobject>
-          <imageobject>
-            <imagedata fileref="images/SO_Bill_credMemEdList.png" id="Graphic606948"/>
-          </imageobject>
-          <caption id="Caption606951">Credit Memo Edit List</caption>
-        </mediaobject>
-      </screenshot>
-</para>
-    <para>The Credit Memo Edit List displays details on all
-    unposted Credit Memos. The display is a nested list, with a plus ("+")
-    sign located to the far left of the screen next to each line that may be
-    expanded to lower levels. By clicking your mouse on a plus sign, you
-    reveal lower levels of information related to the Order.</para>
-    <tip>
-      <para>If a Billing record displays in red type, this
-      means an Account Assignment is missing for the Customer Type in
-      question. To correct the problem, check your Sales Account and Accounts
-      Receivable Assignments. Once the Assignments are in place, the record
-      will display in black type.</para>
-    </tip>
-    <para>To the far right of the screen, the following
-    buttons are available:</para>
-    <variablelist>
-      <varlistentry>
-        <term>CLOSE</term>
-        <listitem id="listitemN0x180ac00N0x193a6d0">
-          <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>PRINT</term>
-        <listitem id="listitemN0x180ac00N0x193a718">
-          <para>Runs the report associated with this screen.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-    <para>Right-clicking on an Credit Memo in the Billing list
-    enables you to select from the following menu options:</para>
-    <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-    </variablelist>
-  </section>
+  <title><indexterm significance="normal">
+      <primary>credit memos</primary>
+
+      <secondary>edit list for</secondary>
+    </indexterm>Credit Memo Edit List</title>
+
+  <para>To edit an unposted Credit Memo, or to view detailed information about
+  unposted Credit Memos, choose the "Credit Memo Edit List" option. The
+  following screen will appear:</para>
+
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_credMemEdList.png"
+                     id="Graphic606948" />
+        </imageobject>
+
+        <caption id="Caption606951">Credit Memo Edit List</caption>
+      </mediaobject>
+    </screenshot></para>
+
+  <para>The Credit Memo Edit List displays details on all unposted Credit
+  Memos. The display is a nested list, with a plus ("+") sign located to the
+  far left of the screen next to each line that may be expanded to lower
+  levels. By clicking your mouse on a plus sign, you reveal lower levels of
+  information related to the Order.</para>
+
+  <tip>
+    <para>If a Billing record displays in red type, this means an Account
+    Assignment is missing for the Customer Type in question. To correct the
+    problem, check your Sales Account and Accounts Receivable Assignments.
+    Once the Assignments are in place, the record will display in black
+    type.</para>
+  </tip>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+
+      <listitem id="listitemN0x180ac00N0x193a6d0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>PRINT</term>
+
+      <listitem id="listitemN0x180ac00N0x193a718">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Right-clicking on an Credit Memo in the Billing list enables you to
+  select from the following menu options:</para>
+
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditCreditMemo)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+</section>

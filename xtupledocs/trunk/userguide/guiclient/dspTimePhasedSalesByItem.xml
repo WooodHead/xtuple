@@ -1,110 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519126">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
+
       <secondary>time-phased by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>items</primary>
+
       <secondary>time-phased sales history for</secondary>
     </indexterm>Time-Phased Sales History by Item</title>
-  <para>To view time-phased Sales history by Item, select the
-  "Time-Phased Sales History by Item" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+
+  <para>To view time-phased Sales history by Item, select the "Time-Phased
+  Sales History by Item" option. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_timePhSalesByItem.png" id="Graphic521838"/>
+          <imagedata fileref="images/SA_Disp_timePhSalesByItem.png"
+                     id="Graphic521838" />
         </imageobject>
+
         <caption id="Caption519132">Time-Phased Sales History by
         Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying time-phased Sales history by Item, you
-  are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When displaying time-phased Sales history by Item, you are presented
+  with the following options:</para>
+
   <variablelist>
     <varlistentry role="openmfg">
       <term>All Warehouses</term>
+
       <listitem id="listitemN0x180ac00N0x187b3d4">
         <para>Select to display time-phased Sales history by Item for all
         Warehouses.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry role="openmfg">
       <term>Selected</term>
+
       <listitem id="listitemN0x180ac00N0x187b3f8">
         <para>Specify Warehouse whose time-phased Sales history by Item you
         want to display.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>All Product Categories</term>
+
       <listitem id="listitemN0x180ac00N0x187b440">
         <para>Select to display time-phased Sales history by Item for all
         Product Categories.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Selected</term>
+
       <listitem id="listitemN0x180ac00N0x187b488">
         <para>Specify Product Category whose time-phased Sales history by Item
         you want to display.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Pattern</term>
+
       <listitem id="listitemN0x180ac00N0x187b4d0">
         <para>Enter a Product Category pattern to select a range of Product
         Categories.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" /> FINDME "Topic:
+        Pattern Matching with Regular Expressions".</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Inventory Units</term>
+
       <listitem id="listitemN0x180ac00N0x187b518">
         <para>Select to display Inventory Units of Measure.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Sales Dollars</term>
+
       <listitem id="listitemN0x180ac00N0x187b560">
         <para>Select to display sales dollars.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>The type of Calendar and number of Calendar periods
-    you choose to display may have an impact on response time. The data may
-    take longer to display, depending on the time frame requested.</para>
+    <para>The type of Calendar and number of Calendar periods you choose to
+    display may have an impact on response time. The data may take longer to
+    display, depending on the time frame requested.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>Calendar</term>
+
       <listitem id="listitemN0x180ac00N0x187b5f0">
         <para>Select the Calendar you want to use for the report.</para>
-        <para>Associated Calendar periods will be
-        displayed.</para>
+
+        <para>Associated Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Name/Selected Periods</term>
+
       <listitem id="listitemN0x180ac00N0x187b638">
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods
-        together. To select an individual period, highlight the period using
-        your mouse button. The period is now selected. To select a sequence of
-        periods, highlight the first in the sequence using your mouse button.
-        Then, holding down the SHIFT key on your keyboard, highlight the last
-        period in the sequence. The entire sequence is now selected. To select
+
+        <para>Select individual periods or groups of periods together. To
+        select an individual period, highlight the period using your mouse
+        button. The period is now selected. To select a sequence of periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last period
+        in the sequence. The entire sequence is now selected. To select
         periods that are out of sequence (e.g., January, April, July,
         October), highlight the first period in the group. Then, holding down
         the CTRL key on your keyboard, highlight the next period you want to
@@ -113,52 +135,69 @@
         selected.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Shipments</term>
+
       <listitem id="listitemN0x180ac00N0x187b680">
         <para>Display lists time-phased Sales history by Item, using the
         specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x187b6ec">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>QUERY</term>
+
       <listitem id="listitemN0x180ac00N0x187b734">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x187b77c">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry role="openmfg">
       <term>SUBMIT</term>
+
       <listitem id="listitemN0x180ac00N0x187b7a0">
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic: Submitting Reports and Jobs to the Batch
-        Manager".</para>
+        information, see the <xref endterm="Anchor61009"
+        linkend="Anchor61009" /> FINDME "Topic: Submitting Reports and Jobs to
+        the Batch Manager".</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Customer in the Sales history list
-  enables you to select from the following menu options:</para>
+
+  <para>Right-clicking on a Customer in the Sales history list enables you to
+  select from the following menu options:</para>
+
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/22)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSalesDetail)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
