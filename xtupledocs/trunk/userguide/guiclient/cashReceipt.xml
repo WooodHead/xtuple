@@ -1,56 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524311">
-  <title>
-<indexterm significance="normal">
+  <title id="Anchor39275"><indexterm significance="normal">
       <primary>cash receipts</primary>
       <secondary>entering new</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>entering cash receipts for</secondary>
-    </indexterm>
-<anchor id="Anchor39275" role="Cross-Ref" xreflabel="39275: Heading2: Enter Cash Receipt"/>Enter Cash Receipt</title>
-  <para>Cash Receipts may be applied to either an open Invoice
-  or an open miscellaneous Debit Memo. To enter a Cash Receipt, select the
-  "Enter Cash Receipt" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>Enter Cash Receipt</title>
+  <para>Cash Receipts may be applied to either an open Invoice or an open
+  miscellaneous Debit Memo. To enter a Cash Receipt, select the "Enter Cash
+  Receipt" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterCR.png" id="Graphic526492"/>
+          <imagedata fileref="images/AR_CashR_enterCR.png" id="Graphic526492" />
         </imageobject>
         <caption id="Caption526494">Enter Cash Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering a Cash Receipt, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When entering a Cash Receipt, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
       <listitem id="listitemN0x180ac00N0x189004c">
         <para>Enter the Customer Number of the Customer whose Cash has been
         received.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol next to the browse button to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
+        <para>The browse button located to the right of the field leads to a
+        searchable Customers list. You may also access this list using the
+        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
+        Customer name and billing address will display. Select the "?" or "$"
+        symbol next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you receive an overpayment from a Customer, you
-    can go ahead and apply the full Payment to an Invoice--even if the amount
-    exceeds the Invoice amount. In these cases, the system will automatically
-    generate an unapplied Credit Memo for the Customer, in the overpayment
-    amount.</para>
+    <para>If you receive an overpayment from a Customer, you can go ahead and
+    apply the full Payment to an Invoice--even if the amount exceeds the
+    Invoice amount. In these cases, the system will automatically generate an
+    unapplied Credit Memo for the Customer, in the overpayment amount.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -83,17 +78,17 @@
       <term>Funds Type</term>
       <listitem id="listitemN0x180ac00N0x18901fc">
         <para>Specify the type of the Cash Receipt.</para>
-        <para>Choose from following Funds Types: Check,
-        Certified Check, Master Card, Visa, American Express, Discover Card,
-        Other Credit Card, Cash, Wire Transfer, or Other.</para>
+        <para>Choose from following Funds Types: Check, Certified Check,
+        Master Card, Visa, American Express, Discover Card, Other Credit Card,
+        Cash, Wire Transfer, or Other.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If a Credit Card is being used and your site is
-    configured to process Credit Cards from the system, then you must select a
-    valid Credit Card using the "Credit Card" tab below. The charge
-    transaction will begin processing once you select the SAVE button.</para>
+    <para>If a Credit Card is being used and your site is configured to
+    process Credit Cards from the system, then you must select a valid Credit
+    Card using the "Credit Card" tab below. The charge transaction will begin
+    processing once you select the SAVE button.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -105,23 +100,22 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>cash receipts</primary>
           <secondary>posting of</secondary>
         </indexterm>Post to</term>
       <listitem id="listitemN0x180ac00N0x189031c">
         <para>Select the Bank Account you want to post the Cash Receipt
         to.</para>
-        <para>The Asset Account used for the selected Bank
-        Account is specified on the Bank Account master.</para>
+        <para>The Asset Account used for the selected Bank Account is
+        specified on the Bank Account master.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If your site uses a unique Bank Account for
-    receiving Credit Card payments, make sure to select the appropriate Bank
-    Account when entering payments from a Credit Card.</para>
+    <para>If your site uses a unique Bank Account for receiving Credit Card
+    payments, make sure to select the appropriate Bank Account when entering
+    payments from a Credit Card.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -137,31 +131,29 @@
         <para>If your system is configured to enable Customer Deposits, you
         may select one of the following options for applying any unapplied
         Cash Receipt balance:</para>
-        <para>Credit Memo: Select to treat the unapplied
-        balance as a miscellaneous Credit Memo, which may be applied to A/R
-        open items at a later time.</para>
-        <para>Customer Deposit: Select to treat the unapplied
-        balance as a Customer Deposit. The Deferred Revenue Account specified
-        on the A/R Account Assignments screen will be used. A Credit Memo will
-        also be created, allowing the Customer Deposit to be applied to A/R
-        open items at a later time.</para>
+        <para>Credit Memo: Select to treat the unapplied balance as a
+        miscellaneous Credit Memo, which may be applied to A/R open items at a
+        later time.</para>
+        <para>Customer Deposit: Select to treat the unapplied balance as a
+        Customer Deposit. The Deferred Revenue Account specified on the A/R
+        Account Assignments screen will be used. A Credit Memo will also be
+        created, allowing the Customer Deposit to be applied to A/R open items
+        at a later time.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Use Alternate A/R Account From Sales
-      Category</term>
+      <term>Use Alternate A/R Account From Sales Category</term>
       <listitem id="listitemN0x180ac00N0x189043c">
         <para>Select one of the following optional A/R Accounts:</para>
-        <para>Sales Category: Specify a Sales Category whose
-        A/R Account option you want to use instead of the default A/R
-        Account.</para>
+        <para>Sales Category: Specify a Sales Category whose A/R Account
+        option you want to use instead of the default A/R Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If an alternate A/R Account is not specified, the
-    system will use the default A/R Account specified for the Customer Type
-    under A/R Account Assignments.</para>
+    <para>If an alternate A/R Account is not specified, the system will use
+    the default A/R Account specified for the Customer Type under A/R Account
+    Assignments.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -188,8 +180,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -202,16 +194,16 @@
       <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x1898800">
         <para>Saves the Cash Receipt record.</para>
-        <para>If your site is configured to process Credit
-        Cards from the system, the charge transaction will begin processing
-        when you select the SAVE button.</para>
+        <para>If your site is configured to process Credit Cards from the
+        system, the charge transaction will begin processing when you select
+        the SAVE button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>You may select multiple open Items simultaneously by
-    highlighting them using your mouse--or a combination of your mouse and
-    either the SHIFT or CTRL keys.</para>
+    <para>You may select multiple open Items simultaneously by highlighting
+    them using your mouse--or a combination of your mouse and either the SHIFT
+    or CTRL keys.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -245,8 +237,8 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>You may disable the APPLY TO BALANCE button for your
-    site if you wish, by selecting the appropriate option in the system-level
+    <para>You may disable the APPLY TO BALANCE button for your site if you
+    wish, by selecting the appropriate option in the system-level
     configuration.</para>
   </tip>
   <variablelist>
@@ -275,27 +267,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If a Customer is paying with a Credit Card, select the
-  "Credit Card" tab to specify which Credit Card to use. The following screen
-  will appear:</para>
-  <para>
-<screenshot>
+  <para>If a Customer is paying with a Credit Card, select the "Credit Card"
+  tab to specify which Credit Card to use. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_selectCC.png" id="Graphic554629"/>
+          <imagedata fileref="images/AR_CashR_selectCC.png" id="Graphic554629" />
         </imageobject>
         <caption id="Caption554632">Select Credit Card for Cash
         Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Once all the required information has been entered
-    and a valid Credit Card has been selected, the charge transaction will
-    begin processing when you select the SAVE button.</para>
+    <para>Once all the required information has been entered and a valid
+    Credit Card has been selected, the charge transaction will begin
+    processing when you select the SAVE button.</para>
   </note>
-  <para>When selecting a Credit Card to use for processing a
-  Cash Receipt, you are presented with the following options:</para>
+  <para>When selecting a Credit Card to use for processing a Cash Receipt, you
+  are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Credit Card</term>
@@ -305,8 +295,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -336,8 +326,8 @@
       <listitem id="listitemN0x180ac00N0x1899340">
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card up in the sequence of Credit Cards.</para>
-        <para>Sequence numbers are automatically adjusted to
-        reflect the change in position.</para>
+        <para>Sequence numbers are automatically adjusted to reflect the
+        change in position.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -345,8 +335,8 @@
       <listitem id="listitemN0x180ac00N0x1899388">
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card down the sequence of Credit Cards.</para>
-        <para>Sequence numbers are automatically adjusted to
-        reflect the change in position.</para>
+        <para>Sequence numbers are automatically adjusted to reflect the
+        change in position.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -358,20 +348,19 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Notes to a Cash Receipt, select the "Notes"
-  tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add Notes to a Cash Receipt, select the "Notes" tab. The following
+  screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterNotes.png" id="Graphic554653"/>
+          <imagedata fileref="images/AR_CashR_enterNotes.png"
+                     id="Graphic554653" />
         </imageobject>
         <caption id="Caption554656">Enter Cash Receipt Notes</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering Notes related to a Cash Receipt, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When entering Notes related to a Cash Receipt, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
@@ -381,6 +370,10 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cashReceiptItem.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cashReceiptMiscDistrib.xml" xpointer="element(/1)"/>
+  <xi:include href="cashReceiptItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="cashReceiptMiscDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

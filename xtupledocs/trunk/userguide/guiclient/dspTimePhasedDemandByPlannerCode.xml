@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518743" role="openmfg">
   <title>Time-Phased Demand by Planner Code</title>
-  <para>To view time-phased demand by Planner Code, select the
-  "Time-Phased Demand by Planner Code" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view time-phased demand by Planner Code, select the "Time-Phased
+  Demand by Planner Code" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CP_Disp_tpDemandByPCode.png" id="Graphic519943"/>
+          <imagedata fileref="images/CP_Disp_tpDemandByPCode.png"
+                     id="Graphic519943" />
         </imageobject>
         <caption id="Caption519946">Time-Phased Demand by Planner
         Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying time-phased demand by Planner Code,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying time-phased demand by Planner Code, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Warehouses</term>
@@ -52,11 +51,8 @@
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,8 +78,7 @@
       <term>Calendar</term>
       <listitem>
         <para>Select the Calendar you want to use for the report.</para>
-        <para>Associated Calendar periods will be
-        displayed.</para>
+        <para>Associated Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,12 +86,12 @@
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods
-        together. To select an individual period, highlight the period using
-        your mouse button. The period is now selected. To select a sequence of
-        periods, highlight the first in the sequence using your mouse button.
-        Then, holding down the SHIFT key on your keyboard, highlight the last
-        period in the sequence. The entire sequence is now selected. To select
+        <para>Select individual periods or groups of periods together. To
+        select an individual period, highlight the period using your mouse
+        button. The period is now selected. To select a sequence of periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last period
+        in the sequence. The entire sequence is now selected. To select
         periods that are out of sequence (e.g., January, April, July,
         October), highlight the first period in the group. Then, holding down
         the CTRL key on your keyboard, highlight the next period you want to
@@ -113,8 +108,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -128,9 +123,8 @@
       <listitem>
         <para>Select to generate the display, using the specified
         parameters.</para>
-        <para>Start date and end date must be entered for
-        calculation to proceed. Results will be displayed in the "Demand"
-        display.</para>
+        <para>Start date and end date must be entered for calculation to
+        proceed. Results will be displayed in the "Demand" display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -143,17 +137,19 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic: Submitting Reports and Jobs to the Batch
-        Manager".</para>
+        information, see <xref endterm="Anchor61009"
+        linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Demand list enables
-  you to select from the following menu options:</para>
+  <para>Right-clicking on an Item in the Demand list enables you to select
+  from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/7)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/7)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

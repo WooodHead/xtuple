@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560417">
   <title>To-Do List Items by User and Incident</title>
-  <para>To view To-Do List items by user and Incident, select
-  the "To-Do List Items by User and Incident" option. The following screen
-  will appear:</para>
-  <para>
-<screenshot>
+  <para>To view To-Do List items by user and Incident, select the "To-Do List
+  Items by User and Incident" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_Disp_tdItemsByUser.png" id="Graphic570339"/>
+          <imagedata fileref="images/CRM_Disp_tdItemsByUser.png"
+                     id="Graphic570339" />
         </imageobject>
         <caption id="Caption570342">To-Do List Items by User and
         Incident</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying To-Do List items by user and Incident,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying To-Do List items by user and Incident, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Users</term>
@@ -35,11 +34,8 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1897acc">
         <para>Enter a user pattern to select a range of users.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,20 +56,20 @@
       <term>Date Started</term>
       <listitem id="listitemN0x180ac00N0x1897ba4">
         <para>Enter a range of To-Do List item start dates:</para>
-        <para>Start Date: To-Do List items started on or after
-        this date will be included in the display.</para>
-        <para>End Date: To-Do List items started on or before
-        this date will be included in the display.</para>
+        <para>Start Date: To-Do List items started on or after this date will
+        be included in the display.</para>
+        <para>End Date: To-Do List items started on or before this date will
+        be included in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Date Due</term>
       <listitem id="listitemN0x180ac00N0x1897bec">
         <para>Enter a range of To-Do List item due dates:</para>
-        <para>Start Date: To-Do List items due on or after
-        this date will be included in the display.</para>
-        <para>End Date: o-Do List items due on or before this
-        date will be included in the display.</para>
+        <para>Start Date: To-Do List items due on or after this date will be
+        included in the display.</para>
+        <para>End Date: o-Do List items due on or before this date will be
+        included in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -98,8 +94,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -122,13 +118,23 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a To-Do List item in the list
-  enables you to select from the following menu options:</para>
+  <para>Right-clicking on a To-Do List item in the list enables you to select
+  from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/12/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/12/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/3/2/2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/1)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/2)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560363">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>incidents</primary>
       <secondary>workbench for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>customer relationship management</primary>
       <secondary>incident workbench and</secondary>
     </indexterm>Incident Workbench</title>
-  <para>The Incident Workbench enables you to monitor and take
-  action on the full range of issues entered in your system.</para>
-  <para>
-<screenshot>
+  <para>The Incident Workbench enables you to monitor and take action on the
+  full range of issues entered in your system.</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_IM_incidWbnch.png" id="Graphic567184"/>
+          <imagedata fileref="images/CRM_IM_incidWbnch.png" id="Graphic567184" />
         </imageobject>
         <caption id="Caption567187">Incident Workbench</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When using the Incident Workbench, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When using the Incident Workbench, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Users</term>
@@ -41,11 +38,8 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x187f7b0">
         <para>Enter a user pattern to select a range of users.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -55,26 +49,23 @@
         you want to include in the display. Not selecting a status means
         Incidents having that status will not be included in the
         display:</para>
-        <para>New: Select to include Incidents having "New"
-        status in the display. This is the default Incident status when a new
-        Incident is entered.</para>
-        <para>Feedback: Select to include Incidents having
-        "Feedback" status in the display. This status can be used for
-        Incidents which require more information before they can be
-        confirmed.</para>
-        <para>Confirmed: Select to include Incidents having
-        "Confirmed" status in the display. A confirmed Incident is ready to be
-        acted on.</para>
-        <para>Assigned: Select to include Incidents having
-        "Assigned" status in the display. When Incidents are assigned to a
-        user, they become that user's responsibility.</para>
-        <para>Resolved: Select to include Incidents having
-        "Resolved" status in the display. A resolved Incident is ready to be
-        closed. Typically, users work to resolve the Incidents assigned to
-        them.</para>
-        <para>Closed: Select to include Incidents having
-        "Closed" status in the display. This is the final status and indicates
-        an Incident requires no further action. It is completed.</para>
+        <para>New: Select to include Incidents having "New" status in the
+        display. This is the default Incident status when a new Incident is
+        entered.</para>
+        <para>Feedback: Select to include Incidents having "Feedback" status
+        in the display. This status can be used for Incidents which require
+        more information before they can be confirmed.</para>
+        <para>Confirmed: Select to include Incidents having "Confirmed" status
+        in the display. A confirmed Incident is ready to be acted on.</para>
+        <para>Assigned: Select to include Incidents having "Assigned" status
+        in the display. When Incidents are assigned to a user, they become
+        that user's responsibility.</para>
+        <para>Resolved: Select to include Incidents having "Resolved" status
+        in the display. A resolved Incident is ready to be closed. Typically,
+        users work to resolve the Incidents assigned to them.</para>
+        <para>Closed: Select to include Incidents having "Closed" status in
+        the display. This is the final status and indicates an Incident
+        requires no further action. It is completed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,11 +87,8 @@
       <listitem id="listitemN0x180ac00N0x187f8d0">
         <para>Enter a text pattern to locate keywords found in Incident
         "Summary" and/or "Description" fields.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,8 +105,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>

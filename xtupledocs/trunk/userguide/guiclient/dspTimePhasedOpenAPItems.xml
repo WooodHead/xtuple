@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section549958">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>accounts payable</primary>
       <secondary>aging report for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>open items</primary>
       <secondary>aging report for payables</secondary>
     </indexterm>A/P Aging</title>
-  <para>To view Accounts Payable (A/P) open items from an
-  aging perspective, select the "A/P Aging" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Accounts Payable (A/P) open items from an aging perspective,
+  select the "A/P Aging" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035"/>
+          <imagedata fileref="images/AP_Disp_apAging.png" id="Graphic550035" />
         </imageobject>
         <caption id="Caption550291">A/P Aging</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying aging A/P open items, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying aging A/P open items, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Vendors</term>
@@ -50,10 +46,8 @@
       <listitem>
         <para>Enter a Vendor Type pattern to select a range of Vendor
         Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  .</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,9 +55,9 @@
       <listitem>
         <para>Enter a date to use as the relative starting point for the aging
         report</para>
-        <para>By default, the current date is entered as the
-        relative date. However, you may change the relative date to a date of
-        your choosing.</para>
+        <para>By default, the current date is entered as the relative date.
+        However, you may change the relative date to a date of your
+        choosing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -71,9 +65,9 @@
       <listitem>
         <para>Select if you want to display A/P open items using a custom
         Calendar of your choosing.</para>
-        <para>If selected, the screen will present a series of
-        different options, including the option to select a Calendar and
-        associated periods.</para>
+        <para>If selected, the screen will present a series of different
+        options, including the option to select a Calendar and associated
+        periods.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,8 +78,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>accounts payable</primary>
       <secondary>time-phased open items for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -93,25 +86,23 @@
       <secondary>time-phased for payables</secondary>
     </indexterm>To view A/P open items using a custom Calendar, select the
   "Use Custom Calendar" option above. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_apAgingCalendar.png" id="Graphic558443"/>
+          <imagedata fileref="images/AP_Disp_apAgingCalendar.png"
+                     id="Graphic558443" />
         </imageobject>
         <caption id="Caption558446">Custom A/P Aging Calendar</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying A/P open items using a custom
-  Calendar, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying A/P open items using a custom Calendar, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Calendar</term>
       <listitem>
         <para>Select the Calendar you want to use for the report.</para>
-        <para>Associated Calendar periods will be
-        displayed.</para>
+        <para>Associated Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,12 +110,12 @@
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods
-        together. To select an individual period, highlight the period using
-        your mouse button. The period is now selected. To select a sequence of
-        periods, highlight the first in the sequence using your mouse button.
-        Then, holding down the SHIFT key on your keyboard, highlight the last
-        period in the sequence. The entire sequence is now selected. To select
+        <para>Select individual periods or groups of periods together. To
+        select an individual period, highlight the period using your mouse
+        button. The period is now selected. To select a sequence of periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last period
+        in the sequence. The entire sequence is now selected. To select
         periods that are out of sequence (e.g., January, April, July,
         October), highlight the first period in the group. Then, holding down
         the CTRL key on your keyboard, highlight the next period you want to
@@ -141,8 +132,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -168,17 +159,19 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic: Submitting Reports and Jobs to the Batch
-        Manager".</para>
+        information, see <xref endterm="Anchor61009"
+        linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Vendor in the A/P open items list
-  enables you to select from the following menu options:</para>
+  <para>Right-clicking on a Vendor in the A/P open items list enables you to
+  select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/9/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/9/2/2)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
