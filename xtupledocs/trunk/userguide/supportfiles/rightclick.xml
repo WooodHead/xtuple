@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title>Right-click menu support file</title>
   <para>This file contains content frequently used in right-click menus
@@ -558,6 +559,12 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>Edit Count Slip</term>
+        <listitem>
+          <para>Select to edit the specified Count Slip.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>Edit Item Site</term>
         <listitem>
           <para>Select to edit the specified Item Site.</para>
@@ -619,6 +626,12 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>Post Count Slip</term>
+        <listitem>
+          <para>Select to post the specified Count Slip.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>Post Misc. Production</term>
         <listitem>
           <para>Select to post Miscellaneous Production for the specified
@@ -637,6 +650,12 @@
         <listitem>
           <para>Select to view availability of substitute Items, if
           any.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Thaw</term>
+        <listitem>
+          <para>Select to thaw the specified Item Site.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -672,6 +691,12 @@
         <listitem>
           <para>Select to view Inventory Availability for the specified Item
           Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>View Count Tag</term>
+        <listitem>
+          <para>Select to view the specified Count Tag.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -727,6 +752,12 @@
         <listitem>
           <para>Select to view transactions for the specified Item
           Site.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>View Transaction Information</term>
+        <listitem>
+          <para>Select to view details for the specified transaction.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -897,15 +928,34 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>Print Statement</term>
+        <listitem>
+          <para>Select to print a statement for the specified Customer.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>Reverse Journal</term>
         <listitem>
           <para>Select to reverse the specified Journal posting.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>View Apply to Invoice</term>
+        <listitem>
+          <para>Select to view the Invoice the specified document was applied
+          to.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>View A/R Open Item</term>
         <listitem>
           <para>Select to view the specified open item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>View Credit Memo</term>
+        <listitem>
+          <para>Select to view the specified Credit Memo.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -916,9 +966,21 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>View Invoice</term>
+        <listitem>
+          <para>Select to view the specified Invoice.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>View Open Items</term>
         <listitem>
           <para>Select to view open Items for the specified Account.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>View Source Credit Memo</term>
+        <listitem>
+          <para>Select to view details for the specified Credit Memo. </para>
         </listitem>
       </varlistentry>
       <varlistentry>
@@ -945,9 +1007,21 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>Edit To-Do Item</term>
+        <listitem>
+          <para>Select to edit the specified To-To Item.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>View Incident</term>
         <listitem>
           <para>Select to view the specified Incident.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>View To-Do Item</term>
+        <listitem>
+          <para>Select to view the specified To-To Item.</para>
         </listitem>
       </varlistentry>
     </variablelist>
