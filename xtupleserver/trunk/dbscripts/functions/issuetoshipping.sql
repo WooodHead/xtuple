@@ -101,6 +101,10 @@ BEGIN
      AND (itemsite_costcat_id=costcat_id)
      AND (coitem_id=pitemid) );
 
+    UPDATE coitem
+       SET coitem_qtyreserved = noNeg(coitem_qtyreserved - pQty)
+     WHERE(coitem_id=pitemid);
+
   ELSEIF (pordertype = ''TO'') THEN
 
     SELECT postInvTrans( itemsite_id, ''SH'', pQty, ''S/R'',
