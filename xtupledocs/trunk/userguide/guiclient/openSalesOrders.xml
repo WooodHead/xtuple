@@ -68,21 +68,21 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18be3a8">
+      <listitem id="openSalesOrdersVIEW">
         <para>Highlight a Sales Order and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>COPY</term>
-      <listitem id="listitemN0x180ac00N0x18be3f0">
+      <listitem id="openSalesOrdersCOPY">
         <para>Highlight a Sales Order and then select this button to create a
         new Sales Order which duplicates the source Sales Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18be438">
+      <listitem id="openSalesOrdersEDIT">
         <para>Enables you to edit highlighted Sales Order. The edit screen is
         the same as that for creating a new Sales Order--except that when
         editing, the fields will contain Sales Order information.
@@ -92,7 +92,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18be480">
+      <listitem id="openSalesOrdersDELETE">
         <para>Highlight a Sales Order and then select this button to remove
         the Sales Order from the master list</para>
       </listitem>
@@ -103,26 +103,26 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18be438)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18be3a8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Copy</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18be3f0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersCOPY)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickReschedule)" />
     <varlistentry>
       <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18be480)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"

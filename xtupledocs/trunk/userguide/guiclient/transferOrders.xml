@@ -77,7 +77,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18abd90">
+      <listitem id="transferOrdersEDIT">
         <para>Enables you to edit highlighted Transfer Order. The edit screen
         is the same as that for creating a new Transfer Order--except that
         when editing, the fields will contain Transfer Order information.
@@ -87,28 +87,28 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18abdd8">
+      <listitem id="transferOrdersVIEW">
         <para>Highlight a Transfer Order and then select this button to view
         the Transfer Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18abe20">
+      <listitem id="transferOrdersDELETE">
         <para>Highlight a Transfer Order and then select this button to remove
         the Transfer Order from the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>ISSUE STOCK</term>
-      <listitem id="listitemN0x180ac00N0x18abe68">
+      <listitem id="transferOrdersISSUESTOCK">
         <para>Highlight a Transfer Order and then select this button to issue
         Transfer Order Stock to Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>COPY</term>
-      <listitem id="listitemN0x180ac00N0x18abeb0">
+      <listitem id="transferOrdersCOPY">
         <para>Highlight a Transfer Order and then select this button to create
         a copy of the highlighted Transfer Order.</para>
       </listitem>
@@ -119,28 +119,28 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18abd90)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrdersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18abdd8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrdersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18abe20)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrdersDELETE)" />
     </varlistentry>
     <varlistentry>
       <term>Issue to Shipping</term>
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18abe68)" />
+                  xpointer="element(transferOrdersISSUESTOCK)" />
     </varlistentry>
     <varlistentry>
       <term>Copy</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18abeb0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrdersCOPY)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"

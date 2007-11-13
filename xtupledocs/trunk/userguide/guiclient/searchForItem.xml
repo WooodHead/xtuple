@@ -69,7 +69,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1879ba8">
+      <listitem id="searchForItemEDIT">
         <para>Enables you to edit highlighted Items. The edit screen is the
         same as that for creating a new Item--except that when editing, the
         fields will contain Item information. Double-clicking on an Item will
@@ -78,7 +78,7 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x1879bf0">
+      <listitem id="searchForItemVIEW">
         <para>Highlight an Item and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
@@ -89,13 +89,13 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1879bf0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(searchForItemVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1879ba8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(searchForItemEDIT)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"

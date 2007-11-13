@@ -6,219 +6,168 @@
   xreflabel="37267: Heading2: Enter New Bill of Materials" /> <indexterm
       significance="normal">
       <primary>bills of materials</primary>
-
       <secondary>creating new</secondary>
     </indexterm>Enter New Bill of Materials</title>
-
   <para>To create a new Bill of Materials, select the "Enter New Bill of
   Materials" option. The following screen will appear:</para>
-
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_BOM_BOMnew.png" id="Graphic562970" />
         </imageobject>
-
         <caption id="Caption519292">Create New Bill of Materials</caption>
       </mediaobject>
     </screenshot></para>
-
   <para>When creating a new Bill of Materials, you are presented with the
   following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
-
       <listitem id="listitemN0x180ac00N0x1890420">
         <para>Enter the Item Number of the manufactured Item you want to
         create a Bill of Materials for.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>UOM</term>
-
       <listitem id="listitemN0x180ac00N0x1890468">
         <para>Inventory Unit of Measure.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>components</primary>
-
           <secondary>expired from BOMs</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>bills of materials</primary>
-
           <secondary>expired components in</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>expiration</primary>
-
           <secondary>of components in BOMs</secondary>
         </indexterm>Show Expired Components</term>
-
       <listitem id="listitemN0x180ac00N0x1890588">
         <para>Expired Components: Select to display expired components in the
         "Bill of Materials" display.</para>
-
         <para>Expired components are components that have been expired from
         the Bill of Materials.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>components</primary>
-
           <secondary>adding to BOMs in future</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>bills of materials</primary>
-
           <secondary>adding components in future</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>future</primary>
-
           <secondary>of components in BOMs</secondary>
         </indexterm>Show Future Components</term>
-
       <listitem id="listitemN0x180ac00N0x18906a8">
         <para>Future Components: Select to display future components in the
         "Bill of Materials" display.</para>
-
         <para>Future components are components that will be added to the Bill
         of Materials at a future point in time.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Document #</term>
-
       <listitem id="listitemN0x180ac00N0x18906f0">
         <para>If desired, enter a document number to further identify the Bill
         of Materials.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Revision</term>
-
       <listitem id="listitemN0x180ac00N0x1890738">
         <para>Enter text to describe the revision--if any.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Revision Date</term>
-
       <listitem id="listitemN0x180ac00N0x1890780">
         <para>Indicates the date of the revision--if any.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Batch Size</term>
-
       <listitem id="listitemN0x180ac00N0x18907c8">
         <para>Specify the Batch size.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <note>
     <para>Once a revision date has been entered, the date field cannot be
     erased. The specific date may be updated to reflect subsequent revisions,
     but the field will never be null as long as the Bill of Materials
     exists.</para>
   </note>
-
   <variablelist>
     <varlistentry>
       <term>Bill of Materials</term>
-
       <listitem id="listitemN0x180ac00N0x1897448">
         <para>Display lists component Items for the Bill of Materials.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Pick List Items</term>
-
       <listitem id="listitemN0x180ac00N0x1897490">
         <para>Displays the total number of component Items which are also Pick
         List Items.</para>
-
         <para>Items may be marked as Pick List Items on the Item
         master.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Non-Pick List Items</term>
-
       <listitem id="listitemN0x180ac00N0x18974d8">
         <para>Displays the total number of component Items which are not Pick
         List Items.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Totals</term>
-
       <listitem id="listitemN0x180ac00N0x1897520">
         <para>Displays the total number of component Items.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Current Std. Material Cost</term>
-
       <listitem id="listitemN0x180ac00N0x1897568">
         <para>Displays the current Standard Cost for the component
         Items.</para>
-
         <para>The displayed Cost includes all Standard Costs associated with
         the component Items. Any non-material Costs associated with
         manufactured subcomponents (e.g., Labor and Overhead) would also be
         included in this total.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Current Act. Material Cost</term>
-
       <listitem id="listitemN0x180ac00N0x18975b0">
         <para>Displays the current Actual Cost for the component Items.</para>
-
         <para>The displayed Cost includes all Actual Costs associated with the
         component Items. Any non-material Costs associated with manufactured
         subcomponents (e.g., Labor and Overhead) would also be included in
         this total.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Maximum Desired Cost</term>
-
       <listitem id="listitemN0x180ac00N0x18975f8">
         <para>Displays the maximum desired Cost for the component
         Items.</para>
-
         <para>The maximum desired Cost is defined on the Item master. It
         provides a visual guide to help determine whether component Item
         Costs--either Standard or Actual--have exceeded the maximum desired
         Cost.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Total Qty. Per should equal</term>
-
       <listitem id="listitemN0x180ac00N0x1897640">
         <para>Select if you want to require the total Qty. Per units to equal
         a certain number.</para>
-
         <para>Enter the number you want the total Qty. Per units to equal. If
         selected, you will not be able to save the Bill of Materials until the
         total Qty. Per requirement is met. To remove the requirement, simply
@@ -226,51 +175,39 @@
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
-
       <listitem id="listitemN0x180ac00N0x18976ac">
         <para>Saves the new Bill of Materials to the master list of Bills of
         Materials.</para>
-
         <para>Mac users may use COMMAND + S to save.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem id="listitemN0x180ac00N0x18976f4">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PRINT</term>
-
       <listitem id="listitemN0x180ac00N0x189773c">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>NEW</term>
-
       <listitem id="listitemN0x180ac00N0x1897784">
         <para>Opens screen for creating a new component Item.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EDIT</term>
-
-      <listitem id="listitemN0x180ac00N0x18977cc">
+      <listitem id="bomEDIT">
         <para>Enables you to edit highlighted components. The edit screen is
         the same as that for creating a new component--except that when
         editing, the fields will contain component information.
@@ -278,94 +215,72 @@
         screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>VIEW</term>
-
-      <listitem id="listitemN0x180ac00N0x1897814">
+      <listitem id="bomVIEW">
         <para>Highlight a component and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>EXPIRE</term>
-
-      <listitem id="listitemN0x180ac00N0x189785c">
+      <listitem id="bomEXPIRE">
         <para>Highlight a component and then select this button to expire the
         Item from the Bill of Materials.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>MOVE UP</term>
-
-      <listitem id="listitemN0x180ac00N0x18978a4">
+      <listitem id="bomMOVEUP">
         <para>Highlight a component Item and then select this button to move
         the component up the Bill of Materials list. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>MOVE DOWN</term>
-
-      <listitem id="listitemN0x180ac00N0x18978ec">
+      <listitem id="bomMOVEDOWN">
         <para>Highlight a component Item and then select this button to move
         the component down the Bill of Materials list. Sequence numbers are
         automatically adjusted to reflect the change in position.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on an Item in the Bill of Materials Item list enables
   you to select from the following menu options:</para>
-
   <variablelist>
     <varlistentry>
       <term>View</term>
-
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1897814)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomVIEW)" />
     </varlistentry>
-
     <varlistentry>
       <term>Edit</term>
-
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18977cc)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomEDIT)" />
     </varlistentry>
-
     <varlistentry>
       <term>Expire</term>
-
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x189785c)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomEXPIRE)" />
     </varlistentry>
-
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickReplace)" />
-
     <varlistentry>
       <term>Move Up</term>
-
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18978a4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomMOVEUP)" />
     </varlistentry>
-
     <varlistentry>
       <term>Move Down</term>
-
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18978ec)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(bomMOVEDOWN)" />
     </varlistentry>
-
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-
   <xi:include href="bomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>

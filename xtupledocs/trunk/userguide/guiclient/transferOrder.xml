@@ -348,7 +348,7 @@
     </varlistentry>
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x18b52d4">
+      <listitem id="transferOrderEDIT">
         <para>Enables you to edit highlighted Transfer Order Line Items. The
         edit screen is the same as that for creating a new Transfer Order Line
         Item--except that when editing, the fields will contain Transfer Order
@@ -359,7 +359,7 @@
     </varlistentry>
     <varlistentry>
       <term>CLOSE</term>
-      <listitem id="listitemN0x180ac00N0x18b531c">
+      <listitem id="transferOrderCLOSE">
         <para>Highlight a Transfer Order Line Item and then select this to
         close the Transfer Order Line Item. If the highlighted Line Item is
         already closed, the label will revert to an OPEN, which may be used to
@@ -368,7 +368,7 @@
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x18b5364">
+      <listitem id="transferOrderDELETE">
         <para>Highlight a Transfer Order Line Item and then select this to
         remove the Transfer Order Line Item from the list.</para>
       </listitem>
@@ -403,18 +403,18 @@
   <variablelist>
     <varlistentry>
       <term>Edit Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18b52d4)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Close Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18b531c)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderCLOSE)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Line</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18b5364)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(transferOrderDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
