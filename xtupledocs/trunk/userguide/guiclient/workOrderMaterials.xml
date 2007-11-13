@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518876">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>maintenance of materials in</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>work order material requirements</primary>
       <secondary>maintenance involving</secondary>
     </indexterm>Maintain W/O Material Requirements</title>
-  <para>To maintain Work Order Material Requirements, select
-  the "Maintain W/O Material Requirements" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To maintain Work Order Material Requirements, select the "Maintain W/O
+  Material Requirements" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Mat_maintWOMats.png" id="Graphic523602"/>
+          <imagedata fileref="images/WO_Mat_maintWOMats.png"
+                     id="Graphic523602" />
         </imageobject>
         <caption id="Caption518882">Maintain Work Order Material
         Requirements</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>If you are using the "Substitute" option found on
-    the right-click menu, keep in mind that this utility applies only to
-    BOM-defined Substitutions, as specified on the Bill of Materials for the
-    Item in question.</para>
+    <para>If you are using the "Substitute" option found on the right-click
+    menu, keep in mind that this utility applies only to BOM-defined
+    Substitutions, as specified on the Bill of Materials for the Item in
+    question.</para>
   </note>
-  <para>When maintaining Work Order Material Requirements, you
-  are presented with the following options:</para>
+  <para>When maintaining Work Order Material Requirements, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Work Order #</term>
@@ -72,8 +69,8 @@
       <listitem>
         <para>Display lists Material Requirements associated with specified
         Work Order.</para>
-        <para>If the due date is past due, the date will
-        display in red.</para>
+        <para>If the due date is past due, the date will display in
+        red.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,8 +78,8 @@
       <listitem>
         <para>Displays the total number of component Items which are also Pick
         List Items.</para>
-        <para>Items may be marked as Pick List Items on the
-        Item master.</para>
+        <para>Items may be marked as Pick List Items on the Item
+        master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -103,20 +100,20 @@
       <listitem>
         <para>Displays the current Standard Cost for the component
         Items.</para>
-        <para>The displayed Cost includes all Standard Costs
-        associated with the component Items. Any non-material Costs associated
-        with manufactured subcomponents (e.g., Labor and Overhead) would also
-        be included in this total.</para>
+        <para>The displayed Cost includes all Standard Costs associated with
+        the component Items. Any non-material Costs associated with
+        manufactured subcomponents (e.g., Labor and Overhead) would also be
+        included in this total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Current Act. Material Cost</term>
       <listitem>
         <para>Displays the current Actual Cost for the component Items.</para>
-        <para>The displayed Cost includes all Actual Costs
-        associated with the component Items. Any non-material Costs associated
-        with manufactured subcomponents (e.g., Labor and Overhead) would also
-        be included in this total.</para>
+        <para>The displayed Cost includes all Actual Costs associated with the
+        component Items. Any non-material Costs associated with manufactured
+        subcomponents (e.g., Labor and Overhead) would also be included in
+        this total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -124,15 +121,15 @@
       <listitem>
         <para>Displays the maximum desired Cost for the component
         Items.</para>
-        <para>The maximum desired Cost is defined on the Item
-        master. It provides a visual guide to help determine whether component
-        Item Costs--either Standard or Actual--have exceeded the maximum
-        desired Cost.</para>
+        <para>The maximum desired Cost is defined on the Item master. It
+        provides a visual guide to help determine whether component Item
+        Costs--either Standard or Actual--have exceeded the maximum desired
+        Cost.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -148,7 +145,7 @@
         Requirement.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
+    <varlistentry id="workOrderMaterialsEDIT">
       <term>EDIT</term>
       <listitem>
         <para>Enables you to edit highlighted Material Requirements. The edit
@@ -160,14 +157,14 @@
     </varlistentry>
     <varlistentry>
       <term>VIEW</term>
-      <listitem>
+      <listitem id="workOrderMaterialsVIEW">
         <para>Highlight a Material Requirement and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>DELETE</term>
-      <listitem>
+      <listitem id="workOrderMaterialsDELETE">
         <para>Highlight a Material Requirement and then select this button to
         remove the Operation from the list. You may not delete Material
         Requirements which have materials issued against them. If materials
@@ -175,25 +172,35 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Requirement in the Operations list
-  enables you to select from the following menu options:</para>
+  <para>Right-clicking on a Requirement in the Operations list enables you to
+  select from the following menu options:</para>
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section518876/8/3/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workOrderMaterialsEDIT/2)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section518876/8/4/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workOrderMaterialsVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(Section518876/8/5/2)"/>
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(workOrderMaterialsDELETE)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/23)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/20)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/4/2/19)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemDefinedSubstituteAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickSubstitute)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

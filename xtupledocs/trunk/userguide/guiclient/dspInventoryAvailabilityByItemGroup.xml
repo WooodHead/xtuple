@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520179">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory availability</primary>
       <secondary>by item group</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>item groups</primary>
       <secondary>inventory availability for</secondary>
     </indexterm>Inventory Availability by Item Group</title>
-  <para>To view Inventory Availability by Item Group, select
-  the "Inventory Availability by Item Group" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Inventory Availability by Item Group, select the "Inventory
+  Availability by Item Group" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_invAvailItemGrp.png" id="Graphic526698"/>
+          <imagedata fileref="images/IM_Disp_invAvailItemGrp.png"
+                     id="Graphic526698" />
         </imageobject>
         <caption id="Caption520185">Inventory Availability by Item
         Group</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Inventory Availability by Item Group,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Inventory Availability by Item Group, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Item Groups</term>
@@ -46,29 +43,24 @@
       <listitem id="listitemN0x180ac00N0x19568e4">
         <para>Enter an Item Group pattern to select a range of Item
         Groups.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Availability as of</term>
       <listitem id="listitemN0x180ac00N0x195692c">
         <para>Show Availability using one of the following criteria:</para>
-        <para>Item Site Lead Time: Select to show projected
-        Availability based on the Lead Time specified in the Item Site
-        master.</para>
-        <para>Look Ahead Days: Select a number using the arrow
-        buttons, or manually enter a value up to a maximum of 1000. Future
-        Availability for the specified Item will be displayed based on the
-        value entered here.</para>
-        <para>Cutoff Date: Display will show projected
-        Inventory Availability as of date entered up to a maximum of 1000
-        days.</para>
-        <para>Dates: Display will show projected Inventory
-        Availability for the date range entered.</para>
+        <para>Item Site Lead Time: Select to show projected Availability based
+        on the Lead Time specified in the Item Site master.</para>
+        <para>Look Ahead Days: Select a number using the arrow buttons, or
+        manually enter a value up to a maximum of 1000. Future Availability
+        for the specified Item will be displayed based on the value entered
+        here.</para>
+        <para>Cutoff Date: Display will show projected Inventory Availability
+        as of date entered up to a maximum of 1000 days.</para>
+        <para>Dates: Display will show projected Inventory Availability for
+        the date range entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -108,22 +100,22 @@
       <listitem id="listitemN0x180ac00N0x1956a94">
         <para>Display lists Inventory Availability by Item Group, using the
         specified parameters.</para>
-        <para>If Planned Availability displays in the color
-        orange, this means the actual or projected Quantity on Hand is at or
-        below the Reorder Level. If the color is red, the current or projected
-        Quantity on Hand is below 0.</para>
+        <para>If Planned Availability displays in the color orange, this means
+        the actual or projected Quantity on Hand is at or below the Reorder
+        Level. If the color is red, the current or projected Quantity on Hand
+        is below 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>When quantity appears in the "On Order" column, this
-    refers to quantity that is on order through either a Work Order or
-    Purchase Order. In the case of Purchase Orders, the quantity will always
-    be represented in the Inventory Unit of Measure (UOM)--regardless of the
-    Vendor UOM used on the Purchase Order.</para>
+    <para>When quantity appears in the "On Order" column, this refers to
+    quantity that is on order through either a Work Order or Purchase Order.
+    In the case of Purchase Orders, the quantity will always be represented in
+    the Inventory Unit of Measure (UOM)--regardless of the Vendor UOM used on
+    the Purchase Order.</para>
   </note>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -146,27 +138,49 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Availability list
-  enables you to select from the following context-sensitive menu
-  options:</para>
+  <para>Right-clicking on an Item in the Availability list enables you to
+  select from the following context-sensitive menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/14)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/12)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/18)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/9)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewInventoryHistory)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewSubstituteAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>The following additional options are available for
-  purchased Items:</para>
+  <para>The following additional options are available for purchased
+  Items:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/3)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/3)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
   </variablelist>
-  <para>The following additional options are available for
-  manufactured Items:</para>
+  <para>The following additional options are available for manufactured
+  Items:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/12)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPostMiscProduction)" />
   </variablelist>
 </section>
