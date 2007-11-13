@@ -1,335 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519027">
-  <title>
-<anchor id="Anchor23923" role="Cross-Ref" xreflabel="23923: Heading2: New Sales Order"/>
-<indexterm significance="normal">
+  <title><anchor id="Anchor23923" role="Cross-Ref"
+  xreflabel="23923: Heading2: New Sales Order" /> <indexterm
+      significance="normal">
       <primary>sales orders</primary>
+
       <secondary>creating new</secondary>
     </indexterm>New Sales Order</title>
-  <para>Creating a new Sales Order requires a detailed mix of
-  Customer, Sales Representative, and Shipping information. To access the
-  Sales Order area, select the "New Sales Order" option. The following screen
-  will appear:</para>
-  <para>
-<screenshot>
+
+  <para>Creating a new Sales Order requires a detailed mix of Customer, Sales
+  Representative, and Shipping information. To access the Sales Order area,
+  select the "New Sales Order" option. The following screen will
+  appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newSalesOrder.png" id="Graphic523154"/>
+          <imagedata fileref="images/SO_Ord_newSalesOrder.png"
+                     id="Graphic523154" />
         </imageobject>
+
         <caption id="Caption519033">Create New Sales Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+
   <tip>
-    <para>Be sure to close all Sales Order windows before
-    exiting the system. This will prevent the creation of orphan Sales Order
-    records.</para>
+    <para>Be sure to close all Sales Order windows before exiting the system.
+    This will prevent the creation of orphan Sales Order records.</para>
   </tip>
-  <para>When creating a new Sales Order, you are presented
-  with the following options:</para>
+
+  <para>When creating a new Sales Order, you are presented with the following
+  options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Order #</term>
+
       <listitem id="listitemN0x180ac00N0x188e628">
         <para>Next available Sales Order Number will automatically display,
         unless your system requires you to enter Sales Order Numbers
         manually.</para>
-        <para>Default values and input parameters for Sales
-        Order Numbers are configurable at the system level.</para>
+
+        <para>Default values and input parameters for Sales Order Numbers are
+        configurable at the system level.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Warehouse</term>
+
       <listitem id="listitemN0x180ac00N0x188e670">
         <para>Specify the shipping Warehouse associated with the Sales
         Order.</para>
-        <para>The Warehouse selected here acts as the default
-        free on board (FOB) location. A Warehouse may be designated as a
-        shipping Warehouse on the Warehouse master.</para>
+
+        <para>The Warehouse selected here acts as the default free on board
+        (FOB) location. A Warehouse may be designated as a shipping Warehouse
+        on the Warehouse master.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Order Date</term>
+
       <listitem id="listitemN0x180ac00N0x188e6b8">
         <para>Displays current day's date.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Scheduled Date</term>
+
       <listitem id="listitemN0x180ac00N0x188e700">
         <para>Displays the Order's earliest scheduled date.</para>
-        <para>The scheduled date corresponds to the earliest
-        scheduled date for an included Sales Order Item. Because Sales Orders
-        may contain multiple Sales Order Items, the scheduled date indicates
-        the most recent scheduled date. No scheduled date will display in the
+
+        <para>The scheduled date corresponds to the earliest scheduled date
+        for an included Sales Order Item. Because Sales Orders may contain
+        multiple Sales Order Items, the scheduled date indicates the most
+        recent scheduled date. No scheduled date will display in the
         "Scheduled Date" field until a Sales Order Line Item has been created
         and a scheduled date assigned to it.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>pack dates</primary>
+
           <secondary>for sales orders</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
+
       <listitem id="listitemN0x180ac00N0x188e7d8">
         <para>The pack date is the same date as the ship date. Because the
         field can be edited, you have the ability to change the pack date and
         make it different from the ship date.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Originated By</term>
+
       <listitem id="listitemN0x180ac00N0x188e820">
         <para>Specify the origin of the Sales Order using the available
         options:</para>
-        <para>Customer: Indicates the Order was originated by
-        the Customer.</para>
-        <para>Internet: Indicates the Order was originated by
-        an Internet lead.</para>
-        <para>Sales Rep.: Indicates the Order was originated
-        by the Sales Representative.</para>
+
+        <para>Customer: Indicates the Order was originated by the
+        Customer.</para>
+
+        <para>Internet: Indicates the Order was originated by an Internet
+        lead.</para>
+
+        <para>Sales Rep.: Indicates the Order was originated by the Sales
+        Representative.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>Sales Orders may not be entered for Customers whose
-    credit status is either "On Credit Warning" or "On Credit Hold." Only
-    users with special privileges may override these credit settings.</para>
+    <para>Sales Orders may not be entered for Customers whose credit status is
+    either "On Credit Warning" or "On Credit Hold." Only users with special
+    privileges may override these credit settings.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>From Quote</term>
+
       <listitem id="listitemN0x180ac00N0x188e8b0">
         <para>If a Sales Order was converted from a Quote, the originating
         Quote Number will display here.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Customer #</term>
+
       <listitem id="listitemN0x180ac00N0x188e8f8">
         <para>Enter the Customer Number of the Customer to be billed for the
         sale.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol next to the browse button to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
+
+        <para>The browse button located to the right of the field leads to a
+        searchable Customers list. You may also access this list using the
+        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
+        Customer name and billing address will display. Select the "?" or "$"
+        symbol next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>A valid Customer Number must be entered in the
-    "Customer #" field before Line Items can be added to a Sales Order. If no
-    valid Customer Number is entered, you will not be able to add Line Items
-    to the Sales Order. Additionally, Sales Orders may only be entered for
-    active Customers.</para>
+    <para>A valid Customer Number must be entered in the "Customer #" field
+    before Line Items can be added to a Sales Order. If no valid Customer
+    Number is entered, you will not be able to add Line Items to the Sales
+    Order. Additionally, Sales Orders may only be entered for active
+    Customers.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>Cust. Type</term>
+
       <listitem id="listitemN0x180ac00N0x188e988">
         <para>Displays the Customer Type for the specified Customer.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>billing information for</secondary>
         </indexterm>Bill-To Name</term>
+
       <listitem id="listitemN0x180ac00N0x188ea18">
         <para>Displays the Customer's Bill-To name.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Bill-To Phone</term>
+
       <listitem id="listitemN0x180ac00N0x188ea60">
         <para>Displays the Customer's Bill-To phone number.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Address</term>
+
       <listitem id="listitemN0x180ac00N0x188eaa8">
         <para>Displays the Customer's Bill-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
-        <para>Street Address: The Customer's Bill-To street
-        Address.</para>
+
+        <para>Street Address: The Customer's Bill-To street Address.</para>
+
         <para>City: The Customer's Bill-To city.</para>
+
         <para>State: The Customer's Bill-To state.</para>
-        <para>Postal Code: The Customer's Bill-To Postal
-        Code.</para>
+
+        <para>Postal Code: The Customer's Bill-To Postal Code.</para>
+
         <para>Country: The Customer's Bill-To country.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Copy to Ship-to -\&gt;</term>
+
       <listitem id="listitemN0x180ac00N0x188eaf0">
         <para>Select to copy contents of billing address into Ship-To address
         field.</para>
-        <para>This option is enabled if the Customer master
-        for the specified Customer indicates that free-form Ship-To's are
-        allowed.</para>
+
+        <para>This option is enabled if the Customer master for the specified
+        Customer indicates that free-form Ship-To's are allowed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Ship-To #</term>
+
       <listitem id="listitemN0x180ac00N0x188eb38">
         <para>Enter the number of the preferred Ship-To Address.</para>
-        <para>Customers may maintain multiple Ship-To
-        Addresses. If the Customer master for the specified Customer indicates
-        that free-form Ship-To's are allowed, then any address may be entered.
-        If free-form Ship-To's are not allowed, then the Ship-To Address must
-        be entered using the browse button located to the right of the
-        field.</para>
+
+        <para>Customers may maintain multiple Ship-To Addresses. If the
+        Customer master for the specified Customer indicates that free-form
+        Ship-To's are allowed, then any address may be entered. If free-form
+        Ship-To's are not allowed, then the Ship-To Address must be entered
+        using the browse button located to the right of the field.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>ship-to details for</secondary>
         </indexterm>Ship-To Name</term>
+
       <listitem id="listitemN0x180ac00N0x188ebc8">
         <para>Displays the name for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Ship-To Phone</term>
+
       <listitem id="listitemN0x180ac00N0x1896200">
         <para>Displays the phone number for the specified Ship-To.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Address</term>
+
       <listitem id="listitemN0x180ac00N0x1896248">
         <para>Displays the specified Ship-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
-        <para>Street Address: The specified Ship-To street
-        Address.</para>
+
+        <para>Street Address: The specified Ship-To street Address.</para>
+
         <para>City: The specified Ship-To city.</para>
+
         <para>State: The specified Ship-To state.</para>
-        <para>Postal Code: The specified Ship-To Postal
-        Code.</para>
+
+        <para>Postal Code: The specified Ship-To Postal Code.</para>
+
         <para>Country: The specified Ship-To country.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales representatives</primary>
+
           <secondary>commissions for</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>commissions on</secondary>
         </indexterm>Sales Rep.</term>
+
       <listitem id="listitemN0x180ac00N0x1896320">
         <para>Specify the Sales Representative associated with the
         Order.</para>
-        <para>Sales Representatives are linked to a Customer
-        on the Customer master--either by a default setting or through the
-        assignment of Ship-To Addresses. Each Ship-To Address may have a
-        different Sales Representative associated with it. Consequently, the
-        name of the Sales Representative appearing on the Sales Order header
-        will be the same as specified for the Ship-To Address being
-        used.</para>
+
+        <para>Sales Representatives are linked to a Customer on the Customer
+        master--either by a default setting or through the assignment of
+        Ship-To Addresses. Each Ship-To Address may have a different Sales
+        Representative associated with it. Consequently, the name of the Sales
+        Representative appearing on the Sales Order header will be the same as
+        specified for the Ship-To Address being used.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Commission</term>
+
       <listitem id="listitemN0x180ac00N0x1896368">
         <para>By default, the commission percentage recorded on the Customer
         master will be automatically entered in this field.</para>
-        <para>If for some reason you select a non-default
-        Sales Representative at Order entry, the commission rate will not
-        change. To adjust the commission rate, you must make the change
-        manually.</para>
+
+        <para>If for some reason you select a non-default Sales Representative
+        at Order entry, the commission rate will not change. To adjust the
+        commission rate, you must make the change manually.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>tax authorities</primary>
+
           <secondary>for sales orders</secondary>
         </indexterm>Tax Authority</term>
+
       <listitem id="listitemN0x180ac00N0x18963f8">
         <para>Specify the Tax Authority associated with the Sales
         Order.</para>
-        <para>The Tax Authority for the specified Ship-To
-        Address will be entered here by default. Otherwise, the primary Tax
-        Authority for the Customer will be entered. Ultimately, Tax is applied
-        at the Line Item level--so the Tax Authority associated with an Item's
-        Tax Type will be used.</para>
+
+        <para>The Tax Authority for the specified Ship-To Address will be
+        entered here by default. Otherwise, the primary Tax Authority for the
+        Customer will be entered. Ultimately, Tax is applied at the Line Item
+        level--so the Tax Authority associated with an Item's Tax Type will be
+        used.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>setting terms for</secondary>
         </indexterm>Terms</term>
+
       <listitem id="listitemN0x180ac00N0x1896488">
         <para>Specify the billing Terms associated with the Order.</para>
-        <para>By default, the Customer's standard billing
-        Terms will appear in the field.</para>
+
+        <para>By default, the Customer's standard billing Terms will appear in
+        the field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>The option to associate a Project with a Sales Order
-    will only be visible if your site is configured to use Projects.</para>
+    <para>The option to associate a Project with a Sales Order will only be
+    visible if your site is configured to use Projects.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>Project #</term>
+
       <listitem id="listitemN0x180ac00N0x1896518">
         <para>Select a Project Number to associate with the Sales
         Order.</para>
-        <para>If a Sales Order is created from a converted
-        Quote--and the Quote had a Project Number associated with it--then the
-        Project Number from the originating Quote will automatically be
-        entered here. Once a Project Number is associated with a Sales Order,
-        any Work Orders or Purchase Orders created by the Sales Order demand
-        will automatically be linked to the same Project Number as the Sales
-        Order. In this way, Sales Orders, Work Orders, and Purchase Orders may
-        be linked to the same Project.</para>
+
+        <para>If a Sales Order is created from a converted Quote--and the
+        Quote had a Project Number associated with it--then the Project Number
+        from the originating Quote will automatically be entered here. Once a
+        Project Number is associated with a Sales Order, any Work Orders or
+        Purchase Orders created by the Sales Order demand will automatically
+        be linked to the same Project Number as the Sales Order. In this way,
+        Sales Orders, Work Orders, and Purchase Orders may be linked to the
+        same Project.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>If your site is configured to create Projects
-    automatically whenever new Sales Orders or Quotes are entered, the
-    Projects generated in this way will assume the number of the Sales Order
-    or Quote which caused their creation.</para>
+    <para>If your site is configured to create Projects automatically whenever
+    new Sales Orders or Quotes are entered, the Projects generated in this way
+    will assume the number of the Sales Order or Quote which caused their
+    creation.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>Cust. PO #</term>
+
       <listitem id="listitemN0x180ac00N0x18965a8">
         <para>PO #: Enter a Customer Purchase Order Number, as needed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>You will be required to enter a Customer Purchase
-    Order Number for Customers who require them. If required, duplicate
-    numbers will only be allowed if the Customer uses blanket Purchase Orders.
-    All Customer requirements are specified on the Customer master.</para>
+    <para>You will be required to enter a Customer Purchase Order Number for
+    Customers who require them. If required, duplicate numbers will only be
+    allowed if the Customer uses blanket Purchase Orders. All Customer
+    requirements are specified on the Customer master.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>F.O.B.</term>
+
       <listitem id="listitemN0x180ac00N0x1896638">
         <para>Enter free on board (FOB) Terms for the Order. By default, FOB.
         Terms entered on the Shipping Warehouse master will appear in this
@@ -337,156 +413,193 @@
         at later stages during the billing cycle.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Ship Complete</term>
+
       <listitem id="listitemN0x180ac00N0x1896680">
         <para>Select to require that all Sales Order Line Item quantities be
         issued to Shipping before the Order is shipped.</para>
-        <para>This feature is designed to prevent partial
-        shipments. If selected, users will be prevented from shipping the
-        Order unless all Line Item quantities have been issued to Shipping. If
-        not selected, partial shipments for the Order will be allowed.</para>
+
+        <para>This feature is designed to prevent partial shipments. If
+        selected, users will be prevented from shipping the Order unless all
+        Line Item quantities have been issued to Shipping. If not selected,
+        partial shipments for the Order will be allowed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Ship Via</term>
+
       <listitem id="listitemN0x180ac00N0x18966c8">
         <para>The preferred Ship Via method for the Customer will appear in
         the field.</para>
-        <para>You may change the default Ship Via using the
-        list. You may also enter a free-form Ship Via simply by typing the
-        name of the Ship Via into the field.</para>
+
+        <para>You may change the default Ship Via using the list. You may also
+        enter a free-form Ship Via simply by typing the name of the Ship Via
+        into the field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>The system supports up-to-date shipment tracking
-    with links to the websites of many leading shipping companies (i.e., "Ship
-    Vias").</para>
+    <para>The system supports up-to-date shipment tracking with links to the
+    websites of many leading shipping companies (i.e., "Ship Vias").</para>
   </tip>
+
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>hold types</primary>
+
           <secondary>for sales orders</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>hold types for</secondary>
         </indexterm>Hold Type</term>
+
       <listitem id="listitemN0x180ac00N0x18967e8">
         <para>Specify a hold type (if any) from the available options:</para>
-        <para>None: Indicates no hold is applied, meaning the
-        Order may be processed and shipped.</para>
-        <para>Shipping: Indicates a Shipping hold has been
-        placed on the Order. Users who attempt to ship an Order on Shipping
+
+        <para>None: Indicates no hold is applied, meaning the Order may be
+        processed and shipped.</para>
+
+        <para>Shipping: Indicates a Shipping hold has been placed on the
+        Order. Users who attempt to ship an Order on Shipping hold will be
+        prevented from doing so.</para>
+
+        <para>Packing: Indicates a Packing hold has been placed on the Order.
+        Users who attempt to issue stock to Shipping for an Order on Packing
         hold will be prevented from doing so.</para>
-        <para>Packing: Indicates a Packing hold has been
-        placed on the Order. Users who attempt to issue stock to Shipping for
-        an Order on Packing hold will be prevented from doing so.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>Shipping defaults specified on the Customer master
-    will transfer to the Sales Order header when a new Sales Order is entered
-    for a Customer.</para>
+    <para>Shipping defaults specified on the Customer master will transfer to
+    the Sales Order header when a new Sales Order is entered for a
+    Customer.</para>
   </note>
+
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>shipping charges on</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>shipping</primary>
+
           <secondary>charges on sales orders</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>shipping forms on</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>shipping forms</primary>
+
           <secondary>selecting on sales orders</secondary>
         </indexterm>Shipping Chgs.</term>
+
       <listitem id="listitemN0x180ac00N0x1896998">
         <para>Specify the Shipping charges associated with the Order.</para>
-        <para>The preferred Shipping Charges Type for the
-        Customer will appear in the field.</para>
+
+        <para>The preferred Shipping Charges Type for the Customer will appear
+        in the field.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Shipping Form</term>
+
       <listitem id="listitemN0x180ac00N0x18969e0">
         <para>Specify the Shipping Form associated with the Order.</para>
-        <para>The preferred Shipping Form for the Customer
-        will appear in the field.</para>
+
+        <para>The preferred Shipping Form for the Customer will appear in the
+        field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>At the top of the screen, the following buttons are
-  available:</para>
+
+  <para>At the top of the screen, the following buttons are available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLEAR</term>
+
       <listitem id="listitemN0x180ac00N0x1896a4c">
         <para>Select to clear the current Sales Order screen without closing
         the screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE AND ADD TO PACKING LIST BATCH</term>
+
       <listitem id="listitemN0x180ac00N0x1896a94">
         <para>Creates the Sales Order, saves it, and adds it to the list of
         Orders available for printing on the Packing List Batch.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x1896adc">
         <para>Creates the Sales Order and saves the Sales Order
         information.</para>
-        <para>The SAVE button must be selected in order to
-        save the Sales Order record. It is not enough to save Sales Order Line
-        Item information. The Sales Order header must also be saved. If your
-        system is configured to prompt for printing on SAVE, then you will be
+
+        <para>The SAVE button must be selected in order to save the Sales
+        Order record. It is not enough to save Sales Order Line Item
+        information. The Sales Order header must also be saved. If your system
+        is configured to prompt for printing on SAVE, then you will be
         presented with additional processing options after this button is
         selected.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x1896b24">
         <para>Closes the screen without creating a new Sales Order, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+
+  <para><indexterm significance="normal">
       <primary>sales orders</primary>
+
       <secondary>adding line items to</secondary>
     </indexterm>To create or modify Sales Order Line Items, select the "Line
   Items" tab at the top of the "Sales Order" screen. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newOrdLineItem.png" id="Graphic533771"/>
+          <imagedata fileref="images/SO_Ord_newOrdLineItem.png"
+                     id="Graphic533771" />
         </imageobject>
+
         <caption id="Caption525533">Sales Order Line Items</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating or modifying Sales Order Line Items, you
-  are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When creating or modifying Sales Order Line Items, you are presented
+  with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
+
       <listitem id="listitemN0x180ac00N0x1896c44">
         <para>Display lists Line Items for this Sales Order.</para>
-        <para>A valid Customer Number must be entered in the
-        "Customer #" field before Line Items can be added to the Order. The
+
+        <para>A valid Customer Number must be entered in the "Customer #"
+        field before Line Items can be added to the Order. The
         Shipping-related columns will not be visible if the system is
         configured to hide Shipping options at Sales Order entry. However, if
         the Shipping options are enabled, the Line Items may display in
@@ -498,83 +611,107 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>Sales Order Line Items may exist in any of the
-    following statuses:</para>
+    <para>Sales Order Line Items may exist in any of the following
+    statuses:</para>
+
     <para>"O" = Open</para>
+
     <para>"C" = Closed</para>
+
     <para>"X" = Cancelled</para>
-    <para>"R" = Ready for Shipment (i.e., quantity
-    available)</para>
+
+    <para>"R" = Ready for Shipment (i.e., quantity available)</para>
+
     <para>"I" = Invoiced</para>
+
     <para>"P" = Partially-invoiced</para>
+
     <para>"H" = On credit hold</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>Require sufficient Inventory</term>
+
       <listitem id="listitemN0x180ac00N0x1896cd4">
         <para>Select to ensure you have enough Quantity on Hand of a Line Item
         prior to issuing Stock to Shipping.</para>
-        <para>If selected, this option will prevent you from
-        issuing Line Item quantity to Shipping if doing so would force
-        Quantity on Hand for the Item Site to fall below zero. Not selecting
-        this option means issuing Stock to Shipping may drive Item Site
-        Quantity on Hand negative. This option will not be visible if the
+
+        <para>If selected, this option will prevent you from issuing Line Item
+        quantity to Shipping if doing so would force Quantity on Hand for the
+        Item Site to fall below zero. Not selecting this option means issuing
+        Stock to Shipping may drive Item Site Quantity on Hand negative. This
+        option will not be visible if the system is configured to hide
+        Shipping options at Sales Order entry.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Show Canceled Line Items</term>
+
+      <listitem id="listitemN0x180ac00N0x1896d1c">
+        <para>Select to include in the Line Items display Sales Order Line
+        Items which have been specifically canceled.</para>
+
+        <para>Displaying canceled Line Items can provide useful Customer and
+        Order history information.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>$ At Shipping</term>
+
+      <listitem id="listitemN0x180ac00N0x1896d64">
+        <para>Displays the monetary value of Sales Order Line Items at
+        Shipping.</para>
+
+        <para>The shipment value represents the total of the extended prices
+        for all Items included in the Shipment. The amount does not include
+        freight or Tax. This displayed information will not be visible if the
         system is configured to hide Shipping options at Sales Order
         entry.</para>
       </listitem>
     </varlistentry>
-    <varlistentry>
-      <term>Show Canceled Line Items</term>
-      <listitem id="listitemN0x180ac00N0x1896d1c">
-        <para>Select to include in the Line Items display Sales Order Line
-        Items which have been specifically canceled.</para>
-        <para>Displaying canceled Line Items can provide
-        useful Customer and Order history information.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>$ At Shipping</term>
-      <listitem id="listitemN0x180ac00N0x1896d64">
-        <para>Displays the monetary value of Sales Order Line Items at
-        Shipping.</para>
-        <para>The shipment value represents the total of the
-        extended prices for all Items included in the Shipment. The amount
-        does not include freight or Tax. This displayed information will not
-        be visible if the system is configured to hide Shipping options at
-        Sales Order entry.</para>
-      </listitem>
-    </varlistentry>
+
     <varlistentry>
       <term>$ Margin</term>
+
       <listitem id="listitemN0x180ac00N0x1896dac">
         <para>Displays the total profit margin for the Order.</para>
-        <para>The profit margin is based on the following
-        formula:</para>
-        <para>Order Subtotal - Total Standard Costs for all
-        Line Items</para>
+
+        <para>The profit margin is based on the following formula:</para>
+
+        <para>Order Subtotal - Total Standard Costs for all Line Items</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Subtotal</term>
+
       <listitem id="listitemN0x180ac00N0x1896df4">
         <para>Displays the subtotal for the Sales Order Line Items.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Tax</term>
+
       <listitem id="listitemN0x180ac00N0x1896e3c">
         <para>Displays the total amount of Tax to be charged on the Sales
         Order.</para>
-        <para>Sales Tax is calculated at the Sales Order Line
-        Item level. The Tax amount displayed here represents the total for all
-        Line Item Tax amounts. To get a detailed view of the Tax calculation,
-        click on the Tax link using your mouse.</para>
+
+        <para>Sales Tax is calculated at the Sales Order Line Item level. The
+        Tax amount displayed here represents the total for all Line Item Tax
+        amounts. To get a detailed view of the Tax calculation, click on the
+        Tax link using your mouse.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Misc. Charge Amount</term>
+
       <listitem id="listitemN0x180ac00N0x1896e84">
         <para>Enter the amount of any miscellaneous charge. Examples of
         miscellaneous charges include palletization costs, co-op refund, etc.
@@ -584,174 +721,214 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>If you do not use Miscellaneous Charges at your
-    site, you can hide these fields so they are not visible when entering
-    Sales Orders. To do so, simply select the "Hide Misc. Charges" option in
-    the system-level configuration.</para>
+    <para>If you do not use Miscellaneous Charges at your site, you can hide
+    these fields so they are not visible when entering Sales Orders. To do so,
+    simply select the "Hide Misc. Charges" option in the system-level
+    configuration.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>Misc. Charge Description</term>
+
       <listitem id="listitemN0x180ac00N0x1896f14">
         <para>Enter a description to identify the miscellaneous charge.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Misc. Charge Sales Account</term>
+
       <listitem id="listitemN0x180ac00N0x1896f5c">
         <para>Enter a Sales Account to assign the miscellaneous charge
         to.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Allocated C/Ms</term>
+
       <listitem id="listitemN0x180ac00N0x1896fa4">
         <para>Displays the monetary value of any open Credit Memos and/or
         Credit Card charges which have been specifically allocated to the
         Sales Order.</para>
-        <para>If your system is configured to automatically
-        allocate open Credit Memo balances to new Sales Orders, then the
-        monetary value of these allocated Credit Memos--plus any Credit Card
-        charges applied to the Order--will display here. If your system is not
-        configured to automatically allocate Credit Memos, then this field
-        will display only the monetary value of any Credit Card charges
-        applied to the Order--if any. The automatic allocation of Credit Memos
-        helps reduce Customer credit balances by ensuring that Customer
-        credits are consumed when new Sales Orders are entered. Any available,
-        open Credit Memos are eligible for allocation. The allocation of
-        available Credit Memos occurs only once--when a Sales Order is saved
-        for the first time. Subsequent saves will not result in additional
-        allocations. Credit Memos which have been allocated to a Sales Order
-        are applied at the point when the Invoice resulting from the Sales
-        Order is posted. Once the full balance of a Credit Memo has been
-        applied, the Credit Memo is then closed. The printed Invoice the
-        Customer receives will indicate whether Credit Memos have been
-        applied. In addition, the total due from the Customer will be
-        automatically adjusted to reflect any applied credits.</para>
+
+        <para>If your system is configured to automatically allocate open
+        Credit Memo balances to new Sales Orders, then the monetary value of
+        these allocated Credit Memos--plus any Credit Card charges applied to
+        the Order--will display here. If your system is not configured to
+        automatically allocate Credit Memos, then this field will display only
+        the monetary value of any Credit Card charges applied to the Order--if
+        any. The automatic allocation of Credit Memos helps reduce Customer
+        credit balances by ensuring that Customer credits are consumed when
+        new Sales Orders are entered. Any available, open Credit Memos are
+        eligible for allocation. The allocation of available Credit Memos
+        occurs only once--when a Sales Order is saved for the first time.
+        Subsequent saves will not result in additional allocations. Credit
+        Memos which have been allocated to a Sales Order are applied at the
+        point when the Invoice resulting from the Sales Order is posted. Once
+        the full balance of a Credit Memo has been applied, the Credit Memo is
+        then closed. The printed Invoice the Customer receives will indicate
+        whether Credit Memos have been applied. In addition, the total due
+        from the Customer will be automatically adjusted to reflect any
+        applied credits.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>The allocation of available Credit Memos occurs only
-    once--when a Sales Order is saved for the first time. Subsequent saves
-    will not result in additional allocations.</para>
+    <para>The allocation of available Credit Memos occurs only once--when a
+    Sales Order is saved for the first time. Subsequent saves will not result
+    in additional allocations.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>Outstanding C/Ms</term>
+
       <listitem id="listitemN0x180ac00N0x18a3224">
         <para>Displays the total monetary value of all unallocated Credit
         Memos for the Customer.</para>
-        <para>If no Credit Memos are allocated to the Sales
-        Order, then the amount displayed here will be equal to the Customer's
-        total open Credit Memo balance. If Credit Memos are allocated to the
-        Order, then the remaining Credit Memo balance will be displayed. The
-        open Credit Memo balance is considered when calculating the
-        outstanding balance due for the Order.</para>
+
+        <para>If no Credit Memos are allocated to the Sales Order, then the
+        amount displayed here will be equal to the Customer's total open
+        Credit Memo balance. If Credit Memos are allocated to the Order, then
+        the remaining Credit Memo balance will be displayed. The open Credit
+        Memo balance is considered when calculating the outstanding balance
+        due for the Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Authorized CC Payments</term>
+
       <listitem id="listitemN0x180ac00N0x18a326c">
         <para>Displays the monetary value of any credit card
         pre-authorizations for the Order.</para>
-        <para>Credit Card charges may be pre-authorized using
-        the options found under the "Payment" tab. When a Credit Card charge
-        is pre-authorized, the authorization is stored and may later be posted
-        as a completed charge using the A/R Workbench.</para>
+
+        <para>Credit Card charges may be pre-authorized using the options
+        found under the "Payment" tab. When a Credit Card charge is
+        pre-authorized, the authorization is stored and may later be posted as
+        a completed charge using the A/R Workbench.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Freight Weight</term>
+
       <listitem id="listitemN0x180ac00N0x18a32b4">
         <para>Displays the combined weight of all Sales Order Line
         Items.</para>
-        <para>Freight weight represents the sum of an Item's
-        product weight and packaging weight, both of which are defined on the
-        Item master. The per unit freight weight multiplied by the quantity
-        per gives you the Line Item freight weight. The sum of all Line Item
-        freight weights is the combined weight for the Order.</para>
+
+        <para>Freight weight represents the sum of an Item's product weight
+        and packaging weight, both of which are defined on the Item master.
+        The per unit freight weight multiplied by the quantity per gives you
+        the Line Item freight weight. The sum of all Line Item freight weights
+        is the combined weight for the Order.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>freight</primary>
+
           <secondary>on sales orders</secondary>
         </indexterm> <indexterm significance="normal">
           <primary>sales orders</primary>
+
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
+
       <listitem id="listitemN0x180ac00N0x18a338c">
         <para>Enter the amount of freight charge to be added to the specified
         Order. Freight charges may be entered during the creation or
         modification of a Sales Order--or at the time of shipment.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Total</term>
+
       <listitem id="listitemN0x180ac00N0x18a33d4">
         <para>Displays the total amount of the Sales Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>Any Sales Order Line Item may be shipped--even if
-    the Item or Item Site in question becomes inactive after the Sales Order
-    has been created.</para>
+    <para>Any Sales Order Line Item may be shipped--even if the Item or Item
+    Site in question becomes inactive after the Sales Order has been
+    created.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>Outstanding Balance</term>
+
       <listitem id="listitemN0x180ac00N0x18a3464">
         <para>Displays the projected total due for the Sales Order.</para>
-        <para>The outstanding balance represents the amount
-        the Customer would owe if all allocated and outstanding Credit Memos
-        and Credit Card pre-authorizations were applied to the Order.</para>
+
+        <para>The outstanding balance represents the amount the Customer would
+        owe if all allocated and outstanding Credit Memos and Credit Card
+        pre-authorizations were applied to the Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>At the top of and to the far right of the screen, the
-  following buttons are available:</para>
+
+  <para>At the top of and to the far right of the screen, the following
+  buttons are available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLEAR</term>
+
       <listitem id="listitemN0x180ac00N0x18a34d0">
         <para>Select to clear the contents of the current Sales Order and open
         a fresh, new Sales Order for Order entry.</para>
-        <para>The Order Number of the Order being cleared will
-        display next to the CLEAR button.</para>
+
+        <para>The Order Number of the Order being cleared will display next to
+        the CLEAR button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>Selecting the CLEAR button on the Sales Order header
-    does not delete any information which has been saved previously.</para>
+    <para>Selecting the CLEAR button on the Sales Order header does not delete
+    any information which has been saved previously.</para>
   </note>
+
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x18a3560">
         <para>Saves the Sales Order information.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x18a35a8">
         <para>Closes the screen without creating a new Sales Order, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x18a35f0">
         <para>Opens screen for creating a new Sales Order Line Item. Mac users
         may use COMMAND + N to enter a new Line Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x18a3638">
         <para>Enables you to edit highlighted Sales Order Line Items. The edit
         screen is the same as that for creating a new Sales Order Line
@@ -761,8 +938,10 @@
         edit an existing Line Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x18a3680">
         <para>Highlight a Sales Order Line Item and then select this button to
         close the Sales Order Line Item. If the highlighted Line Item is
@@ -770,19 +949,23 @@
         be used to open the closed Line Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
+
       <listitem id="listitemN0x180ac00N0x18a36c8">
         <para>Highlight a Sales Order Line Item and then select this button to
         remove the Sales Order Line Item from the list.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>shipping</primary>
+
           <secondary>issuing stock to</secondary>
         </indexterm>ISSUE STOCK</term>
+
       <listitem id="listitemN0x180ac00N0x18a3758">
         <para>Highlight a Sales Order Line Item and then select this button to
         issue quantity to Shipping. This button will not be visible if the
@@ -791,14 +974,17 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
-    <para>You may select multiple Line Items for issuing to
-    Shipping by highlighting them using your mouse--or a combination of your
-    mouse and either the SHIFT or CTRL keys.</para>
+    <para>You may select multiple Line Items for issuing to Shipping by
+    highlighting them using your mouse--or a combination of your mouse and
+    either the SHIFT or CTRL keys.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>ISSUE LINE BAL.</term>
+
       <listitem id="listitemN0x180ac00N0x18a37e8">
         <para>Highlight a Sales Order Line Item and then select this button to
         issue the balance of the Line Item quantity to Shipping. This button
@@ -807,54 +993,84 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Line Items list
-  enables you to select from the following menu options:</para>
+
+  <para>Right-clicking on an Item in the Line Items list enables you to select
+  from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Edit Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18a3638)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18a3638)" />
     </varlistentry>
+
     <varlistentry>
       <term>Close Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18a3680)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18a3680)" />
     </varlistentry>
+
     <varlistentry>
       <term>Delete Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18a36c8)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18a36c8)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/6/2/2)"/>
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReturnStock)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueStock)" />
+
     <varlistentry>
       <term>Issue Line Balance</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x18a37e8)"/>
+
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18a37e8)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>The Shipping-related options will not be visible if
-  the system is configured to hide Shipping options at Sales Order entry.
-  Also, if a highlighted Line Item is Closed, the following additional option
-  will be available:</para>
+
+  <para>The Shipping-related options will not be visible if the system is
+  configured to hide Shipping options at Sales Order entry. Also, if a
+  highlighted Line Item is Closed, the following additional option will be
+  available:</para>
+
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/2)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickOpenLine)" />
   </variablelist>
-  <para>Order Notes added to a Sales Order are used for
-  internal purposes only. To add Notes to a Sales Order, select the "Order
-  Notes" tab at the top of the "Sales Order" screen. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+
+  <para>Order Notes added to a Sales Order are used for internal purposes
+  only. To add Notes to a Sales Order, select the "Order Notes" tab at the top
+  of the "Sales Order" screen. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newNote.png" id="Graphic525485"/>
+          <imagedata fileref="images/SO_Ord_newNote.png" id="Graphic525485" />
         </imageobject>
+
         <caption id="Caption525417">Sales Order Notes</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Notes to a Sales Order, you are presented
-  with the following options:</para>
+    </screenshot></para>
+
+  <para>When adding Notes to a Sales Order, you are presented with the
+  following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Order Notes</term>
+
       <listitem id="listitemN0x180ac00N0x18b6958">
         <para>This is a scrolling text field with word-wrapping for entering
         general Notes related to the Sales Order. These Notes are for internal
@@ -862,127 +1078,155 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x18b69c4">
         <para>Saves the Order Note.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x18b6a0c">
         <para>Closes the screen without creating an Order Note, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments related to a Sales Order, select the
-  "Comments" tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To add Comments related to a Sales Order, select the "Comments" tab.
+  The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newComment.png" id="Graphic585532"/>
+          <imagedata fileref="images/SO_Ord_newComment.png" id="Graphic585532" />
         </imageobject>
+
         <caption id="Caption585535">Sales Order Comments</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Comments related to a Sales Order, you are
-  presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When adding Comments related to a Sales Order, you are presented with
+  the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Comments</term>
+
       <listitem id="listitemN0x180ac00N0x18b6ae4">
         <para>Display lists Comments for the specified Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x18b6b50">
         <para>Opens screen for creating a new Comment.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x18b6b98">
         <para>Highlight a Comment and then select this button to reach a
         read-only view of the Comment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create a Sales Order Comment, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To create a Sales Order Comment, select the NEW button. The following
+  screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic597083"/>
+          <imagedata fileref="images/CommentNew.png" id="Graphic597083" />
         </imageobject>
+
         <caption id="Caption597086">Create New Comment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
+
       <listitem id="listitemN0x180ac00N0x18b6c70">
         <para>Specify one of the following Comment Types from the drop-down
         list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments.
-        Once you have specified a Comment Type, you may type your Comment in
-        the main text area. The text area features word-wrapping and
-        scroll-bar support for longer Comments.</para>
+
+        <para>Comment Types are used to categorize Comments. Once you have
+        specified a Comment Type, you may type your Comment in the main text
+        area. The text area features word-wrapping and scroll-bar support for
+        longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x18b6cdc">
         <para>Closes the screen without creating a new Comment, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x18b6d24">
         <para>Creates the Comment and adds it to the list of Order
         Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Shipping Notes are drawn from the Customer
-  master--specifically from the "Shipping Notes" tab on the Ship-To Address
-  master. The Notes may vary depending on the Ship-To Address specified for
-  the Order. These Notes provide a mechanism for transferring shipping
-  information from the Customer master to the Sales Order. To view Sales Order
-  Shipping Notes, select the "Shipping Notes" tab at the top of the "Sales
-  Order" screen. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>Shipping Notes are drawn from the Customer master--specifically from
+  the "Shipping Notes" tab on the Ship-To Address master. The Notes may vary
+  depending on the Ship-To Address specified for the Order. These Notes
+  provide a mechanism for transferring shipping information from the Customer
+  master to the Sales Order. To view Sales Order Shipping Notes, select the
+  "Shipping Notes" tab at the top of the "Sales Order" screen. The following
+  screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newShipNote.png" id="Graphic623121"/>
+          <imagedata fileref="images/SO_Ord_newShipNote.png"
+                     id="Graphic623121" />
         </imageobject>
+
         <caption id="Caption623124">Sales Order Shipping Notes</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When viewing or editing Shipping Notes for a Sales
-  Order, you are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When viewing or editing Shipping Notes for a Sales Order, you are
+  presented with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Shipping Notes</term>
+
       <listitem id="listitemN0x180ac00N0x18b6dfc">
         <para>While Shipping Notes content may originate from the Customer
         master, you can edit the Notes to fit the requirements of an Order.
@@ -990,142 +1234,176 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x18b6e68">
         <para>Saves the Shipping Note.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x18b6eb0">
         <para>Closes the screen without creating a Shipping Note, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <note>
-    <para>If your system is configured to use Credit Cards,
-    the "Payment" tab will be visible. This tab will not be visible if your
-    system is not configured to use Credit Cards.</para>
+    <para>If your system is configured to use Credit Cards, the "Payment" tab
+    will be visible. This tab will not be visible if your system is not
+    configured to use Credit Cards.</para>
   </note>
-  <para>
-<indexterm significance="normal">
+
+  <para><indexterm significance="normal">
       <primary>credit cards</primary>
+
       <secondary>sales orders and</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>sales orders</primary>
+
       <secondary>credit cards and</secondary>
     </indexterm>To authorize or charge Customer Credit Cards, select the
   "Payment" tab at the top of the "Sales Order" screen. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_newPayment.png" id="Graphic624029"/>
+          <imagedata fileref="images/SO_Ord_newPayment.png" id="Graphic624029" />
         </imageobject>
+
         <caption id="Caption624032">Customer Credit Card Payment</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When authorizing or charging Customer Credit Cards,
-  you are presented with the following options:</para>
+    </screenshot></para>
+
+  <para>When authorizing or charging Customer Credit Cards, you are presented
+  with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Payment</term>
+
       <listitem id="listitemN0x180ac00N0x18b703c">
         <para>Display lists Credit Card information for the specified
         Customer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x18b70a8">
         <para>Opens screen for entering new Credit Card information for the
         Customer.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
+
       <listitem id="listitemN0x180ac00N0x18b70f0">
         <para>Enables you to edit highlighted Credit Cards. The edit screen is
         the same as that for entering new Credit Card information--except that
         when editing, the fields will contain Credit Card information.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
+
       <listitem id="listitemN0x180ac00N0x18b7138">
         <para>Highlight a Credit Card and then select this button to reach a
         read-only view of the "Edit" screen. Double-clicking on a Credit Card
         will also bring you to the view screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>MOVE UP</term>
+
       <listitem id="listitemN0x180ac00N0x18b7180">
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card up in the sequence of Credit Cards.</para>
-        <para>Sequence numbers are automatically adjusted to
-        reflect the change in position.</para>
+
+        <para>Sequence numbers are automatically adjusted to reflect the
+        change in position.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>MOVE DOWN</term>
+
       <listitem id="listitemN0x180ac00N0x18b71c8">
         <para>Highlight a Credit Card and then select this button to move the
         Credit Card down the sequence of Credit Cards.</para>
-        <para>Sequence numbers are automatically adjusted to
-        reflect the change in position.</para>
+
+        <para>Sequence numbers are automatically adjusted to reflect the
+        change in position.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>AUTHORIZE</term>
+
       <listitem id="listitemN0x180ac00N0x18be000">
         <para>After entering an amount below, highlight an active Credit Card
         and then select this button to pre-authorize the Credit Card charge
         for the amount specified.</para>
-        <para>Pre-authorized Credit Card charges will be
-        displayed in the "Authorized CC Payments" field on the "Line Items"
-        tab. After a Credit Card charge has been pre-authorized, the charge
-        may then be post-authorized using the A/R Workbench--thereby
-        completing the Credit Card transaction.</para>
+
+        <para>Pre-authorized Credit Card charges will be displayed in the
+        "Authorized CC Payments" field on the "Line Items" tab. After a Credit
+        Card charge has been pre-authorized, the charge may then be
+        post-authorized using the A/R Workbench--thereby completing the Credit
+        Card transaction.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CHARGE</term>
+
       <listitem id="listitemN0x180ac00N0x18be048">
         <para>After entering an amount below, highlight an active Credit Card
         and then select this button to charge the Credit Card for the amount
         specified.</para>
-        <para>When a Credit Card is charged, both a Credit
-        Memo and a Cash Receipt are posted for the charge amount. The total
-        due from the Customer will be automatically adjusted on the Invoice to
-        reflect the amount of any Credit Card charges. If, by chance, you
-        charge a Customer's Credit Card but fail to save the Sales Order, the
-        link between the Order and the charge will be broken; however, the
+
+        <para>When a Credit Card is charged, both a Credit Memo and a Cash
+        Receipt are posted for the charge amount. The total due from the
+        Customer will be automatically adjusted on the Invoice to reflect the
+        amount of any Credit Card charges. If, by chance, you charge a
+        Customer's Credit Card but fail to save the Sales Order, the link
+        between the Order and the charge will be broken; however, the
         transactions resulting from the charge will remain in the
         system.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Amount</term>
+
       <listitem id="listitemN0x180ac00N0x18be090">
         <para>Enter the amount of the Credit Card pre-authorization or charge.
         By default, the outstanding balance due will be displayed here.
         However, you may edit the default amount.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>CVV Code</term>
+
       <listitem id="listitemN0x180ac00N0x18be0d8">
         <para>Enter the Card Verification Value (CVV) Code found on the back
         of the specified Credit Card. This may be an optional feature at your
@@ -1133,5 +1411,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="salesOrderItem.xml" xpointer="element(/1)"/>
+
+  <xi:include href="salesOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
