@@ -225,15 +225,11 @@
   <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAROpenItem)" />
+                xpointer="element(rightclickViewOpenItems)" />
 
-    <varlistentry>
-      <term>Print Statement</term>
-
-      <listitem id="listitemN0x180ac00N0x18c472c">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintStatement)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"

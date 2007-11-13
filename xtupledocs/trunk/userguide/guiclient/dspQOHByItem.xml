@@ -145,45 +145,25 @@
   to select from the following menu options:</para>
 
   <variablelist>
-    <varlistentry>
-      <term>Transfer to another Warehouse</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickTransfertoanotherWarehouse)" />
 
-      <listitem id="listitemN0x180ac00N0x1940c64">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAdjustthisQOH)" />
 
-    <varlistentry>
-      <term>Adjust this QOH</term>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickResetthisQOHto0)" />
 
-      <listitem id="listitemN0x180ac00N0x1940cac">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditMisc.Count)" />
 
-    <varlistentry>
-      <term>Reset this QOH to 0</term>
-
-      <listitem id="listitemN0x180ac00N0x1940cf4">
-        <para></para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Enter Misc. Count</term>
-
-      <listitem id="listitemN0x180ac00N0x1940d3c">
-        <para></para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
-      <term>Issue Count Tag</term>
-
-      <listitem id="listitemN0x180ac00N0x1940d84">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"

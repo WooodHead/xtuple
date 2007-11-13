@@ -61,13 +61,9 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickEdit)" />
 
-    <varlistentry>
-      <term>View</term>
-
-      <listitem id="listitemN0x180ac00N0x18917ac">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
 
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
