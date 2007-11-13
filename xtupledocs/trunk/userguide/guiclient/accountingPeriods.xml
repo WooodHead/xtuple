@@ -76,7 +76,7 @@
     <varlistentry>
       <term>VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18778b8">
+      <listitem id="accountingPeriodsVIEW">
         <para>Highlight an Accounting Period and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
@@ -94,7 +94,7 @@
     <varlistentry>
       <term>FREEZE PERIOD</term>
 
-      <listitem id="listitemN0x180ac00N0x1877948">
+      <listitem id="accountingPeriodsFREEZEPERIOD">
         <para>Highlight an Accounting Period and then select this button to
         freeze the Period.</para>
       </listitem>
@@ -117,8 +117,8 @@
     <varlistentry>
       <term>View</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18778b8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(accountingPeriodsVIEW)" />
     </varlistentry>
 
     <xi:include href="../supportfiles/rightclick.xml"
@@ -128,8 +128,8 @@
     <varlistentry>
       <term>Freeze</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1877948)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(accountingPeriodsFREEZEPERIOD)" />
     </varlistentry>
 
     <xi:include href="../widgets/xtreewidget.xml"

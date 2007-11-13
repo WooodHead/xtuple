@@ -1,65 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560844">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>crm</primary>
+
       <secondary>incident categories and</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>incidents</primary>
+
       <secondary>categories for</secondary>
     </indexterm>List Incident Categories</title>
-  <para>Incident Categories are used by the Incident
-  Management system to categorize Incidents. When Incident Categories are
-  entered in the Master Information section, these Categories are then
-  available for use when entering or updating Incidents.</para>
+
+  <para>Incident Categories are used by the Incident Management system to
+  categorize Incidents. When Incident Categories are entered in the Master
+  Information section, these Categories are then available for use when
+  entering or updating Incidents.</para>
+
   <tip>
-    <para>You must manually create Incident Categories if you
-    want the ability to assign them to Incidents. If no Incident Categories
-    are defined, then none will be available when entering Incidents.</para>
+    <para>You must manually create Incident Categories if you want the ability
+    to assign them to Incidents. If no Incident Categories are defined, then
+    none will be available when entering Incidents.</para>
   </tip>
-  <para>To access the master list of Incident Categories,
-  select the "Incident Categories" option. The following screen will
-  appear.</para>
-  <para>
-<screenshot>
+
+  <para>To access the master list of Incident Categories, select the "Incident
+  Categories" option. The following screen will appear.</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_MI_incidCatList.png" id="Graphic560936"/>
+          <imagedata fileref="images/CRM_MI_incidCatList.png"
+                     id="Graphic560936" />
         </imageobject>
+
         <caption id="Caption560939">Incident Categories Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>The "Incident Categories" screen displays information
-  on all existing Incident Categories, including Incident Category order,
-  name, and description.</para>
-  <para>To the far right of the list, the following buttons
-  are available:</para>
+    </screenshot></para>
+
+  <para>The "Incident Categories" screen displays information on all existing
+  Incident Categories, including Incident Category order, name, and
+  description.</para>
+
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x181a748">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x181a790">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x181a7d8">
         <para>Opens screen for creating a new Incident Category.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x181a820">
+
+      <listitem id="incidentCategoriesEDIT">
         <para>Enables you to edit highlighted Incident Categories. The edit
         screen is the same as that for creating a new Incident
         Category--except that when editing, the fields will contain Incident
@@ -67,37 +81,53 @@
         also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x181a868">
+
+      <listitem id="incidentCategoriesVIEW">
         <para>Highlight an Incident Category and then select this button to
         reach a read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x181a8b0">
+
+      <listitem id="incidentCategoriesDELETE">
         <para>Highlight an Incident Category and then select this button to
         remove the Incident Category from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Incident Category in the Incident
-  Categories list enables you to select from the following menu
-  options:</para>
+
+  <para>Right-clicking on an Incident Category in the Incident Categories list
+  enables you to select from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x181a820)"/>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentCategoriesEDIT)" />
     </varlistentry>
+
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x181a868)"/>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentCategoriesVIEW)" />
     </varlistentry>
+
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x181a8b0)"/>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(incidentCategoriesDELETE)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

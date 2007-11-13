@@ -62,7 +62,7 @@
     <varlistentry>
       <term>EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x18a00d8">
+      <listitem id="cashReceiptsEditListEDIT">
         <para>Enables you to edit highlighted Cash Receipt. The edit screen is
         the same as that for creating a new Cash Receipt--except that when
         editing, the fields will contain pre-loaded Cash Receipt information.
@@ -82,7 +82,7 @@
     <varlistentry>
       <term>VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x18a0168">
+      <listitem id="cashReceiptsEditListVIEW">
         <para>Highlight a Cash Receipt and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
@@ -91,7 +91,7 @@
     <varlistentry>
       <term>DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x18a01b0">
+      <listitem id="cashReceiptsEditListDELETE">
         <para>Highlight a Cash Receipt and then select this button to remove
         the Cash Receipt from the edit list.</para>
       </listitem>
@@ -105,22 +105,22 @@
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18a00d8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(cashReceiptsEditListEDIT)" />
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18a0168)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(cashReceiptsEditListVIEW)" />
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18a01b0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(cashReceiptsEditListDELETE)" />
     </varlistentry>
 
     <xi:include href="../supportfiles/rightclick.xml"

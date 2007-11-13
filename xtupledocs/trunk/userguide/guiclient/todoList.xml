@@ -155,7 +155,7 @@
     <varlistentry>
       <term>MOVE UP</term>
 
-      <listitem id="listitemN0x180ac00N0x1889fe0">
+      <listitem id="todoListMOVEUP">
         <para>Highlight a To-Do List item and then select this button to move
         the To-Do List item up the list. Sequence numbers are user-defined and
         must be manually assigned.</para>
@@ -165,7 +165,7 @@
     <varlistentry>
       <term>MOVE DOWN</term>
 
-      <listitem id="listitemN0x180ac00N0x188a028">
+      <listitem id="todoListMOVEDOWN">
         <para>Highlight a To-Do List item and then select this button to move
         the To-Do List item down the list. Sequence numbers are user-defined
         and must be manually assigned.</para>
@@ -183,7 +183,7 @@
     <varlistentry>
       <term>EDIT</term>
 
-      <listitem id="listitemN0x180ac00N0x188a0b8">
+      <listitem id="todoListEDIT">
         <para>Enables you to edit highlighted To-Do List items. The edit
         screen is the same as that for creating a new To-Do List item--except
         that when editing, the fields will contain To-Do List item
@@ -195,7 +195,7 @@
     <varlistentry>
       <term>VIEW</term>
 
-      <listitem id="listitemN0x180ac00N0x188a100">
+      <listitem id="todoListVIEW">
         <para>Highlight a To-Do List item and then select this button to reach
         a read-only view of the "Edit" screen.</para>
       </listitem>
@@ -204,7 +204,7 @@
     <varlistentry>
       <term>DELETE</term>
 
-      <listitem id="listitemN0x180ac00N0x188a148">
+      <listitem id="todoListDELETE">
         <para>Highlight a To-Do List item and then select this button to
         remove the To-Do List item from the list.</para>
       </listitem>
@@ -226,15 +226,15 @@
     <varlistentry>
       <term>Move Up</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1889fe0)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(todoListMOVEUP)" />
     </varlistentry>
 
     <varlistentry>
       <term>Move Down</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x188a028)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(todoListMOVEDOWN)" />
     </varlistentry>
 
     <varlistentry>
@@ -247,22 +247,22 @@
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x188a0b8)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(todoListEDIT)" />
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x188a100)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(todoListVIEW)" />
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x188a148)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(todoListDELETE)" />
     </varlistentry>
 
     <xi:include href="../supportfiles/rightclick.xml"
