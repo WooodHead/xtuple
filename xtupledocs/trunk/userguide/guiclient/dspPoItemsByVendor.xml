@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518917">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>line items by vendor</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>p/o line item details for</secondary>
     </indexterm>P/O Items by Vendor</title>
-  <para>To view Purchase Order Items by Vendor, select the
-  "P/O Items by Vendor" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To view Purchase Order Items by Vendor, select the "P/O Items by
+  Vendor" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Disp_lineItemsByVendor.png" id="Graphic949314"/>
+          <imagedata fileref="images/PO_Disp_lineItemsByVendor.png"
+                     id="Graphic949314" />
         </imageobject>
         <caption id="Caption952503">Purchase Order Items by Vendor</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>A Purchase Order will remain open if at least one of
-    its Line Items is open. Once all Line Items are closed, the Purchase Order
-    will also be closed. To reopen a closed Purchase Order, simply open one of
-    its closed Line Items.</para>
+    <para>A Purchase Order will remain open if at least one of its Line Items
+    is open. Once all Line Items are closed, the Purchase Order will also be
+    closed. To reopen a closed Purchase Order, simply open one of its closed
+    Line Items.</para>
   </tip>
-  <para>When displaying Purchase Order Items by Vendor, you
-  are presented with the following options:</para>
+  <para>When displaying Purchase Order Items by Vendor, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Vendor #</term>
@@ -85,8 +83,8 @@
       <listitem id="listitemN0x180ac00N0x18b32c8">
         <para>Specify Purchasing Agent whose Purchase Order Items by Vendor
         you want to display.</para>
-        <para>Users may be designated as Purchasing Agents at
-        the system level.</para>
+        <para>Users may be designated as Purchasing Agents at the system
+        level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -111,8 +109,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -135,16 +133,36 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Line Item in the Purchase Order
-  list enables you to select from the following menu options:</para>
+  <para>Right-clicking on a Line Item in the Purchase Order list enables you
+  to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPurchaseOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPOItem2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedulePO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickChangeQty)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCloseItem)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>If the Line Item is closed, the following option will
-  be available:</para>
+  <para>If the Line Item is closed, the following option will be
+  available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/8)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickOpenItem)" />
   </variablelist>
 </section>

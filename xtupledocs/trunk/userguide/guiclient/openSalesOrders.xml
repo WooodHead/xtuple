@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section605037">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>list open</secondary>
     </indexterm>List Open Sales Orders</title>
-  <para>A Sales Order appears on the List Open Sales Orders
-  screen if one or more of its Line Items remains open. Once all Line Items
-  for a Sales Order have been closed, the Sales Order will no longer appear on
-  the list. Typically, Sales Order Line Items are closed when the Order is
-  selected for billing. To display open Sales Orders by Warehouse, select the
-  "Open Sales Orders" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>A Sales Order appears on the List Open Sales Orders screen if one or
+  more of its Line Items remains open. Once all Line Items for a Sales Order
+  have been closed, the Sales Order will no longer appear on the list.
+  Typically, Sales Order Line Items are closed when the Order is selected for
+  billing. To display open Sales Orders by Warehouse, select the "Open Sales
+  Orders" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_listOpenSO.png" id="Graphic523353"/>
+          <imagedata fileref="images/SO_Ord_listOpenSO.png" id="Graphic523353" />
         </imageobject>
         <caption id="Caption519186">Open Sales Orders Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying open Sales Orders, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When displaying open Sales Orders, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry role="openmfg">
       <term>All Warehouses</term>
@@ -46,8 +44,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -100,30 +98,46 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Order in the Sales Orders list
-  enables you to select from the following menu options:</para>
+  <para>Right-clicking on an Order in the Sales Orders list enables you to
+  select from the following menu options:</para>
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18be438)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18be438)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18be3a8)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18be3a8)" />
     </varlistentry>
     <varlistentry>
       <term>Copy</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18be3f0)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18be3f0)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/13)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedule)" />
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x18be480)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x18be480)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/10)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/14)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/11)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAddtoPackingListBatch)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickScheduleSOforEmailDelivery)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintSalesOrderForm)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section533843">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>history by class code</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>work order history for</secondary>
     </indexterm>Work Order History by Class Code</title>
-  <para>To view Work Order history by Class Code, select the
-  "Work Order History by Class Code" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Work Order history by Class Code, select the "Work Order
+  History by Class Code" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Disp_histByClass.png" id="Graphic533971"/>
+          <imagedata fileref="images/WO_Disp_histByClass.png"
+                     id="Graphic533971" />
         </imageobject>
         <caption id="Caption533999">Work Order History by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Work Order Materials and Operations history is saved
-    in the database after a Work Order is closed. Reports can be written to
-    retrieve this information.</para>
+    <para>Work Order Materials and Operations history is saved in the database
+    after a Work Order is closed. Reports can be written to retrieve this
+    information.</para>
   </note>
-  <para>When displaying Work Order history by Class Code, you
-  are presented with the following options:</para>
+  <para>When displaying Work Order history by Class Code, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Class Codes</term>
@@ -49,11 +46,9 @@
       <listitem>
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" /> FINDME "Topic:
+        Pattern Matching with Regular Expressions".</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -74,9 +69,8 @@
       <term>Only Show Top Level Work Orders</term>
       <listitem>
         <para>Select to display only top level Work Orders.</para>
-        <para>Top level Work Orders are Work Orders that have
-        not been created to meet the component demands of a parent Work
-        Order.</para>
+        <para>Top level Work Orders are Work Orders that have not been created
+        to meet the component demands of a parent Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,8 +87,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -117,11 +111,17 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Work Order in the Work Orders"
-  list enables you to select from the following menu options:</para>
+  <para>Right-clicking on a Work Order in the Work Orders" list enables you to
+  select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657335">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>backlog</primary>
       <secondary>summarized by warehouse</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>warehouses</primary>
       <secondary>backlog summarized by</secondary>
     </indexterm>Summarized Backlog by Warehouse</title>
-  <para>To view summarized Backlog by Warehouse, select the
-  "Summarized Backlog by Warehouse" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view summarized Backlog by Warehouse, select the "Summarized
+  Backlog by Warehouse" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_summBackByWare.png" id="Graphic657338"/>
+          <imagedata fileref="images/SO_Disp_summBackByWare.png"
+                     id="Graphic657338" />
         </imageobject>
         <caption id="Caption657341">Summarized Backlog by Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying summarized Backlog by Warehouse, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying summarized Backlog by Warehouse, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
@@ -45,11 +42,9 @@
       <listitem id="listitemN0x180ac00N0x198c3cc">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" /> FINDME "Topic:
+        Pattern Matching with Regular Expressions".</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,12 +86,10 @@
       <listitem id="listitemN0x180ac00N0x198c57c">
         <para>Select one of the following options to indicate how you want the
         results to be organized:</para>
-        <para>Ship Date: Select to order the display by Ship
-        Date.</para>
-        <para>Pack Date: Select to order the display by Pack
-        Date.</para>
-        <para>S/O Number: Select to order the display by Sales
-        Order Number.</para>
+        <para>Ship Date: Select to order the display by Ship Date.</para>
+        <para>Pack Date: Select to order the display by Pack Date.</para>
+        <para>S/O Number: Select to order the display by Sales Order
+        Number.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,27 +97,24 @@
       <listitem id="listitemN0x180ac00N0x198c5c4">
         <para>Display lists summarized Backlog by Warehouse, using the
         specified parameters.</para>
-        <para>The display is a nested list, with a plus ("+")
-        sign located to the far left of the screen next to each line that may
-        be expanded to lower levels. By clicking your mouse on a plus sign,
-        you reveal lower levels of information related to the Order. If the
-        "Show Prices and Costs" option is selected, additional columns showing
-        sales Price, Cost, and margin will display.</para>
+        <para>The display is a nested list, with a plus ("+") sign located to
+        the far left of the screen next to each line that may be expanded to
+        lower levels. By clicking your mouse on a plus sign, you reveal lower
+        levels of information related to the Order. If the "Show Prices and
+        Costs" option is selected, additional columns showing sales Price,
+        Cost, and margin will display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Summarized Backlog by Warehouse display is
-    color-coded for ease of use. The following colors are used to describe the
-    backlog status of Sales Order Line Items:</para>
-    <para>Blue: Order is at Shipping but is not yet
-    shipped</para>
-    <para>Green: Order has been shipped but is not yet
-    invoiced</para>
-    <para>Red: Part of the Order has been shipped and
-    invoiced, but Backorder Items still need to be shipped and invoiced</para>
-    <para>Order has remaining uninvoiced Line Items remain on
-    Backorder</para>
+    <para>The Summarized Backlog by Warehouse display is color-coded for ease
+    of use. The following colors are used to describe the backlog status of
+    Sales Order Line Items:</para>
+    <para>Blue: Order is at Shipping but is not yet shipped</para>
+    <para>Green: Order has been shipped but is not yet invoiced</para>
+    <para>Red: Part of the Order has been shipped and invoiced, but Backorder
+    Items still need to be shipped and invoiced</para>
+    <para>Order has remaining uninvoiced Line Items remain on Backorder</para>
     <para>Black: None of the above conditions is true.</para>
   </note>
   <variablelist>
@@ -149,8 +139,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -173,15 +163,26 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Sales Order in the Backlog list
-  enables you to select from the following menu options:</para>
+  <para>Right-clicking on a Sales Order in the Backlog list enables you to
+  select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/8)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/13)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/4)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/10)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedule)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDelete)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

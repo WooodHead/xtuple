@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519909">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>item site details for</secondary>
     </indexterm>Item Sites by Item</title>
-  <para>To view Item Sites by Item, select the "Item Sites by
-  Item" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To view Item Sites by Item, select the "Item Sites by Item" option.
+  The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_itemSitesByItem.png" id="Graphic526572"/>
+          <imagedata fileref="images/IM_Disp_itemSitesByItem.png"
+                     id="Graphic526572" />
         </imageobject>
         <caption id="Caption519915">Item Sites by Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Item Sites by Item, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Item Sites by Item, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
@@ -51,8 +49,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -75,19 +73,23 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item Site in the Item Sites list
-  enables you to select the following menu options:</para>
+  <para>Right-clicking on an Item Site in the Item Sites list enables you to
+  select the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/27)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/8)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/25)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/10)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-  </variablelist>
-  <para>If the Item Site is an MLC Item Site or if its control
-  method is Lot/Serial #, then the following additional option will be
-  available:</para>
-  <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/28)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemSite)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditItemSite)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewInventoryAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

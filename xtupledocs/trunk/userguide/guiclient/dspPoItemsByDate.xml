@@ -1,140 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section920970">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>purchase orders</primary>
-         <secondary>line items by date</secondary>
-      </indexterm>P/O Items by Date</title>
-   <para>To view Purchase Order Items by date, select the
-    "P/O Items by Date" option. The following screen will appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PO_Disp_lineItemsByDate.png" id="Graphic535424"/>
-            </imageobject>
-            <caption id="Caption535427">Purchase Order Items by Date</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para>A Purchase Order will remain open if at least one
-      of its Line Items is open. Once all Line Items are closed, the Purchase
-      Order will also be closed. To reopen a closed Purchase Order, simply
-      open one of its closed Line Items.</para>
-   </tip>
-   <para>When displaying Purchase Order Items by date, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Starting Due Date</term>
-         <listitem id="listitemN0x180ac00N0x18b93f0">
-            <para>Purchase Order Items entered on and after this date will be
-          displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Ending Due Date</term>
-         <listitem id="listitemN0x180ac00N0x18b9438">
-            <para>Purchase Order Items entered on and before this date will be
-          displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term>All Warehouses</term>
-         <listitem id="listitemN0x180ac00N0x18b945c">
-            <para>Select to display Purchase Order Items by date for all
-          Warehouses.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term>Selected</term>
-         <listitem id="listitemN0x180ac00N0x18b9480">
-            <para>Specify Warehouse whose Purchase Order Items by date you want
-          to display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>All Purchasing Agents</term>
-         <listitem id="listitemN0x180ac00N0x18b94c8">
-            <para>Select to display Purchase Order Items by date for all
-          Purchasing Agents.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Selected</term>
-         <listitem id="listitemN0x180ac00N0x18b9510">
-            <para>Specify Purchasing Agent whose Purchase Order Items by date
-          you want to display.</para>
-            <para>Users may be designated as Purchasing Agents
-          at the system level.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>All Items</term>
-         <listitem id="listitemN0x180ac00N0x18b9558">
-            <para>Select to include all Purchase Order Items by date in the
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Open Items</term>
-         <listitem id="listitemN0x180ac00N0x18b95a0">
-            <para>Select to include open Purchase Order Items by date in the
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Closed Items</term>
-         <listitem id="listitemN0x180ac00N0x18b95e8">
-            <para>Select to include closed Purchase Order Items by date in the
-          display.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>P/O Items</term>
-         <listitem id="listitemN0x180ac00N0x18b9630">
-            <para>Display lists Purchase Order Items by date, using the
-          specified parameters.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18b969c">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>QUERY</term>
-         <listitem id="listitemN0x180ac00N0x18b96e4">
-            <para>Select to generate the display, using the specified
-          parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18b972c">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>Right-clicking on a Line Item in the Purchase Order
-    list enables you to select from the following menu options:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/1)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/2)"/>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
-   <para>If the Line Item is closed, the following option
-    will be available:</para>
-   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/8)"/>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>purchase orders</primary>
+      <secondary>line items by date</secondary>
+    </indexterm>P/O Items by Date</title>
+  <para>To view Purchase Order Items by date, select the "P/O Items by Date"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PO_Disp_lineItemsByDate.png"
+                     id="Graphic535424" />
+        </imageobject>
+        <caption id="Caption535427">Purchase Order Items by Date</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>A Purchase Order will remain open if at least one of its Line Items
+    is open. Once all Line Items are closed, the Purchase Order will also be
+    closed. To reopen a closed Purchase Order, simply open one of its closed
+    Line Items.</para>
+  </tip>
+  <para>When displaying Purchase Order Items by date, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Starting Due Date</term>
+      <listitem id="listitemN0x180ac00N0x18b93f0">
+        <para>Purchase Order Items entered on and after this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Ending Due Date</term>
+      <listitem id="listitemN0x180ac00N0x18b9438">
+        <para>Purchase Order Items entered on and before this date will be
+        displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>All Warehouses</term>
+      <listitem id="listitemN0x180ac00N0x18b945c">
+        <para>Select to display Purchase Order Items by date for all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Selected</term>
+      <listitem id="listitemN0x180ac00N0x18b9480">
+        <para>Specify Warehouse whose Purchase Order Items by date you want to
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Purchasing Agents</term>
+      <listitem id="listitemN0x180ac00N0x18b94c8">
+        <para>Select to display Purchase Order Items by date for all
+        Purchasing Agents.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem id="listitemN0x180ac00N0x18b9510">
+        <para>Specify Purchasing Agent whose Purchase Order Items by date you
+        want to display.</para>
+        <para>Users may be designated as Purchasing Agents at the system
+        level.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Items</term>
+      <listitem id="listitemN0x180ac00N0x18b9558">
+        <para>Select to include all Purchase Order Items by date in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Open Items</term>
+      <listitem id="listitemN0x180ac00N0x18b95a0">
+        <para>Select to include open Purchase Order Items by date in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Closed Items</term>
+      <listitem id="listitemN0x180ac00N0x18b95e8">
+        <para>Select to include closed Purchase Order Items by date in the
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>P/O Items</term>
+      <listitem id="listitemN0x180ac00N0x18b9630">
+        <para>Display lists Purchase Order Items by date, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18b969c">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem id="listitemN0x180ac00N0x18b96e4">
+        <para>Select to generate the display, using the specified
+        parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18b972c">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a Line Item in the Purchase Order list enables you
+  to select from the following menu options:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPurchaseOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewPOItem2)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedulePO)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickChangeQty)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCloseItem)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
+  <para>If the Line Item is closed, the following option will be
+  available:</para>
+  <variablelist>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickOpenItem)" />
+  </variablelist>
 </section>

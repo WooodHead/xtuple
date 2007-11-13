@@ -1,35 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section676303">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>slow moving inventory</primary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>inventory</primary>
       <secondary>slow moving</secondary>
     </indexterm>Slow Moving Inventory</title>
-  <para>Slow moving Inventory is Inventory that has not been
-  used since the specified cutoff date. Inventory is considered to have been
-  used whenever it is issued, received, returned, counted, etc. To view slow
-  moving Inventory, select the "Slow Moving Inventory" option. The following
-  screen will appear:</para>
-  <para>
-<screenshot>
+  <para>Slow moving Inventory is Inventory that has not been used since the
+  specified cutoff date. Inventory is considered to have been used whenever it
+  is issued, received, returned, counted, etc. To view slow moving Inventory,
+  select the "Slow Moving Inventory" option. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_slowMovingInv.png" id="Graphic554948"/>
+          <imagedata fileref="images/IM_Disp_slowMovingInv.png"
+                     id="Graphic554948" />
         </imageobject>
         <caption id="Caption554951">Slow Moving Inventory</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>The Cutoff date is a required field. If you don"t
-    enter a Cutoff date, no data will be displayed.</para>
+    <para>The Cutoff date is a required field. If you don"t enter a Cutoff
+    date, no data will be displayed.</para>
   </tip>
-  <para>When displaying slow moving Inventory, you are
-  presented with the following options:</para>
+  <para>When displaying slow moving Inventory, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Class Codes</term>
@@ -50,11 +48,8 @@
       <listitem id="listitemN0x180ac00N0x194e0fc">
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,8 +79,8 @@
       <listitem id="listitemN0x180ac00N0x194e1d4">
         <para>Select to include the Inventory value of slow moving Inventory
         in the display.</para>
-        <para>Specify whether to display Inventory value using
-        Standard Costs or Actual Costs.</para>
+        <para>Specify whether to display Inventory value using Standard Costs
+        or Actual Costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,14 +99,13 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x194e2ac">
         <para>Order the output by one of the following methods:</para>
-        <para>Item Number: Select to order the display by Item
-        Number.</para>
-        <para>Date Last Used: Select to order the display by
-        the date Inventory was last used. Inventory is considered to have been
-        used whenever it is issued, received, returned, counted, etc.</para>
-        <para>Inventory Value: Select to order the display by
-        Inventory value. This selection will only be available if used in
-        conjunction with the "Show Inventory Value" option.</para>
+        <para>Item Number: Select to order the display by Item Number.</para>
+        <para>Date Last Used: Select to order the display by the date
+        Inventory was last used. Inventory is considered to have been used
+        whenever it is issued, received, returned, counted, etc.</para>
+        <para>Inventory Value: Select to order the display by Inventory value.
+        This selection will only be available if used in conjunction with the
+        "Show Inventory Value" option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -122,8 +116,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -137,9 +131,8 @@
       <listitem id="listitemN0x180ac00N0x194e3a8">
         <para>Select to generate the display, using the specified
         parameters.</para>
-        <para>Cutoff date must be entered for calculation to
-        proceed. Results will be displayed in the "Quantities on Hand"
-        list.</para>
+        <para>Cutoff date must be entered for calculation to proceed. Results
+        will be displayed in the "Quantities on Hand" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -149,14 +142,26 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an Item in the Quantities on Hand
-  list enables you to select from the following menu options:</para>
+  <para>Right-clicking on an Item in the Quantities on Hand list enables you
+  to select from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/11)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/9)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/4)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/5)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickTransfertoanotherWarehouse)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAdjustthisQOH)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickResetthisQOHto0)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditMisc.Count)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueCountTag)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -1,144 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518747" role="openmfg">
   <title>Planned Orders by Item</title>
-
-  <para>To view Planned Orders by Item, select the "Planned
-  Orders by Item" option. The following screen will appear:</para>
-
-  <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/MS_Disp_planOrdByItem.png" id="Graphic520549"/>
-            </imageobject>
-
-            <caption id="Caption518753">Planned Orders by Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
+  <para>To view Planned Orders by Item, select the "Planned Orders by Item"
+  option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_planOrdByItem.png"
+                     id="Graphic520549" />
+        </imageobject>
+        <caption id="Caption518753">Planned Orders by Item</caption>
+      </mediaobject>
+    </screenshot></para>
   <note>
-      <para>When a Planned Work Order is released, the Create
-    Work Order screen will appear with Work Order details automatically filled
-    in. Releasing a Planned Purchase Order results in a Purchase Request,
-    which may in turn be released from the Purchase Request reports.</para>
+    <para>When a Planned Work Order is released, the Create Work Order screen
+    will appear with Work Order details automatically filled in. Releasing a
+    Planned Purchase Order results in a Purchase Request, which may in turn be
+    released from the Purchase Request reports.</para>
   </note>
-
-  <para>When displaying Planned Orders by Item, you are
-  presented with the following options:</para>
-
+  <para>When displaying Planned Orders by Item, you are presented with the
+  following options:</para>
   <variablelist>
-      <varlistentry>
-         <term>Item Number</term>
-
-         <listitem>
-            <para>Enter the Item Number of the Item whose Planned Orders you want
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Enter the Item Number of the Item whose Planned Orders you want
         to display.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>UOM</term>
-
-         <listitem>
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <note>
-      <para>In the case of Planned Purchase Orders, the quantity
-    will always be represented in the Inventory Unit of Measure
-    (UOM)--regardless of the Vendor UOM used on any existing Purchase
-    Orders.</para>
+    <para>In the case of Planned Purchase Orders, the quantity will always be
+    represented in the Inventory Unit of Measure (UOM)--regardless of the
+    Vendor UOM used on any existing Purchase Orders.</para>
   </note>
-
   <variablelist>
-      <varlistentry>
-         <term>All Warehouses</term>
-
-         <listitem>
-            <para>Select to display Planned Orders by Item for all
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display Planned Orders by Item for all
         Warehouses.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Selected</term>
-
-         <listitem>
-            <para>Specify Warehouse whose Planned Orders by Item you want to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose Planned Orders by Item you want to
         display.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Planned Orders</term>
-
-         <listitem>
-            <para>Display will show Planned Orders by Item, using the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Planned Orders</term>
+      <listitem>
+        <para>Display will show Planned Orders by Item, using the specified
         parameters.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <tip>
-      <para>Planned Orders must be firm before they will be
-    considered as a valid source of supply by Material Requirements Planning
-    (MRP) when MRP is run.</para>
+    <para>Planned Orders must be firm before they will be considered as a
+    valid source of supply by Material Requirements Planning (MRP) when MRP is
+    run.</para>
   </tip>
-
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
-
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-
-         <listitem>
-            <para>Closes the screen, returning you to the application
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>QUERY</term>
-
-         <listitem>
-            <para>Select to generate the display, using the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
         parameters.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>PRINT</term>
-
-         <listitem>
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
-  <para>Right-clicking on an Order in the Planned Orders
-  display enables you to select from the following menu options:</para>
-
+  <para>Right-clicking on an Order in the Planned Orders display enables you
+  to select from the following menu options:</para>
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/2)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/4)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/1)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickRunningAvailability)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickFirmOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReleaseOrder)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickDeleteOrder)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-
-  <para>If the selected Order is firmed, the following option
-  will be available:</para>
-
+  <para>If the selected Order is firmed, the following option will be
+  available:</para>
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/5/2/6)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/5/2/6)" />
   </variablelist>
 </section>

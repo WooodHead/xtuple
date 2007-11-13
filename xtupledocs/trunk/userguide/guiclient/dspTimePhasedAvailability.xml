@@ -1,197 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518959" role="openmfg">
   <title>Time-Phased Availability</title>
-
-  <para>To view time-phased Availability, select the
-  "Time-Phased Availability" option. The following screen will appear:</para>
-
-  <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/MS_Disp_tpAvailability.png" id="Graphic520834"/>
-            </imageobject>
-
-            <caption id="Caption518965">Time-Phased Availability</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
-  <para>When displaying time-phased Availability, you are
-  presented with the following options:</para>
-
+  <para>To view time-phased Availability, select the "Time-Phased
+  Availability" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Disp_tpAvailability.png"
+                     id="Graphic520834" />
+        </imageobject>
+        <caption id="Caption518965">Time-Phased Availability</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying time-phased Availability, you are presented with the
+  following options:</para>
   <variablelist>
-      <varlistentry>
-         <term>All Warehouses</term>
-
-         <listitem>
-            <para>Select to display time-phased Availability for all
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to display time-phased Availability for all
         Warehouses.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Selected</term>
-
-         <listitem>
-            <para>Specify Warehouse whose time-phased Availability you want to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse whose time-phased Availability you want to
         display.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>All Planner Codes</term>
-
-         <listitem>
-            <para>Select to display time-phased Availability for all Planner
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to display time-phased Availability for all Planner
         Codes.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Selected</term>
-
-         <listitem>
-            <para>Specify Planner Code whose time-phased Availability you want to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose time-phased Availability you want to
         display.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Pattern</term>
-
-         <listitem>
-            <para>Enter a Planner Code pattern to select a range of Planner
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-
-            <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Calendar</term>
-
-         <listitem>
-            <para>Select the Calendar you want to use for the report.</para>
-
-            <para>Associated Calendar periods will be
-        displayed.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Name/Selected Periods</term>
-
-         <listitem>
-            <para>Select as many periods as you want to display. Selected periods
+        <para>Refine your search using Regular Expressions, as described in
+        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Calendar</term>
+      <listitem>
+        <para>Select the Calendar you want to use for the report.</para>
+        <para>Associated Calendar periods will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Name/Selected Periods</term>
+      <listitem>
+        <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-
-            <para>Select individual periods or groups of periods
-        together. To select an individual period, highlight the period using
-        your mouse button. The period is now selected. To select a sequence of
-        periods, highlight the first in the sequence using your mouse button.
-        Then, holding down the SHIFT key on your keyboard, highlight the last
-        period in the sequence. The entire sequence is now selected. To select
+        <para>Select individual periods or groups of periods together. To
+        select an individual period, highlight the period using your mouse
+        button. The period is now selected. To select a sequence of periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last period
+        in the sequence. The entire sequence is now selected. To select
         periods that are out of sequence (e.g., January, April, July,
         October), highlight the first period in the group. Then, holding down
         the CTRL key on your keyboard, highlight the next period you want to
         select. Continue highlighting periods with the CTRL key depressed
         until all desired periods are selected. The entire group is now
         selected.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Time-Phased Availability</term>
-
-         <listitem>
-            <para>Display lists time-phased Availability, using the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Time-Phased Availability</term>
+      <listitem>
+        <para>Display lists time-phased Availability, using the specified
         parameters.</para>
-
-            <para>Negative values will display in red type.</para>
-         </listitem>
-      </varlistentry>
+        <para>Negative values will display in red type.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
-
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-
-         <listitem>
-            <para>Closes the screen, returning you to the application
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>QUERY</term>
-
-         <listitem>
-            <para>Select to generate the display, using the specified
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem>
+        <para>Select to generate the display, using the specified
         parameters.</para>
-
-            <para>Start date and end date must be entered for
-        calculation to proceed. Results will be displayed in the "Time-Phased
-        Availability" display.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>PRINT</term>
-
-         <listitem>
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>SUBMIT</term>
-
-         <listitem>
-            <para>Select to submit report to the Batch Manager. For additional
-        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic: Submitting Reports and Jobs to the Batch
-        Manager".</para>
-         </listitem>
-      </varlistentry>
+        <para>Start date and end date must be entered for calculation to
+        proceed. Results will be displayed in the "Time-Phased Availability"
+        display.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem>
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit report to the Batch Manager. For additional
+        information, see the <xref endterm="Anchor61009"
+        linkend="Anchor61009" /> FINDME "Topic: Submitting Reports and Jobs to
+        the Batch Manager".</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
-  <para>Right-clicking on a Line Item in the Time-Phased
-  Availability display enables you to select from the following
-  context-sensitive options.</para>
-
+  <para>Right-clicking on a Line Item in the Time-Phased Availability display
+  enables you to select from the following context-sensitive options.</para>
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/23)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/21)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/28)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAvailabilityDetail)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-
-  <para>If the Line Item is a purchased Item, the following
-  additional options will be available:</para>
-
+  <para>If the Line Item is a purchased Item, the following additional options
+  will be available:</para>
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/5)"/>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/4)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreatePO)" />
   </variablelist>
-
-  <para>If the Line Item is a manufactured Item, the following
-  additional option will be available:</para>
-
+  <para>If the Line Item is a manufactured Item, the following additional
+  option will be available:</para>
   <variablelist>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/8/2/6)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateWO)" />
   </variablelist>
 </section>

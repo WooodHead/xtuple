@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section618696">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>quotes</primary>
       <secondary>looking up by customer</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>customers</primary>
       <secondary>looking up by quote</secondary>
     </indexterm>Quote Lookup by Customer</title>
-  <para>To view Quotes by Customer, select the "Quote Lookup
-  by Customer" option from the "Displays" menu. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Quotes by Customer, select the "Quote Lookup by Customer"
+  option from the "Displays" menu. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_quoteLookCust.png" id="Graphic618699"/>
+          <imagedata fileref="images/SO_Disp_quoteLookCust.png"
+                     id="Graphic618699" />
         </imageobject>
         <caption id="Caption618702">Quote Lookup by Customer</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Quotes by Customer, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Quotes by Customer, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
       <listitem id="listitemN0x180ac00N0x1969ba8">
         <para>Enter the Customer Number of the Customer whose Quotes you want
         to view.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol next to the browse button to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
+        <para>The browse button located to the right of the field leads to a
+        searchable Customers list. You may also access this list using the
+        keyboard shortcut "CTRL + L". Once a Customer Number is entered, the
+        Customer name and billing address will display. Select the "?" or "$"
+        symbol next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -76,8 +73,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -87,12 +84,20 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a Quote in the Quotes list enables
-  you to select from the following menu options:</para>
+  <para>Right-clicking on a Quote in the Quotes list enables you to select
+  from the following menu options:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/1)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/3/2/2)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/7/2/3)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEdit)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickConvert)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
