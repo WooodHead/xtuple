@@ -11,17 +11,41 @@ BEGIN
   END IF;
 
   IF (pordertype = ''SO'') THEN
-    SELECT (roundQty(item_fractional,
-		    noNeg(coitem_qtyord - coitem_qtyshipped +
-			  coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id)
-			 ) * coitem_qty_invuomratio
-		    ) <= itemsite_qtyonhand) INTO _isqtyavail
-      FROM coitem, itemsite, item
-     WHERE ((coitem_itemsite_id=itemsite_id) 
-       AND (coitem_status <> ''X'')
-       AND (itemsite_item_id=item_id) 
-       AND (coitem_id=porderitemid));
-
+    IF ( SELECT metric_value
+           FROM metric
+          WHERE ((metric_name = ''EnableSOReservations'')
+           AND (metric_value = ''t''))) THEN
+      SELECT (roundQty(item_fractional,
+		      noNeg(coitem_qtyord - coitem_qtyshipped +
+			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
+			   ) * coitem_qty_invuomratio
+		      ) <= itemsite_qtyonhand)
+              AND 
+             (roundQty(item_fractional,
+		      noNeg(coitem_qtyord - coitem_qtyshipped +
+			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
+                           - coitem_qtyreserved
+			   ) * coitem_qty_invuomratio
+		      ) <= qtyunreserved(itemsite_id))
+        INTO _isqtyavail
+        FROM coitem, itemsite, item
+       WHERE ((coitem_itemsite_id=itemsite_id) 
+         AND (coitem_status <> ''X'')
+         AND (itemsite_item_id=item_id) 
+         AND (coitem_id=porderitemid));
+    ELSE
+      SELECT (roundQty(item_fractional,
+		      noNeg(coitem_qtyord - coitem_qtyshipped +
+			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
+			   ) * coitem_qty_invuomratio
+		      ) <= itemsite_qtyonhand)
+        INTO _isqtyavail
+        FROM coitem, itemsite, item
+       WHERE ((coitem_itemsite_id=itemsite_id) 
+         AND (coitem_status <> ''X'')
+         AND (itemsite_item_id=item_id) 
+         AND (coitem_id=porderitemid));
+    END IF;
   ELSEIF (pordertype = ''TO'') THEN
     SELECT (roundQty(item_fractional,
 		     noNeg(toitem_qty_ordered - toitem_qty_shipped - 
