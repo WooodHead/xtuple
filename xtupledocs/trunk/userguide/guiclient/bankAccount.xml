@@ -1,97 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bankAccount">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bank accounts</primary>
-
       <secondary>creating new</secondary>
     </indexterm>Bank Account</title>
-
-  <para>A Bank Account can be set up for use by either
-  Accounts Receivable (A/R), Accounts Payable (A/P), or both. To create a new
-  Bank Account, select the NEW button. The following screen will
-  appear:</para>
-
-  <para>
-<screenshot>
+  <para>A Bank Account can be set up for use by either Accounts Receivable
+  (A/R), Accounts Payable (A/P), or both. To create a new Bank Account, select
+  the NEW button. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_MI_bankAcctNew.png" id="Graphic567330"/>
+          <imagedata fileref="images/AP_MI_bankAcctNew.png" id="Graphic567330" />
         </imageobject>
-
         <caption id="Caption567333">Create New Bank Account</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
-  <para>When creating a new Bank Account, you are presented
-  with the following options:</para>
-
+    </screenshot></para>
+  <para>When creating a new Bank Account, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
-
       <listitem>
         <para>Enter a name to describe the Bank Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Description</term>
-
       <listitem>
         <para>Enter a description to further describe the Bank Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Bank Name</term>
-
       <listitem>
         <para>Enter the name of the Bank where the Bank Account is
         held.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Account Number</term>
-
       <listitem>
         <para>Enter the Account Number for the Bank Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Type</term>
-
       <listitem>
         <para>Specify whether the Bank Account is a checking or cash
         account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>bank accounts</primary>
-
           <secondary>used for payables</secondary>
         </indexterm>Used in A/P</term>
-
       <listitem>
-        <para>Select if the Bank Account is used for Accounts Payable.</para>
-
-        <para>If selected, the Bank Account will be available
-        for use when making Payments. Not selecting means the Bank Account is
-        not used for Accounts Payable. Check specifications will be disabled
-        if this option is not selected.</para>
+        <para>Select if the Bank Account is used for Accounts Payable. If
+        selected, the Bank Account will be available for use when making
+        Payments. Not selecting means the Bank Account is not used for
+        Accounts Payable. Check specifications will be disabled if this option
+        is not selected.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Next Check #</term>
-
       <listitem>
         <para>Indicate the next Check Number to be issued from the Bank
         Account. Check Numbers will increment in intervals of one (1)
@@ -99,69 +74,52 @@
         available number will display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Check Format</term>
-
       <listitem>
         <para>Specify the Check Format to be used when Checks drawn against
         the Bank Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>bank accounts</primary>
-
           <secondary>used for receivables</secondary>
         </indexterm>Used in A/R</term>
-
       <listitem>
-        <para>Select if the Bank Account is used for Accounts
+        <para>Select if the Bank Account is used for Accounts Receivable. If
+        selected, the Bank Account will be available for use when receiving
+        money. Not selecting means the Bank Account is not used for Accounts
         Receivable.</para>
-
-        <para>If selected, the Bank Account will be available
-        for use when receiving money. Not selecting means the Bank Account is
-        not used for Accounts Receivable.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Asset Account</term>
-
       <listitem>
         <para>Specify the Asset Account to be credited when payments are made
         from the Bank Account.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Notes</term>
-
       <listitem>
         <para>This is a scrolling text field with word-wrapping for entering
         Notes related to the Bank Account.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
-
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-
       <listitem>
         <para>Closes the screen without creating a Bank Account, returning you
         to the previous screen.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>SAVE</term>
-
       <listitem>
         <para>Creates the Bank Account and adds it to the master list of Bank
         Accounts.</para>

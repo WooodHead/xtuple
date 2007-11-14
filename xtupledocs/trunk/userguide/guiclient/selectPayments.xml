@@ -23,34 +23,72 @@
     <para>You may select multiple Vouchers for payment by using the SHIFT or
     CTRL keys and your mouse.</para>
   </tip>
-  <para>When selecting A/P open item for payment, you are presented with the
+  <para>When selecting A/P open items for payment, you are presented with the
   following options:</para>
   <variablelist>
     <varlistentry>
       <term>Show Open Items for</term>
       <listitem>
         <para>Select one of the following display options:</para>
-        <para>All Vendors: Select to show A/P open items for all
-        Vendors.</para>
-        <para>Selected Vendor: Specify Vendor whose A/P open items you want to
-        display.</para>
-        <para>Selected Vendor Type: Specify Vendor Type whose A/P open items
-        you want to display.</para>
-        <para>Vendor Type Pattern: Enter a Vendor Type pattern to select a
-        range of Vendor Types. Refine your search using Regular Expressions,
-        as described in <xref endterm="Anchor77806"
-        linkend="Anchor77806" />.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Vendors</term>
+            <listitem>
+              <para>Select to show A/P open items for all Vendors.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected Vendor</term>
+            <listitem>
+              <para>Specify Vendor whose A/P open items you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected Vendor Type</term>
+            <listitem>
+              <para>Specify Vendor Type whose A/P open items you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Vendor Type Pattern</term>
+            <listitem>
+              <para>Enter a Vendor Type pattern to select a range of Vendor
+              Types. Refine your search using Regular Expressions, as
+              described in <xref linkend="Anchor77806" />.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Due Date</term>
       <listitem>
         <para>Select one of the following display options:</para>
-        <para>All: Select to show all A/P open items for all due dates.</para>
-        <para>Older than: Select to show A/P open items whose due date is
-        older than the date entered.</para>
-        <para>Due between: Select to show A/P open items whose due date falls
-        within a specified range.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to show all A/P open items for all due
+              dates.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Older than</term>
+            <listitem>
+              <para>Select to show A/P open items whose due date is older than
+              the date entered.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Due between</term>
+            <listitem>
+              <para>Select to show A/P open items whose due date falls within
+              a specified range.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -66,9 +104,8 @@
     <varlistentry>
       <term>A/P Open Items</term>
       <listitem>
-        <para>Display lists A/P open items.</para>
-        <para>If a Document is past due, the line for that Document will
-        display in red type.</para>
+        <para>Display lists A/P open items. If a Document is past due, the
+        line for that Document will display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -83,9 +120,9 @@
       <term>Use default Bank Account</term>
       <listitem>
         <para>Specify the default Bank Account to be used whenever an A/P open
-        item is selected for payment during the current session.</para>
-        <para>If you do not use this default option, you must specify a Bank
-        Account each time you select an A/P open item for payment.</para>
+        item is selected for payment during the current session. If you do not
+        use this default option, you must specify a Bank Account each time you
+        select an A/P open item for payment.</para>
       </listitem>
     </varlistentry>
   </variablelist>
