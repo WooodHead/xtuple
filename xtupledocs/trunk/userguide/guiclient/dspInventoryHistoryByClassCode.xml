@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563454">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>by planner code</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>inventory history details for</secondary>
     </indexterm>Inventory History by Planner Code</title>
-  <para>To view Inventory history by Planner Code, select the
-  "Inventory History by Planner Code" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Inventory history by Planner Code, select the "Inventory
+  History by Planner Code" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_invHistPCode.png" id="Graphic563457"/>
+          <imagedata fileref="images/IM_Disp_invHistPCode.png"
+                     id="Graphic563457" />
         </imageobject>
         <caption id="Caption563460">Inventory History by Planner
         Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>If a line displays in orange, this means the Item
-    Site in question is frozen. Accurate Quantity on Hand information will not
-    be shown until the Item Site is thawed.</para>
+    <para>If a line displays in orange, this means the Item Site in question
+    is frozen. Accurate Quantity on Hand information will not be shown until
+    the Item Site is thawed.</para>
   </tip>
-  <para>When displaying Inventory history by Planner Code, you
-  are presented with the following options:</para>
+  <para>When displaying Inventory history by Planner Code, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Planner Codes</term>
@@ -51,40 +48,32 @@
       <listitem id="listitemN0x180ac00N0x1986e9c">
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Trans. Types</term>
       <listitem id="listitemN0x180ac00N0x1986ee4">
         <para>Select one of the available transaction types:</para>
-        <para>All Transactions: Displays all Inventory
-        transactions.</para>
-        <para>Receipts: Displays receipts into Inventory from
-        Manufacturing, purchases, or miscellaneous receipts.</para>
-        <para>Issues: Displays issues from Inventory to
-        Manufacturing.</para>
-        <para>Shipments: Displays shipments to
-        customers.</para>
-        <para>Adjustments and Counts: Displays Inventory
-        adjustments and counts.</para>
-        <para>Transfers: Displays Inter-Warehouse Transfers
-        and Location and Lot/Serial Number reassignments.</para>
-        <para>Scraps: Displays Scrap removed from
-        Inventory.</para>
+        <para>All Transactions: Displays all Inventory transactions.</para>
+        <para>Receipts: Displays receipts into Inventory from Manufacturing,
+        purchases, or miscellaneous receipts.</para>
+        <para>Issues: Displays issues from Inventory to Manufacturing.</para>
+        <para>Shipments: Displays shipments to customers.</para>
+        <para>Adjustments and Counts: Displays Inventory adjustments and
+        counts.</para>
+        <para>Transfers: Displays Inter-Warehouse Transfers and Location and
+        Lot/Serial Number reassignments.</para>
+        <para>Scraps: Displays Scrap removed from Inventory.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The system prefixes Order Numbers with letters
-    indicating the Order type. For example, Work Orders are prefixed with
-    "WO", Purchase Orders with "PO", and Sales Orders with "SO". These letters
-    are for display purposes only and are not considered part of the Order
-    Number.</para>
+    <para>The system prefixes Order Numbers with letters indicating the Order
+    type. For example, Work Orders are prefixed with "WO", Purchase Orders
+    with "PO", and Sales Orders with "SO". These letters are for display
+    purposes only and are not considered part of the Order Number.</para>
   </note>
   <variablelist>
     <varlistentry role="openmfg">
@@ -105,18 +94,18 @@
       <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x1986fbc">
         <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and after
-        this date will be displayed. Start date and end date must be entered
-        for calculation to proceed.</para>
+        <para>Inventory transactions conducted on and after this date will be
+        displayed. Start date and end date must be entered for calculation to
+        proceed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x1987004">
         <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and before
-        this date will be displayed. Start date and end date must be entered
-        for calculation to proceed.</para>
+        <para>Inventory transactions conducted on and before this date will be
+        displayed. Start date and end date must be entered for calculation to
+        proceed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -127,8 +116,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -142,9 +131,9 @@
       <listitem id="listitemN0x180ac00N0x1987100">
         <para>Select to generate the display, using the specified
         parameters.</para>
-        <para>Start date and end date must be entered for
-        calculation to proceed. Results will be displayed in the "Inventory
-        History" list.</para>
+        <para>Start date and end date must be entered for calculation to
+        proceed. Results will be displayed in the "Inventory History"
+        list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -154,35 +143,37 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on a transaction in the Inventory
-  History list enables you to select from the following menu options:</para>
+  <para>Right-clicking on a transaction in the Inventory History list enables
+  you to select from the following menu options:</para>
   <variablelist>
     <varlistentry>
       <term>View Transaction Information</term>
       <listitem id="listitemN0x180ac00N0x19871b4">
-        <para/>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Edit Transaction Information</term>
       <listitem id="listitemN0x180ac00N0x19871fc">
-        <para/>
+        <para></para>
       </listitem>
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <para>When editing transaction information, you may choose
-  to exclude a transaction from Inventory analysis. Not including a
-  transaction in this manner means the following Inventory analyses will
-  ignore the transaction: Item Usage Statistics displays, Update Reorder
-  Levels, and Update Order Up To Levels.</para>
-  <para>If the Order Number is associated with a Work Order,
-  the following additional menu option will also be available:</para>
+  <para>When editing transaction information, you may choose to exclude a
+  transaction from Inventory analysis. Not including a transaction in this
+  manner means the following Inventory analyses will ignore the transaction:
+  Item Usage Statistics displays, Update Reorder Levels, and Update Order Up
+  To Levels.</para>
+  <para>If the Order Number is associated with a Work Order, the following
+  additional menu option will also be available:</para>
   <variablelist>
     <varlistentry>
       <term>View Work Order Information</term>
       <listitem id="listitemN0x180ac00N0x19872b0">
-        <para/>
+        <para></para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570821">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>expiration</primary>
       <secondary>of inventory</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>inventory</primary>
       <secondary>expiration of</secondary>
     </indexterm>Expired Inventory</title>
-  <para>Item Sites marked as perishable may have Quantity on
-  Hand that expires on a specified date. Typically, these are Lot/Serial
-  Number controlled Item Sites. If such Inventory has expired, you may view
-  Inventory details using this display. To view expired Inventory, select the
-  "Expired Inventory" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>Item Sites marked as perishable may have Quantity on Hand that expires
+  on a specified date. Typically, these are Lot/Serial Number controlled Item
+  Sites. If such Inventory has expired, you may view Inventory details using
+  this display. To view expired Inventory, select the "Expired Inventory"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_expiredInv.png" id="Graphic570824"/>
+          <imagedata fileref="images/IM_Disp_expiredInv.png"
+                     id="Graphic570824" />
         </imageobject>
         <caption id="Caption570827">Expired Inventory</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Expired Inventory will be displayed in red type, to
-    alert users to the expired status of the Item. This typographical feature
-    appears in other Inventory displays, as well.</para>
+    <para>Expired Inventory will be displayed in red type, to alert users to
+    the expired status of the Item. This typographical feature appears in
+    other Inventory displays, as well.</para>
   </note>
-  <para>When displaying expired Inventory, you are presented
-  with the following options:</para>
+  <para>When displaying expired Inventory, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Class Codes</term>
@@ -51,11 +49,8 @@
       <listitem id="listitemN0x180ac00N0x194e804">
         <para>Enter a Class Code pattern to select a range of Class
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -63,12 +58,12 @@
       <listitem id="listitemN0x180ac00N0x194e84c">
         <para>Select a number using the arrow buttons, or manually enter a
         value between 999 and -999.</para>
-        <para>Specify which expired Items to include in the
-        display using the threshold parameter. Threshold days are measured
-        from the current day. To view all currently expired Inventory, set the
-        parameter to "0". To display Inventory due to expire in the future,
-        enter a positive value. Enter a negative value to display Inventory
-        that expired prior to the current day.</para>
+        <para>Specify which expired Items to include in the display using the
+        threshold parameter. Threshold days are measured from the current day.
+        To view all currently expired Inventory, set the parameter to "0". To
+        display Inventory due to expire in the future, enter a positive value.
+        Enter a negative value to display Inventory that expired prior to the
+        current day.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -89,8 +84,8 @@
       <listitem id="listitemN0x180ac00N0x194e8dc">
         <para>Select to include the Inventory value of expired Inventory in
         the display.</para>
-        <para>Specify whether to display Inventory value using
-        Standard Costs or Actual Costs.</para>
+        <para>Specify whether to display Inventory value using Standard Costs
+        or Actual Costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -109,13 +104,12 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x194e9b4">
         <para>Order the output by one of the following methods:</para>
-        <para>Item Number: Select to order the display by Item
-        Number.</para>
-        <para>Expiration Date: Select to order the display by
-        the date the Inventory expired.</para>
-        <para>Inventory Value: Select to order the display by
-        Inventory value. This selection will only be available if used in
-        conjunction with the "Show Inventory Value" option.</para>
+        <para>Item Number: Select to order the display by Item Number.</para>
+        <para>Expiration Date: Select to order the display by the date the
+        Inventory expired.</para>
+        <para>Inventory Value: Select to order the display by Inventory value.
+        This selection will only be available if used in conjunction with the
+        "Show Inventory Value" option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -123,13 +117,13 @@
       <listitem id="listitemN0x180ac00N0x194e9fc">
         <para>Display lists expired Inventory, using the specified
         parameters.</para>
-        <para>If the "Show Inventory Value" box is selected,
-        the display will also show unit Cost and value.</para>
+        <para>If the "Show Inventory Value" box is selected, the display will
+        also show unit Cost and value.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>

@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519086">
-  <title>
-<anchor id="Anchor19758" role="Cross-Ref" xreflabel="19758: Heading2: Configure I/M"/>
-<indexterm significance="normal">
+  <title id="Anchor19758"><anchor id="Anchor19758" role="Cross-Ref"
+  xreflabel="19758: Heading2: Configure I/M" /> <indexterm
+      significance="normal">
       <primary>configuration</primary>
       <secondary>of i/m module</secondary>
     </indexterm>Configure I/M</title>
-  <para>To configure the Inventory Management (I/M) module,
-  select the "Configure I/M" option. The following screen will appear</para>
-  <para>
-<screenshot>
+  <para>To configure the Inventory Management (I/M) module, select the
+  "Configure I/M" option. The following screen will appear</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configIM.png" id="Graphic522092"/>
+          <imagedata fileref="images/Sys_configIM.png" id="Graphic522092" />
         </imageobject>
         <caption id="Caption519092">Configure I/M Module</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When configuring the I/M module, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When configuring the I/M module, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>event fences</primary>
           <secondary>default for item sites</secondary>
         </indexterm>Defaults</term>
       <listitem id="listitemN0x180ac00N0x189a2d0">
         <para>Specify a default Event Fence:</para>
-        <para>Event Fence: Select a value between 0 and 999
-        using the arrow buttons located to the right of the field. Indicates
-        the Event Fence value that will appear by default whenever a new Item
-        Site is created. The value is measured in days.</para>
+        <para>Event Fence: Select a value between 0 and 999 using the arrow
+        buttons located to the right of the field. Indicates the Event Fence
+        value that will appear by default whenever a new Item Site is created.
+        The value is measured in days.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -55,10 +53,10 @@
       <listitem id="listitemN0x180ac00N0x189a384">
         <para>Select to allow more than one Warehouse to be entered in the
         system.</para>
-        <para>If multiple Warehouses are not enabled, your
-        system will be single Warehouse only. Users will be prevented from
-        creating more than one Warehouse. If your system has multiple
-        Warehouses defined, this option will be hidden.</para>
+        <para>If multiple Warehouses are not enabled, your system will be
+        single Warehouse only. Users will be prevented from creating more than
+        one Warehouse. If your system has multiple Warehouses defined, this
+        option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -66,17 +64,17 @@
       <listitem id="listitemN0x180ac00N0x189a3a8">
         <para>If multiple Warehouses are enabled, select one of the available
         Transfer Order Number generation methods:</para>
-        <para>Automatic - Transfer Order Numbers will be
-        automatically incremented by 1 each time a new Transfer Order is
-        created. These automatically-generated numbers may not be edited. They
-        are read-only.</para>
-        <para>Manual - Transfer Order Numbers must be entered
-        manually whenever you create a new Transfer Order.</para>
-        <para>Automatic, Allow Override - Transfer Order
-        Numbers will be automatically generated and incremented, as under the
-        "Automatic" option described above. However, this option also allows
-        you to manually override the Transfer Order Number at the time of
-        Transfer Order creation.</para>
+        <para>Automatic - Transfer Order Numbers will be automatically
+        incremented by 1 each time a new Transfer Order is created. These
+        automatically-generated numbers may not be edited. They are
+        read-only.</para>
+        <para>Manual - Transfer Order Numbers must be entered manually
+        whenever you create a new Transfer Order.</para>
+        <para>Automatic, Allow Override - Transfer Order Numbers will be
+        automatically generated and incremented, as under the "Automatic"
+        option described above. However, this option also allows you to
+        manually override the Transfer Order Number at the time of Transfer
+        Order creation.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -94,8 +92,8 @@
       <listitem id="listitemN0x180ac00N0x189a3f0">
         <para>If multiple Warehouses are enabled, specify the default Transit
         Warehouse.</para>
-        <para>The specified Warehouse will be pre-selected by
-        default whenever Transfer Orders are entered.</para>
+        <para>The specified Warehouse will be pre-selected by default whenever
+        Transfer Orders are entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -103,16 +101,15 @@
       <listitem id="listitemN0x180ac00N0x189a414">
         <para>Select to enable Lot/Serial tracking capability in the
         system.</para>
-        <para>If not selected, users will be prevented from
-        creating Item Sites having either the Lot or Serial control method.
-        Without the ability to create Lot/Serial Item Sites, the Lot/Serial
-        tracking capability is disabled. If your system has Lot/Serial Item
-        Sites defined, this option will be hidden.</para>
+        <para>If not selected, users will be prevented from creating Item
+        Sites having either the Lot or Serial control method. Without the
+        ability to create Lot/Serial Item Sites, the Lot/Serial tracking
+        capability is disabled. If your system has Lot/Serial Item Sites
+        defined, this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>count tags</primary>
           <secondary>count slip discrepancies and</secondary>
         </indexterm> <indexterm significance="normal">
@@ -122,55 +119,51 @@
       <listitem id="listitemN0x180ac00N0x189a4ec">
         <para>Select one of the following options for handling discrepancies
         in count quantities:</para>
-        <para>Post Difference to Default Location, if any -
-        Select to post excess Count Tag quantity to an Item's default location
-        if the Item's Count Tag quantity exceeds its Count Slip quantity.
-        Applies only if a default location has been defined for the Item.
-        Default locations are defined for an Item in the Item Site
-        record.</para>
-        <para>Do Not Post Count Tag - Select to prevent Count
-        Tag quantity from being posted if it exceeds the Item's Count Slip
-        quantity.</para>
+        <para>Post Difference to Default Location, if any - Select to post
+        excess Count Tag quantity to an Item's default location if the Item's
+        Count Tag quantity exceeds its Count Slip quantity. Applies only if a
+        default location has been defined for the Item. Default locations are
+        defined for an Item in the Item Site record.</para>
+        <para>Do Not Post Count Tag - Select to prevent Count Tag quantity
+        from being posted if it exceeds the Item's Count Slip quantity.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>By default, the system allows only one unposted
-    Count Tag per Item Site. If an unposted Count Tag already exists for an
-    Item Site, then an additional duplicate Count Tag may not be added.</para>
+    <para>By default, the system allows only one unposted Count Tag per Item
+    Site. If an unposted Count Tag already exists for an Item Site, then an
+    additional duplicate Count Tag may not be added.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>count slips</primary>
           <secondary>auditing of</secondary>
         </indexterm>Count Slip # Auditing</term>
       <listitem id="listitemN0x180ac00N0x189a5c4">
         <para>Select one of the following Count Slip number auditing
         methods:</para>
-        <para>No Slip # Checks, allow Duplications - Allows
-        any Count Slip numbers to be used. Duplicate Count Slip numbers will
-        also be allowed.</para>
-        <para>Disallow Unposted Slip # Duplications within a
-        Warehouse - Prevents duplicate "Unposted" Count Slip numbers from
-        existing within a given Warehouse. However, duplicate "Unposted" Count
-        Slip numbers may exist within multiple Warehouses.</para>
-        <para>Disallow All Unposted Slip # Duplications -
+        <para>No Slip # Checks, allow Duplications - Allows any Count Slip
+        numbers to be used. Duplicate Count Slip numbers will also be
+        allowed.</para>
+        <para>Disallow Unposted Slip # Duplications within a Warehouse -
         Prevents duplicate "Unposted" Count Slip numbers from existing within
-        multiple Warehouses.</para>
-        <para>Disallow All Slip # Duplications within a
-        Warehouse - Prevents duplicate Count Slip numbers from existing within
-        a given Warehouse. However, duplicate Count Slip numbers may exist
-        within multiple Warehouses.</para>
-        <para>Disallow All Slip # Duplications - Prevents
-        duplicate Count Slip Numbers from existing within multiple
+        a given Warehouse. However, duplicate "Unposted" Count Slip numbers
+        may exist within multiple Warehouses.</para>
+        <para>Disallow All Unposted Slip # Duplications - Prevents duplicate
+        "Unposted" Count Slip numbers from existing within multiple
         Warehouses.</para>
+        <para>Disallow All Slip # Duplications within a Warehouse - Prevents
+        duplicate Count Slip numbers from existing within a given Warehouse.
+        However, duplicate Count Slip numbers may exist within multiple
+        Warehouses.</para>
+        <para>Disallow All Slip # Duplications - Prevents duplicate Count Slip
+        Numbers from existing within multiple Warehouses.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

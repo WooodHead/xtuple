@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section531874">
-  <title>
-<indexterm significance="normal">
+  <title id="Anchor28097"><indexterm significance="normal">
       <primary>receiving</primary>
       <secondary>entering of receipts</secondary>
-    </indexterm>
-<anchor id="Anchor28097" role="Cross-Ref" xreflabel="28097: Heading2: Enter Receipt"/>Enter Receipt</title>
-  <para>To receive Orders into Inventory, select the "Enter
-  Receipt" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm> <anchor id="Anchor28097" role="Cross-Ref"
+  xreflabel="28097: Heading2: Enter Receipt" />Enter Receipt</title>
+  <para>To receive Orders into Inventory, select the "Enter Receipt" option.
+  The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterRecpt.png" id="Graphic521443"/>
+          <imagedata fileref="images/SR_Rcvg_enterRecpt.png"
+                     id="Graphic521443" />
         </imageobject>
         <caption id="Caption520503">Enter Purchase Order Receipts</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When receiving an Order, you are presented with the
-  following options:</para>
+    </screenshot></para>
+  <para>When receiving an Order, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O #</term>
       <listitem id="listitemN0x180ac00N0x184e548">
         <para>Enter the Order Number of the Purchase Order whose Line Item(s)
         you want to receive into Inventory.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable list of Purchase Orders available for
-        receiving. This option will be disabled if a Transfer Order is
-        specified.</para>
+        <para>The browse button located to the right of the field leads to a
+        searchable list of Purchase Orders available for receiving. This
+        option will be disabled if a Transfer Order is specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -38,10 +36,9 @@
       <listitem id="listitemN0x180ac00N0x184e56c">
         <para>Enter the Order Number of the Transfer Order whose Line Item(s)
         you want to receive into Inventory.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable list of Transfer Orders available for
-        receiving. This option will be disabled if a Purchase Order is
-        specified.</para>
+        <para>The browse button located to the right of the field leads to a
+        searchable list of Transfer Orders available for receiving. This
+        option will be disabled if a Purchase Order is specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -59,17 +56,15 @@
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
-      <term>Assign all Lot Controlled Items to single Lot
-      #</term>
+      <term>Assign all Lot Controlled Items to single Lot #</term>
       <listitem id="listitemN0x180ac00N0x184e5d8">
         <para>Select if you want all the Lot-controlled Items in a Receiving
         session to be assigned the same Lot Number.</para>
-        <para>Lot Numbers are assigned when Receipt(s) are
-        posted. This option applies to Lot-controlled Items only. There is no
-        impact on received Items which are not Lot-controlled. For perishable
-        Items, you will also be given the opportunity to enter an expiration
-        date. Expiration dates apply only to Item Sites marked as
-        perishable.</para>
+        <para>Lot Numbers are assigned when Receipt(s) are posted. This option
+        applies to Lot-controlled Items only. There is no impact on received
+        Items which are not Lot-controlled. For perishable Items, you will
+        also be given the opportunity to enter an expiration date. Expiration
+        dates apply only to Item Sites marked as perishable.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,12 +76,11 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Before a Purchase Order can be received
-    successfully, A/P Account Assignments for the specified Vendor must be in
-    place.</para>
+    <para>Before a Purchase Order can be received successfully, A/P Account
+    Assignments for the specified Vendor must be in place.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -143,5 +137,7 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to distribute the stock to.</para>
   </note>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterPoitemReceipt.xml" xpointer="element(/1)"/>
+  <xi:include href="enterPoitemReceipt.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
