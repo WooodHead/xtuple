@@ -1,324 +1,216 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section551405">
-  <title>
-<anchor id="Anchor29552" role="Cross-Ref" xreflabel="29552: Heading3: Topic: UPS WorldShip Integration"/> <indexterm significance="normal">
+  <title id="Anchor29552"><indexterm significance="normal">
       <primary>topics</primary>
       <secondary>ups worldship</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>ups</primary>
       <secondary>worldship support</secondary>
     </indexterm>Topic: UPS WorldShip Integration</title>
-  <para>In this section we will provide an overview describing
-  OpenMFG's support for UPS WorldShip integration. UPS WorldShip is a
-  Windows-based, shipping software application for UPS Customers who have
-  high-volume shipping needs. When UPS WorldShip and OpenMFG are integrated,
-  you have the ability to export key UPS information--that is, Tracking
-  Numbers and Freight charges--directly into OpenMFG.</para>
+  <para>In this section we will provide an overview describing OpenMFG's
+  support for UPS WorldShip integration. UPS WorldShip is a Windows-based,
+  shipping software application for UPS Customers who have high-volume
+  shipping needs. When UPS WorldShip and OpenMFG are integrated, you have the
+  ability to export key UPS information--that is, Tracking Numbers and Freight
+  charges--directly into OpenMFG.</para>
   <note>
-    <para>For technical support using and/or configuring UPS
-    WorldShip, please contact your local or area UPS WorldShip representative.
-    Detailed WorldShip integration information can also be found on the UPS
-    website at <ulink id="Hypertext551409" url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
+    <para>For technical support using and/or configuring UPS WorldShip, please
+    contact your local or area UPS WorldShip representative. Detailed
+    WorldShip integration information can also be found on the UPS website at
+    <ulink id="Hypertext551409"
+    url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
   </note>
   <section id="Section551410">
     <title>Basic Requirements</title>
-    <para>OpenMFG support for UPS WorldShip began with OpenMFG
-    version 1.3.0. To take advantage of this support, you must be running
-    OpenMFG 1.3.0 or better. That is the only OpenMFG requirement.</para>
-    <para>The requirements for setting up UPS WorldShip to
-    communicate with OpenMFG include the following:</para>
+    <para>OpenMFG support for UPS WorldShip began with OpenMFG version 1.3.0.
+    To take advantage of this support, you must be running OpenMFG 1.3.0 or
+    better. That is the only OpenMFG requirement.</para>
+    <para>The requirements for setting up UPS WorldShip to communicate with
+    OpenMFG include the following:</para>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1842da8">
-        <para>Install UPS WorldShip software on a networked
-        workstation</para>
+        <para>Install UPS WorldShip software on a networked workstation</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x1842dcc">
-        <para>Download and install ODBC driver for
-        PostgreSQL</para>
+        <para>Download and install ODBC driver for PostgreSQL</para>
       </listitem>
     </itemizedlist>
     <note>
-      <para>The ODBC driver for PostgreSQL is needed so the
-      UPS WorldShip software can export shipping information to an OpenMFG
-      Database. OpenMFG Databases run on the PostgreSQL database
-      server.</para>
+      <para>The ODBC driver for PostgreSQL is needed so the UPS WorldShip
+      software can export shipping information to an OpenMFG Database. OpenMFG
+      Databases run on the PostgreSQL database server.</para>
     </note>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1842e38">
-        <para>Configure UPS WorldShip to auto-export using the
-        PostgreSQL ODBC driver</para>
+        <para>Configure UPS WorldShip to auto-export using the PostgreSQL ODBC
+        driver</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x1842e5c">
-        <para>Create user-defined field for entering OpenMFG
-        Sales Order Numbers</para>
+        <para>Create user-defined field for entering OpenMFG Sales Order
+        Numbers</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x1842e80">
-        <para>Define export mapping to associate UPS WorldShip
-        data fields with corresponding OpenMFG data fields</para>
+        <para>Define export mapping to associate UPS WorldShip data fields
+        with corresponding OpenMFG data fields</para>
       </listitem>
     </itemizedlist>
-    <para>UPS WorldShip supports both import and export maps.
-    However, for integration with OpenMFG, you only need an export map since
-    the communication is one-way. The following screenshot shows a sample
-    export map created using the UPS WorldShip mapping utility:</para>
-    <para>
-<anchor id="Anchor70270" role="Cross-Ref" xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip"/>
+    <para>UPS WorldShip supports both import and export maps. However, for
+    integration with OpenMFG, you only need an export map since the
+    communication is one-way. The following screenshot shows a sample export
+    map created using the UPS WorldShip mapping utility:</para>
+    <para><anchor id="Anchor70270" role="Cross-Ref"
+    xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip" />
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_ups1.png" id="Graphic551422"/>
+            <imagedata fileref="images/Topic_ups1.png" id="Graphic551422" />
           </imageobject>
           <caption id="Caption551426">Export Map in UPS WorldShip</caption>
         </mediaobject>
-      </screenshot>
-</para>
-    <para>As you can see in <xref endterm="Anchor70270" linkend="Anchor70270"/>
-    FINDME
-  Figure 7.7, we have created a map called "export." The map
-    type is "Shipment," which indicates the data export will occur when the
-    shipment is shipped using UPS WorldShip. And the ODBC driver used to
-    export the data to the OpenMFG Database is called "openmfg."</para>
-    <para>The following screenshot shows the utility you would
-    use to edit your export map within UPS WorldShip:</para>
-    <para>
-<screenshot>
+      </screenshot></para>
+    <para>As you can see in <xref endterm="Anchor70270"
+    linkend="Anchor70270" /> FINDME Figure 7.7, we have created a map called
+    "export." The map type is "Shipment," which indicates the data export will
+    occur when the shipment is shipped using UPS WorldShip. And the ODBC
+    driver used to export the data to the OpenMFG Database is called
+    "openmfg."</para>
+    <para>The following screenshot shows the utility you would use to edit
+    your export map within UPS WorldShip:</para>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_ups2.png" id="Graphic551433"/>
+            <imagedata fileref="images/Topic_ups2.png" id="Graphic551433" />
           </imageobject>
           <caption id="Caption551436">WorldShip Utility for Editing Export
           Map</caption>
         </mediaobject>
-      </screenshot>
-</para>
-    <para>Your primary goal when creating an export map is to
-    match UPS WorldShip tables and fields with the corresponding OpenMFG
-    Database tables and fields. <xref endterm="Anchor31923" linkend="Anchor31923"/>
-    FINDME
-  Table 7.1 provides
-    you with the information you will need to successfully map the tables and
-    fields from one system to the other.</para>
-    <para>
-<table id="Table551441">
-        <title>
-<anchor id="Anchor31923" role="Cross-Ref" xreflabel="31923: TableTitle: Table 11.1: Data Mapping Information"/>
+      </screenshot></para>
+    <para>Your primary goal when creating an export map is to match UPS
+    WorldShip tables and fields with the corresponding OpenMFG Database tables
+    and fields. <xref endterm="Anchor31923" linkend="Anchor31923" /> FINDME
+    Table 7.1 provides you with the information you will need to successfully
+    map the tables and fields from one system to the other.</para>
+    <para><table id="Table551441">
+        <title><anchor id="Anchor31923" role="Cross-Ref"
+        xreflabel="31923: TableTitle: Table 11.1: Data Mapping Information" />
         Data Mapping Information</title>
         <tgroup cols="4">
           <thead>
             <row>
-              <entry>
-<para> WorldShip </para> <para> Table </para>
-</entry>
-              <entry>
-<para> WorldShip </para> <para> Field </para>
-</entry>
-              <entry>
-<para> OpenMFG </para> <para> Table </para>
-</entry>
-              <entry>
-<para> OpenMFG </para> <para> Field </para>
-</entry>
+              <entry><para> WorldShip </para> <para> Table </para></entry>
+              <entry><para> WorldShip </para> <para> Field </para></entry>
+              <entry><para> OpenMFG </para> <para> Table </para></entry>
+              <entry><para> OpenMFG </para> <para> Field </para></entry>
             </row>
           </thead>
           <tbody>
             <row>
-              <entry>
-<para> Package </para>
-</entry>
-              <entry>
-<para> Tracking Number </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_cosmisc_packnum_tracknum
-              </para>
-</entry>
+              <entry><para> Package </para></entry>
+              <entry><para> Tracking Number </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cosmisc_packnum_tracknum </para></entry>
             </row>
             <row>
-              <entry>
-<para> Package </para>
-</entry>
-              <entry>
-<para> Package Type </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_package_type
-              </para>
-</entry>
+              <entry><para> Package </para></entry>
+              <entry><para> Package Type </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_package_type </para></entry>
             </row>
             <row>
-              <entry>
-<para> Package </para>
-</entry>
-              <entry>
-<para> Reference [1-5] </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_cohead_number
-              </para>
-</entry>
+              <entry><para> Package </para></entry>
+              <entry><para> Reference [1-5] </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cohead_number </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Void Indicator </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_void_ind </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Void Indicator </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_void_ind </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Actual Weight </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_weight </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Actual Weight </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_weight </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Shipment ID </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_cosmisc_tracknum
-              </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Shipment ID </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_cosmisc_tracknum </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Total Shipment &amp; Handling
-              Charges </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_total_freight
-              </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Total Shipment &amp; Handling Charges
+              </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_total_freight </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Billing Option </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_billing_option
-              </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Billing Option </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_billing_option </para></entry>
             </row>
             <row>
-              <entry>
-<para> Shipment Information
-              </para>
-</entry>
-              <entry>
-<para> Total Shipper Charge
-              </para>
-</entry>
-              <entry>
-<para> shipdata </para>
-</entry>
-              <entry>
-<para> shipdata_base_freight
-              </para>
-</entry>
+              <entry><para> Shipment Information </para></entry>
+              <entry><para> Total Shipper Charge </para></entry>
+              <entry><para> shipdata </para></entry>
+              <entry><para> shipdata_base_freight </para></entry>
             </row>
           </tbody>
         </tgroup>
-      </table>
-</para>
+      </table></para>
     <tip>
-      <para>By default, UPS WorldShip gives you a Reference
-      field for miscellaneous purposes. Because this field may prove useful at
-      some point, you should create a second Reference field for storing
-      OpenMFG Sales Order Numbers.</para>
+      <para>By default, UPS WorldShip gives you a Reference field for
+      miscellaneous purposes. Because this field may prove useful at some
+      point, you should create a second Reference field for storing OpenMFG
+      Sales Order Numbers.</para>
     </tip>
-    <para>In addition to requiring specific table and field
-    mappings, UPS WorldShip will also require you to provide the following
-    export map information:</para>
+    <para>In addition to requiring specific table and field mappings, UPS
+    WorldShip will also require you to provide the following export map
+    information:</para>
     <variablelist>
       <varlistentry>
         <term>Map Name</term>
         <listitem id="listitemN0x180ac00N0x184375c">
           <para>Enter a name to describe your export map.</para>
-          <para>In our example, we have give the export map
-          the name "export."</para>
+          <para>In our example, we have give the export map the name
+          "export."</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Data Source Information</term>
         <listitem id="listitemN0x180ac00N0x18437a4">
-          <para>Specify the following Data Source
-          information:</para>
-          <para>DSN Name: Enter a name to describe the Data
-          Source Name (DSN) connection to OpenMFG (e.g., "openmfg).</para>
-          <para>DSN Description: Enter a brief description of
-          the DSN connection (e.g., "connection to openmfg").</para>
-          <para>ODBC Driver Name: Specify the name of the
-          required ODBC driver. For OpenMFG Databases, the driver is
-          "PostgreSQL".</para>
-          <para>ODBC Driver: Indicate the path where the ODBC
-          driver for PostgreSQL is located, as in the following:
+          <para>Specify the following Data Source information:</para>
+          <para>DSN Name: Enter a name to describe the Data Source Name (DSN)
+          connection to OpenMFG (e.g., "openmfg).</para>
+          <para>DSN Description: Enter a brief description of the DSN
+          connection (e.g., "connection to openmfg").</para>
+          <para>ODBC Driver Name: Specify the name of the required ODBC
+          driver. For OpenMFG Databases, the driver is "PostgreSQL".</para>
+          <para>ODBC Driver: Indicate the path where the ODBC driver for
+          PostgreSQL is located, as in the following:
           C:\\WINDOWS\\system32\\psqlodbc.dll.</para>
-          <para>Database Name: Enter the name of the OpenMFG
-          Database which will be receiving UPS WorldShip data (e.g.,
-          "production").</para>
-          <para>Database Path: Not required. This information
-          is defined when configuring the ODBC driver for PostgreSQL.</para>
-          <para>Database Server: Not required. This
-          information is defined when configuring the ODBC driver for
-          PostgreSQL.</para>
+          <para>Database Name: Enter the name of the OpenMFG Database which
+          will be receiving UPS WorldShip data (e.g., "production").</para>
+          <para>Database Path: Not required. This information is defined when
+          configuring the ODBC driver for PostgreSQL.</para>
+          <para>Database Server: Not required. This information is defined
+          when configuring the ODBC driver for PostgreSQL.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Map Information</term>
         <listitem id="listitemN0x180ac00N0x18437ec">
           <para>Specify the following map information:</para>
-          <para>Map Type: The map type selection specifies the
-          point at which the data export should occur. In this case, you
-          should select the "Shipment" map type. Data export will occur when
-          the shipment is shipped using UPS WorldShip.</para>
+          <para>Map Type: The map type selection specifies the point at which
+          the data export should occur. In this case, you should select the
+          "Shipment" map type. Data export will occur when the shipment is
+          shipped using UPS WorldShip.</para>
           <para>Map Version: Specify version "12".</para>
           <para>Primary Table: Not required.</para>
           <para>Primary Key: Not required.</para>
@@ -330,22 +222,21 @@
   </section>
   <section id="Section551556">
     <title>Process Flow</title>
-    <para>Once the integration requirements are completed, you
-    are ready to begin processing and shipping Sales Orders. The following
-    diagram illustrates the basic process flow:</para>
-    <para>
-<screenshot>
+    <para>Once the integration requirements are completed, you are ready to
+    begin processing and shipping Sales Orders. The following diagram
+    illustrates the basic process flow:</para>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsGraphic.png" id="Graphic551559"/>
+            <imagedata fileref="images/Topic_upsGraphic.png"
+                       id="Graphic551559" />
           </imageobject>
           <caption id="Caption551562">Basic Process Flow for UPS WorldShip
           Integration</caption>
         </mediaobject>
-      </screenshot>
-</para>
-    <para>The process flow begins in OpenMFG with the
-    following sequence:</para>
+      </screenshot></para>
+    <para>The process flow begins in OpenMFG with the following
+    sequence:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem id="listitemN0x180ac00N0x184dc90">
         <para>Enter Sales Order(s) for Customer(s)</para>
@@ -355,32 +246,31 @@
       </listitem>
     </orderedlist>
     <note>
-      <para>You can issue Stock to Shipping before or after
-      you have shipped an Order in UPS WorldShip. The choice is up to you,
-      based on your desired process flow.</para>
+      <para>You can issue Stock to Shipping before or after you have shipped
+      an Order in UPS WorldShip. The choice is up to you, based on your
+      desired process flow.</para>
     </note>
-    <para>After Stock has been issued to Shipping--but not yet
-    shipped--the process flow moves to the UPS WorldShip system. Perform the
-    following steps from your UPS workstation:</para>
+    <para>After Stock has been issued to Shipping--but not yet shipped--the
+    process flow moves to the UPS WorldShip system. Perform the following
+    steps from your UPS workstation:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
       <listitem id="listitemN0x180ac00N0x184dcfc">
         <para>Enter Customer destination information</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x184dd20">
-        <para>Enter OpenMFG Sales Order Number(s) in the
-        special Reference field created for this purpose</para>
+        <para>Enter OpenMFG Sales Order Number(s) in the special Reference
+        field created for this purpose</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x184dd44">
-        <para>Weigh package(s) you will be shipping with
-        UPS</para>
+        <para>Weigh package(s) you will be shipping with UPS</para>
       </listitem>
       <listitem id="listitemN0x180ac00N0x184dd68">
         <para>Finish Order and ship it in UPS WorldShip</para>
       </listitem>
     </orderedlist>
-    <para>As soon as you ship the Order in WorldShip, the data
-    will be exported to OpenMFG via the ODBC connection. The following UPS
-    information will now be stored in the OpenMFG Database:</para>
+    <para>As soon as you ship the Order in WorldShip, the data will be
+    exported to OpenMFG via the ODBC connection. The following UPS information
+    will now be stored in the OpenMFG Database:</para>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x184ddb0">
         <para>UPS Tracking Number</para>
@@ -392,38 +282,36 @@
         <para>Total Shipping and Handling Charges</para>
       </listitem>
     </itemizedlist>
-    <para>The process flow returns now to OpenMFG, where we
-    either 1) issue Stock to Shipping or 2) ship the Order. For this example,
-    we have already issued two Line Items to Shipping. We see these two Line
-    Items on the Ship Order screen, as shown below:</para>
-    <para>
-<anchor id="Anchor34640" role="Cross-Ref" xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information"/>
+    <para>The process flow returns now to OpenMFG, where we either 1) issue
+    Stock to Shipping or 2) ship the Order. For this example, we have already
+    issued two Line Items to Shipping. We see these two Line Items on the Ship
+    Order screen, as shown below:</para>
+    <para><anchor id="Anchor34640" role="Cross-Ref"
+    xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information" />
     <screenshot>
         <mediaobject>
           <imageobject>
-            <imagedata fileref="images/Topic_upsShipOrder.png" id="Graphic551579"/>
+            <imagedata fileref="images/Topic_upsShipOrder.png"
+                       id="Graphic551579" />
           </imageobject>
           <caption id="Caption551583">Sales Order with UPS WorldShip
           Information</caption>
         </mediaobject>
-      </screenshot>
-</para>
-    <para>As you can see in <xref endterm="Anchor34640" linkend="Anchor34640"/>
-    FINDME
-  Figure 7.10, our Order contains UPS Tracking Number
-    information. And the total shipping and handling charges appear in the
-    Freight field.</para>
+      </screenshot></para>
+    <para>As you can see in <xref endterm="Anchor34640"
+    linkend="Anchor34640" /> FINDME Figure 7.10, our Order contains UPS
+    Tracking Number information. And the total shipping and handling charges
+    appear in the Freight field.</para>
     <note>
-      <para>The actual weight of the UPS package(s) is stored
-      in the OpenMFG Database, but is not visible using the
-      application.</para>
+      <para>The actual weight of the UPS package(s) is stored in the OpenMFG
+      Database, but is not visible using the application.</para>
     </note>
-    <para>In this example, there are two distinct Tracking
-    Numbers shown on the Ship Order screen. However, only one Tracking Number
-    can be associated with each OpenMFG shipment. The fact that there are two
-    Tracking Numbers in this example indicates there are additional Line Items
-    for this Sales Order which have been shipped in UPS WorldShip, but have
-    not yet been issued to Shipping in OpenMFG.</para>
+    <para>In this example, there are two distinct Tracking Numbers shown on
+    the Ship Order screen. However, only one Tracking Number can be associated
+    with each OpenMFG shipment. The fact that there are two Tracking Numbers
+    in this example indicates there are additional Line Items for this Sales
+    Order which have been shipped in UPS WorldShip, but have not yet been
+    issued to Shipping in OpenMFG.</para>
     <para>We are now ready to complete the final steps:</para>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x184ded0">
@@ -433,15 +321,15 @@
         <para>Ship the Order</para>
       </listitem>
     </itemizedlist>
-    <para>The Tracking Number is now associated with the
-    shipment. It will not appear on the list of Tracking Numbers when the
-    remaining Line Items are shipped. In this way, users are prevented from
-    accidentally using the same Tracking Number twice.</para>
+    <para>The Tracking Number is now associated with the shipment. It will not
+    appear on the list of Tracking Numbers when the remaining Line Items are
+    shipped. In this way, users are prevented from accidentally using the same
+    Tracking Number twice.</para>
     <tip>
-      <para>You can track UPS shipments from OpenMFG using the
-      S/R Module Display "Shipments by Sales Order." You will be connected
-      directly to the UPS website when you select the "Query Shipments" option
-      from the right-click menu.</para>
+      <para>You can track UPS shipments from OpenMFG using the S/R Module
+      Display "Shipments by Sales Order." You will be connected directly to
+      the UPS website when you select the "Query Shipments" option from the
+      right-click menu.</para>
     </tip>
   </section>
 </section>
