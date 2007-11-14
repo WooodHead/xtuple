@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section543196">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>releasing by planner code</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>releasing work orders by</secondary>
     </indexterm>Release Work Orders by Planner Code</title>
-  <para>If multiple Work Orders within a Planner Code have
-  been exploded, you have the option of releasing them simultaneously. To
-  release Work Orders by Planner Code, select the "Release Work Orders by
-  Planner Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>If multiple Work Orders within a Planner Code have been exploded, you
+  have the option of releasing them simultaneously. To release Work Orders by
+  Planner Code, select the "Release Work Orders by Planner Code" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Con_releaseByPCode.png" id="Graphic543209"/>
+          <imagedata fileref="images/WO_Con_releaseByPCode.png"
+                     id="Graphic543209" />
         </imageobject>
         <caption id="Caption543212">Release Work Orders by Planner
         Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Once an Order has been released, the system
-    considers the ordered quantity to be available at 00:00:01 of the due date
-    of the Order in question.</para>
+    <para>Once an Order has been released, the system considers the ordered
+    quantity to be available at 00:00:01 of the due date of the Order in
+    question.</para>
   </note>
-  <para>When releasing Work Orders by Planner Code, you are
-  presented with the following options:</para>
+  <para>When releasing Work Orders by Planner Code, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Planner Codes</term>
@@ -51,11 +49,8 @@
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner
         Codes.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -94,8 +89,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

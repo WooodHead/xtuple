@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538699">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>time-phased by customer by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>customers</primary>
       <secondary>time-phased sales history for by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>time-phased sales history by customer</secondary>
     </indexterm>Time-Phased Sales History by Customer by Item</title>
-  <para>To view time-phased Sales history by Customer by Item,
-  select the "Time-Phased Sales History by Customer by Item" option. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To view time-phased Sales history by Customer by Item, select the
+  "Time-Phased Sales History by Customer by Item" option. The following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_timePhSalesCustItem.png" id="Graphic538702"/>
+          <imagedata fileref="images/SA_Disp_timePhSalesCustItem.png"
+                     id="Graphic538702" />
         </imageobject>
         <caption id="Caption538705">Time-Phased Sales History by Customer by
         Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying time-phased Sales history by Customer
-  by Item, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying time-phased Sales history by Customer by Item, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
@@ -49,19 +46,15 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18844f0">
         <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The type of Calendar and number of Calendar periods
-    you choose to display may have an impact on response time. The data may
-    take longer to display, depending on the time frame requested.</para>
+    <para>The type of Calendar and number of Calendar periods you choose to
+    display may have an impact on response time. The data may take longer to
+    display, depending on the time frame requested.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -82,20 +75,15 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x188c400">
         <para>Enter a Product Category pattern to select a range of Product
-        Categories.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Categories. Refine your search using Regular Expressions, as described
+        in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Calendar</term>
       <listitem id="listitemN0x180ac00N0x188c448">
         <para>Select the Calendar you want to use for the report.</para>
-        <para>Associated Calendar periods will be
-        displayed.</para>
+        <para>Associated Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -103,12 +91,12 @@
       <listitem id="listitemN0x180ac00N0x188c490">
         <para>Select as many periods as you want to display. Selected periods
         correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods
-        together. To select an individual period, highlight the period using
-        your mouse button. The period is now selected. To select a sequence of
-        periods, highlight the first in the sequence using your mouse button.
-        Then, holding down the SHIFT key on your keyboard, highlight the last
-        period in the sequence. The entire sequence is now selected. To select
+        <para>Select individual periods or groups of periods together. To
+        select an individual period, highlight the period using your mouse
+        button. The period is now selected. To select a sequence of periods,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last period
+        in the sequence. The entire sequence is now selected. To select
         periods that are out of sequence (e.g., January, April, July,
         October), highlight the first period in the group. Then, holding down
         the CTRL key on your keyboard, highlight the next period you want to
@@ -121,10 +109,10 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x188c4d8">
         <para>Order the output by one of the following methods:</para>
-        <para>by Customer #: Select to order display by
-        Customer Number.</para>
-        <para>by Sales Volume in first Period: Select to order
-        display by sales volume in first period.</para>
+        <para>by Customer #: Select to order display by Customer
+        Number.</para>
+        <para>by Sales Volume in first Period: Select to order display by
+        sales volume in first period.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -135,8 +123,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -162,10 +150,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x188c640">
         <para>Select to submit report to the Batch Manager. For additional
-        information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic: Submitting Reports and Jobs to the Batch
-        Manager".</para>
+        information, see <xref linkend="Anchor61009" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>

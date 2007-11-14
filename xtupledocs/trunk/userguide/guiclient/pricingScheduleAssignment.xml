@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="pricingScheduleAssignment">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>pricing</primary>
       <secondary>assigning schedules for</secondary>
     </indexterm>Pricing Schedule Assignment</title>
-  <para>To create a Pricing Schedule assignment, select the
-  NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a Pricing Schedule assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_priceAssignNew.png" id="Graphic598074"/>
+          <imagedata fileref="images/SO_IP_priceAssignNew.png"
+                     id="Graphic598074" />
         </imageobject>
         <caption id="Caption598077">Create New Pricing Schedule
         Assignment</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Pricing Schedule assignment, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule assignment, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Selected Customer</term>
@@ -53,22 +52,18 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>When entering Credit Memos, make sure the Ship-To
-    Address on the Credit Memo matches the Ship-To Address on the Customer's
-    Pricing Schedule. If they don"t match, you won"t be able to issue credit
-    for exclusively sold Items.</para>
+    <para>When entering Credit Memos, make sure the Ship-To Address on the
+    Credit Memo matches the Ship-To Address on the Customer's Pricing
+    Schedule. If they don"t match, you won"t be able to issue credit for
+    exclusively sold Items.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Selected Cust. Ship-To Pattern</term>
       <listitem id="listitemN0x180ac00N0x1952144">
         <para>Enter a Ship-To Address pattern to select a range of Ship-To
-        Addresses for the selected Customer.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Addresses for the selected Customer. Refine your search using Regular
+        Expressions, as described in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,12 +77,8 @@
       <term>Customer Type Pattern</term>
       <listitem id="listitemN0x180ac00N0x19521d4">
         <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

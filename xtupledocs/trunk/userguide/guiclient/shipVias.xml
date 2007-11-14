@@ -1,121 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518859">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>ship vias</primary>
       <secondary>master list of</secondary>
     </indexterm>List Ship Vias</title>
-  <para>Ship Vias describe the transportation method used to
-  ship Sales Order Items. Shipping companies, for example, are considered to
-  be Ship Vias. For certain shipping companies, the system will launch a
-  browser and link directly to shipper websites--where up-to-date shipment
-  tracking information can be obtained.</para>
+  <para>Ship Vias describe the transportation method used to ship Sales Order
+  Items. Shipping companies, for example, are considered to be Ship Vias. For
+  certain shipping companies, the system will launch a browser and link
+  directly to shipper websites--where up-to-date shipment tracking information
+  can be obtained.</para>
   <note>
-    <para>To obtain up-to-date shipment tracking information
-    by linking to shipping company websites, use the "Query Shipment Status"
-    option found in the "Shipments by Sales Order" report.</para>
+    <para>To obtain up-to-date shipment tracking information by linking to
+    shipping company websites, use the "Query Shipment Status" option found in
+    the "Shipments by Sales Order" report.</para>
   </note>
-  <para>For the shipment tracking feature to perform
-  correctly, specific Ship Via naming conventions must be followed. The
-  following shipping companies and naming conventions are currently
-  supported:</para>
+  <para>For the shipment tracking feature to perform correctly, specific Ship
+  Via naming conventions must be followed. The following shipping companies
+  and naming conventions are currently supported:</para>
   <itemizedlist>
     <listitem id="listitemN0x180ac00N0x186faac">
-      <para>United Parcel Service: The first three letters of
-      the Ship Via name must be "UPS" to enable connection to the UPS website.
-      A link will be made using the specific tracking number for the shipment
-      in question.</para>
-    </listitem>
-    <listitem id="listitemN0x180ac00N0x186fad0">
-      <para>SAIA, Inc.: The first four letters of the Ship Via
-      name must be "SAIA" to enable connection to the SAIA website. A link
-      will be made using the specific tracking number for the shipment in
+      <para>United Parcel Service: The first three letters of the Ship Via
+      name must be "UPS" to enable connection to the UPS website. A link will
+      be made using the specific tracking number for the shipment in
       question.</para>
     </listitem>
+    <listitem id="listitemN0x180ac00N0x186fad0">
+      <para>SAIA, Inc.: The first four letters of the Ship Via name must be
+      "SAIA" to enable connection to the SAIA website. A link will be made
+      using the specific tracking number for the shipment in question.</para>
+    </listitem>
     <listitem id="listitemN0x180ac00N0x186faf4">
-      <para>Federal Express: The first five letters of the
-      Ship Via name must be "FEDEX" to enable connection to the FedEx website.
-      A link will be made using the specific tracking number for the shipment
-      in question.</para>
+      <para>Federal Express: The first five letters of the Ship Via name must
+      be "FEDEX" to enable connection to the FedEx website. A link will be
+      made using the specific tracking number for the shipment in
+      question.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x186fb18">
-      <para>Roadway Express: The first seven letters of the
-      Ship Via name must be "ROADWAY" to enable connection to the Roadway
-      website. A link will be made using the specific tracking number for the
-      shipment in question.</para>
+      <para>Roadway Express: The first seven letters of the Ship Via name must
+      be "ROADWAY" to enable connection to the Roadway website. A link will be
+      made using the specific tracking number for the shipment in
+      question.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x186fb3c">
-      <para>USF Logistics, Inc.: The first three letters of
-      the Ship Via name must be "USF" to enable connection to the USF website.
-      A link will be made using the specific tracking number for the shipment
-      in question.</para>
+      <para>USF Logistics, Inc.: The first three letters of the Ship Via name
+      must be "USF" to enable connection to the USF website. A link will be
+      made using the specific tracking number for the shipment in
+      question.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x186fb60">
-      <para>A &amp; B Freight Line, Inc.: The first three
-      letters of the Ship Via name must be "A&amp;B" to enable connection to
-      the A&amp;B website. The tracking number must be entered
-      manually.</para>
-    </listitem>
-    <listitem id="listitemN0x180ac00N0x186fb84">
-      <para>Averitt Express, Inc.: The first seven letters of
-      the Ship Via name must be "AVERITT" to enable connection to the Averitt
-      website. The tracking number must be entered manually.</para>
-    </listitem>
-    <listitem id="listitemN0x180ac00N0x186fba8">
-      <para>DHL International GmbH: The first three letters of
-      the Ship Via name must be "DHL" to enable connection to the DHL website.
+      <para>A &amp; B Freight Line, Inc.: The first three letters of the Ship
+      Via name must be "A&amp;B" to enable connection to the A&amp;B website.
       The tracking number must be entered manually.</para>
     </listitem>
+    <listitem id="listitemN0x180ac00N0x186fb84">
+      <para>Averitt Express, Inc.: The first seven letters of the Ship Via
+      name must be "AVERITT" to enable connection to the Averitt website. The
+      tracking number must be entered manually.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x186fba8">
+      <para>DHL International GmbH: The first three letters of the Ship Via
+      name must be "DHL" to enable connection to the DHL website. The tracking
+      number must be entered manually.</para>
+    </listitem>
     <listitem id="listitemN0x180ac00N0x186fbcc">
-      <para>R &amp; L Carriers: The first three letters of the
-      Ship Via name must be "R&amp;L" to enable connection to the R&amp;L
-      website. The tracking number must be entered manually.</para>
+      <para>R &amp; L Carriers: The first three letters of the Ship Via name
+      must be "R&amp;L" to enable connection to the R&amp;L website. The
+      tracking number must be entered manually.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x186fbf0">
-      <para>Watkins Motor Lines, Inc.: The first seven letters
-      of the Ship Via name must be "WATKINS" to enable connection to the
-      Watkins website. The tracking number must be entered manually.</para>
+      <para>Watkins Motor Lines, Inc.: The first seven letters of the Ship Via
+      name must be "WATKINS" to enable connection to the Watkins website. The
+      tracking number must be entered manually.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x186fc14">
-      <para>Yellow Transportation, Inc.: The first seven
-      letters of the Ship Via name must be "YELLOW" to enable connection to
-      the Yellow website. The tracking number must be entered manually.</para>
+      <para>Yellow Transportation, Inc.: The first seven letters of the Ship
+      Via name must be "YELLOW" to enable connection to the Yellow website.
+      The tracking number must be entered manually.</para>
     </listitem>
   </itemizedlist>
   <note>
-    <para>If you are running an xTuple client on a Linux
-    machine, you should set the BROWSER environment variable so it points to
-    the executable for your default browser. This will prevent error messages
-    when connecting to shipping company websites.</para>
+    <para>If you are running an xTuple client on a Linux machine, you should
+    set the BROWSER environment variable so it points to the executable for
+    your default browser. This will prevent error messages when connecting to
+    shipping company websites.</para>
   </note>
-  <para>To access the master list of Ship Vias, select the
-  "Ship Vias" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To access the master list of Ship Vias, select the "Ship Vias" option.
+  The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_shipViaList.png" id="Graphic523030"/>
+          <imagedata fileref="images/SO_MI_shipViaList.png" id="Graphic523030" />
         </imageobject>
         <caption id="Caption518865">Ship Vias Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>If your site integrates UPS WorldShip with OpenMFG,
-    there are separate steps to be followed. For more information, see the
-    <xref endterm="Anchor29552" linkend="Anchor29552"/>
-    FINDME
-  "Topic: UPS WorldShip Integration" section in
-    the <xref endterm="Anchor74541" linkend="Anchor74541"/>
-    FINDME
-  Shipping &amp; Receiving (S/R)
-    Module chapter.</para>
+    <para>If your site integrates UPS WorldShip with OpenMFG, there are
+    separate steps to be followed. For more information, see <xref
+    linkend="Anchor29552" />.</para>
   </tip>
-  <para>The Ship Vias master list displays the code and
-  description for all existing Ship Vias.</para>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>The Ship Vias master list displays the code and description for all
+  existing Ship Vias.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>

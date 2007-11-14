@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="enterPoitemReceipt">
   <title>Enter Receipt Item</title>
-  <para>To enter Receipt details, highlight a Line Item and
-  select the ENTER RECEIPT button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To enter Receipt details, highlight a Line Item and select the ENTER
+  RECEIPT button. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterRecptItem.png" id="Graphic522572"/>
+          <imagedata fileref="images/SR_Rcvg_enterRecptItem.png"
+                     id="Graphic522572" />
         </imageobject>
         <caption id="Caption522575">Enter Purchase Order Item
         Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering Receipt details, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When entering Receipt details, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
@@ -74,9 +74,9 @@
       <listitem id="listitemN0x180ac00N0x1856fd4">
         <para>Enter the date you want the receiving transaction to be posted
         to the General Ledger.</para>
-        <para>By default, receipts will be posted on the
-        current day. However, this feature gives you the option to post
-        transactions on an alternate date.</para>
+        <para>By default, receipts will be posted on the current day. However,
+        this feature gives you the option to post transactions on an alternate
+        date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -110,9 +110,9 @@
       <listitem id="listitemN0x180ac00N0x185713c">
         <para>If Line Item freight charges were specified when the Line Item
         was created, then those charges will automatically appear here.</para>
-        <para>If you receive a partial quantity and decrease
-        the Freight amount accordingly, the system will automatically show the
-        remaining Freight balance due when you go to receive the remaining
+        <para>If you receive a partial quantity and decrease the Freight
+        amount accordingly, the system will automatically show the remaining
+        Freight balance due when you go to receive the remaining
         quantity.</para>
       </listitem>
     </varlistentry>
@@ -124,8 +124,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -142,13 +142,7 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>For information on the special processes required to
-    receive Lot-controlled Items, see the <xref endterm="Anchor58321" linkend="Anchor58321"/>
-    FINDME
-  "Topic: Receiving Lot/Serial Items into Inventory" section
-    in the <xref endterm="Anchor27334" linkend="Anchor27334"/>
-    FINDME
-  Inventory Management (I/M) Module
-    chapter.</para>
+    <para>For information on the special processes required to receive
+    Lot-controlled Items, see <xref linkend="Anchor58321" />.</para>
   </note>
 </section>

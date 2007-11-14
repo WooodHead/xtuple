@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="apAccountAssignment">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>account assignments</primary>
       <secondary>creating new for a/p</secondary>
     </indexterm>A/P Account Assignment</title>
-  <para>To create a new A/P Account assignment, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new A/P Account assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_apAcctAssignNew.png" id="Graphic972655"/>
+          <imagedata fileref="images/PO_MI_apAcctAssignNew.png"
+                     id="Graphic972655" />
         </imageobject>
         <caption id="Caption972658">Create New A/P Account
         Assignment</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new A/P Account assignment, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new A/P Account assignment, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Vendor Types</term>
@@ -40,11 +39,8 @@
       <listitem id="listitemN0x180ac00N0x1852bd0">
         <para>Enter a Vendor Type pattern to select a range of Vendor
         Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -52,8 +48,8 @@
       <listitem id="listitemN0x180ac00N0x1852c18">
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/P Account.</para>
-        <para>This is a Liability Account. It will be credited
-        when Vouchers are posted and debited when Checks are posted.</para>
+        <para>This is a Liability Account. It will be credited when Vouchers
+        are posted and debited when Checks are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,11 +57,10 @@
       <listitem id="listitemN0x180ac00N0x1852c60">
         <para>Identify a General Ledger (G/L) Account to assign as the default
         A/P Prepaid Account.</para>
-        <para>This is an Asset Account. It should not be
-        confused with or used interchangeably with the default A/P Account.
-        The Prepaid Account will be credited when Miscellaneous A/P Credit
-        Memos are posted and debited when Miscellaneous A/P Debit Memos are
-        posted.</para>
+        <para>This is an Asset Account. It should not be confused with or used
+        interchangeably with the default A/P Account. The Prepaid Account will
+        be credited when Miscellaneous A/P Credit Memos are posted and debited
+        when Miscellaneous A/P Debit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -73,13 +68,13 @@
       <listitem id="listitemN0x180ac00N0x1852ca8">
         <para>Identify a General Ledger (G/L) Account to distribute purchasing
         Discounts to.</para>
-        <para>This is a Revenue Account. It will be credited
-        when purchasing Discounts are applied to selected Payments.</para>
+        <para>This is a Revenue Account. It will be credited when purchasing
+        Discounts are applied to selected Payments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

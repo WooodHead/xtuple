@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section578361">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customers</primary>
       <secondary>exporting information for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>exporting</primary>
       <secondary>of customer information</secondary>
     </indexterm>Customer Information Export</title>
-  <para>The Customer Information Export utility enables you to
-  selectively identify Customer information, which you may then export into a
-  plain-text, TAB-delimited file. The exporting of selected information is
-  handled using the "Export Contents" option in the screen's right-click menu.
-  To specify the Customer information you want to tag for export, select the
-  "Customer Information Export" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>The Customer Information Export utility enables you to selectively
+  identify Customer information, which you may then export into a plain-text,
+  TAB-delimited file. The exporting of selected information is handled using
+  the "Export Contents" option in the screen's right-click menu. To specify
+  the Customer information you want to tag for export, select the "Customer
+  Information Export" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Utils_custInfoExp.png" id="Graphic578384"/>
+          <imagedata fileref="images/SO_Utils_custInfoExp.png"
+                     id="Graphic578384" />
         </imageobject>
         <caption id="Caption578387">Customer Information Export</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When specifying Customer information you want to tag
-  for export, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When specifying Customer information you want to tag for export, you
+  are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>All Customer Types</term>
@@ -46,49 +43,38 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x199a78c">
         <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>General</term>
       <listitem id="listitemN0x180ac00N0x199a7d4">
         <para>Select from the following general information categories:</para>
-        <para>Number: Select to tag the Customer Number for
-        export.</para>
-        <para>Name: Select to tag the Customer name for
-        export.</para>
+        <para>Number: Select to tag the Customer Number for export.</para>
+        <para>Name: Select to tag the Customer name for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Billing Address</term>
       <listitem id="listitemN0x180ac00N0x199a81c">
         <para>Select from the following billing address categories:</para>
-        <para>Address 1: Select to tag the first address line
-        for export.</para>
-        <para>Address 2: Select to tag the second address line
-        for export.</para>
-        <para>Address 3: Select to tag the third address line
-        for export.</para>
+        <para>Address 1: Select to tag the first address line for
+        export.</para>
+        <para>Address 2: Select to tag the second address line for
+        export.</para>
+        <para>Address 3: Select to tag the third address line for
+        export.</para>
         <para>City: Select to tag the city for export.</para>
-        <para>State: Select to tag the state for
+        <para>State: Select to tag the state for export.</para>
+        <para>Zip Code: Select to tag the zip code for export.</para>
+        <para>Country: Select to tag the country for export.</para>
+        <para>Contact: Select to tag the contact name for export.</para>
+        <para>Phone: Select to tag the contact's phone number for
         export.</para>
-        <para>Zip Code: Select to tag the zip code for
+        <para>FAX: Select to tag the contact's fax number for export.</para>
+        <para>Email: Select to tag the contact's email address for
         export.</para>
-        <para>Country: Select to tag the country for
-        export.</para>
-        <para>Contact: Select to tag the contact name for
-        export.</para>
-        <para>Phone: Select to tag the contact's phone number
-        for export.</para>
-        <para>FAX: Select to tag the contact's fax number for
-        export.</para>
-        <para>Email: Select to tag the contact's email address
-        for export.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -182,8 +168,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -200,9 +186,11 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on the Customer Information list
-  enables you to select from the following menu option:</para>
+  <para>Right-clicking on the Customer Information list enables you to select
+  from the following menu option:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

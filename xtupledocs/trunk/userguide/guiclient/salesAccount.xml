@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="salesAccount">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales account assignments</primary>
       <secondary>creating new</secondary>
     </indexterm>Sales Account Assignment</title>
   <para>To create a new Sales Account assignment, select the NEW button. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_saleAcctAssignNew.png" id="Graphic537953"/>
+          <imagedata fileref="images/SO_MI_saleAcctAssignNew.png"
+                     id="Graphic537953" />
         </imageobject>
         <caption id="Caption537956">Create New Sales Account
         Assignment</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Sales Account assignment, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Sales Account assignment, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Warehouse</term>
@@ -31,12 +30,11 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>In the case of conflicts between Sales Account
-    assignments, the system by default selects specific assignments before
-    all-inclusive ones. For example, if there were a choice between an
-    assignment featuring "WHSE-1" as the supplying Warehouse and another
-    featuring "ANY" Warehouse, the more-specific "WHSE-1" would be
-    selected.</para>
+    <para>In the case of conflicts between Sales Account assignments, the
+    system by default selects specific assignments before all-inclusive ones.
+    For example, if there were a choice between an assignment featuring
+    "WHSE-1" as the supplying Warehouse and another featuring "ANY" Warehouse,
+    the more-specific "WHSE-1" would be selected.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -57,12 +55,8 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1885280">
         <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Types. Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -83,12 +77,8 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1885358">
         <para>Enter a Product Category pattern to select a range of Product
-        Categories.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        Categories. Refine your search using Regular Expressions, as described
+        in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,8 +86,8 @@
       <listitem id="listitemN0x180ac00N0x18853a0">
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Sales Account.</para>
-        <para>This is a Revenue Account. It will be credited
-        when Invoices are posted.</para>
+        <para>This is a Revenue Account. It will be credited when Invoices are
+        posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -105,8 +95,8 @@
       <listitem id="listitemN0x180ac00N0x18853e8">
         <para>Identify a General Ledger (G/L) Account to assign as the default
         S/O Credit Memo Account.</para>
-        <para>This is a Revenue contra Account. It will be
-        debited when S/O Credit Memos are posted.</para>
+        <para>This is a Revenue contra Account. It will be debited when S/O
+        Credit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -114,15 +104,15 @@
       <listitem id="listitemN0x180ac00N0x1885430">
         <para>Identify a General Ledger (G/L) Account to assign as the default
         Cost of Sales Account.</para>
-        <para>This is an Expense Account. It will be debited
-        when Sales Order Items are shipped. It will be credited when Sales
-        Order Items are returned to Stock--either through Shipping or the
-        processing of a Sales Order Credit Memo.</para>
+        <para>This is an Expense Account. It will be debited when Sales Order
+        Items are shipped. It will be credited when Sales Order Items are
+        returned to Stock--either through Shipping or the processing of a
+        Sales Order Credit Memo.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

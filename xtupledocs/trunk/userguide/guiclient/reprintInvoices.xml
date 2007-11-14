@@ -1,118 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657041">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>invoices</primary>
-         <secondary>re-printing of</secondary>
-      </indexterm>Re-Print Invoices</title>
-   <para>To print an Invoice that was previously printed,
-    select the "Re-Print Invoices" option. The following screen will
-    appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SO_Bill_re-PrintInv.png" id="Graphic657044"/>
-            </imageobject>
-            <caption id="Caption657047">Re-Print Invoices</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>When re-printing an Invoice, you are presented with
-    the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Search for Invoice Number</term>
-         <listitem id="listitemN0x180ac00N0x191c648">
-            <para>Enter an Invoice Number or Regular Expression.</para>
-            <para>This field may be used independently or in
-          conjunction with the date fields.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para>The "Invoice Number" field supports pattern
-      matching with Regular Expressions. For more information on matching
-      patterns using Regular Expressions, see <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-      Expressions".</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term>Start Date</term>
-         <listitem id="listitemN0x180ac00N0x191c6d8">
-            <para>Invoices posted on and after this date will be displayed,
-          unless the list is intentionally limited by information entered in
-          the "Search for Invoice Number" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>End Date</term>
-         <listitem id="listitemN0x180ac00N0x191c720">
-            <para>Invoices posted on and before this date will be displayed,
-          unless the list is intentionally limited by information entered in
-          the "Search for Invoice Number" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Invoices</term>
-         <listitem id="listitemN0x180ac00N0x191c768">
-            <para>Display lists previously printed Invoices.</para>
-            <para>Highlight the individual Invoice or group of
-          Invoices you want to re-print using your mouse button. To select a
-          sequence of Invoices, highlight the first in the sequence using your
-          mouse button. Then, holding down the SHIFT key on your keyboard,
-          highlight the last Invoice in the sequence. The entire sequence is
-          now selected. To select Invoices that are out of sequence, highlight
-          the first Invoice in the group. Then, holding down the CTRL key on
-          your keyboard, highlight the next Invoice you want to select.
-          Continue highlighting Invoices with the CTRL key depressed until all
-          desired Invoices are selected. The entire group is now ready for
-          re-printing.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Invoice Copies</term>
-         <listitem id="listitemN0x180ac00N0x191c7b0">
-            <para>Specify details for the Invoice copies you want to
-          print:</para>
-            <para># of Copies: Indicate the number of copies you
-          want to re-print. Information about the specified copies will
-          display below. To add a Watermark, double-click on a copy
-          line.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x191c81c">
-            <para>Closes the screen without re-printing Invoices, returning you
-          to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>QUERY</term>
-         <listitem id="listitemN0x180ac00N0x191c864">
-            <para>Select to generate a list of Invoices for re-printing, using
-          the specified parameters.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x191c8ac">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para>If the Customer specified on the Invoice has an
-      EDI Profile defined, you may encounter an EDI processing interface when
-      printing individual Invoices.</para>
-   </tip>
+  <title><indexterm significance="normal">
+      <primary>invoices</primary>
+      <secondary>re-printing of</secondary>
+    </indexterm>Re-Print Invoices</title>
+  <para>To print an Invoice that was previously printed, select the "Re-Print
+  Invoices" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SO_Bill_re-PrintInv.png"
+                     id="Graphic657044" />
+        </imageobject>
+        <caption id="Caption657047">Re-Print Invoices</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When re-printing an Invoice, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Search for Invoice Number</term>
+      <listitem id="listitemN0x180ac00N0x191c648">
+        <para>Enter an Invoice Number or Regular Expression.</para>
+        <para>This field may be used independently or in conjunction with the
+        date fields.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>The "Invoice Number" field supports pattern matching with Regular
+    Expressions. For more information on matching patterns using Regular
+    Expressions, see <xref linkend="Anchor77806" />.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem id="listitemN0x180ac00N0x191c6d8">
+        <para>Invoices posted on and after this date will be displayed, unless
+        the list is intentionally limited by information entered in the
+        "Search for Invoice Number" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>End Date</term>
+      <listitem id="listitemN0x180ac00N0x191c720">
+        <para>Invoices posted on and before this date will be displayed,
+        unless the list is intentionally limited by information entered in the
+        "Search for Invoice Number" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoices</term>
+      <listitem id="listitemN0x180ac00N0x191c768">
+        <para>Display lists previously printed Invoices.</para>
+        <para>Highlight the individual Invoice or group of Invoices you want
+        to re-print using your mouse button. To select a sequence of Invoices,
+        highlight the first in the sequence using your mouse button. Then,
+        holding down the SHIFT key on your keyboard, highlight the last
+        Invoice in the sequence. The entire sequence is now selected. To
+        select Invoices that are out of sequence, highlight the first Invoice
+        in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next Invoice you want to select. Continue highlighting
+        Invoices with the CTRL key depressed until all desired Invoices are
+        selected. The entire group is now ready for re-printing.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Invoice Copies</term>
+      <listitem id="listitemN0x180ac00N0x191c7b0">
+        <para>Specify details for the Invoice copies you want to print:</para>
+        <para># of Copies: Indicate the number of copies you want to re-print.
+        Information about the specified copies will display below. To add a
+        Watermark, double-click on a copy line.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x191c81c">
+        <para>Closes the screen without re-printing Invoices, returning you to
+        the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>QUERY</term>
+      <listitem id="listitemN0x180ac00N0x191c864">
+        <para>Select to generate a list of Invoices for re-printing, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x191c8ac">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If the Customer specified on the Invoice has an EDI Profile defined,
+    you may encounter an EDI processing interface when printing individual
+    Invoices.</para>
+  </tip>
 </section>

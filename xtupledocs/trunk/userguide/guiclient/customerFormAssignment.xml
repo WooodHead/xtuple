@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="customerFormAssignment">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>customer forms</primary>
       <secondary>creating new assignment for</secondary>
     </indexterm>Customer Form Assignment</title>
-  <para>To create a new Customer Form assignment, select the
-  NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Customer Form assignment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custFormAsgnNew.png" id="Graphic547283"/>
+          <imagedata fileref="images/SO_MI_custFormAsgnNew.png"
+                     id="Graphic547283" />
         </imageobject>
         <caption id="Caption547286">Create New Customer Form
         Assignment</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Customer Form assignment, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Customer Form assignment, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Selected Customer Type</term>
@@ -34,11 +33,8 @@
       <listitem id="listitemN0x180ac00N0x188e1cc">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
-        <para>Refine your search using Regular Expressions, as
-        described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-        Expressions".</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -74,8 +70,8 @@
       <listitem id="listitemN0x180ac00N0x188e334">
         <para>Specify the Packing List Form you want to assign to the Customer
         Type(s).</para>
-        <para>The Packing List selection is used after Sales
-        Order Line Item quantity has been issued to Shipping.</para>
+        <para>The Packing List selection is used after Sales Order Line Item
+        quantity has been issued to Shipping.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -83,23 +79,22 @@
       <listitem id="listitemN0x180ac00N0x188e37c">
         <para>Specify the Sales Order Pick List Form you want to assign to the
         Customer Type(s).</para>
-        <para>The Sales Order Pick List selection is used
-        before Sales Order Line Item quantity has been issued to
-        Shipping.</para>
+        <para>The Sales Order Pick List selection is used before Sales Order
+        Line Item quantity has been issued to Shipping.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The system includes two alternate Sales Order Pick
-    List report definitions:</para>
+    <para>The system includes two alternate Sales Order Pick List report
+    definitions:</para>
     <para>"PickingListSOClosedLines.xml"</para>
     <para>"PickingListNoClosedLines.xml"</para>
-    <para>The first includes already closed Sales Order Line
-    Items in the report; the other excludes closed Line Items. Report
-    definitions (i.e., Forms) are assigned by Customer Type.</para>
+    <para>The first includes already closed Sales Order Line Items in the
+    report; the other excludes closed Line Items. Report definitions (i.e.,
+    Forms) are assigned by Customer Type.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
