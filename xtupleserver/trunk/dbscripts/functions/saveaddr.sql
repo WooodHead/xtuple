@@ -123,11 +123,7 @@ BEGIN
     RETURN _addrId;
 
   ELSE
-    IF (pAddrId IS NULL) THEN
-      SELECT NEXTVAL(''addr_addr_id_seq'') INTO _addrId;
-    ELSE
-      _addrId := pAddrId;
-    END IF;
+    SELECT NEXTVAL(''addr_addr_id_seq'') INTO _addrId;
 
     INSERT INTO addr ( addr_id,
     addr_line1, addr_line2, addr_line3, 
