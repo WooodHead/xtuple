@@ -255,11 +255,11 @@ BEGIN
       WHERE ((raitem_new_coitem_id=NEW.coitem_id)
       AND (rahead_id=raitem_rahead_id));
       IF (FOUND) THEN
-        IF (OLD.coitem_qtyord <> NEW.coitem_qtyord OR
-            OLD.coitem_qty_uom_id <> NEW.coitem_qty_uom_id OR
-            OLD.coitem_qty_invuomratio <> NEW.coitem_qty_invuomratio OR
-            OLD.coitem_price_uom_id <> NEW.coitem_price_uom_id OR
-            OLD.coitem_price_invuomratio <> NEW.coitem_price_invuomratio) THEN
+        IF (_r.raitem_qtyauthorized <> NEW.coitem_qtyord OR
+            _r.raitem_qty_uom_id <> NEW.coitem_qty_uom_id OR
+            _r.raitem_qty_invuomratio <> NEW.coitem_qty_invuomratio OR
+            _r.raitem_price_uom_id <> NEW.coitem_price_uom_id OR
+            _r.raitem_price_invuomratio <> NEW.coitem_price_invuomratio) THEN
           RAISE EXCEPTION ''Quantities for line item % may only be changed on the Return Authorization that created it.'',NEW.coitem_linenumber;
         END IF;
         UPDATE raitem SET raitem_warranty = NEW.coitem_warranty
