@@ -4,162 +4,200 @@
 <section id="Section524365">
   <title id="Anchor26666"><indexterm significance="normal">
       <primary>check runs</primary>
+
       <secondary>printing of</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>checks</primary>
+
       <secondary>printing multiple</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>accounts payable</primary>
+
       <secondary>printing checks for</secondary>
     </indexterm>Print Check Run</title>
+
   <para>To print a Check Run, select the "Print Check Run" option. The
   following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/AP_Pay_printChkRun.png"
                      id="Graphic529384" />
         </imageobject>
+
         <caption id="Caption529387">Print Check Run</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>When printing a Check Run, you are presented with the following
   options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
+
       <listitem>
         <para>Specify the Bank Account associated with the Check Run you want
         to print.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>First Check #</term>
+
       <listitem>
         <para>Displays the first available Check Number in the Check Run for
         the specified Bank Account.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term># of Checks to Print</term>
+
       <listitem>
-        <para>Specify how many Checks should be printed in the Check
-        Run.</para>
-        <para>Check Numbers increment in intervals of one (1) beginning with
-        the first Check Number displayed above. The maximum possible selection
+        <para>Specify how many Checks should be printed in the Check Run.
+        Check Numbers increment in intervals of one (1) beginning with the
+        first Check Number displayed above. The maximum possible selection
         indicates the maximum number of Checks in the Check Run. Selecting a
         number less than the maximum will cause that number of Checks to be
         printed, leaving the remaining number still to be printed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem>
         <para>Closes the screen without printing the Check Run, returning you
         to the application desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem>
         <para>Prints the Check Run, using the specified parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para><indexterm significance="normal">
       <primary>check runs</primary>
+
       <secondary>problems when printing</secondary>
     </indexterm>If for some reason you experience printing problems when
   printing a Check Run, select the NO button from the following screen:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/AP_Pay_chkPrtSuccess.png"
                      id="Graphic545612" />
         </imageobject>
+
         <caption id="Caption545615">Print Message</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>If you select the NO button at the end of printing a Check Run, the
   following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/AP_Pay_reviewPrtChks.png"
                      id="Graphic545654" />
         </imageobject>
+
         <caption id="Caption545657">Review List of Printed Checks</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>The Review Printed Checks screen lists all the Checks which were
   included in the Check Run.</para>
+
   <note>
     <para>The default action listed for all Checks in a Check Run is
     "Printed." Each Check will be marked as printed when you select the
     COMPLETE button, unless you specify one of the other possible actions:
     void, replace, etc.</para>
   </note>
+
   <para>When reviewing the list of Checks included in a Check Run, you are
   presented with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>COMPLETE</term>
+
       <listitem>
         <para>Select to perform the specified action associated with each of
-        the listed Checks.</para>
-        <para>This should be the last option selected at the conclusion of
-        your Check Run review. Selecting this option terminates the review
-        process. If no action is specified for a Check, the status of the
-        Check will remain as it was prior to printing the Check Run.</para>
+        the listed Checks. This should be the last option selected at the
+        conclusion of your Check Run review. Selecting this option terminates
+        the review process. If no action is specified for a Check, the status
+        of the Check will remain as it was prior to printing the Check
+        Run.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>UNMARK</term>
+
       <listitem>
         <para>Highlight a Check Number and then select this option to remove
-        any action associated with the Check.</para>
-        <para>If no action is specified for a Check, the status of the Check
-        will remain as it was prior to printing the Check Run.</para>
+        any action associated with the Check. If no action is specified for a
+        Check, the status of the Check will remain as it was prior to printing
+        the Check Run.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
     <para>You may select multiple Checks for marking using the SHIFT or CTRL
     keys and your mouse.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>MARK AS PRINTED</term>
+
       <listitem>
         <para>Highlight a Check Number and then select this option to mark the
-        Check as printed.</para>
-        <para>By default, all Checks in a Check Run are marked as
+        Check as printed. By default, all Checks in a Check Run are marked as
         printed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VOID</term>
+
       <listitem>
         <para>Highlight a Check Number and then select this option to mark the
-        Check as voided.</para>
-        <para>Before a Check can be replaced, it must first be voided.</para>
+        Check as voided. Before a Check can be replaced, it must first be
+        voided.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VOID &amp; REPLACE</term>
+
       <listitem>
         <para>Highlight a Check Number and then select this option to mark the
-        Check as voided and then replace the Check with a new Check.</para>
-        <para>Using this option, you can both void and replace a Check in one
-        step.</para>
+        Check as voided and then replace the Check with a new Check. Using
+        this option, you can both void and replace a Check in one step.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SELECT ALL</term>
+
       <listitem>
         <para>Use this option to automatically select all Checks for marking,
         or unmarking.</para>

@@ -4,142 +4,176 @@
 <section id="Section553578">
   <title><indexterm significance="normal">
       <primary>cash receipts</primary>
+
       <secondary>application of</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>credit memos</primary>
+
       <secondary>application of</secondary>
     </indexterm>A/R Applications</title>
+
   <para>To view details concerning the application of Cash Receipts and Credit
   Memos to A/R open items, select the "A/R Applications" option. The following
   screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/AR_Disp_arApplications.png"
                      id="Graphic548351" />
         </imageobject>
+
         <caption id="Caption548354">A/R Applications</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>When viewing A/R application details, you are presented with the
   following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>All Customers</term>
+
       <listitem id="listitemN0x180ac00N0x18b6dd4">
         <para>Select to display A/R application details for all
         Customers.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Selected Customer</term>
+
       <listitem id="listitemN0x180ac00N0x18b6e1c">
         <para>Select to display A/R application details for a selected
         Customer.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Selected Customer Type</term>
+
       <listitem id="listitemN0x180ac00N0x18b6e64">
         <para>Specify Customer Type whose A/R application details you want to
         display.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Customer Type Pattern</term>
+
       <listitem id="listitemN0x180ac00N0x18b6eac">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types.</para>
+
         <para>Refine your search using Regular Expressions, as described in
-        <xref endterm="Anchor77806" linkend="Anchor77806" />.</para>
+        <xref endterm="Anchor77806" linkend="Anchor77806" /> FINDME "Topic:
+        Pattern Matching with Regular Expressions".</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Start Date</term>
+
       <listitem id="listitemN0x180ac00N0x18b6ef4">
         <para>A/R applications made on and after this date will be
         displayed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>End Date</term>
+
       <listitem id="listitemN0x180ac00N0x18b6f3c">
         <para>A/R applications made on and before this date will be
         displayed.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Show Cash Receipts</term>
+
       <listitem id="listitemN0x180ac00N0x18b6f84">
         <para>Select to display only Cash Receipt application details.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Show Credit Memos</term>
+
       <listitem id="listitemN0x180ac00N0x18b6fcc">
         <para>Select to display only Credit Memo application details.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>A/R Applications</term>
+
       <listitem id="listitemN0x180ac00N0x18b7014">
         <para>Display lists A/R application details, using the specified
         parameters.</para>
+
         <para>The total amount of all applications during the period will
         display at the bottom of the screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
     <para>When you see the term "Other" in the "Apply-To" column, this
     typically refers to a Misc. Application made while entering a Cash
     Receipt.</para>
   </tip>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x18b70a4">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>QUERY</term>
+
       <listitem id="listitemN0x180ac00N0x18b70ec">
         <para>Select to generate the display, using the specified
         parameters.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x18b7134">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>Right-clicking on a Document in the A/R Applications list enables you
   to select from the following menu options:</para>
+
   <variablelist>
-    <varlistentry>
-      <term>View Apply to Invoice</term>
-      <listitem id="listitemN0x180ac00N0x18b71a0">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/11/2/6)" />
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+
   <para>If you are right-clicking on a Credit Memo, the following additional
   option will be available:</para>
+
   <variablelist>
-    <varlistentry>
-      <term>View Source Credit Memo</term>
-      <listitem id="listitemN0x180ac00N0x18b7254">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/11/2/12)" />
   </variablelist>
 </section>
