@@ -1,139 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537996" role="openmfg">
-    <title>Run Buffer Status by Planner Code</title>
-
-    <para>When you run buffer status by Planner Code, you are
-    running the Buffer Management system. This utility, when it is run, scans
-    through your data and then updates the buffer status for Items in the
-    specified Planner Code(s) using the most current information.</para>
-
-    <para>Because buffer status information is time-sensitive,
-    you must run the system frequently (i.e., daily) to keep your statuses
-    up-to-date. In fact, the various buffer status displays will not even show
-    status information if Buffer Management has not been run on the day when
-    you"re trying to view buffer status information. This built-in requirement
-    prevents you from using information that is not current.</para>
-
-    <note>
-      <para>The critical buffer status in the Buffer
-      Management system is 66%. In other words, any time you consume 66% of a
-      buffer, then it\qs time to act immediately to resolve the situation. The
-      66% value is a percentage that is widely used in academic research and
-      practical real-world implementations of the Theory of Constraints--a
-      theory pioneered by Eliyahu Goldratt.</para>
-    </note>
-
-    <para>After the buffer status utility has been run, you
-    may view the Buffer Management displays which pertain to the affected
-    Items--and then decide whether to take immediate action based on the
-    newly-updated status values.</para>
-
-    <para>To run buffer status by Planner Code, select the
-    "Run Buffer Status by Planner Code" option. The following screen will
-    appear:</para>
-
-    <para>
-      <screenshot>
-        <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/MS_Buff_runByPCode.png" id="Graphic542066"/>
-            </imageobject>
-
-            <caption id="Caption542069">Run Buffer Status by Planner
-          Code</caption>
-        </mediaobject>
-      </screenshot>
-   </para>
-
-    <para>When running buffer status by Planner Code, you are
-    presented with the following options:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term>All Planner Codes</term>
-
-        <listitem>
-            <para>Select to update the buffer status for Item Sites in all
-          Planner Codes.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Selected</term>
-
-        <listitem>
-            <para>Specify Planner Code whose Item Site buffer statuses you want
-          to update.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Pattern</term>
-
-        <listitem>
-            <para>Enter a Planner Code pattern to select a range of Planner
-          Codes.</para>
-
-            <para>Refine your search using Regular Expressions,
-          as described in <xref endterm="Anchor77806" linkend="Anchor77806"/>
-    FINDME
-  "Topic: Pattern Matching with Regular
-          Expressions".</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>All Warehouses</term>
-
-        <listitem>
-            <para>Select to update buffer statuses by Planner Code in all
-          Warehouses.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Selected</term>
-
-        <listitem>
-            <para>Specify Warehouse where buffer status updates should
-          occur.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para>To the far right of the screen, the following
-    buttons are available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term>CANCEL</term>
-
-        <listitem>
-            <para>Closes the screen without updating buffer statuses by Planner
-          Code, returning you to the application desktop.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>CREATE</term>
-
-        <listitem>
-            <para>Runs the buffer status update by Planner Code, using the
-          specified parameters.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>SUBMIT</term>
-
-        <listitem>
-            <para>Select to submit the buffer status update to the Batch
-          Manager. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic:
-          Submitting Reports and Jobs to the Batch Manager".</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+  <title>Run Buffer Status by Planner Code</title>
+  <para>When you run buffer status by Planner Code, you are running the Buffer
+  Management system. This utility, when it is run, scans through your data and
+  then updates the buffer status for Items in the specified Planner Code(s)
+  using the most current information.</para>
+  <para>Because buffer status information is time-sensitive, you must run the
+  system frequently (i.e., daily) to keep your statuses up-to-date. In fact,
+  the various buffer status displays will not even show status information if
+  Buffer Management has not been run on the day when you"re trying to view
+  buffer status information. This built-in requirement prevents you from using
+  information that is not current.</para>
+  <note>
+    <para>The critical buffer status in the Buffer Management system is 66%.
+    In other words, any time you consume 66% of a buffer, then it\qs time to
+    act immediately to resolve the situation. The 66% value is a percentage
+    that is widely used in academic research and practical real-world
+    implementations of the Theory of Constraints--a theory pioneered by
+    Eliyahu Goldratt.</para>
+  </note>
+  <para>After the buffer status utility has been run, you may view the Buffer
+  Management displays which pertain to the affected Items--and then decide
+  whether to take immediate action based on the newly-updated status
+  values.</para>
+  <para>To run buffer status by Planner Code, select the "Run Buffer Status by
+  Planner Code" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/MS_Buff_runByPCode.png"
+                     id="Graphic542066" />
+        </imageobject>
+        <caption id="Caption542069">Run Buffer Status by Planner
+        Code</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When running buffer status by Planner Code, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>All Planner Codes</term>
+      <listitem>
+        <para>Select to update the buffer status for Item Sites in all Planner
+        Codes.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Planner Code whose Item Site buffer statuses you want to
+        update.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Pattern</term>
+      <listitem>
+        <para>Enter a Planner Code pattern to select a range of Planner
+        Codes.</para>
+        <para>Refine your search using Regular Expressions, as described in
+        <xref linkend="Anchor77806" />.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>All Warehouses</term>
+      <listitem>
+        <para>Select to update buffer statuses by Planner Code in all
+        Warehouses.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected</term>
+      <listitem>
+        <para>Specify Warehouse where buffer status updates should
+        occur.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without updating buffer statuses by Planner
+        Code, returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>CREATE</term>
+      <listitem>
+        <para>Runs the buffer status update by Planner Code, using the
+        specified parameters.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem>
+        <para>Select to submit the buffer status update to the Batch Manager.
+        For additional information, see <xref linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>
