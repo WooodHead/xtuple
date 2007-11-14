@@ -122,6 +122,19 @@
   the following menu options:</para>
 
   <variablelist>
+<<<<<<< .mine
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/1)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/2)" />
+
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+=======
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickEditIncident)" />
@@ -133,12 +146,22 @@
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
+>>>>>>> .r584
   </variablelist>
 
   <para>If you right-click on a To-Do List item, the following additional
   options will be available:</para>
 
   <variablelist>
+<<<<<<< .mine
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/2)" />
+
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1/12/2/4)" />
+=======
     <varlistentry>
       <term>Edit To-Do Item</term>
 
@@ -154,5 +177,6 @@
         <para></para>
       </listitem>
     </varlistentry>
+>>>>>>> .r584
   </variablelist>
 </section>

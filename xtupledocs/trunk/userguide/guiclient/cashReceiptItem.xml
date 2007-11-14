@@ -1,98 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="cashReceiptItem">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cash receipts</primary>
+
       <secondary>applying to balance due</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>open items</primary>
+
       <secondary>applying cash receipts to</secondary>
     </indexterm>Cash Receipt Application</title>
-  <para>To apply a Cash Receipt to an individual open A/R
-  Item, select the APPLY button. The following screen will appear:</para>
-  <para>
-<screenshot>
+
+  <para>To apply a Cash Receipt to an individual open A/R Item, select the
+  APPLY button. The following screen will appear:</para>
+
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterCRApply.png" id="Graphic526560"/>
+          <imagedata fileref="images/AR_CashR_enterCRApply.png"
+                     id="Graphic526560" />
         </imageobject>
+
         <caption id="Caption526563">Apply Cash Receipt</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
+
   <tip>
-    <para>You will not be able to post a Cash Receipt if the
-    amount applied is greater than the Cash Receipt total.</para>
+    <para>You will not be able to post a Cash Receipt if the amount applied is
+    greater than the Cash Receipt total.</para>
   </tip>
-  <para>When applying a Cash Receipt to an individual open
-  Item, you are presented with the following options:</para>
+
+  <para>When applying a Cash Receipt to an individual open Item, you are
+  presented with the following options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
+
       <listitem id="listitemN0x180ac00N0x1898c14">
         <para>Displays the Customer Number of the Customer selected on the
         previous screen. The Customer name and billing address will also
-        display.</para>
-        <para>Select the "?" symbol to view Customer
-        information for the specified Customer.</para>
+        display. Select the "?" symbol to view Customer information for the
+        specified Customer.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Doc. Number</term>
+
       <listitem id="listitemN0x180ac00N0x1898c5c">
         <para>Displays the Document Number associated with the Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Doc. Type</term>
+
       <listitem id="listitemN0x180ac00N0x1898ca4">
         <para>Displays the Document Type of the Document.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Doc. Date</term>
+
       <listitem id="listitemN0x180ac00N0x1898cec">
-        <para>Displays the Document's origination date.</para>
-        <para>In the case of a Sales Order, the Document date
-        is the date when the Sales Order is created.</para>
+        <para>Displays the Document's origination date. In the case of a Sales
+        Order, the Document date is the date when the Sales Order is
+        created.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Due Date</term>
+
       <listitem id="listitemN0x180ac00N0x1898d34">
-        <para>Displays the date payment is due.</para>
-        <para>In the case of a Sales Order, billing terms are
-        defined in the Sales Order master.</para>
+        <para>Displays the date payment is due. In the case of a Sales Order,
+        billing terms are defined in the Sales Order master.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Open Amount</term>
+
       <listitem id="listitemN0x180ac00N0x1898d7c">
         <para>Displays the amount due for the open Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Amount to Apply</term>
+
       <listitem id="listitemN0x180ac00N0x1898dc4">
         <para>Specify the Cash Receipt amount to apply to the open Item. You
         may not apply more than the open amount.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
+
       <listitem id="listitemN0x180ac00N0x1898e30">
         <para>Closes the screen without applying a new Cash Receipt, returning
         you to the application desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>SAVE</term>
+
       <listitem id="listitemN0x180ac00N0x1898e78">
         <para>Applies the Cash Receipt to the open Item.</para>
       </listitem>
