@@ -2,7 +2,7 @@
 <!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter606619">
-  <title>General Ledger (G/L) Module</title>
+  <title>Accounting Module</title>
   <para>In this chapter, we describe the General Ledger (G/L). The following
   topics will be covered:</para>
   <itemizedlist>
@@ -429,8 +429,8 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <ns:include href="guiclient/dspTimePhasedOpenARItems.xml"
-                xpointer="element(/1)"
-                xmlns:ns="http://www.w3.org/2001/XInclude" />
+                xmlns:ns="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
     <xi:include href="guiclient/printStatementByCustomer.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
