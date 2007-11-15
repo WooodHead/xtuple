@@ -14,13 +14,15 @@ DECLARE
   _toitemitemid		INTEGER;
 
 BEGIN
-  SELECT recv_order_type, recv_orderitem_id, recv_qty,
+  SELECT recv_id, recv_order_type, recv_orderitem_id, recv_qty,
 	 round(currToBase(recv_freight_curr_id, recv_freight, recv_date::DATE),
 	       2) AS recv_freight_base,
 	 recv_freight, recv_freight_curr_id, recv_date, recv_gldistdate,
-	 itemsite_id, itemsite_item_id
+	 itemsite_id, itemsite_item_id, item_inv_uom_id
 	 INTO _r
-  FROM recv LEFT OUTER JOIN itemsite ON (recv_itemsite_id=itemsite_id)
+  FROM recv LEFT OUTER JOIN
+       itemsite ON (recv_itemsite_id=itemsite_id) LEFT OUTER JOIN
+       item ON (itemsite_item_id=item_id)
   WHERE ((recv_id=precvid)
     AND  (NOT recv_posted));
 
@@ -186,6 +188,16 @@ BEGIN
 	RETURN _tmp;
       END IF;
 
+      INSERT INTO rahist (rahist_itemsite_id, rahist_date,
+			  rahist_descrip,
+			  rahist_qty, rahist_uom_id,
+			  rahist_source, rahist_source_id, rahist_rahead_id
+	) VALUES (_r.itemsite_id, _glDate,
+		  ''Receive Inventory from '' || _ordertypeabbr,
+		  _r.recv_qty * _o.invvenduomratio, _r.item_inv_uom_id,
+		  ''RR'', _r.recv_id, _ra.rahead_id
+	);
+
       SELECT insertGLTransaction( ''S/R'', _r.recv_order_type, _o.orderhead_number,
 				  ''Receive Inventory Freight from '' || _o.orderhead_number,
 				   costcat_liability_accnt_id,
@@ -199,6 +211,15 @@ BEGIN
       IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
 	RETURN _tmp;
       END IF;
+
+      INSERT INTO rahist (rahist_date, rahist_descrip,
+			  rahist_source, rahist_source_id,
+			  rahist_curr_id, rahist_amount,
+			  rahist_rahead_id
+	) VALUES (_glDate, ''Receive Inventory Freight from '' || _ordertypeabbr,
+		  ''RR'', _r.recv_id, _r.recv_freight_curr_id, _r.recv_freight,
+		  _ra.rahead_id
+	);
 
       UPDATE raitem
       SET raitem_qtyreceived = (raitem_qtyreceived + _r.recv_qty)
