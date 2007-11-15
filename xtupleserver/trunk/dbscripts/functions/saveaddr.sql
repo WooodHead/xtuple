@@ -41,7 +41,7 @@ BEGIN
   _addrId := COALESCE(pAddrId,-1);
 
   --If we have an ID see if anything has changed, if not get out
-  IF (_addrId IS NOT NULL) THEN
+  IF (_addrId >= 0) THEN
     SELECT * FROM addr INTO _p
     WHERE ((pAddrId=addr_id)
     AND (pAddr1=addr_line1)
@@ -82,7 +82,7 @@ BEGIN
         RETURN _p.addr_id;  --A matching address exits
     END IF;
  
-  IF (_addrId IS NULL) THEN
+  IF (_addrId < 0) THEN
     _flag := ''CHANGEONE'';
   END IF;
 
