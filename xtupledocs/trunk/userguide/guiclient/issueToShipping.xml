@@ -1,202 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section529534">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>shipping</primary>
-         <secondary>issuing stock to</secondary>
-      </indexterm>Issue Stock to Shipping</title>
-   <para>Once Sales Order (or Transfer Order) Line Items are
-  ready to be shipped, they must be issued to Shipping. To issue Stock to
-  Shipping, select the "Issue Stock to Shipping" option. The following screen
-  will appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/SR_Ship_issueStockShip.png" id="Graphic519700"/>
-            </imageobject>
-            <caption id="Caption519694">Issue Stock to Shipping</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para>Before a Sales Order can be shipped successfully,
-    Sales Account and A/R Account Assignments for the specified Customer must
-    be in place.</para>
-   </note>
-   <para>When issuing Stock to Shipping, you are presented with
-  the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Sales Order #</term>
-         <listitem id="listitemN0x180ac00N0x181a76c">
-            <para>Enter the Sales Order Number of the Sales Order whose Stock you
+  <title><indexterm significance="normal">
+      <primary>shipping</primary>
+      <secondary>issuing stock to</secondary>
+    </indexterm>Issue Stock to Shipping</title>
+  <para>Once Sales Order (or Transfer Order) Line Items are ready to be
+  shipped, they must be issued to Shipping. To issue Stock to Shipping, select
+  the "Issue Stock to Shipping" option. The following screen will
+  appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/SR_Ship_issueStockShip.png"
+                     id="Graphic519700" />
+        </imageobject>
+        <caption id="issueToShippingStockToShipping">Issue Stock to
+        Shipping</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>Before a Sales Order can be shipped successfully, Sales Account and
+    A/R Account Assignments for the specified Customer must be in
+    place.</para>
+  </note>
+  <para>When issuing Stock to Shipping, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Sales Order #</term>
+      <listitem id="listitemN0x180ac00N0x181a76c">
+        <para>Enter the Sales Order Number of the Sales Order whose Stock you
         want to issue to Shipping.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term>Transfer Order #</term>
-         <listitem id="listitemN0x180ac00N0x181a790">
-            <para>Enter the Transfer Order Number of the Transfer Order whose
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>Transfer Order #</term>
+      <listitem id="listitemN0x180ac00N0x181a790">
+        <para>Enter the Transfer Order Number of the Transfer Order whose
         Stock you want to issue to Shipping.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term>From</term>
-         <listitem id="listitemN0x180ac00N0x181a7b4">
-            <para>Displays the Source Warehouse if a Transfer Order is
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>From</term>
+      <listitem id="listitemN0x180ac00N0x181a7b4">
+        <para>Displays the Source Warehouse if a Transfer Order is
         selected.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry role="openmfg">
-         <term>To</term>
-         <listitem id="listitemN0x180ac00N0x181a7d8">
-            <para>Displays the Destination Warehouse if a Transfer Order is
+      </listitem>
+    </varlistentry>
+    <varlistentry role="openmfg">
+      <term>To</term>
+      <listitem id="listitemN0x180ac00N0x181a7d8">
+        <para>Displays the Destination Warehouse if a Transfer Order is
         selected.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Require sufficient Inventory</term>
-         <listitem id="listitemN0x180ac00N0x181a820">
-            <para>Select to ensure you have enough Quantity on Hand of a Line Item
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Require sufficient Inventory</term>
+      <listitem id="listitemN0x180ac00N0x181a820">
+        <para>Select to ensure you have enough Quantity on Hand of a Line Item
         prior to issuing Stock to Shipping.</para>
-            <para>If selected, this option will prevent you from
-        issuing Line Item quantity to Shipping if doing so would force
-        Quantity on Hand for the Item Site to fall below zero. Not selecting
-        this option means issuing Stock to Shipping may drive Item Site
-        Quantity on Hand negative.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Line Items</term>
-         <listitem id="listitemN0x180ac00N0x181a868">
-            <para>Display lists Sales Order Line Items available for Shipping. If
+        <para>If selected, this option will prevent you from issuing Line Item
+        quantity to Shipping if doing so would force Quantity on Hand for the
+        Item Site to fall below zero. Not selecting this option means issuing
+        Stock to Shipping may drive Item Site Quantity on Hand
+        negative.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Line Items</term>
+      <listitem id="listitemN0x180ac00N0x181a868">
+        <para>Display lists Sales Order Line Items available for Shipping. If
         the Scheduled Date for an unshipped Line Item is in the future, the
         line will display in green text. If the Scheduled Date for an
         unshipped Line Item is not in the future, the line will display in red
         text. Once shipped, all Line Items revert to black text.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Issue Items Using Bar Code</term>
-         <listitem id="listitemN0x180ac00N0x181a8b0">
-            <para>This is an optional field which allows you to issue stock to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue Items Using Bar Code</term>
+      <listitem id="listitemN0x180ac00N0x181a8b0">
+        <para>This is an optional field which allows you to issue stock to
         Shipping using a Bar Code scanner.</para>
-            <para>Enter a UPC Code for a Sales Order Line Item
-        using a Bar Code scanner--or manually enter the UPC Code. The UPC Code
-        for an Item is stored on the Item master. Once the code is entered,
-        specify a quantity and then select the FIND button to issue the Line
-        Item quantity to shipping. You may also hit the ENTER key on your
-        keyboard to select the FIND button. This field also supports the
-        scanning of Work Order bar codes, if the Work Order is linked to a
-        Sales Order. The Sales Order Number must already be entered for the
-        Work Order scan to be successful. If the scan is not successful, then
-        you know the Work Order does not belong to the Sales Order.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para>Most scanners allow you to change a setting that
-    automatically sends the ENTER command after a scan. This allows
-    keyboard-free entry.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term>Qty.</term>
-         <listitem id="listitemN0x180ac00N0x181a940">
-            <para>Specify the quantity of Line Items to be issued using a UPC
+        <para>Enter a UPC Code for a Sales Order Line Item using a Bar Code
+        scanner--or manually enter the UPC Code. The UPC Code for an Item is
+        stored on the Item master. Once the code is entered, specify a
+        quantity and then select the FIND button to issue the Line Item
+        quantity to shipping. You may also hit the ENTER key on your keyboard
+        to select the FIND button. This field also supports the scanning of
+        Work Order bar codes, if the Work Order is linked to a Sales Order.
+        The Sales Order Number must already be entered for the Work Order scan
+        to be successful. If the scan is not successful, then you know the
+        Work Order does not belong to the Sales Order.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>Most scanners allow you to change a setting that automatically sends
+    the ENTER command after a scan. This allows keyboard-free entry.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Qty.</term>
+      <listitem id="listitemN0x180ac00N0x181a940">
+        <para>Specify the quantity of Line Items to be issued using a UPC
         Code. To issue the Line Item quantity to shipping, select the FIND
         button--or hit the ENTER key on your keyboard to select the FIND
         button.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following buttons
-  are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x181a9ac">
-            <para>Closes the screen without issuing stock to Shipping, returning
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem>
+        <para>Closes the screen without issuing stock to Shipping, returning
         you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para>If an Order is marked "Ship Complete," you will be
-    prevented from shipping the Order until all Line Item quantities are
-    issued to Shipping.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term>SHIP ORDER</term>
-         <listitem id="listitemN0x180ac00N0x181aa3c">
-            <para>Select to Ship the specified Sales Order, as described in the
-        <xref endterm="Anchor28938" linkend="Anchor28938"/>
-    FINDME
-  "Ship Order" section.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>ISSUE STOCK</term>
-         <listitem id="listitemN0x180ac00N0x181aa84">
-            <para>Highlight a Line Item, then select this button to issue stock to
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an Order is marked "Ship Complete," you will be prevented from
+    shipping the Order until all Line Item quantities are issued to
+    Shipping.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>SHIP ORDER</term>
+      <listitem id="listitemN0x180ac00N0x181aa3c">
+        <para>Select to Ship the specified Sales Order, as described in the
+        <xref endterm="Anchor28938" linkend="Anchor28938" /> FINDME "Ship
+        Order" section.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>ISSUE STOCK</term>
+      <listitem>
+        <para>Highlight a Line Item, then select this button to issue stock to
         Shipping. You may also double-click on a Line Item to reach the Issue
         Stock screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para>If an Item issued to Shipping is a 
-         <indexterm significance="normal">
-            <primary>multiple location control</primary>
-            <secondary>impact on shipping</secondary>
-         </indexterm> 
-         <indexterm significance="normal">
-            <primary>shipping</primary>
-            <secondary>MLC impact on</secondary>
-         </indexterm>Multiple Location Control (MLC) Item, you will be prompted
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>If an Item issued to Shipping is a <indexterm significance="normal">
+        <primary>multiple location control</primary>
+        <secondary>impact on shipping</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>shipping</primary>
+        <secondary>MLC impact on</secondary>
+      </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to issue stock from.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term>ISSUE LINE BAL.</term>
-         <listitem id="listitemN0x180ac00N0x181aba4">
-            <para>Highlight a Line Item, then select this button to issue the
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>ISSUE LINE BAL.</term>
+      <listitem id="listitemN0x180ac00N0x181aba4">
+        <para>Highlight a Line Item, then select this button to issue the
         balance of the Line to shipping.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>RETURN STOCK</term>
-         <listitem id="listitemN0x180ac00N0x181abec">
-            <para>Highlight a Line Item, then select this button to remove the
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RETURN STOCK</term>
+      <listitem id="listitemN0x180ac00N0x181abec">
+        <para>Highlight a Line Item, then select this button to remove the
         Line from Shipping, returning the stock to Inventory.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para>If your site integrates UPS WorldShip with the
-    system, you should process Orders in WorldShip after they have been issued
-    to Shipping--but before they have been shipped. For more information, see
-    the <xref endterm="Anchor29552" linkend="Anchor29552"/>
-    FINDME
-  "Topic: UPS WorldShip Integration"
-    section.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term>ISSUE ALL BAL.</term>
-         <listitem id="listitemN0x180ac00N0x183046c">
-            <para>Select to issue all Line Items to Shipping
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>If your site integrates UPS WorldShip with the system, you should
+    process Orders in WorldShip after they have been issued to Shipping--but
+    before they have been shipped. For more information, see the <xref
+    endterm="Anchor29552" linkend="Anchor29552" /> FINDME "Topic: UPS
+    WorldShip Integration" section.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>ISSUE ALL BAL.</term>
+      <listitem id="listitemN0x180ac00N0x183046c">
+        <para>Select to issue all Line Items to Shipping
         simultaneously.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>FIND</term>
-         <listitem id="listitemN0x180ac00N0x18304b4">
-            <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>FIND</term>
+      <listitem id="listitemN0x180ac00N0x18304b4">
+        <para>Compares the UPC Code entered in the "Issue Items Using Barcode"
         field with the UPC Codes for the listed Sales Order Line Items, then
         issues to Shipping the quantity specified in the "Qty." field. The
         FIND button may be selected using your mouse--or by hitting the ENTER
@@ -205,7 +198,7 @@
         ENTER to issue a quantity of one to Shipping. If you prefer, you can
         scan in a UPC Code and then specify a different quantity before
         hitting ENTER.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
