@@ -60,22 +60,20 @@
     integration with OpenMFG, you only need an export map since the
     communication is one-way. The following screenshot shows a sample export
     map created using the UPS WorldShip mapping utility:</para>
-    <para><anchor id="Anchor70270" role="Cross-Ref"
-    xreflabel="70270: Figure: Figure 11.1:  Export Map in UPS WorldShip" />
-    <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_ups1.png" id="Graphic551422" />
           </imageobject>
-          <caption id="Caption551426">Export Map in UPS WorldShip</caption>
+          <caption id="UPSWorldShipExportMap">Export Map in UPS
+          WorldShip</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor70270"
-    linkend="Anchor70270" /> FINDME Figure 7.7, we have created a map called
-    "export." The map type is "Shipment," which indicates the data export will
-    occur when the shipment is shipped using UPS WorldShip. And the ODBC
-    driver used to export the data to the OpenMFG Database is called
-    "openmfg."</para>
+    <para>As you can see in <xref linkend="UPSWorldShipExportMap" />, we have
+    created a map called "export." The map type is "Shipment," which indicates
+    the data export will occur when the shipment is shipped using UPS
+    WorldShip. And the ODBC driver used to export the data to the OpenMFG
+    Database is called "openmfg."</para>
     <para>The following screenshot shows the utility you would use to edit
     your export map within UPS WorldShip:</para>
     <para><screenshot>
