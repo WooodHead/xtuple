@@ -163,19 +163,23 @@ BEGIN
       WHERE ((rahead_id=raitem_rahead_id)
         AND  (raitem_id=_r.recv_orderitem_id));
 
-      _tmp :=  postInvTrans(_r.itemsite_id, ''RR'',
-			    (_r.recv_qty * _o.invvenduomratio),
-			    ''S/R'',
-			    _r.recv_order_type, _o.orderhead_number::TEXT,
-			    _ra.rahead_number::TEXT,
-			    ''Receive Inventory from '' || _ordertypeabbr,
-			    COALESCE(_ra.raitem_cos_accnt_id,
-				     resolveCORAccount(_r.itemsite_id,
-						       _ra.rahead_cust_id)),
-			    resolveSalesAccount(_r.itemsite_id,
-						_ra.rahead_cust_id),
-			    _itemlocSeries, _glDate);
-      IF (_tmp < -1) THEN -- less than -1 because -1 means it is a none controlled item
+      SELECT postInvTrans(_r.itemsite_id, ''RR'',
+			  (_r.recv_qty * _o.invvenduomratio),
+			  ''S/R'',
+			  _r.recv_order_type, _o.orderhead_number::TEXT,
+			  _ra.rahead_number::TEXT,
+			  ''Receive Inventory from '' || _ordertypeabbr,
+			  costcat_asset_accnt_id,
+			  resolveCORAccount(_r.itemsite_id, _ra.rahead_cust_id),
+			  _itemlocSeries, _glDate) INTO _tmp
+      FROM itemsite, costcat
+      WHERE ( (itemsite_costcat_id=costcat_id)
+       AND (itemsite_id=_r.itemsite_id) );
+
+      IF (NOT FOUND) THEN
+	RAISE EXCEPTION ''Could not post inventory transaction: no cost category found for itemsite_id %'',
+	  _r.itemsite_id;
+      ELSIF (_tmp < -1) THEN -- less than -1 because -1 means it is a none controlled item
 	IF(_tmp = -3) THEN
 	  RETURN -12; -- The GL trans value was 0 which means we likely do not have a std cost
 	END IF;
