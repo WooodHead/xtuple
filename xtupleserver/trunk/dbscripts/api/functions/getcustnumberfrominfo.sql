@@ -9,11 +9,11 @@ DECLARE
   _counter	INTEGER;
   _custcount	INTEGER	:= 0;
   _custnumber	TEXT;
-  _candidate	TEXT;
+  _candidate	TEXT	:= '''';
   _loopmax	INTEGER := 0;
   _minlength	INTEGER := 5;
   _maxlength	INTEGER := 8;
-  _numformat	TEXT = '''';
+  _numformat	TEXT	:= '''';
   _testme	TEXT;
 BEGIN
   IF (_email != '''') THEN
@@ -78,8 +78,6 @@ BEGIN
     ELSIF (_fullname != '''' AND POSITION('' '' IN _fullname > 0)) THEN
       _candidate := SUBSTRING(_fullname FROM POSITION('' '' IN _candidate) + 1) ||
 		    SUBSTRING(_fullname FOR  POSITION('' '' IN _candidate) - 1);
-    ELSE
-      RAISE EXCEPTION ''Could not generate a new Customer Number without an email address or the name of a company or person'';
     END IF;
     WHILE (POSITION('' '' IN _candidate) > 0) LOOP
       _candidate := SUBSTRING(_candidate FOR  POSITION('' '' IN _candidate) - 1) ||
@@ -112,6 +110,9 @@ BEGIN
 	  EXIT;
 	END IF;
       END LOOP;
+    END IF;
+    IF (_custnumber IS NULL OR _custnumber = '''') THEN
+      RAISE EXCEPTION ''Could not generate a new Customer Number'';
     END IF;
   END IF;
 
