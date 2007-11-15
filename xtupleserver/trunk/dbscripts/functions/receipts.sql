@@ -3,7 +3,7 @@ DECLARE
   pTransType ALIAS FOR $1;
 
 BEGIN
-  IF (pTransType IN (''RM'', ''RB'', ''RT'', ''RP'', ''RX'', ''TR'')) THEN
+  IF (pTransType IN (''RM'', ''RB'', ''RT'', ''RP'', ''RR'', ''RX'', ''TR'')) THEN
     RETURN TRUE;
   ELSE
     RETURN FALSE;
