@@ -7,6 +7,10 @@ BEGIN
         rahead_freight_credited=rahead_freight_credited-OLD.cmhead_freight,
         rahead_misc_credited=rahead_misc_credited-OLD.cmhead_misc
       WHERE (rahead_id=OLD.cmhead_rahead_id);
+      DELETE FROM rahist
+      WHERE ((rahist_rahead_id=OLD.cmhead_rahead_id)
+      AND (rahist_source=''CM'')
+      AND (rahist_source_id=OLD.cmhead_id));
     END IF;
     RETURN OLD;
   END IF;
