@@ -1,5 +1,5 @@
 BEGIN;
 
-ALTER TABLE cmitem ADD COLUMN raitem_id INTEGER;
+ALTER TABLE cmitem ADD COLUMN cmitem_raitem_id INTEGER;
 
 COMMIT;
