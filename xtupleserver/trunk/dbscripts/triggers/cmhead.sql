@@ -6,7 +6,7 @@ BEGIN
       UPDATE rahead SET
         rahead_freight_credited=rahead_freight_credited-OLD.cmhead_freight,
         rahead_misc_credited=rahead_misc_credited-OLD.cmhead_misc
-      WHERE (rahead_id=cmhead_rahead_id);
+      WHERE (rahead_id=OLD.cmhead_rahead_id);
     END IF;
     RETURN OLD;
   END IF;
