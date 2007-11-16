@@ -3,111 +3,6 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter606619">
   <title>Accounting Module</title>
-  <section>
-    <title>Accounts Payable</title>
-    <para></para>
-  </section>
-  <section>
-    <title>Accounts Receivable</title>
-    <para></para>
-  </section>
-  <section>
-    <title>General Ledger</title>
-    <para></para>
-  </section>
-  <section id="Section531886">
-    <title><indexterm significance="normal">
-        <primary>master information</primary>
-        <secondary>for g/l module</secondary>
-      </indexterm>G/L Master Information</title>
-    <para>The G/L Master Information section is where General Ledger Account
-    Numbers and Accounting Periods are defined.</para>
-    <xi:include href="guiclient/accountingYearPeriods.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/accountingYearPeriod.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section524341">
-    <title><indexterm significance="normal">
-        <primary>general ledger</primary>
-        <secondary>manual journal entries in</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>journals</primary>
-        <secondary>entering manually</secondary>
-      </indexterm>Enter G/L Journal</title>
-    <para>General Ledger journal transactions may be entered either
-    individually or serially.</para>
-    <xi:include href="guiclient/glTransaction.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/glSeries.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/unpostedGlSeries.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section524378">
-    <title><indexterm significance="normal">
-        <primary>journals</primary>
-        <secondary>standard</secondary>
-      </indexterm>Standard Journals</title>
-    <para>Standard Journals are used to define reoccurring General Ledger
-    (G/L) entries.</para>
-    <xi:include href="guiclient/standardJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/standardJournals.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/standardJournalGroups.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postStandardJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postStandardJournalGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section563094">
-    <title>Bank Reconciliation</title>
-    <para>The Bank Reconciliation section is where Bank statements are
-    reconciled against Deposits and Payments posted in the system.</para>
-    <xi:include href="guiclient/reconcileBankaccount.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/bankAdjustment.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/bankAdjustmentEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section524367">
-    <title>G/L Reports</title>
-    <para>The module offers a number of reports.</para>
-    <xi:include href="guiclient/dspGLTransactions.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section524434)" />
-    <xi:include href="guiclient/dspSummarizedGLTransactions.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspGLSeries.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section531394)" />
-    <xi:include href="guiclient/dspStandardJournalHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section563769)" />
-    <xi:include href="guiclient/dspBankrecHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section563468)" />
-    <xi:include href="guiclient/dspSummarizedBankrecHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section563489)" />
-  </section>
   <section id="Section565829">
     <title>Payments</title>
     <para><indexterm significance="normal">
@@ -165,104 +60,250 @@
   <section id="Section524292">
     <title>A/P Reports</title>
     <para>The module offers a number of reports.</para>
-    <xi:include href="guiclient/dspVendorAPHistory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section564729)" />
-    <xi:include href="guiclient/dspCheckRegister.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspVoucherRegister.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section550404)" />
-    <xi:include href="guiclient/dspAPOpenItemsByVendor.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section531012)" />
-    <xi:include href="guiclient/dspTimePhasedOpenAPItems.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section549958)" />
-    <xi:include href="guiclient/printPayablesJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printCheckJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
   </section>
-  <section id="Section548009">
-    <title>Invoices</title>
-    <para>A/R Invoices may be created for miscellaneous purposes. They are not
-    required to be linked to a Sales Order.</para>
-    <xi:include href="guiclient/invoice.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+  <section>
+    <title>Accounts Payable</title>
+    <para>Accounts Payables section.</para>
+    <section>
+      <title>Purchase Order</title>
+      <para></para>
+    </section>
+    <section>
+      <title>Voucher</title>
+      <para></para>
+    </section>
+    <section>
+      <title>A/P Memos</title>
+      <para></para>
+    </section>
+    <section>
+      <title>Payments</title>
+      <para></para>
+    </section>
+    <section>
+      <title>Forms</title>
+      <para>A/P Forms.</para>
+      <section>
+        <title></title>
+        <para></para>
+      </section>
+    </section>
+    <section>
+      <title>A/P Reports</title>
+      <para>A/P Reports section.</para>
+      <xi:include href="guiclient/dspUninvoicedReceivings.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/openVouchers.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspAPOpenItemsByVendor.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section531012)" />
+      <xi:include href="guiclient/dspTimePhasedOpenAPItems.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section549958)" />
+      <xi:include href="guiclient/dspCheckRegister.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspVoucherRegister.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section550404)" />
+      <xi:include href="guiclient/dspVendorAPHistory.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section564729)" />
+      <xi:include href="guiclient/printPayablesJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printCheckJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>Vendors</title>
+      <para></para>
+    </section>
+  </section>
+  <section>
+    <title>Accounts Receivable</title>
+    <para>Accounts Receivable section.</para>
+    <section>
+      <title>Invoice</title>
+      <para>Invoice section.</para>
+      <xi:include href="guiclient/invoice.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/unpostedInvoices.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postInvoices.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section id="Section524296">
+      <title>A/R Memos</title>
+      <para>Debit and Credit Memos are described in this section.</para>
+      <xi:include href="guiclient/arOpenItemCredit.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/unappliedARCreditMemos.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/arOpenItemDebit.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section id="Section572894">
+      <title>Cash Receipt</title>
+      <para>Cash Receipts are described in this section.</para>
+      <xi:include href="guiclient/cashReceipt.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/cashReceiptsEditList.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postCashReceipts.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
     <xi:include href="guiclient/arWorkBench.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-  </section>
-  <section id="Section572894">
-    <title>Cash Receipts</title>
-    <para>Cash Receipts are described in this section.</para>
-    <xi:include href="guiclient/cashReceipt.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/cashReceiptsEditList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postCashReceipts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section524296">
-    <title>A/R Debit and Credit Memos</title>
-    <para>Debit and Credit Memos are described in this section.</para>
-    <xi:include href="guiclient/arOpenItemCredit.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/unappliedARCreditMemos.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/arOpenItemDebit.xml"
+    <section>
+      <title>Forms</title>
+      <para>A/R Forms section.</para>
+      <xi:include href="guiclient/printInvoices.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/reprintInvoices.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/deliverInvoice.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printStatementByCustomer.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printStatementsByCustomerType.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section>
+      <title>A/R Reports</title>
+      <para>A/R Reports section.</para>
+      <xi:include href="guiclient/dspInvoiceInformation.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspAROpenItems.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspAROpenItemsByCustomer.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspTimePhasedOpenARItems.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspInvoiceRegister.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspCashReceipts.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspARApplications.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspDepositsRegister.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspCustomerARHistory.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printSalesJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printCreditMemoJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/customers.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
   <section>
-    <title>A/R Reports</title>
-    <para>This section contains the A/R Reports.</para>
-    <xi:include href="guiclient/dspCustomerARHistory.xml"
+    <title>General Ledger</title>
+    <para>General Ledger section.</para>
+    <section>
+      <title>Journal Entry</title>
+      <para>Journal Entry section.</para>
+      <xi:include href="guiclient/glTransaction.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/glSeries.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/unpostedGlSeries.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <section id="Section524378">
+      <title><indexterm significance="normal">
+          <primary>journals</primary>
+          <secondary>standard</secondary>
+        </indexterm>Standard Journal</title>
+      <para>Standard Journals are used to define reoccurring General Ledger
+      (G/L) entries.</para>
+      <xi:include href="guiclient/standardJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/standardJournals.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/standardJournalGroups.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postStandardJournal.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postStandardJournalGroup.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+  </section>
+  <section id="Section563094">
+    <title>Bank Reconciliation</title>
+    <para>The Bank Reconciliation section is where Bank statements are
+    reconciled against Deposits and Payments posted in the system.</para>
+    <xi:include href="guiclient/reconcileBankaccount.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspCashReceipts.xml"
+    <xi:include href="guiclient/bankAdjustment.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspARApplications.xml"
+    <xi:include href="guiclient/bankAdjustmentEditList.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInvoiceInformation.xml"
+  </section>
+  <section id="Section524367">
+    <title>Reports</title>
+    <para>The module offers a number of reports.</para>
+    <xi:include href="guiclient/dspGLTransactions.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(Section524434)" />
+    <xi:include href="guiclient/dspSummarizedGLTransactions.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInvoiceRegister.xml"
+    <xi:include href="guiclient/dspGLSeries.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspDepositsRegister.xml"
+                xpointer="element(Section531394)" />
+    <xi:include href="guiclient/dspStandardJournalHistory.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspAROpenItems.xml"
+                xpointer="element(Section563769)" />
+    <xi:include href="guiclient/dspBankrecHistory.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspAROpenItemsByCustomer.xml"
+                xpointer="element(Section563468)" />
+    <xi:include href="guiclient/dspSummarizedBankrecHistory.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printStatementByCustomer.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printStatementsByCustomerType.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printSalesJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printCreditMemoJournal.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+                xpointer="element(Section563489)" />
   </section>
   <section id="Section536775">
     <title><indexterm significance="normal">

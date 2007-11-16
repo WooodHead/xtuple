@@ -1,43 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972251">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>list of unposted</secondary>
-    </indexterm>List Unposted Vouchers</title>
-  <para>To display unposted Vouchers, select the "List
-  Unposted Vouchers" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>Unposted Vouchers</title>
+  <para>To display unposted Vouchers, select the "List Unposted Vouchers"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_listUnpostVouch.png" id="Graphic972254"/>
+          <imagedata fileref="images/PO_Vouch_listUnpostVouch.png"
+                     id="Graphic972254" />
         </imageobject>
         <caption id="Caption972257">List Unposted Vouchers</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Actual Costs for purchased Items will be
-    automatically updated when Vouchers are posted if there are differences
-    between current Actual Costs and the vouchered Costs for the Items in
-    question. Please keep in mind that Actual Costs only will be updated at
-    posting. For new Costs to be recognized as Standard Costs, Actual Costs
-    must be posted to Standard.</para>
+    <para>Actual Costs for purchased Items will be automatically updated when
+    Vouchers are posted if there are differences between current Actual Costs
+    and the vouchered Costs for the Items in question. Please keep in mind
+    that Actual Costs only will be updated at posting. For new Costs to be
+    recognized as Standard Costs, Actual Costs must be posted to
+    Standard.</para>
   </note>
-  <para>The "Vouchers" screen displays information on all
-  unposted Vouchers, including Voucher Number, Purchase Order Number, Vendor
-  Number/Vendor name, Vendor Invoice Number, and distribution date. Users with
-  the appropriate privilege will also see the G/L distribution date
-  column.</para>
+  <para>The "Vouchers" screen displays information on all unposted Vouchers,
+  including Voucher Number, Purchase Order Number, Vendor Number/Vendor name,
+  Vendor Invoice Number, and distribution date. Users with the appropriate
+  privilege will also see the G/L distribution date column.</para>
   <tip>
-    <para>You may select multiple Vouchers for posting by
-    highlighting them using your mouse--or a combination of your mouse and
-    either the SHIFT or CTRL keys.</para>
+    <para>You may select multiple Vouchers for posting by highlighting them
+    using your mouse--or a combination of your mouse and either the SHIFT or
+    CTRL keys.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -82,11 +80,11 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you have a Purchase Order Voucher that was
-    corrupted by, for example, a sudden power outage, you can clear the record
-    by running the Post Vouchers screen. In most cases, this action will
-    remove the corrupted record and allow you to voucher the Purchase Order
-    with a fresh Voucher.</para>
+    <para>If you have a Purchase Order Voucher that was corrupted by, for
+    example, a sudden power outage, you can clear the record by running the
+    Post Vouchers screen. In most cases, this action will remove the corrupted
+    record and allow you to voucher the Purchase Order with a fresh
+    Voucher.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -117,26 +115,31 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Right-clicking on an unposted Voucher in the list of
-  unposted Vouchers enables you to select from the following menu
-  options:</para>
+  <para>Right-clicking on an unposted Voucher in the list of unposted Vouchers
+  enables you to select from the following menu options:</para>
   <variablelist>
     <varlistentry>
       <term>Edit Voucher</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1891254)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1891254)" />
     </varlistentry>
     <varlistentry>
       <term>View Voucher</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x189129c)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x189129c)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Voucher</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x1891374)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x1891374)" />
     </varlistentry>
     <varlistentry>
       <term>Post Voucher</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(listitemN0x180ac00N0x189132c)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(listitemN0x180ac00N0x189132c)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>
