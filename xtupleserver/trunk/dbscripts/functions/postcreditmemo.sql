@@ -60,6 +60,7 @@ BEGIN
                    itemsite_id AS itemsite_id,
                    cmhead_number, cmhead_commission,
                    cmhead_cust_id AS cust_id,
+                   cmhead_rahead_id,
                    stdCost(item_id) AS cost
             FROM cmhead, cmitem, itemsite, item
             WHERE ( (cmitem_cmhead_id=cmhead_id)
@@ -75,7 +76,11 @@ BEGIN
     IF (_r.amount <> 0) THEN
 --  Debit the Sales Account for the current cmitem
       SELECT insertIntoGLSeries( _sequence, ''A/R'', ''CM'', _r.cmhead_number,
-                                 salesaccnt_credit_accnt_id,
+                                 CASE WHEN _r.cmhead_rahead_id IS NULL THEN
+                                   salesaccnt_credit_accnt_id
+                                 ELSE
+                                   salesaccnt_returns_accnt_id
+                                 END,
                                round(currToBase(_p.cmhead_curr_id,
                                                 _r.amount * -1,
                                                 _p.cmhead_docdate), 2),
