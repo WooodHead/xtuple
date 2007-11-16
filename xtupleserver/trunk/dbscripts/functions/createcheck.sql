@@ -11,6 +11,31 @@ DECLARE
   pFor			ALIAS FOR  $9;
   pNotes		ALIAS FOR $10;
   pMisc			ALIAS FOR $11;
+  _checkid INTEGER;
+BEGIN
+
+  SELECT createCheck(pBankaccntid,pRecipType,pRecipId,pCheckDate,pAmount,pCurrid,pExpcatid,_journalNumber,pFor,pNotes,pMisc,NULL) INTO _checkid;
+  RETURN _checkid;
+
+END;
+' LANGUAGE 'plpgsql';
+
+
+
+CREATE OR REPLACE FUNCTION createCheck(INTEGER, TEXT, INTEGER, DATE, NUMERIC, INTEGER, INTEGER, INTEGER, TEXT, TEXT, BOOL, INTEGER) RETURNS INTEGER AS '
+DECLARE
+  pBankaccntid		ALIAS FOR  $1;
+  pRecipType		ALIAS FOR  $2;
+  pRecipId		ALIAS FOR  $3;
+  pCheckDate		ALIAS FOR  $4;
+  pAmount		ALIAS FOR  $5;
+  pCurrid		ALIAS FOR  $6;
+  pExpcatid		ALIAS FOR  $7;
+  _journalNumber	INTEGER := $8;
+  pFor			ALIAS FOR  $9;
+  pNotes		ALIAS FOR $10;
+  pMisc			ALIAS FOR $11;
+  pRaid                 ALIAS FOR $12;
   _checkid		INTEGER;
   _bankaccnt_currid	INTEGER;
 
@@ -56,14 +81,14 @@ BEGIN
     checkhead_amount,
     checkhead_checkdate,	checkhead_misc,		checkhead_expcat_id,
     checkhead_journalnumber,	checkhead_for,		checkhead_notes,
-    checkhead_curr_id )
+    checkhead_curr_id,          checkhead_rahead_id )
   VALUES
   ( _checkid,			pRecipType,		pRecipId,
     pBankaccntid,		fetchNextCheckNumber(pBankaccntid),
     currToCurr(pCurrid, _bankaccnt_currid, pAmount, pCheckDate),
     pCheckDate,			COALESCE(pMisc, FALSE),	pExpcatid,
     _journalNumber,		pFor,			pNotes,
-    _bankaccnt_currid );
+    _bankaccnt_currid,          pRaid );
 
   RETURN _checkid;
 
