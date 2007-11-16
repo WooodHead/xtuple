@@ -41,7 +41,7 @@ BEGIN
 
   IF (_p.checkhead_misc) THEN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
-      IF (_p.checkhead_recip_type == ''V'') THEN
+      IF (_p.checkhead_recip_type = ''V'') THEN
 	PERFORM createAPCreditMemo( _p.checkhead_recip_id, _journalNumber,
 				    fetchAPMemoNumber(), '''',
 				    _p.checkhead_checkdate, _p.checkhead_amount,
@@ -51,13 +51,12 @@ BEGIN
 	_credit_glaccnt := findAPPrepaidAccount(_p.checkhead_recip_id);
 
       ELSIF (_p.checkhead_recip_type = ''C'') THEN
-	PERFORM createARCreditMemo(_p.checkhead_recip_id, _journalNumber,
-				   fetchARMemoNumber(), '''',
+	PERFORM createARDebitMemo(_p.checkhead_recip_id, _journalNumber,
+				   fetchARMemoNumber(),
 				   _p.checkhead_checkdate, _p.checkhead_amount,
 				   _gltransNote || '' '' || _p.checkhead_notes,
-				   -1, -1, -1, pVoidDate, -1, -1, 0.0,
 				   _p.checkhead_curr_id );
-	_credit_glaccnt := _p.checkrecip_accnt_id;
+        _credit_glaccnt := findPrepaidAccount(_p.checkhead_recip_id);
 
       ELSIF (_p.checkhead_recip_type = ''T'') THEN
 	-- TODO: should we create a credit memo for the tax authority? how?
