@@ -89,7 +89,7 @@ END;
 CREATE OR REPLACE FUNCTION createARDebitMemo(INTEGER, TEXT, TEXT, TEXT, DATE, NUMERIC, TEXT, INTEGER, INTEGER, INTEGER, DATE, INTEGER, INTEGER, NUMERIC, INTEGER) RETURNS INTEGER AS '
 DECLARE
   pCustid		ALIAS FOR $1;
-  _journalNumber	TEXT := $2;
+  pJournalNumber	ALIAS FOR $2;
   pDocNumber		ALIAS FOR $3;
   pOrderNumber		ALIAS FOR $4;
   pDocDate		ALIAS FOR $5;
@@ -103,6 +103,7 @@ DECLARE
   pSalesrepid		ALIAS FOR $13;
   pCommissiondue	ALIAS FOR $14;
   pCurrId		ALIAS FOR $15;
+  _journalNumber INTEGER;
   _prepaidAccntid INTEGER;
   _salescatid INTEGER;
   _accntid INTEGER;
@@ -141,8 +142,10 @@ BEGIN
     _salescatid = -1;
   END IF;
 
-  IF (_journalNumber IS NULL) THEN
+  IF (pJournalNumber IS NULL) THEN
     _journalNumber := fetchJournalNumber(''AR-MISC'');
+  ELSE
+    _journalNumber := pJournalNumber;
   END IF;
 
   SELECT NEXTVAL(''aropen_aropen_id_seq'') INTO _aropenid;
