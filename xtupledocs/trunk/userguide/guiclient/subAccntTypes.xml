@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548992">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>subaccounts</primary>
       <secondary>types for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>subaccount types</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Subaccount Types</title>
-  <para>Subaccount Types may be used to assign additional
-  detail to an Account Number's Account Type. An Account Type may have
-  multiple Subaccount Types. For example, the Account Type "Asset" may have
-  the following Subaccount Types: Cash, Inventory, Accounts Receivable, etc.
-  To access the master list of Subaccount Types, select the "Subaccount Types"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>Subaccount Types</title>
+  <para>Subaccount Types may be used to assign additional detail to an Account
+  Number's Account Type. An Account Type may have multiple Subaccount Types.
+  For example, the Account Type "Asset" may have the following Subaccount
+  Types: Cash, Inventory, Accounts Receivable, etc. To access the master list
+  of Subaccount Types, select the "Subaccount Types" option. The following
+  screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_subAcctTypeList.png" id="Graphic549013"/>
+          <imagedata fileref="images/GL_MI_subAcctTypeList.png"
+                     id="Graphic549013" />
         </imageobject>
         <caption id="Caption549016">Subaccount Types Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>The "Subaccount Types" screen displays information on
-  all existing Subaccount Types, including Subaccount code, Account Type, and
-  Subaccount description.</para>
-  <para>To the far right of the list, the following buttons
-  are available:</para>
+    </screenshot></para>
+  <para>The "Subaccount Types" screen displays information on all existing
+  Subaccount Types, including Subaccount code, Account Type, and Subaccount
+  description.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -76,4 +74,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="subAccntType.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

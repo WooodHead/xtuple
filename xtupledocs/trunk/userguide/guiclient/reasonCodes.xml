@@ -1,74 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section567512">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>reason codes</primary>
-         <secondary>master list of</secondary>
-      </indexterm>List Reason Codes</title>
-   <para>Reason Codes provide a means for explaining why a
-  Customer is being given sales credit. To access the master list of Reason
-  Codes, select the "Reason Codes" option. The following screen will
-  appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/AR_MI_reasonList.png" id="Graphic551313"/>
-            </imageobject>
-            <caption id="Caption551316">Reason Codes Master List</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>The "Reason Codes" screen displays information on all
-  existing Reason Codes, including Reason Code and Reason Code
-  description.</para>
-   <para>To the far right of the screen, the following buttons
-  are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18660a8">
-            <para>Closes the screen, returning you to the application
+  <title><indexterm significance="normal">
+      <primary>reason codes</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Reason Codes</title>
+  <para>Reason Codes provide a means for explaining why a Customer is being
+  given sales credit. To access the master list of Reason Codes, select the
+  "Reason Codes" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/AR_MI_reasonList.png" id="Graphic551313" />
+        </imageobject>
+        <caption id="Caption551316">Reason Codes Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Reason Codes" screen displays information on all existing Reason
+  Codes, including Reason Code and Reason Code description.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18660a8">
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18660f0">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>NEW</term>
-         <listitem id="listitemN0x180ac00N0x1866138">
-            <para>Opens screen for creating a new Reason Code.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem id="listitemN0x180ac00N0x1866180">
-            <para>Enables you to edit highlighted Reason Code. The edit screen is
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18660f0">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="listitemN0x180ac00N0x1866138">
+        <para>Opens screen for creating a new Reason Code.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1866180">
+        <para>Enables you to edit highlighted Reason Code. The edit screen is
         the same as that for creating a new Reason Code --except that when
         editing, the fields will contain Reason Code information.
         Double-clicking on a Reason Code will also bring you to the editing
         screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem id="listitemN0x180ac00N0x18661c8">
-            <para>Highlight a Reason Code and then select this button to reach a
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x18661c8">
+        <para>Highlight a Reason Code and then select this button to reach a
         read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>DELETE</term>
-         <listitem id="listitemN0x180ac00N0x186d200">
-            <para>Highlight a Reason Code and then select this button to remove
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="listitemN0x180ac00N0x186d200">
+        <para>Highlight a Reason Code and then select this button to remove
         the Reason Code from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="reasonCode.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

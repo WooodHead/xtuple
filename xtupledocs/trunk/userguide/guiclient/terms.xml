@@ -1,170 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-   <title>
-   Terms
-  </title>
-   <subtitle>terms : QDialog</subtitle>
-   <para>
-	Introductory description, perhaps the What's This property of the
-	window or dialog itself.
-      </para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/terms.png"/>
-            </imageobject>
-            <caption id="Captiond1e1">
-   Terms
-  </caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <table>
-      <title>
-	List of Widgets
-      </title>
-      <tgroup cols="3">
-         <thead>
-            <row>
-               <entry>Title</entry>
-               <entry>Internal Name</entry>
-               <entry>Widget Type</entry>
-            </row>
-         </thead>
-         <tbody>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">C<accel>o</accel>de:</guilabel>
-               </entry>
-               <entry>_codeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>D</accel>escription:</guilabel>
-               </entry>
-               <entry>_descriptionLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_code</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry/>
-               <entry>_description</entry>
-               <entry>XLineEdit</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Type:</guilabel>
-               </entry>
-               <entry>_typeLit</entry>
-               <entry>QLabel</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_typeGroup</entry>
-               <entry>QGroupBox</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel moreinfo="none">Da<accel>y</accel>s</guilabel>
-               </entry>
-               <entry>_days</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                 <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>P</accel>roximo</guilabel>
-               </entry>
-               <entry>_proximo</entry>
-               <entry>QRadioButton</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel moreinfo="none">Used in A/P</guilabel>
-               </entry>
-               <entry>_ap</entry>
-               <entry>QCheckBox</entry>
-            </row>
-                <row>
-               <entry>
-                  <guilabel moreinfo="none">Used in A/R</guilabel>
-               </entry>
-               <entry>_ar</entry>
-               <entry>QCheckBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">D<accel>u</accel>e Days:</guilabel>
-               </entry>
-               <entry>_dueDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Disc<accel>n</accel>t. Days:</guilabel>
-               </entry>
-               <entry>_discountDaysLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">D<accel>i</accel>scount %:</guilabel>
-               </entry>
-               <entry>_discountPercentLit</entry>
-               <entry>QLabel</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">Cut-o<accel>f</accel>f Day:</guilabel>
-               </entry>
-               <entry>_cutOffDayLit</entry>
-               <entry>QLabel</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_dueDays</entry>
-               <entry>QSpinBox</entry>
-            </row>
-                <row>
-               <entry/>
-               <entry>_discountDays</entry>
-               <entry>QSpinBox</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_discountPercent</entry>
-               <entry>XLineEdit</entry>
-            </row>
-              <row>
-               <entry/>
-               <entry>_cutOffDay</entry>
-               <entry>QSpinBox</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>C</accel>ancel</guilabel>
-               </entry>
-               <entry>_close</entry>
-               <entry>QPushButton</entry>
-            </row>
-            <row>
-               <entry>
-                  <guilabel moreinfo="none">
-                     <accel>S</accel>ave</guilabel>
-               </entry>
-               <entry>_save</entry>
-               <entry>QPushButton</entry>
-            </row>
-         </tbody>
-      </tgroup>
-   </table>
+  <title><indexterm>
+      <primary>terms</primary>
+      <secondary>creating new</secondary>
+    </indexterm>Billing Term</title>
+  <para id="Para567231">To create new billing Terms, select the NEW button.
+  The following screen will appear:</para>
+  <para id="Para567235"><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="../images/PO_MI_termsNew.png" id="Graphic567233" />
+        </imageobject>
+        <caption id="Caption567236">Create New Billing Terms</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para id="Para567237">When creating new billing Term, you are presented with
+  the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567238">Code</term>
+      <listitem>
+        <para>Enter a code number to identify the billing Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567239">Description</term>
+      <listitem>
+        <para>Enter a description to identify the billing Terms.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567240">Type</term>
+      <listitem>
+        <para>Select one from the list below by clicking on the radio button
+        to the left of the option.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Days</term>
+            <listitem>
+              <para>Select if payment is expected within a certain number of
+              days from the date the Invoice was issued.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm>
+                <primary>terms</primary>
+                <secondary>proximo as</secondary>
+              </indexterm> <indexterm>
+                <primary>proximo</primary>
+                <secondary>as billing term</secondary>
+              </indexterm>Proximo</term>
+            <listitem>
+              <para>Select if payment is expected on a certain day of the
+              month (e.g., the first day of the month, the fifteenth day of
+              the month, etc.).</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567244">Used in A/P</term>
+      <listitem>
+        <para>Select if billing Terms are used for Accounts Payable.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para id="Para567246">A/P billing Terms may be applied and Discounts taken
+    when selecting a posted Voucher for payment.</para>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567247">Used in A/R</term>
+      <listitem>
+        <para>Select if billing Terms are used for Accounts Receivable.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567248">Due Days</term>
+      <listitem>
+        <para>Select a number using the arrow buttons, or manually enter a
+        value up to a maximum of 999.</para>
+        <para id="Para567249">If the Terms type is "Days," then this refers to
+        the number of days after which a payment is considered overdue. If the
+        Terms type is "Proximo," then the setting refers to the day of the
+        month on which payment is due.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567251"><anchor id="Anchor567250" role="Index"
+      xreflabel="terms:discounting options for;discounts:terms for" />
+      <indexterm significance="normal" zone="Anchor567250">
+          <primary>terms</primary>
+          <secondary>discounting options for</secondary>
+        </indexterm> <indexterm significance="normal" zone="Anchor567250">
+          <primary>discounts</primary>
+          <secondary>terms for</secondary>
+        </indexterm>Discnt. Days</term>
+      <listitem>
+        <para>Days: Select a number using the arrow buttons, or manually enter
+        a value up to a maximum of 999.</para>
+        <para id="Para567252">Specifies the number of days within which a
+        payment must be made or received to take advantage of any Terms
+        discount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567253">Discount %</term>
+      <listitem>
+        <para>Specify the amount of any early payment discount.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567254">Cut-off Day</term>
+      <listitem>
+        <para>Specify the day of the month on or after which the due date will
+        advance to the next month.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para id="Para567255">To the far right of the screen, the following buttons
+  are available:</para>
+  <variablelist>
+    <varlistentry>
+      <term id="Para567256">CANCEL</term>
+      <listitem>
+        <para>Closes the screen without creating new billing Terms, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term id="Para567257">SAVE</term>
+      <listitem>
+        <para>Creates the billing Terms and enters the information into the
+        master list of billing Terms.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

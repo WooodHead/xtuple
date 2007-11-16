@@ -5,7 +5,7 @@
   <title><indexterm significance="normal">
       <primary>cost categories</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Cost Categories</title>
+    </indexterm>Cost Categories</title>
   <para>Cost Categories are applied to Item Sites as a mechanism for
   specifying how Costs should be distributed to the General Ledger whenever
   Inventory is received, moved, consumed, produced, shipped, scrapped, or
@@ -86,17 +86,17 @@
   <variablelist>
     <varlistentry>
       <term>Edit Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(costCategoriesEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(costCategoriesVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Inventory Cost Category</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(costCategoriesDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
@@ -106,4 +106,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+  <xi:include href="costCategory.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

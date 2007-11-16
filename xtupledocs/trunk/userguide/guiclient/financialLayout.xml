@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572534">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>creating new</secondary>
-    </indexterm>
-<anchor id="Anchor14666" role="Cross-Ref" xreflabel="14666: Heading2: Create Financial Report"/>Create Financial
+    </indexterm> <anchor id="Anchor14666" role="Cross-Ref"
+  xreflabel="14666: Heading2: Create Financial Report" />New Financial
   Report</title>
-  <para>The Financial Reporting Engine (FRE) enables you to
-  design custom Financial Reports, which can then be previewed, printed, or
-  exported in tab-delimited format. You are free to decide how much detail to
-  include in these custom reports. For example, you can create highly-detailed
-  Financial Reports or executive summaries.</para>
-  <para>To create a new Financial Report, select the "Create
-  Financial Report" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>The Financial Reporting Engine (FRE) enables you to design custom
+  Financial Reports, which can then be previewed, printed, or exported in
+  tab-delimited format. You are free to decide how much detail to include in
+  these custom reports. For example, you can create highly-detailed Financial
+  Reports or executive summaries.</para>
+  <para>To create a new Financial Report, select the "Create Financial Report"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_FR_finLayout.png" id="Graphic589342"/>
+          <imagedata fileref="images/GL_FR_finLayout.png" id="Graphic589342" />
         </imageobject>
         <caption id="Caption589345">Create New Financial Report</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Financial Report, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Financial Report, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -101,8 +99,16 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutIncStatement.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutBalSheet.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutCashFlow.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutAdHoc.xml" xpointer="element(/1)"/>
+  <xi:include href="financialLayoutIncStatement.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="financialLayoutBalSheet.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="financialLayoutCashFlow.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="financialLayoutAdHoc.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
