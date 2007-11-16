@@ -24,3 +24,7 @@ SELECT vend_id, 'V', vend_number, vend_name, 'A/P', findAPAccount(vend_id),
        vendaddr_addr_id
 FROM vendinfo LEFT OUTER JOIN vendaddrinfo ON ((vend_id=vendaddr_vend_id)
 					  AND (UPPER(vendaddr_code)='REMIT'));
+
+REVOKE ALL ON TABLE checkrecip FROM PUBLIC;
+GRANT  ALL ON TABLE checkrecip TO mfgadmin;
+GRANT  ALL ON TABLE checkrecip TO GROUP openmfg;
