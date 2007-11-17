@@ -35,7 +35,7 @@ DECLARE
   pFor			ALIAS FOR  $9;
   pNotes		ALIAS FOR $10;
   pMisc			ALIAS FOR $11;
-  pRaid                 ALIAS FOR $12;
+  pCmid                 ALIAS FOR $12;
   _checkid		INTEGER;
   _bankaccnt_currid	INTEGER;
 
@@ -88,7 +88,7 @@ BEGIN
     currToCurr(pCurrid, _bankaccnt_currid, pAmount, pCheckDate),
     pCheckDate,			COALESCE(pMisc, FALSE),	pExpcatid,
     _journalNumber,		pFor,			pNotes,
-    _bankaccnt_currid,          pRaid );
+    _bankaccnt_currid,          pCmid );
 
   RETURN _checkid;
 
