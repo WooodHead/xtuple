@@ -10,8 +10,12 @@ DECLARE
   _p			RECORD;
   _r			RECORD;
   _sequence		INTEGER;
+  _test                 INTEGER;
+  _cm                   BOOLEAN;
 
 BEGIN
+
+  _cm := FALSE;
 
   SELECT fetchGLSequence() INTO _sequence;
   IF (_journalNumber IS NULL) THEN
@@ -37,9 +41,18 @@ BEGIN
     RETURN -11;
   END IF;
 
+  IF (_p.checkhead_recip_type = ''C'') THEN
+    SELECT checkitem_id FROM checkitem INTO _test
+    WHERE (checkitem_checkhead_id=pcheckid)
+    LIMIT 1;
+    IF (FOUND) THEN
+      _cm := TRUE;
+    END IF;
+  END IF;
+
   _gltransNote := _p.checkrecip_number || ''-'' || _p.checkrecip_name;
 
-  IF (_p.checkhead_misc) THEN
+  IF (_p.checkhead_misc AND NOT _cm) THEN
     IF (COALESCE(_p.checkhead_expcat_id, -1) < 0) THEN
       IF (_p.checkhead_recip_type = ''V'') THEN
 	PERFORM createAPCreditMemo( _p.checkhead_recip_id, _journalNumber,
@@ -52,12 +65,11 @@ BEGIN
 
       ELSIF (_p.checkhead_recip_type = ''C'') THEN
 	PERFORM createARDebitMemo(_p.checkhead_recip_id, _journalNumber,
-				   fetchARMemoNumber(),
-				   _p.checkhead_checkdate, _p.checkhead_amount,
-				   _gltransNote || '' '' || _p.checkhead_notes,
-				   _p.checkhead_curr_id );
+	  			     fetchARMemoNumber(),
+				     _p.checkhead_checkdate, _p.checkhead_amount,
+				     _gltransNote || '' '' || _p.checkhead_notes,
+				     _p.checkhead_curr_id );
         _credit_glaccnt := findPrepaidAccount(_p.checkhead_recip_id);
-
       ELSIF (_p.checkhead_recip_type = ''T'') THEN
 	-- TODO: should we create a credit memo for the tax authority? how?
 	_credit_glaccnt := _p.checkrecip_accnt_id;
@@ -65,11 +77,15 @@ BEGIN
       END IF; -- recip type
 
     ELSE
-      SELECT expcat_exp_accnt_id INTO _credit_glaccnt
-      FROM expcat
-      WHERE (expcat_id=_p.checkhead_expcat_id);
-      IF (NOT FOUND) THEN
-        RETURN -12;
+      IF (_cm) THEN
+        _credit_glaccnt := findARAccount(_p.checkhead_recip_id);
+      ELSE
+        SELECT expcat_exp_accnt_id INTO _credit_glaccnt
+        FROM expcat
+        WHERE (expcat_id=_p.checkhead_expcat_id);
+        IF (NOT FOUND) THEN
+          RETURN -12;
+        END IF;
       END IF;
     END IF;
 
