@@ -1,5 +1,8 @@
 CREATE OR REPLACE FUNCTION _checkheadBeforeTrigger() RETURNS TRIGGER AS '
+  DECLARE _amount NUMERIC;
+
 BEGIN
+
   IF (TG_OP = ''INSERT'' OR TG_OP = ''UPDATE'') THEN
     IF (NOT EXISTS (SELECT checkrecip_id
 		    FROM checkrecip
@@ -26,3 +29,4 @@ END;
 
 SELECT dropIfExists('TRIGGER', 'checkheadBeforeTrigger');
 CREATE TRIGGER checkheadBeforeTrigger BEFORE INSERT OR UPDATE ON checkhead FOR EACH ROW EXECUTE PROCEDURE _checkheadBeforeTrigger();
+

@@ -4,8 +4,7 @@ BEGIN
     -- If this was created by a return, then reset the return
     IF (OLD.cmhead_rahead_id IS NOT NULL) THEN
       UPDATE rahead SET
-        rahead_freight_credited=rahead_freight_credited-OLD.cmhead_freight,
-        rahead_misc_credited=rahead_misc_credited-OLD.cmhead_misc
+        rahead_headcredited=false
       WHERE (rahead_id=OLD.cmhead_rahead_id);
       DELETE FROM rahist
       WHERE ((rahist_rahead_id=OLD.cmhead_rahead_id)
