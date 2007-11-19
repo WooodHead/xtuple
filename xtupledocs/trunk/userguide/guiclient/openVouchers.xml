@@ -4,19 +4,24 @@
 <section id="Section972251">
   <title><indexterm significance="normal">
       <primary>vouchers</primary>
+
       <secondary>list of unposted</secondary>
     </indexterm>Unposted Vouchers</title>
+
   <para>To display unposted Vouchers, select the "List Unposted Vouchers"
   option. The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PO_Vouch_listUnpostVouch.png"
                      id="Graphic972254" />
         </imageobject>
+
         <caption id="Caption972257">List Unposted Vouchers</caption>
       </mediaobject>
     </screenshot></para>
+
   <note>
     <para>Actual Costs for purchased Items will be automatically updated when
     Vouchers are posted if there are differences between current Actual Costs
@@ -25,60 +30,76 @@
     recognized as Standard Costs, Actual Costs must be posted to
     Standard.</para>
   </note>
+
   <para>The "Vouchers" screen displays information on all unposted Vouchers,
   including Voucher Number, Purchase Order Number, Vendor Number/Vendor name,
   Vendor Invoice Number, and distribution date. Users with the appropriate
   privilege will also see the G/L distribution date column.</para>
+
   <tip>
     <para>You may select multiple Vouchers for posting by highlighting them
     using your mouse--or a combination of your mouse and either the SHIFT or
     CTRL keys.</para>
   </tip>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x1891134">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>PRINT</term>
+
       <listitem id="listitemN0x180ac00N0x189117c">
         <para>Runs the report associated with this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x18911c4">
         <para>Opens screen for creating a new Voucher.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW MISC.</term>
+
       <listitem id="listitemN0x180ac00N0x189120c">
         <para>Opens screen for creating a new Miscellaneous Voucher.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x1891254">
+
+      <listitem id="openVouchersEDIT">
         <para>Enables you to edit highlighted Vouchers. The edit screen is the
         same as that for creating a new Voucher--except that when editing, the
         fields will contain Voucher information. Double-clicking on a Voucher
         will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x189129c">
+
+      <listitem id="openVouchersVIEW">
         <para>Highlight a Voucher and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <tip>
     <para>If you have a Purchase Order Voucher that was corrupted by, for
     example, a sudden power outage, you can clear the record by running the
@@ -86,10 +107,12 @@
     record and allow you to voucher the Purchase Order with a fresh
     Voucher.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>POST</term>
-      <listitem id="listitemN0x180ac00N0x189132c">
+
+      <listitem id="openVouchersPOST">
         <para>Highlight one--or multiple--Vouchers, then select this button to
         post the selected Voucher(s). By default, Vouchers post to the General
         Ledger (G/L) on their distribution date. However, users with the
@@ -100,44 +123,58 @@
         and also batches of Vouchers from this screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x1891374">
+
+      <listitem id="openVouchersDELETE">
         <para>Highlight a Voucher and then select this button to remove the
         Voucher from the list.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Print Journal after Post</term>
+
       <listitem id="listitemN0x180ac00N0x18913bc">
         <para>Select if you want to print a copy of the Payables Journal after
         the selected Vouchers are posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>Right-clicking on an unposted Voucher in the list of unposted Vouchers
   enables you to select from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>Edit Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1891254)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openVouchersEDIT)" />
     </varlistentry>
+
     <varlistentry>
       <term>View Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x189129c)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openVouchersVIEW)" />
     </varlistentry>
+
     <varlistentry>
       <term>Delete Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1891374)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openVouchersDELETE)" />
     </varlistentry>
+
     <varlistentry>
       <term>Post Voucher</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x189132c)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openVouchersPOST)" />
     </varlistentry>
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

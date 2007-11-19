@@ -93,7 +93,7 @@
     <varlistentry id="arWorkBenchEDIT">
       <term>EDIT</term>
 
-      <listitem id="arWorkBenchEDITCR">
+      <listitem id="arWorkBenchEDITCR1">
         <para>Enables you to edit highlighted Cash Receipt. The edit screen is
         the same as that for creating a new Cash Receipt--except that when
         editing, the fields will contain pre-loaded Cash Receipt information.
@@ -105,7 +105,7 @@
     <varlistentry>
       <term>VIEW</term>
 
-      <listitem id="arWorkBenchVIEWCR">
+      <listitem id="arWorkBenchVIEWCR1">
         <para>Highlight a Cash Receipt and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
@@ -114,7 +114,7 @@
     <varlistentry>
       <term>DELETE</term>
 
-      <listitem id="arWorkBenchDELETECR">
+      <listitem id="arWorkBenchDELETECR1">
         <para>Highlight a Cash Receipt and then select this button to remove
         the Cash Receipt from the edit list.</para>
       </listitem>
@@ -123,7 +123,7 @@
     <varlistentry>
       <term>POST</term>
 
-      <listitem id="arWorkBenchPOSTCR">
+      <listitem id="arWorkBenchPOSTCR1">
         <para>Highlight a Cash Receipt and then select this button to post the
         Cash Receipt.</para>
       </listitem>
@@ -137,29 +137,29 @@
     <varlistentry>
       <term>Edit Cash Receipt</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchEDITCR)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCR1)" />
     </varlistentry>
 
     <varlistentry>
       <term>View Cash Receipt</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchVIEWCR)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCR1)" />
     </varlistentry>
 
     <varlistentry>
       <term>Delete Cash Receipt</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchDELETECR)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchDELETECR1)" />
     </varlistentry>
 
     <varlistentry>
       <term>Post Cash Receipt</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchPOSTCR)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchPOSTCR1)" />
     </varlistentry>
 
     <xi:include href="../widgets/xtreewidget.xml"
@@ -188,7 +188,7 @@
     <varlistentry>
       <term>APPLY</term>
 
-      <listitem id="arWorkBenchAPPLYCM">
+      <listitem id="arWorkBenchAPPLYCM1">
         <para>Highlight an unapplied Credit Memo and then select this button
         to apply an amount, as described in the <xref endterm="Anchor30541"
         linkend="Anchor30541" /> section.</para>
@@ -198,7 +198,7 @@
     <varlistentry>
       <term>EDIT</term>
 
-      <listitem id="arWorkBenchEDITCM">
+      <listitem id="arWorkBenchEDITCM1">
         <para>Enables you to edit highlighted Credit Memos. The edit screen is
         the same as that for creating a new Credit Memo--except that when
         editing, the fields will contain pre-loaded Credit Memo information.
@@ -210,7 +210,7 @@
     <varlistentry>
       <term>VIEW</term>
 
-      <listitem id="arWorkBenchVIEWCM">
+      <listitem id="arWorkBenchVIEWCM1">
         <para>Highlight an unapplied Credit Memo and then select this button
         to reach a read-only view of the "Edit" screen.</para>
       </listitem>
@@ -224,22 +224,22 @@
     <varlistentry>
       <term>Apply Credit Memo</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchAPPLYCM)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchAPPLYCM1)" />
     </varlistentry>
 
     <varlistentry>
       <term>Edit Credit Memo</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchEDITCM)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchEDITCM1)" />
     </varlistentry>
 
     <varlistentry>
       <term>View Credit Memo</term>
 
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchVIEWCM)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(arWorkBenchVIEWCM1)" />
     </varlistentry>
 
     <xi:include href="../widgets/xtreewidget.xml"

@@ -4,41 +4,53 @@
 <section id="Section656923">
   <title><indexterm significance="normal">
       <primary>customers</primary>
+
       <secondary>master list of</secondary>
     </indexterm>Customers</title>
+
   <para>To access the Customer master list, select the "Customers" option. The
   following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SO_MI_customerList.png"
                      id="Graphic656926" />
         </imageobject>
+
         <caption id="Caption656929">Customer Master List</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>The Customer master list displays basic information on all existing
   Customers, including Customer Type, Customer Number, active status, Customer
   name, billing address, and phone number.</para>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x18552ec">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x1855334">
         <para>Opens screen for creating a new Customer.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x185537c">
+
+      <listitem id="customersEDIT">
         <para>Enables you to edit highlighted Customer. The edit screen is the
         same as that for creating a new Customer--except that when editing,
         the fields will contain pre-loaded Customer information.
@@ -46,39 +58,51 @@
         screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x18553c4">
+
+      <listitem id="customersVIEW">
         <para>Highlight a Customer and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x185540c">
+
+      <listitem id="customersDELETE">
         <para>Highlight a Customer and then select this button to remove the
         Customer from the master list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>Right-clicking on a Customer in the Customer master list enables you
   to select from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>View Customer Master</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x18553c4)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(customersVIEW)" />
     </varlistentry>
+
     <varlistentry>
       <term>Edit Customer Master</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x185537c)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(customersEDIT)" />
     </varlistentry>
+
     <varlistentry>
       <term>Delete Customer Master</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x185540c)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(customersDELETE)" />
     </varlistentry>
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

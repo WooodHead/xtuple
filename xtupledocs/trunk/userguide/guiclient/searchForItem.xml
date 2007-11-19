@@ -4,51 +4,65 @@
 <section id="Section573622">
   <title><indexterm significance="normal">
       <primary>items</primary>
+
       <secondary>searching for</secondary>
     </indexterm>Search for Items</title>
+
   <para>To search for Items in Inventory, select the "Search for Items"
   option. The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/PD_Items_searchFor.png"
                      id="Graphic562800" />
         </imageobject>
+
         <caption id="Caption519028">Search for Items</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>At the top of the screen is a "Search for" field. To search for an
   Item, enter any character or combination of characters you want to match.
   Apply any of the following filters when searching for Items. Hitting the TAB
   key activates the search operation.</para>
+
   <tip>
     <para>The "Search for" field supports pattern matching with Regular
     Expressions. For more information on matching patterns using Regular
     Expressions, see the <xref linkend="Anchor77806" />.</para>
   </tip>
+
   <variablelist>
     <varlistentry>
       <term>Search through Item Numbers</term>
+
       <listitem id="listitemN0x180ac00N0x1879a1c">
         <para>Select to search through Item Numbers.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Search through Description 1</term>
+
       <listitem id="listitemN0x180ac00N0x1879a64">
         <para>Select to search through first-line Item descriptions. The Item
         master provides two separate lines for describing an Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Search through Description 2</term>
+
       <listitem id="listitemN0x180ac00N0x1879aac">
         <para>Select to search through second-line Item descriptions. The Item
         master provides two separate lines for describing an Item.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>Show Inactive Items</term>
+
       <listitem id="listitemN0x180ac00N0x1879af4">
         <para>Select to show inactive Items as well as active Items, using the
         parameters specified above. By default, inactive Items are not
@@ -56,62 +70,80 @@
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x1879b60">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="searchForItemEDIT">
+
+      <listitem id="searchForItemEDIT1">
         <para>Enables you to edit highlighted Items. The edit screen is the
         same as that for creating a new Item--except that when editing, the
         fields will contain Item information. Double-clicking on an Item will
         also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="searchForItemVIEW">
+
+      <listitem id="searchForItemVIEW1">
         <para>Highlight an Item and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>Right-clicking on a manufactured or purchased Item in the Items list
   enables you to select from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForItemVIEW)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(searchForItemVIEW1)" />
     </varlistentry>
+
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForItemEDIT)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(searchForItemEDIT1)" />
     </varlistentry>
+
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickViewBOM)" />
+
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickEditBOM)" />
+
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickViewBOO)" />
+
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickEditBOO)" />
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+
   <para>Fewer options will be available for Items which are neither
   manufactured nor purchased.</para>
 </section>

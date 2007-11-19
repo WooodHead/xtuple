@@ -4,86 +4,112 @@
 <section id="Section535124">
   <title><indexterm significance="normal">
       <primary>companies</primary>
+
       <secondary>master list of</secondary>
     </indexterm>Companies</title>
+
   <para>To access the master list of Companies, select the "Companies" option.
   The following screen will appear:</para>
+
   <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/GL_MI_companyList.png" id="Graphic535196" />
         </imageobject>
+
         <caption id="Caption535199">Companies Master List</caption>
       </mediaobject>
     </screenshot></para>
+
   <para>The "Companies" screen displays information on all existing Companies,
   including Company number and Company description.</para>
+
   <note>
     <para>The use of Companies can be enabled or disabled by default at the
     system level.</para>
   </note>
+
   <para>To the far right of the screen, the following buttons are
   available:</para>
+
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
+
       <listitem id="listitemN0x180ac00N0x181a118">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>NEW</term>
+
       <listitem id="listitemN0x180ac00N0x181a160">
         <para>Opens screen for creating a new Company.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>EDIT</term>
-      <listitem id="listitemN0x180ac00N0x181a1a8">
+
+      <listitem id="accountingPeriodsEDIT">
         <para>Enables you to edit highlighted Company. The edit screen is the
         same as that for creating a new Company--except that when editing, the
         fields will contain Company information. Double-clicking on a Company
         will also bring you to the editing screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>VIEW</term>
-      <listitem id="listitemN0x180ac00N0x181a1f0">
+
+      <listitem id="accountingPeriodsVIEW">
         <para>Highlight a Company and then select this button to reach a
         read-only view of the "Edit" screen.</para>
       </listitem>
     </varlistentry>
+
     <varlistentry>
       <term>DELETE</term>
-      <listitem id="listitemN0x180ac00N0x181a238">
+
+      <listitem id="accountingPeriodsDELETE">
         <para>Highlight a Company and then select this button to remove the
         Company from the list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+
   <para>Right-clicking on a Company in the Companies list enables you to
   select from the following menu options:</para>
+
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x181a1f0)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(accountingPeriodsVIEW)" />
     </varlistentry>
+
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x181a1a8)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(accountingPeriodsEDIT)" />
     </varlistentry>
+
     <varlistentry>
       <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x181a238)" />
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(accountingPeriodsDELETE)" />
     </varlistentry>
+
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+
   <xi:include href="company.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
               xpointer="element(/1)" />
 </section>
