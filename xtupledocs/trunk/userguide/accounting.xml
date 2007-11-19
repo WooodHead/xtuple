@@ -3,90 +3,98 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <chapter id="Chapter606619">
   <title>Accounting Module</title>
-  <section id="Section565829">
-    <title>Payments</title>
-    <para><indexterm significance="normal">
-        <primary>payments</primary>
-        <secondary>making to vendors</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>vendors</primary>
-        <secondary>making payments to</secondary>
-      </indexterm>Managing payments to Vendors is a central focus of the
-    module.</para>
-    <xi:include href="guiclient/selectPayments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/selectedPayments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/prepareCheckRun.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/miscCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/viewCheckRun.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/voidChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postCheck.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/postChecks.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section539646">
-    <title>A/P Debit and Credit Memos</title>
-    <para>Credit and Debit Memos are described in this section.</para>
-    <xi:include href="guiclient/apOpenItemCredit.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/unappliedAPCreditMemos.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/apOpenItemDebit.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section524292">
-    <title>A/P Reports</title>
-    <para>The module offers a number of reports.</para>
-  </section>
   <section>
     <title>Accounts Payable</title>
     <para>Accounts Payables section.</para>
     <section>
       <title>Purchase Order</title>
-      <para></para>
+      <para>Purchase Order section.</para>
+      <xi:include href="guiclient/purchaseOrder.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/unpostedPurchaseOrders.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postPurchaseOrder.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
     </section>
     <section>
       <title>Voucher</title>
-      <para></para>
+      <para>Voucher section.</para>
+      <xi:include href="guiclient/voucher.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/miscVoucher.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/openVouchers.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postVouchers.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
     </section>
     <section>
       <title>A/P Memos</title>
-      <para></para>
+      <para>A/P Memos section.</para>
+      <xi:include href="guiclient/apOpenItemCredit.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/unappliedAPCreditMemos.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/apOpenItemDebit.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
     </section>
     <section>
       <title>Payments</title>
-      <para></para>
+      <para><indexterm significance="normal">
+          <primary>payments</primary>
+          <secondary>making to vendors</secondary>
+        </indexterm> <indexterm significance="normal">
+          <primary>vendors</primary>
+          <secondary>making payments to</secondary>
+        </indexterm>Managing payments to Vendors is a central focus of the
+      module.</para>
+      <xi:include href="guiclient/selectPayments.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/selectedPayments.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/prepareCheckRun.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/miscCheck.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/viewCheckRun.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/voidChecks.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postCheck.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/postChecks.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
     </section>
     <section>
       <title>Forms</title>
       <para>A/P Forms.</para>
-      <section>
-        <title></title>
-        <para></para>
-      </section>
+      <xi:include href="guiclient/printPurchaseOrder.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printCheck.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/printChecks.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
     </section>
     <section>
       <title>A/P Reports</title>
