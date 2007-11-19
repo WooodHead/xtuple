@@ -50,7 +50,7 @@ BEGIN
       RETURN -2;
     END IF;
 
-    FOR _co IN SELECT coitem_id, coitem_itemsite_id, coitem_qty_invuomratio
+    FOR _co IN SELECT coitem_id, coitem_itemsite_id, coitem_qty_invuomratio, coitem_warranty, coitem_cos_accnt_id
                  FROM coitem
                 WHERE(coitem_id IN (SELECT shipitem_orderitem_id
                                       FROM shipitem, shiphead
@@ -85,7 +85,11 @@ BEGIN
   --  Distribute to G/L, debit Shipping Asset, credit COS
       PERFORM insertGLTransaction( ''S/R'', _shiphead.shiphead_order_type,
 				   _h.head_number::TEXT, ''Recall Shipment'',
-				   resolveCOSAccount(itemsite_id, _h.cust_id), costcat_shipasset_accnt_id, -1,
+                                   CASE WHEN(COALESCE(_co.coitem_cos_accnt_id, -1) != -1) THEN _co.coitem_cos_accnt_id
+                                        WHEN(_co.coitem_warranty = TRUE) THEN resolveCOWAccount(itemsite_id, _h.cust_id)
+				        ELSE resolveCOSAccount(itemsite_id, _h.cust_id)
+                                   END,
+                                   costcat_shipasset_accnt_id, -1,
 				   (stdcost(itemsite_item_id) * (_qty * _co.coitem_qty_invuomratio)),
 				   _timestamp::DATE )
       FROM itemsite, costcat

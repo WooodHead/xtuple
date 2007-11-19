@@ -64,6 +64,7 @@ BEGIN
     FOR _c IN SELECT coitem_id, cohead_number, cohead_cust_id,
 		     itemsite_id, itemsite_item_id,
                      coitem_qty_invuomratio,
+                     coitem_warranty, coitem_cos_accnt_id,
 		     SUM(shipitem_qty) AS _qty
 	      FROM coitem, cohead, shiphead, shipitem, itemsite
 	      WHERE ( (coitem_cohead_id=cohead_id)
@@ -74,7 +75,7 @@ BEGIN
 	       AND (NOT shiphead_shipped)
 	       AND (shiphead_id=pshipheadid) )
 	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id,
-		       itemsite_id, itemsite_item_id LOOP
+		       itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id LOOP
 
   --  See if there is a cost to post
       _stdcost := round((stdcost(_c.itemsite_item_id) * (_c._qty * _c.coitem_qty_invuomratio)),2);
@@ -82,8 +83,12 @@ BEGIN
       IF _stdcost > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
 	SELECT MIN(insertGLTransaction( ''S/R'', ''SO'', _c.cohead_number, ''Ship Shipment'',
-				     costcat_shipasset_accnt_id, resolveCOSAccount(itemsite_id, _c.cohead_cust_id), -1,
-				     _stdcost, _gldate )) INTO _result
+				     costcat_shipasset_accnt_id,
+                                     CASE WHEN(COALESCE(_c.coitem_cos_accnt_id, -1) != -1) THEN _c.coitem_cos_accnt_id
+                                          WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)
+                                          ELSE resolveCOSAccount(itemsite_id, _c.cohead_cust_id)
+                                     END,
+                                     -1, _stdcost, _gldate )) INTO _result
 	FROM itemsite, costcat
 	WHERE ( (itemsite_costcat_id=costcat_id)
 	AND (itemsite_id=_c.itemsite_id) );
