@@ -15,7 +15,8 @@ DECLARE
 BEGIN
   SELECT recv_qty, recv_date::DATE AS recv_date, recv_freight_curr_id,
 	 recv_orderitem_id,
-	 round(currToCurr(recv_freight_curr_id, COALESCE(_currid, recv_freight_curr_id),
+	 round(currToCurr(recv_freight_curr_id,
+			  COALESCE(_currid, recv_freight_curr_id),
          recv_freight, recv_date::DATE),2) AS recv_freight,
          recv_posted, recv_order_type,
          COALESCE(itemsite_id, -1) AS itemsiteid,
@@ -49,8 +50,6 @@ BEGIN
   IF (_r.recv_posted) THEN
     _qty := (pQty - _r.recv_qty);
     IF (_qty <> 0) THEN
-      SELECT poitem_expcat_id FROM poitem WHERE poitem_id=orderitem_id and orderitem_orderhead_type = ''PO'';
-
       IF (_r.itemsiteid = -1) THEN
 	PERFORM insertGLTransaction( ''S/R'', _r.recv_order_type,
 				      _o.orderhead_number,
@@ -62,7 +61,7 @@ BEGIN
 				      pEffective )
 	FROM poitem, expcat
 	WHERE ((poitem_expcat_id=expcat_id)
-	  AND  (poitem_id=_o.orderitem_id)
+	  AND  (poitem_id=_r.recv_orderitem_id)
 	  AND  (_o.orderitem_orderhead_type=''PO''));
 
 	UPDATE recv
@@ -123,8 +122,8 @@ BEGIN
 				     pEffective )
 	FROM poitem, expcat
 	WHERE ((poitem_expcat_id=expcat_id)
-	  AND  (poitem_id=_o.orderitem_id)
-	  AND  (_o.orderitem_orderhead_type=''PO''));
+	  AND  (poitem_id=_r.recv_orderitem_id)
+	  AND  (_r.recv_order_type=''PO''));
       ELSE
 	PERFORM insertGLTransaction(''S/R'', _r.recv_order_type,
 				    _o.orderhead_number, 
@@ -145,7 +144,7 @@ BEGIN
 	SET poitem_freight_received=(poitem_freight_received +
 				   currToCurr(_currid, _o.freight_curr_id,
 					      _freight, pEffective))
-	WHERE (poitem_id=_o.orderitem_id);
+	WHERE (poitem_id=_r.recv_orderitem_id);
 
       -- raitem does not track freight
 
@@ -154,7 +153,7 @@ BEGIN
 	SET toitem_freight_received=(toitem_freight_received +
 				   currToCurr(_currid, _o.freight_curr_id,
 					      _freight, pEffective))
-	WHERE (toitem_id=_o.orderitem_id);
+	WHERE (toitem_id=_r.recv_orderitem_id);
       END IF;
 
       UPDATE recv
