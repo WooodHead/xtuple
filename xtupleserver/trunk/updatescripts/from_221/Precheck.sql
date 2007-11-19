@@ -30,3 +30,13 @@ WHERE ((apchk_id IS NULL)
   OR   (apchkitem_apopen_id NOT IN (SELECT apopen_id FROM apopen)
 	AND apchkitem_apopen_id > 0)
       );
+
+-- look to make sure that all the coitem records join to a valid item record
+SELECT count(*) = 0
+  FROM coitem LEFT OUTER JOIN (itemsite JOIN item ON (itemsite_item_id=item_id)) ON (coitem_itemsite_id=itemsite_id)
+ WHERE(item_id IS NULL);
+
+-- look to make sure that all the ipsitem records join to a valid item record
+SELECT count(*) = 0
+  FROM ipsitem LEFT OUTER JOIN item ON (ipsitem_item_id=item_id)
+ WHERE(item_id IS NULL);
