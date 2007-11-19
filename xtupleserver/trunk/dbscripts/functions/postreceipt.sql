@@ -84,8 +84,9 @@ BEGIN
 				 expcat_exp_accnt_id, -1,
 				 round((_o.item_unitprice_base * _r.recv_qty),2),
 				 _glDate::DATE ) INTO _tmp
-    FROM poitem
-    WHERE (poitem_id=_o.orderitem_id);
+    FROM poitem, expcat
+    WHERE((poitem_expcat_id=expcat_id)
+      AND (poitem_id=_o.orderitem_id));
 
     IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
       RETURN _tmp;
@@ -98,8 +99,9 @@ BEGIN
 				 _r.recv_freight_base,
 				 _glDate::DATE ),
 	   expcat_freight_accnt_id INTO _tmp, _freightAccnt
-    FROM poitem
-    WHERE (poitem_id=_o.orderitem_id);
+    FROM poitem, expcat
+    WHERE((poitem_expcat_id=expcat_id)
+      AND (poitem_id=_o.orderitem_id));
 
     IF (_tmp < 0 AND _tmp != -3) THEN -- error but not 0-value transaction
       RETURN _tmp;
