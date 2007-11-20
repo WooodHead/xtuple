@@ -74,7 +74,7 @@
 
 #include "data.h"
 
-#include <loaderwindow.h>
+#include "loaderwindow.h"
 
 int main(int argc, char* argv[])
 {
@@ -90,10 +90,10 @@ int main(int argc, char* argv[])
   app.addLibraryPath(".");
 
 #ifdef Q_WS_WIN
-  if (app.winVersion() == QSysInfo::WV_XP)
+  if (QSysInfo::WindowsVersion == QSysInfo::WV_XP)
     app.setStyle(QStyleFactory::create("windowsxpstyle"));
 #if QT_VERSION >= 0x040300
-  else if (app.winVersion() == QSysInfo::WV_VISTA)
+  else if (QSysInfo::WindowsVersion == QSysInfo::WV_VISTA)
     app.setStyle(QStyleFactory::create("windowsvistastyle"));
 #endif
   else
