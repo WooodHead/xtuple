@@ -19,10 +19,15 @@ part of an order qty based on a set of reservation netting rules
 issuing more material than is available based on reservation netting
 - Added reports that show Sales Order Availability by Customer/Customer 
 Type
-- Added the ability to process allocations for all open orders 
-auomatically
 
-* User-defined templates for easy loading of Characteristic information
+Return Authorizations
+- Enabled processing of Returns
+- Ship, Issue Credits for Returns
+- Import historical Sales Orders
+- Return Authorization Workbench
+
+Characteristic Templates
+- User-defined templates make loading Characteristics easier
 
 
 ==================================
@@ -43,8 +48,8 @@ Planned Orders by Planner Code window.
 Issue W/O Material Item screen
 * [Manufacture] Added ability to create Work Orders without a BOM
 * [P/O] Added default dates to P/Rs by Planner Code screen
-* [Sales] Modified Customer Information Workbench to show both $0 and 
-non-$0 amount Invoices on Invoices tab
+* [Sales] Modified Customer Information Workbench to show Invoices for 
+both $0 and non-$0 amounts on Invoices tab 
 * [Sales] Added check box to Open Sales Orders screen to enable automatic 
 update
 * [System] Modified database Updater tool so updates will now be rolled 
