@@ -1,80 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section662610">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>units of measure</primary>
-         <secondary>master list of</secondary>
-      </indexterm>List Units of Measure</title>
-   <para>Units of Measure represent the standard amount in
-  which quantities of an Item are managed (e.g., "EACH," "POUNDS," "GALLONS,"
-  etc.). To access the master list of Units of Measure, select the "Units of
-  Measure" option. The following screen will appear.</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_MI_uomList.png" id="Graphic619526"/>
-            </imageobject>
-            <caption id="Caption619529">Units of Measure Master List</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>The "Units of Measure" screen displays information on
-  all existing Units of Measure, including Unit of Measure name and
-  description.</para>
-   <note>
-      <para>Users may also enter free-form UOMs wherever UOM
-    definitions are required--for example, in the Item master. The ability to
-    enter free-form UOMs provides flexibility so that all the UOMs your site
-    requires do not need to be previously added to the UOM master list.</para>
-   </note>
-   <para>To the far right of the list, the following buttons
-  are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x181a0d0">
-            <para>Closes the screen, returning you to the application
+  <title><indexterm significance="normal">
+      <primary>units of measure</primary>
+      <secondary>master list of</secondary>
+    </indexterm>Units of Measure</title>
+  <para>Units of Measure represent the standard amount in which quantities of
+  an Item are managed (e.g., "EACH," "POUNDS," "GALLONS," etc.). To access the
+  master list of Units of Measure, select the "Units of Measure" option. The
+  following screen will appear.</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_MI_uomList.png" id="Graphic619526" />
+        </imageobject>
+        <caption id="Caption619529">Units of Measure Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>The "Units of Measure" screen displays information on all existing
+  Units of Measure, including Unit of Measure name and description.</para>
+  <note>
+    <para>Users may also enter free-form UOMs wherever UOM definitions are
+    required--for example, in the Item master. The ability to enter free-form
+    UOMs provides flexibility so that all the UOMs your site requires do not
+    need to be previously added to the UOM master list.</para>
+  </note>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x181a0d0">
+        <para>Closes the screen, returning you to the application
         desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x181a118">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>NEW</term>
-         <listitem id="listitemN0x180ac00N0x181a160">
-            <para>Opens screen for creating a new Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem id="listitemN0x180ac00N0x181a1a8">
-            <para>Enables you to edit highlighted Unit of Measure. The edit screen
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x181a118">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="listitemN0x180ac00N0x181a160">
+        <para>Opens screen for creating a new Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x181a1a8">
+        <para>Enables you to edit highlighted Unit of Measure. The edit screen
         is the same as that for creating a new Unit of Measure--except that
         when editing, the fields will contain Unit of Measure information.
         Double-clicking on a Unit of Measure will also bring you to the
         editing screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem id="listitemN0x180ac00N0x181a1f0">
-            <para>Highlight a Unit of Measure and then select this button to reach
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x181a1f0">
+        <para>Highlight a Unit of Measure and then select this button to reach
         a read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>DELETE</term>
-         <listitem id="listitemN0x180ac00N0x181a238">
-            <para>Highlight a Unit of Measure and then select this button to
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="listitemN0x180ac00N0x181a238">
+        <para>Highlight a Unit of Measure and then select this button to
         remove the Unit of Measure from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <xi:include href="uom.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

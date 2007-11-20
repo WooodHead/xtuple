@@ -5,7 +5,7 @@
   <title><indexterm significance="normal">
       <primary>product categories</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Product Categories</title>
+    </indexterm>Product Categories</title>
   <para>Items that are sold are assigned a Product Category. To access the
   master list of Product Categories, select the "Product Category" option. The
   following screen will appear.</para>
@@ -86,4 +86,7 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+  <xi:include href="productCategory.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
