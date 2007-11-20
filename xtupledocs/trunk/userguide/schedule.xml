@@ -36,28 +36,8 @@
       <para>Planner Codes</para>
     </listitem>
   </itemizedlist>
-  <section id="Section518495" role="openmfg">
-    <title>M/S Master Information</title>
-    <para>This is the section where you define Master Information for the
-    module.</para>
-    <xi:include href="guiclient/plannerCodes.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/plannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/whseWeek.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/whseCalendars.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/whseCalendar.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
   <section id="Section539566" role="openmfg">
-    <title>Planning</title>
+    <title>Production Plan</title>
     <para>The Master Production Scheduling (MPS) system serves several
     important purposes:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
@@ -127,7 +107,7 @@
                 xpointer="element(/1)" />
   </section>
   <section id="Section539268" role="openmfg">
-    <title>Buffer Management</title>
+    <title>Buffer Status</title>
     <para>Manufacturing managers frequently look for tools and methods to help
     them identify actions requiring immediate attention. In this way, they can
     help ensure production output matches Customer demand. This is where the
@@ -190,6 +170,10 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
+  <section>
+    <title>Capacity Planning</title>
+    <para>Capacity Planning section.</para>
+  </section>
   <section id="Section551241" role="openmfg">
     <title>M/S Reports</title>
     <para>The Schedule module offers a number of reports for viewing
@@ -231,17 +215,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
-  <section id="Section529609" role="openmfg">
-    <title>C/P Master Information</title>
-    <para>This is the section where you define Master Information for the
-    module.</para>
-    <xi:include href="guiclient/workCenters.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/workCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
   <section>
     <title>C/P Reports</title>
     <para>This module offers a number of reports.</para>
@@ -266,5 +239,25 @@
     <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(Section530193)" />
+  </section>
+  <section>
+    <title>Reports</title>
+    <para></para>
+  </section>
+  <section>
+    <title>Master Information</title>
+    <para>Master Information section.</para>
+    <xi:include href="guiclient/plannerCodes.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/whseWeek.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/whseCalendars.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/workCenters.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
   </section>
 </chapter>

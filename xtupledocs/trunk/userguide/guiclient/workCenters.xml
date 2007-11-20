@@ -5,7 +5,7 @@
   <title><indexterm significance="normal">
       <primary>work centers</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Work Centers</title>
+    </indexterm>Work Centers</title>
   <para>Work Centers are collections of machines or labor that perform a
   specific task when building a manufactured Item. Work Centers are used by
   Bills of Operations to determine the amount of available and required
@@ -89,26 +89,28 @@
   <variablelist>
     <varlistentry>
       <term>Edit Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workCentersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workCentersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Copy Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workCentersCOPY)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Work Center</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workCentersDELETE)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
+  <xi:include href="workCenter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -34,119 +34,9 @@
   <para>The module is also responsible for generating General Ledger (G/L)
   transactions that record and track Physical Inventory movements throughout
   the production environment.</para>
-  <section id="Section518514">
-    <title><indexterm significance="normal">
-        <primary>master information</primary>
-        <secondary>for i/m module</secondary>
-      </indexterm>Master Information</title>
-    <para>This is the section where you define Master Information for the
-    module.</para>
-    <xi:include href="guiclient/warehouses.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/warehouse.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/locations.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/location.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/costCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/costCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/expenseCategories.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/expenseCategory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section675390">
-    <title>Item Sites</title>
-    <para>Item Sites identify and define the methods and controls used when
-    maintaining a given Item within a given Warehouse.</para>
-    <xi:include href="guiclient/itemSite.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="../topics/orderparams_and_mrp.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/itemSites.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section518822">
-    <title><indexterm significance="normal">
-        <primary>inventory</primary>
-        <secondary>transactions involving</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>transactions</primary>
-        <secondary>See also inventory transactions[transactions</secondary>
-      </indexterm>Inventory Transactions</title>
-    <para>Inventory transactions are covered in this section.</para>
-    <xi:include href="guiclient/adjustmentTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="../topics/mlc_distribution.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/transferTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/scrapTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/expenseTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/materialReceiptTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="../topics/receiving_lotserial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/transformTrans.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/transferOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/transferOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/resetQOHBalances.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/relocateInventory.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section652128" role="openmfg">
-    <title>Lot/Serial Control</title>
-    <para>Items that are controlled by either Lot or Serial Number require
-    special handling.</para>
-    <note>
-      <para>For information on the special steps required to receive
-      Lot/Serial Items into Inventory, see the "Topic: Receiving Lot/Serial
-      Items into Inventory" section.</para>
-    </note>
-    <xi:include href="guiclient/lotSerialComments.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInventoryLocator.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/reassignLotSerial.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+  <section>
+    <title>Transfer Order</title>
+    <para></para>
   </section>
   <section id="Section652234">
     <title><indexterm significance="normal">
@@ -227,6 +117,138 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <xi:include href="guiclient/dspCountTagsByClassCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518617">
+    <title><indexterm significance="normal">
+        <primary>receiving</primary>
+        <secondary>from shipping</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>shipping</primary>
+        <secondary>receiving purchased items from</secondary>
+      </indexterm>Receiving</title>
+    <para>A Receipt represents the action of receiving and posting Inventory
+    against a given Purchase Order for later Vouchering.</para>
+    <xi:include href="guiclient/enterPoReceipt.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/unpostedPoReceipts.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/enterPoReturn.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518491">
+    <title>Shipping</title>
+    <para>The shipment of orders is described in this section.</para>
+    <xi:include href="guiclient/printPackingListBatchByShipvia.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/issueToShipping.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/issueLineToShipping.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/maintainShipping.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/shipOrder.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/ups_worldship.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/recallOrders.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/purgeShippingRecords.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518822">
+    <title><indexterm significance="normal">
+        <primary>inventory</primary>
+        <secondary>transactions involving</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>transactions</primary>
+        <secondary>See also inventory transactions[transactions</secondary>
+      </indexterm>Transactions</title>
+    <para>Inventory transactions are covered in this section.</para>
+    <xi:include href="guiclient/adjustmentTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/mlc_distribution.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/transferTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/scrapTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/expenseTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/materialReceiptTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/receiving_lotserial.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/transformTrans.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/transferOrders.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/transferOrder.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/resetQOHBalances.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/relocateInventory.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section520492">
+    <title><indexterm significance="normal">
+        <primary>forms</primary>
+        <secondary>for shipping</secondary>
+      </indexterm> <indexterm significance="normal">
+        <primary>shipping</primary>
+        <secondary>forms used in</secondary>
+      </indexterm>Forms</title>
+    <para>Forms used in Shipping are available in the "Forms" section.</para>
+    <xi:include href="guiclient/printPackingList.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/printShippingForm.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/printShippingForms.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/printLabelsBySo.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/printLabelsByInvoice.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/printLabelsByPo.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section521849">
+    <title>S/R Reports</title>
+    <para>Reports are described in this section.</para>
+    <xi:include href="guiclient/dspShipmentsBySalesOrder.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspShipmentsByDate.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
@@ -327,6 +349,82 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
+  <section>
+    <title>Reports</title>
+    <para></para>
+  </section>
+  <section>
+    <title>Warehouse</title>
+    <para></para>
+  </section>
+  <section id="Section675390">
+    <title>Item Site</title>
+    <para>Item Sites identify and define the methods and controls used when
+    maintaining a given Item within a given Warehouse.</para>
+    <xi:include href="guiclient/itemSite.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="../topics/orderparams_and_mrp.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/itemSites.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section652128" role="openmfg">
+    <title>Lot/Serial Control</title>
+    <para>Items that are controlled by either Lot or Serial Number require
+    special handling.</para>
+    <note>
+      <para>For information on the special steps required to receive
+      Lot/Serial Items into Inventory, see the "Topic: Receiving Lot/Serial
+      Items into Inventory" section.</para>
+    </note>
+    <xi:include href="guiclient/lotSerialComments.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspInventoryLocator.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspDetailedInventoryHistoryByLotSerial.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/reassignLotSerial.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
+  <section id="Section518514">
+    <title><indexterm significance="normal">
+        <primary>master information</primary>
+        <secondary>for i/m module</secondary>
+      </indexterm>Master Information</title>
+    <para>This is the section where you define Master Information for the
+    module.</para>
+    <xi:include href="guiclient/warehouses.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/warehouse.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/locations.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/location.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/costCategories.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/costCategory.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/expenseCategories.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/expenseCategory.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+  </section>
   <section id="Section521425">
     <title><indexterm significance="normal">
         <primary>utilities</primary>
@@ -380,92 +478,6 @@
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <xi:include href="guiclient/createItemSitesByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section518491">
-    <title>Shipping</title>
-    <para>The shipment of orders is described in this section.</para>
-    <xi:include href="guiclient/printPackingListBatchByShipvia.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/issueToShipping.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/issueLineToShipping.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/maintainShipping.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/shipOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="../topics/ups_worldship.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/recallOrders.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/purgeShippingRecords.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section518617">
-    <title><indexterm significance="normal">
-        <primary>receiving</primary>
-        <secondary>from shipping</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>shipping</primary>
-        <secondary>receiving purchased items from</secondary>
-      </indexterm>Receiving</title>
-    <para>A Receipt represents the action of receiving and posting Inventory
-    against a given Purchase Order for later Vouchering.</para>
-    <xi:include href="guiclient/enterPoReceipt.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/unpostedPoReceipts.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/enterPoReturn.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section520492">
-    <title><indexterm significance="normal">
-        <primary>forms</primary>
-        <secondary>for shipping</secondary>
-      </indexterm> <indexterm significance="normal">
-        <primary>shipping</primary>
-        <secondary>forms used in</secondary>
-      </indexterm>Forms</title>
-    <para>Forms used in Shipping are available in the "Forms" section.</para>
-    <xi:include href="guiclient/printPackingList.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printShippingForm.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printShippingForms.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printLabelsBySo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printLabelsByInvoice.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/printLabelsByPo.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section id="Section521849">
-    <title>S/R Reports</title>
-    <para>Reports are described in this section.</para>
-    <xi:include href="guiclient/dspShipmentsBySalesOrder.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspShipmentsByDate.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
