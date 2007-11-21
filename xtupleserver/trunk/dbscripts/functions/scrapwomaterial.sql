@@ -57,7 +57,7 @@ BEGIN
     PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
 				 ''Scrap Material from Work Order'',
 				 costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
-				 (stdCost(itemsite_item_id) * itemuomtouom(_itemid, _uomid, NULL, pQty)), CURRENT_DATE )
+				 (stdCost(itemsite_item_id) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)), CURRENT_DATE )
     FROM womatl, itemsite, costcat
     WHERE ( (womatl_itemsite_id=itemsite_id)
      AND (itemsite_costcat_id=costcat_id)
