@@ -63,10 +63,10 @@
     is, based on the demand for their parent Items in a Bill of Materials. The
     Material Requirements Planning (MRP) system is typically used to plan for
     dependent demand.</para>
-    <xi:include href="guiclient/plannedSchedules.xml"
+    <xi:include href="guiclient/plannedSchedule.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/plannedSchedule.xml"
+    <xi:include href="guiclient/plannedSchedules.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
@@ -87,12 +87,16 @@
     <xi:include href="../topics/mps.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/createPlannedOrdersByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/createPlannedOrdersByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <section>
+      <title>Run MRP</title>
+      <para>Run MRP section.</para>
+      <xi:include href="guiclient/createPlannedOrdersByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/createPlannedOrdersByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
     <xi:include href="guiclient/firmPlannedOrdersByPlannerCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
@@ -133,58 +137,118 @@
         resource.</para>
       </listitem>
     </itemizedlist>
-    <xi:include href="guiclient/createBufferStatusByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/createBufferStatusByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <section>
+      <title>Update</title>
+      <para>Update Buffer Status section.</para>
+      <xi:include href="guiclient/createBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/createBufferStatusByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
     <xi:include href="../topics/buffer_mgmt.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInventoryBufferStatusByItemGroup.xml"
+    <section>
+      <title>Inventory</title>
+      <para>Inventory Buffer Status section.</para>
+      <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspInventoryBufferStatusByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspInventoryBufferStatusByItemGroup.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInventoryBufferStatusByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspInventoryBufferStatusByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
+    <section>
+      <title>Work Order</title>
+      <para>Work Order Buffer Status section.</para>
+      <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspWoBufferStatusByClassCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspWoBufferStatusByItemGroup.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
     <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspWoBufferStatusByItemGroup.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspWoBufferStatusByClassCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspWoBufferStatusByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
     <xi:include href="guiclient/dspWoOperationBufrStsByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspPoItemsByBufferStatus.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
   </section>
   <section>
     <title>Capacity Planning</title>
     <para>Capacity Planning section.</para>
+    <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedLoadByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <section>
+      <title>Time-Phased Production</title>
+      <para>Time-Phased Production section.</para>
+      <xi:include href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section518753)" />
+      <xi:include href="guiclient/dspTimePhasedProductionByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(Section518748)" />
+    </section>
+    <xi:include href="guiclient/dspTimePhasedDemandByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(Section518743)" />
+    <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(Section530193)" />
   </section>
   <section id="Section551241" role="openmfg">
     <title>M/S Reports</title>
     <para>The Schedule module offers a number of reports for viewing
     information related to planning and scheduling.</para>
-    <xi:include href="guiclient/dspPlannedOrdersByItem.xml"
+  </section>
+  <section>
+    <title>Reports</title>
+    <para>Schedule Reports section.</para>
+    <section>
+      <title>Planned Items</title>
+      <para>Planned Items Reports section.</para>
+      <xi:include href="guiclient/dspPlannedOrdersByPlannerCode.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+      <xi:include href="guiclient/dspPlannedOrdersByItem.xml"
+                  xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(/1)" />
+    </section>
+    <xi:include href="guiclient/dspRunningAvailability.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspPlannedOrdersByPlannerCode.xml"
+    <xi:include href="guiclient/dspTimePhasedAvailability.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <xi:include href="guiclient/dspMPSDetail.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspMRPDetail.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspExpediteExceptionsByPlannerCode.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(/1)" />
+    <xi:include href="guiclient/dspReorderExceptionsByPlannerCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
     <xi:include href="guiclient/dspRoughCutByWorkCenter.xml"
@@ -199,50 +263,6 @@
     <xi:include href="guiclient/dspTimePhasedPlannedREByPlannerCode.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1)" />
-    <xi:include href="guiclient/dspTimePhasedAvailability.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspRunningAvailability.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspMRPDetail.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspExpediteExceptionsByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspReorderExceptionsByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-  </section>
-  <section>
-    <title>C/P Reports</title>
-    <para>This module offers a number of reports.</para>
-    <xi:include href="guiclient/dspTimePhasedCapacityByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspTimePhasedAvailableCapacityByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspTimePhasedLoadByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1)" />
-    <xi:include href="guiclient/dspTimePhasedDemandByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518743)" />
-    <xi:include href="guiclient/dspTimePhasedProductionByItem.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518748)" />
-    <xi:include href="guiclient/dspTimePhasedProductionByPlannerCode.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section518753)" />
-    <xi:include href="guiclient/dspCapacityBufferStatusByWorkCenter.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(Section530193)" />
-  </section>
-  <section>
-    <title>Reports</title>
-    <para></para>
   </section>
   <section>
     <title>Master Information</title>
