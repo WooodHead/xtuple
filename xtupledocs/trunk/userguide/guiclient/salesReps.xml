@@ -5,7 +5,7 @@
   <title><indexterm significance="normal">
       <primary>sales representatives</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Sales Representatives</title>
+    </indexterm>Sales Representatives</title>
   <para>To access the master list of Sales Representatives, select the "Sales
   Reps" option. The following screen will appear:</para>
   <para><screenshot>
@@ -73,18 +73,20 @@
   <variablelist>
     <varlistentry>
       <term>Edit Sales Rep</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(salesRepsEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View Sales Rep</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(salesRepsVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Sales Rep</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(salesRepsDELETE)" />
     </varlistentry>
   </variablelist>
+  <xi:include href="salesRep.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

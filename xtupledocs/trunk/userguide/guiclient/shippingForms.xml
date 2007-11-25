@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section652878">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>shipping forms</primary>
       <secondary>master list of</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>forms</primary>
       <secondary>for shipping</secondary>
-    </indexterm>List Shipping Forms</title>
-  <para>A Bill of Lading is an example of a Shipping Form. To
-  access the master list of Shipping Forms, select the "Shipping Forms"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm>Shipping Forms</title>
+  <para>A Bill of Lading is an example of a Shipping Form. To access the
+  master list of Shipping Forms, select the "Shipping Forms" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_shipFormList.png" id="Graphic523109"/>
+          <imagedata fileref="images/SO_MI_shipFormList.png"
+                     id="Graphic523109" />
         </imageobject>
         <caption id="Caption518996">Shipping Forms Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>The Shipping Forms master list displays Form name of
-  all existing Bill of Lading Formats.</para>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+    </screenshot></para>
+  <para>The Shipping Forms master list displays Form name of all existing Bill
+  of Lading Formats.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -66,4 +64,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="shippingForm.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -5,7 +5,7 @@
   <title><indexterm significance="normal">
       <primary>ship vias</primary>
       <secondary>master list of</secondary>
-    </indexterm>List Ship Vias</title>
+    </indexterm>Ship Vias</title>
   <para>Ship Vias describe the transportation method used to ship Sales Order
   Items. Shipping companies, for example, are considered to be Ship Vias. For
   certain shipping companies, the system will launch a browser and link
@@ -136,4 +136,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="shipVia.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
