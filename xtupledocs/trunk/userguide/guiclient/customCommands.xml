@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section967998">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>custom commands</primary>
       <secondary>master list of</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>menus</primary>
       <secondary>customizing</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>commands</primary>
       <secondary>adding custom</secondary>
-    </indexterm>List Custom Commands</title>
-  <para>If you want to execute external programs from within
-  the menu structure, you can do so using the Custom Commands utility. This
-  utility enables you to create custom menu options, which users may then
-  select to launch specified programs. Custom Commands are well-suited for
-  running custom reports. However, they may be used to execute a wide range of
+    </indexterm>Custom Commands</title>
+  <para>If you want to execute external programs from within the menu
+  structure, you can do so using the Custom Commands utility. This utility
+  enables you to create custom menu options, which users may then select to
+  launch specified programs. Custom Commands are well-suited for running
+  custom reports. However, they may be used to execute a wide range of
   programs, for a variety of purposes. To access the master list of Custom
   Commands, select the "Custom Commands" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommList.png" id="Graphic967780"/>
+          <imagedata fileref="images/Sys_custCommList.png" id="Graphic967780" />
         </imageobject>
         <caption id="Caption967783">Custom Commands List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>There is no limit to the number of Custom Commands
-    which may be added to a module. Executable programs may be launched from
-    local or network drives.</para>
+    <para>There is no limit to the number of Custom Commands which may be
+    added to a module. Executable programs may be launched from local or
+    network drives.</para>
   </note>
-  <para>The Custom Commands master list displays information
-  on all Custom Commands, including module name and menu label.</para>
-  <para>To the far right of the list, the following buttons
-  are available:</para>
+  <para>The Custom Commands master list displays information on all Custom
+  Commands, including module name and menu label.</para>
+  <para>To the far right of the list, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -74,4 +70,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
+  <xi:include href="customCommand.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
