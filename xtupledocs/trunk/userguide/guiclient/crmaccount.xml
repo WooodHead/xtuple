@@ -73,9 +73,23 @@
       <listitem id="listitemN0x180ac00N0x18497ec">
         <para>Specify one of the following Account Types:</para>
 
-        <para>Organization: Select if the Account is an organization.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Organization</term>
 
-        <para>Individual: Select if the Account is an individual.</para>
+            <listitem>
+              <para>Select if the Account is an organization.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Individual</term>
+
+            <listitem>
+              <para>Select if the Account is an individual.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
 
@@ -87,33 +101,77 @@
         from the available options. You may select multiple relationships from
         the list:</para>
 
-        <para>Customer: Select if the Account is a Customer Account. If
-        selected, Account information--including the Account Number, Account
-        Name, and Contact information--will be used to populate a Customer
-        master. You will be prompted to edit the Customer master if no
-        Customer relationship existed previously.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customer</term>
 
-        <para>Prospect: Select if the Account is a Prospect. The CRM Account
-        serves as the master record for Prospects.</para>
+            <listitem>
+              <para>Select if the Account is a Customer Account. If selected,
+              Account information--including the Account Number, Account Name,
+              and Contact information--will be used to populate a Customer
+              master. You will be prompted to edit the Customer master if no
+              Customer relationship existed previously.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Neither: Select if the Account is neither a Customer nor a
-        Prospect. The CRM Account serves as the master record for Accounts
-        falling in this category.</para>
+          <varlistentry>
+            <term>Prospect</term>
 
-        <para>Vendor: Select if the Account is a Vendor Account. If selected,
-        Account information--including the Account Number, Account Name, and
-        Contact information--will be used to populate a Vendor master. You
-        will be prompted to edit the Vendor master if no Vendor relationship
-        existed previously.</para>
+            <listitem>
+              <para>Select if the Account is a Prospect. The CRM Account
+              serves as the master record for Prospects.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Partner: Select if the Account is a Partner. The CRM Account
-        serves as the master record for Partners.</para>
+          <varlistentry>
+            <term>Neither</term>
 
-        <para>Competitor: Select if the Account is a Competitor. The CRM
-        Account serves as the master record for Competitors.</para>
+            <listitem>
+              <para>Select if the Account is neither a Customer nor a
+              Prospect. The CRM Account serves as the master record for
+              Accounts falling in this category.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Tax Authority: Select if the Account is a Tax Authority. The CRM
-        Account serves as the master record for Tax Authorities.</para>
+          <varlistentry>
+            <term>Vendor</term>
+
+            <listitem>
+              <para>elect if the Account is a Vendor Account. If selected,
+              Account information--including the Account Number, Account Name,
+              and Contact information--will be used to populate a Vendor
+              master. You will be prompted to edit the Vendor master if no
+              Vendor relationship existed previously.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Partner</term>
+
+            <listitem>
+              <para>Select if the Account is a Partner. The CRM Account serves
+              as the master record for Partners.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Competitor</term>
+
+            <listitem>
+              <para>Select if the Account is a Competitor. The CRM Account
+              serves as the master record for Competitors.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Tax Authority</term>
+
+            <listitem>
+              <para>Select if the Account is a Tax Authority. The CRM Account
+              serves as the master record for Tax Authorities.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -133,19 +191,63 @@
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
 
-        <para>Title: Select a Title from the list of available Titles.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
 
-        <para>First: Enter the Contact's first name.</para>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Last: Enter the Contact's last name.</para>
+          <varlistentry>
+            <term>First</term>
 
-        <para>Job Title: Enter the Contact's job title.</para>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Voice: Enter the Contact's phone number.</para>
+          <varlistentry>
+            <term>Last</term>
 
-        <para>Fax: Enter the Contact's fax number.</para>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>E-Mail: Enter the Contact's e-mail address.</para>
+          <varlistentry>
+            <term>Job Title</term>
+
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Voice</term>
+
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Fax</term>
+
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>E-Mail</term>
+
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
 
@@ -156,19 +258,63 @@
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
 
-        <para>Title: Select a Title from the list of available Titles.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
 
-        <para>First: Enter the Contact's first name.</para>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Last: Enter the Contact's last name.</para>
+          <varlistentry>
+            <term>First</term>
 
-        <para>Job Title: Enter the Contact's job title.</para>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>Voice: Enter the Contact's phone number.</para>
+          <varlistentry>
+            <term>Last</term>
 
-        <para>Fax: Enter the Contact's fax number.</para>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
 
-        <para>E-Mail: Enter the Contact's e-mail address.</para>
+          <varlistentry>
+            <term>Job Title</term>
+
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Voice</term>
+
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>Fax</term>
+
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+
+          <varlistentry>
+            <term>E-Mail</term>
+
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -314,12 +460,10 @@
 
       <listitem id="listitemN0x180ac00N0x1851f7c">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-
-        <para>Comment Types are used to categorize Comments. Once you have
-        specified a Comment Type, you may type your Comment in the main text
-        area. The text area features word-wrapping and scroll-bar support for
-        longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -561,14 +705,14 @@
     <varlistentry>
       <term>New</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(crmaccountNEW)" />
     </varlistentry>
 
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(crmaccountEDIT)" />
     </varlistentry>
 
@@ -579,14 +723,14 @@
     <varlistentry>
       <term>Attach</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(crmaccountATTACH)" />
     </varlistentry>
 
     <varlistentry>
       <term>Detach</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(crmaccountDETACH)" />
     </varlistentry>
 
@@ -617,9 +761,8 @@
       <term>Show To-Do List</term>
 
       <listitem id="listitemN0x180ac00N0x185a168">
-        <para>Select to include To-Dos in the display.</para>
-
-        <para>If not selected, To-Dos will not be included.</para>
+        <para>Select to include To-Dos in the display. If not selected, To-Dos
+        will not be included.</para>
       </listitem>
     </varlistentry>
 
@@ -627,9 +770,8 @@
       <term>Show Incidents</term>
 
       <listitem id="listitemN0x180ac00N0x185a1b0">
-        <para>Select to include Incidents in the display.</para>
-
-        <para>If not selected, Incidents will not be included.</para>
+        <para>Select to include Incidents in the display. If not selected,
+        Incidents will not be included.</para>
       </listitem>
     </varlistentry>
 
@@ -637,9 +779,8 @@
       <term>Active Only</term>
 
       <listitem id="listitemN0x180ac00N0x185a1f8">
-        <para>Select to include only active To-Dos in the display.</para>
-
-        <para>If not selected, inactive To-Dos will not be included.</para>
+        <para>Select to include only active To-Dos in the display. If not
+        selected, inactive To-Dos will not be included.</para>
       </listitem>
     </varlistentry>
 
@@ -647,10 +788,9 @@
       <term>Completed</term>
 
       <listitem id="listitemN0x180ac00N0x185a240">
-        <para>Select to include completed Incidents in the display.</para>
-
-        <para>An Incident is considered completed when its status is "Closed."
-        If this option is not selected, then completed Incidents will not be
+        <para>Select to include completed Incidents in the display. An
+        Incident is considered completed when its status is "Closed." If this
+        option is not selected, then completed Incidents will not be
         included.</para>
       </listitem>
     </varlistentry>
