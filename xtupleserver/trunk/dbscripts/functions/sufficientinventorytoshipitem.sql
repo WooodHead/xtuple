@@ -24,7 +24,6 @@ BEGIN
              (roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
 			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
-                           - coitem_qtyreserved
 			   ) * coitem_qty_invuomratio
 		      ) <= qtyunreserved(itemsite_id))
         INTO _isqtyavail
