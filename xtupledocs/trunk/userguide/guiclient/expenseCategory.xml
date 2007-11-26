@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="expenseCategory">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>expense categories</primary>
       <secondary>creating new</secondary>
     </indexterm>Expense Category</title>
-  <para>To create a new Expense Category, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Expense Category, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_expCatNew.png" id="Graphic677925"/>
+          <imagedata fileref="images/IM_MI_expCatNew.png" id="Graphic677925" />
         </imageobject>
         <caption id="Caption677928">Create New Expense Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Expense Category, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Expense Category, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Category</term>
@@ -36,27 +34,24 @@
     <varlistentry>
       <term>Active</term>
       <listitem id="listitemN0x180ac00N0x184e204">
-        <para>Select to show the Expense Category as active.</para>
-        <para>Not selecting means the Expense Category will be
-        considered inactive. To re-activate an Expense Category, simply select
-        this option.</para>
+        <para>Select to show the Expense Category as active. Not selecting
+        means the Expense Category will be considered inactive. To re-activate
+        an Expense Category, simply select this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Expense</term>
       <listitem id="listitemN0x180ac00N0x184e24c">
         <para>Identify a General Ledger (G/L) Account to distribute Purchasing
-        Expenses to.</para>
-        <para>This is an Expense Account. It will be debited
-        when transactions using Expense Categories are posted.</para>
+        Expenses to. This is an Expense Account. It will be debited when
+        transactions using Expense Categories are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Purchase Price Variance</term>
       <listitem id="listitemN0x180ac00N0x184e294">
         <para>Identify a General Ledger (G/L) Account to distribute purchase
-        Price variances to.</para>
-        <para>This is an Asset Account. It will be credited or
+        Price variances to. This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
         is posted for non-Inventory Items.</para>
       </listitem>
@@ -65,15 +60,14 @@
       <term>P/O Liability Clearing</term>
       <listitem id="listitemN0x180ac00N0x184e2dc">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
-        Order liability clearing to.</para>
-        <para>This is a Liability Account. It will be credited
-        when non-Inventory Items are received, and debited when a Voucher for
-        these Items is posted.</para>
+        Order liability clearing to. This is a Liability Account. It will be
+        credited when non-Inventory Items are received, and debited when a
+        Voucher for these Items is posted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

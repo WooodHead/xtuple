@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="warehouse">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>warehouses</primary>
       <secondary>creating new</secondary>
     </indexterm>Warehouse</title>
-  <para>To create a new Warehouse, select the NEW button. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Warehouse, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseNew.png" id="Graphic525430"/>
+          <imagedata fileref="images/IM_MI_warehouseNew.png"
+                     id="Graphic525430" />
         </imageobject>
         <caption id="Caption518546">Create New Inventory Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>Warehouse Codes are abbreviations used to quickly
-    and easily identify Warehouses. Keep these Codes short and meaningful so
-    employees will have an easy time identifying them.</para>
+    <para>Warehouse Codes are abbreviations used to quickly and easily
+    identify Warehouses. Keep these Codes short and meaningful so employees
+    will have an easy time identifying them.</para>
   </tip>
-  <para>When creating a new Warehouse, you are presented with
-  the following options:</para>
+  <para>When creating a new Warehouse, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Code</term>
@@ -48,9 +47,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If a new Address is manually entered here, that
-    Address will be added automatically to the master list of
-    Addresses.</para>
+    <para>If a new Address is manually entered here, that Address will be
+    added automatically to the master list of Addresses.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -61,20 +59,17 @@
         Warehouse Address is used on shipping and receiving paperwork.</para>
         <para>Street Address: Enter the street Address for the
         Warehouse.</para>
-        <para>City: Enter the city where the Warehouse is
+        <para>City: Enter the city where the Warehouse is located.</para>
+        <para>State: Enter the state where the Warehouse is located.</para>
+        <para>Postal Code: Enter the Postal Code for the Warehouse.</para>
+        <para>Country: Enter the country where the Warehouse is
         located.</para>
-        <para>State: Enter the state where the Warehouse is
-        located.</para>
-        <para>Postal Code: Enter the Postal Code for the
-        Warehouse.</para>
-        <para>Country: Enter the country where the Warehouse
-        is located.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If a new Contact is manually entered here, that
-    Contact will be added automatically to the master list of Contacts.</para>
+    <para>If a new Contact is manually entered here, that Contact will be
+    added automatically to the master list of Contacts.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -82,33 +77,30 @@
       <listitem id="listitemN0x180ac00N0x181a628">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available
-        Titles.</para>
+        <para>Title: Select a Title from the list of available Titles.</para>
         <para>First: Enter the Contact's first name.</para>
         <para>Last: Enter the Contact's last name.</para>
         <para>Job Title: Enter the Contact's job title.</para>
         <para>Voice: Enter the Contact's phone number.</para>
         <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail
-        address.</para>
+        <para>E-Mail: Enter the Contact's e-mail address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Unassigned Transactions to</term>
       <listitem id="listitemN0x180ac00N0x181a670">
         <para>Specify a General Ledger Account to post unassigned transactions
-        to.</para>
-        <para>This account is used as a general bucket for
-        General Ledger transactions which the system, for one reason or
-        another, may not know how to handle. A transaction is considered
-        unassigned if the affected Item Site does not have a Cost Category
-        assigned to it for the transaction type in question. By specifying an
-        Account to post unassigned transactions to, you can remove most of the
-        ambiguous error messages that may result from inadequately assigned
-        Item Site Cost Categories. For example, if an Inventory Asset Account
-        is not defined, Inventory transactions may proceed--but the Asset
-        portion of the transactions will be posted to the unassigned
-        transaction Account.</para>
+        to. This account is used as a general bucket for General Ledger
+        transactions which the system, for one reason or another, may not know
+        how to handle. A transaction is considered unassigned if the affected
+        Item Site does not have a Cost Category assigned to it for the
+        transaction type in question. By specifying an Account to post
+        unassigned transactions to, you can remove most of the ambiguous error
+        messages that may result from inadequately assigned Item Site Cost
+        Categories. For example, if an Inventory Asset Account is not defined,
+        Inventory transactions may proceed--but the Asset portion of the
+        transactions will be posted to the unassigned transaction
+        Account.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -116,162 +108,194 @@
       <listitem id="listitemN0x180ac00N0x181a6b8">
         <para>Select if the Warehouse is to be used for Inventory storage. The
         following options are available for Inventory Warehouses:</para>
-        <para>Next <indexterm significance="normal">
-            <primary>bills of lading</primary>
-            <secondary>numbering of</secondary>
-          </indexterm>Bill of Lading #: There are two parts to this field.
-        These two parts include a "prefix" that will appear at the beginning
-        of all system-generated bill of lading numbers for this Warehouse and
-        a starting number sequence (e.g., 10000, 20000, etc.). Use the first
-        field window to prefix the bill of lading number with user-defined
-        information (e.g., Warehouse code). Prefixing bill of lading numbers
-        may be helpful in tracking Items that were shipped to customers from a
-        specific Warehouse Location. Use the second part of this two-part
-        field window to enter an unlimited number of whole numbers.</para>
-        <para>Next <indexterm significance="normal">
-            <primary>count tags</primary>
-            <secondary>numbering of</secondary>
-          </indexterm>Count Tag#: There are two parts to this field. These two
-        parts include a "prefix" that will appear at the beginning of all
-        system-generated Count Tag Numbers for this Warehouse and a starting
-        number sequence (e.g., 10000, 20000, etc.). Use the first field window
-        to prefix the Count Tag Number with user-defined information (e.g.,
-        Warehouse code). Use the second part of this two-part field window to
-        enter an unlimited number of whole numbers.</para>
-        <para>
-<indexterm significance="normal">
-            <primary>shipping warehouses</primary>
-            <secondary>designation of</secondary>
-          </indexterm>Shipping Warehouse: Select if the Warehouse is used for
-        Shipping. Not selecting means materials are not shipped from the
-        Warehouse.</para>
-        <para>Force the use of Count Slips: Select to enforce
-        the use of Count Slips. Not selecting means Count Slips will not be
-        required when counting Inventory in this Warehouse.</para>
-        <para>
-<indexterm significance="normal">
-            <primary>zones</primary>
-            <secondary>enforcing in warehouses</secondary>
-          </indexterm> <indexterm significance="normal">
-            <primary>warehouses</primary>
-            <secondary>enforcing zones in</secondary>
-          </indexterm>Enforce the use of Zones: Select to enforce the use of
-        Zones within the Warehouse. A Warehouse Zone is a defined section or
-        area within a Warehouse. For example, separate Warehouse Zones might
-        be designated to define areas where Orders are selected, Picked, and
-        Packed. If selected, Zones may be specified when defining Warehouse
-        Locations. If not selected, Warehouse Locations may not include
-        Zones.</para>
-        <para>Shipping Commission: Enter a commission
-        percentage to be charged whenever Inventory is shipped from the
-        Warehouse. This is an optional feature to be used specifically for
-        contract Warehouses, which charge a commission based on shipping
-        volume. If the Warehouse does not charge a commission, then this field
-        may be ignored, leaving the default value of "0.00".</para>
-        <para>
-<indexterm significance="normal">
-            <primary>tax authorities</primary>
-            <secondary>for warehouses</secondary>
-          </indexterm>Tax Authority: Specify the Tax Authority associated with
-        the Warehouse.</para>
-        <para>
-<indexterm significance="normal">
-            <primary>default FOB</primary>
-            <secondary>in warehouse master</secondary>
-          </indexterm>Default F.O.B.: Enter default free on board (FOB) Terms
-        for the Warehouse. The default F.O.B. Terms will be entered on the
-        Sales Order header for any Orders where the Warehouse is specified as
-        the Shipping Warehouse.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Next <indexterm significance="normal">
+                <primary>bills of lading</primary>
+                <secondary>numbering of</secondary>
+              </indexterm>Bill of Lading #</term>
+            <listitem>
+              <para>There are two parts to this field. These two parts include
+              a "prefix" that will appear at the beginning of all
+              system-generated bill of lading numbers for this Warehouse and a
+              starting number sequence (e.g., 10000, 20000, etc.). Use the
+              first field window to prefix the bill of lading number with
+              user-defined information (e.g., Warehouse code). Prefixing bill
+              of lading numbers may be helpful in tracking Items that were
+              shipped to customers from a specific Warehouse Location. Use the
+              second part of this two-part field window to enter an unlimited
+              number of whole numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Next <indexterm significance="normal">
+                <primary>count tags</primary>
+                <secondary>numbering of</secondary>
+              </indexterm>Count Tag#</term>
+            <listitem>
+              <para>There are two parts to this field. These two parts include
+              a "prefix" that will appear at the beginning of all
+              system-generated Count Tag Numbers for this Warehouse and a
+              starting number sequence (e.g., 10000, 20000, etc.). Use the
+              first field window to prefix the Count Tag Number with
+              user-defined information (e.g., Warehouse code). Use the second
+              part of this two-part field window to enter an unlimited number
+              of whole numbers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>shipping warehouses</primary>
+                <secondary>designation of</secondary>
+              </indexterm>Shipping Warehouse</term>
+            <listitem>
+              <para>Select if the Warehouse is used for Shipping. Not
+              selecting means materials are not shipped from the
+              Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Force the use of Count Slips</term>
+            <listitem>
+              <para>Select to enforce the use of Count Slips. Not selecting
+              means Count Slips will not be required when counting Inventory
+              in this Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>zones</primary>
+                <secondary>enforcing in warehouses</secondary>
+              </indexterm> <indexterm significance="normal">
+                <primary>warehouses</primary>
+                <secondary>enforcing zones in</secondary>
+              </indexterm>Enforce the use of Zones</term>
+            <listitem>
+              <para>Select to enforce the use of Zones within the Warehouse. A
+              Warehouse Zone is a defined section or area within a Warehouse.
+              For example, separate Warehouse Zones might be designated to
+              define areas where Orders are selected, Picked, and Packed. If
+              selected, Zones may be specified when defining Warehouse
+              Locations. If not selected, Warehouse Locations may not include
+              Zones.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipping Commission</term>
+            <listitem>
+              <para>Enter a commission percentage to be charged whenever
+              Inventory is shipped from the Warehouse. This is an optional
+              feature to be used specifically for contract Warehouses, which
+              charge a commission based on shipping volume. If the Warehouse
+              does not charge a commission, then this field may be ignored,
+              leaving the default value of "0.00".</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>tax authorities</primary>
+                <secondary>for warehouses</secondary>
+              </indexterm>Tax Authority</term>
+            <listitem>
+              <para>Specify the Tax Authority associated with the
+              Warehouse.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>default FOB</primary>
+                <secondary>in warehouse master</secondary>
+              </indexterm>Default F.O.B</term>
+            <listitem>
+              <para>Enter default free on board (FOB) Terms for the Warehouse.
+              The default F.O.B. Terms will be entered on the Sales Order
+              header for any Orders where the Warehouse is specified as the
+              Shipping Warehouse.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para role="openmfg">Transit Warehouses are special
-  Warehouses used by Transfer Orders. When Transfer Order Inventory is shipped
-  from the Source Warehouse, it is moved to a Transit Warehouse. Inventory
-  stays in the Transit Warehouse until it is received at the Destination
-  Warehouse. If the Warehouse is to be used as a Transit Warehouse, select the
-  "Transit Warehouse" option. The following changes to the main screen will
+  <para role="openmfg">Transit Warehouses are special Warehouses used by
+  Transfer Orders. When Transfer Order Inventory is shipped from the Source
+  Warehouse, it is moved to a Transit Warehouse. Inventory stays in the
+  Transit Warehouse until it is received at the Destination Warehouse. If the
+  Warehouse is to be used as a Transit Warehouse, select the "Transit
+  Warehouse" option. The following changes to the main screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseTransNew.png" id="Graphic663280"/>
+          <imagedata fileref="images/IM_MI_warehouseTransNew.png"
+                     id="Graphic663280" />
         </imageobject>
         <caption id="Caption663283">Create New Transit Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>Be sure to define a default Transit Warehouse on
-    your Inventory Configuration screen. This will make it easier to generate
-    Transfer Orders, as Transit Warehouses are required for Transfer
-    Orders.</para>
+    <para>Be sure to define a default Transit Warehouse on your Inventory
+    Configuration screen. This will make it easier to generate Transfer
+    Orders, as Transit Warehouses are required for Transfer Orders.</para>
   </tip>
-  <para>When defining a Warehouse as a Transit Warehouse, you
-  are presented with the following options:</para>
+  <para>When defining a Warehouse as a Transit Warehouse, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Default Ship Via</term>
       <listitem id="listitemN0x180ac00N0x181a9ac">
-        <para>Specify a default Ship Via to be used by the Transit
-        Warehouse.</para>
-        <para>The selected Ship Via will be used by default on
-        the Transfer Order header whenever the specified Transit Warehouse is
-        used.</para>
+        <para>Specify a default Ship Via to be used by the Transit Warehouse.
+        The selected Ship Via will be used by default on the Transfer Order
+        header whenever the specified Transit Warehouse is used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Default Shipping Form</term>
       <listitem id="listitemN0x180ac00N0x181a9f4">
         <para>Specify a default Shipping Form to be used by the Transit
-        Warehouse.</para>
-        <para>The selected Shipping Form will be used by
-        default on the Transfer Order header whenever the specified Transit
-        Warehouse is used.</para>
+        Warehouse. The selected Shipping Form will be used by default on the
+        Transfer Order header whenever the specified Transit Warehouse is
+        used.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Shipping Form will be used when printing Packing
-    Lists for the Transfer Order.</para>
+    <para>The Shipping Form will be used when printing Packing Lists for the
+    Transfer Order.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Default Cost Category</term>
       <listitem id="listitemN0x180ac00N0x181aa84">
         <para>Specify a default Cost Category to be used by the Transit
+        Warehouse. Associating a Cost Category with a Transit Warehouse makes
+        it possible for the system to create Item Sites for Transit Warehouses
+        automatically when Transfer Order Inventory is shipped. This greatly
+        simplifies the use of Transit Warehouses, as Item Sites do not need to
+        be created manually beforehand. The accounting for in-transit goods is
+        handled by the default Cost Category associated with the Transit
         Warehouse.</para>
-        <para>Associating a Cost Category with a Transit
-        Warehouse makes it possible for the system to create Item Sites for
-        Transit Warehouses automatically when Transfer Order Inventory is
-        shipped. This greatly simplifies the use of Transit Warehouses, as
-        Item Sites do not need to be created manually beforehand. The
-        accounting for in-transit goods is handled by the default Cost
-        Category associated with the Transit Warehouse.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Consider creating a separate Cost Category for
-    Transit Warehouses. In this way you can use unique Accounts to reflect the
-    movement of Inventory which is in-transit.</para>
+    <para>Consider creating a separate Cost Category for Transit Warehouses.
+    In this way you can use unique Accounts to reflect the movement of
+    Inventory which is in-transit.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Shipping Comments</term>
       <listitem id="listitemN0x180ac00N0x181ab14">
         <para>Enter shipping Comments you want to associate with the Transit
-        Warehouse.</para>
-        <para>Shipping Comments entered here will be used on
-        any Transfer Order which uses specified Transit Warehouse. This is a
-        scrolling text field with word-wrapping for entering shipping
-        Comments.</para>
+        Warehouse. Shipping Comments entered here will be used on any Transfer
+        Order which uses specified Transit Warehouse. This is a scrolling text
+        field with word-wrapping for entering shipping Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -288,25 +312,23 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To define ARBL (Aisle, Rack, Bin, Location) naming
-  conventions for your Warehouse Locations, select the "Warehouse Locations"
-  tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To define ARBL (Aisle, Rack, Bin, Location) naming conventions for
+  your Warehouse Locations, select the "Warehouse Locations" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_wareMasterLocs.png" id="Graphic662518"/>
+          <imagedata fileref="images/IM_MI_wareMasterLocs.png"
+                     id="Graphic662518" />
         </imageobject>
         <caption id="Caption662520">Warehouse Locations Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When defining ARBL naming conventions for your
-  Warehouse Locations, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When defining ARBL naming conventions for your Warehouse Locations,
+  you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>ARBL</primary>
           <secondary>enforcing in warehouses</secondary>
         </indexterm>Enforce ARBL Naming Convention</term>
@@ -314,46 +336,66 @@
         <para>Select to enforce the aisle, rack, bin, Location (ARBL) naming
         convention when defining Warehouse Locations. Specify values for the
         following ARBL parameters:</para>
-        <para>Aisle Size: Specify the maximum number of
-        characters allowed in an aisle name by using the arrow buttons or
-        manually entering a value up to a maximum of 99. Also specify whether
-        alpha characters are allowed in aisle names.</para>
-        <para>Rack Size: Specify the maximum number of
-        characters allowed in a rack name by using the arrow buttons or
-        manually entering a value up to a maximum of 99. Also specify whether
-        alpha characters are allowed in rack names.</para>
-        <para>Bin Size: Specify the maximum number of
-        characters allowed in a bin name by using the arrow buttons or
-        manually entering a value up to a maximum of 99. Also specify whether
-        alpha characters are allowed in bin names.</para>
-        <para>Location Size: Specify the maximum number of
-        characters allowed in a Location name by using the arrow buttons or
-        manually entering a value up to a maximum of 99. Also specify whether
-        alpha characters are allowed in Location names.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Aisle Size</term>
+            <listitem>
+              <para>Specify the maximum number of characters allowed in an
+              aisle name by using the arrow buttons or manually entering a
+              value up to a maximum of 99. Also specify whether alpha
+              characters are allowed in aisle names.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Rack Size</term>
+            <listitem>
+              <para>Specify the maximum number of characters allowed in a rack
+              name by using the arrow buttons or manually entering a value up
+              to a maximum of 99. Also specify whether alpha characters are
+              allowed in rack names.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Bin Size</term>
+            <listitem>
+              <para>Specify the maximum number of characters allowed in a bin
+              name by using the arrow buttons or manually entering a value up
+              to a maximum of 99. Also specify whether alpha characters are
+              allowed in bin names.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Location Size</term>
+            <listitem>
+              <para>Specify the maximum number of characters allowed in a
+              Location name by using the arrow buttons or manually entering a
+              value up to a maximum of 99. Also specify whether alpha
+              characters are allowed in Location names.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>Warehouse Zones are defined sections or areas within a
-  Warehouse. For example, separate Warehouse Zones might be designated to
-  define areas where Orders are selected, Picked, and Packed. To define or
-  maintain Warehouse Zones, select the "Warehouse Zones" tab. The following
-  screen will appear:</para>
-  <para>
-<screenshot>
+  <para>Warehouse Zones are defined sections or areas within a Warehouse. For
+  example, separate Warehouse Zones might be designated to define areas where
+  Orders are selected, Picked, and Packed. To define or maintain Warehouse
+  Zones, select the "Warehouse Zones" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_wareMasterZones.png" id="Graphic662535"/>
+          <imagedata fileref="images/IM_MI_wareMasterZones.png"
+                     id="Graphic662535" />
         </imageobject>
         <caption id="Caption662537">Warehouse Zones Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When defining or maintaining Warehouse Zones, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When defining or maintaining Warehouse Zones, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>zones</primary>
           <secondary>for warehouses</secondary>
         </indexterm> <indexterm significance="normal">
@@ -366,8 +408,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -404,18 +446,16 @@
       <secondary>creating new</secondary>
     </indexterm>create a new Warehouse Zone, select the NEW button. The
   following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_wareZoneNew.png" id="Graphic662761"/>
+          <imagedata fileref="images/IM_MI_wareZoneNew.png" id="Graphic662761" />
         </imageobject>
         <caption id="Caption662764">Create New Warehouse Zone</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Warehouse Zone, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Warehouse Zone, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -430,8 +470,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -448,18 +488,17 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To associate Comments with a Warehouse, select the
-  "Comments" tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To associate Comments with a Warehouse, select the "Comments" tab. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseComm.png" id="Graphic594394"/>
+          <imagedata fileref="images/IM_MI_warehouseComm.png"
+                     id="Graphic594394" />
         </imageobject>
         <caption id="Caption594325">Add Warehouse Comments</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
@@ -469,8 +508,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -486,33 +525,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create a new Comment, select the NEW button. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Comment, select the NEW button. The following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic594333"/>
+          <imagedata fileref="images/CommentNew.png" id="Graphic594333" />
         </imageobject>
         <caption id="Caption594336">Create New Comment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x183164c">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments.
-        Once you have specified a Comment Type, you may type your Comment in
-        the main text area. The text area features word-wrapping and
-        scroll-bar support for longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="costCategory">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cost categories</primary>
       <secondary>creating new</secondary>
     </indexterm>Cost Category</title>
-  <para>To create a new Cost Category, select the NEW button.
-  The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Cost Category, select the NEW button. The following
+  screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_costCatNew.png" id="Graphic677973"/>
+          <imagedata fileref="images/IM_MI_costCatNew.png" id="Graphic677973" />
         </imageobject>
         <caption id="Caption677976">Create New Cost Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>The Account Numbers assigned to Cost Categories
-    should not all be the Inventory Account. Instead, they should be
-    individual accounts selected specifically for each Cost-tracking purpose.
-    This will increase your visibility into your Inventory Costs and
-    valuation.</para>
+    <para>The Account Numbers assigned to Cost Categories should not all be
+    the Inventory Account. Instead, they should be individual accounts
+    selected specifically for each Cost-tracking purpose. This will increase
+    your visibility into your Inventory Costs and valuation.</para>
   </tip>
-  <para>When creating a new Cost Category, you are presented
-  with the following options:</para>
+  <para>When creating a new Cost Category, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Category</term>
@@ -44,19 +41,18 @@
       <term>Inventory Asset</term>
       <listitem id="listitemN0x180ac00N0x18450cc">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
-        assets to.</para>
-        <para>This is an Asset Account. It will be debited
-        when Inventory is received and credited whenever Inventory Items are
-        removed from Inventory.</para>
+        assets to. This is an Asset Account. It will be debited when Inventory
+        is received and credited whenever Inventory Items are removed from
+        Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>WIP Asset</term>
       <listitem id="listitemN0x180ac00N0x1845114">
         <para>Identify a General Ledger (G/L) Account to distribute
-        work-in-process (WIP) assets to.</para>
-        <para>This is an Asset Account. It will be credited
-        and/or debited with labor, material, and <indexterm significance="normal">
+        work-in-process (WIP) assets to. This is an Asset Account. It will be
+        credited and/or debited with labor, material, and <indexterm
+            significance="normal">
             <primary>overhead</primary>
             <secondary>linking to wip assets</secondary>
           </indexterm>overhead Costs while a Work Order is in-process. The
@@ -68,8 +64,7 @@
       <term>Inventory Cost Variance</term>
       <listitem id="listitemN0x180ac00N0x18451a4">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
-        Cost variances to.</para>
-        <para>This is an Asset Account. It is used in several
+        Cost variances to. This is an Asset Account. It is used in several
         scenarios: 1) If there is a difference between new Actual Cost and old
         Standard Cost when posting Actual Costs to Standard; 2) during Work
         Order processing if too many materials are issued to a Work Order, or
@@ -84,19 +79,16 @@
       <term>Transform Clearing</term>
       <listitem id="listitemN0x180ac00N0x18451ec">
         <para>Identify a General Ledger (G/L) Account to distribute Transform
-        transactions to.</para>
-        <para>This is an Asset Account. It will be credited
-        when a source Item quantity is transformed, and debited for an equal
-        amount when the target Item quantity is received into
-        Inventory.</para>
+        transactions to. This is an Asset Account. It will be credited when a
+        source Item quantity is transformed, and debited for an equal amount
+        when the target Item quantity is received into Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Purchase Price Variance</term>
       <listitem id="listitemN0x180ac00N0x184da24">
         <para>Identify a General Ledger (G/L) Account to distribute purchase
-        Price variances to.</para>
-        <para>This is an Asset Account. It will be credited or
+        Price variances to. This is an Asset Account. It will be credited or
         debited with the value of any variance that may arise when a Voucher
         is posted. The sense of the transaction record depends on the
         circumstances of the transaction.</para>
@@ -106,9 +98,8 @@
       <term>Inventory Adjustment</term>
       <listitem id="listitemN0x180ac00N0x184da6c">
         <para>Identify a General Ledger (G/L) Account to distribute Inventory
-        adjustments to.</para>
-        <para>This is an Expense Account. It will be credited
-        or debited with the value of any variance that may arise when a
+        adjustments to. This is an Expense Account. It will be credited or
+        debited with the value of any variance that may arise when a
         Miscellaneous Adjustment transaction or Cycle Count transaction is
         posted against an Item. The sense of the transaction record depends on
         the circumstances of the transaction.</para>
@@ -117,65 +108,60 @@
     <varlistentry>
       <term>Inventory Scrap</term>
       <listitem id="listitemN0x180ac00N0x184dab4">
-        <para>Identify a G/L Account to distribute Inventory Scrap to.</para>
-        <para>This is an Expense Account. It will be credited
-        when a Scrap transaction is posted against an Item.</para>
+        <para>Identify a G/L Account to distribute Inventory Scrap to. This is
+        an Expense Account. It will be credited when a Scrap transaction is
+        posted against an Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Manufacturing Scrap</term>
       <listitem id="listitemN0x180ac00N0x184dafc">
-        <para>Identify a G/L Account to distribute Manufacturing Scrap
-        to.</para>
-        <para>This is an Expense Account. It will be credited
-        when Work Order Material Requirements are scrapped from a Work
-        Order.</para>
+        <para>Identify a G/L Account to distribute Manufacturing Scrap to.
+        This is an Expense Account. It will be credited when Work Order
+        Material Requirements are scrapped from a Work Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Labor and Overhead Costs</term>
       <listitem id="listitemN0x180ac00N0x184db20">
         <para>Overhead Costs: Identify a General Ledger (G/L) Account to
-        distribute labor and overhead Costs to.</para>
-        <para>This is a Liability Account. It will be debited
-        and/or credited with labor and overhead Costs when Work Orders are
-        in-process or posted. The sense of the transaction record depends on
-        the circumstances of the transaction.</para>
+        distribute labor and overhead Costs to. This is a Liability Account.
+        It will be debited and/or credited with labor and overhead Costs when
+        Work Orders are in-process or posted. The sense of the transaction
+        record depends on the circumstances of the transaction.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>P/O Liability Clearing</term>
       <listitem id="listitemN0x180ac00N0x184db68">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
-        Order liability clearing to.</para>
-        <para>This is a Liability Account. It will be credited
-        when a Purchase Order Receipt is posted and debited when a Voucher is
-        posted.</para>
+        Order liability clearing to. This is a Liability Account. It will be
+        credited when a Purchase Order Receipt is posted and debited when a
+        Voucher is posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Shipping Asset</term>
       <listitem id="listitemN0x180ac00N0x184dbb0">
         <para>Identify a General Ledger (G/L) Account to distribute shipping
-        assets to.</para>
-        <para>This is an Asset Account. It will be debited
-        with the Standard Cost of a Sales Order Item when the Item is issued
-        to Shipping and credited once the Item has been shipped.</para>
+        assets to. This is an Asset Account. It will be debited with the
+        Standard Cost of a Sales Order Item when the Item is issued to
+        Shipping and credited once the Item has been shipped.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>P/O Line Freight Expense</term>
       <listitem id="listitemN0x180ac00N0x184dbf8">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
-        Order Line Item freight expenses to.</para>
-        <para>This is an Expense Account. It will be debited
-        when Purchase Order Line Items are received. The Account may be
-        debited or credited when correcting Purchase Order Receipts.</para>
+        Order Line Item freight expenses to. This is an Expense Account. It
+        will be debited when Purchase Order Line Items are received. The
+        Account may be debited or credited when correcting Purchase Order
+        Receipts.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

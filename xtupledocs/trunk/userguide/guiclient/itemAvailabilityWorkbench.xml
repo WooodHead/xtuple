@@ -65,8 +65,8 @@
     <varlistentry>
       <term id="Para678033">Show Planned Orders</term>
       <listitem>
-        <para>Select to show Planned Orders in the display.</para>
-        <para id="Para678034">Planned Orders will display in blue type.</para>
+        <para>Select to show Planned Orders in the display. Planned Orders
+        will display in blue type.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -102,9 +102,8 @@
       <term id="Para678039">Running Availability</term>
       <listitem>
         <para>Display lists Running Availability for the selected Item, using
-        the specified parameters.</para>
-        <para id="Para678040">Red lettering indicates the due date has passed
-        or Running Availability has dropped below 0.</para>
+        the specified parameters. Red lettering indicates the due date has
+        passed or Running Availability has dropped below 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -135,13 +134,10 @@
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
-    <varlistentry>
-      <term id="Para678047">If you right-click on a Planned Order, the
-      following additional option will also be available</term>
-      <listitem>
-        <para>able:</para>
-      </listitem>
-    </varlistentry>
+  </variablelist>
+  <para>If you right-click on a Planned Order, the following additional option
+  will also be available:</para>
+  <variablelist>
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(rightclickFirmOrder)" />
@@ -183,19 +179,39 @@
     <varlistentry>
       <term id="Para678060">Show Availability as of</term>
       <listitem>
-        <para>Show Availability using one of the following criteria:</para>
-        <para id="Para678061">Item Site Lead Time: Select to show projected
-        Availability based on the Lead Time specified in the Item Site
-        master.</para>
-        <para id="Para678062">Look Ahead Days: Select a number using the arrow
-        buttons, or manually enter a value up to a maximum of 1000. Future
-        Availability for the specified Item will be displayed based on the
-        value entered here.</para>
-        <para id="Para678063">Cutoff Date: Display will show projected
-        Inventory Availability as of date entered up to a maximum of 1000
-        days.</para>
-        <para id="Para678064">Dates: Display will show projected Inventory
-        Availability for the date range entered.</para>
+        <para>Show Availability using one of the following criteria: </para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time</term>
+            <listitem>
+              <para>Select to show projected Availability based on the Lead
+              Time specified in the Item Site master.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Look Ahead Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 1000. Future Availability for the
+              specified Item will be displayed based on the value entered
+              here.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cutoff Date</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability as of
+              date entered up to a maximum of 1000 days.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Dates</term>
+            <listitem>
+              <para>Display will show projected Inventory Availability for the
+              date range entered.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -359,20 +375,18 @@
       <term id="Para678102">Use Standard Costs</term>
       <listitem>
         <para>Select to display Standard Costs for component Items in the
-        specified Item's Bill of Materials.</para>
-        <para id="Para678103">Both the Unit Cost and Extended Cost for each
-        component Item, expressed in terms of Standard Cost, will
-        display--assuming Standard Costs have been defined for each component
-        Item.</para>
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Standard Cost,
+        will display--assuming Standard Costs have been defined for each
+        component Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para678104">Use Actual Costs</term>
       <listitem>
         <para>Select to display Actual Costs for component Items in the
-        specified Item's Bill of Materials.</para>
-        <para id="Para678105">Both the Unit Cost and Extended Cost for each
-        component Item, expressed in terms of Actual Cost, will
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Actual Cost, will
         display--assuming Actual Costs have been defined for each component
         Item.</para>
       </listitem>
@@ -381,26 +395,41 @@
   <note>
     <para id="Para678107">In the Costed Indented Bill of Materials, the totals
     displayed on the screen are derived as follows:</para>
-    <para id="Para678108">Total Cost: This total is pulled from the Extended
-    Cost column. The total may vary, depending on whether "Use Standard Costs"
-    or "Use Actual Costs" is selected.</para>
-    <para id="Para678109">Actual Cost: This value represents the Actual Cost
-    for the parent Item whose Costed Indented BOM is being displayed.</para>
-    <para id="Para678110">Standard Cost: This value represents the Standard
-    Cost for the parent Item whose Costed Indented BOM is being
-    displayed.</para>
+    <variablelist>
+      <varlistentry>
+        <term>Total Cost</term>
+        <listitem>
+          <para>This total is pulled from the Extended Cost column. The total
+          may vary, depending on whether "Use Standard Costs" or "Use Actual
+          Costs" is selected.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Actual Cost</term>
+        <listitem>
+          <para>This value represents the Actual Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Standard Cost</term>
+        <listitem>
+          <para>This value represents the Standard Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </note>
   <variablelist>
     <varlistentry>
       <term id="Para678111">Costed Bill of Materials</term>
       <listitem>
         <para>Display lists Costed Indented Bill of Materials components,
-        using the specified parameters.</para>
-        <para id="Para678112">The difference between the indented view and the
-        single level view is that the indented view displays all subcomponents
-        if there is a manufactured component listed on the Bill of Materials.
-        The Total Cost, Actual Cost, and Standard Cost will be calculated
-        automatically at the bottom of the display.</para>
+        using the specified parameters. The difference between the indented
+        view and the single level view is that the indented view displays all
+        subcomponents if there is a manufactured component listed on the Bill
+        of Materials. The Total Cost, Actual Cost, and Standard Cost will be
+        calculated automatically at the bottom of the display.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -539,17 +568,15 @@
     <varlistentry>
       <term id="Para678144">Start Date</term>
       <listitem>
-        <para>This is a required field.</para>
-        <para id="Para678145">Inventory transactions conducted on and after
-        this date will be displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and after this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para678146">End Date</term>
       <listitem>
-        <para>This is a required field.</para>
-        <para id="Para678147">Inventory transactions conducted on and before
-        this date will be displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and before this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -730,10 +757,9 @@
       <term id="Para678191">Threshold Days</term>
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 999.</para>
-        <para id="Para678192">Components that have been expired from the Bill
-        of Materials within the specified number of days will be included in
-        the display.</para>
+        value up to a maximum of 999. Components that have been expired from
+        the Bill of Materials within the specified number of days will be
+        included in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -747,10 +773,9 @@
       <term id="Para678194">Threshold Days</term>
       <listitem>
         <para>Select a number using the arrow buttons, or manually enter a
-        value up to a maximum of 999.</para>
-        <para id="Para678195">Components that will be added in future to the
-        Bill of Materials within the specified number of days will be included
-        in the display.</para>
+        value up to a maximum of 999. Components that will be added in future
+        to the Bill of Materials within the specified number of days will be
+        included in the display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

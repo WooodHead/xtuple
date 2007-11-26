@@ -40,10 +40,10 @@
         </indexterm>Netable</term>
       <listitem id="listitemN0x180ac00N0x1844568">
         <para>Select if you want Items in the Location to be included in
-        Quantity on Hand and Availability calculations.</para>
-        <para>Not selecting means Items in the Location are non-netable. Items
-        stored in a non-netable Location are not included in Quantity on Hand
-        or Availability totals.</para>
+        Quantity on Hand and Availability calculations. Not selecting means
+        Items in the Location are non-netable. Items stored in a non-netable
+        Location are not included in Quantity on Hand or Availability
+        totals.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -68,9 +68,8 @@
         </indexterm>Restricted</term>
       <listitem id="listitemN0x180ac00N0x1844688">
         <para>Select if only a restricted set of Items may be placed in this
-        Location.</para>
-        <para>Not selecting means any Item that exists in the same Warehouse
-        as this Location may be placed into it.</para>
+        Location. Not selecting means any Item that exists in the same
+        Warehouse as this Location may be placed into it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -83,22 +82,20 @@
         </indexterm>Zone</term>
       <listitem id="listitemN0x180ac00N0x1844760">
         <para>Specify the Warehouse Zone you want to associate with the
-        Location, if any.</para>
-        <para>Zone selection will be activated only if Warehouse Zones have
-        been defined for the specified Warehouse.</para>
+        Location, if any. Zone selection will be activated only if Warehouse
+        Zones have been defined for the specified Warehouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18447a8">
-        <para>Enter a name to identify the Location.</para>
-        <para>The name of the Location will vary, depending on whether the
-        specified Warehouse enforces the aisle, rack, bin, Location (ARBL)
-        naming convention. If the convention is enforced, then the name for
-        the Location may also include aisle, rack, or bin information, as
-        shown in <xref linkend="NewWarehouseLocation" />. If ARBL is not
-        enforced, then the Location name will consist of only one
-        field.</para>
+        <para>Enter a name to identify the Location. The name of the Location
+        will vary, depending on whether the specified Warehouse enforces the
+        aisle, rack, bin, Location (ARBL) naming convention. If the convention
+        is enforced, then the name for the Location may also include aisle,
+        rack, or bin information, as shown in <xref
+        linkend="NewWarehouseLocation" />. If ARBL is not enforced, then the
+        Location name will consist of only one field.</para>
       </listitem>
     </varlistentry>
   </variablelist>

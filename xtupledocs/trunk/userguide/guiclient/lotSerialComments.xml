@@ -1,155 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section652132" role="openmfg">
-    <title>Lot/Serial Comments</title>
-
-    <para>To associate Comments with Lot/Serial Items, select
-    the "Lot/Serial Comments" option. The following screen will appear:</para>
-
-    <para>
-      <screenshot>
-        <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/IM_Lot_lotComments.png" id="Graphic652427"/>
-            </imageobject>
-
-            <caption id="Caption652135">Lot/Serial Comments</caption>
-        </mediaobject>
-      </screenshot>
-   </para>
-
-    <para>When associating Comments with Lot/Serial Items, you
-    are presented with the following options:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term>Item Number</term>
-
-        <listitem id="listitemN0x180ac00N0x18d10ac">
-            <para>Enter the Item Number of the Item you want to create a
-          Lot/Serial Comment for.</para>
-
-            <para>The browse button located to the right of the
-          field leads to a searchable Item list. The list includes all
-          Items--as opposed to Lot/Serial Items only--because an Item may not
-          currently be Lot/Serial Number controlled, but it may have been in
-          the past.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>UOM</term>
-
-        <listitem id="listitemN0x180ac00N0x18d10f4">
-            <para>Inventory Unit of Measure.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Lot/Serial #</term>
-
-        <listitem id="listitemN0x180ac00N0x18d113c">
-            <para>Specify the Lot/Serial Number you want to create a Comment
-          for.</para>
-
-            <para>Lot/Serial Numbers are created either when
-          Lot/Serial Items are received into Inventory or when existing
-          quantities are reassigned.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>Comments</term>
-
-        <listitem id="listitemN0x180ac00N0x18d1184">
-            <para>Display lists Comments associated with the specified
-          Lot/Serial Number.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para>To the far right of the screen, the following
-    buttons are available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term>CLOSE</term>
-
-        <listitem id="listitemN0x180ac00N0x18d11f0">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>NEW</term>
-
-        <listitem id="listitemN0x180ac00N0x18d1238">
-            <para>Opens screen for creating a new Comment.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>VIEW</term>
-
-        <listitem id="listitemN0x180ac00N0x18d1280">
-            <para>Highlight a Comment and then select this button to view the
-          Comment.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para>To create a new Lot/Serial Comment, select the NEW
-    button. The following screen will appear:</para>
-
-    <para>
-      <screenshot>
-        <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/CommentNew.png" id="Graphic652474"/>
-            </imageobject>
-
-            <caption id="Caption652150">Create New Comment</caption>
-        </mediaobject>
-      </screenshot>
-   </para>
-
-    <variablelist>
-      <varlistentry>
-        <term>Comment Type</term>
-
-        <listitem id="listitemN0x180ac00N0x18d1358">
-            <para>Specify one of the following Comment Types from the drop-down
-          list: ChangeLog or General.</para>
-
-            <para>Comment Types are used to categorize Comments.
-          Once you have specified a Comment Type, you may type your Comment in
-          the main text area. The text area features word-wrapping and
-          scroll-bar support for longer Comments.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-
-    <para>To the far right of the screen, the following
-    buttons are available:</para>
-
-    <variablelist>
-      <varlistentry>
-        <term>CANCEL</term>
-
-        <listitem id="listitemN0x180ac00N0x18d13c4">
-            <para>Closes the screen without creating a new Comment, returning
-          you to the previous screen.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>SAVE</term>
-
-        <listitem id="listitemN0x180ac00N0x18d140c">
-            <para>Creates the Comment and adds it to the list of Lot/Serial
-          Comments.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
-  </section>
+  <title>Lot/Serial Comments</title>
+  <para>To associate Comments with Lot/Serial Items, select the "Lot/Serial
+  Comments" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/IM_Lot_lotComments.png"
+                     id="Graphic652427" />
+        </imageobject>
+        <caption id="Caption652135">Lot/Serial Comments</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When associating Comments with Lot/Serial Items, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem id="listitemN0x180ac00N0x18d10ac">
+        <para>Enter the Item Number of the Item you want to create a
+        Lot/Serial Comment for. The browse button located to the right of the
+        field leads to a searchable Item list. The list includes all Items--as
+        opposed to Lot/Serial Items only--because an Item may not currently be
+        Lot/Serial Number controlled, but it may have been in the past.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem id="listitemN0x180ac00N0x18d10f4">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Lot/Serial #</term>
+      <listitem id="listitemN0x180ac00N0x18d113c">
+        <para>Specify the Lot/Serial Number you want to create a Comment for.
+        Lot/Serial Numbers are created either when Lot/Serial Items are
+        received into Inventory or when existing quantities are
+        reassigned.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comments</term>
+      <listitem id="listitemN0x180ac00N0x18d1184">
+        <para>Display lists Comments associated with the specified Lot/Serial
+        Number.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18d11f0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="listitemN0x180ac00N0x18d1238">
+        <para>Opens screen for creating a new Comment.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x18d1280">
+        <para>Highlight a Comment and then select this button to view the
+        Comment.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To create a new Lot/Serial Comment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/CommentNew.png" id="Graphic652474" />
+        </imageobject>
+        <caption id="Caption652150">Create New Comment</caption>
+      </mediaobject>
+    </screenshot></para>
+  <variablelist>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem id="listitemN0x180ac00N0x18d1358">
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18d13c4">
+        <para>Closes the screen without creating a new Comment, returning you
+        to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem id="listitemN0x180ac00N0x18d140c">
+        <para>Creates the Comment and adds it to the list of Lot/Serial
+        Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

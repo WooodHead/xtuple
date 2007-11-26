@@ -39,16 +39,52 @@
       <listitem id="listitemN0x180ac00N0x198743c">
         <para>Select one of the following transaction types from the drop-down
         menu.</para>
-        <para>All Transactions: Displays all Inventory transactions.</para>
-        <para>Receipts: Displays receipts into Inventory from Manufacturing,
-        purchases, or miscellaneous receipts.</para>
-        <para>Issues: Displays issues from Inventory to Manufacturing.</para>
-        <para>Shipments: Displays shipments to customers.</para>
-        <para>Adjustments and Counts: Displays Inventory adjustments and
-        counts.</para>
-        <para>Transfers: Displays Inter-Warehouse Transfers and Location and
-        Lot/Serial Number reassignments.</para>
-        <para>Scraps: Displays Scrap transfer from Inventory.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Warehouse Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap transfer from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -94,11 +130,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x19875ec">
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for calculation to
-        proceed. Results will be displayed in the "Inventory History"
-        list.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Inventory History" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -55,14 +55,26 @@
       <listitem id="listitemN0x180ac00N0x19a8ed4">
         <para>Specify number of days using one of the following
         options:</para>
-        <para>Item Site Lead Time +: Select a number using the arrow buttons,
-        or manually enter a value up to a maximum of 99. Average daily usage
-        calculated using selected Calendar periods will be multiplied by this
-        value to determine Reorder Level.</para>
-        <para>Fixed Days: Select a number using the arrow buttons, or manually
-        enter a value up to a maximum of 999. Average daily usage calculated
-        using selected Calendar periods will be multiplied by this value to
-        determine Reorder Level.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Site Lead Time +</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 99. Average daily usage calculated
+              using selected Calendar periods will be multiplied by this value
+              to determine Reorder Level.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fixed Days</term>
+            <listitem>
+              <para>Select a number using the arrow buttons, or manually enter
+              a value up to a maximum of 999. Average daily usage calculated
+              using selected Calendar periods will be multiplied by this value
+              to determine Reorder Level.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,22 +82,35 @@
       <listitem id="listitemN0x180ac00N0x19a8f1c">
         <para>Specify the periods to include in the analysis using the
         following Calendar options:</para>
-        <para>Calendar: Select the Calendar you want to use for the
-        analysis.</para>
-        <para>Name/Selected Periods: Select as many periods as you want to
-        include in the analysis. Selected periods correspond to Calendar
-        specified in the "Calendar" field. Select individual periods or groups
-        of periods together. To select an individual period, highlight the
-        period using your mouse button. The period is now selected. To select
-        a sequence of periods, highlight the first in the sequence using your
-        mouse button. Then, holding down the SHIFT key on your keyboard,
-        highlight the last period in the sequence. The entire sequence is now
-        selected. To select periods that are out of sequence (e.g., January,
-        April, July, October), highlight the first period in the group. Then,
-        holding down the CTRL key on your keyboard, highlight the next period
-        you want to select. Continue highlighting periods with the CTRL key
-        depressed until all desired periods are selected. The entire group is
-        now selected.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Calendar</term>
+            <listitem>
+              <para>Select the Calendar you want to use for the
+              analysis.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Name/Selected Periods</term>
+            <listitem>
+              <para>Select as many periods as you want to include in the
+              analysis. Selected periods correspond to Calendar specified in
+              the "Calendar" field. Select individual periods or groups of
+              periods together. To select an individual period, highlight the
+              period using your mouse button. The period is now selected. To
+              select a sequence of periods, highlight the first in the
+              sequence using your mouse button. Then, holding down the SHIFT
+              key on your keyboard, highlight the last period in the sequence.
+              The entire sequence is now selected. To select periods that are
+              out of sequence (e.g., January, April, July, October), highlight
+              the first period in the group. Then, holding down the CTRL key
+              on your keyboard, highlight the next period you want to select.
+              Continue highlighting periods with the CTRL key depressed until
+              all desired periods are selected. The entire group is now
+              selected.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
