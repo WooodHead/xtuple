@@ -90,11 +90,11 @@ BEGIN
     FOR _r IN SELECT checkitem_amount, checkitem_discount,
                      currToBase(checkitem_curr_id,
                                 checkitem_amount,
-                                COALESCE(checkitem_docdate, _p.check_checkdate)) AS checkitem_amount_base,
+                                COALESCE(checkitem_docdate, _p.checkhead_checkdate)) AS checkitem_amount_base,
                      apopen_id, apopen_doctype, apopen_docnumber,
                      aropen_id, aropen_doctype, aropen_docnumber,
                      checkitem_curr_id,
-                     COALESCE(checkitem_docdate, _p.check_checkdate) AS docdate
+                     COALESCE(checkitem_docdate, _p.checkhead_checkdate) AS docdate
               FROM (checkitem LEFT OUTER JOIN
 		    apopen ON (checkitem_apopen_id=apopen_id)) LEFT OUTER JOIN
 		    aropen ON (checkitem_aropen_id=aropen_id)
@@ -208,7 +208,7 @@ BEGIN
 
 --  calculate currency gain/loss
       SELECT currGain(_r.checkitem_curr_id, _r.checkitem_amount,
-                      _r.docdate, _p.check_checkdate)
+                      _r.docdate, _p.checkhead_checkdate)
             INTO _exchGainTmp;
       _exchGain := _exchGain + _exchGainTmp;
 
