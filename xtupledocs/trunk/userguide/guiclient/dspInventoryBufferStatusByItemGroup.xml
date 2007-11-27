@@ -48,23 +48,39 @@
     <varlistentry>
       <term>Item Group Pattern</term>
       <listitem>
-        <para>Enter an Item Group pattern to select a range of Item
-        Groups.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter an Item Group pattern to select a range of Item Groups.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Show Buffer Status</term>
       <listitem>
         <para>Show buffer statuses using one of the following criteria:</para>
-        <para>Greater than zero: Select to display only those Item Sites
-        having a buffer status greater than zero.</para>
-        <para>In Emergency Zone: Select to display only those Item Sites whose
-        buffer status is in the "emergency zone." The emergency zone is
-        defined as a buffer status of 66 or greater.</para>
-        <para>All: Select to display buffer statuses for all Item
-        Sites.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Greater than zero</term>
+            <listitem>
+              <para>Select to display only those Item Sites having a buffer
+              status greater than zero.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>In Emergency Zone</term>
+            <listitem>
+              <para>Select to display only those Item Sites whose buffer
+              status is in the "emergency zone." The emergency zone is defined
+              as a buffer status of 66 or greater.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>All</term>
+            <listitem>
+              <para>Select to display buffer statuses for all Item
+              Sites.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -93,11 +109,10 @@
       <term>Availability</term>
       <listitem>
         <para>Display lists Inventory buffer statuses by Item Group, using the
-        specified parameters.</para>
-        <para>If Planned Availability displays in the color orange, this means
-        the actual or projected Quantity on Hand is at or below the Reorder
-        Level. If the color is red, the current or projected Quantity on Hand
-        is below 0.</para>
+        specified parameters. If Planned Availability displays in the color
+        orange, this means the actual or projected Quantity on Hand is at or
+        below the Reorder Level. If the color is red, the current or projected
+        Quantity on Hand is below 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>

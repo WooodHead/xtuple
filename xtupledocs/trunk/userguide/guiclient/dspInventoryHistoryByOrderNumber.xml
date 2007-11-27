@@ -32,10 +32,10 @@
     <varlistentry>
       <term>Order #</term>
       <listitem id="listitemN0x180ac00N0x197e4b8">
-        <para>Enter an Order Number or Regular Expression.</para>
-        <para>The display will show Inventory history for the specified Order
-        Number(s). Purchase Order Numbers, Sales Order Numbers, and Work Order
-        Numbers are supported.</para>
+        <para>Enter an Order Number or Regular Expression. The display will
+        show Inventory history for the specified Order Number(s). Purchase
+        Order Numbers, Sales Order Numbers, and Work Order Numbers are
+        supported.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -48,17 +48,53 @@
     <varlistentry>
       <term>Trans. Types</term>
       <listitem id="listitemN0x180ac00N0x197e548">
-        <para>Select one of the available transaction types:</para>
-        <para>All Transactions: Displays all Inventory transactions.</para>
-        <para>Receipts: Displays receipts into Inventory from Manufacturing,
-        purchases, or miscellaneous receipts.</para>
-        <para>Issues: Displays issues from Inventory to Manufacturing.</para>
-        <para>Shipments: Displays shipments to customers.</para>
-        <para>Adjustments and Counts: Displays Inventory adjustments and
-        counts.</para>
-        <para>Transfers: Displays Inter-Warehouse Transfers and Location and
-        Lot/Serial Number reassignments.</para>
-        <para>Scraps: Displays Scrap removed from Inventory.</para>
+        <para>Select one of the available transaction types: </para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Warehouse Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap removed from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,17 +121,15 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x197e620">
-        <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and after this date will be
-        displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and after this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x197e668">
-        <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and before this date will be
-        displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and before this date will be displayed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -126,12 +160,9 @@
   <para>Right-clicking on a transaction in the Inventory History list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>View Transaction Information</term>
-      <listitem id="listitemN0x180ac00N0x197e7d0">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewTransactionInformation)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

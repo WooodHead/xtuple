@@ -44,26 +44,61 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x197df3c">
-        <para>Enter an Item Group pattern to select a range of Item
-        Groups.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter an Item Group pattern to select a range of Item Groups.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Trans. Types</term>
       <listitem id="listitemN0x180ac00N0x197df84">
         <para>Select one of the available transaction types:</para>
-        <para>All Transactions: Displays all Inventory transactions.</para>
-        <para>Receipts: Displays receipts into Inventory from Manufacturing,
-        purchases, or miscellaneous receipts.</para>
-        <para>Issues: Displays issues from Inventory to Manufacturing.</para>
-        <para>Shipments: Displays shipments to customers.</para>
-        <para>Adjustments and Counts: Displays Inventory adjustments and
-        counts.</para>
-        <para>Transfers: Displays Inter-Warehouse Transfers and Location and
-        Lot/Serial Number reassignments.</para>
-        <para>Scraps: Displays Scrap removed from Inventory.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Warehouse Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap removed from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -91,28 +126,26 @@
     <varlistentry>
       <term>Start Date</term>
       <listitem id="listitemN0x180ac00N0x197e05c">
-        <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and after this date will be
-        displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and after this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>End Date</term>
       <listitem id="listitemN0x180ac00N0x197e0a4">
-        <para>This is a required field.</para>
-        <para>Inventory transactions conducted on and before this date will be
-        displayed.</para>
+        <para>This is a required field. Inventory transactions conducted on
+        and before this date will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Inventory History</term>
       <listitem id="listitemN0x180ac00N0x197e0ec">
         <para>Display lists Inventory history by Item Group, using the
-        specified parameters.</para>
-        <para>This display is a nested list, with a plus ("+") sign located to
-        the far left of the display next to each transaction that may be
-        expanded to lower levels. By clicking your mouse on a plus sign, you
-        reveal lower levels of information related to the Order.</para>
+        specified parameters. This display is a nested list, with a plus ("+")
+        sign located to the far left of the display next to each transaction
+        that may be expanded to lower levels. By clicking your mouse on a plus
+        sign, you reveal lower levels of information related to the
+        Order.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -129,11 +162,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x197e1a0">
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for calculation to
-        proceed. Results will be displayed in the "Inventory History"
-        list.</para>
+        <para>Select to generate the display, using the specified parameters.
+        tart date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Inventory History" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -146,18 +177,12 @@
   <para>Right-clicking on a transaction in the Inventory History list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>View Transaction Information</term>
-      <listitem id="listitemN0x180ac00N0x197e254">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Edit Transaction Information</term>
-      <listitem id="listitemN0x180ac00N0x197e29c">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewTransactionInformation)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditTransactionInfo)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
@@ -170,11 +195,8 @@
   <para>If the Order Number is associated with a Work Order, the following
   additional menu option will also be available:</para>
   <variablelist>
-    <varlistentry>
-      <term>View Work Order Information</term>
-      <listitem id="listitemN0x180ac00N0x197e350">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewWorkOrderInfo)" />
   </variablelist>
 </section>
