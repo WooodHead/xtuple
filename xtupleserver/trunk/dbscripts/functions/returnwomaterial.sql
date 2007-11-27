@@ -37,13 +37,18 @@ BEGIN
   ELSE
     _itemlocSeries = pItemlocSeries;
   END IF;
-  SELECT postInvTrans( itemsite_id, ''IM'', (_qty * -1), 
+  SELECT postInvTrans( ci.itemsite_id, ''IM'', (_qty * -1), 
                        ''W/O'', ''WO'', _woNumber, '''', ''Return Material from Work Order'',
-                       costcat_wip_accnt_id, costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
-  FROM womatl, itemsite, costcat
-  WHERE ( (womatl_itemsite_id=itemsite_id)
-   AND (itemsite_costcat_id=costcat_id)
-   AND (womatl_id=pWomatlid) );
+                       pc.costcat_wip_accnt_id, cc.costcat_asset_accnt_id, _itemlocSeries ) INTO _invhistid
+    FROM womatl, wo,
+         itemsite AS ci, costcat AS cc,
+         itemsite AS pi, costcat AS pc
+   WHERE((womatl_itemsite_id=ci.itemsite_id)
+     AND (ci.itemsite_costcat_id=cc.costcat_id)
+     AND (womatl_wo_id=wo_id)
+     AND (wo_itemsite_id=pi.itemsite_id)
+     AND (pi.itemsite_costcat_id=pc.costcat_id)
+     AND (womatl_id=pWomatlid) );
 
 --  Decrease the parent W/O''s WIP value by the value of the returned components
   UPDATE wo
