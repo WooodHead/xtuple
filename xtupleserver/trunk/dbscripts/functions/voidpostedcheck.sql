@@ -126,16 +126,16 @@ BEGIN
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      ''DS'', _r.apopen_docnumber,
                                       findAPDiscountAccount(_p.checkhead_recip_id),
-                                      round(currToBase(_r.checkheaditem_curr_id,
-						       _r.checkheaditem_discount,
+                                      round(currToBase(_r.checkitem_curr_id,
+						       _r.checkitem_discount,
 						       _r.docdate), 2) * -1,
                                       pVoidDate, _gltransNote);
 
           PERFORM insertIntoGLSeries( _sequence, _p.checkrecip_gltrans_source,
 				      ''DS'', _r.apopen_docnumber,
                                       findAPAccount(_p.checkhead_recip_id),
-                                      round(currToBase(_r.checkheaditem_curr_id,
-						       _r.checkheaditem_discount,
+                                      round(currToBase(_r.checkitem_curr_id,
+						       _r.checkitem_discount,
 						       _r.docdate), 2),
                                       pVoidDate, _gltransNote);
 
