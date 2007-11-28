@@ -84,10 +84,26 @@
       <listitem id="listitemN0x180ac00N0x198c57c">
         <para>Select one of the following options to indicate how you want the
         results to be organized:</para>
-        <para>Ship Date: Select to order the display by Ship Date.</para>
-        <para>Pack Date: Select to order the display by Pack Date.</para>
-        <para>S/O Number: Select to order the display by Sales Order
-        Number.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Date</term>
+            <listitem>
+              <para>Select to order the display by Ship Date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pack Date</term>
+            <listitem>
+              <para>Select to order the display by Pack Date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>S/O Number</term>
+            <listitem>
+              <para>Select to order the display by Sales Order Number.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -108,12 +124,40 @@
     <para>The Summarized Backlog by Warehouse display is color-coded for ease
     of use. The following colors are used to describe the backlog status of
     Sales Order Line Items:</para>
-    <para>Blue: Order is at Shipping but is not yet shipped</para>
-    <para>Green: Order has been shipped but is not yet invoiced</para>
-    <para>Red: Part of the Order has been shipped and invoiced, but Backorder
-    Items still need to be shipped and invoiced</para>
-    <para>Order has remaining uninvoiced Line Items remain on Backorder</para>
-    <para>Black: None of the above conditions is true.</para>
+    <variablelist>
+      <varlistentry>
+        <term>Blue</term>
+        <listitem>
+          <para>Order is at Shipping but is not yet shipped</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Green</term>
+        <listitem>
+          <para>Order has been shipped but is not yet invoiced</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Red</term>
+        <listitem>
+          <para>Part of the Order has been shipped and invoiced, but Backorder
+          Items still need to be shipped and invoiced</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term></term>
+        <listitem>
+          <para>Order has remaining uninvoiced Line Items remain on
+          Backorder</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Black</term>
+        <listitem>
+          <para>None of the above conditions is true.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </note>
   <variablelist>
     <varlistentry>

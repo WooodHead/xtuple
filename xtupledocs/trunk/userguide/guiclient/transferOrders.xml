@@ -28,10 +28,22 @@
       <listitem id="listitemN0x180ac00N0x18abbbc">
         <para>Specify the source Warehouse(s) you want to display in the
         list:</para>
-        <para>All Warehouses: Select to display Transfer Orders for all source
-        Warehouses.</para>
-        <para>Selected: Specify source Warehouse whose Transfer Orders you
-        want to display.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Warehouses</term>
+            <listitem>
+              <para>Select to display Transfer Orders for all source
+              Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify source Warehouse whose Transfer Orders you want to
+              display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -39,10 +51,22 @@
       <listitem id="listitemN0x180ac00N0x18abc04">
         <para>Specify the destination Warehouse(s) you want to display in the
         list:</para>
-        <para>All Warehouses: Select to display Transfer Orders for all
-        destination Warehouses.</para>
-        <para>Selected: Specify destination Warehouse whose Transfer Orders
-        you want to display.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Warehouses</term>
+            <listitem>
+              <para>Select to display Transfer Orders for all destination
+              Warehouses.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Selected</term>
+            <listitem>
+              <para>Specify destination Warehouse whose Transfer Orders you
+              want to display.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -119,27 +143,27 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrdersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrdersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrdersDELETE)" />
     </varlistentry>
     <varlistentry>
       <term>Issue to Shipping</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrdersISSUESTOCK)" />
     </varlistentry>
     <varlistentry>
       <term>Copy</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrdersCOPY)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"

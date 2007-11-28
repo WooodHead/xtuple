@@ -53,10 +53,22 @@
       <listitem id="listitemN0x180ac00N0x19224ec">
         <para>Specify which of the following codes you want to have Count Tag
         displayed for:</para>
-        <para>Class Code: If selected, you will be presented with Class Code
-        options.</para>
-        <para>Planner Code: If selected, you will be presented with Planner
-        Code options.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Class Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Class Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Planner Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Planner Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -69,11 +81,11 @@
     <varlistentry>
       <term>Show Count Slips</term>
       <listitem id="listitemN0x180ac00N0x192257c">
-        <para>Select to display Count Slips associated with Count Tags.</para>
-        <para>Count Slips will display in a nested manner beneath their
-        associated Count Tag. Look for a plus "+" sign in the first column to
-        determine if Count Slips are associated. Select the plus "+" sign to
-        reveal the Count Slips. To hide the Count Slips, select the minus "-"
+        <para>Select to display Count Slips associated with Count Tags. Count
+        Slips will display in a nested manner beneath their associated Count
+        Tag. Look for a plus "+" sign in the first column to determine if
+        Count Slips are associated. Select the plus "+" sign to reveal the
+        Count Slips. To hide the Count Slips, select the minus "-"
         sign.</para>
       </listitem>
     </varlistentry>
@@ -87,11 +99,10 @@
       <term>Highlight Count Tag when Variance Value Exceeds</term>
       <listitem id="listitemN0x180ac00N0x192260c">
         <para>Select to highlight Count Tags whose dollar amount variance
-        exceeds the value entered.</para>
-        <para>In addition to checking the box, you must also enter a value in
-        the field. Once the value is entered, select the QUERY button. Count
-        Tags meeting your criteria will automatically be highlighted in
-        red.</para>
+        exceeds the value entered. In addition to checking the box, you must
+        also enter a value in the field. Once the value is entered, select the
+        QUERY button. Count Tags meeting your criteria will automatically be
+        highlighted in red.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -108,20 +119,18 @@
       <term>Highlight Count Tag when Variance Exceeds %</term>
       <listitem id="listitemN0x180ac00N0x192269c">
         <para>Select to highlight Count Tags whose variance exceeds a
-        user-defined percentage.</para>
-        <para>In addition to checking the box, you must also enter a
-        percentage in the percentage field. Once the percentage is entered,
-        select the QUERY button. Count Tags meeting your criteria will
-        automatically be highlighted in red.</para>
+        user-defined percentage. In addition to checking the box, you must
+        also enter a percentage in the percentage field. Once the percentage
+        is entered, select the QUERY button. Count Tags meeting your criteria
+        will automatically be highlighted in red.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Count Tags</term>
       <listitem id="listitemN0x180ac00N0x19226e4">
         <para>Display lists Count Tag Edit List, using the specified
-        parameters.</para>
-        <para>If the count quantity displays in blue type, this means the Item
-        has not been counted.</para>
+        parameters. If the count quantity displays in blue type, this means
+        the Item has not been counted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -204,7 +213,7 @@
   <variablelist>
     <varlistentry>
       <term>Enter Count Slip</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(dspCountTagEditListENTERSLIP)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
@@ -215,17 +224,17 @@
                 xpointer="element(rightclickViewPendingInventoryHistory)" />
     <varlistentry>
       <term>Edit Count Tag</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(dspCountTagEditListEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Post Count Tag</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(dspCountTagEditListPOST)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Count Tag</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(dspCountTagEditListDELETE)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"

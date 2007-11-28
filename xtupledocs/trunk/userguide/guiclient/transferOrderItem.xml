@@ -85,59 +85,55 @@
         </indexterm>Show Availability</term>
       <listitem id="listitemN0x180ac00N0x18c0480">
         <para>Select to display Availability information for the Transfer
-        Order Item in the following categories: </para>
+        Order Item in the following categories:</para>
         <variablelist>
           <varlistentry>
-            <term></term>
+            <term>On Hand</term>
             <listitem>
-              <para></para>
+              <para>Displays the current Quantity on Hand value.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term></term>
+            <term>Allocated</term>
             <listitem>
-              <para></para>
+              <para>Displays the quantity allocated to current Sales Orders,
+              Transfer Orders, and/or Work Orders in the system. An Item is
+              considered allocated to a Sales Order/Transfer Order if a
+              Transfer Order Line Item exists for the Item--and that Line Item
+              has not yet been issued to Shipping. An Item is considered
+              allocated to a Work Order if the Item is a material
+              requirement--and the material has not yet been issued to the
+              Work Order. Once the current Transfer Order Line Item is saved,
+              the "Allocated" value will increase by the quantity
+              ordered.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term></term>
+            <term>Unallocated</term>
             <listitem>
-              <para></para>
+              <para>Displays the Quantity on Hand remaining after allocations
+              have been accounted for, as in: QOH - Allocated Qty. =
+              Unallocated Qty.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term></term>
+            <term>On Order</term>
             <listitem>
-              <para></para>
+              <para>If the Transfer Order Item is a manufactured Item, the
+              quantity ordered by current Work Orders will be displayed. If
+              the Transfer Order Item is a purchased Item, the quantity
+              ordered by current Purchase Orders will be displayed.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
-            <term></term>
+            <term>Available</term>
             <listitem>
-              <para></para>
+              <para>Displays the available quantity. Available quantity is
+              determined using the following formula: Unallocated Qty. + On
+              Order Qty. = Available Qty.</para>
             </listitem>
           </varlistentry>
         </variablelist>
-        <para>On Hand: Displays the current Quantity on Hand value.</para>
-        <para>Allocated: Displays the quantity allocated to current Sales
-        Orders, Transfer Orders, and/or Work Orders in the system. An Item is
-        considered allocated to a Sales Order/Transfer Order if a Transfer
-        Order Line Item exists for the Item--and that Line Item has not yet
-        been issued to Shipping. An Item is considered allocated to a Work
-        Order if the Item is a material requirement--and the material has not
-        yet been issued to the Work Order. Once the current Transfer Order
-        Line Item is saved, the "Allocated" value will increase by the
-        quantity ordered.</para>
-        <para>Unallocated: Displays the Quantity on Hand remaining after
-        allocations have been accounted for, as in: QOH - Allocated Qty. =
-        Unallocated Qty.</para>
-        <para>On Order: If the Transfer Order Item is a manufactured Item, the
-        quantity ordered by current Work Orders will be displayed. If the
-        Transfer Order Item is a purchased Item, the quantity ordered by
-        current Purchase Orders will be displayed.</para>
-        <para>Available: Displays the available quantity. Available quantity
-        is determined using the following formula: Unallocated Qty. + On Order
-        Qty. = Available Qty.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

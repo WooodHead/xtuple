@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="enterPoitemReturn">
   <title>Enter Return Item</title>
-  <para>To enter Return details, highlight a Purchase Order
-  Item and select the ENTER RETURN button. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To enter Return details, highlight a Purchase Order Item and select
+  the ENTER RETURN button. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterReturnItem.png" id="Graphic523222"/>
+          <imagedata fileref="images/SR_Rcvg_enterReturnItem.png"
+                     id="Graphic523222" />
         </imageobject>
         <caption id="Caption523221">Enter Purchase Order Item Return</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering Return details, you are presented with
-  the following options:</para>
+    </screenshot></para>
+  <para>When entering Return details, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
@@ -85,10 +84,9 @@
     <varlistentry>
       <term>Returnable Qty.</term>
       <listitem id="listitemN0x180ac00N0x1861718">
-        <para>Displays the quantity available to be returned.</para>
-        <para>The maximum returnable quantity is the original
-        quantity ordered. The system will not allow you to return more than
-        the returnable quantity.</para>
+        <para>Displays the quantity available to be returned. The maximum
+        returnable quantity is the original quantity ordered. The system will
+        not allow you to return more than the returnable quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -98,8 +96,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -111,12 +109,12 @@
     <varlistentry>
       <term>RETURN</term>
       <listitem id="listitemN0x180ac00N0x1861814">
-        <para>Select to return the specified Line Item quantity.</para>
-        <para>When posting a Return, privileged users will be
-        given the option to generate an A/P Credit Memo in the amount of the
-        Return. This option is available when returning against closed
-        Purchase Order Line Items. Closed Purchase Orders will be reopened
-        automatically in this scenario to allow for future Receipts.</para>
+        <para>Select to return the specified Line Item quantity. When posting
+        a Return, privileged users will be given the option to generate an A/P
+        Credit Memo in the amount of the Return. This option is available when
+        returning against closed Purchase Order Line Items. Closed Purchase
+        Orders will be reopened automatically in this scenario to allow for
+        future Receipts.</para>
       </listitem>
     </varlistentry>
   </variablelist>

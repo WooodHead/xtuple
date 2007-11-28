@@ -1,77 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519249">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cycle count tags</primary>
       <secondary>creating by warehouse</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>cycle counts</primary>
       <secondary>creating tags for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>creating cycle count tags</secondary>
     </indexterm>Create Cycle Count Tags by Warehouse</title>
-  <para>Cycle Count Tags are used to count Inventory on a
-  frequent basis, with the rate of frequency defined in the Item Site master.
-  The following criteria are used to determine the order in which Cycle Count
-  Tags will be created for a specified Warehouse(s):</para>
+  <para>Cycle Count Tags are used to count Inventory on a frequent basis, with
+  the rate of frequency defined in the Item Site master. The following
+  criteria are used to determine the order in which Cycle Count Tags will be
+  created for a specified Warehouse(s):</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
     <listitem id="listitemN0x180ac00N0x18fa57c">
-      <para>The system scans the Item Site masters in the
-      specified Warehouse(s), specifically targeting Cycle Count frequency
+      <para>The system scans the Item Site masters in the specified
+      Warehouse(s), specifically targeting Cycle Count frequency
       settings.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x18fa5a0">
-      <para>The frequency settings are then compared to the
-      last counted dates for each Item Site to determine which Item Sites have
-      last counted dates most out of sync with their count frequency rate;
-      Item Sites whose last counted dates are most out of sync with their
-      stated frequency rate will have Cycle Count Tags created for them
-      first.</para>
+      <para>The frequency settings are then compared to the last counted dates
+      for each Item Site to determine which Item Sites have last counted dates
+      most out of sync with their count frequency rate; Item Sites whose last
+      counted dates are most out of sync with their stated frequency rate will
+      have Cycle Count Tags created for them first.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x18fa5c4">
-      <para>After frequency and last counted date parameters
-      have been considered, the Item Site's ABC Class is used--with A Class
-      Item Sites having Cycle Count Tags created first.</para>
+      <para>After frequency and last counted date parameters have been
+      considered, the Item Site's ABC Class is used--with A Class Item Sites
+      having Cycle Count Tags created first.</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x18fa5e8">
-      <para>Then, finally, Cycle Count Tags are created based
-      on the Item Numbers for the Item Sites in ascending order (i.e., 1, 2, 3
-      ... A, B, C).</para>
+      <para>Then, finally, Cycle Count Tags are created based on the Item
+      Numbers for the Item Sites in ascending order (i.e., 1, 2, 3 ... A, B,
+      C).</para>
     </listitem>
     <listitem id="listitemN0x180ac00N0x18fa60c">
-      <para>The total number of Cycle Count Tags to be created
-      is determined beforehand.</para>
+      <para>The total number of Cycle Count Tags to be created is determined
+      beforehand.</para>
     </listitem>
   </orderedlist>
-  <para>The difference between Cycle Count Tags and Count Tags
-  is that Cycle Count Tags are generated dynamically, using the criteria
-  listed above. Count Tags are generated manually, on demand.</para>
+  <para>The difference between Cycle Count Tags and Count Tags is that Cycle
+  Count Tags are generated dynamically, using the criteria listed above. Count
+  Tags are generated manually, on demand.</para>
   <tip>
-    <para>To monitor the frequency of Item Site Cycle Counts,
-    view the "Last Counted" column in any of the Item Site Reports: by Item,
-    by Class Code, etc. The Last Counted date represents the date a Count Tag
-    was last posted (not simply issued) for the Item Site.</para>
+    <para>To monitor the frequency of Item Site Cycle Counts, view the "Last
+    Counted" column in any of the Item Site Reports: by Item, by Class Code,
+    etc. The Last Counted date represents the date a Count Tag was last posted
+    (not simply issued) for the Item Site.</para>
   </tip>
-  <para>To create Cycle Count Tags by Warehouse, select the
-  "Create Cycle Count Tags by Warehouse" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To create Cycle Count Tags by Warehouse, select the "Create Cycle
+  Count Tags by Warehouse" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_createCycleCTByWareho.png" id="Graphic526024"/>
+          <imagedata fileref="images/IM_PI_createCycleCTByWareho.png"
+                     id="Graphic526024" />
         </imageobject>
         <caption id="Caption519255">Create Cycle Count Tags by
         Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating Cycle Count Tags by Warehouse, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating Cycle Count Tags by Warehouse, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Warehouse</term>
@@ -82,16 +77,15 @@
     <varlistentry>
       <term>Mark Created Count Tag as Priority</term>
       <listitem id="listitemN0x180ac00N0x18fa750">
-        <para>Select to give priority status to Count Tag.</para>
-        <para>Count Tags marked as having priority status are
-        listed first in any prioritized lists. For example, priority Count
-        Tags will appear at the top of the Count Tag Edit List; whereas,
-        non-priority Count Tags will appear at the bottom of the list.</para>
+        <para>Select to give priority status to Count Tag. Count Tags marked
+        as having priority status are listed first in any prioritized lists.
+        For example, priority Count Tags will appear at the top of the Count
+        Tag Edit List; whereas, non-priority Count Tags will appear at the
+        bottom of the list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>freezing</primary>
           <secondary>of inventory</secondary>
         </indexterm> <indexterm significance="normal">
@@ -102,32 +96,28 @@
           <secondary>freezing inventory during</secondary>
         </indexterm>Freeze Inventory</term>
       <listitem id="listitemN0x180ac00N0x18fa870">
-        <para>Select to freeze Inventory.</para>
-        <para>The Quantity on Hand value is not updated when a
-        transaction is posted against a frozen Item Site. Instead, Inventory
-        transactions are pooled and then posted later when the Item Site is
-        unfrozen--or thawed. The Quantity on Hand is updated when the Item
-        Site is thawed. For a detailed explanation of these concepts, see the
-        <xref endterm="Anchor80983" linkend="Anchor80983"/>
-    FINDME
-  "Topic: Freezing and Thawing"
-        section.</para>
+        <para>Select to freeze Inventory. The Quantity on Hand value is not
+        updated when a transaction is posted against a frozen Item Site.
+        Instead, Inventory transactions are pooled and then posted later when
+        the Item Site is unfrozen--or thawed. The Quantity on Hand is updated
+        when the Item Site is thawed. For a detailed explanation of these
+        concepts, see the <xref endterm="Anchor80983" linkend="Anchor80983" />
+        FINDME "Topic: Freezing and Thawing" section.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>When an Item Site is frozen, any Warehouse activity
-    entered against that Item Site--including Work Orders--will use the
-    Quantity on Hand shown at the time of freezing.</para>
+    <para>When an Item Site is frozen, any Warehouse activity entered against
+    that Item Site--including Work Orders--will use the Quantity on Hand shown
+    at the time of freezing.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Ignore Zero Balance Item Sites</term>
       <listitem id="listitemN0x180ac00N0x18fa900">
         <para>Select to ignore Item Sites which have a Quantity on Hand
-        balance of zero.</para>
-        <para>If selected, Count Tags will not be created for
-        any Item Site having a Quantity on Hand balance of zero.</para>
+        balance of zero. If selected, Count Tags will not be created for any
+        Item Site having a Quantity on Hand balance of zero.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -142,18 +132,29 @@
       <listitem id="listitemN0x180ac00N0x18fa990">
         <para>Specify which of the following codes you want to have Cycle
         Count Tags created for:</para>
-        <para>Class Code: If selected, you will be presented
-        with Class Code options.</para>
-        <para>Planner Code: If selected, you will be presented
-        with Planner Code options.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Class Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Class Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Planner Code</term>
+            <listitem>
+              <para>If selected, you will be presented with Planner Code
+              options.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Only for Specified Location</term>
       <listitem id="listitemN0x180ac00N0x18fa9d8">
         <para>Select if you want to create Count Tags for an individual
-        Warehouse Location.</para>
-        <para>If selected, you will have the option to specify
+        Warehouse Location. If selected, you will have the option to specify
         which Warehouse Location you want to have Count Tags created for. This
         option enables you to count individual Warehouse Locations separately,
         without having to post counts for an entire Warehouse all at
@@ -161,8 +162,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -177,8 +177,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -190,8 +190,7 @@
     <varlistentry>
       <term>CREATE TAGS</term>
       <listitem id="listitemN0x180ac00N0x18fab64">
-        <para>Creates Cycle Count Tags.</para>
-        <para>Cycle Count Tag Numbers are generated
+        <para>Creates Cycle Count Tags. Cycle Count Tag Numbers are generated
         automatically in an ordered sequence.</para>
       </listitem>
     </varlistentry>

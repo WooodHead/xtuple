@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519348">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory counts</primary>
       <secondary>entering miscellaneous</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>physical inventory</primary>
       <secondary>entering miscellaneous count</secondary>
     </indexterm>Enter Miscellaneous Inventory Count</title>
-  <para>Miscellaneous Inventory counts can be used to enter
-  Inventory totals without engaging the Count Tag or Count Slip mechanisms.
-  Entering a miscellaneous Inventory count is a simplified method for entering
-  Inventory counts. To enter a miscellaneous Inventory count, select the
-  "Enter Misc. Inventory Count" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>Miscellaneous Inventory counts can be used to enter Inventory totals
+  without engaging the Count Tag or Count Slip mechanisms. Entering a
+  miscellaneous Inventory count is a simplified method for entering Inventory
+  counts. To enter a miscellaneous Inventory count, select the "Enter Misc.
+  Inventory Count" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_enterMiscInventoryCou.png" id="Graphic526069"/>
+          <imagedata fileref="images/IM_PI_enterMiscInventoryCou.png"
+                     id="Graphic526069" />
         </imageobject>
         <caption id="Caption519354">Enter Miscellaneous Inventory
         Count</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering a miscellaneous Inventory count, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When entering a miscellaneous Inventory count, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
@@ -47,9 +44,8 @@
       <term>Warehouse</term>
       <listitem id="listitemN0x180ac00N0x1912df8">
         <para>Specify the Warehouse where you want to record the miscellaneous
-        Inventory Count.</para>
-        <para>This field will remain blank until you enter an
-        Item Number into the "Item Number" field. Once that is entered, the
+        Inventory Count. This field will remain blank until you enter an Item
+        Number into the "Item Number" field. Once that is entered, the
         Warehouse(s) where the Item is located will display in the
         list.</para>
       </listitem>
@@ -69,14 +65,13 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>To view a miscellaneous Count total that has been
-    entered into the system, open any of the Physical Inventory displays
-    featuring Count Tags. While a miscellaneous Count is not assigned a Count
-    Tag number, its total will be shown in these Physical Inventory
-    displays.</para>
+    <para>To view a miscellaneous Count total that has been entered into the
+    system, open any of the Physical Inventory displays featuring Count Tags.
+    While a miscellaneous Count is not assigned a Count Tag number, its total
+    will be shown in these Physical Inventory displays.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -88,9 +83,8 @@
     <varlistentry>
       <term>POST COUNT</term>
       <listitem id="listitemN0x180ac00N0x1912f60">
-        <para>Posts miscellaneous Count.</para>
-        <para>Count quantity is added to the total Quantity on
-        Hand.</para>
+        <para>Posts miscellaneous Count. Count quantity is added to the total
+        Quantity on Hand.</para>
       </listitem>
     </varlistentry>
   </variablelist>
