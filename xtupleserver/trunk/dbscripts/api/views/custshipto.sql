@@ -28,7 +28,7 @@ AS
      cntct_fax AS fax,
      cntct_email AS email,
      salesrep_number AS sales_rep,
-     shipto_commission AS commission,
+     (shipto_commission * 100.0) AS commission,
      shipzone_name AS zone,
      taxauth_code AS tax_authority,
      shipto_shipvia AS ship_via,
@@ -100,7 +100,7 @@ CREATE OR REPLACE RULE "_INSERT" AS
       SELECT cust_shipvia
       FROM custinfo
       WHERE (cust_id=getCustId(NEW.customer_number)))),
-    COALESCE(NEW.commission,0),
+    COALESCE((NEW.commission / 100.0),0),
     COALESCE(getShipFormId(NEW.ship_form),(
       SELECT cust_shipform_id
       FROM custinfo
@@ -162,7 +162,7 @@ CREATE OR REPLACE RULE "_UPDATE" AS
     shipto_shipcomments=NEW.shipping_notes,
     shipto_shipzone_id=getShipZoneId(NEW.zone),
     shipto_shipvia=NEW.ship_via,
-    shipto_commission=NEW.commission,
+    shipto_commission=(NEW.commission / 100),
     shipto_shipform_id=getShipFormId(NEW.ship_form),
     shipto_shipchrg_id=getShipChrgId(NEW.shipping_charges),
     shipto_active=NEW.active,
