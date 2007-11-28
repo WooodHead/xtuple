@@ -31,17 +31,16 @@
       <listitem id="listitemN0x180ac00N0x18b4800">
         <para>Next available Transfer Order Number will automatically display,
         unless your system requires you to enter Transfer Order Numbers
-        manually.</para>
-        <para>Default values and input parameters for Transfer Order Numbers
-        are configurable at the system level.</para>
+        manually. Default values and input parameters for Transfer Order
+        Numbers are configurable at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Order Status</term>
       <listitem id="listitemN0x180ac00N0x18b4848">
-        <para>Displays the current status of the Transfer Order.</para>
-        <para>Transfer Orders may be either Open = "O" or Closed = "C"
-        depending on the status of the associated Line Items.</para>
+        <para>Displays the current status of the Transfer Order. Transfer
+        Orders may be either Open = "O" or Closed = "C" depending on the
+        status of the associated Line Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,13 +52,13 @@
     <varlistentry>
       <term>Scheduled Date</term>
       <listitem id="listitemN0x180ac00N0x18b48d8">
-        <para>Displays the Order's earliest scheduled date.</para>
-        <para>The scheduled date corresponds to the earliest scheduled date
-        for an included Transfer Order Item. Because Transfer Orders may
-        contain multiple Transfer Order Items, the scheduled date indicates
-        the most recent scheduled date. No scheduled date will display in the
-        "Scheduled Date" field until a Transfer Order Line Item has been
-        created and a scheduled date assigned to it.</para>
+        <para>Displays the Order's earliest scheduled date. The scheduled date
+        corresponds to the earliest scheduled date for an included Transfer
+        Order Item. Because Transfer Orders may contain multiple Transfer
+        Order Items, the scheduled date indicates the most recent scheduled
+        date. No scheduled date will display in the "Scheduled Date" field
+        until a Transfer Order Line Item has been created and a scheduled date
+        assigned to it.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -71,28 +70,27 @@
           <secondary>pack dates for</secondary>
         </indexterm>Pack Date</term>
       <listitem id="listitemN0x180ac00N0x18b49b0">
-        <para>The pack date is the same date as the ship date.</para>
-        <para>Because the field can be edited, you have the ability to change
-        the pack date and make it different from the ship date.</para>
+        <para>The pack date is the same date as the ship date. Because the
+        field can be edited, you have the ability to change the pack date and
+        make it different from the ship date.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Agent</term>
       <listitem id="listitemN0x180ac00N0x18b49f8">
-        <para>Specify the Agent associated with the Transfer Order.</para>
-        <para>By default, the name of the logged-in user will be entered as
-        Purchasing Agent-assuming that user is designated as a Purchasing
-        Agent. If the user is not a Purchasing Agent, the first alphabetical
-        name in the list of Purchasing Agents will be entered.</para>
+        <para>Specify the Agent associated with the Transfer Order. By
+        default, the name of the logged-in user will be entered as Purchasing
+        Agent-assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
+        list of Purchasing Agents will be entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Project #</term>
       <listitem id="listitemN0x180ac00N0x18b4a40">
-        <para>Select a Project Number to associate with the Transfer
-        Order.</para>
-        <para>Projects may be used to link Transfer Orders with Work Orders,
-        Sales Orders, Purchase Orders, etc.</para>
+        <para>Select a Project Number to associate with the Transfer Order.
+        Projects may be used to link Transfer Orders with Work Orders, Sales
+        Orders, Purchase Orders, etc.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -101,10 +99,9 @@
           <secondary>for transfer orders</secondary>
         </indexterm>Tax Authority</term>
       <listitem id="listitemN0x180ac00N0x18b4ad0">
-        <para>Specify the Tax Authority associated with the Transfer
-        Order.</para>
-        <para>The Tax Authority associated with the Destination Warehouse will
-        be entered here by default.</para>
+        <para>Specify the Tax Authority associated with the Transfer Order.
+        The Tax Authority associated with the Destination Warehouse will be
+        entered here by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -113,7 +110,69 @@
         <para>Select a Source Warehouse from the available options. If the
         following Contact and Address information is defined on the Warehouse
         master, then it will be entered automatically; otherwise you may enter
-        that information manually:</para>
+        that information manually: </para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>Name: The name of the primary Contact at the Source
         Warehouse.</para>
         <para>Job Title: The primary Contact's Job Title.</para>
@@ -134,7 +193,69 @@
         <para>Select a Destination Warehouse from the available options. If
         the following Contact and Address information is defined on the
         Warehouse master, then it will be entered automatically; otherwise you
-        may enter that information manually:</para>
+        may enter that information manually: </para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>Name: The name of the primary Contact at the Destination
         Warehouse.</para>
         <para>Job Title: The primary Contact's Job Title.</para>
@@ -155,19 +276,19 @@
       <term>Ship Complete</term>
       <listitem id="listitemN0x180ac00N0x18b4ba8">
         <para>Select to require that all Transfer Order Line Item quantities
-        be issued to Shipping before the Order is shipped.</para>
-        <para>This feature is designed to prevent partial shipments. If
-        selected, users will be prevented from shipping the Order unless all
-        Line Item quantities have been issued to Shipping. If not selected,
-        partial shipments for the Order will be allowed.</para>
+        be issued to Shipping before the Order is shipped. This feature is
+        designed to prevent partial shipments. If selected, users will be
+        prevented from shipping the Order unless all Line Item quantities have
+        been issued to Shipping. If not selected, partial shipments for the
+        Order will be allowed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship Via</term>
       <listitem id="listitemN0x180ac00N0x18b4bf0">
-        <para>Specify the Ship Via associated with the Transfer Order.</para>
-        <para>You may enter a free-form Ship Via simply by typing the name of
-        the Ship Via into the field.</para>
+        <para>Specify the Ship Via associated with the Transfer Order. You may
+        enter a free-form Ship Via simply by typing the name of the Ship Via
+        into the field.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -191,10 +312,9 @@
       <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18b4cec">
         <para>Creates the Transfer Order and saves the Transfer Order
-        information.</para>
-        <para>The SAVE button must be selected in order to save the Transfer
-        Order record. It is not enough to save Transfer Order Line Item
-        information. The Transfer Order header must also be saved.</para>
+        information. The SAVE button must be selected in order to save the
+        Transfer Order record. It is not enough to save Transfer Order Line
+        Item information. The Transfer Order header must also be saved.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -242,33 +362,30 @@
       <term>Show Canceled Line Items</term>
       <listitem id="listitemN0x180ac00N0x18b4ee4">
         <para>Select to include in the Line Items display Transfer Order Line
-        Items which have been specifically canceled.</para>
-        <para>Displaying canceled Line Items can provide useful Order history
-        information.</para>
+        Items which have been specifically canceled. Displaying canceled Line
+        Items can provide useful Order history information.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Require sufficient Inventory</term>
       <listitem id="listitemN0x180ac00N0x18b4f2c">
         <para>Select to ensure you have enough Quantity on Hand of a Line Item
-        prior to issuing Stock to Shipping.</para>
-        <para>If selected, this option will prevent you from issuing Line Item
-        quantity to Shipping if doing so would force Quantity on Hand for the
-        Item Site to fall below zero. Not selecting this option means issuing
-        Stock to Shipping may drive Item Site Quantity on Hand
-        negative.</para>
+        prior to issuing Stock to Shipping. If selected, this option will
+        prevent you from issuing Line Item quantity to Shipping if doing so
+        would force Quantity on Hand for the Item Site to fall below zero. Not
+        selecting this option means issuing Stock to Shipping may drive Item
+        Site Quantity on Hand negative.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight Weight</term>
       <listitem id="listitemN0x180ac00N0x18b4f74">
-        <para>Displays the combined weight of all Transfer Order Line
-        Items.</para>
-        <para>Freight weight represents the sum of an Item's product weight
-        and packaging weight, both of which are defined on the Item master.
-        The per unit freight weight multiplied by the quantity per gives you
-        the Line Item freight weight. The sum of all Line Item freight weights
-        is the combined weight for the Order.</para>
+        <para>Displays the combined weight of all Transfer Order Line Items.
+        Freight weight represents the sum of an Item's product weight and
+        packaging weight, both of which are defined on the Item master. The
+        per unit freight weight multiplied by the quantity per gives you the
+        Line Item freight weight. The sum of all Line Item freight weights is
+        the combined weight for the Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -280,17 +397,16 @@
           <secondary>freight charges on</secondary>
         </indexterm>Line Item Freight Subtotal</term>
       <listitem id="listitemN0x180ac00N0x18b504c">
-        <para>Displays the subtotal for all Line Item Freight.</para>
-        <para>Freight charges may be added when entering or editing a Transfer
-        Order Line Item.</para>
+        <para>Displays the subtotal for all Line Item Freight. Freight charges
+        may be added when entering or editing a Transfer Order Line
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax</term>
       <listitem id="listitemN0x180ac00N0x18b5094">
         <para>Displays the total amount of Tax to be charged on the Transfer
-        Order.</para>
-        <para>Sales Tax is calculated at the Transfer Order Line Item level.
+        Order. Sales Tax is calculated at the Transfer Order Line Item level.
         The Tax amount displayed here represents the total for all Line Item
         Tax amounts. To get a detailed view of the Tax calculation, click on
         the Tax link using your mouse.</para>
@@ -315,9 +431,8 @@
       <term>CLEAR</term>
       <listitem id="listitemN0x180ac00N0x18b516c">
         <para>Select to clear the contents of the current Transfer Order and
-        open a fresh, new Transfer Order for Order entry.</para>
-        <para>The Order Number of the Order being cleared will display next to
-        the CLEAR button.</para>
+        open a fresh, new Transfer Order for Order entry. The Order Number of
+        the Order being cleared will display next to the CLEAR button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -342,8 +457,8 @@
     <varlistentry>
       <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18b528c">
-        <para>Opens screen for creating a new Transfer Order Line Item.</para>
-        <para>Mac users may use COMMAND + N to enter a new Line Item.</para>
+        <para>Opens screen for creating a new Transfer Order Line Item. Mac
+        users may use COMMAND + N to enter a new Line Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -403,17 +518,17 @@
   <variablelist>
     <varlistentry>
       <term>Edit Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrderEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Close Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrderCLOSE)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Line</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(transferOrderDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"
@@ -523,11 +638,10 @@
       <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x18c97a8">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments. Once you have
-        specified a Comment Type, you may type your Comment in the main text
-        area. The text area features word-wrapping and scroll-bar support for
-        longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -620,9 +734,8 @@
     <varlistentry>
       <term>Item</term>
       <listitem id="listitemN0x180ac00N0x18c9ae4">
-        <para>Enter an Inventory Item Number.</para>
-        <para>This field is used for entering Items stored in
-        Inventory.</para>
+        <para>Enter an Inventory Item Number. This field is used for entering
+        Items stored in Inventory.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

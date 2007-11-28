@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="transferOrderItem" role="openmfg">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>transfer orders</primary>
       <secondary>adding line items to</secondary>
     </indexterm>Transfer Order Item</title>
-  <para>To add a new Transfer Order Line Item, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add a new Transfer Order Line Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemNew.png" id="Graphic659515"/>
+          <imagedata fileref="images/IM_IT_transferOrdItemNew.png"
+                     id="Graphic659515" />
         </imageobject>
         <caption id="Caption659517">Create New Transfer Order Line
         Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Transfer Order Line Item, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Transfer Order Line Item, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Order #</term>
@@ -38,14 +37,13 @@
     <varlistentry>
       <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x18c0240">
-        <para>Enter the Item Number of the Item you want to sell.</para>
-        <para>The Item list will contain Items having valid
-        Item Sites in the From (i.e., Source) Warehouse.</para>
+        <para>Enter the Item Number of the Item you want to sell. The Item
+        list will contain Items having valid Item Sites in the From (i.e.,
+        Source) Warehouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>warehouses</primary>
           <secondary>source for transfer orders</secondary>
         </indexterm> <indexterm significance="normal">
@@ -76,40 +74,70 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>The Transfer Order Item having the earliest
-    scheduled date will determine the ship date for the Transfer Order.</para>
+    <para>The Transfer Order Item having the earliest scheduled date will
+    determine the ship date for the Transfer Order.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>sales orders</primary>
           <secondary>availability of items for</secondary>
         </indexterm>Show Availability</term>
       <listitem id="listitemN0x180ac00N0x18c0480">
         <para>Select to display Availability information for the Transfer
-        Order Item in the following categories:</para>
-        <para>On Hand: Displays the current Quantity on Hand
-        value.</para>
-        <para>Allocated: Displays the quantity allocated to
-        current Sales Orders, Transfer Orders, and/or Work Orders in the
-        system. An Item is considered allocated to a Sales Order/Transfer
-        Order if a Transfer Order Line Item exists for the Item--and that Line
-        Item has not yet been issued to Shipping. An Item is considered
-        allocated to a Work Order if the Item is a material requirement--and
-        the material has not yet been issued to the Work Order. Once the
-        current Transfer Order Line Item is saved, the "Allocated" value will
-        increase by the quantity ordered.</para>
-        <para>Unallocated: Displays the Quantity on Hand
-        remaining after allocations have been accounted for, as in: QOH -
-        Allocated Qty. = Unallocated Qty.</para>
-        <para>On Order: If the Transfer Order Item is a
-        manufactured Item, the quantity ordered by current Work Orders will be
-        displayed. If the Transfer Order Item is a purchased Item, the
-        quantity ordered by current Purchase Orders will be displayed.</para>
-        <para>Available: Displays the available quantity.
-        Available quantity is determined using the following formula:
-        Unallocated Qty. + On Order Qty. = Available Qty.</para>
+        Order Item in the following categories: </para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para>On Hand: Displays the current Quantity on Hand value.</para>
+        <para>Allocated: Displays the quantity allocated to current Sales
+        Orders, Transfer Orders, and/or Work Orders in the system. An Item is
+        considered allocated to a Sales Order/Transfer Order if a Transfer
+        Order Line Item exists for the Item--and that Line Item has not yet
+        been issued to Shipping. An Item is considered allocated to a Work
+        Order if the Item is a material requirement--and the material has not
+        yet been issued to the Work Order. Once the current Transfer Order
+        Line Item is saved, the "Allocated" value will increase by the
+        quantity ordered.</para>
+        <para>Unallocated: Displays the Quantity on Hand remaining after
+        allocations have been accounted for, as in: QOH - Allocated Qty. =
+        Unallocated Qty.</para>
+        <para>On Order: If the Transfer Order Item is a manufactured Item, the
+        quantity ordered by current Work Orders will be displayed. If the
+        Transfer Order Item is a purchased Item, the quantity ordered by
+        current Purchase Orders will be displayed.</para>
+        <para>Available: Displays the available quantity. Available quantity
+        is determined using the following formula: Unallocated Qty. + On Order
+        Qty. = Available Qty.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -129,10 +157,9 @@
       <term>Tax</term>
       <listitem id="listitemN0x180ac00N0x18c0558">
         <para>Displays the amount of Tax to be charged for the Transfer Order
-        Line Item quantity.</para>
-        <para>Sales Tax is calculated at the Transfer Order
-        Line Item level. To get a detailed view of the Tax calculation, click
-        on the Tax link using your mouse.</para>
+        Line Item quantity. Sales Tax is calculated at the Transfer Order Line
+        Item level. To get a detailed view of the Tax calculation, click on
+        the Tax link using your mouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -144,39 +171,37 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>You can link Characteristics and Values to an Item
-    by using the Item master. Once entered, these Characteristics and Values
-    will be available to users entering Transfer Order Line Items.</para>
+    <para>You can link Characteristics and Values to an Item by using the Item
+    master. Once entered, these Characteristics and Values will be available
+    to users entering Transfer Order Line Items.</para>
   </tip>
-  <para>When selecting or editing Characteristics for a
-  Transfer Order Line Item, you are presented with the following
-  options:</para>
+  <para>When selecting or editing Characteristics for a Transfer Order Line
+  Item, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18c0630">
         <para>Displays the name of any Item Characteristics associated with
-        the Item.</para>
-        <para>Characteristics defined as Item Characteristics
-        may be associated with Items on the Item master.</para>
+        the Item. Characteristics defined as Item Characteristics may be
+        associated with Items on the Item master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Value</term>
       <listitem id="listitemN0x180ac00N0x18c0678">
         <para>Displays the default Value associated with an Item
-        Characteristic, but permits you to specify an alternate Value.</para>
-        <para>When associating Characteristic Values with a
-        Transfer Order Line Item, you have four options: 1) Select the default
-        Value; 2) select an alternate pre-defined Value from the list; 3)
-        manually enter a new Value in place of the pre-defined Value; or 4)
-        make no selection. Making no selection means the Characteristics will
-        not be associated with the Transfer Order Line Item.</para>
+        Characteristic, but permits you to specify an alternate Value. When
+        associating Characteristic Values with a Transfer Order Line Item, you
+        have four options: 1) Select the default Value; 2) select an alternate
+        pre-defined Value from the list; 3) manually enter a new Value in
+        place of the pre-defined Value; or 4) make no selection. Making no
+        selection means the Characteristics will not be associated with the
+        Transfer Order Line Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -194,11 +219,11 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If there is no Item Site for the Item in the
-    Destination Warehouse, you will automatically be presented with an Item
-    Site screen. Simply enter the required information to create an Item Site
-    in the Destination Warehouse. An Item Site must exist in the Destination
-    Warehouse before material can be received successfully.</para>
+    <para>If there is no Item Site for the Item in the Destination Warehouse,
+    you will automatically be presented with an Item Site screen. Simply enter
+    the required information to create an Item Site in the Destination
+    Warehouse. An Item Site must exist in the Destination Warehouse before
+    material can be received successfully.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -217,28 +242,27 @@
     <varlistentry>
       <term>CANCEL ITEM</term>
       <listitem id="listitemN0x180ac00N0x18c084c">
-        <para>Select to cancel the current Transfer Order Line Item.</para>
-        <para>Records of canceled Line Items will be retained
-        for informational purposes. To view canceled Line Items associated
-        with a Transfer Order, select the "Show Canceled Line Items" option on
-        the Transfer Order header's "Line Items tab.</para>
+        <para>Select to cancel the current Transfer Order Line Item. Records
+        of canceled Line Items will be retained for informational purposes. To
+        view canceled Line Items associated with a Transfer Order, select the
+        "Show Canceled Line Items" option on the Transfer Order header's "Line
+        Items tab.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To enter Notes related to a Transfer Order Line Item,
-  select the "Notes" tab at the bottom of the screen, as shown below:</para>
-  <para>
-<screenshot>
+  <para>To enter Notes related to a Transfer Order Line Item, select the
+  "Notes" tab at the bottom of the screen, as shown below:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemNotes.png" id="Graphic659546"/>
+          <imagedata fileref="images/IM_IT_transferOrdItemNotes.png"
+                     id="Graphic659546" />
         </imageobject>
         <caption id="Caption659549">Transfer Order Line Item Notes</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Notes to a Transfer Order Line Item, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When adding Notes to a Transfer Order Line Item, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
@@ -248,26 +272,25 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments related to a Transfer Order Line Item,
-  select the "Comments" tab. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add Comments related to a Transfer Order Line Item, select the
+  "Comments" tab. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemComm.png" id="Graphic659581"/>
+          <imagedata fileref="images/IM_IT_transferOrdItemComm.png"
+                     id="Graphic659581" />
         </imageobject>
         <caption id="Caption659583">Transfer Order Line Item
         Comments</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>Whenever Transfer Order Line Items are created or
-    their quantities are changed, the system will automatically generate a
-    Comment, which will appear in the list of Line Item Comments.</para>
+    <para>Whenever Transfer Order Line Items are created or their quantities
+    are changed, the system will automatically generate a Comment, which will
+    appear in the list of Line Item Comments.</para>
   </note>
-  <para>When adding Comments related to a Transfer Order Line
-  Item, you are presented with the following options:</para>
+  <para>When adding Comments related to a Transfer Order Line Item, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
@@ -276,15 +299,15 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18c0a8c">
-        <para>Opens screen for creating a new Comment.</para>
-        <para>Transfer Order Line Item Comments may only be
-        added after the Line Item has been saved to the Transfer Order.</para>
+        <para>Opens screen for creating a new Comment. Transfer Order Line
+        Item Comments may only be added after the Line Item has been saved to
+        the Transfer Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -295,33 +318,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create a Transfer Order Line Item Comment, select
-  the NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a Transfer Order Line Item Comment, select the NEW button.
+  The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic661358"/>
+          <imagedata fileref="images/CommentNew.png" id="Graphic661358" />
         </imageobject>
         <caption id="Caption661361">Create New Comment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x18c0bac">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments.
-        Once you have specified a Comment Type, you may type your Comment in
-        the main text area. The text area features word-wrapping and
-        scroll-bar support for longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -338,29 +358,27 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If the Transfer Order Line Item is a manufactured
-  Item, you have the ability to view Pending Availability for any of its
-  component Items. To view the Pending Availability for Transfer Order Line
-  Item component Items, select the "Pending Availability" tab, as shown
-  below:</para>
-  <para>
-<screenshot>
+  <para>If the Transfer Order Line Item is a manufactured Item, you have the
+  ability to view Pending Availability for any of its component Items. To view
+  the Pending Availability for Transfer Order Line Item component Items,
+  select the "Pending Availability" tab, as shown below:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_transferOrdItemPend.png" id="Graphic659601"/>
+          <imagedata fileref="images/IM_IT_transferOrdItemPend.png"
+                     id="Graphic659601" />
         </imageobject>
         <caption id="Caption659603">Pending Availability for Component
         Items</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Pending Availability for Transfer
-  Order component Items, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Pending Availability for Transfer Order component
+  Items, you are presented with the following options:</para>
   <note>
-    <para>The "Pending Availability" tab features details
-    related to component Items and so only applies if a Transfer Order Line
-    Item is a manufactured Item. If a Line Item is not manufactured, Pending
-    Availability does not apply.</para>
+    <para>The "Pending Availability" tab features details related to component
+    Items and so only applies if a Transfer Order Line Item is a manufactured
+    Item. If a Line Item is not manufactured, Pending Availability does not
+    apply.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -374,20 +392,19 @@
       <term>Pending Availability</term>
       <listitem id="listitemN0x180ac00N0x18c0da4">
         <para>Displays Pending Availability for component Items associated
-        with sold manufactured Items.</para>
-        <para>If you choose the "Show Pending Availability as
-        Indented BOM" option, the information will be displayed in a nested
-        list--with a plus ("+") sign located to the far left of the screen
-        next to each line that may be expanded to lower levels. By clicking
-        your mouse on a plus sign, you reveal lower levels of information
-        related to the Line Item.</para>
+        with sold manufactured Items. If you choose the "Show Pending
+        Availability as Indented BOM" option, the information will be
+        displayed in a nested list--with a plus ("+") sign located to the far
+        left of the screen next to each line that may be expanded to lower
+        levels. By clicking your mouse on a plus sign, you reveal lower levels
+        of information related to the Line Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Keep in mind that Pending Availability in this case
-    is not the same as Available to Promise. This view to Pending Availability
-    reflects current Inventory Levels--it is not a time-phased view of
+    <para>Keep in mind that Pending Availability in this case is not the same
+    as Available to Promise. This view to Pending Availability reflects
+    current Inventory Levels--it is not a time-phased view of
     Availability.</para>
   </tip>
 </section>

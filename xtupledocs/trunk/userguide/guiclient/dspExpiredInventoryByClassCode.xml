@@ -47,23 +47,21 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x194e804">
-        <para>Enter a Class Code pattern to select a range of Class
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Threshold Days</term>
       <listitem id="listitemN0x180ac00N0x194e84c">
         <para>Select a number using the arrow buttons, or manually enter a
-        value between 999 and -999.</para>
-        <para>Specify which expired Items to include in the display using the
-        threshold parameter. Threshold days are measured from the current day.
-        To view all currently expired Inventory, set the parameter to "0". To
-        display Inventory due to expire in the future, enter a positive value.
-        Enter a negative value to display Inventory that expired prior to the
-        current day.</para>
+        value between 999 and -999. Specify which expired Items to include in
+        the display using the threshold parameter. Threshold days are measured
+        from the current day. To view all currently expired Inventory, set the
+        parameter to "0". To display Inventory due to expire in the future,
+        enter a positive value. Enter a negative value to display Inventory
+        that expired prior to the current day.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -83,9 +81,8 @@
       <term>Show Inventory Value</term>
       <listitem id="listitemN0x180ac00N0x194e8dc">
         <para>Select to include the Inventory value of expired Inventory in
-        the display.</para>
-        <para>Specify whether to display Inventory value using Standard Costs
-        or Actual Costs.</para>
+        the display. Specify whether to display Inventory value using Standard
+        Costs or Actual Costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -104,6 +101,26 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x194e9b4">
         <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>Item Number: Select to order the display by Item Number.</para>
         <para>Expiration Date: Select to order the display by the date the
         Inventory expired.</para>
@@ -115,10 +132,9 @@
     <varlistentry>
       <term>Expired Inventory</term>
       <listitem id="listitemN0x180ac00N0x194e9fc">
-        <para>Display lists expired Inventory, using the specified
-        parameters.</para>
-        <para>If the "Show Inventory Value" box is selected, the display will
-        also show unit Cost and value.</para>
+        <para>Display lists expired Inventory, using the specified parameters.
+        If the "Show Inventory Value" box is selected, the display will also
+        show unit Cost and value.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -41,10 +41,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1998760">
-        <para>Enter an Item Group pattern to select a range of Item
-        Groups.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter an Item Group pattern to select a range of Item Groups.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -98,10 +97,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x1998934">
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for calculation to
-        proceed. Results will be displayed in the "Usage" list.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Usage" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -114,12 +112,9 @@
   <para>Right-clicking on an Item in the Usage list enables you to select from
   the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>View All Transactions</term>
-      <listitem id="listitemN0x180ac00N0x19989e8">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAlltransactions)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

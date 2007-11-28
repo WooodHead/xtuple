@@ -1,44 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677207">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>detailed by location</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>locations</primary>
       <secondary>detailed inventory history of</secondary>
     </indexterm>Detailed Inventory History by Location</title>
-  <para>To view detailed Inventory history by Location, select
-  the "Detailed Inventory History by Location" option. The following screen
-  will appear:</para>
-  <para>
-<screenshot>
+  <para>To view detailed Inventory history by Location, select the "Detailed
+  Inventory History by Location" option. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_detailedInvHistLoc.png" id="Graphic526852"/>
+          <imagedata fileref="images/IM_Disp_detailedInvHistLoc.png"
+                     id="Graphic526852" />
         </imageobject>
         <caption id="Caption520541">Detailed Inventory History by
         Location</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>The display will only list Inventory history for
-    Multiple Location Control Items. Items without Multiple Location Control
-    turned on will not be listed in the display. Multiple Location Control is
-    set in the Item Site record.</para>
+    <para>The display will only list Inventory history for Multiple Location
+    Control Items. Items without Multiple Location Control turned on will not
+    be listed in the display. Multiple Location Control is set in the Item
+    Site record.</para>
   </note>
-  <para>When displaying detailed Inventory history by
-  Location, you are presented with the following options:</para>
+  <para>When displaying detailed Inventory history by Location, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Location</term>
       <listitem id="listitemN0x180ac00N0x1991488">
         <para>Specify the Location whose detailed Inventory History you want
-        to display.</para>
-        <para>Displays detailed Inventory history for selected
+        to display. Displays detailed Inventory history for selected
         Location.</para>
       </listitem>
     </varlistentry>
@@ -58,29 +55,60 @@
       <term>Trans. Types</term>
       <listitem id="listitemN0x180ac00N0x1991560">
         <para>Select one of the available transaction types:</para>
-        <para>All Transactions: Displays all Inventory
-        transactions.</para>
-        <para>Receipts: Displays receipts into Inventory from
-        Manufacturing, purchases, or miscellaneous receipts.</para>
-        <para>Issues: Displays issues from Inventory to
-        Manufacturing.</para>
-        <para>Shipments: Displays shipments to
-        customers.</para>
-        <para>Adjustments and Counts: Displays Inventory
-        adjustments and counts.</para>
-        <para>Transfers: Displays Inter-Warehouse Transfers
-        and Location and Lot/Serial Number reassignments.</para>
-        <para>Scraps: Displays Scrap removed from
-        Inventory.</para>
+        <variablelist>
+          <varlistentry>
+            <term>All Transactions</term>
+            <listitem>
+              <para>Displays all Inventory transactions.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Receipts</term>
+            <listitem>
+              <para>Displays receipts into Inventory from Manufacturing,
+              purchases, or miscellaneous receipts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Issues</term>
+            <listitem>
+              <para>Displays issues from Inventory to Manufacturing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Shipments</term>
+            <listitem>
+              <para>Displays shipments to customers.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Adjustments and Counts</term>
+            <listitem>
+              <para>Displays Inventory adjustments and counts.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Transfers</term>
+            <listitem>
+              <para>Displays Inter-Warehouse Transfers and Location and
+              Lot/Serial Number reassignments.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Scraps</term>
+            <listitem>
+              <para>Displays Scrap removed from Inventory.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>The system prefixes Order Numbers with letters
-    indicating the Order type. For example, Work Orders are prefixed with
-    "WO", Purchase Orders with "PO", and Sales Orders with "SO". These letters
-    are for display purposes only and are not considered part of the Order
-    Number.</para>
+    <para>The system prefixes Order Numbers with letters indicating the Order
+    type. For example, Work Orders are prefixed with "WO", Purchase Orders
+    with "PO", and Sales Orders with "SO". These letters are for display
+    purposes only and are not considered part of the Order Number.</para>
   </note>
   <variablelist>
     <varlistentry role="openmfg">
@@ -121,8 +149,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
@@ -134,11 +162,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x199177c">
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for
-        calculation to proceed. Results will be displayed in the "Inventory
-        History" list.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Inventory History" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

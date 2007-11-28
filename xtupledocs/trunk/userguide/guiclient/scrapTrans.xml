@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518970">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>scrap</primary>
       <secondary>as inventory transaction</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>inventory transactions</primary>
       <secondary>scrapping</secondary>
     </indexterm>Scrap</title>
-  <para>To Scrap Items from Inventory, select the "Scrap"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To Scrap Items from Inventory, select the "Scrap" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_scrap.png" id="Graphic525842"/>
+          <imagedata fileref="images/IM_IT_scrap.png" id="Graphic525842" />
         </imageobject>
         <caption id="Caption518976">Enter Scrap Transaction</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering a Scrap transaction, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When entering a Scrap transaction, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Transaction Date</term>
@@ -76,8 +73,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -89,13 +86,12 @@
     <varlistentry>
       <term>POST</term>
       <listitem id="listitemN0x180ac00N0x1898198">
-        <para>Posts the Scrap transaction.</para>
-        <para>Generates an Inventory Scrap transaction and
-        decrements Quantity on Hand. Additional steps will be necessary if the
-        specified Item is stored in multiple Locations. For more information,
-        see the <xref endterm="Anchor81167" linkend="Anchor81167"/>
-    FINDME
-  "Inter-Warehouse Transfer" section.</para>
+        <para>Posts the Scrap transaction. Generates an Inventory Scrap
+        transaction and decrements Quantity on Hand. Additional steps will be
+        necessary if the specified Item is stored in multiple Locations. For
+        more information, see the <xref endterm="Anchor81167"
+        linkend="Anchor81167" /> FINDME "Inter-Warehouse Transfer"
+        section.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -42,10 +42,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x194109c">
-        <para>Enter a Class Code pattern to select a range of Class
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -66,6 +65,20 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x194112c">
         <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>Item Number: Select to order the display by Item Number.</para>
         <para>Value: Select to order the display by value.</para>
       </listitem>
@@ -94,9 +107,8 @@
       <term>Show Inventory Value</term>
       <listitem id="listitemN0x180ac00N0x194124c">
         <para>Select to include the Inventory value of Quantities on Hand by
-        Class Code in the display.</para>
-        <para>Specify whether to display Inventory value using Standard Costs
-        or Actual Costs.</para>
+        Class Code in the display. Specify whether to display Inventory value
+        using Standard Costs or Actual Costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -115,14 +127,13 @@
       <term>Quantities on Hand</term>
       <listitem id="listitemN0x180ac00N0x1941324">
         <para>Display lists Quantities on Hand by Class Code, using the
-        specified parameters.</para>
-        <para>If the "Show Inventory Value" box is selected, the display will
-        also show unit Cost, value, and non-netable value. Totals for each
-        column will be calculated at the bottom of the display. If a Quantity
-        on Hand value displays in the color orange, this means the actual or
-        projected Quantity on Hand is at or below the Reorder Level. If the
-        color is red, the current or projected Quantity on Hand is below
-        0.</para>
+        specified parameters. If the "Show Inventory Value" box is selected,
+        the display will also show unit Cost, value, and non-netable value.
+        Totals for each column will be calculated at the bottom of the
+        display. If a Quantity on Hand value displays in the color orange,
+        this means the actual or projected Quantity on Hand is at or below the
+        Reorder Level. If the color is red, the current or projected Quantity
+        on Hand is below 0.</para>
       </listitem>
     </varlistentry>
   </variablelist>

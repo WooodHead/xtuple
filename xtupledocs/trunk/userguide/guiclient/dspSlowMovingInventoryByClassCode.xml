@@ -46,18 +46,16 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x194e0fc">
-        <para>Enter a Class Code pattern to select a range of Class
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cutoff Date</term>
       <listitem id="listitemN0x180ac00N0x194e144">
         <para>Any Inventory that has not been moved since this date will be
-        displayed.</para>
-        <para>This is a required field.</para>
+        displayed. This is a required field.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -78,9 +76,8 @@
       <term>Show Inventory Value</term>
       <listitem id="listitemN0x180ac00N0x194e1d4">
         <para>Select to include the Inventory value of slow moving Inventory
-        in the display.</para>
-        <para>Specify whether to display Inventory value using Standard Costs
-        or Actual Costs.</para>
+        in the display. Specify whether to display Inventory value using
+        Standard Costs or Actual Costs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -99,6 +96,26 @@
       <term>Order By</term>
       <listitem id="listitemN0x180ac00N0x194e2ac">
         <para>Order the output by one of the following methods:</para>
+        <variablelist>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term></term>
+            <listitem>
+              <para></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>Item Number: Select to order the display by Item Number.</para>
         <para>Date Last Used: Select to order the display by the date
         Inventory was last used. Inventory is considered to have been used
@@ -129,10 +146,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem id="listitemN0x180ac00N0x194e3a8">
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Cutoff date must be entered for calculation to proceed. Results
-        will be displayed in the "Quantities on Hand" list.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Cutoff date must be entered for calculation to proceed. Results will
+        be displayed in the "Quantities on Hand" list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
