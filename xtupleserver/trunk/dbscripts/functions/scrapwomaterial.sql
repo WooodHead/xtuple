@@ -20,8 +20,17 @@ DECLARE
   _itemlocSeries	INTEGER;
   _itemid               INTEGER;
   _uomid                INTEGER;
+  _r                    RECORD;
 
 BEGIN
+  SELECT costcat_wip_accnt_id
+    INTO _r
+    FROM womatl, wo, itemsite, costcat
+   WHERE((womatl_wo_id=wo_id)
+     AND (wo_itemsite_id=itemsite_id)
+     AND (itemsite_costcat_id=costcat_id)
+     AND (womatl_id=pWomatlid));
+
   IF (pIssueRepl) THEN
     SELECT womatl_qtyreq - roundQty(itemuomfractionalbyuom(itemsite_item_id, womatl_uom_id), womatl_qtyper * wo_qtyord),
 	   womatl_qtywipscrap, itemsite_item_id, womatl_uom_id INTO _preAlloc, _wipScrap, _itemid, _uomid
@@ -39,7 +48,7 @@ BEGIN
       END IF;
 
       PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id), ''Scrap Material from Work Order'',
-				   costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
+				   _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
 				   (stdCost(itemsite_item_id) * itemuomtouom(_itemid, _uomid, NULL, _toIssue)), CURRENT_DATE )
       FROM womatl, itemsite, costcat
       WHERE ( (womatl_itemsite_id=itemsite_id)
@@ -49,14 +58,14 @@ BEGIN
 
     _toScrap = pQty;
 
-  ELSIF ( ( SELECT ((womatl_qtyiss - womatl_qtywipscrap) >= pQty)
+  ELSIF ( ( SELECT (womatl_qtyiss >= pQty)
 	     FROM womatl
 	     WHERE (womatl_id=pWomatlid) ) ) THEN
 
     --  Distribute to G/L
     PERFORM insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(womatl_wo_id),
 				 ''Scrap Material from Work Order'',
-				 costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
+				 _r.costcat_wip_accnt_id, costcat_mfgscrap_accnt_id, -1,
 				 (stdCost(itemsite_item_id) * itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)), CURRENT_DATE )
     FROM womatl, itemsite, costcat
     WHERE ( (womatl_itemsite_id=itemsite_id)
