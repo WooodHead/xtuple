@@ -3,7 +3,7 @@
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923250">
   <title><indexterm significance="normal">
-      <primary>configuration</primary>
+      <primary>hconfiguration</primary>
       <secondary>of sales module</secondary>
     </indexterm>Configure Sales</title>
   <para>To configure the Sales module, select the "Configure Sales" option.
@@ -13,7 +13,7 @@
         <imageobject>
           <imagedata fileref="images/Sys_configSO.png" id="Graphic522127" />
         </imageobject>
-        <caption id="Caption519166">General S/O Configuration
+        <caption id="Caption519166">General Sales Configuration
         Options</caption>
       </mediaobject>
     </screenshot></para>
@@ -405,18 +405,17 @@
       <term>Balance Method</term>
       <listitem id="listitemN0x180ac00N0x18b216c">
         <para>Specify a default procedure for handling cash receipts from
-        Customers.</para>
-        <para>This notation is informational only. Balance Forward: Select to
-        apply cash receipts to the Customer's current balance due.</para>
+        Customers. This notation is informational only. Balance Forward:
+        Select to apply cash receipts to the Customer's current balance
+        due.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Customer Type</term>
       <listitem id="listitemN0x180ac00N0x18b21b4">
         <para>Specify a default Customer Type to be used whenever new
-        Customers are created.</para>
-        <para>The default Customer Type may be overridden by users having the
-        appropriate privileges.</para>
+        Customers are created. The default Customer Type may be overridden by
+        users having the appropriate privileges.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -452,6 +451,118 @@
       <listitem id="listitemN0x180ac00N0x18b231c">
         <para>Select to indicate Customers allow free-form Ship-Tos by
         default. This default appears on the Customer master.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To define your systems Returns configuration, select the "Return" tab.
+  The following screen will appear:</para>
+  <screenshot>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="images/Sys_configSOReturns.png" id="Graphic962009" />
+      </imageobject>
+      <caption id="Caption962011">Returns Configuration Options</caption>
+    </mediaobject>
+  </screenshot>
+  <para>When configuring Returns settings, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Enable Return Authorizations</term>
+      <listitem id="listitemN0x180ac00N0x189a798">
+        <para>Select to enable the system's Return Authorizations capability.
+        If not selected, users will be prevented from performing any tasks
+        related to Return Authorizations. If your system is using Return
+        Authorizations, this option will be hidden.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Return Authorization Changes to the Change Log</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Disposition</term>
+      <listitem>
+        <para>Specify one of the following default disposition options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Credit</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Return</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Replace</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Service</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mixed</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Immediately</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Upon Receipt</term>
+      <listitem>
+        <para><remark>findme</remark></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Default Credit Method</term>
+      <listitem>
+        <para>Specify one of the following default credit method
+        options:</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Memo</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Check</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Credit Card</term>
+            <listitem>
+              <para><remark>findme</remark></para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

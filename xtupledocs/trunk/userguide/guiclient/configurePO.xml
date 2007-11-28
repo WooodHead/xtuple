@@ -16,8 +16,8 @@
         <caption id="Caption924094">Configure P/O Module</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When configuring the P/O module, you are presented with the following
-  options:</para>
+  <para>When configuring the Purchase module, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -27,17 +27,34 @@
       <listitem id="listitemN0x180ac00N0x18a5be8">
         <para>Specify one of the available Purchase Order Number generation
         methods:</para>
-        <para>Automatic - Purchase Order Numbers will be automatically
-        incremented by 1 each time a new Purchase Order is created. These
-        automatically-generated numbers may not be edited. They are
-        read-only.</para>
-        <para>Manual - Purchase Order Numbers must be entered manually
-        whenever you create a new Purchase Order.</para>
-        <para>Automatic, Allow Override - Purchase Order Numbers will be
-        automatically generated and incremented, as under the "Automatic"
-        option described above. However, this option also allows you to
-        manually override the Purchase Order Number at the time of Purchase
-        Order creation.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Purchase Order Numbers will be automatically incremented
+              by 1 each time a new Purchase Order is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Purchase Order Numbers must be entered manually whenever
+              you create a new Purchase Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Purchase Order Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Purchase Order Number at the time of Purchase Order
+              creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,17 +95,34 @@
       <listitem id="listitemN0x180ac00N0x18a5d98">
         <para>Select one of the available Purchase Request Number generation
         methods:</para>
-        <para>Automatic - Purchase Request Numbers will be automatically
-        incremented by 1 each time a new Purchase Request is created. These
-        automatically-generated numbers may not be edited. They are
-        read-only.</para>
-        <para>Manual - Purchase Request Numbers must be entered manually
-        whenever you create a new Purchase Order.</para>
-        <para>Automatic, Allow Override - Purchase Request Numbers will be
-        automatically generated and incremented, as under the "Automatic"
-        option described above. However, this option also allows you to
-        manually override the Purchase Request Number at the time of Purchase
-        Request creation.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Purchase Request Numbers will be automatically incremented
+              by 1 each time a new Purchase Request is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Purchase Request Numbers must be entered manually whenever
+              you create a new Purchase Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Purchase Request Numbers will be automatically generated
+              and incremented, as under the "Automatic" option described
+              above. However, this option also allows you to manually override
+              the Purchase Request Number at the time of Purchase Request
+              creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -105,12 +139,28 @@
       <term>Default P/O Copies</term>
       <listitem id="listitemN0x180ac00N0x18a5e28">
         <para>Indicate the copies you want to print.</para>
-        <para>Vendor: Select to print one Vendor copy.</para>
-        <para>Internal: Select to print a specified number of internal copies.
-        When you select this option, the "# of Copies" field will be
-        enabled.</para>
-        <para># of Copies: Specify the number of copies you want to
-        print.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Vendor</term>
+            <listitem>
+              <para>Select to print one Vendor copy.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Internal</term>
+            <listitem>
+              <para>Select to print a specified number of internal copies.
+              When you select this option, the "# of Copies" field will be
+              enabled.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Specify the number of copies you want to print.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -131,12 +181,11 @@
       <term>Use Earliest Avail. as Due Date for P/O Item</term>
       <listitem id="listitemN0x180ac00N0x18a5f00">
         <para>Select to use Item Source Earliest Available dates as the
-        default due date when entering manual Purchase Order Line
-        Items.</para>
-        <para>If not selected, the due date field will be left blank when
-        entering Purchase Order Line Items--requiring users to enter the date
-        manually. Earliest Available dates are determined by adding Item
-        Source Lead Times to the current date.</para>
+        default due date when entering manual Purchase Order Line Items. If
+        not selected, the due date field will be left blank when entering
+        Purchase Order Line Items--requiring users to enter the date manually.
+        Earliest Available dates are determined by adding Item Source Lead
+        Times to the current date.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -150,20 +199,18 @@
       <term>Prevent P/O Items when no Std. Cost Exists</term>
       <listitem id="listitemN0x180ac00N0x18a5f90">
         <para>Select if you want to prevent users from entering Purchase Order
-        Line Items for Items which have no Standard Cost.</para>
-        <para>If selected, users will be shown a message stating the problem.
-        The solution is to add Standard Cost to the Item(s) in
-        question.</para>
+        Line Items for Items which have no Standard Cost. If selected, users
+        will be shown a message stating the problem. The solution is to add
+        Standard Cost to the Item(s) in question.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Check Print P/O on Save by Default</term>
       <listitem id="listitemN0x180ac00N0x18a5fd8">
         <para>Select to prompt users to print Purchase Orders whenever
-        Purchase Orders are saved.</para>
-        <para>If selected, users will be presented with a Purchase Order print
-        screen whenever a Purchase Order is saved. To bypass this feature, do
-        not select this option.</para>
+        Purchase Orders are saved. If selected, users will be presented with a
+        Purchase Order print screen whenever a Purchase Order is saved. To
+        bypass this feature, do not select this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -173,8 +220,15 @@
         </indexterm>Vendor Defaults</term>
       <listitem id="listitemN0x180ac00N0x18a6068">
         <para>Specify the following Vendor defaults:</para>
-        <para>Ship Via: Specify the default Ship Via to be used for Purchase
-        Orders.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ship Via</term>
+            <listitem>
+              <para>Specify the default Ship Via to be used for Purchase
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -13,21 +13,20 @@
         <imageobject>
           <imagedata fileref="images/Sys_configPD.png" id="Graphic522106" />
         </imageobject>
-        <caption id="Caption519117">Configure P/D Module</caption>
+        <caption id="Caption519117">Configure Products Module</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When configuring the P/D module, you are presented with the following
-  options:</para>
+  <para>When configuring the Products module, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry role="openmfg">
       <term>Enable Work Center Routings</term>
       <listitem id="listitemN0x180ac00N0x189a798">
-        <para>Select to enable the system's Work Center Routings
-        capability.</para>
-        <para>If not selected, users will be prevented from creating Work
-        Centers, entering Bills of Operations (BOOs), or performing any tasks
-        related to Operations posting, etc. If your system has Work Center
-        Routings defined, this option will be hidden.</para>
+        <para>Select to enable the system's Work Center Routings capability.
+        If not selected, users will be prevented from creating Work Centers,
+        entering Bills of Operations (BOOs), or performing any tasks related
+        to Operations posting, etc. If your system has Work Center Routings
+        defined, this option will be hidden.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -35,33 +34,43 @@
       <listitem id="listitemN0x180ac00N0x189a7bc">
         <para>Machine Overhead: If Work Center Routings are enabled, select
         one of the following methods for tracking machine overhead:</para>
-        <para>as Machine Overhead - Select to track machine overhead
-        separately from other overhead Costs, using the machine overhead rate
-        specified in a Work Center master. Any associated Costs will display
-        in the system-defined "Machine Overhead" Costing Element.</para>
-        <para>with General Overhead - Select to track machine overhead in the
-        same category as other overhead Costs. Any associated Costs will
-        display in the system-defined "Overhead" Costing Element. (This is the
-        default setting.)</para>
+        <variablelist>
+          <varlistentry>
+            <term>as Machine Overhead</term>
+            <listitem>
+              <para>Select to track machine overhead separately from other
+              overhead Costs, using the machine overhead rate specified in a
+              Work Center master. Any associated Costs will display in the
+              system-defined "Machine Overhead" Costing Element.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>with General Overhead</term>
+            <listitem>
+              <para>Select to track machine overhead in the same category as
+              other overhead Costs. Any associated Costs will display in the
+              system-defined "Overhead" Costing Element. (This is the default
+              setting.)</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Enable Breeder Bills of Materials</term>
       <listitem id="listitemN0x180ac00N0x189a7e0">
         <para>Select to enable the system's Breeder Bill of Materials
-        capability.</para>
-        <para>If not selected, users will be prevented from entering Breeder
-        Bills of Materials (BOMs) or performing any tasks related to posting
-        production for Breeder BOMs, etc.</para>
+        capability. If not selected, users will be prevented from entering
+        Breeder Bills of Materials (BOMs) or performing any tasks related to
+        posting production for Breeder BOMs, etc.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term>Enable Transforms</term>
       <listitem id="listitemN0x180ac00N0x189a804">
-        <para>Select to enable the system's Item Transformation
-        capability.</para>
-        <para>If not selected, users will be prevented from performing tasks
-        related to Item Transformations.</para>
+        <para>Select to enable the system's Item Transformation capability. If
+        not selected, users will be prevented from performing tasks related to
+        Item Transformations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -82,17 +91,48 @@
       <term>Defaults</term>
       <listitem id="listitemN0x180ac00N0x189a8dc">
         <para>Specify preferences for the following defaults:</para>
-        <para>Set Sold Items as <indexterm significance="normal">
-            <primary>exclusive</primary>
-            <secondary>as default configuration</secondary>
-          </indexterm>Exclusive: Select to mark all sold Items as "Exclusive"
-        by default whenever a new Item is created.</para>
-        <para>W/O Material Issue Method: Select one of the available default
-        issue methods. Push: Select to issue materials to a Work Order by a
-        specific material issue transaction. Pull: Select to issue materials
-        to a Work Order by a material backflush. Mixed: Select to issue
-        materials to a Work Order based on the issue method applied to the
-        materials initially--that is, either pull or push.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Set Sold Items as <indexterm significance="normal">
+                <primary>exclusive</primary>
+                <secondary>as default configuration</secondary>
+              </indexterm>Exclusive</term>
+            <listitem>
+              <para>Select to mark all sold Items as "Exclusive" by default
+              whenever a new Item is created.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>W/O Material Issue Method</term>
+            <listitem>
+              <para>Select one of the available default issue methods.</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Push</term>
+                  <listitem>
+                    <para>Select to issue materials to a Work Order by a
+                    specific material issue transaction.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Pull</term>
+                  <listitem>
+                    <para>Select to issue materials to a Work Order by a
+                    material backflush.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Mixed</term>
+                  <listitem>
+                    <para>Select to issue materials to a Work Order based on
+                    the issue method applied to the materials initially--that
+                    is, either pull or push.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

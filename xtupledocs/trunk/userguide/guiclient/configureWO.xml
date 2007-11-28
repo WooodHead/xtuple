@@ -16,8 +16,8 @@
         <caption id="Caption519136">Configure W/O Module</caption>
       </mediaobject>
     </screenshot></para>
-  <para>When configuring the W/O module, you are presented with the following
-  options:</para>
+  <para>When configuring the Manufacture module, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term><indexterm significance="normal">
@@ -37,17 +37,33 @@
       <listitem id="listitemN0x180ac00N0x18a5648">
         <para>Select one of the available Work Order Number creation
         methods:</para>
-        <para>Automatic - Work Order Numbers will be automatically incremented
-        by 1 each time a new Work Order is created. These
-        automatically-generated numbers may not be edited. They are
-        read-only.</para>
-        <para>Manual - Work Order Numbers must be entered manually whenever
-        you create a new Work Order.</para>
-        <para>Automatic, Allow Override - Work Order Numbers will be
-        automatically generated and incremented, as under the "Automatic"
-        option described above. However, this option also allows you to
-        manually override the Work Order Number at the time of Work Order
-        creation.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Automatic</term>
+            <listitem>
+              <para>Work Order Numbers will be automatically incremented by 1
+              each time a new Work Order is created. These
+              automatically-generated numbers may not be edited. They are
+              read-only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Manual</term>
+            <listitem>
+              <para>Work Order Numbers must be entered manually whenever you
+              create a new Work Order.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Automatic, Allow Override</term>
+            <listitem>
+              <para>Work Order Numbers will be automatically generated and
+              incremented, as under the "Automatic" option described above.
+              However, this option also allows you to manually override the
+              Work Order Number at the time of Work Order creation.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -63,9 +79,8 @@
           <secondary>automatic explosion of</secondary>
         </indexterm>Automatically Explode W/O"s</term>
       <listitem id="listitemN0x180ac00N0x18a5720">
-        <para>Select if you want Work Orders to be exploded
-        automatically.</para>
-        <para>Work Order explosion is the process whereby Work Order Material
+        <para>Select if you want Work Orders to be exploded automatically.
+        Work Order explosion is the process whereby Work Order Material
         Requirements and Work Order Operations are created for a Work Order.
         If this option is selected, all parent Work Order Items will be
         exploded by default. Child Work Orders will also be exploded by
@@ -80,12 +95,24 @@
       <listitem id="listitemN0x180ac00N0x18a5768">
         <para>Select one of the following Work Order explosion effectivity
         dates:</para>
-        <para>Date of Explosion - Explode Work Orders effective on the date of
-        explosion, incorporating Bills of Materials and Bills of Operations
-        effective on that date.</para>
-        <para>W/O Start Date - Explode Work Orders effective on the scheduled
-        start date, incorporating Bills of Materials and Bills of Operations
-        effective on that date.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Date of Explosion</term>
+            <listitem>
+              <para>Explode Work Orders effective on the date of explosion,
+              incorporating Bills of Materials and Bills of Operations
+              effective on that date.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>W/O Start Date</term>
+            <listitem>
+              <para>Explode Work Orders effective on the scheduled start date,
+              incorporating Bills of Materials and Bills of Operations
+              effective on that date.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -103,11 +130,23 @@
       <listitem id="listitemN0x180ac00N0x18a5840">
         <para>Select one of the following default explosion levels, if Work
         Orders will not be exploded automatically by default:</para>
-        <para>Single Level - This option specifies that when Work Orders are
-        exploded, requirements should be created for the parent Work Order
-        Items only.</para>
-        <para>Multiple Level - This option specifies that requirements should
-        be created for both parent and child Work Orders.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Single Level</term>
+            <listitem>
+              <para>This option specifies that when Work Orders are exploded,
+              requirements should be created for the parent Work Order Items
+              only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Multiple Level</term>
+            <listitem>
+              <para>This option specifies that requirements should be created
+              for both parent and child Work Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -126,10 +165,22 @@
         </indexterm>Defaults</term>
       <listitem id="listitemN0x180ac00N0x18a5918">
         <para>Specify preferences for the following defaults:</para>
-        <para>Post Material Usage Variances: Select to post material usage
-        variances whenever Work Order production is posted.</para>
-        <para role="openmfg">Post Labor Variances: Select to post labor
-        variances whenever Work Order Operations are posted.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Post Material Usage Variances</term>
+            <listitem>
+              <para>Select to post material usage variances whenever Work
+              Order production is posted.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Post Labor Variances</term>
+            <listitem>
+              <para>Select to post labor variances whenever Work Order
+              Operations are posted.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -144,10 +195,22 @@
       <listitem id="listitemN0x180ac00N0x18a5984">
         <para>Select the Work Order processing method to be used by the Shop
         Floor Workbench:</para>
-        <para>Production: Select to require a Production-posting approach on
-        the Shop Floor Workbench.</para>
-        <para>Operations: Select to require an Operations-posting approach on
-        the Shop Floor Workbench.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Production</term>
+            <listitem>
+              <para>Select to require a Production-posting approach on the
+              Shop Floor Workbench.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Operations</term>
+            <listitem>
+              <para>Select to require an Operations-posting approach on the
+              Shop Floor Workbench.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
