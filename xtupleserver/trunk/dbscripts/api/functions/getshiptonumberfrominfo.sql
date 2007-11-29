@@ -1,31 +1,33 @@
-CREATE OR REPLACE FUNCTION getShiptoNumberFromInfo(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, BOOLEAN, BOOLEAN) RETURNS TEXT AS '
+CREATE OR REPLACE FUNCTION getShiptoNumberFromInfo(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, BOOLEAN, BOOLEAN) RETURNS TEXT AS '
 DECLARE
-  _email	TEXT	:= COALESCE(TRIM(UPPER( $1)), '''');
-  _company	TEXT	:= COALESCE(TRIM(UPPER( $2)), '''');
-  _first	TEXT	:= COALESCE(TRIM(UPPER( $3)), '''');
-  _last		TEXT	:= COALESCE(TRIM(UPPER( $4)), '''');
-  _fullname	TEXT	:= COALESCE(TRIM(UPPER( $5)), '''');
-  _addr1	TEXT	:= COALESCE(TRIM(UPPER( $6)), '''');
-  _addr2	TEXT	:= COALESCE(TRIM(UPPER( $7)), '''');
-  _addr3	TEXT	:= COALESCE(TRIM(UPPER( $8)), '''');
-  _city		TEXT	:= COALESCE(TRIM(UPPER( $9)), '''');
-  _state	TEXT	:= COALESCE(TRIM(UPPER($10)), '''');
-  _postalcode	TEXT	:= COALESCE(TRIM(UPPER($11)), '''');
-  _country	TEXT	:= COALESCE(TRIM(UPPER($12)), '''');
-  _generate	BOOLEAN	:= COALESCE($13, FALSE);
-  _create	BOOLEAN	:= COALESCE($14, FALSE);
+  _custname	TEXT	:= COALESCE(TRIM(UPPER( $1)), '''');
+  _email	TEXT	:= COALESCE(TRIM(UPPER( $2)), '''');
+  _company	TEXT	:= COALESCE(TRIM(UPPER( $3)), '''');
+  _first	TEXT	:= COALESCE(TRIM(UPPER( $4)), '''');
+  _last		TEXT	:= COALESCE(TRIM(UPPER( $5)), '''');
+  _fullname	TEXT	:= COALESCE(TRIM(UPPER( $6)), '''');
+  _addr1	TEXT	:= COALESCE(TRIM(UPPER( $7)), '''');
+  _addr2	TEXT	:= COALESCE(TRIM(UPPER( $8)), '''');
+  _addr3	TEXT	:= COALESCE(TRIM(UPPER( $9)), '''');
+  _city		TEXT	:= COALESCE(TRIM(UPPER($10)), '''');
+  _state	TEXT	:= COALESCE(TRIM(UPPER($11)), '''');
+  _postalcode	TEXT	:= COALESCE(TRIM(UPPER($12)), '''');
+  _country	TEXT	:= COALESCE(TRIM(UPPER($13)), '''');
+  _generate	BOOLEAN	:= COALESCE($14, FALSE);
+  _create	BOOLEAN	:= COALESCE($15, FALSE);
 
   _citytrunc	TEXT;
   _counter	INTEGER;
   _custid	INTEGER;
-  _custname	TEXT;
   _custnumber	TEXT;
   _candidate	TEXT;
   _r		RECORD;
   _statetrunc	TEXT;
 BEGIN
-  _custname := getCustNameFromInfo(_email, _company, _first, _last,
-				   _fullname, FALSE);
+  IF (_custname = '''') THEN
+    _custname := getCustNameFromInfo(_email, _company, _first, _last,
+				     _fullname, FALSE);
+  END IF;
 
   SELECT COUNT(*) INTO _counter
   FROM cust, shiptoinfo, addr
