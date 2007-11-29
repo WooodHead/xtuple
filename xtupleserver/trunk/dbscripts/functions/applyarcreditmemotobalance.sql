@@ -15,11 +15,19 @@ BEGIN
   SELECT (aropen_amount - COALESCE(SUM(currToCurr(arcreditapply_curr_id,
                                                   aropen_curr_id,
                                                   arcreditapply_amount,
-                                                  aropen_docdate)), 0) - aropen_paid),
+                                                  aropen_docdate)), 0) - aropen_paid - COALESCE(prepared,0.0)),
          aropen_curr_id INTO _amount, _amountcurrid
   FROM aropen LEFT OUTER JOIN arcreditapply ON (arcreditapply_source_aropen_id=aropen_id)
+	      LEFT OUTER JOIN (SELECT aropen_id AS prepared_aropen_id,
+                                      SUM(currToCurr(checkitem_curr_id, aropen_curr_id, checkitem_amount + checkitem_discount, checkitem_docdate)) AS prepared
+                               FROM checkhead JOIN checkitem ON (checkitem_checkhead_id=checkhead_id)
+                                              JOIN aropen ON (checkitem_aropen_id=aropen_id)
+                               WHERE ((NOT checkhead_posted)
+                                AND  (NOT checkhead_void))
+                               GROUP BY aropen_id) AS sub1
+                      ON (prepared_aropen_id=aropen_id)
   WHERE (aropen_id=pAropenid)
-  GROUP BY aropen_amount, aropen_paid, aropen_curr_id;
+  GROUP BY aropen_amount, aropen_paid, aropen_curr_id, prepared;
 
   IF (_amount < 0) THEN
     RETURN -1;
@@ -35,7 +43,7 @@ BEGIN
              AND (target.aropen_doctype IN (''D'', ''I''))
              AND (target.aropen_open)
              AND (source.aropen_id=pAropenid) )
-            ORDER BY target.aropen_duedate, (target.aropen_amount - target.aropen_paid) LOOP
+            ORDER BY target.aropen_duedate, target.aropen_docnumber LOOP
 
 --  Determine the amount to apply
     IF (_r.balance > _amount) THEN
