@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518905">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>issuing materials in batch mode</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>batch mode</primary>
       <secondary>issuing w/o materials in</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>work order material requirements</primary>
       <secondary>issuing in batch mode</secondary>
     </indexterm>Issue W/O Material Batch</title>
-  <para>To issue Work Order Material Requirement Items
-  simultaneously in a batch, select the "Issue W/O Material Batch" option. The
-  following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To issue Work Order Material Requirement Items simultaneously in a
+  batch, select the "Issue W/O Material Batch" option. The following screen
+  will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Mat_issueMatBatch.png" id="Graphic523618"/>
+          <imagedata fileref="images/WO_Mat_issueMatBatch.png"
+                     id="Graphic523618" />
         </imageobject>
         <caption id="Caption518911">Issue Work Order Material Batch</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When issuing Work Order Material Requirement Items in
-  a batch, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When issuing Work Order Material Requirement Items in a batch, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Work Order #</term>
@@ -74,29 +71,27 @@
     <varlistentry>
       <term>W/O Material Requirements</term>
       <listitem>
-        <para>Display lists Work Order Material Requirements.</para>
-        <para>The display is color-coded for ease of use. If
-        an Item's issue method is "Pull," then that Item--and the entire row
-        it sits on--will appear in blue type. The blue type indicates that the
-        batch issue utility will not affect these Items. By definition, pulled
-        Items are backflushed, not issued. However, if an Item's issue method
-        is "Push," then that Item--and the row it sits on--will appear in
-        black type. Rows with black type are affected by the batch issue
-        utility. One other color may also appear. If the quantity required by
-        the Work Order exceeds the Quantity on Hand--meaning there is an
-        Inventory shortage--the value in the "Short" column will display in
-        red.</para>
+        <para>Display lists Work Order Material Requirements. The display is
+        color-coded for ease of use. If an Item's issue method is "Pull," then
+        that Item--and the entire row it sits on--will appear in blue type.
+        The blue type indicates that the batch issue utility will not affect
+        these Items. By definition, pulled Items are backflushed, not issued.
+        However, if an Item's issue method is "Push," then that Item--and the
+        row it sits on--will appear in black type. Rows with black type are
+        affected by the batch issue utility. One other color may also appear.
+        If the quantity required by the Work Order exceeds the Quantity on
+        Hand--meaning there is an Inventory shortage--the value in the "Short"
+        column will display in red.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>If you are issuing Lot/Serial Items to a Work Order,
-    these cannot be issued automatically from a default Location. You must
-    individually select and then distribute the desired Lot/Serial
-    quantity.</para>
+    <para>If you are issuing Lot/Serial Items to a Work Order, these cannot be
+    issued automatically from a default Location. You must individually select
+    and then distribute the desired Lot/Serial quantity.</para>
   </note>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

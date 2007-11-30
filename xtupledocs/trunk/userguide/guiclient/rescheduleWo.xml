@@ -1,126 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518707">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>work orders</primary>
-         <secondary>rescheduling of</secondary>
-      </indexterm>Reschedule Work Order</title>
-   <para>Only exploded ("E") Status Work Orders can be
-    rescheduled. Released ("R") Work Orders must first be recalled to an
-    Exploded state before they may be rescheduled. To reschedule an exploded
-    Work Order, select the "Reschedule Work Order" option. The following
-    screen will appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/WO_Con_reschedWO.png" id="Graphic543527"/>
-            </imageobject>
-            <caption id="Caption543530">Reschedule Work Order</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <tip>
-      <para>To edit a Work Order after it has been created,
-      use the right-click menu in any of the "Work Order Schedule by..."
-      displays. There you will find an "Edit W/O" option.</para>
-   </tip>
-   <para>When rescheduling a Work Order, you are presented
-    with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Work Order #</term>
-         <listitem>
-            <para>Enter the Work Order Number of the Work Order you want to
-          reschedule.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Whs.</term>
-         <listitem>
-            <para>Displays Warehouse code automatically when Work Order Number
-          is entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Item Number</term>
-         <listitem>
-            <para>Displays Item Number automatically when Work Order Number is
-          entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>UOM</term>
-         <listitem>
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Status</term>
-         <listitem>
-            <para>Displays Work Order Status automatically when Work Order
-          Number is entered into "Work Order #" field.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Start Date</term>
-         <listitem>
-            <para>Indicate the rescheduled Work Order start date. The current
-          start date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Due Date</term>
-         <listitem>
-            <para>Indicate the rescheduled Work Order due date. The current due
-          date will be displayed.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Reschedule Child Work Orders (if any)</term>
-         <listitem>
-            <para>Select to reschedule child Work Orders to meet the demands of
-          the rescheduled parent Work Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Post Comment</term>
-         <listitem>
-            <para>Select to attach a Comment to the Work Order.</para>
-            <para>This option must be selected if you want to
-          add a Comment to the Work Order.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Comment Type</term>
-         <listitem>
-            <para>Specify one of the following Comment Types from the drop-down
-          list: ChangeLog or General.</para>
-            <para>Comment Types are used to categorize Comments.
-          Once you have specified a Comment Type, you may type your Comment in
-          the main text area. The text area features word-wrapping and
-          scroll-bar support for longer Comments.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CANCEL</term>
-         <listitem>
-            <para>Closes the screen without rescheduling the selected Work
-          Order, returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>RESCHEDULE</term>
-         <listitem>
-            <para>Reschedules the selected Work Order according to the new start
-          and due dates entered in the screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>work orders</primary>
+      <secondary>rescheduling of</secondary>
+    </indexterm>Reschedule Work Order</title>
+  <para>Only exploded ("E") Status Work Orders can be rescheduled. Released
+  ("R") Work Orders must first be recalled to an Exploded state before they
+  may be rescheduled. To reschedule an exploded Work Order, select the
+  "Reschedule Work Order" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/WO_Con_reschedWO.png" id="Graphic543527" />
+        </imageobject>
+        <caption id="Caption543530">Reschedule Work Order</caption>
+      </mediaobject>
+    </screenshot></para>
+  <tip>
+    <para>To edit a Work Order after it has been created, use the right-click
+    menu in any of the "Work Order Schedule by..." displays. There you will
+    find an "Edit W/O" option.</para>
+  </tip>
+  <para>When rescheduling a Work Order, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Work Order #</term>
+      <listitem>
+        <para>Enter the Work Order Number of the Work Order you want to
+        reschedule.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Whs.</term>
+      <listitem>
+        <para>Displays Warehouse code automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem>
+        <para>Displays Item Number automatically when Work Order Number is
+        entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Status</term>
+      <listitem>
+        <para>Displays Work Order Status automatically when Work Order Number
+        is entered into "Work Order #" field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Start Date</term>
+      <listitem>
+        <para>Indicate the rescheduled Work Order start date. The current
+        start date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Due Date</term>
+      <listitem>
+        <para>Indicate the rescheduled Work Order due date. The current due
+        date will be displayed.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Reschedule Child Work Orders (if any)</term>
+      <listitem>
+        <para>Select to reschedule child Work Orders to meet the demands of
+        the rescheduled parent Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Post Comment</term>
+      <listitem>
+        <para>Select to attach a Comment to the Work Order. This option must
+        be selected if you want to add a Comment to the Work Order.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Comment Type</term>
+      <listitem>
+        <para>Specify one of the following Comment Types from the drop-down
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem>
+        <para>Closes the screen without rescheduling the selected Work Order,
+        returning you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>RESCHEDULE</term>
+      <listitem>
+        <para>Reschedules the selected Work Order according to the new start
+        and due dates entered in the screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

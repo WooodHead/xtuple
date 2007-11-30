@@ -110,9 +110,8 @@
     <varlistentry>
       <term>MOVE UP</term>
       <listitem>
-        <para>Moves an Operation sequence up the Work Order Operations
-        list.</para>
-        <para>Moving an Operation up or down the Work Order Operations list
+        <para>Moves an Operation sequence up the Work Order Operations list.
+        Moving an Operation up or down the Work Order Operations list
         constitutes a production override. Changes made here do not affect the
         original Bill of Operations sequence. Sequence numbers, which are
         incremented in multiples of ten, are automatically adjusted to reflect
@@ -122,9 +121,8 @@
     <varlistentry>
       <term>MOVE DOWN</term>
       <listitem>
-        <para>Moves an Operation sequence down the Work Order Operations
-        list.</para>
-        <para>Moving an Operation up or down the Work Order Operations list
+        <para>Moves an Operation sequence down the Work Order Operations list.
+        Moving an Operation up or down the Work Order Operations list
         constitutes a production override. Changes made here do not affect the
         original Bill of Operations sequence. Sequence numbers, which are
         incremented in multiples of ten, are automatically adjusted to reflect
@@ -137,17 +135,17 @@
   <variablelist>
     <varlistentry>
       <term>View Operation</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderOperationsVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit Operation</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderOperationsEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Delete Operation</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderOperationsDELETE)" />
     </varlistentry>
     <xi:include href="../widgets/xtreewidget.xml"

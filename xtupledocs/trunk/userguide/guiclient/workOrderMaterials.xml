@@ -68,8 +68,7 @@
       <term>Material Requirements</term>
       <listitem>
         <para>Display lists Material Requirements associated with specified
-        Work Order.</para>
-        <para>If the due date is past due, the date will display in
+        Work Order. If the due date is past due, the date will display in
         red.</para>
       </listitem>
     </varlistentry>
@@ -77,8 +76,7 @@
       <term>Pick List Items</term>
       <listitem>
         <para>Displays the total number of component Items which are also Pick
-        List Items.</para>
-        <para>Items may be marked as Pick List Items on the Item
+        List Items. Items may be marked as Pick List Items on the Item
         master.</para>
       </listitem>
     </varlistentry>
@@ -98,20 +96,19 @@
     <varlistentry>
       <term>Current Std. Material Cost</term>
       <listitem>
-        <para>Displays the current Standard Cost for the component
-        Items.</para>
-        <para>The displayed Cost includes all Standard Costs associated with
-        the component Items. Any non-material Costs associated with
-        manufactured subcomponents (e.g., Labor and Overhead) would also be
-        included in this total.</para>
+        <para>Displays the current Standard Cost for the component Items. The
+        displayed Cost includes all Standard Costs associated with the
+        component Items. Any non-material Costs associated with manufactured
+        subcomponents (e.g., Labor and Overhead) would also be included in
+        this total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Current Act. Material Cost</term>
       <listitem>
-        <para>Displays the current Actual Cost for the component Items.</para>
-        <para>The displayed Cost includes all Actual Costs associated with the
-        component Items. Any non-material Costs associated with manufactured
+        <para>Displays the current Actual Cost for the component Items. The
+        displayed Cost includes all Actual Costs associated with the component
+        Items. Any non-material Costs associated with manufactured
         subcomponents (e.g., Labor and Overhead) would also be included in
         this total.</para>
       </listitem>
@@ -119,12 +116,10 @@
     <varlistentry>
       <term>Maximum Desired Cost</term>
       <listitem>
-        <para>Displays the maximum desired Cost for the component
-        Items.</para>
-        <para>The maximum desired Cost is defined on the Item master. It
-        provides a visual guide to help determine whether component Item
-        Costs--either Standard or Actual--have exceeded the maximum desired
-        Cost.</para>
+        <para>Displays the maximum desired Cost for the component Items. The
+        maximum desired Cost is defined on the Item master. It provides a
+        visual guide to help determine whether component Item Costs--either
+        Standard or Actual--have exceeded the maximum desired Cost.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -177,17 +172,17 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderMaterialsEDIT/2)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderMaterialsVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
                   xpointer="element(workOrderMaterialsDELETE)" />
     </varlistentry>
     <xi:include href="../supportfiles/rightclick.xml"

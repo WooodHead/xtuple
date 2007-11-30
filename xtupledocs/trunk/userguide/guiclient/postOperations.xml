@@ -23,9 +23,9 @@
       <term>Work Order #</term>
       <listitem>
         <para>Enter the Work Order Number of the Work Order whose Operations
-        you want to post.</para>
-        <para>You may also scan into this field a Work Order Operation barcode
-        as defined for the Shop Floor Workbench screen.</para>
+        you want to post. You may also scan into this field a Work Order
+        Operation barcode as defined for the Shop Floor Workbench
+        screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -66,10 +66,10 @@
       <term>W/O Operation</term>
       <listitem>
         <para>Select the individual Operation you want to post from the list
-        of Work Order Operations for the specified Item.</para>
-        <para>After selecting an Operation, specify details for that
-        Operation. To post Operations for another Operation, simply select
-        that Operation from the sequential list.</para>
+        of Work Order Operations for the specified Item. After selecting an
+        Operation, specify details for that Operation. To post Operations for
+        another Operation, simply select that Operation from the sequential
+        list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,8 +85,7 @@
         </indexterm>Post in Production UOMs</term>
       <listitem>
         <para>Select to post the Operations quantity in Production Units of
-        Measure.</para>
-        <para>Operations may be posted using either the Inventory or
+        Measure. Operations may be posted using either the Inventory or
         Production UOM. In addition, different Operations in a single Bill of
         Operations may use different Production UOMs. For example, if you are
         producing soup, you might mix the soup in one Operation using UOM =
@@ -138,10 +137,9 @@
       <listitem>
         <para>Indicates that linked component materials will be issued
         automatically (i.e., backflushed) when the specified Operation is
-        posted.</para>
-        <para>Option will be enabled only if component materials are linked to
-        the specified Operation within the parent Item's Bill of Materials. If
-        such linkages exist, only components with "Pull" or "Mixed" issue
+        posted. Option will be enabled only if component materials are linked
+        to the specified Operation within the parent Item's Bill of Materials.
+        If such linkages exist, only components with "Pull" or "Mixed" issue
         methods will be displayed. Components having the "Push" issue method
         will not appear in the list, as these must be issued manually to a
         Work Order. If this option is selected, the General Ledger will show
@@ -153,12 +151,11 @@
       <term>Receive Inventory</term>
       <listitem>
         <para>Indicates that finished goods will be received into Inventory
-        when the specified Operation is posted.</para>
-        <para>Enabled only when the selected Operation is the receiving
-        Operation for the selected Work Order. Only one Work Order Operation
-        may have this flag set. If this option is selected, the General Ledger
-        will show the finished goods being received into Inventory when the
-        Operation is posted.</para>
+        when the specified Operation is posted. Enabled only when the selected
+        Operation is the receiving Operation for the selected Work Order. Only
+        one Work Order Operation may have this flag set. If this option is
+        selected, the General Ledger will show the finished goods being
+        received into Inventory when the Operation is posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -176,22 +173,20 @@
     <varlistentry>
       <term>Post Standard Setup Time</term>
       <listitem>
-        <para>Select to post standard setup time.</para>
-        <para>Typically, standard times will not be used if Operations are
-        being posted using the Shop Floor Workbench. Instead, labor times will
-        be calculated based on clock-in and clock-out times. Only users with
-        privileges to override the Production Time Clock will be able to post
-        standard times.</para>
+        <para>Select to post standard setup time. Typically, standard times
+        will not be used if Operations are being posted using the Shop Floor
+        Workbench. Instead, labor times will be calculated based on clock-in
+        and clock-out times. Only users with privileges to override the
+        Production Time Clock will be able to post standard times.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Specified Setup Time</term>
       <listitem>
         <para>Specify the non-standard amount of setup time required. The
-        amount of time entered will be posted.</para>
-        <para>If you are posting Operations from the Shop Floor Workbench, the
-        setup time entered will be automatically deducted from the run-time
-        total.</para>
+        amount of time entered will be posted. If you are posting Operations
+        from the Shop Floor Workbench, the setup time entered will be
+        automatically deducted from the run-time total.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -203,19 +198,19 @@
     <varlistentry>
       <term>Mark Operation as Complete</term>
       <listitem>
-        <para>Select to mark Operation as complete.</para>
-        <para>An Operation may not be marked as "Complete" until all users are
-        clocked-out of the Operation. Users clock-in to and clock-out of Work
-        Orders using the Shop Floor Workbench.</para>
+        <para>Select to mark Operation as complete. An Operation may not be
+        marked as "Complete" until all users are clocked-out of the Operation.
+        Users clock-in to and clock-out of Work Orders using the Shop Floor
+        Workbench.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Post Standard Run Time</term>
       <listitem>
-        <para>Select to post the standard run time for specified Item.</para>
-        <para>Typically, standard times will not be used if Operations are
-        being posted using the Shop Floor Workbench. Instead, labor times will
-        be calculated based on clock-in and clock-out times. Only users with
+        <para>Select to post the standard run time for specified Item.
+        Typically, standard times will not be used if Operations are being
+        posted using the Shop Floor Workbench. Instead, labor times will be
+        calculated based on clock-in and clock-out times. Only users with
         privileges to override the Production Time Clock will be able to post
         standard times.</para>
       </listitem>
@@ -224,27 +219,26 @@
       <term>Post Specified Run Time</term>
       <listitem>
         <para>Specify the non-standard amount of run time required. The amount
-        of time entered will be posted.</para>
-        <para>If you are posting Operations from the Shop Floor Workbench, run
-        time will be automatically calculated based on the accumulated time
-        elapsed between clock-ins and clock-outs.</para>
+        of time entered will be posted. If you are posting Operations from the
+        Shop Floor Workbench, run time will be automatically calculated based
+        on the accumulated time elapsed between clock-ins and
+        clock-outs.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Setup Performed By</term>
       <listitem>
-        <para>Enter the name of the user who performed the set up.</para>
-        <para>Since this is a text field, user names may also be scanned into
-        the field using a Bar Code scanner.</para>
+        <para>Enter the name of the user who performed the set up. Since this
+        is a text field, user names may also be scanned into the field using a
+        Bar Code scanner.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Run Performed By</term>
       <listitem>
-        <para>Enter the name of the user who performed the production
-        run.</para>
-        <para>Since this is a text field, user names may also be scanned into
-        the field using a Bar Code scanner.</para>
+        <para>Enter the name of the user who performed the production run.
+        Since this is a text field, user names may also be scanned into the
+        field using a Bar Code scanner.</para>
       </listitem>
     </varlistentry>
   </variablelist>
