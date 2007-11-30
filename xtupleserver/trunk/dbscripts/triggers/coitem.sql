@@ -151,6 +151,7 @@ BEGIN
     IF ((NEW.coitem_status = ''C'') AND (OLD.coitem_status <> ''C'')) THEN
       NEW.coitem_closedate = CURRENT_TIMESTAMP;
       NEW.coitem_close_username = CURRENT_USER;
+      NEW.coitem_qtyreserved := 0;
 
       IF (_cmnttypeid <> -1) THEN
 	PERFORM postComment(_cmnttypeid, ''SI'', NEW.coitem_id, ''Closed'');
@@ -158,6 +159,8 @@ BEGIN
     END IF;
 
     IF ((NEW.coitem_status = ''X'') AND (OLD.coitem_status <> ''X'')) THEN
+      NEW.coitem_qtyreserved := 0;
+
       IF (_cmnttypeid <> -1) THEN
 	PERFORM postComment(_cmnttypeid, ''SI'', NEW.coitem_id, ''Canceled'');
 	PERFORM postComment(_cmnttypeid, ''S'', NEW.coitem_cohead_id, ''Line # ''|| NEW.coitem_linenumber ||'' Canceled'');
@@ -179,6 +182,10 @@ BEGIN
        AND (OLD.coitem_scheddate <= (CURRENT_DATE + itemsite_eventfence))
        AND (evnttype_name=''SoitemCancelled'') );
 
+    END IF;
+
+    IF ((NEW.coitem_qtyreserved <> OLD.coitem_qtyreserved) AND (_cmnttypeid <> -1)) THEN
+      PERFORM postComment(_cmnttypeid, ''SI'', NEW.coitem_id, ''Changed Qty Reserved to ''|| NEW.coitem_qtyreserved);
     END IF;
 
   END IF;
@@ -262,18 +269,26 @@ BEGIN
             _r.raitem_price_invuomratio <> NEW.coitem_price_invuomratio) THEN
           RAISE EXCEPTION ''Quantities for line item % may only be changed on the Return Authorization that created it.'',NEW.coitem_linenumber;
         END IF;
-        UPDATE raitem SET raitem_warranty = NEW.coitem_warranty
-        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (raitem_warranty != NEW.coitem_warranty));
-        UPDATE raitem SET raitem_cos_accnt_id = NEW.coitem_cos_accnt_id
-        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (COALESCE(raitem_cos_accnt_id,-1) != COALESCE(NEW.coitem_cos_accnt_id,-1)));
-        UPDATE raitem SET raitem_tax_id = NEW.coitem_tax_id
-        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (COALESCE(raitem_tax_id,-1) != COALESCE(NEW.coitem_tax_id,-1)));
-        UPDATE raitem SET raitem_scheddate = NEW.coitem_scheddate
-        WHERE ((raitem_new_coitem_id=NEW.coitem_id)
-         AND (raitem_scheddate != NEW.coitem_scheddate));
+        IF (OLD.coitem_warranty <> NEW.coitem_warranty) THEN
+          UPDATE raitem SET raitem_warranty = NEW.coitem_warranty
+           WHERE((raitem_new_coitem_id=NEW.coitem_id)
+             AND (raitem_warranty != NEW.coitem_warranty));
+        END IF;
+        IF (OLD.coitem_cos_accnt_id <> NEW.coitem_cos_accnt_id) THEN
+          UPDATE raitem SET raitem_cos_accnt_id = NEW.coitem_cos_accnt_id
+           WHERE((raitem_new_coitem_id=NEW.coitem_id)
+             AND (COALESCE(raitem_cos_accnt_id,-1) != COALESCE(NEW.coitem_cos_accnt_id,-1)));
+        END IF;
+        IF (OLD.coitem_tax_id <> NEW.coitem_tax_id) THEN
+          UPDATE raitem SET raitem_tax_id = NEW.coitem_tax_id
+           WHERE((raitem_new_coitem_id=NEW.coitem_id)
+             AND (COALESCE(raitem_tax_id,-1) != COALESCE(NEW.coitem_tax_id,-1)));
+        END IF;
+        IF (OLD.coitem_scheddate <> NEW.coitem_scheddate) THEN
+          UPDATE raitem SET raitem_scheddate = NEW.coitem_scheddate
+           WHERE((raitem_new_coitem_id=NEW.coitem_id)
+             AND (raitem_scheddate != NEW.coitem_scheddate));
+        END IF;
         IF ((OLD.coitem_qtyshipped <> NEW.coitem_qtyshipped) AND 
            (NEW.coitem_qtyshipped >= _r.raitem_qtyauthorized) AND
            (_r.raitem_status = ''O'') AND
