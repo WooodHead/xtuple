@@ -10,10 +10,11 @@ BEGIN
   SELECT SUM(currtobase(arapply_curr_id,arapply_applied,pDate)) INTO _amount
   FROM arapply
   WHERE (((arapply_target_aropen_id = pAropenid) OR (arapply_source_aropen_id = pAropenid))
-  AND EXISTS(SELECT * 
+  AND (((arapply_journalnumber=0) AND (arapply_postdate <= pDate))
+  OR EXISTS(SELECT * 
              FROM gltrans 
              WHERE ((gltrans_journalnumber=arapply_journalnumber)
-             AND (gltrans_date <= pDate))));
+             AND (gltrans_date <= pDate)))));
 
   IF (_amount IS NULL) THEN
     RETURN 0;
