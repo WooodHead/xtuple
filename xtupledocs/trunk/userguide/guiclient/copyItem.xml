@@ -1,93 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519044">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>items</primary>
-         <secondary>copying of</secondary>
-      </indexterm>Copy Item</title>
-   <para>To make a copy of an Item, select the "Copy Item"
-    option. The following screen will appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_Items_copyItem.png" id="Graphic562823"/>
-            </imageobject>
-            <caption id="Caption519050">Copy Item</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>When copying an Item, you are presented with the
-    following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Item Number (Source Item)</term>
-         <listitem id="listitemN0x180ac00N0x1879f50">
-            <para>Enter the Item Number of the Item you want to copy.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>UOM</term>
-         <listitem id="listitemN0x180ac00N0x1879f98">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Target Item Number</term>
-         <listitem id="listitemN0x180ac00N0x1879fe0">
-            <para>The target Item Number must be a unique Item Number new to the
-          system.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Copy Item Costs</term>
-         <listitem id="listitemN0x180ac00N0x187a028">
-            <para>Select if you want to copy the Item Costs for the source
-          Item.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Copy Bill of Materials</term>
-         <listitem id="listitemN0x180ac00N0x187a070">
-            <para>Select if you want to copy the source Item's Bill of
-          Materials.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Copy Bill of Operations</term>
-         <listitem id="listitemN0x180ac00N0x187a0b8">
-            <para>Select if you want to copy the source Item's Bill of
-          Operations.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>Copy Used At Operation</term>
-         <listitem id="listitemN0x180ac00N0x187a100">
-            <para>Select if you want to include the "Used At" Operation
-          information when copying a Source Item's Bill of Materials.</para>
-            <para>If selected, the "Schedule w/ W/O Operation"
-          information will also be copied.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CANCEL</term>
-         <listitem id="listitemN0x180ac00N0x187a16c">
-            <para>Closes the screen without executing the copy command,
-          returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>COPY</term>
-         <listitem id="listitemN0x180ac00N0x187a1b4">
-            <para>Copies all selected information from the target Item to a
-          newly-created source Item.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>copying of</secondary>
+    </indexterm>Copy Item</title>
+  <para>To make a copy of an Item, select the "Copy Item" option. The
+  following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_Items_copyItem.png" id="Graphic562823" />
+        </imageobject>
+        <caption id="Caption519050">Copy Item</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When copying an Item, you are presented with the following
+  options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number (Source Item)</term>
+      <listitem id="listitemN0x180ac00N0x1879f50">
+        <para>Enter the Item Number of the Item you want to copy.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem id="listitemN0x180ac00N0x1879f98">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Target Item Number</term>
+      <listitem id="listitemN0x180ac00N0x1879fe0">
+        <para>The target Item Number must be a unique Item Number new to the
+        system.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy Item Costs</term>
+      <listitem id="listitemN0x180ac00N0x187a028">
+        <para>Select if you want to copy the Item Costs for the source
+        Item.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy Bill of Materials</term>
+      <listitem id="listitemN0x180ac00N0x187a070">
+        <para>Select if you want to copy the source Item's Bill of
+        Materials.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy Bill of Operations</term>
+      <listitem id="listitemN0x180ac00N0x187a0b8">
+        <para>Select if you want to copy the source Item's Bill of
+        Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Copy Used At Operation</term>
+      <listitem id="listitemN0x180ac00N0x187a100">
+        <para>Select if you want to include the "Used At" Operation
+        information when copying a Source Item's Bill of Materials. If
+        selected, the "Schedule w/ W/O Operation" information will also be
+        copied.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x187a16c">
+        <para>Closes the screen without executing the copy command, returning
+        you to the application desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem id="listitemN0x180ac00N0x187a1b4">
+        <para>Copies all selected information from the target Item to a
+        newly-created source Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>

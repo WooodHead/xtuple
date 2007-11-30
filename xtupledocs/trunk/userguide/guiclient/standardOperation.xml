@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="standardOperation" role="openmfg">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>standard operations</primary>
       <secondary>creating new</secondary>
     </indexterm>Standard Operation</title>
-  <para>To create a new Standard Operation, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Standard Operation, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_standOpsNew.png" id="Graphic562729"/>
+          <imagedata fileref="images/PD_MI_standOpsNew.png" id="Graphic562729" />
         </imageobject>
         <caption id="Caption518824">Create New Standard Operation</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Standard Operation, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Standard Operation, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Std. Oper. #</term>
@@ -51,15 +49,13 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>units of measure</primary>
           <secondary>in operations</secondary>
         </indexterm>Production UOM</term>
       <listitem id="listitemN0x180ac00N0x184cf60">
         <para>Specify the Unit of Measure to use for the Production UOM--or
-        enter a free-form UOM.</para>
-        <para>Specify a UOM to be used optionally when Work
+        enter a free-form UOM. Specify a UOM to be used optionally when Work
         Order Operations are posted for the specified Operation. Operations
         may be posted using either the Inventory or Production UOM. In
         addition, different Operations in a single Bill of Operations may use
@@ -73,9 +69,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>When posting Work Order Operations, you are given
-    the option to post Operations using Production UOMs or Inventory
-    UOMs.</para>
+    <para>When posting Work Order Operations, you are given the option to post
+    Operations using Production UOMs or Inventory UOMs.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -85,30 +80,28 @@
         the Inventory/Production UOM ratio normalizes the posting so that the
         Inventory impact is recorded in the Inventory UOM. The ratio is set up
         in the same way as the Capacity/Inventory UOM ratio described in the
-        <xref endterm="Anchor13555" linkend="Anchor13555"/>
-    FINDME
-  "Enter New Item" section.</para>
+        <xref endterm="Anchor13555" linkend="Anchor13555" /> FINDME "Enter New
+        Item" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Use Standard Times</term>
       <listitem id="listitemN0x180ac00N0x184d038">
-        <para>Select to activate fields for standard times below.</para>
-        <para>Standard times will be associated with the
-        Standard Operation if selected.</para>
+        <para>Select to activate fields for standard times below. Standard
+        times will be associated with the Standard Operation if
+        selected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Labor and overhead Costs associated with setup and
-    run times must be reported if they are to be tracked in the G/L and
-    elsewhere. To report setup and run times, select the appropriate boxes in
-    the Operation screen.</para>
+    <para>Labor and overhead Costs associated with setup and run times must be
+    reported if they are to be tracked in the G/L and elsewhere. To report
+    setup and run times, select the appropriate boxes in the Operation
+    screen.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>setup time</primary>
           <secondary>for operations</secondary>
         </indexterm>Setup Time (min)</term>
@@ -121,23 +114,21 @@
       <term>Report Cost as (Setup Time)</term>
       <listitem id="listitemN0x180ac00N0x184d158">
         <para>Specify whether you want to report Setup Costs as "Direct
-        Labor," "Overhead," or "None."</para>
-        <para>Specify the "None" option if you would do not
-        want to track Setup Time as part of the Operation's Cost.</para>
+        Labor," "Overhead," or "None." Specify the "None" option if you would
+        do not want to track Setup Time as part of the Operation's
+        Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Report Setup Time</term>
       <listitem id="listitemN0x180ac00N0x184d1a0">
-        <para>Select to report setup time.</para>
-        <para>Must be selected for labor Costs associated with
-        setup to be tracked in the G/L and elsewhere. If not selected, these
-        Costs will not be reported.</para>
+        <para>Select to report setup time. Must be selected for labor Costs
+        associated with setup to be tracked in the G/L and elsewhere. If not
+        selected, these Costs will not be reported.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>run time</primary>
           <secondary>for standard operations</secondary>
         </indexterm>Run Time (min)</term>
@@ -150,35 +141,32 @@
       <term>per</term>
       <listitem id="listitemN0x180ac00N0x184d278">
         <para>Specify the standard quantity that will be produced during a
-        typical run-time period.</para>
-        <para>The value entered here is equivalent to a run
+        typical run-time period. The value entered here is equivalent to a run
         size, batch size, or Economic Order Quantity (EOQ) for this particular
         Operation. Because Work Order Operations roll into the Actual and
         Standard Costs for manufactured Items, you should specify a per
         quantity which accurately reflects your normal batch size for the
         Operation. Specifying a standard batch size helps ensure your
         Operations Costs are evenly distributed. For an example of how the
-        batch size can help distribute Costs from Operations, see <xref endterm="Anchor15267" linkend="Anchor15267"/>
-    FINDME
-  Figure 5.1.</para>
+        batch size can help distribute Costs from Operations, see <xref
+        endterm="Anchor15267" linkend="Anchor15267" /> FINDME Figure
+        5.1.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Report Cost as (Run Time)</term>
       <listitem id="listitemN0x180ac00N0x184d2c0">
         <para>Specify whether you want to report Setup Costs as "Direct
-        Labor," "Overhead," or "None."</para>
-        <para>Specify the "None" option if you would do not
-        want to track Run Time as part of the Operation's Cost.</para>
+        Labor," "Overhead," or "None." Specify the "None" option if you would
+        do not want to track Run Time as part of the Operation's Cost.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Report Run Time</term>
       <listitem id="listitemN0x180ac00N0x184d308">
-        <para>Select to report run time.</para>
-        <para>Must be selected for labor Costs associated with
-        run time to be tracked in the G/L and elsewhere. If not selected,
-        these Costs will not be reported.</para>
+        <para>Select to report run time. Must be selected for labor Costs
+        associated with run time to be tracked in the G/L and elsewhere. If
+        not selected, these Costs will not be reported.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -189,8 +177,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

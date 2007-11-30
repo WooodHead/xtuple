@@ -1,145 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520014">
-   <title>
-      
-      <indexterm significance="normal">
-         <primary>costing</primary>
-         <secondary>for indented BOMs</secondary>
-      </indexterm> 
-      <indexterm significance="normal">
-         <primary>bills of materials</primary>
-         <secondary>costed indented view of</secondary>
-      </indexterm>Costed Indented BOM</title>
-   <para>The difference between the indented view and the
-    single level view is that the indented view displays Costs for all
-    subcomponents if there is a manufactured component listed on the Bill of
-    Materials list. To view associated Item Costs using an indented Bill of
-    Materials, select the "Costed Indented BOM" option. The following screen
-    will appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata fileref="images/PD_Cost_dispIndentedBOM.png" id="Graphic563436"/>
-            </imageobject>
-            <caption id="Caption520020">Costed Indented Bill of
-          Materials</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>When displaying Costs for an indented Bill of
-    Materials, you are presented with the following options:</para>
-   <variablelist>
+  <title><indexterm significance="normal">
+      <primary>costing</primary>
+      <secondary>for indented BOMs</secondary>
+    </indexterm> <indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>costed indented view of</secondary>
+    </indexterm>Costed Indented BOM</title>
+  <para>The difference between the indented view and the single level view is
+  that the indented view displays Costs for all subcomponents if there is a
+  manufactured component listed on the Bill of Materials list. To view
+  associated Item Costs using an indented Bill of Materials, select the
+  "Costed Indented BOM" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/PD_Cost_dispIndentedBOM.png"
+                     id="Graphic563436" />
+        </imageobject>
+        <caption id="Caption520020">Costed Indented Bill of
+        Materials</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When displaying Costs for an indented Bill of Materials, you are
+  presented with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Item Number</term>
+      <listitem id="listitemN0x180ac00N0x191b024">
+        <para>Enter the Item Number of the manufactured Item whose associated
+        Costs you would like to view using an indented Bill of
+        Materials.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>UOM</term>
+      <listitem id="listitemN0x180ac00N0x191b06c">
+        <para>Inventory Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Use Standard Costs</term>
+      <listitem id="listitemN0x180ac00N0x191b0b4">
+        <para>Select to display Standard Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Standard Cost,
+        will display--assuming Standard Costs have been defined for each
+        component Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>When Labor and Overhead are posted to the General Ledger, they are
+    posted using their Actual Cost. This is a departure from the rule which
+    governs materials--namely, that materials are always posted using their
+    Standard Cost. Differences between Actual and Standard Labor and Overhead
+    Costs will be reflected in Inventory Cost Variances when Work Order
+    Production or Operations are posted. You can address these variances if
+    and when they occur by posting your Actual Costs to Standard.</para>
+  </tip>
+  <variablelist>
+    <varlistentry>
+      <term>Use Actual Costs</term>
+      <listitem id="listitemN0x180ac00N0x191b144">
+        <para>Select to display Actual Costs for component Items in the
+        specified Item's Bill of Materials. Both the Unit Cost and Extended
+        Cost for each component Item, expressed in terms of Actual Cost, will
+        display--assuming Actual Costs have been defined for each component
+        Item.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <note>
+    <para>The totals displayed on the screen are derived as follows:</para>
+    <variablelist>
       <varlistentry>
-         <term>Item Number</term>
-         <listitem id="listitemN0x180ac00N0x191b024">
-            <para>Enter the Item Number of the manufactured Item whose
-          associated Costs you would like to view using an indented Bill of
-          Materials.</para>
-         </listitem>
+        <term>Total Cost</term>
+        <listitem>
+          <para>This total is pulled from the Extended Cost column. The total
+          may vary, depending on whether "Use Standard Costs" or "Use Actual
+          Costs" is selected.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-         <term>UOM</term>
-         <listitem id="listitemN0x180ac00N0x191b06c">
-            <para>Inventory Unit of Measure.</para>
-         </listitem>
+        <term>Actual Cost</term>
+        <listitem>
+          <para> This value represents the Actual Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
       </varlistentry>
       <varlistentry>
-         <term>Use Standard Costs</term>
-         <listitem id="listitemN0x180ac00N0x191b0b4">
-            <para>Select to display Standard Costs for component Items in the
-          specified Item's Bill of Materials.</para>
-            <para>Both the Unit Cost and Extended Cost for each
-          component Item, expressed in terms of Standard Cost, will
-          display--assuming Standard Costs have been defined for each
-          component Item.</para>
-         </listitem>
+        <term>Standard Cost</term>
+        <listitem>
+          <para>: This value represents the Standard Cost for the parent Item
+          whose Costed Indented BOM is being displayed.</para>
+        </listitem>
       </varlistentry>
-   </variablelist>
-   <tip>
-      <para>When Labor and Overhead are posted to the General
-      Ledger, they are posted using their Actual Cost. This is a departure
-      from the rule which governs materials--namely, that materials are always
-      posted using their Standard Cost. Differences between Actual and
-      Standard Labor and Overhead Costs will be reflected in Inventory Cost
-      Variances when Work Order Production or Operations are posted. You can
-      address these variances if and when they occur by posting your Actual
-      Costs to Standard.</para>
-   </tip>
-   <variablelist>
-      <varlistentry>
-         <term>Use Actual Costs</term>
-         <listitem id="listitemN0x180ac00N0x191b144">
-            <para>Select to display Actual Costs for component Items in the
-          specified Item's Bill of Materials.</para>
-            <para>Both the Unit Cost and Extended Cost for each
-          component Item, expressed in terms of Actual Cost, will
-          display--assuming Actual Costs have been defined for each component
-          Item.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <note>
-      <para>The totals displayed on the screen are derived as
-      follows:</para>
-      <para>Total Cost: This total is pulled from the Extended
-      Cost column. The total may vary, depending on whether "Use Standard
-      Costs" or "Use Actual Costs" is selected.</para>
-      <para>Actual Cost: This value represents the Actual Cost
-      for the parent Item whose Costed Indented BOM is being displayed.</para>
-      <para>Standard Cost: This value represents the Standard
-      Cost for the parent Item whose Costed Indented BOM is being
-      displayed.</para>
-   </note>
-   <variablelist>
-      <varlistentry>
-         <term>Costed Bill of Materials</term>
-         <listitem id="listitemN0x180ac00N0x191b1d4">
-            <para>Display lists Costed Indented Bill of Materials components,
-          using the specified parameters.</para>
-            <para>The difference between the indented view and
-          the single level view is that the indented view displays all
-          subcomponents if there is a manufactured component listed on the
-          Bill of Materials. The Total Cost, Actual Cost, and Standard Cost
-          will be calculated automatically at the bottom of the
-          display.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>To the far right of the display are the following
-    buttons and display fields:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x191b240">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x191b288">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <para>Right-clicking on a component in the Costed Bill of
-    Materials list enables you to select from the following menu
-    options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Maintain Item Costs</term>
-         <listitem id="listitemN0x180ac00N0x191b2f4">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>View Item Costing</term>
-         <listitem id="listitemN0x180ac00N0x191b33c">
-            <para/>
-         </listitem>
-      </varlistentry>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
-   </variablelist>
+    </variablelist>
+  </note>
+  <variablelist>
+    <varlistentry>
+      <term>Costed Bill of Materials</term>
+      <listitem id="listitemN0x180ac00N0x191b1d4">
+        <para>Display lists Costed Indented Bill of Materials components,
+        using the specified parameters. The difference between the indented
+        view and the single level view is that the indented view displays all
+        subcomponents if there is a manufactured component listed on the Bill
+        of Materials. The Total Cost, Actual Cost, and Standard Cost will be
+        calculated automatically at the bottom of the display.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the display are the following buttons and display
+  fields:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x191b240">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x191b288">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>Right-clicking on a component in the Costed Bill of Materials list
+  enables you to select from the following menu options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Maintain Item Costs</term>
+      <listitem id="listitemN0x180ac00N0x191b2f4">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>View Item Costing</term>
+      <listitem id="listitemN0x180ac00N0x191b33c">
+        <para></para>
+      </listitem>
+    </varlistentry>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
+  </variablelist>
 </section>
