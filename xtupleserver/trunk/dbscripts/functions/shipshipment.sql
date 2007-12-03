@@ -11,6 +11,7 @@ DECLARE
 
   _billedQty		NUMERIC;
   _c			RECORD;
+  _coholdtype		TEXT;
   _gldate		DATE;
   _invhistid		INTEGER;
   _itemlocSeries	INTEGER;
@@ -38,12 +39,23 @@ BEGIN
 
   IF (_shiphead.shiphead_order_type = ''SO'') THEN
 
-    SELECT cohead_shipcomplete INTO _shipcomplete
+    SELECT cohead_shipcomplete, cohead_holdtype INTO _shipcomplete, _coholdtype
       FROM cohead, shiphead
      WHERE ((shiphead_order_id=cohead_id)
        AND  (NOT shiphead_shipped)
        AND  (shiphead_order_type=_shiphead.shiphead_order_type)
        AND  (shiphead_id=pshipheadid));
+
+    IF (_coholdtype = ''C'') THEN
+      RETURN -12;
+    ELSIF (_coholdtype = ''P'') THEN
+      RETURN -13;
+    ELSIF (_coholdtype = ''R'') THEN
+      RETURN -14;
+    ELSIF (_coholdtype = ''S'') THEN
+      RETURN -15;
+    END IF;
+
     IF ( _shipcomplete ) THEN
       FOR _c IN SELECT (coitem_qtyord -
 			(COALESCE(SUM(shipitem_qty),0) +

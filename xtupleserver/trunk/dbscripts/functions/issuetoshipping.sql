@@ -19,6 +19,7 @@ DECLARE
   pQty			ALIAS FOR $3;
   _itemlocSeries	INTEGER			 := $4;
   _timestamp		TIMESTAMP WITH TIME ZONE := $5;
+  _coholdtype		TEXT;
   _invhistid		INTEGER;
   _shipheadid		INTEGER;
   _shipnumber		INTEGER;
@@ -45,6 +46,19 @@ BEGIN
       _shipnumber := fetchShipmentNumber();
       IF (_shipnumber < 0) THEN
 	RETURN -10;
+      END IF;
+
+      SELECT cohead_holdtype INTO _coholdtype
+      FROM cohead, coitem
+      WHERE ((cohead_id=coitem_cohead_id)
+        AND  (coitem_id=pitemid));
+
+      IF (_coholdtype = ''C'') THEN
+	RETURN -12;
+      ELSIF (_coholdtype = ''P'') THEN
+	RETURN -13;
+      ELSIF (_coholdtype = ''R'') THEN
+	RETURN -14;
       END IF;
 
       INSERT INTO shiphead
