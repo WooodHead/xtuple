@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972320">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Purchase Order</title>
-  <para>To create a new Purchase Order, select the "Enter New
-  Purchase Order" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Purchase Order, select the "Enter New Purchase Order"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_newPO.png" id="Graphic972323"/>
+          <imagedata fileref="images/PO_PO_newPO.png" id="Graphic972323" />
         </imageobject>
         <caption id="Caption972326">Enter New Purchase Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering a new Purchase Order, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When entering a new Purchase Order, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Order #</term>
       <listitem id="listitemN0x180ac00N0x185ca1c">
         <para>Next available Purchase Order Number will automatically display,
         unless your system requires you to enter Purchase Order Numbers
-        manually.</para>
-        <para>Default values and input parameters for Purchase
-        Order Numbers are configurable at the system level.</para>
+        manually. Default values and input parameters for Purchase Order
+        Numbers are configurable at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -41,20 +38,18 @@
       <term>Receiving Whse.</term>
       <listitem id="listitemN0x180ac00N0x185caac">
         <para>Specify the Warehouse where materials from the Purchase Order
-        will be received.</para>
-        <para>By default, all active Warehouses are available
-        for selection as Receiving Warehouses. No special designation needs to
-        be made in the Warehouse master or elsewhere to indicate that a
-        Warehouse may be used for receiving purposes.</para>
+        will be received. By default, all active Warehouses are available for
+        selection as Receiving Warehouses. No special designation needs to be
+        made in the Warehouse master or elsewhere to indicate that a Warehouse
+        may be used for receiving purposes.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The receiving Warehouse may differ from the
-    supplying Warehouse(s) for some Purchase Order Line Items. To update your
-    Inventory records to indicate that Items have been moved from the
-    receiving to the supplied from Warehouse, perform an Inter-Warehouse
-    Transfer.</para>
+    <para>The receiving Warehouse may differ from the supplying Warehouse(s)
+    for some Purchase Order Line Items. To update your Inventory records to
+    indicate that Items have been moved from the receiving to the supplied
+    from Warehouse, perform an Inter-Warehouse Transfer.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -66,10 +61,10 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>A valid Vendor number must be entered in the "Vendor
-    #" field before Line Items can be added to the Purchase Order. If no valid
-    Vendor number is entered, you will not be able to add Line Items to the
-    Purchase Order.</para>
+    <para>A valid Vendor number must be entered in the "Vendor #" field before
+    Line Items can be added to the Purchase Order. If no valid Vendor number
+    is entered, you will not be able to add Line Items to the Purchase
+    Order.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -83,12 +78,11 @@
     <varlistentry>
       <term>Purchasing Agent</term>
       <listitem id="listitemN0x180ac00N0x185cc14">
-        <para>Specify the name of the agent assigned to the Order.</para>
-        <para>By default, the name of the logged-in user will
-        be entered as Purchasing Agent--assuming that user is designated as a
-        Purchasing Agent. If the user is not a Purchasing Agent, the first
-        alphabetical name in the list of Purchasing Agents will be
-        entered.</para>
+        <para>Specify the name of the agent assigned to the Order. By default,
+        the name of the logged-in user will be entered as Purchasing
+        Agent--assuming that user is designated as a Purchasing Agent. If the
+        user is not a Purchasing Agent, the first alphabetical name in the
+        list of Purchasing Agents will be entered.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -100,18 +94,16 @@
     <varlistentry>
       <term>Terms</term>
       <listitem id="listitemN0x180ac00N0x185cca4">
-        <para>Specify the billing Terms for the Order.</para>
-        <para>Default billing Terms for a Vendor are defined
-        on the Vendor master. You may select alternate Terms on the Purchase
-        Order header.</para>
+        <para>Specify the billing Terms for the Order. Default billing Terms
+        for a Vendor are defined on the Vendor master. You may select
+        alternate Terms on the Purchase Order header.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Alt. Address</term>
       <listitem id="listitemN0x180ac00N0x185ccec">
         <para>Enter the number of an Alternate Address, if you prefer not to
-        use the Main Address.</para>
-        <para>Vendors may maintain multiple Alternate
+        use the Main Address. Vendors may maintain multiple Alternate
         Addresses.</para>
       </listitem>
     </varlistentry>
@@ -131,17 +123,16 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x185cde8">
         <para>Creates the new Purchase Order and saves the Purchase Order
-        information.</para>
-        <para>If your system is configured to prompt for
-        printing on SAVE, then you will be presented with additional
-        processing options after this button is selected.</para>
+        information. If your system is configured to prompt for printing on
+        SAVE, then you will be presented with additional processing options
+        after this button is selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -152,32 +143,29 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>adding line items to</secondary>
     </indexterm>To create or modify Purchase Order Line Items, select the
   "Line Items" tab at the top of the "Purchase Order" screen. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POLineItems.png" id="Graphic972355"/>
+          <imagedata fileref="images/PO_PO_POLineItems.png" id="Graphic972355" />
         </imageobject>
         <caption id="Caption972358">Purchase Order Line Items</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating or modifying Purchase Order Line Items,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating or modifying Purchase Order Line Items, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
       <listitem id="listitemN0x180ac00N0x185cf50">
-        <para>Display lists Line Items for this Purchase Order.</para>
-        <para>A valid Vendor number must be entered in the
-        "Vendor #" field before Line Items can be added to the Order.</para>
+        <para>Display lists Line Items for this Purchase Order. A valid Vendor
+        number must be entered in the "Vendor #" field before Line Items can
+        be added to the Order.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -200,8 +188,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on purchase orders</secondary>
         </indexterm> <indexterm significance="normal">
@@ -209,9 +196,9 @@
           <secondary>freight charges on</secondary>
         </indexterm>Freight</term>
       <listitem id="listitemN0x180ac00N0x185d100">
-        <para>Displays the total amount of freight charges.</para>
-        <para>The amount displayed includes the sum of all
-        Line Item freight and miscellaneous freight charges.</para>
+        <para>Displays the total amount of freight charges. The amount
+        displayed includes the sum of all Line Item freight and miscellaneous
+        freight charges.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -221,8 +208,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
@@ -261,21 +248,18 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Notes to a Purchase Order, select the "Notes"
-  tab at the top of the "Purchase Order" screen. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To add Notes to a Purchase Order, select the "Notes" tab at the top of
+  the "Purchase Order" screen. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_PONotes.png" id="Graphic972455"/>
+          <imagedata fileref="images/PO_PO_PONotes.png" id="Graphic972455" />
         </imageobject>
         <caption id="Caption972458">Add Notes to Purchase Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Notes to a Purchase Order, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When adding Notes to a Purchase Order, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
@@ -285,21 +269,19 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Comments to a Purchase Order--or to view
-  system-generated Comments--select the "Comments" tab at the top of the
-  "Purchase Order" screen. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add Comments to a Purchase Order--or to view system-generated
+  Comments--select the "Comments" tab at the top of the "Purchase Order"
+  screen. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POComments.png" id="Graphic972463"/>
+          <imagedata fileref="images/PO_PO_POComments.png" id="Graphic972463" />
         </imageobject>
         <caption id="Caption972466">Add Comments to Purchase Order</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Comments to a Purchase Order, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When adding Comments to a Purchase Order, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Comments</term>
@@ -308,8 +290,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -325,33 +307,30 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To create a Purchase Order Comment, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a Purchase Order Comment, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CommentNew.png" id="Graphic972474"/>
+          <imagedata fileref="images/CommentNew.png" id="Graphic972474" />
         </imageobject>
         <caption id="Caption972477">Create New Comment</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x18664b8">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments.
-        Once you have specified a Comment Type, you may type your Comment in
-        the main text area. The text area features word-wrapping and
-        scroll-bar support for longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -368,63 +347,58 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>If you want to speed up your data entry of Purchase
-  Order Line Items, you can use the Quick Entry interface. This screen allows
-  you to enter multiple Line Items in one session. It also simplifies the
-  process by presenting only the minimum required fields. To enter Line Items
-  using the Quick Entry interface, select the "Quick Entry" tab at the top of
-  the "Purchase Order" screen. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>If you want to speed up your data entry of Purchase Order Line Items,
+  you can use the Quick Entry interface. This screen allows you to enter
+  multiple Line Items in one session. It also simplifies the process by
+  presenting only the minimum required fields. To enter Line Items using the
+  Quick Entry interface, select the "Quick Entry" tab at the top of the
+  "Purchase Order" screen. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_POQuick.png" id="Graphic972485"/>
+          <imagedata fileref="images/PO_PO_POQuick.png" id="Graphic972485" />
         </imageobject>
         <caption id="Caption972488">Purchase Order Quick Entry</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>To get started entering Line Items, place your
-    cursor in the "Item" field. You can then move from field-to-field using
-    the TAB button on your keyboard.</para>
+    <para>To get started entering Line Items, place your cursor in the "Item"
+    field. You can then move from field-to-field using the TAB button on your
+    keyboard.</para>
   </tip>
-  <para>When entering Purchase Order Line Items using the
-  Quick Entry interface, you are presented with the following options:</para>
+  <para>When entering Purchase Order Line Items using the Quick Entry
+  interface, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Item</term>
       <listitem id="listitemN0x180ac00N0x1866668">
-        <para>Enter an Inventory Item Number.</para>
-        <para>This field is used for entering Items stored in
-        Inventory. Use the "Vend. Item #" field for entering non-Inventory
-        Items.</para>
+        <para>Enter an Inventory Item Number. This field is used for entering
+        Items stored in Inventory. Use the "Vend. Item #" field for entering
+        non-Inventory Items.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Supplying Whs.</term>
       <listitem id="listitemN0x180ac00N0x18666b0">
-        <para>Select a Supplying Warehouse from the list of available
-        options.</para>
-        <para>By default, the user's preferred Warehouse will
-        be presented first.</para>
+        <para>Select a Supplying Warehouse from the list of available options.
+        By default, the user's preferred Warehouse will be presented
+        first.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Vend. Item #</term>
       <listitem id="listitemN0x180ac00N0x18666f8">
-        <para>Use this field for entering non-Inventory Item Numbers.</para>
-        <para>If not used to handle non-Inventory Items, this
-        field will display Vendor Item Numbers for Inventory Items which have
-        Item Sources defined.</para>
+        <para>Use this field for entering non-Inventory Item Numbers. If not
+        used to handle non-Inventory Items, this field will display Vendor
+        Item Numbers for Inventory Items which have Item Sources
+        defined.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Expense Cat.</term>
       <listitem id="listitemN0x180ac00N0x1866740">
         <para>Enter the Expense Category you want your non-Inventory quantity
-        to be assigned to.</para>
-        <para>Use this option for non-Inventory Line Items
+        to be assigned to. Use this option for non-Inventory Line Items
         only.</para>
       </listitem>
     </varlistentry>
@@ -437,17 +411,15 @@
     <varlistentry>
       <term>Unit Price</term>
       <listitem id="listitemN0x180ac00N0x18667d0">
-        <para>Enter the Unit Price for the Line Item.</para>
-        <para>If an Item Source is defined, this information
-        may fill in automatically.</para>
+        <para>Enter the Unit Price for the Line Item. If an Item Source is
+        defined, this information may fill in automatically.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ext. Price</term>
       <listitem id="listitemN0x180ac00N0x1866818">
-        <para>Displays the Extended Price.</para>
-        <para>This is a calculated field and is shaded to
-        indicate that it may not be edited.</para>
+        <para>Displays the Extended Price. This is a calculated field and is
+        shaded to indicate that it may not be edited.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -459,14 +431,13 @@
     <varlistentry>
       <term>Due Date</term>
       <listitem id="listitemN0x180ac00N0x18668a8">
-        <para>Enter the due date.</para>
-        <para>If an Item Source is defined, this information
-        may fill in automatically.</para>
+        <para>Enter the due date. If an Item Source is defined, this
+        information may fill in automatically.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE QUICK ENTRIES</term>
@@ -483,5 +454,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="purchaseOrderItem.xml" xpointer="element(/1)"/>
+  <xi:include href="purchaseOrderItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

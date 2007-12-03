@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="poLiabilityDistrib">
   <title>P/O Liability Distribution</title>
-  <para>To mark a Line Item Receipt as invoiced, highlight the
-  Receipt and then select the "Mark as Invoiced" option from the right-click
-  menu. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To mark a Line Item Receipt as invoiced, highlight the Receipt and
+  then select the "Mark as Invoiced" option from the right-click menu. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_markInvoiced.png" id="Graphic972044"/>
+          <imagedata fileref="images/PO_Vouch_markInvoiced.png"
+                     id="Graphic972044" />
         </imageobject>
         <caption id="Caption972047">Mark Receipt as Invoiced</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When marking a Line Item Receipt as invoiced, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When marking a Line Item Receipt as invoiced, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Account</term>
       <listitem id="listitemN0x180ac00N0x187b308">
         <para>Select the Account you want to use opposite the P/O Liability
-        Clearing Account.</para>
-        <para>When this transaction is posted, the P/O
-        Liability Clearing Account will be debited with the distribution
-        amount--and the Account you specify will be credited. In this way, you
-        will be sure to clear P/O Liability when marking Receipts as invoiced
-        outside of the typical vouchering process flow.</para>
+        Clearing Account. When this transaction is posted, the P/O Liability
+        Clearing Account will be debited with the distribution amount--and the
+        Account you specify will be credited. In this way, you will be sure to
+        clear P/O Liability when marking Receipts as invoiced outside of the
+        typical vouchering process flow.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -38,8 +37,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

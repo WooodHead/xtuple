@@ -83,18 +83,12 @@
   BOO" option will appear only if the Item does not have a Bill of
   Operations.</para>
   <variablelist>
-    <varlistentry>
-      <term>Create BOM</term>
-      <listitem id="listitemN0x180ac00N0x1946984">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Create BOO</term>
-      <listitem id="listitemN0x180ac00N0x19469cc">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateBOM)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickCreateBOO)" />
     <xi:include href="../supportfiles/rightclick.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(/1/7/2/6)" />

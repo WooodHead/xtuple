@@ -57,12 +57,23 @@
       <listitem>
         <para>Select one of the following if you want Planned Work Orders to
         be exploded automatically:</para>
-        <para>Single Level Explosion - This option specifies that when Planned
-        Work Orders are exploded, requirements should be created for the
-        parent Planned Work Order only.</para>
-        <para>Multiple Level Explosion - This option specifies that
-        requirements should be created for both parent and child Planned Work
-        Orders.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Single Level Explosion</term>
+            <listitem>
+              <para>This option specifies that when Planned Work Orders are
+              exploded, requirements should be created for the parent Planned
+              Work Order only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Multiple Level Explosion</term>
+            <listitem>
+              <para>This option specifies that requirements should be created
+              for both parent and child Planned Work Orders.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

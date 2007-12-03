@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherItem">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>distributing quantities to</secondary>
     </indexterm>Voucher Item</title>
-  <para>To distribute quantities from Purchase Order Line
-  Items to the Voucher, highlight a Line Item and then select the
-  DISTRIBUTIONS button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To distribute quantities from Purchase Order Line Items to the
+  Voucher, highlight a Line Item and then select the DISTRIBUTIONS button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_voucherItem.png" id="Graphic972130"/>
+          <imagedata fileref="images/PO_Vouch_voucherItem.png"
+                     id="Graphic972130" />
         </imageobject>
         <caption id="Caption972133">Voucher Item Distribution</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>An Item's per unit Actual Cost will be automatically
-    updated after a Voucher is posted if the vouchered Cost differs from the
-    Item's current Actual Cost. The vouchered Cost for an Item is determined
-    by dividing the amount to distribute by the quantity to voucher.</para>
+    <para>An Item's per unit Actual Cost will be automatically updated after a
+    Voucher is posted if the vouchered Cost differs from the Item's current
+    Actual Cost. The vouchered Cost for an Item is determined by dividing the
+    amount to distribute by the quantity to voucher.</para>
   </note>
-  <para>When distributing quantities from a Purchase Order
-  Line Item to the Voucher, you are presented with the following
-  options:</para>
+  <para>When distributing quantities from a Purchase Order Line Item to the
+  Voucher, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>P/O Number</term>
@@ -125,31 +123,28 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Qty. to Voucher</term>
       <listitem id="listitemN0x180ac00N0x1889090">
         <para>This is a read-only field displaying the Purchase Order Line
-        Item quantity tagged to be vouchered for the given Voucher
-        Item.</para>
-        <para>The quantity displayed equals the tagged
-        received qty. minus any returned qty. which may also have been tagged.
-        The quantity to voucher is a divisor applied to the distribution
-        amount. The resulting amount--that is, the Voucher Item distribution
-        amount divided by the quantity vouchered--determines the per unit
-        Actual Cost for an Item. The system will automatically handle any
-        differences between the Inventory and Vendor UOMs--if any differences
-        exist.</para>
+        Item quantity tagged to be vouchered for the given Voucher Item. The
+        quantity displayed equals the tagged received qty. minus any returned
+        qty. which may also have been tagged. The quantity to voucher is a
+        divisor applied to the distribution amount. The resulting amount--that
+        is, the Voucher Item distribution amount divided by the quantity
+        vouchered--determines the per unit Actual Cost for an Item. The system
+        will automatically handle any differences between the Inventory and
+        Vendor UOMs--if any differences exist.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you want to partially pay for a Receipt--but find
-    you cannot edit the value in the "Qty. to Voucher" field--you should first
-    correct the quantity on the original Receipt to be the amount you want to
-    pay for, then enter a second Receipt for the balance. To correct Receipt
+    <para>If you want to partially pay for a Receipt--but find you cannot edit
+    the value in the "Qty. to Voucher" field--you should first correct the
+    quantity on the original Receipt to be the amount you want to pay for,
+    then enter a second Receipt for the balance. To correct Receipt
     quantities, use the right-click menu on the "Uninvoiced Receipts and
     Returns" screen.</para>
   </tip>
@@ -158,25 +153,23 @@
       <term>PO Line Freight to Voucher</term>
       <listitem id="listitemN0x180ac00N0x1889120">
         <para>Enter the amount of any Purchase Order Line Item freight
-        charges.</para>
-        <para>The freight amount entered in this field will be
-        added to the total amount for the Voucher Item. If you are vouchering
-        for less than the original quantity ordered--and if Line Item freight
-        was entered when the Purchase Order was created--then you should
-        consider adjusting the Line Item freight amount accordingly. To make
-        this adjustment, multiply the quantity you are vouchering by the per
-        unit freight charge. The per unit freight charge is determined by
-        dividing the original Line Item freight amount by the original Line
-        Item quantity.</para>
+        charges. The freight amount entered in this field will be added to the
+        total amount for the Voucher Item. If you are vouchering for less than
+        the original quantity ordered--and if Line Item freight was entered
+        when the Purchase Order was created--then you should consider
+        adjusting the Line Item freight amount accordingly. To make this
+        adjustment, multiply the quantity you are vouchering by the per unit
+        freight charge. The per unit freight charge is determined by dividing
+        the original Line Item freight amount by the original Line Item
+        quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Close P/O Item</term>
       <listitem id="listitemN0x180ac00N0x1889168">
-        <para>Select to close specified Line Item.</para>
-        <para>This flag will be selected automatically if the
-        received quantity tagged for vouchering is equal to or greater than
-        the Order quantity.</para>
+        <para>Select to close specified Line Item. This flag will be selected
+        automatically if the received quantity tagged for vouchering is equal
+        to or greater than the Order quantity.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -199,8 +192,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -240,5 +233,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherItemDistrib.xml" xpointer="element(/1)"/>
+  <xi:include href="voucherItemDistrib.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -69,11 +69,38 @@
         the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
-        <para>Street Address: Enter the street Address for the Vendor.</para>
-        <para>City: Enter the city where the Vendor is located.</para>
-        <para>State: Enter the state where the Vendor is located.</para>
-        <para>Postal Code: Enter the Postal Code for the Vendor.</para>
-        <para>Country: Enter the country where the Vendor is located.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>Enter the state where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -92,9 +119,8 @@
       <term>Default Currency</term>
       <listitem id="listitemN0x180ac00N0x181a334">
         <para>Specify the Currency to be used when conducting business
-        transactions with the Vendor.</para>
-        <para>This option will only be visible in systems configured to use
-        multiple Currencies.</para>
+        transactions with the Vendor. This option will only be visible in
+        systems configured to use multiple Currencies.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -113,12 +139,24 @@
         </indexterm>Default FOB</term>
       <listitem id="listitemN0x180ac00N0x181a49c">
         <para>Indicate the default Free on Board (FOB) destination by
-        selecting one of the following options:</para>
-        <para>Receiving Warehouse FOB: Select if receiving warehouse is
-        default FOB destination.</para>
-        <para>Vendor Specific FOB: Select if Vendor specifies an FOB
-        destination other than the receiving Warehouse. Enter alternate FOB
-        details in space provided.</para>
+        selecting one of the following options: </para>
+        <variablelist>
+          <varlistentry>
+            <term>Receiving Warehouse FOB</term>
+            <listitem>
+              <para>Select if receiving warehouse is default FOB
+              destination.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Vendor Specific FOB</term>
+            <listitem>
+              <para>Select if Vendor specifies an FOB destination other than
+              the receiving Warehouse. Enter alternate FOB details in space
+              provided.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -131,9 +169,9 @@
       <term>May only Sell Items defined by an Item Source</term>
       <listitem id="listitemN0x180ac00N0x181a52c">
         <para>Select if you want to restrict Items purchased from the Vendor
-        to Items having a defined Item Source.</para>
-        <para>If not selected, you may choose from all purchased Items when
-        entering a Purchase Order Line Item.</para>
+        to Items having a defined Item Source. If not selected, you may choose
+        from all purchased Items when entering a Purchase Order Line
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -147,12 +185,11 @@
       <term>Check for matching V/O and P/O amounts</term>
       <listitem id="listitemN0x180ac00N0x181a5bc">
         <para>Select to perform Voucher matching when entering Voucher Items
-        for the Vendor.</para>
-        <para>If selected, users will be presented with a warning message
-        whenever a Voucher Item amount does not match the corresponding
-        Purchase Order Item amount for the Vendor. This option will not
-        prevent users from proceeding. Instead, the warning message simply
-        alerts users that a mis-match exists.</para>
+        for the Vendor. If selected, users will be presented with a warning
+        message whenever a Voucher Item amount does not match the
+        corresponding Purchase Order Item amount for the Vendor. This option
+        will not prevent users from proceeding. Instead, the warning message
+        simply alerts users that a mis-match exists.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -306,10 +343,9 @@
       <term>Registration Number</term>
       <listitem id="listitemN0x180ac00N0x182d46c">
         <para>Enter the Vendor's Tax Registration Number for the specified Tax
-        Authority.</para>
-        <para>The registration number is used by Tax Authorities to identify
-        businesses and/or individuals. An Employer Identification Numbers
-        (EIN) is an example of a Tax Registration Number.</para>
+        Authority. The registration number is used by Tax Authorities to
+        identify businesses and/or individuals. An Employer Identification
+        Numbers (EIN) is an example of a Tax Registration Number.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -359,13 +395,50 @@
       <listitem id="listitemN0x180ac00N0x182d664">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available Titles.</para>
-        <para>First: Enter the Contact's first name.</para>
-        <para>Last: Enter the Contact's last name.</para>
-        <para>Job Title: Enter the Contact's job title.</para>
-        <para>Voice: Enter the Contact's phone number.</para>
-        <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para> Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para> Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax:</term>
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -373,13 +446,50 @@
       <listitem id="listitemN0x180ac00N0x182d6ac">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available Titles.</para>
-        <para>First: Enter the Contact's first name.</para>
-        <para>Last: Enter the Contact's last name.</para>
-        <para>Job Title: Enter the Contact's job title.</para>
-        <para>Voice: Enter the Contact's phone number.</para>
-        <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para> Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para> Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para>Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para>Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -482,11 +592,38 @@
         the browse button to select pre-existing Address information. By
         default, this address will appear as the main address when entering
         Purchase Orders for the Vendor.</para>
-        <para>Street Address: Enter the street Address for the Vendor.</para>
-        <para>City: Enter the city where the Vendor is located.</para>
-        <para>State: Enter the state where the Vendor is located.</para>
-        <para>Postal Code: Enter the Postal Code for the Vendor.</para>
-        <para>Country: Enter the country where the Vendor is located.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>Enter the street Address for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>Enter the city where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para> Enter the state where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>Enter the Postal Code for the Vendor.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>Enter the country where the Vendor is located.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -494,13 +631,50 @@
       <listitem id="listitemN0x180ac00N0x182db08">
         <para>Manually enter Contact information in the fields below--or use
         the browse button to select pre-existing Contact information.</para>
-        <para>Title: Select a Title from the list of available Titles.</para>
-        <para>First: Enter the Contact's first name.</para>
-        <para>Last: Enter the Contact's last name.</para>
-        <para>Job Title: Enter the Contact's job title.</para>
-        <para>Voice: Enter the Contact's phone number.</para>
-        <para>Fax: Enter the Contact's fax number.</para>
-        <para>E-Mail: Enter the Contact's e-mail address.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Title</term>
+            <listitem>
+              <para>Select a Title from the list of available Titles.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>First</term>
+            <listitem>
+              <para>Enter the Contact's first name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Last</term>
+            <listitem>
+              <para>Enter the Contact's last name.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Job Title</term>
+            <listitem>
+              <para>Enter the Contact's job title.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Voice</term>
+            <listitem>
+              <para>Enter the Contact's phone number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Fax</term>
+            <listitem>
+              <para> Enter the Contact's fax number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>E-Mail</term>
+            <listitem>
+              <para> Enter the Contact's e-mail address.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -592,11 +766,10 @@
       <term>Comment Type</term>
       <listitem id="listitemN0x180ac00N0x182ded4">
         <para>Specify one of the following Comment Types from the drop-down
-        list: ChangeLog or General.</para>
-        <para>Comment Types are used to categorize Comments. Once you have
-        specified a Comment Type, you may type your Comment in the main text
-        area. The text area features word-wrapping and scroll-bar support for
-        longer Comments.</para>
+        list: ChangeLog or General. Comment Types are used to categorize
+        Comments. Once you have specified a Comment Type, you may type your
+        Comment in the main text area. The text area features word-wrapping
+        and scroll-bar support for longer Comments.</para>
       </listitem>
     </varlistentry>
   </variablelist>

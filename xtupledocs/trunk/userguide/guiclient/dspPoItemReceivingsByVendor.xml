@@ -1,38 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section535325">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>receipts</primary>
       <secondary>by vendor</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>returns</primary>
       <secondary>details by vendor</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>receipt details for</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>vendors</primary>
       <secondary>return details for</secondary>
     </indexterm>Receipts and Returns by Vendor</title>
-  <para>To view Receipts and Returns by Vendor, select the
-  "Receipts and Returns by Vendor" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To view Receipts and Returns by Vendor, select the "Receipts and
+  Returns by Vendor" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Disp_rcptsRtnsByVend.png" id="Graphic535338"/>
+          <imagedata fileref="images/PO_Disp_rcptsRtnsByVend.png"
+                     id="Graphic535338" />
         </imageobject>
         <caption id="Caption535341">Receipts and Returns by Vendor</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Receipts and Returns by Vendor, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Receipts and Returns by Vendor, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Vendor #</term>
@@ -80,8 +75,7 @@
       <term>Selected</term>
       <listitem id="listitemN0x180ac00N0x18c77bc">
         <para>Specify Purchasing Agent whose Receipts and Returns by Vendor
-        you want to display.</para>
-        <para>Users may be designated as Purchasing Agents at
+        you want to display. Users may be designated as Purchasing Agents at
         the system level.</para>
       </listitem>
     </varlistentry>
@@ -96,21 +90,19 @@
       <term>P/O Receipts and Returns</term>
       <listitem id="listitemN0x180ac00N0x18c784c">
         <para>Display lists Receipts and Returns by Vendor, using the
-        specified parameters.</para>
-        <para>Purchased Cost and Receiving Cost variances will
+        specified parameters. Purchased Cost and Receiving Cost variances will
         also display if the "Show Purchase Price Variances" option is
         selected.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you select the "Show Purchase Price Variances"
-    option and the value "N/A" is displayed in the "Recv. Cost" column, this
-    simply means the Purchase Order qty. has been received but not yet
-    vouchered.</para>
+    <para>If you select the "Show Purchase Price Variances" option and the
+    value "N/A" is displayed in the "Recv. Cost" column, this simply means the
+    Purchase Order qty. has been received but not yet vouchered.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
