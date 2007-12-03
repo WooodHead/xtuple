@@ -36,7 +36,7 @@ BEGIN
 
   SELECT stdCost(itemsite_item_id) AS cost,
 	 itemsite_warehous_id,
-         ( (item_type IN (''R'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
+         ( (item_type IN (''R'',''J'')) OR (itemsite_controlmethod = ''N'') ) AS nocontrol,
          (itemsite_controlmethod IN (''L'', ''S'')) AS lotserial,
          (itemsite_loccntrl) AS loccntrl INTO _r
   FROM itemsite, item

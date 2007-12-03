@@ -77,7 +77,7 @@ BEGIN
       FROM coitem, itemsite, item
      WHERE ((coitem_itemsite_id=itemsite_id) 
        AND (itemsite_item_id=item_id) 
-       AND (NOT ((item_type = ''R'') OR (itemsite_controlmethod = ''N''))) 
+       AND (NOT ((item_type IN (''J'',''R'')) OR (itemsite_controlmethod = ''N''))) 
        AND ((itemsite_controlmethod IN (''L'', ''S'')) OR (itemsite_loccntrl)) 
        AND (coitem_id=porderitemid)); 
 
@@ -94,7 +94,7 @@ BEGIN
        AND  (toitem_item_id=itemsite_item_id) 
        AND  (itemsite_item_id=item_id) 
        AND  (toitem_status <> ''X'')
-       AND  (NOT ((item_type = ''R'') OR (itemsite_controlmethod = ''N''))) 
+       AND  (NOT ((item_type = ''R'',''J'') OR (itemsite_controlmethod = ''N''))) 
        AND  ((itemsite_controlmethod IN (''L'', ''S'')) OR (itemsite_loccntrl)) 
        AND  (toitem_id=porderitemid)); 
   END IF;

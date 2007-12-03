@@ -6,7 +6,7 @@ DECLARE
 BEGIN
 
   IF ( ( SELECT ( (itemsite_controlmethod IN (''L'', ''S'')) OR
-                  (item_type IN (''R'')) OR
+                  (item_type IN (''R'', ''J'')) OR
                   (itemsite_loccntrl) OR
                   (itemsite_qtyonhand > 0) )
          FROM itemsite, item

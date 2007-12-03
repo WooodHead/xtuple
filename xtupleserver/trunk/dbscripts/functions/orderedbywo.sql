@@ -26,7 +26,7 @@ BEGIN
   WHERE ( (itemsite_item_id=item_id)
    AND (itemsite_id=pItemsiteid) );
   
-  IF (_itemType = ''M'') THEN
+  IF (_itemType IN (''M'', ''J'')) THEN
     SELECT COALESCE(SUM(noNeg(wo_qtyord - wo_qtyrcv)), 0.0) INTO _qty
     FROM wo
     WHERE ( (wo_status <> ''C'')

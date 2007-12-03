@@ -14,10 +14,10 @@ BEGIN
   WHERE ( (itemsite_item_id=item_id)
    AND (itemsite_id=pitemsiteid) );
   
-  IF ( (_p.item_type IN (''M'', ''P'')) AND
+  IF ( (_p.item_type IN (''M'', ''P'', ''J'')) AND
        (_p.itemsite_supply) ) THEN
 
-    IF (_p.item_type IN (''M'')) THEN
+    IF (_p.item_type IN (''M'',''J'')) THEN
       SELECT COALESCE(MAX(component.itemsite_leadtime), 0) INTO _materialLeadTime
       FROM bomitem, itemsite AS parent, itemsite AS component
       WHERE ( (bomitem_parent_item_id=parent.itemsite_item_id)

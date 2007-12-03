@@ -9,7 +9,7 @@ DECLARE
 BEGIN
 
 --  Make sure the passed itemsite points to a real item
-  IF ( ( SELECT (item_type IN (''R'', ''F''))
+  IF ( ( SELECT (item_type IN (''R'', ''F'',''J''))
          FROM itemsite, item
          WHERE ( (itemsite_item_id=item_id)
           AND (itemsite_id=pItemsiteid) ) ) ) THEN

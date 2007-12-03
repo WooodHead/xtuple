@@ -48,7 +48,7 @@ BEGIN
       RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate) +
 	     orderedByTo(pItemsiteid, pStartDate, pEndDate);
 
-    ELSIF (_itemType IN (''M'', ''C'', ''B'')) THEN
+    ELSIF (_itemType IN (''M'', ''C'', ''B'', ''J'')) THEN
       RETURN orderedByWo(pItemsiteid, pStartDate, pEndDate) +
 	     orderedByTo(pItemsiteid, pStartDate, pEndDate);
 
@@ -60,7 +60,7 @@ BEGIN
     IF (_itemType IN (''P'', ''O'')) THEN
       RETURN orderedByPo(pItemsiteid, pStartDate, pEndDate);
 
-    ELSIF (_itemType IN (''M'', ''C'', ''B'')) THEN
+    ELSIF (_itemType IN (''M'', ''C'', ''B'', ''J'')) THEN
       RETURN orderedByWo(pItemsiteid, pStartDate, pEndDate);
 
     ELSE
