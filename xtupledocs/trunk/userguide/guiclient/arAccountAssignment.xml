@@ -31,8 +31,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18859d0">
         <para>Enter a Customer Type pattern to select a range of Customer
-        Types.</para>
-        <para>Refine your search using Regular Expressions, as described in
+        Types. Refine your search using Regular Expressions, as described in
         <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
@@ -40,41 +39,39 @@
       <term>A/R Account</term>
       <listitem id="listitemN0x180ac00N0x1885a18">
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/R Account.</para>
-        <para>This is an Asset Account. For example, it will be debited when
-        Invoices are posted and credited when Cash Receipts are posted.</para>
+        A/R Account. This is an Asset Account. For example, it will be debited
+        when Invoices are posted and credited when Cash Receipts are
+        posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Prepaid Receivables Account</term>
       <listitem id="listitemN0x180ac00N0x1885a60">
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        A/R Prepaid Account.</para>
-        <para>This is a Revenue contra Account. It will be debited when
-        Miscellaneous A/R Credit Memos are posted and credited when
-        Miscellaneous A/R Debit Memos are posted.</para>
+        A/R Prepaid Account. This is a Revenue contra Account. It will be
+        debited when Miscellaneous A/R Credit Memos are posted and credited
+        when Miscellaneous A/R Debit Memos are posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Freight Account</term>
       <listitem id="listitemN0x180ac00N0x1885aa8">
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        Freight Account.</para>
-        <para>This is a Revenue Account. It will be credited when Invoices are
-        posted and debited when S/O Credit Memos are posted.</para>
+        Freight Account. This is a Revenue Account. It will be credited when
+        Invoices are posted and debited when S/O Credit Memos are
+        posted.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Deferred Revenue Account</term>
       <listitem id="listitemN0x180ac00N0x1885af0">
         <para>Identify a General Ledger (G/L) Account to assign as the default
-        Deferred Revenue Account.</para>
-        <para>This is a Liability Account. It is an optional Account, as
-        systems may be configured to ignore it when handling Customer
-        Deposits. When this Account is used, it will be credited when
-        unapplied Cash Receipts are posted and debited when the A/R Credit
-        Memos resulting from unapplied Cash Receipts are applied to A/R open
-        items.</para>
+        Deferred Revenue Account. This is a Liability Account. It is an
+        optional Account, as systems may be configured to ignore it when
+        handling Customer Deposits. When this Account is used, it will be
+        credited when unapplied Cash Receipts are posted and debited when the
+        A/R Credit Memos resulting from unapplied Cash Receipts are applied to
+        A/R open items.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section541765">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item list price</primary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>list prices</primary>
       <secondary>by item</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>items</primary>
       <secondary>list prices for</secondary>
     </indexterm>Item List Price</title>
-  <para>To create or modify the List Price for an Item, select
-  the "Item List Price" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create or modify the List Price for an Item, select the "Item List
+  Price" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_itemListPrice.png" id="Graphic541777"/>
+          <imagedata fileref="images/SO_IP_itemListPrice.png"
+                     id="Graphic541777" />
         </imageobject>
         <caption id="Caption541776">Item List Price</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>List Prices may also be created or modified in the
-    Item master for an Item. Changes made to an Item's List Price in either
-    location will be reflected application-wide.</para>
+    <para>List Prices may also be created or modified in the Item master for
+    an Item. Changes made to an Item's List Price in either location will be
+    reflected application-wide.</para>
   </note>
-  <para>When creating an Item List Price, you are presented
-  with the following options:</para>
+  <para>When creating an Item List Price, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Item Number</term>
@@ -83,23 +80,21 @@
       <term>Extended Cost</term>
       <listitem id="listitemN0x180ac00N0x1942f34">
         <para>Displays the extended Standard Cost and extended Actual Cost for
-        the Item.</para>
-        <para>The extended Cost is equal to the List Price
-        multiplied by the Price/Inventory UOM ratio. If the Price/Inv. Ratio =
-        1, then the Cost and Extended Cost will be the same.</para>
+        the Item. The extended Cost is equal to the List Price multiplied by
+        the Price/Inventory UOM ratio. If the Price/Inv. Ratio = 1, then the
+        Cost and Extended Cost will be the same.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Margin</term>
       <listitem id="listitemN0x180ac00N0x1942f7c">
-        <para>Displays the profit margin.</para>
-        <para>The margin is determined by the following
-        formula: Price - Cost / Price.</para>
+        <para>Displays the profit margin. The margin is determined by the
+        following formula: Price - Cost / Price.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

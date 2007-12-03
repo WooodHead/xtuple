@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519825">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item pricing</primary>
       <secondary>by customer type</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>customer types</primary>
       <secondary>item pricing for</secondary>
     </indexterm>Prices by Customer Type</title>
-  <para>To display a list of Prices by Customer Type, select
-  the "Prices by Customer Type" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To display a list of Prices by Customer Type, select the "Prices by
+  Customer Type" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_dispPricesByCustType.png" id="Graphic523935"/>
+          <imagedata fileref="images/SO_IP_dispPricesByCustType.png"
+                     id="Graphic523935" />
         </imageobject>
         <caption id="Caption519831">Prices by Customer Type</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When displaying Prices by Customer Type, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When displaying Prices by Customer Type, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Customer Type</term>
@@ -49,25 +46,37 @@
       <term>Show Costs and Margins</term>
       <listitem id="listitemN0x180ac00N0x195a9b4">
         <para>Select to show Costs and margins using one of the following
-        costing parameters:.</para>
-        <para>Use Standard Costs: Select to show Costs and
-        margins using Standard Costs.</para>
-        <para>Use Actual Costs: Select to show Costs and
-        margins using Actual Costs.</para>
+        costing parameters:</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Costs</term>
+            <listitem>
+              <para>Select to show Costs and margins using Standard
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Costs</term>
+            <listitem>
+              <para>Select to show Costs and margins using Actual
+              Costs.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Prices</term>
       <listitem id="listitemN0x180ac00N0x195a9fc">
-        <para>Display lists Prices for the specified Customer Type.</para>
-        <para>Cost and margin columns will also appear if the
-        "Show Costs and Margins" parameter is selected. If the margin is
-        negative, the value will display in red type.</para>
+        <para>Display lists Prices for the specified Customer Type. Cost and
+        margin columns will also appear if the "Show Costs and Margins"
+        parameter is selected. If the margin is negative, the value will
+        display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>

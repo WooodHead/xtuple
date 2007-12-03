@@ -1,50 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="itemPricingScheduleItem">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>pricing schedules</primary>
       <secondary>creating new</secondary>
     </indexterm>Pricing Schedule Item</title>
-  <para>To create a new Pricing Schedule Item, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<anchor id="Anchor76796" role="Cross-Ref" xreflabel="76796: Figure: Figure 10.108:  Pricing Schedule for Item"/>
+  <para>To create a new Pricing Schedule Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><anchor id="Anchor76796" role="Cross-Ref"
+  xreflabel="76796: Figure: Figure 10.108:  Pricing Schedule for Item" />
   <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_pricingSchedItem.png" id="Graphic523652"/>
+          <imagedata fileref="images/SO_IP_pricingSchedItem.png"
+                     id="Graphic523652" />
         </imageobject>
         <caption id="Caption519628">Pricing Schedule for Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Pricing Schedule Item, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule Item, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Type</term>
       <listitem id="listitemN0x180ac00N0x194a5f0">
         <para>Specify which type of Pricing Schedule Item you want to
         create:</para>
-        <para>Item: Select if the Pricing Schedule is for an
-        individual Item. If selected, the options shown in <xref endterm="Anchor76796" linkend="Anchor76796"/>
-    FINDME
-  Figure 10.119 will appear.</para>
-        <para>Product Category: Select if the Pricing Schedule
-        is for a Product Category. If selected, the options shown in <xref endterm="Anchor46818" linkend="Anchor46818"/>
-    FINDME
-  Figure 10.120 will appear.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item</term>
+            <listitem>
+              <para>Select if the Pricing Schedule is for an individual Item.
+              If selected, the options shown in <xref endterm="Anchor76796"
+              linkend="Anchor76796" /> FINDME Figure 10.119 will
+              appear.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Category</term>
+            <listitem>
+              <para>Select if the Pricing Schedule is for a Product Category.
+              If selected, the options shown in <xref endterm="Anchor46818"
+              linkend="Anchor46818" /> FINDME Figure 10.120 will
+              appear.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x194a638">
         <para>Enter the Item Number of the Item you want to add to the Pricing
-        Schedule.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable sold Items list. Multiple sold Items may
-        be assigned to a single Pricing Schedule.</para>
+        Schedule. The browse button located to the right of the field leads to
+        a searchable sold Items list. Multiple sold Items may be assigned to a
+        single Pricing Schedule.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,8 +65,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>quantity breaks</primary>
           <secondary>in pricing schedules</secondary>
         </indexterm> <indexterm significance="normal">
@@ -70,8 +80,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>pricing detail for</secondary>
         </indexterm>Price (Pricing UOM)</term>
@@ -116,8 +125,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -134,8 +143,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>pricing schedules</primary>
       <secondary>by product category</secondary>
     </indexterm> <indexterm significance="normal">
@@ -143,34 +151,32 @@
       <secondary>pricing schedules for</secondary>
     </indexterm>If you are creating a new Pricing Schedule for a Product
   Category, the following screen will appear:</para>
-  <para>
-<anchor id="Anchor46818" role="Cross-Ref" xreflabel="46818: Figure: Figure 10.109:  Pricing Schedule for Product Category"/>
+  <para><anchor id="Anchor46818" role="Cross-Ref"
+  xreflabel="46818: Figure: Figure 10.109:  Pricing Schedule for Product Category" />
   <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_pricingSchedPCat.png" id="Graphic629627"/>
+          <imagedata fileref="images/SO_IP_pricingSchedPCat.png"
+                     id="Graphic629627" />
         </imageobject>
         <caption id="Caption629630">Pricing Schedule for Product
         Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Pricing Schedule for a Product
-  Category, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Pricing Schedule for a Product Category, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Product Category</term>
       <listitem id="listitemN0x180ac00N0x194ab6c">
         <para>Specify the Product Category you want to add to the Pricing
-        Schedule.</para>
-        <para>All Items in the Product Category will be
-        subject to the specified Quantity Break and Discount. Multiple Product
-        Categories may be assigned to a single Pricing Schedule.</para>
+        Schedule. All Items in the Product Category will be subject to the
+        specified Quantity Break and Discount. Multiple Product Categories may
+        be assigned to a single Pricing Schedule.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>quantity breaks</primary>
           <secondary>in pricing schedules</secondary>
         </indexterm> <indexterm significance="normal">
@@ -185,8 +191,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>discount percentage for</secondary>
         </indexterm>Discount Percent (List Price)</term>
