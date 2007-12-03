@@ -39,9 +39,8 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x192be14">
         <para>Enter a Product Category pattern to select a range of Product
-        Categories.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        Categories. Refine your search using Regular Expressions, as described
+        in <xref linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,12 +84,9 @@
   <para>Right-clicking on an Item in the Items list enables you to select from
   the following options:</para>
   <variablelist>
-    <varlistentry>
-      <term>Edit Item Master</term>
-      <listitem id="listitemN0x180ac00N0x192c00c">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditItemMaster)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

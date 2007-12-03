@@ -125,18 +125,12 @@
   <para>Right-clicking on a component in the Costed Bill of Materials list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>Maintain Item Costs</term>
-      <listitem id="listitemN0x180ac00N0x1911818">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>View Item Costing</term>
-      <listitem id="listitemN0x180ac00N0x1911860">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMaintainItemCosts)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemCosting)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

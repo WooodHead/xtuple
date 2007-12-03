@@ -87,7 +87,7 @@
       <varlistentry>
         <term>Actual Cost</term>
         <listitem>
-          <para> This value represents the Actual Cost for the parent Item
+          <para>This value represents the Actual Cost for the parent Item
           whose Costed Indented BOM is being displayed.</para>
         </listitem>
       </varlistentry>
@@ -133,18 +133,12 @@
   <para>Right-clicking on a component in the Costed Bill of Materials list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>Maintain Item Costs</term>
-      <listitem id="listitemN0x180ac00N0x191b2f4">
-        <para></para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>View Item Costing</term>
-      <listitem id="listitemN0x180ac00N0x191b33c">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickMaintainItemCosts)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewItemCosting)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />

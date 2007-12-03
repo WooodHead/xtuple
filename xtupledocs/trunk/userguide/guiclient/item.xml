@@ -92,81 +92,137 @@
         </indexterm>Item Type</term>
       <listitem id="listitemN0x180ac00N0x184d7ac">
         <para>Select one of the available Item Types:</para>
-        <para><indexterm significance="normal">
-            <primary>purchased</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Purchased: Select if the Item is an Item you
-        purchase.</para>
-        <para><indexterm significance="normal">
-            <primary>manufactured</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Manufactured: Select if the Item is an Item you
-        make.</para>
-        <para><indexterm significance="normal">
-            <primary>phantoms</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Phantom: A transient subassembly containing component
-        Items commonly used together during a manufacturing process. Phantom
-        Items require a Bill of Materials, but not separate Work Orders. Since
-        they are not stock Items, Material Requirements Planning (MRP) logic
-        blows through phantom Items and only plans for their component Items.
-        Phantom Items should be used to simplify complex Bills of
-        Materials.</para>
-        <para role="openmfg">Breeder: A logical Item from which Co-Products
-        and By-Products are produced. An example use for a Breeder Item is the
-        screening of raw gravel to produce different sizes of gravel. The
-        Breeder Item's Bill of Materials (BOM) defines the inputs--in this
-        case raw gravel--and the outputs are defined on its Breeder BOM (i.e.,
-        Small, Medium and Large gravel). A Work Order is created for the
-        Breeder Item, but this Item is never stocked or produced; again, it is
-        a logical Item. Instead, raw gravel is consumed by the Breeder's Work
-        Order, along with labor, and the resulting quantities of Co-Products
-        and By-Products are recorded.</para>
-        <para role="openmfg">Co-Product: Co-Products are Items that you keep
-        and which absorb Costs. They are produced during a manufacturing
-        process. See "Breeder" Item Type above.</para>
-        <para role="openmfg">By-Product: By-Products are things that you throw
-        away and incur Costs doing so during a manufacturing process. See
-        "Breeder" Item Type above.</para>
-        <para><indexterm significance="normal">
-            <primary>reference</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Reference: Select if the Item is an Item you sell--but
-        you neither manufacture nor purchase it. Services are an example of a
-        reference Item. The company sells consulting services, but it doesn"t
-        manufacture or purchase them.</para>
-        <para><indexterm significance="normal">
-            <primary>costing</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Costing: A kind of pseudo-Item used solely to provide a
-        costed value for a Costing Element. When a user-defined Costing
-        Element is linked to a Costing Item, the Costing Element assumes the
-        Costs associated with the Costing Item. For more information, see the
-        <xref endterm="Anchor68692" linkend="Anchor68692" /> FINDME
-        "User-Defined Costing Elements" section.</para>
-        <para><indexterm significance="normal">
-            <primary>tooling</primary>
-            <secondary>as item type</secondary>
-          </indexterm>Tooling: Select if the Item is an Item you make but do
-        not sell. An example of a tooling Item would be an Item you must make
-        in order to complete or support the building of sold Items.</para>
-        <para>Outside Process: Select if the Item is an external process or
-        service that is performed by someone outside your company. Outside
-        Process Items are treated by the system in much the same way as
-        purchased Items are. For example, Outside Process Items will be
-        handled in the same was as purchased Items are when Material
-        Requirements Planning (MRP) is run.</para>
-        <para role="openmfg">Planning: An Item whose Bill of Materials (BOM)
-        groups together other Items so that a Production Plan may be defined
-        for the Planning Item--and then exploded down to the lower level Items
-        during a Master Production Scheduling (MPS) run. Planning Items are
-        frequently used to group together product families or product lines of
-        MPS Items. MPS Items are typically top-level saleable Items. By
-        grouping together MPS Items under a Planning Item, the family may be
-        forecasted through with a Production Plan for the Planning Item,
-        thereby simplifying the planning process. The system automatically
-        sets the Planning System as "MPS" by default when a Planning Item is
-        created.</para>
+        <variablelist>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>purchased</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Purchased</term>
+            <listitem>
+              <para>Select if the Item is an Item you purchase.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>manufactured</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Manufactured</term>
+            <listitem>
+              <para>Select if the Item is an Item you make.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>phantoms</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Phantom</term>
+            <listitem>
+              <para>A transient subassembly containing component Items
+              commonly used together during a manufacturing process. Phantom
+              Items require a Bill of Materials, but not separate Work Orders.
+              Since they are not stock Items, Material Requirements Planning
+              (MRP) logic blows through phantom Items and only plans for their
+              component Items. Phantom Items should be used to simplify
+              complex Bills of Materials.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Breeder</term>
+            <listitem>
+              <para>A logical Item from which Co-Products and By-Products are
+              produced. An example use for a Breeder Item is the screening of
+              raw gravel to produce different sizes of gravel. The Breeder
+              Item's Bill of Materials (BOM) defines the inputs--in this case
+              raw gravel--and the outputs are defined on its Breeder BOM
+              (i.e., Small, Medium and Large gravel). A Work Order is created
+              for the Breeder Item, but this Item is never stocked or
+              produced; again, it is a logical Item. Instead, raw gravel is
+              consumed by the Breeder's Work Order, along with labor, and the
+              resulting quantities of Co-Products and By-Products are
+              recorded.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Co-Product</term>
+            <listitem>
+              <para>Co-Products are Items that you keep and which absorb
+              Costs. They are produced during a manufacturing process. See
+              "Breeder" Item Type above.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>By-Product</term>
+            <listitem>
+              <para>By-Products are things that you throw away and incur Costs
+              doing so during a manufacturing process. See "Breeder" Item Type
+              above.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>reference</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Reference</term>
+            <listitem>
+              <para>Select if the Item is an Item you sell--but you neither
+              manufacture nor purchase it. Services are an example of a
+              reference Item. The company sells consulting services, but it
+              doesn"t manufacture or purchase them.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>costing</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Costing</term>
+            <listitem>
+              <para>A kind of pseudo-Item used solely to provide a costed
+              value for a Costing Element. When a user-defined Costing Element
+              is linked to a Costing Item, the Costing Element assumes the
+              Costs associated with the Costing Item. For more information,
+              see the <xref endterm="Anchor68692" linkend="Anchor68692" />
+              FINDME "User-Defined Costing Elements" section.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm significance="normal">
+                <primary>tooling</primary>
+                <secondary>as item type</secondary>
+              </indexterm>Tooling</term>
+            <listitem>
+              <para>Select if the Item is an Item you make but do not sell. An
+              example of a tooling Item would be an Item you must make in
+              order to complete or support the building of sold Items.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Outside Process</term>
+            <listitem>
+              <para>Select if the Item is an external process or service that
+              is performed by someone outside your company. Outside Process
+              Items are treated by the system in much the same way as
+              purchased Items are. For example, Outside Process Items will be
+              handled in the same was as purchased Items are when Material
+              Requirements Planning (MRP) is run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Planning</term>
+            <listitem>
+              <para>An Item whose Bill of Materials (BOM) groups together
+              other Items so that a Production Plan may be defined for the
+              Planning Item--and then exploded down to the lower level Items
+              during a Master Production Scheduling (MPS) run. Planning Items
+              are frequently used to group together product families or
+              product lines of MPS Items. MPS Items are typically top-level
+              saleable Items. By grouping together MPS Items under a Planning
+              Item, the family may be forecasted through with a Production
+              Plan for the Planning Item, thereby simplifying the planning
+              process. The system automatically sets the Planning System as
+              "MPS" by default when a Planning Item is created.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -222,11 +278,30 @@
       <listitem id="listitemN0x180ac00N0x1859768">
         <para>Specify which of the following planning systems you want the
         Item to be considered by:</para>
-        <para>MRP: Select if you want the Material Requirements Planning (MRP)
-        system to create Planned Orders for the Item when MRP is run.</para>
-        <para>MPS: Select if you want the Master Production Scheduling (MPS)
-        system to create Planned Orders for the Item when MPS is run.</para>
-        <para>None: Select if you want MRP and MPS to ignore the Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>MRP</term>
+            <listitem>
+              <para>Select if you want the Material Requirements Planning
+              (MRP) system to create Planned Orders for the Item when MRP is
+              run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MPS</term>
+            <listitem>
+              <para>Select if you want the Master Production Scheduling (MPS)
+              system to create Planned Orders for the Item when MPS is
+              run.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para>Select if you want MRP and MPS to ignore the Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -252,8 +327,20 @@
         of Item B's contained therein. To enable the normalizing of these
         UOMs, you would configure the Item masters for each Item as
         follows:</para>
-        <para>Item A: CASE (Inv. UOM), EACH (Cap. UOM)</para>
-        <para>Item B: EACH (Inv. UOM), CASE (Cap. UOM)</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item A:</term>
+            <listitem>
+              <para>CASE (Inv. UOM), EACH (Cap. UOM)</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Item B</term>
+            <listitem>
+              <para>EACH (Inv. UOM), CASE (Cap. UOM)</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
         <para>If, when you query the database in C/P or S/A, you request data
         to be displayed in Capacity UOMs, then the system will normalize the
         quantities of Item A to EACH, allowing you to see the total quantity
@@ -522,8 +609,8 @@
     <varlistentry>
       <term>WORKBENCH</term>
       <listitem id="listitemN0x180ac00N0x185a0b0">
-        <para>: Select to open the Item Availability Workbench for the
-        specified Item.</para>
+        <para>Select to open the Item Availability Workbench for the specified
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1354,14 +1441,33 @@
       <listitem id="listitemN0x180ac00N0x18760ac">
         <para>Select one of the available purposes an Image might
         serve:</para>
-        <para>Inventory Description: Select if the Item Image describes
-        Inventory.</para>
-        <para>Product Description: Select if the Item Image describes a
-        Product.</para>
-        <para>Engineering Reference: Select if the Item Image serves as an
-        engineering reference.</para>
-        <para>Miscellaneous: Select if the Item Image is a miscellaneous
-        Image.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Inventory Description</term>
+            <listitem>
+              <para>Select if the Item Image describes Inventory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Description</term>
+            <listitem>
+              <para>Select if the Item Image describes a Product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Engineering Reference</term>
+            <listitem>
+              <para>Select if the Item Image serves as an engineering
+              reference.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous</term>
+            <listitem>
+              <para>Select if the Item Image is a miscellaneous Image.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -1430,7 +1536,7 @@
     <varlistentry>
       <term>Name</term>
       <listitem id="listitemN0x180ac00N0x18763a0">
-        <para>Enter a unique name for the Image. </para>
+        <para>Enter a unique name for the Image.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

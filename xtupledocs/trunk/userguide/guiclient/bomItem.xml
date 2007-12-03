@@ -48,21 +48,35 @@
       <listitem id="listitemN0x180ac00N0x1897d6c">
         <para>Specify the component's effectivity, using the following
         parameters:</para>
-        <para>Effective: The system enables you to specify when a component
-        can be used in a Bill of Materials. For example, the company's
-        engineering department may be working on a new design for an existing
-        Item--but that new design will not be available for use until a given
-        date in the future. In this case, you can specify a future "effective"
-        date to indicate when the component will be available for use.</para>
-        <para>Expires: The system also enables you to specify when a component
-        is planned to be obsoleted from (i.e., no longer used in) a Bill of
-        Materials. As mentioned above, the company's engineering department
-        may be working on a new design for an existing Item--but that new
-        design will not be available for use until a given date in the future.
-        In this case, the old component Item must be marked for "expiration"
-        on the date when the new Item becomes effective. Setting this
-        parameter will instruct the system to stop using the specified
-        component on the date entered into this field.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Effective</term>
+            <listitem>
+              <para>The system enables you to specify when a component can be
+              used in a Bill of Materials. For example, the company's
+              engineering department may be working on a new design for an
+              existing Item--but that new design will not be available for use
+              until a given date in the future. In this case, you can specify
+              a future "effective" date to indicate when the component will be
+              available for use.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Expires</term>
+            <listitem>
+              <para>The system also enables you to specify when a component is
+              planned to be obsoleted from (i.e., no longer used in) a Bill of
+              Materials. As mentioned above, the company's engineering
+              department may be working on a new design for an existing
+              Item--but that new design will not be available for use until a
+              given date in the future. In this case, the old component Item
+              must be marked for "expiration" on the date when the new Item
+              becomes effective. Setting this parameter will instruct the
+              system to stop using the specified component on the date entered
+              into this field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,15 +105,15 @@
       <term>Create Child W/O at Parent W/O Explosion</term>
       <listitem id="listitemN0x180ac00N0x1897e8c">
         <para>Select to create Work Orders for manufactured components when
-        their parent Items are exploded.</para>
-        <para>This option applies only to manufactured Items appearing as
-        components on a Bill of Materials. If selected, a Work Order will
-        automatically be created for the manufactured component when the
-        parent Item is exploded.The impact on Work Order numbers will be
-        visible. For example, a "-1" will be appended to the parent level Work
-        Order and a "-2" to the child level Work Order--as in, #1061-1 and
-        #1061-2. If this option is not selected, a child Work Order will not
-        be created when the parent Item is exploded.</para>
+        their parent Items are exploded. This option applies only to
+        manufactured Items appearing as components on a Bill of Materials. If
+        selected, a Work Order will automatically be created for the
+        manufactured component when the parent Item is exploded.The impact on
+        Work Order numbers will be visible. For example, a "-1" will be
+        appended to the parent level Work Order and a "-2" to the child level
+        Work Order--as in, #1061-1 and #1061-2. If this option is not
+        selected, a child Work Order will not be created when the parent Item
+        is exploded.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -144,24 +158,43 @@
         </indexterm>Issue Method</term>
       <listitem id="listitemN0x180ac00N0x18981ec">
         <para>Method: Select one of the available issue methods:</para>
-        <para>Push: Select if you want the component Item to be issued to Work
-        Orders by a specific material issue transaction. Because a specific
-        material issue transaction must be used, "Push" Items enable you to
-        monitor material usage variances. Standard issue quantities are not
-        automatically backflushed to Work Orders, as is true for "Pull" Items.
-        If a component Item uses the "Push" issue method, you must manually
-        issue quantities to Work Orders.</para>
-        <para>Pull: Select if you want the component Item to be issued to Work
-        Orders by a material backflush. "Pull" Items are automatically issued
-        to Work Orders when Work Order Production is posted. Using the "Pull"
-        issue method saves time, since materials do not need to be manually
-        issued to Work Orders by a specific material issue transaction.</para>
-        <para>Mixed: Select if you want the component Item to take upon itself
-        the issue method applied to it initially--that is, either "Pull" or
-        "Push." Assigning the "Mixed" issue method to a component Item gives
-        you the flexibility of deciding on a Work-Order-by-Work-Order basis
-        whether you want to assign the "Pull" or "Push" method to the
-        component Item.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Push</term>
+            <listitem>
+              <para>Select if you want the component Item to be issued to Work
+              Orders by a specific material issue transaction. Because a
+              specific material issue transaction must be used, "Push" Items
+              enable you to monitor material usage variances. Standard issue
+              quantities are not automatically backflushed to Work Orders, as
+              is true for "Pull" Items. If a component Item uses the "Push"
+              issue method, you must manually issue quantities to Work
+              Orders.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Pull</term>
+            <listitem>
+              <para>Select if you want the component Item to be issued to Work
+              Orders by a material backflush. "Pull" Items are automatically
+              issued to Work Orders when Work Order Production is posted.
+              Using the "Pull" issue method saves time, since materials do not
+              need to be manually issued to Work Orders by a specific material
+              issue transaction.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Mixed</term>
+            <listitem>
+              <para>Select if you want the component Item to take upon itself
+              the issue method applied to it initially--that is, either "Pull"
+              or "Push." Assigning the "Mixed" issue method to a component
+              Item gives you the flexibility of deciding on a
+              Work-Order-by-Work-Order basis whether you want to assign the
+              "Pull" or "Push" method to the component Item.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -173,16 +206,16 @@
     <varlistentry>
       <term>Used At</term>
       <listitem id="listitemN0x180ac00N0x18a0a6c">
-        <para>Specify which Operation the component is used at.</para>
-        <para>Using the browse button located to the right of the field,
-        select a Bill of Operations sequence number to identify which
-        Operation the component is used at. Linking a component with an
-        Operation will have certain effects. First, when posting Operations,
-        components that are linked to a given Operation will be backflushed if
-        the issue method for the components is either "Pull" or "Mixed" and
-        the Operation is set to Auto Issue components. Secondly, Work Order
-        paperwork, such as Routings, will show the relationship between linked
-        Work Order Material Requirements and Work Order Operations.</para>
+        <para>Specify which Operation the component is used at. Using the
+        browse button located to the right of the field, select a Bill of
+        Operations sequence number to identify which Operation the component
+        is used at. Linking a component with an Operation will have certain
+        effects. First, when posting Operations, components that are linked to
+        a given Operation will be backflushed if the issue method for the
+        components is either "Pull" or "Mixed" and the Operation is set to
+        Auto Issue components. Secondly, Work Order paperwork, such as
+        Routings, will show the relationship between linked Work Order
+        Material Requirements and Work Order Operations.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -197,15 +230,15 @@
       <term>Schedule w/ W/O Operation</term>
       <listitem id="listitemN0x180ac00N0x18a0afc">
         <para>Select to indicate that this component is not due until the Work
-        Order Operation that will consume it is scheduled to begin.</para>
-        <para>The scheduling of Operations is handled by the Execution Day
-        indicator on the Bill of Operations item screen. For example, let's
-        say we have an Operation with an Execution Day = 5. This means the
-        Operation is scheduled to begin five days after the start date of the
-        Work Order. Components scheduled with this Operation are due the day
-        before the Operation starts--that is, on day four after the Work Order
-        start date--to ensure they will be available when the Operation is
-        scheduled to begin. If this option is not selected, then the component
+        Order Operation that will consume it is scheduled to begin. The
+        scheduling of Operations is handled by the Execution Day indicator on
+        the Bill of Operations item screen. For example, let's say we have an
+        Operation with an Execution Day = 5. This means the Operation is
+        scheduled to begin five days after the start date of the Work Order.
+        Components scheduled with this Operation are due the day before the
+        Operation starts--that is, on day four after the Work Order start
+        date--to ensure they will be available when the Operation is scheduled
+        to begin. If this option is not selected, then the component
         scheduling will be governed by the start and due dates set on the Work
         Order header.</para>
       </listitem>
@@ -235,14 +268,31 @@
       <term>Substitutions</term>
       <listitem id="listitemN0x180ac00N0x18a0c64">
         <para>Choose one of the following Item Substitution options:</para>
-        <para>No Substitutions: Select if no Substitutions exist for the
-        component Item.</para>
-        <para>Item-Defined Substitutions: Select if Substitutions are defined
-        on the Item master for the component Item. Selecting this option will
-        not cause Item-defined Substitutions to display here. You are simply
-        indicating that Item master level Substitutions do exist.</para>
-        <para>BOM-Defined Substitutions: Select to define Item Substitutions
-        at the Bill of Materials level.</para>
+        <variablelist>
+          <varlistentry>
+            <term>No Substitutions</term>
+            <listitem>
+              <para>Select if no Substitutions exist for the component
+              Item.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Item-Defined Substitutions</term>
+            <listitem>
+              <para>Select if Substitutions are defined on the Item master for
+              the component Item. Selecting this option will not cause
+              Item-defined Substitutions to display here. You are simply
+              indicating that Item master level Substitutions do exist.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>BOM-Defined Substitutions</term>
+            <listitem>
+              <para>Select to define Item Substitutions at the Bill of
+              Materials level.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -515,9 +565,8 @@
       <term>SELECT</term>
       <listitem id="listitemN0x180ac00N0x18a17a4">
         <para>Links the Bill of Operations Item to the specified Bill of
-        Materials component.</para>
-        <para>Highlight the desired Bill of Operations Item before selecting
-        the SELECT button.</para>
+        Materials component. Highlight the desired Bill of Operations Item
+        before selecting the SELECT button.</para>
       </listitem>
     </varlistentry>
   </variablelist>

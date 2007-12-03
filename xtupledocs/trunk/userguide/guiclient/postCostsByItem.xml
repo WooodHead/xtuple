@@ -66,15 +66,14 @@
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
       <listitem>
-        <para>Select to roll up Standard Costs.</para>
-        <para id="Para628172">When this option is specified, all selected
-        Costs will be added together to establish a revised total Standard
-        Cost for the Item. This revised total goes into effect after the POST
-        button is selected. If all Costs are selected, all Costs will be
-        rolled up. If a subset of all Costs is selected, only the subset will
-        be rolled up. If the Roll Up Standard Costs option is not specified,
-        the selected Cost postings will not be valid above their current
-        level.</para>
+        <para>Select to roll up Standard Costs. When this option is specified,
+        all selected Costs will be added together to establish a revised total
+        Standard Cost for the Item. This revised total goes into effect after
+        the POST button is selected. If all Costs are selected, all Costs will
+        be rolled up. If a subset of all Costs is selected, only the subset
+        will be rolled up. If the Roll Up Standard Costs option is not
+        specified, the selected Cost postings will not be valid above their
+        current level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,33 +90,32 @@
           <secondary>material costs posted to</secondary>
         </indexterm>Post Material Costs</term>
       <listitem>
-        <para>Select to post material Costs.</para>
-        <para id="Para519919">Not selecting means material Costs will not be
-        posted to the Standard Cost for the Item.</para>
+        <para>Select to post material Costs. Not selecting means material
+        Costs will not be posted to the Standard Cost for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para519920">Post Lower Level Material Costs</term>
       <listitem>
-        <para>Select to post lower level material Costs.</para>
-        <para id="Para519921">Not selecting means lower level material Costs
-        will not be posted to the Standard Cost for the Item.</para>
+        <para>Select to post lower level material Costs. Not selecting means
+        lower level material Costs will not be posted to the Standard Cost for
+        the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term id="Para519922">Post Direct Labor Cost</term>
       <listitem>
-        <para>Select to post direct labor Cost.</para>
-        <para id="Para519923">Not selecting means the direct labor Cost will
-        not be posted to the Standard Cost for the Item.</para>
+        <para>Select to post direct labor Cost. Not selecting means the direct
+        labor Cost will not be posted to the Standard Cost for the
+        Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term id="Para519924">Post Lower Level Direct Labor Cost</term>
       <listitem>
-        <para>Select to post lower level direct labor Cost.</para>
-        <para id="Para519925">Not selecting means the lower level direct labor
-        Cost will not be posted to the Standard Cost for the Item.</para>
+        <para>Select to post lower level direct labor Cost. Not selecting
+        means the lower level direct labor Cost will not be posted to the
+        Standard Cost for the Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -130,31 +128,30 @@
     <varlistentry role="openmfg">
       <term id="Para519926">Post Overhead Cost</term>
       <listitem>
-        <para>Select to post overhead Cost.</para>
-        <para id="Para519927">Not selecting means the overhead Cost will not
-        be posted to the Standard Cost for the Item.</para>
+        <para>Select to post overhead Cost. Not selecting means the overhead
+        Cost will not be posted to the Standard Cost for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term id="Para519928">Post Lower Level Overhead Cost</term>
       <listitem>
-        <para>Select to post lower level overhead Cost.</para>
-        <para id="Para519929">Not selecting means the lower level overhead
-        Cost will not be posted to the Standard Cost for the Item.</para>
+        <para>Select to post lower level overhead Cost. Not selecting means
+        the lower level overhead Cost will not be posted to the Standard Cost
+        for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term id="Para519930">Post Machine Overhead</term>
       <listitem>
-        <para>Select to post machine overhead Cost.</para>
-        <para id="Para627399">This option is selected by default.</para>
+        <para>Select to post machine overhead Cost. This option is selected by
+        default.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
       <term id="Para519932">Post Lower Machine Overhead</term>
       <listitem>
-        <para>Select to post lower level machine overhead Cost.</para>
-        <para id="Para627404">This option is selected by default.</para>
+        <para>Select to post lower level machine overhead Cost. This option is
+        selected by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -171,17 +168,16 @@
           <secondary>user costs posted to</secondary>
         </indexterm>Post User Costs</term>
       <listitem>
-        <para>Select to post user Costs.</para>
-        <para id="Para519935">Not selecting means user Costs will not be
-        posted to the Standard Cost for the Item.</para>
+        <para>Select to post user Costs. Not selecting means user Costs will
+        not be posted to the Standard Cost for the Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term id="Para519936">Post Lower Level User Costs</term>
       <listitem>
-        <para>Select to post lower level user Costs.</para>
-        <para id="Para519937">Not selecting means lower level user Costs will
-        not be posted to the Standard Cost for the Item.</para>
+        <para>Select to post lower level user Costs. Not selecting means lower
+        level user Costs will not be posted to the Standard Cost for the
+        Item.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -198,10 +194,9 @@
     <varlistentry>
       <term id="Para628086">POST</term>
       <listitem>
-        <para>Posts all selected Actual Costs by Item to Standard Cost.</para>
-        <para id="Para628087">If the option "Roll Up Standard Costs" has been
-        selected, the total Standard Cost for the specified Item will be
-        updated.</para>
+        <para>Posts all selected Actual Costs by Item to Standard Cost. If the
+        option "Roll Up Standard Costs" has been selected, the total Standard
+        Cost for the specified Item will be updated.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -224,11 +219,10 @@
     <varlistentry>
       <term id="Para627433">SELECT ALL COSTS</term>
       <listitem>
-        <para>Selects all Costs for updating.</para>
-        <para id="Para627434">Use this option to save time when selecting all
-        Costs for updating. The option "Roll Up Standard Costs" must be
-        selected separately if you want to include a rolled up total for the
-        parent Item in the Cost update.</para>
+        <para>Selects all Costs for updating. Use this option to save time
+        when selecting all Costs for updating. The option "Roll Up Standard
+        Costs" must be selected separately if you want to include a rolled up
+        total for the parent Item in the Cost update.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -358,18 +358,17 @@
           <secondary>wip locations and</secondary>
         </indexterm>WIP Location</term>
       <listitem id="listitemN0x180ac00N0x18bfeb4">
-        <para>Select a work-in-process (WIP) Location.</para>
-        <para>This is an optional selection which may be used for tracking the
-        Warehouse Locations of finished goods Inventory as it moves through
-        the manufacturing process. The feature applies only to top-level,
-        Multiple Location Control (MLC) Items whose production is posted
-        through Work Order Operations posting. If you choose to track finished
-        MLC goods using this feature, then the WIP Location entered here is
-        the Location where Inventory will be located when the preceding
-        Operation for the Work Order is posted. A proceeding Operation must
-        exist for the Location entered here to be used. If you do not wish to
-        track WIP Locations for finished MLC goods, then you can ignore this
-        option.</para>
+        <para>Select a work-in-process (WIP) Location. This is an optional
+        selection which may be used for tracking the Warehouse Locations of
+        finished goods Inventory as it moves through the manufacturing
+        process. The feature applies only to top-level, Multiple Location
+        Control (MLC) Items whose production is posted through Work Order
+        Operations posting. If you choose to track finished MLC goods using
+        this feature, then the WIP Location entered here is the Location where
+        Inventory will be located when the preceding Operation for the Work
+        Order is posted. A proceeding Operation must exist for the Location
+        entered here to be used. If you do not wish to track WIP Locations for
+        finished MLC goods, then you can ignore this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -502,14 +501,34 @@
       <listitem id="listitemN0x180ac00N0x18c03c4">
         <para>Select one of the available purposes the Image might
         serve:</para>
-        <para>Inventory Description: Select if the Operation Image describes
-        Inventory.</para>
-        <para>Product Description: Select if the Operation Image describes a
-        Product.</para>
-        <para>Engineering Reference: Select if the Operation Image serves as
-        an engineering reference.</para>
-        <para>Miscellaneous: Select if the Operation Image is a miscellaneous
-        Image.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Inventory Description</term>
+            <listitem>
+              <para>Select if the Operation Image describes Inventory.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Product Description</term>
+            <listitem>
+              <para>Select if the Operation Image describes a Product.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Engineering Reference</term>
+            <listitem>
+              <para>Select if the Operation Image serves as an engineering
+              reference.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Miscellaneous</term>
+            <listitem>
+              <para>Select if the Operation Image is a miscellaneous
+              Image.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -40,10 +40,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x193fa38">
-        <para>Enter a Class Code pattern to select a range of Class
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Class Code pattern to select a range of Class Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -81,12 +80,9 @@
   <para>Right-clicking on an Item in the Capacity UOMs list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <varlistentry>
-      <term>Edit Item</term>
-      <listitem id="listitemN0x180ac00N0x193fbe8">
-        <para></para>
-      </listitem>
-    </varlistentry>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickEditItem)" />
     <xi:include href="../widgets/xtreewidget.xml"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
                 xpointer="element(xtreewidget.menu.exportcontents)" />
