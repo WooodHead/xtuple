@@ -28,7 +28,7 @@ BEGIN
     FROM itemsite, item
    WHERE ((itemsite_item_id=item_id)
      AND  (itemsite_id=pItemsiteid));
-  IF(NOT FOUND OR _type IN (''F'', ''R'', ''L'')) THEN
+  IF(NOT FOUND OR _type IN (''F'', ''R'', ''L'',''J'')) THEN
     RETURN 0; -- We simply do not do these item types.
   END IF;
 

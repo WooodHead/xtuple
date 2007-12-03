@@ -38,7 +38,7 @@ BEGIN
     RETURN -1;
   END IF;
 
-  IF ( ( SELECT (item_type=''B'')
+  IF ( ( SELECT (item_type IN (''B'',''J''))
          FROM wo, itemsite, item
          WHERE ( (wo_itemsite_id=itemsite_id)
           AND (itemsite_item_id=item_id)

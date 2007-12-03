@@ -108,7 +108,7 @@ BEGIN
     _ordertype := '''';
     IF (_r.quitem_createorder) THEN
 
-      IF (_r.item_type = ''M'') THEN
+      IF (_r.item_type IN (''M'',''J'')) THEN
         SELECT createWo( _r.quhead_number, supply.itemsite_id, 1, (_r.quitem_qtyord * _r.quitem_qty_invuomratio),
                          _r.itemsite_leadtime, _r.quitem_scheddate, _r.quitem_memo, ''S'', _soitemid, _r.quhead_prj_id ) INTO _orderId
         FROM itemsite sold, itemsite supply
