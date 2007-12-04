@@ -51,6 +51,7 @@ DECLARE
   _brddistid INTEGER;
   _suTime NUMERIC;
   _rnTime NUMERIC;
+  _check INT;
 
 BEGIN
 
@@ -64,6 +65,17 @@ BEGIN
     RETURN -1;
   END IF;
 
+  --If this is item type Job then we are using the wrong function
+  SELECT item_type INTO _check
+  FROM wo,itemsite,item
+  WHERE ((wo_id=pWoid)
+  AND (wo_itemsite_id=itemsite_id)
+  AND (itemsite_item_id=item_id)
+  AND (item_type = ''J''));
+  IF (FOUND) THEN
+    RAISE EXCEPTION ''Work orders for job items are posted when quantities are shipped on the associated sales order'';
+  END IF;
+  
   SELECT formatWoNumber(pWoid) INTO _woNumber;
 
   SELECT roundQty(item_fractional, pQty) INTO _parentQty
