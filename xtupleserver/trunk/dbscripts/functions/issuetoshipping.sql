@@ -74,7 +74,10 @@ BEGIN
 	          ELSE cohead_shipchrg_id
 	     END,
 	     cohead_freight, cohead_curr_id,
-	     _timestamp::DATE, cohead_shipcomments, cohead_shipform_id
+	     _timestamp::DATE, cohead_shipcomments,
+	     CASE WHEN cohead_shipform_id = -1 THEN NULL
+	          ELSE cohead_shipform_id
+	     END
       FROM cohead, coitem
       WHERE ((coitem_cohead_id=cohead_id)
          AND (coitem_id=pitemid) );
