@@ -81,9 +81,9 @@ BEGIN
         _r.qty, _r.toclose,
         _taxid, _taxtypeid,
         _pcnta, _pcntb, _pcntc,
-        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
-        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
-        calculateTax(_taxid, round(_r.qty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'') );
+        calculateTax(_taxid, round((_r.qty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+        calculateTax(_taxid, round((_r.qty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+        calculateTax(_taxid, round((_r.qty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'') );
     END IF;
 
   END LOOP;

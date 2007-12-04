@@ -45,7 +45,7 @@ BEGIN
 -- Get some information
   SELECT cobmisc_id, cobmisc_taxauth_id,
          coitem_id, coitem_price,
-         coitem_price_invuomratio AS invpricerat, item_id
+         coitem_price_invuomratio AS invpricerat, coitem_qty_invuomratio, item_id
     INTO _r
     FROM cobmisc, coitem, itemsite, item
    WHERE ( (cobmisc_cohead_id=coitem_cohead_id)
@@ -82,9 +82,9 @@ BEGIN
         cobill_select_username=CURRENT_USER,
         cobill_qty=pQty, cobill_toclose=pClose,
 	cobill_taxtype_id=ptaxtypeid,	cobill_tax_id=ptaxid,
-        cobill_tax_ratea = calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
-        cobill_tax_rateb = calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
-        cobill_tax_ratec = calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'')
+        cobill_tax_ratea = calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+        cobill_tax_rateb = calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+        cobill_tax_ratec = calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'')
     WHERE (cobill_id=_cobillid);
 
   ELSE
@@ -107,9 +107,9 @@ BEGIN
       pQty, pClose,
       ptaxid, ptaxtypeid,
       _pcnta, _pcntb, _pcntc,
-      calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
-      calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
-      calculateTax(ptaxid, round(pQty * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'') );
+      calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''A''),
+      calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''B''),
+      calculateTax(ptaxid, round((pQty * _r.coitem_qty_invuomratio) * (_r.coitem_price / _r.invpricerat), 2), 0.0, ''C'') );
   END IF;
 
   RETURN _cobillid;
