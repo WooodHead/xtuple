@@ -33,7 +33,7 @@ DECLARE
 
 BEGIN
 
-  SELECT COALESCE(SUM(noNeg(coitem_qtyord - (coitem_qtyshipped + qtyAtShipping(coitem_id)) + coitem_qtyreturned)), 0.0) INTO _qty
+  SELECT COALESCE(SUM(noNeg(itemuomtouom(itemsite_item_id, coitem_qty_uom_id, NULL, coitem_qtyord - (coitem_qtyshipped + qtyAtShipping(coitem_id)) + coitem_qtyreturned))), 0.0) INTO _qty
   FROM coitem, itemsite, item
   WHERE ( (coitem_itemsite_id=itemsite_id)
     AND (itemsite_item_id=item_id)
