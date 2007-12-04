@@ -51,7 +51,7 @@ DECLARE
   _brddistid INTEGER;
   _suTime NUMERIC;
   _rnTime NUMERIC;
-  _check INT;
+  _check CHAR;
 
 BEGIN
 

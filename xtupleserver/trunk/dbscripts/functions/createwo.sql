@@ -113,6 +113,7 @@ DECLARE
   _woid INTEGER;
   _result INTEGER;
   _parentType char(1);
+  _cosmethod char(1);
 
 BEGIN
 
@@ -129,6 +130,18 @@ BEGIN
     RETURN -1;
   END IF;
 
+--  Check to make sure if this is a job item that it is tied to a sales order
+  IF (SELECT (item_type = ''J'')
+       FROM itemsite, item
+       WHERE ((itemsite_id = pItemsiteid)
+       AND (itemsite_item_id = item_id))) THEN
+    IF (_parentType != ''S'') THEN
+      RAISE EXCEPTION ''Work Orders for item type Job must be created from a sales order'';
+    ELSE
+      _cosmethod := COALESCE(fetchmetrictext(''JobItemCosDefault''),''D'');
+    END IF;
+  END IF;
+
 --  Grab the next wo_id
   SELECT NEXTVAL(''wo_wo_id_seq'') INTO _woid;
 
@@ -138,12 +151,12 @@ BEGIN
     wo_priority, wo_ordtype, wo_ordid,
     wo_status, wo_startdate, wo_duedate,
     wo_qtyord, wo_qtyrcv, wo_prodnotes, wo_prj_id,
-    wo_bom_rev_id, wo_boo_rev_id )
+    wo_bom_rev_id, wo_boo_rev_id, wo_cosmethod )
   SELECT _woid, pWoNumber, nextWoSubnumber(pWoNumber), itemsite_id,
          pPriority, _parentType, pParentId,
          ''O'', pStartDate, pDueDate,
          roundQty(item_fractional, pQtyOrdered), 0, pProductionNotes, pProjectId, 
-         pBomRevid, pBooRevid
+         pBomRevid, pBooRevid, _cosmethod
   FROM itemsite, item
   WHERE ((itemsite_item_id=item_id)
    AND (itemsite_id=pItemsiteid));

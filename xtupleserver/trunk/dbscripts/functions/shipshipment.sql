@@ -89,10 +89,7 @@ BEGIN
 	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id,
 		       itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id LOOP
 
-  --  See if there is a cost to post
-      _stdcost := round((stdcost(_c.itemsite_item_id) * (_c._qty * _c.coitem_qty_invuomratio)),2);
-
-      IF _stdcost > 0 THEN
+      IF _c.shipitem_value > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
 	SELECT MIN(insertGLTransaction( ''S/R'', ''SO'', _c.cohead_number, ''Ship Shipment'',
 				     costcat_shipasset_accnt_id,
@@ -100,7 +97,7 @@ BEGIN
                                           WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)
                                           ELSE resolveCOSAccount(itemsite_id, _c.cohead_cust_id)
                                      END,
-                                     -1, _stdcost, _gldate )) INTO _result
+                                     -1, _c.shipitem_value, _gldate )) INTO _result
 	FROM itemsite, costcat
 	WHERE ( (itemsite_costcat_id=costcat_id)
 	AND (itemsite_id=_c.itemsite_id) );

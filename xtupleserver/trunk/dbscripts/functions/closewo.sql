@@ -4,7 +4,7 @@ DECLARE
   pPostMaterialVariances ALIAS FOR $2;
   pPostLaborVariances ALIAS FOR $3;
   _woNumber TEXT;
-  _check INTEGER;
+  _check CHAR;
 
 BEGIN
 
