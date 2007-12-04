@@ -2,17 +2,17 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title>Global Conversion Ratio</title>
+  <title id="uomConv">Global Conversion Ratio</title>
   <para>Global conversion ratios enable you to create basic conversions such
   as inches to feet, pounds to ounces, etc. Once defined here, these
   conversions may be used throughout the system. The master list of global
   conversion ratios should include conversions both from and to the specified
-  Unit of Measure. That is to say, if the conversion from ounces to pounds is
-  defined in the maintenance for pounds, the calculated conversion from pounds
-  to ounces should also appear in the ounces maintenance. Users can add, edit
-  and delete from the list of conversions. However, users should be
-  discouraged from editing or changing a conversion ratio that is being or has
-  been used in a transaction.</para>
+  Unit of Measure (UOM). That is to say, if the conversion from ounces to
+  pounds is defined in the maintenance for pounds, the calculated conversion
+  from pounds to ounces should also appear in the ounces maintenance. Users
+  can add, edit and delete from the list of conversions. However, users should
+  be discouraged from editing or changing a conversion ratio that is being or
+  has been used in a transaction.</para>
   <para>To create a new global conversion ratio, select the NEW button. The
   following screen will appear:</para>
   <para><screenshot>
@@ -34,14 +34,13 @@
     <varlistentry>
       <term>Source UOM</term>
       <listitem>
-        <para>Select a source Unit of Measure from the list of defined Units
-        of Measure.</para>
+        <para>Select a source UOM from the list of defined UOMs.</para>
         <variablelist>
           <varlistentry>
             <term>Value</term>
             <listitem>
-              <para>Enter a value for the source Unit of Meaure to be used in
-              the conversion ratio.</para>
+              <para>Enter a value for the source UOM to be used in the
+              conversion ratio.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -52,14 +51,13 @@
     <varlistentry>
       <term>Per UOM</term>
       <listitem>
-        <para>Select a per Unit of Measure from the list of defined Units of
-        Measure.</para>
+        <para>Select a per UOM from the list of defined UOMs.</para>
         <variablelist>
           <varlistentry>
             <term>Value</term>
             <listitem>
-              <para>Enter a value for the per Unit of Meaure to be used in the
-              conversion ratio.</para>
+              <para>Enter a value for the per UOM to be used in the conversion
+              ratio.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -68,10 +66,10 @@
     <varlistentry>
       <term>Fractional</term>
       <listitem>
-        <para>Specify whether Inventory processed using this alternate Unit of
-        Measure may be maintained in fractional quantities. If not selected,
-        Inventory using this global conversion ratio may not be maintained in
-        fractional quantities.</para>
+        <para>Specify whether Inventory processed using this alternate UOM may
+        be maintained in fractional quantities. If not selected, Inventory
+        using this global conversion ratio may not be maintained in fractional
+        quantities.</para>
       </listitem>
     </varlistentry>
   </variablelist>

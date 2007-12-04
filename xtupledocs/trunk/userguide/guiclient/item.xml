@@ -500,12 +500,27 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para><remark>findme</remark></para>
-  <para></para>
-  <para>Items </para>
-  <para></para>
-  <para></para>
-  <para>To enter <indexterm significance="normal">
+  <para>In addition to the Inventory Unit of Measure (UOM), which is defined
+  on the Item master, you also have the option to define alternate UOMs for an
+  Item. The following alternate UOMs may be defined:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Alternate Capacity</para>
+    </listitem>
+    <listitem>
+      <para>Capacity</para>
+    </listitem>
+    <listitem>
+      <para>Material Issue</para>
+    </listitem>
+    <listitem>
+      <para>Selling</para>
+    </listitem>
+  </itemizedlist>
+  <para>Unless you define an alternate UOM, an Item will always be stored and
+  used in its Inventory UOM. For example, you must define a selling UOM if you
+  want to enable an Item to be sold in a UOM other than the Inventory UOM. To
+  enter <indexterm significance="normal">
       <primary>units of measure</primary>
       <secondary>associating with items</secondary>
     </indexterm> Units of Measure associated with an Item, select the "UOM"
@@ -518,9 +533,52 @@
       <caption><para>Item Units of Measure</para></caption>
     </mediaobject>
   </screenshot>
-  <para></para>
-  <para></para>
-  <para></para>
+  <variablelist>
+    <varlistentry>
+      <term>Conversions/Where Used</term>
+      <listitem id="listitemN0x180ac00N0x185a35c">
+        <para>Display lists the UOM Conversions defined for the Item (if any)
+        and where these conversions are used. Global conversion ratios are
+        defined in the <xref endterm="uomConv" linkend="uomConv.xml" />
+        section.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="listitemN0x180ac00N0x185a3c8">
+        <para>Opens screen for creating a new Item UOM conversion.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x1864600">
+        <para>Enables you to edit highlighted Item UOM conversions. The edit
+        screen is the same as that for creating a new Item UOM
+        conversion--except that when editing, the fields will contain Item UOM
+        conversion information. Double-clicking on an Item UOM conversion will
+        also bring you to the editing screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="listitemN0x180ac00N0x1864648">
+        <para>Highlight an Item UOM conversion and then select this button to
+        remove the Item Characteristic from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para><indexterm significance="normal">
+      <primary>units of measure</primary>
+      <secondary>alternates for items</secondary>
+    </indexterm><indexterm significance="normal">
+      <primary>items</primary>
+      <secondary>alternate uoms for</secondary>
+    </indexterm>To define an alternate Item UOM, select the NEW button. The
+  following screen will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -529,152 +587,183 @@
       <caption><para>Unit of Measure Definition</para></caption>
     </mediaobject>
   </screenshot>
-  <para></para>
-  <para><indexterm>
-      <primary>units of measure</primary>
-      <secondary>selling specified</secondary>
-    </indexterm></para>
-  <para></para>
-  <para><variablelist>
-      <varlistentry>
-        <term>Capacity UOM</term>
-        <listitem id="listitemN0x180ac00N0x18597f8">
-          <para>Specify a Unit of Measure (UOM)--or enter a free-form UOM. In
-          Capacity Planning (C/P) and Sales Analysis (S/A) displays, the
-          Capacity UOM enables you to make apples-to-apples comparisons of
-          Items that use different Inventory UOMs. For example, let's say that
-          Item A is a carton containing 24 Item B"s--and that you sell both
-          Items. However, Item A and Item B use different Inventory UOMs. Item
-          A is measured by the CASE (24), and Item B is measured by EACH. By
-          utilizing the Capacity UOM and Capacity/Inventory UOM ratio, you
-          have the ability in C/P and S/A to track total load and total sales
-          for Item B--even though the Inventory UOM for Item A obscures the
-          quantity of Item B's contained therein. To enable the normalizing of
-          these UOMs, you would configure the Item masters for each Item as
-          follows:</para>
-          <variablelist>
-            <varlistentry>
-              <term>Item A:</term>
-              <listitem>
-                <para>CASE (Inv. UOM), EACH (Cap. UOM)</para>
-              </listitem>
-            </varlistentry>
-            <varlistentry>
-              <term>Item B</term>
-              <listitem>
-                <para>EACH (Inv. UOM), CASE (Cap. UOM)</para>
-              </listitem>
-            </varlistentry>
-          </variablelist>
-          <para>If, when you query the database in C/P or S/A, you request
-          data to be displayed in Capacity UOMs, then the system will
-          normalize the quantities of Item A to EACH, allowing you to see the
-          total quantity of Item B"s.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist><note>
-      <para>The Capacity UOM has no impact on Bills of Materials. It is used
-      solely for Capacity Planning and Sales Analysis purposes.</para>
-    </note><variablelist>
-      <varlistentry>
-        <term>Capacity/Inventory UOM Ratio</term>
-        <listitem id="listitemN0x180ac00N0x1859888">
-          <para>This is the ratio that normalizes quantities to enable
-          apples-to-apples comparisons of Items having different Inventory
-          UOMs, as described in the example above. To complete that example,
-          you would specify for Item A the ratio "24:1" to indicate 24 EACH
-          per 1 CASE. The ratio 24:1 would be represented in the field as
-          follows:</para>
-          <para>Capacity/Inventory UOM Ratio: 24.00</para>
-          <para>In effect, the ratio brings to view the quantity of Item B's
-          contained in the parent Item A. Now, when you query the database in
-          C/P or S/A and request data to be displayed in Capacity UOMs, the
-          system will multiply Item A quantities by 24 (the ratio value),
-          allowing you to see the total quantity of Item B"s.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Alt. Capacity UOM</term>
-        <listitem id="listitemN0x180ac00N0x18598d0">
-          <para>Capacity UOM: Specify a Unit of Measure (UOM)--or enter a
-          free-form UOM. You set up the Alternate Capacity UOM and its
-          corresponding ratio in the same way as for the Capacity UOM. The
-          Alt. Capacity UOM should be used to provide an alternate UOM for
-          viewing Inventory details. For example, a Sales Manager may be
-          satisfied looking at a group of Items normalized to their selling or
-          Inventory UOM, but a Production Manager may need to look at the same
-          Items normalized to a Production UOM--say, Cubic Feet (CuFt). In the
-          case of the Production Manager, you would first create the UOM
-          "CuFt". You would then specify that UOM in the Alt. Capacity UOM
-          field.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist><note>
-      <para>The Alternate Capacity UOM has no impact on Bills of Materials. It
-      is used solely for Capacity Planning and Sales Analysis purposes.</para>
-    </note><variablelist>
-      <varlistentry>
-        <term>Alt. Capacity/Inventory UOM Ratio</term>
-        <listitem id="listitemN0x180ac00N0x1859960">
-          <para>Capacity/Inventory UOM Ratio: This is the ratio that
-          normalizes quantities to enable Inventory views using an Alternate
-          UOM. The ratio is set up in the same way as the Capacity/Inventory
-          UOM ratio described above.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist><variablelist>
-      <varlistentry>
-        <term>Price UOM</term>
-        <listitem id="listitemN0x180ac00N0x1859a80">
-          <para>Specify a Unit of Measure (UOM)--or enter a free-form UOM. If
-          an Item is sold, its List Price will be based on the Price Unit of
-          Measure. While the Price UOM will often mirror the Inventory UOM, in
-          some scenarios the two UOMs will be different. For example, cans of
-          soda may be stocked in Inventory as individual units, but sold by
-          the six-pack as follows:</para>
-          <para>Soda Can: EACH (Inv. UOM), CASE6 (Price UOM)</para>
-          <para>In this example, Inventory transactions will be recorded using
-          the Inventory UOM, but all pricing--including List Price and Pricing
-          Schedules--will reflect the Price UOM.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Price/Inventory UOM Ratio</term>
-        <listitem id="listitemN0x180ac00N0x1859ac8">
-          <para>In many situations, the ratio of the Price UOM to the
-          Inventory UOM will be 1:1, meaning you would enter "1.00" into the
-          Price/Inventory UOM Ratio field. But whenever those two UOMs
-          diverge, you need to indicate an appropriate pricing ratio. The
-          pricing ratio is set up in the same way as the Capacity/Inventory
-          UOM ratio described above. To continue with the soda six-pack
-          example, you would enter the following to indicate a 1:6 ratio--that
-          is, 1 CASE6 (Price UOM)/6 EACH (Inventory UOM):</para>
-          <para>Price/Inventory UOM Ratio: .166667</para>
-          <para>Now, whenever the specified Item is entered in a Quote or
-          Sales Order, the quantity ordered will be multiplied first by this
-          ratio to normalize the quantity to the Price UOM.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist><note>
-      <para>On Quotes and Sales Orders, the Quantity Ordered for Line Items is
-      based on the Inventory UOM. But the Price is based on the Price UOM.
-      Whenever these two UOMs are not identical, the Extended Price for a Line
-      Item will be based on the following formula:</para>
-      <para><equation>
-          <mathphrase>(Qty. Ordered) x (Price/Inv. Ratio) x (Net Unit
-          Price)</mathphrase>
-        </equation></para>
-      <para>If the Prices you are entering on a Sales Order don"t look right,
-      check the Item master for the Line Item in question. It may be that the
-      Inventory and Price UOMs do not exist in a 1:1 relationship.</para>
-    </note></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
-  <para></para>
+  <para>When defining an alternate Item UOM, you are presented with the
+  following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Source UOM</term>
+      <listitem>
+        <para>By default the Inventory UOM will be displayed here. However,
+        you may select an alternate UOM. If an alternate UOM is selected, then
+        the per UOM will be the Inventory UOM.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Enter a value for the source UOM to be used in the
+              conversion ratio for the alternate Item UOM.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <tip>
+      <para>By default, the Available Types list will be empty--until you
+      specify either a source or per UOM. Once a source or per UOM is
+      selected, the Available Types list will be populated with the available
+      options. An Item may have multiple selling UOMs but only one of each of
+      the other types.</para>
+    </tip>
+    <varlistentry>
+      <term>Per UOM</term>
+      <listitem>
+        <para>By default the Inventory UOM will be displayed here. However,
+        you may select an alternate UOM. If an alternate UOM is selected, then
+        the Source UOM will be the Inventory UOM.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Value</term>
+            <listitem>
+              <para>Enter a value for the per UOM to be used in the conversion
+              ratio for the alternate Item UOM.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fractional</term>
+      <listitem>
+        <para>Specify whether this alternate Item UOM may be maintained in
+        fractional quantities. If not selected, transaction quantities using
+        this alternate Item UOM may not be maintained in fractional
+        quantities.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Available Types</term>
+      <listitem>
+        <para>Once a source or per UOM has been specified, you may select one
+        of the available UOM types. Once a UOM type has been used, you may not
+        create a conversion ratio for it again--with the exception of the
+        selling UOM, which may be defined multiple times for a single
+        Item.</para>
+        <tip>
+          <para>Double-clicking on an available UOM type will move it to the
+          Selected Types list.</para>
+        </tip>
+        <variablelist>
+          <varlistentry>
+            <term>Alternate Capacity</term>
+            <listitem id="listitemN0x180ac00N0x18598d0">
+              <para>The Alt. Capacity UOM should be used to provide an
+              alternate UOM for viewing Inventory details. For example, a
+              Sales Manager may be satisfied looking at a group of Items
+              normalized to their selling or Inventory UOM, but a Production
+              Manager may need to look at the same Items normalized to a
+              Production UOM--say, Cubic Feet (CuFt).</para>
+              <note>
+                <para>The Alternate Capacity UOM has no impact on Bills of
+                Materials. It is used solely for Capacity Planning and Sales
+                Analysis purposes.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Capacity</term>
+            <listitem>
+              <para>In Capacity Planning and Sales Analysis reports, the
+              Capacity UOM enables you to make apples-to-apples comparisons of
+              Items that use different Inventory UOMs. For example, let's say
+              that Item A is a carton containing 24 Item B"s--and that you
+              sell both Items. However, Item A and Item B use different
+              Inventory UOMs. Item A is measured by the CASE (24), and Item B
+              is measured by EACH. By utilizing the Capacity UOM, you have the
+              ability to track total load and total sales for Item B--even
+              though the Inventory UOM for Item A obscures the quantity of
+              Item B's contained therein. If, when you query the database, you
+              request data to be displayed in Capacity UOMs, then the system
+              will normalize the quantities of Item A to EACH, allowing you to
+              see the total quantity of Item Bs.</para>
+              <note>
+                <para>The Capacity UOM has no impact on Bills of Materials. It
+                is used solely for Capacity Planning and Sales Analysis
+                purposes.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Material Issue</term>
+            <listitem>
+              <para>The Material Issue UOM defines an alternate UOM for use
+              when creating Bill of Materials (BOM) Items. On the BOM Item
+              screen, you have the ability to select an issue UOM. This issue
+              UOM is used whenever the specified component Item is issued to a
+              Work Order. If you define a Material Issue UOM on the Item
+              master, then that UOM will be available for selection whenever
+              the Item is used in a BOM.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term><indexterm>
+                <primary>units of measure</primary>
+                <secondary>selling specified</secondary>
+              </indexterm><indexterm>
+                <primary>items</primary>
+                <secondary>selling UOM for</secondary>
+              </indexterm>Selling</term>
+            <listitem>
+              <para>If an Item is sold, its List Price will be based on the
+              Selling UOM. While the Selling UOM may often mirror the
+              Inventory UOM, in some scenarios the two UOMs will be different.
+              For example, cans of soda may be stocked in Inventory as
+              individual units (EACH), but sold by the case (CASE24). In this
+              example, Inventory transactions will be recorded using the
+              Inventory UOM (EACH), but all pricing--including List Price and
+              Pricing Schedules--will reflect the Selling UOM (CASE24). An
+              Item may also have multiple Selling UOMs, for example SIX-PACK,
+              CASE24, PALLET, etc. You specify the Selling UOM you want to use
+              at Sales Order entry time.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Selected Types</term>
+      <listitem>
+        <para>Lists the UOM types you have selected for the specified UOM
+        conversion ratio. You may add multiple different UOM types for each
+        conversion ratio. However, if a UOM type (except the Selling UOM) has
+        already been used in another conversion ratio, you may not be able to
+        select it.</para>
+        <tip>
+          <para>Double-clicking on a selected UOM type will remove it from the
+          list, returning it to the Available Types list.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x181a430">
+        <para>Closes the screen without creating an alternate Item UOM(s),
+        returning you to the previous screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem id="listitemN0x180ac00N0x181a478">
+        <para>Creates the alternate Item UOM(s) and makes it available
+        throughout the system.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
   <para>Item Characteristics are user-defined definitions of an Item which may
   be used to provide additional layers of description to Items. For example,
   Item Characteristics might be used to specify "Season" or "Primary Vendor".
