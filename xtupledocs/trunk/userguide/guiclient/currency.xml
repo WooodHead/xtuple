@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="currency">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>currencies</primary>
       <secondary>adding new</secondary>
     </indexterm>Currency</title>
-  <para>To add a new Currency to the master list of
-  Currencies, select the NEW button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To add a new Currency to the master list of Currencies, select the NEW
+  button. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_currNew.png" id="Graphic965926"/>
+          <imagedata fileref="images/Sys_currNew.png" id="Graphic965926" />
         </imageobject>
         <caption id="Caption965929">Create New Currency</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>Standard Currency information for most Countries is
-    provided by default as part of the <xref endterm="Anchor62146" linkend="Anchor62146"/>
-    FINDME
-  "Countries" list.
-    Simply select this information by Country when setting up multiple
-    Currencies.</para>
+    <para>Standard Currency information for most Countries is provided by
+    default as part of the <xref endterm="Anchor62146"
+    linkend="Anchor62146" /> FINDME "Countries" list. Simply select this
+    information by Country when setting up multiple Currencies.</para>
   </tip>
-  <para>When adding a new Currency to the master list of
-  Currencies, you are presented with the following options:</para>
+  <para>When adding a new Currency to the master list of Currencies, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -38,11 +34,10 @@
     <varlistentry>
       <term>Symbol</term>
       <listitem id="listitemN0x180ac00N0x184afe0">
-        <para>Enter a symbol to identify the Currency.</para>
-        <para>Use special keyboard characters to enter special
-        Currency symbols. For example, under Windows, you can create the
-        symbol for Japanese Yen "<!--Yen-->" by using the following keys: ALT
-        + 0165.</para>
+        <para>Enter a symbol to identify the Currency. Use special keyboard
+        characters to enter special Currency symbols. For example, under
+        Windows, you can create the symbol for Japanese Yen "<!--Yen-->" by
+        using the following keys: ALT + 0165.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,24 +49,23 @@
     <varlistentry>
       <term>Base Currency</term>
       <listitem id="listitemN0x180ac00N0x184b070">
-        <para>Specify whether the Currency is the base Currency.</para>
-        <para>The base Currency is the Currency used for all
-        General Ledger (G/L) transactions. Only one base Currency may be
-        defined per each database. Any transactions conducted in a foreign
-        Currency will be converted automatically to the base Currency (using
-        the prevailing Exchange Rate) before they are posted to the
-        G/L.</para>
+        <para>Specify whether the Currency is the base Currency. The base
+        Currency is the Currency used for all General Ledger (G/L)
+        transactions. Only one base Currency may be defined per each database.
+        Any transactions conducted in a foreign Currency will be converted
+        automatically to the base Currency (using the prevailing Exchange
+        Rate) before they are posted to the G/L.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Choose your base Currency carefully. Once you
-    indicate a given Currency is the base Currency, you will not be able to
-    change that selection using the application. Consult your system
-    administrator if this situation occurs.</para>
+    <para>Choose your base Currency carefully. Once you indicate a given
+    Currency is the base Currency, you will not be able to change that
+    selection using the application. Consult your system administrator if this
+    situation occurs.</para>
   </tip>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -95,24 +89,22 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To select Currency information by Country, choose the
-  SELECT button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To select Currency information by Country, choose the SELECT button.
+  The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_currSelect.png" id="Graphic972771"/>
+          <imagedata fileref="images/Sys_currSelect.png" id="Graphic972771" />
         </imageobject>
         <caption id="Caption972774">Select Currency by Country</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>Make any changes to the Currency information for a
-    Country on the Country master screen.</para>
+    <para>Make any changes to the Currency information for a Country on the
+    Country master screen.</para>
   </tip>
-  <para>When selecting Currency information by Country, you
-  are presented with the following options:</para>
+  <para>When selecting Currency information by Country, you are presented with
+  the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Country</term>
@@ -142,8 +134,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

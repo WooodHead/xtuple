@@ -1,69 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section970413">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>configuration</primary>
       <secondary>for credit cards</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>configuration for</secondary>
     </indexterm>Credit Cards</title>
-  <para>To configure your system to process Credit Cards,
-  select the "Credit Cards" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To configure your system to process Credit Cards, select the "Credit
+  Cards" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configCCGen.png" id="Graphic970416"/>
+          <imagedata fileref="images/Sys_configCCGen.png" id="Graphic970416" />
         </imageobject>
         <caption id="Caption970419">Configure Credit Card General
         Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>The system currently supports only the YourPay
-    Verification Service.</para>
+    <para>The system currently supports only the YourPay Verification
+    Service.</para>
   </note>
-  <para>When establishing the general settings for your Credit
-  Card configuration, you are presented with the following options:</para>
+  <para>When establishing the general settings for your Credit Card
+  configuration, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Accept Credit Cards</term>
       <listitem id="listitemN0x180ac00N0x1861a68">
         <para>Select to indicate the system is configured to accept Credit
-        Card Payments.</para>
-        <para>If selected, the Credit Card processing
-        functionality will be enabled throughout the system. For example,
-        users will be able to store Customer Credit Card information on the
-        Customer master--and receive Credit Card payments when processing
-        Sales Orders. If this option is not selected, Credit Card
-        functionality will be disabled.</para>
+        Card Payments. If selected, the Credit Card processing functionality
+        will be enabled throughout the system. For example, users will be able
+        to store Customer Credit Card information on the Customer master--and
+        receive Credit Card payments when processing Sales Orders. If this
+        option is not selected, Credit Card functionality will be
+        disabled.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Work in Test Mode</term>
       <listitem id="listitemN0x180ac00N0x1861ab0">
         <para>Select if your site is testing the Credit Card configuration and
-        functionality.</para>
-        <para>If selected, the system will verify that the
-        server specified under the "Server" tab is in fact the correct test
-        server. If this option is not selected, the system will verify that
-        the correct production server is specified.</para>
+        functionality. If selected, the system will verify that the server
+        specified under the "Server" tab is in fact the correct test server.
+        If this option is not selected, the system will verify that the
+        correct production server is specified.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit cards</primary>
           <secondary>selecting verification service</secondary>
         </indexterm>Verification Service</term>
       <listitem id="listitemN0x180ac00N0x1861b40">
-        <para>Specify the Verification Service you will be using.</para>
-        <para>The xTuple applications currently support the
-        YourPay Verification Service.</para>
+        <para>Specify the Verification Service you will be using. The xTuple
+        applications currently support the YourPay Verification
+        Service.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -71,14 +65,36 @@
       <listitem id="listitemN0x180ac00N0x1861b88">
         <para>Specify when you want to receive transaction confirmation
         messages:</para>
-        <para>None: Select if you do not want to receive
-        transaction confirmation messages.</para>
-        <para>Both: Select if you want to receive transaction
-        confirmation messages for both pre-authorizations and charges.</para>
-        <para>Authorize: Select if you want to receive
-        transaction confirmations only when pre-authorizing.</para>
-        <para>Charge: Select if you want to receive
-        transaction confirmations only when charging.</para>
+        <variablelist>
+          <varlistentry>
+            <term>None</term>
+            <listitem>
+              <para> Select if you do not want to receive transaction
+              confirmation messages.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Both</term>
+            <listitem>
+              <para>Select if you want to receive transaction confirmation
+              messages for both pre-authorizations and charges.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Authorize</term>
+            <listitem>
+              <para>Select if you want to receive transaction confirmations
+              only when pre-authorizing.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Charge</term>
+            <listitem>
+              <para>Select if you want to receive transaction confirmations
+              only when charging.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -86,25 +102,41 @@
       <listitem id="listitemN0x180ac00N0x1861bd0">
         <para>Select which of the following options should be enabled under
         the Payments tab of the Sales Order header.</para>
-        <para>Authorize: If selected, only the AUTHORIZE
-        button will be enabled.</para>
-        <para>Charge: If selected, only the CHARGE button will
-        be enabled.</para>
-        <para>Both: If selected, both the AUTHORIZE and CHARGE
-        buttons will be enabled.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Authorize</term>
+            <listitem>
+              <para>If selected, only the AUTHORIZE button will be
+              enabled.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Charge</term>
+            <listitem>
+              <para>If selected, only the CHARGE button will be
+              enabled.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Both</term>
+            <listitem>
+              <para>If selected, both the AUTHORIZE and CHARGE buttons will be
+              enabled.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Making changes to the "Enable Trans." setting will
-    only impact the buttons displayed under the "Payments" tab on the Sales
-    Order header. Any pending post-authorizations available to the A/R
-    Workbench will not be affected.</para>
+    <para>Making changes to the "Enable Trans." setting will only impact the
+    buttons displayed under the "Payments" tab on the Sales Order header. Any
+    pending post-authorizations available to the A/R Workbench will not be
+    affected.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>pre-authorizations</primary>
           <secondary>for credit card transactions</secondary>
         </indexterm> <indexterm significance="normal">
@@ -113,16 +145,14 @@
         </indexterm>Number of days Pre-authorizations are valid for</term>
       <listitem id="listitemN0x180ac00N0x1861cf0">
         <para>Select a value between 1 and 99 using the arrow buttons located
-        to the right of the field.</para>
-        <para>Value entered specifies the number of days
+        to the right of the field. Value entered specifies the number of days
         pre-authorizations will remain valid from the date they were entered.
         Once a pre-authorization expires, it will no longer be visible in the
         system and will be unavailable for post-authorization.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>for credit card transactions</secondary>
         </indexterm> <indexterm significance="normal">
@@ -135,8 +165,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -153,29 +183,27 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To establish the server settings for your Credit Card
-  configuration, <indexterm significance="normal">
+  <para>To establish the server settings for your Credit Card configuration,
+  <indexterm significance="normal">
       <primary>servers</primary>
       <secondary>for credit card companies</secondary>
     </indexterm>select the "Server" tab. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configCCServer.png" id="Graphic970453"/>
+          <imagedata fileref="images/Sys_configCCServer.png"
+                     id="Graphic970453" />
         </imageobject>
         <caption id="Caption970456">Configure Credit Card Server
         Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When establishing the server settings for your Credit
-  Card configuration, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When establishing the server settings for your Credit Card
+  configuration, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>servers</primary>
           <secondary>for credit card service</secondary>
         </indexterm>Server Name</term>
@@ -211,107 +239,116 @@
     <varlistentry>
       <term>Use Proxy Server</term>
       <listitem id="listitemN0x180ac00N0x1868af4">
-        <para>Select if your site uses a proxy server.</para>
-        <para>Server Name: Specify the IP Address for your
-        proxy server.</para>
-        <para>Port: Specify the port used by your proxy
-        server.</para>
-        <para>Login: Specify the login name for your proxy
-        server.</para>
-        <para>Password: Specify the password for your proxy
-        server.</para>
+        <para>Select if your site uses a proxy server. </para>
+        <variablelist>
+          <varlistentry>
+            <term>Server Name</term>
+            <listitem>
+              <para>Specify the IP Address for your proxy server.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Port</term>
+            <listitem>
+              <para>Specify the port used by your proxy server.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Login</term>
+            <listitem>
+              <para>Specify the login name for your proxy server.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Password</term>
+            <listitem>
+              <para>Specify the password for your proxy server.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To establish the service option settings for your
-  Credit Card configuration, select the "Service Options" tab. The following
-  screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To establish the service option settings for your Credit Card
+  configuration, select the "Service Options" tab. The following screen will
+  appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configCCService.png" id="Graphic970470"/>
+          <imagedata fileref="images/Sys_configCCService.png"
+                     id="Graphic970470" />
         </imageobject>
         <caption id="Caption970473">Configure Credit Card Service
         Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When establishing the service option settings for your
-  Credit Card configuration, you are presented with the following
-  options:</para>
+    </screenshot></para>
+  <para>When establishing the service option settings for your Credit Card
+  configuration, you are presented with the following options:</para>
   <note>
-    <para>The examples shown in this section correspond to the
-    YourPay Verification Service requirements. Different options would be
-    shown if a different Verification Service were specified.</para>
+    <para>The examples shown in this section correspond to the YourPay
+    Verification Service requirements. Different options would be shown if a
+    different Verification Service were specified.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Windows PEM Location</term>
       <listitem id="listitemN0x180ac00N0x1868bf0">
         <para>Specify the directory path any Windows machine on your system
-        would use to access the YourPay PEM file.</para>
-        <para>The PEM file may be stored locally for use by
-        individual machines, or on a network drive for wider
-        distribution.</para>
+        would use to access the YourPay PEM file. The PEM file may be stored
+        locally for use by individual machines, or on a network drive for
+        wider distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Linux PEM Location</term>
       <listitem id="listitemN0x180ac00N0x1868c38">
         <para>Specify the directory path any Linux machine on your system
-        would use to access the YourPay PEM file.</para>
-        <para>The PEM file may be stored locally for use by
-        individual machines, or on a network drive for wider
-        distribution.</para>
+        would use to access the YourPay PEM file. The PEM file may be stored
+        locally for use by individual machines, or on a network drive for
+        wider distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Mac PEM Location</term>
       <listitem id="listitemN0x180ac00N0x1868c80">
         <para>Specify the directory path any Mac machine on your system would
-        use to access the YourPay PEM file.</para>
-        <para>The PEM file may be stored locally for use by
-        individual machines, or on a network drive for wider
+        use to access the YourPay PEM file. The PEM file may be stored locally
+        for use by individual machines, or on a network drive for wider
         distribution.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Store Number</term>
       <listitem id="listitemN0x180ac00N0x1868cc8">
-        <para>Enter the number of your YourPay store.</para>
-        <para>Store numbers are assigned when you register
-        with the YourPay Verification Service.</para>
+        <para>Enter the number of your YourPay store. Store numbers are
+        assigned when you register with the YourPay Verification
+        Service.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>credit cards</primary>
       <secondary>key files and</secondary>
     </indexterm>To establish the key file settings for your Credit Card
   configuration, select the "Key File" tab. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_configCCKey.png" id="Graphic970488"/>
+          <imagedata fileref="images/Sys_configCCKey.png" id="Graphic970488" />
         </imageobject>
         <caption id="Caption970491">Configure Credit Card Key File
         Options</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>All users on your system must use the same key file.
-    For optimal security, you should consider storing the key file with a
-    hidden name in a hidden directory on your server. The key file is not
-    stored on the database.</para>
+    <para>All users on your system must use the same key file. For optimal
+    security, you should consider storing the key file with a hidden name in a
+    hidden directory on your server. The key file is not stored on the
+    database.</para>
   </tip>
-  <para>When establishing the key file settings for your
-  Credit Card configuration, you are presented with the following
-  options:</para>
+  <para>When establishing the key file settings for your Credit Card
+  configuration, you are presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Key File Name</term>
@@ -326,10 +363,10 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If you change the contents of your key file after it
-    has already been in production, steps must be taken to convert any data
-    encrypted up to that point. The function "alterencrypt" must be used to
-    handle the conversion. Please contact your Systems Administrator for more
+    <para>If you change the contents of your key file after it has already
+    been in production, steps must be taken to convert any data encrypted up
+    to that point. The function "alterencrypt" must be used to handle the
+    conversion. Please contact your Systems Administrator for more
     information.</para>
   </note>
   <variablelist>
@@ -338,16 +375,15 @@
       <listitem id="listitemN0x180ac00N0x1868e9c">
         <para>Specify the directory path any Windows machine on your system
         would use to access the key file.</para>
-        <para>All users and machines on the system must use
-        the same key file. To ensure consistency and security, the file should
-        be stored in a central location.</para>
+        <para>All users and machines on the system must use the same key file.
+        To ensure consistency and security, the file should be stored in a
+        central location.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If you name the key file "OpenMFG.key" and place it
-    in the installation directory, then you do not need to enter the
-    path.</para>
+    <para>If you name the key file "OpenMFG.key" and place it in the
+    installation directory, then you do not need to enter the path.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -355,9 +391,9 @@
       <listitem id="listitemN0x180ac00N0x1868f2c">
         <para>Specify the directory path any Linux machine on your system
         would use to access the key file.</para>
-        <para>All users and machines on the system must use
-        the same key file. To ensure consistency and security, the file should
-        be stored in a central location.</para>
+        <para>All users and machines on the system must use the same key file.
+        To ensure consistency and security, the file should be stored in a
+        central location.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -365,9 +401,9 @@
       <listitem id="listitemN0x180ac00N0x1868f74">
         <para>Specify the directory path any Mac machine on your system would
         use to access the key file.</para>
-        <para>All users and machines on the system must use
-        the same key file. To ensure consistency and security, the file should
-        be stored in a central location.</para>
+        <para>All users and machines on the system must use the same key file.
+        To ensure consistency and security, the file should be stored in a
+        central location.</para>
       </listitem>
     </varlistentry>
   </variablelist>

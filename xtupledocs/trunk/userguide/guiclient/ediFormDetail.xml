@@ -1,55 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="ediFormDetail" role="openmfg">
   <title>EDI Form Detail</title>
-  <para>To create a new Form Detail query to be used when
-  generating CSV file output, select the NEW button. The following screen will
-  appear:</para>
-  <para>
-<anchor id="Anchor39340" role="Cross-Ref" xreflabel="39340: Figure: Figure System.27:  Create New EDI Form Detail Query"/>
+  <para>To create a new Form Detail query to be used when generating CSV file
+  output, select the NEW button. The following screen will appear:</para>
+  <para><anchor id="Anchor39340" role="Cross-Ref"
+  xreflabel="39340: Figure: Figure System.27:  Create New EDI Form Detail Query" />
   <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediFormDetail.png" id="Graphic961218"/>
+          <imagedata fileref="images/Sys_ediFormDetail.png" id="Graphic961218" />
         </imageobject>
         <caption id="Caption961221">Create New EDI Form Detail Query</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Form Detail query, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Form Detail query, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
       <listitem id="listitemN0x180ac00N0x1888a40">
         <para>Enter a name to identify the Form Detail query. In the example
-        shown in <xref endterm="Anchor39340" linkend="Anchor39340"/>
-    FINDME
-  Figure
-        System.41, the name indicates the query will return information to be
-        used in the header of the CSV file output.</para>
+        shown in <xref endterm="Anchor39340" linkend="Anchor39340" /> FINDME
+        Figure System.41, the name indicates the query will return information
+        to be used in the header of the CSV file output.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Order</term>
       <listitem id="listitemN0x180ac00N0x1888a88">
         <para>Select a value between 1 and 99 using the arrow buttons located
-        to the right of the field.</para>
-        <para>The value entered specifies the order in which a
-        query will be executed.</para>
+        to the right of the field. The value entered specifies the order in
+        which a query will be executed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Query</term>
       <listitem id="listitemN0x180ac00N0x1888ad0">
         <para>Enter a SQL query to identify the information you want to
-        populate your CSV file with. As you can see in <xref endterm="Anchor39340" linkend="Anchor39340"/>
-    FINDME
-  Figure System.41, the query selects
-        invoice header information from the "invchead" table. You will note in
-        the WHERE clause that MetaSQL is used to dynamically capture the
-        specific Invoice number. For more information on writing queries using
-        MetaSQL, please see the Report Writer User Guide.</para>
+        populate your CSV file with. As you can see in <xref
+        endterm="Anchor39340" linkend="Anchor39340" /> FINDME Figure
+        System.41, the query selects invoice header information from the
+        "invchead" table. You will note in the WHERE clause that MetaSQL is
+        used to dynamically capture the specific Invoice number. For more
+        information on writing queries using MetaSQL, please see the Report
+        Writer User Guide.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -60,8 +56,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

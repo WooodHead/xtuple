@@ -1,39 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="ediProfile" role="openmfg">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new profile</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>profiles</primary>
       <secondary>creating new</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>email</primary>
       <secondary>using for edi</secondary>
     </indexterm>EDI Profile</title>
-  <para> To create a new EDI Profile, select the NEW button.
-  For this example, we have chosen the Email delivery method, as shown in the
-  following screenshot:</para>
-  <para>
-<screenshot>
+  <para>To create a new EDI Profile, select the NEW button. For this example,
+  we have chosen the Email delivery method, as shown in the following
+  screenshot:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediProfEmail.png" id="Graphic959289"/>
+          <imagedata fileref="images/Sys_ediProfEmail.png" id="Graphic959289" />
         </imageobject>
         <caption id="Caption959292">Create New EDI Profile for Email
         Delivery</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
-    <para>The screen options will vary depending on which EDI
-    delivery method you select--Email or FTP.</para>
+    <para>The screen options will vary depending on which EDI delivery method
+    you select--Email or FTP.</para>
   </note>
-  <para>When creating an EDI Profile using the Email delivery
-  type, you are presented with the following options:</para>
+  <para>When creating an EDI Profile using the Email delivery type, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -44,12 +40,11 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Type</term>
+      <term>Type </term>
       <listitem id="listitemN0x180ac00N0x187a6cc">
-        <para>For this example, we have selected the "Email" delivery
-        method.</para>
-        <para>Selecting the "Email" option indicates that
-        recipients will receive EDI documents as Email attachments.</para>
+        <para>For this example, we have selected the "Email" delivery method.
+        Selecting the "Email" option indicates that recipients will receive
+        EDI documents as Email attachments.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,9 +56,9 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Send documents to multiple recipients by separating
-    email addresses with a comma. Be sure to omit any spaces between addresses
-    when using commas to send copies to multiple recipients.</para>
+    <para>Send documents to multiple recipients by separating email addresses
+    with a comma. Be sure to omit any spaces between addresses when using
+    commas to send copies to multiple recipients.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -101,8 +96,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -142,8 +137,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new profile</secondary>
     </indexterm> <indexterm significance="normal">
@@ -152,26 +146,25 @@
     </indexterm> <indexterm significance="normal">
       <primary>file transfer protocol</primary>
       <secondary>using for edi</secondary>
-    </indexterm>To create a new EDI Profile using the <indexterm significance="normal">
+    </indexterm>To create a new EDI Profile using the <indexterm
+      significance="normal">
       <primary>FTP</primary>
       <see>file transfer protocol</see>
     </indexterm>FTP delivery method, select the NEW button from the EDI
   Profiles master list. Once the new Profile screen opens, choose the "FTP"
   option. As the following screenshot shows, the screen options change when
   "FTP" is selected:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediProfFtp.png" id="Graphic959840"/>
+          <imagedata fileref="images/Sys_ediProfFtp.png" id="Graphic959840" />
         </imageobject>
         <caption id="Caption959844">Create New EDI Profile for FTP
         Delivery</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new EDI Profile using the FTP delivery
-  method, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new EDI Profile using the FTP delivery method, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Name</term>
@@ -184,16 +177,14 @@
     <varlistentry>
       <term>Type</term>
       <listitem id="listitemN0x180ac00N0x1880080">
-        <para>For this example, we have selected the "FTP" delivery
-        method.</para>
-        <para>Selecting the "FTP" option indicates that
-        recipients will receive EDI documents as files transferred by FTP to
-        the server address specified in the Profile.</para>
+        <para>For this example, we have selected the "FTP" delivery method.
+        Selecting the "FTP" option indicates that recipients will receive EDI
+        documents as files transferred by FTP to the server address specified
+        in the Profile.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>servers</primary>
           <secondary>ftp for edi profile</secondary>
         </indexterm>Server</term>
@@ -238,8 +229,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -279,5 +270,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ediForm.xml" xpointer="element(/1)"/>
+  <xi:include href="ediForm.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="ediForm" role="openmfg">
   <title>EDI Form</title>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new forms for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,38 +13,35 @@
   associate an EDI Form with a Profile, select the NEW button. For this
   example, we will choose the "Report" format, as shown in the following
   screenshot:</para>
-  <para>
-<anchor id="Anchor41905" role="Cross-Ref" xreflabel="41905: Figure: Figure System.25:  Create New EDI Form Using Report Format"/>
+  <para><anchor id="Anchor41905" role="Cross-Ref"
+  xreflabel="41905: Figure: Figure System.25:  Create New EDI Form Using Report Format" />
   <screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediFormReport.png" id="Graphic960583"/>
+          <imagedata fileref="images/Sys_ediFormReport.png" id="Graphic960583" />
         </imageobject>
         <caption id="Caption960587">Create New EDI Form Using Report
         Format</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new EDI Form using the Report format,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new EDI Form using the Report format, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Type</term>
       <listitem id="listitemN0x180ac00N0x188056c">
-        <para>Select the type of document the Form will be used for.</para>
-        <para>Invoices are currently the only supported
-        document type. The Invoice type will be selected by default.</para>
+        <para>Select the type of document the Form will be used for. Invoices
+        are currently the only supported document type. The Invoice type will
+        be selected by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Output</term>
       <listitem id="listitemN0x180ac00N0x18805b4">
-        <para>For this example, we have selected the "Report" output
-        format.</para>
-        <para>Selecting the "Report" option indicates that
-        document information will be written using the report definition
-        specified below. Documents will be forwarded to EDI recipients in .PDF
-        format.</para>
+        <para>For this example, we have selected the "Report" output format.
+        Selecting the "Report" option indicates that document information will
+        be written using the report definition specified below. Documents will
+        be forwarded to EDI recipients in .PDF format.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -53,11 +50,10 @@
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <xref endterm="Anchor41905" linkend="Anchor41905"/>
-    FINDME
-  Figure System.39, the file name will include the specific
-        Invoice Number of each Invoice being forwarded to EDI
-        recipients.</para>
+        In the example shown in <xref endterm="Anchor41905"
+        linkend="Anchor41905" /> FINDME Figure System.39, the file name will
+        include the specific Invoice Number of each Invoice being forwarded to
+        EDI recipients.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -65,9 +61,8 @@
       <listitem id="listitemN0x180ac00N0x1880644">
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <xref endterm="Anchor41905" linkend="Anchor41905"/>
-    FINDME
-  Figure System.39 uses a basic SQL statement to select an
+        example shown in <xref endterm="Anchor41905" linkend="Anchor41905" />
+        FINDME Figure System.39 uses a basic SQL statement to select an
         Invoice number from the "invchead" table. You will note in the WHERE
         clause that MetaSQL is used to dynamically capture the specific
         Invoice number. For more information on writing queries using MetaSQL,
@@ -82,8 +77,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>creating new forms for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -92,44 +86,41 @@
     </indexterm> <indexterm significance="normal">
       <primary>comma separated value</primary>
       <secondary>format for edi</secondary>
-    </indexterm>To create a new EDI Form using <indexterm significance="normal">
+    </indexterm>To create a new EDI Form using <indexterm
+      significance="normal">
       <primary>CSV</primary>
       <see>comma separated value</see>
     </indexterm>Comma Separated Value (CSV) format, select the NEW button from
   the EDI Profiles master list. Once the new Profile screen opens, choose the
   "CSV" option. As the following screenshot shows, the screen options change
   when "CSV" is selected:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediFormCSV.png" id="Graphic961165"/>
+          <imagedata fileref="images/Sys_ediFormCSV.png" id="Graphic961165" />
         </imageobject>
         <caption id="Caption961167">Create New EDI Form Using CSV
         Format</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new EDI Form using the Report format,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new EDI Form using the Report format, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Type</term>
       <listitem id="listitemN0x180ac00N0x1880884">
-        <para>Select the type of document the Form will be used for.</para>
-        <para>Invoices are currently the only supported
-        document type. The Invoice type will be selected by default.</para>
+        <para>Select the type of document the Form will be used for. Invoices
+        are currently the only supported document type. The Invoice type will
+        be selected by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Output</term>
       <listitem id="listitemN0x180ac00N0x18808cc">
-        <para>For this example, we have selected the "CSV" output
-        format.</para>
-        <para>Selecting the "CSV" option indicates that
-        document information will be written using the Form details specified
-        below. Documents will be forwarded to EDI recipients in .TXT
-        format.</para>
+        <para>For this example, we have selected the "CSV" output format.
+        Selecting the "CSV" option indicates that document information will be
+        written using the Form details specified below. Documents will be
+        forwarded to EDI recipients in .TXT format.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -138,11 +129,10 @@
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <xref endterm="Anchor41905" linkend="Anchor41905"/>
-    FINDME
-  Figure System.39, the file name will include the specific
-        Invoice Number of each Invoice being forwarded to EDI
-        recipients.</para>
+        In the example shown in <xref endterm="Anchor41905"
+        linkend="Anchor41905" /> FINDME Figure System.39, the file name will
+        include the specific Invoice Number of each Invoice being forwarded to
+        EDI recipients.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -150,9 +140,8 @@
       <listitem id="listitemN0x180ac00N0x188095c">
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <xref endterm="Anchor41905" linkend="Anchor41905"/>
-    FINDME
-  Figure System.39 uses a basic SQL statement to select an
+        example shown in <xref endterm="Anchor41905" linkend="Anchor41905" />
+        FINDME Figure System.39 uses a basic SQL statement to select an
         Invoice number from the "invchead" table. You will note in the WHERE
         clause that MetaSQL is used to dynamically capture the specific
         Invoice number. For more information on writing queries using MetaSQL,
@@ -160,8 +149,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>comma separated value</primary>
           <secondary>delimiter options for edi</secondary>
         </indexterm> <indexterm significance="normal">
@@ -170,10 +158,20 @@
         </indexterm>Delimiter</term>
       <listitem id="listitemN0x180ac00N0x1888824">
         <para>Select one of the following delimiter options:</para>
-        <para>Comma: Select to generated comma-delimited CSV
-        files.</para>
-        <para>Tab: Select to generated tab-delimited CSV
-        files.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Comma</term>
+            <listitem>
+              <para>Select to generated comma-delimited CSV files.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Tab</term>
+            <listitem>
+              <para>Select to generated tab-delimited CSV files.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -184,8 +182,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>NEW</term>
@@ -211,5 +209,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ediFormDetail.xml" xpointer="element(/1)"/>
+  <xi:include href="ediFormDetail.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
