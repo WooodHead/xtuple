@@ -258,7 +258,12 @@
         <para>Specify the Item's primary Unit of Measure--or enter a free-form
         UOM. The Inventory (UOM) is the UOM in which Inventory is maintained.
         All Inventory transactions, sales transactions, and General Ledger
-        transactions reflect movement in Inventory UOMs.</para>
+        transactions reflect movement in Inventory UOMs. The Inventory UOM is
+        also the base reference for all UOM conversion ratios.</para>
+        <note>
+          <para>Once transactions have been conducted in the Inventory UOM,
+          you may no longer change the Inventory UOM for an Item.</para>
+        </note>
       </listitem>
     </varlistentry>
     <varlistentry>
