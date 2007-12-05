@@ -138,7 +138,9 @@ BEGIN
 --  March through the non-misc invcitems
   FOR _r IN SELECT invcitem_billed, invcitem_qty_invuomratio, invcitem_price, 
                    invcitem_price_invuomratio,invcitem_tax_ratea,invcitem_tax_rateb,
-                   invcitem_tax_ratec,itemsite_id, item_id,
+                   invcitem_tax_pcta,invcitem_tax_pctb,invcitem_tax_pctc,
+                   invcitem_tax_ratec,invcitem_tax_id,invcitem_taxtype_id,
+                   itemsite_id, item_id,
                    (SUM(shipitem_value) / invcitem_billed * invcitem_qty_invuomratio) AS cost
             FROM item, invcitem 
               LEFT OUTER JOIN
@@ -150,7 +152,9 @@ BEGIN
               AND  (invcitem_invchead_id=pInvcheadid) )
             GROUP BY invcitem_billed, invcitem_qty_invuomratio, invcitem_price, 
                      invcitem_price_invuomratio,invcitem_tax_ratea,invcitem_tax_rateb,
-                     invcitem_tax_ratec,itemsite_id,item_id LOOP
+                     invcitem_tax_pcta,invcitem_tax_pctb,invcitem_tax_pctc,
+                     invcitem_tax_ratec,invcitem_tax_id,invcitem_taxtype_id,
+                     itemsite_id,item_id LOOP
 
 --  Cache the amount due for this line
     _amount := round(((_r.invcitem_billed * _r.invcitem_qty_invuomratio) * (_r.invcitem_price / _r.invcitem_price_invuomratio)), 2);
