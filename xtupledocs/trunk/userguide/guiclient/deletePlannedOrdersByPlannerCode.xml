@@ -38,10 +38,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -71,19 +70,17 @@
           <secondary>deletion of</secondary>
         </indexterm>Delete Firmed Orders</term>
       <listitem>
-        <para>Firmed Orders: Select to delete existing Firmed Orders.</para>
-        <para>A firm Planned Order is a Planned Order that has been solidified
-        in the schedule. Firm Planned Orders will not be deleted unless this
-        option is selected.</para>
+        <para>Select to delete existing Firmed Orders. A firm Planned Order is
+        a Planned Order that has been solidified in the schedule. Firm Planned
+        Orders will not be deleted unless this option is selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Delete Child Orders</term>
       <listitem>
         <para>Select to simultaneously delete child Orders for the parent
-        Planned Order.</para>
-        <para>Child Planned Orders having a clearly defined relationship to
-        their parent Planned Order will be deleted.</para>
+        Planned Order. Child Planned Orders having a clearly defined
+        relationship to their parent Planned Order will be deleted.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -98,13 +95,30 @@
       <term>Planning System</term>
       <listitem>
         <para>Specify the planning system(s) whose Planned Orders you want to
-        delete:</para>
-        <para>MPS and MRP: Select to delete Planned Orders from both the MPS
-        and MRP planning systems.</para>
-        <para>MPS: Select to delete Planned Orders from the MPS planning
-        system only.</para>
-        <para>MRP: Select to delete Planned Orders from the MRP planning
-        system only.</para>
+        delete: </para>
+        <variablelist>
+          <varlistentry>
+            <term>MPS and MRP</term>
+            <listitem>
+              <para>Select to delete Planned Orders from both the MPS and MRP
+              planning systems.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MPS</term>
+            <listitem>
+              <para>Select to delete Planned Orders from the MPS planning
+              system only.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>MRP</term>
+            <listitem>
+              <para>Select to delete Planned Orders from the MRP planning
+              system only.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

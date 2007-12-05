@@ -36,10 +36,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,8 +60,20 @@
       <listitem>
         <para>Sort the information using one of the following costing
         parameters:</para>
-        <para>Use Standard Cost: Select to display Standard Cost.</para>
-        <para>Use Actual Cost: Select to display Actual Cost.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Cost</term>
+            <listitem>
+              <para>Select to display Standard Cost.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Cost</term>
+            <listitem>
+              <para>Select to display Actual Cost.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,13 +81,35 @@
       <listitem>
         <para>Sort the information using one of the following pricing
         parameters:</para>
-        <para>Use List Price: Select to display the List Price.</para>
-        <para>Use Average Price: Select to display Average Price. Average
-        Price is based on the Item's average selling Price.</para>
-        <para>Start Evaluation Date: Specify date to start evaluating average
-        Price. This is a required field.</para>
-        <para>End Evaluation Date: Specify date to stop evaluating average
-        Price. This is a required field.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use List Price</term>
+            <listitem>
+              <para>Select to display the List Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Average Price</term>
+            <listitem>
+              <para>Select to display Average Price. Average Price is based on
+              the Item's average selling Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Evaluation Date</term>
+            <listitem>
+              <para>Specify date to start evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Evaluation Date</term>
+            <listitem>
+              <para>Specify date to stop evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -99,9 +132,8 @@
       <term>Planned Orders</term>
       <listitem>
         <para>Display lists planned Revenue/Expenses by Planner Code, using
-        the specified parameters.</para>
-        <para>If gross profit is a negative amount, the number will display in
-        red type.</para>
+        the specified parameters. If gross profit is a negative amount, the
+        number will display in red type.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -118,11 +150,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem>
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for calculation to
-        proceed. Results will be displayed in the "Planned Orders"
-        display.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Planned Orders" display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

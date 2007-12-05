@@ -44,18 +44,17 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Calendar</term>
       <listitem>
-        <para>Select the Calendar you want to use for the report.</para>
-        <para>By default, the Calendar defined at the system level will be
-        used. Associated Calendar periods will be displayed.</para>
+        <para>Select the Calendar you want to use for the report. By default,
+        the Calendar defined at the system level will be used. Associated
+        Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -68,27 +67,25 @@
       <term>Name/Selected Periods</term>
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
-        correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods together. To
-        select an individual period, highlight the period using your mouse
-        button. The period is now selected. To select a sequence of periods,
-        highlight the first in the sequence using your mouse button. Then,
-        holding down the SHIFT key on your keyboard, highlight the last period
-        in the sequence. The entire sequence is now selected. To select
-        periods that are out of sequence (e.g., January, April, July,
-        October), highlight the first period in the group. Then, holding down
-        the CTRL key on your keyboard, highlight the next period you want to
-        select. Continue highlighting periods with the CTRL key depressed
-        until all desired periods are selected. The entire group is now
-        selected.</para>
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Item Sites</term>
       <listitem>
         <para>Display lists Item Sites for Items matching the specified
-        parameters.</para>
-        <para>When you have selected a Calendar type and corresponding
+        parameters. When you have selected a Calendar type and corresponding
         Calendar period(s), highlight an Item Site to display MPS detail for
         the Item Site in the "MPS Detail" display below.</para>
       </listitem>
@@ -97,16 +94,15 @@
       <term>MPS Detail</term>
       <listitem>
         <para>Display lists MPS detail for the Item Site you selected in the
-        "Item Sites" display above.</para>
-        <para>MPS detail will include the following rows: Forecast (based on
-        MPS reading of Production Plans); Allocations (requirements from
-        Customer Orders or Work Orders); Orders (based on Work Orders or
-        Purchase Orders); Projected Quantity on Hand (based on Allocations and
-        Orders for specified future periods); Planned Orders (system-generated
-        Orders showing requirements needed to meet negative Availability);
-        Availability (based on current Allocations and Orders); Available to
-        Promise (uncommitted quantity available to support new Sales
-        Orders).</para>
+        "Item Sites" display above. MPS detail will include the following
+        rows: Forecast (based on MPS reading of Production Plans); Allocations
+        (requirements from Customer Orders or Work Orders); Orders (based on
+        Work Orders or Purchase Orders); Projected Quantity on Hand (based on
+        Allocations and Orders for specified future periods); Planned Orders
+        (system-generated Orders showing requirements needed to meet negative
+        Availability); Availability (based on current Allocations and Orders);
+        Available to Promise (uncommitted quantity available to support new
+        Sales Orders).</para>
       </listitem>
     </varlistentry>
   </variablelist>

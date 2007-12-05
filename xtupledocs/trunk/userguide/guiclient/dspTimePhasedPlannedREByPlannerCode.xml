@@ -36,10 +36,9 @@
     <varlistentry>
       <term>Pattern</term>
       <listitem>
-        <para>Enter a Planner Code pattern to select a range of Planner
-        Codes.</para>
-        <para>Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <para>Enter a Planner Code pattern to select a range of Planner Codes.
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,8 +60,20 @@
       <listitem>
         <para>Sort the information using one of the following costing
         parameters:</para>
-        <para>Use Standard Cost: Select to display Standard Cost.</para>
-        <para>Use Actual Cost: Select to display Actual Cost.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use Standard Cost</term>
+            <listitem>
+              <para>Select to display Standard Cost.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Actual Cost</term>
+            <listitem>
+              <para>Select to display Actual Cost.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -70,39 +81,60 @@
       <listitem>
         <para>Sort the information using one of the following pricing
         parameters:</para>
-        <para>Use List Price: Select to display the List Price.</para>
-        <para>Use Average Price: Select to display Average Price. Average
-        Price is based on the Item's average selling Price.</para>
-        <para>Start Evaluation Date: Specify date to start evaluating average
-        Price. This is a required field.</para>
-        <para>End Evaluation Date: Specify date to stop evaluating average
-        Price. This is a required field.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Use List Price</term>
+            <listitem>
+              <para>Select to display the List Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Use Average Price</term>
+            <listitem>
+              <para>Select to display Average Price. Average Price is based on
+              the Item's average selling Price.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Start Evaluation Date</term>
+            <listitem>
+              <para>Specify date to start evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>End Evaluation Date</term>
+            <listitem>
+              <para>Specify date to stop evaluating average Price. This is a
+              required field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Calendar</term>
       <listitem>
-        <para>Select the Calendar you want to use for the report.</para>
-        <para>Associated Calendar periods will be displayed.</para>
+        <para>Select the Calendar you want to use for the report. Associated
+        Calendar periods will be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Name/Selected Periods</term>
       <listitem>
         <para>Select as many periods as you want to display. Selected periods
-        correspond to Calendar specified in the "Calendar" field.</para>
-        <para>Select individual periods or groups of periods together. To
-        select an individual period, highlight the period using your mouse
-        button. The period is now selected. To select a sequence of periods,
-        highlight the first in the sequence using your mouse button. Then,
-        holding down the SHIFT key on your keyboard, highlight the last period
-        in the sequence. The entire sequence is now selected. To select
-        periods that are out of sequence (e.g., January, April, July,
-        October), highlight the first period in the group. Then, holding down
-        the CTRL key on your keyboard, highlight the next period you want to
-        select. Continue highlighting periods with the CTRL key depressed
-        until all desired periods are selected. The entire group is now
-        selected.</para>
+        correspond to Calendar specified in the "Calendar" field. Select
+        individual periods or groups of periods together. To select an
+        individual period, highlight the period using your mouse button. The
+        period is now selected. To select a sequence of periods, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last period in the sequence.
+        The entire sequence is now selected. To select periods that are out of
+        sequence (e.g., January, April, July, October), highlight the first
+        period in the group. Then, holding down the CTRL key on your keyboard,
+        highlight the next period you want to select. Continue highlighting
+        periods with the CTRL key depressed until all desired periods are
+        selected. The entire group is now selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -126,11 +158,9 @@
     <varlistentry>
       <term>QUERY</term>
       <listitem>
-        <para>Select to generate the display, using the specified
-        parameters.</para>
-        <para>Start date and end date must be entered for calculation to
-        proceed. Results will be displayed in the "Planned Orders"
-        display.</para>
+        <para>Select to generate the display, using the specified parameters.
+        Start date and end date must be entered for calculation to proceed.
+        Results will be displayed in the "Planned Orders" display.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
