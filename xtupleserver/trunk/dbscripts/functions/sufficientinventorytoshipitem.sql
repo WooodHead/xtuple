@@ -1,7 +1,18 @@
 CREATE OR REPLACE FUNCTION sufficientInventoryToShipItem(TEXT, INTEGER) RETURNS INTEGER AS '
 DECLARE
+  pordertype    ALIAS FOR $1;
+  porderitemid  ALIAS FOR $2;
+
+BEGIN
+  RETURN sufficientInventoryToShipItem(pordertype, porderitemid, NULL);
+END;
+' LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION sufficientInventoryToShipItem(TEXT, INTEGER, NUMERIC) RETURNS INTEGER AS '
+DECLARE
   pordertype		ALIAS FOR $1;
   porderitemid		ALIAS FOR $2;
+  pqty                  ALIAS FOR $3;
   _returnVal		INTEGER;
   _isqtyavail		BOOLEAN;
 
@@ -15,17 +26,17 @@ BEGIN
            FROM metric
           WHERE ((metric_name = ''EnableSOReservations'')
            AND (metric_value = ''t''))) THEN
-      SELECT (roundQty(item_fractional,
+      SELECT (COALESCE(pqty, roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
 			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
 			   ) * coitem_qty_invuomratio
-		      ) <= itemsite_qtyonhand)
+		      )) <= itemsite_qtyonhand)
               AND 
-             (roundQty(item_fractional,
+             (COALESCE(pqty, roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
 			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
 			   ) * coitem_qty_invuomratio
-		      ) <= qtyunreserved(itemsite_id))
+		      )) <= qtyunreserved(itemsite_id))
         INTO _isqtyavail
         FROM coitem, itemsite, item
        WHERE ((coitem_itemsite_id=itemsite_id) 
