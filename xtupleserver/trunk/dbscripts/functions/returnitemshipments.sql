@@ -18,11 +18,13 @@ DECLARE
   _itemlocSeries	INTEGER				:= $3;
   _timestamp		TIMESTAMP WITH TIME ZONE	:= $4;
   _qty NUMERIC;
+  _value NUMERIC;
   _invhistid INTEGER;
+  _itemtype CHAR(1);
 
 BEGIN
 
-  SELECT COALESCE(SUM(shipitem_qty), 0) INTO _qty
+  SELECT COALESCE(SUM(shipitem_qty), 0),COALESCE(SUM(shipitem_value),0) INTO _qty, _value
   FROM shipitem, shiphead
   WHERE ((shipitem_shiphead_id=shiphead_id)
     AND  (NOT shiphead_shipped)
@@ -35,15 +37,43 @@ BEGIN
     END IF;
 
     IF (pordertype = ''SO'') THEN
-      SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
+      IF (SELECT (item_type != ''J'')
+          FROM coitem, itemsite, item
+          WHERE ((coitem_id=pItemid)
+          AND (coitem_itemsite_id=itemsite_id)
+          AND (itemsite_item_id=item_id))) THEN
+        SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
 			  ''S/R'', pordertype, formatSoNumber(pitemid),
 			  '''', ''Return from Shipping'',
 			  costcat_asset_accnt_id, costcat_shipasset_accnt_id,
 			  _itemlocSeries, _timestamp ) INTO _invhistid
-      FROM coitem, itemsite, costcat
-      WHERE ( (coitem_itemsite_id=itemsite_id)
-       AND (itemsite_costcat_id=costcat_id)
-       AND (coitem_id=pitemid) );
+        FROM coitem, itemsite, costcat
+        WHERE ( (coitem_itemsite_id=itemsite_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (coitem_id=pitemid) );
+      
+      ELSE
+        SELECT insertGLTransaction( ''S/R'', ''RS'', formatSoNumber(pItemid), ''Return from Shipping'',
+                                     costcat_shipasset_accnt_id,
+				     costcat_wip_accnt_id,
+                                     -1, _value, current_date ) INTO _invhistid
+        FROM coitem, itemsite, costcat
+        WHERE ( (coitem_itemsite_id=itemsite_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (coitem_id=pitemid) )
+        GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
+
+
+  --  Update the work order about what happened
+      UPDATE wo SET 
+        wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
+        wo_wipvalue = wo_wipvalue + _value,
+        wo_status =''I''
+      FROM coitem
+      WHERE ((wo_ordtype = ''S'')
+      AND (wo_ordid = pItemid)
+      AND (coitem_id = pItemid));
+      END IF;
 
     ELSEIF (pordertype = ''TO'') THEN
       SELECT postInvTrans( itemsite_id, ''RS'', _qty,

@@ -24,6 +24,7 @@ DECLARE
   _shipheadid		INTEGER;
   _shipnumber		INTEGER;
   _r                    RECORD;
+  _p                    RECORD;
   _value                NUMERIC;
 
 BEGIN
@@ -104,7 +105,8 @@ BEGIN
     END IF;
 
     --See if this is inventory or job item and value accordingly
-    SELECT coitem_itemsite_id, item_type INTO _r
+    SELECT coitem_itemsite_id, coitem_qty_invuomratio,
+           item_id, item_type INTO _r
     FROM coitem, itemsite, item
     WHERE ((coitem_id=pitemid)
     AND (itemsite_id=coitem_itemsite_id)
@@ -122,51 +124,51 @@ BEGIN
        AND (itemsite_costcat_id=costcat_id)
        AND (coitem_id=pitemid) );
 
-      _value := round(stdcost(item_id) * pQty * r.coitem_qty_invuomratio,2);
+      _value := round(stdcost(_r.item_id) * pQty * _r.coitem_qty_invuomratio,2);
     ELSE
     -- This is a job so deal with costing and work order
       SELECT
         wo_id, formatwonumber(wo_id) AS f_wonumber,wo_status, wo_qtyord, wo_qtyrcv,
         CASE WHEN (wo_cosmethod = ''D'') THEN
-          wo_postedvalue - wo_wipvalue
+          wo_wipvalue
         ELSE
           round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
-        END AS value INTO _r
+        END AS value INTO _p
       FROM wo
-      WHERE ((wo_type = ''S'')
+      WHERE ((wo_ordtype = ''S'')
       AND (wo_ordid = pitemid));
-      IF (_r.wo_status = ''C'') THEN
-        RAISE EXCEPTION ''Work order % is closed and can not be shipped'',_r.f_wonumber;
+      IF (_p.wo_status = ''C'') THEN
+        RAISE EXCEPTION ''Work order % is closed and can not be shipped'',_p.f_wonumber;
       END IF;
 
   --  Distribute to G/L, debit Shipping Asset, credit WIP
-      SELECT MIN(insertGLTransaction( ''S/R'', ''SH'', _c.cohead_number, ''Issue to Shipping'',
+      SELECT MIN(insertGLTransaction( ''S/R'', ''SH'', formatSoNumber(pItemid), ''Issue to Shipping'',
                                      costcat_wip_accnt_id,
 				     costcat_shipasset_accnt_id,
-                                     -1, _c.shipitem_value, _timestamp )) INTO _result
+                                     -1, _p.value, current_date )) INTO _invhistid
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
       AND (itemsite_id=_r.coitem_itemsite_id) );
 
   --  Update the work order about what happened
       UPDATE wo SET 
-        wo_qtyrcv = wo_qtyrcv + pQty,
-        wo_wipvalue = wo_wipvalue - _r.value,
+        wo_qtyrcv = wo_qtyrcv + pQty * _r.coitem_qty_invuomratio,
+        wo_wipvalue = wo_wipvalue - _p.value,
         wo_status = 
           CASE WHEN (wo_qtyord - wo_qtyrcv - pQty <= 0) THEN
             ''C''
           ELSE
             wo_status
           END
-      WHERE (wo_id=_r.wo_id);
+      WHERE (wo_id=_p.wo_id);
 
-      _value := _r.value;
+      _value := _p.value;
     END IF;
 
     INSERT INTO shipitem
     ( shipitem_shiphead_id, shipitem_orderitem_id, shipitem_qty,
       shipitem_transdate, shipitem_trans_username, shipitem_invoiced,
-      shipitem_shipvalue )
+      shipitem_value )
     VALUES
     ( _shipheadid, pitemid, pQty,
       _timestamp, CURRENT_USER, FALSE,

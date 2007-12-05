@@ -77,7 +77,8 @@ BEGIN
 		     itemsite_id, itemsite_item_id,
                      coitem_qty_invuomratio,
                      coitem_warranty, coitem_cos_accnt_id,
-		     SUM(shipitem_qty) AS _qty
+		     SUM(shipitem_qty) AS _qty,
+                     SUM(shipitem_value) AS _value
 	      FROM coitem, cohead, shiphead, shipitem, itemsite
 	      WHERE ( (coitem_cohead_id=cohead_id)
 	       AND (coitem_itemsite_id=itemsite_id)
@@ -89,7 +90,7 @@ BEGIN
 	      GROUP BY coitem_id, coitem_qty_invuomratio, cohead_number, cohead_cust_id,
 		       itemsite_id, itemsite_item_id, coitem_warranty, coitem_cos_accnt_id LOOP
 
-      IF _c.shipitem_value > 0 THEN
+      IF _c._value > 0 THEN
   --    Distribute to G/L, credit Shipping Asset, debit COS
 	SELECT MIN(insertGLTransaction( ''S/R'', ''SO'', _c.cohead_number, ''Ship Shipment'',
 				     costcat_shipasset_accnt_id,
@@ -97,7 +98,7 @@ BEGIN
                                           WHEN(_c.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, _c.cohead_cust_id)
                                           ELSE resolveCOSAccount(itemsite_id, _c.cohead_cust_id)
                                      END,
-                                     -1, _c.shipitem_value, _gldate )) INTO _result
+                                     -1, _c._value, _gldate )) INTO _result
 	FROM itemsite, costcat
 	WHERE ( (itemsite_costcat_id=costcat_id)
 	AND (itemsite_id=_c.itemsite_id) );
