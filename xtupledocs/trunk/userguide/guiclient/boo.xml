@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519487" role="openmfg">
   <title>Enter New Bill of Operations</title>
   <para>To enter a new Bill of Operations, select the "Enter New Bill of
   Operations" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOO_enterNew.png" id="Graphic563082" />
+          <imagedata id="Graphic563082" fileref="images/boo.png"/>
         </imageobject>
         <caption id="Caption519492">Create New Bill of Operations</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Bill of Operations, you are presented with the
   following options:</para>
   <variablelist>
@@ -30,7 +31,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>operations</primary>
           <secondary>expired from BOOs</secondary>
         </indexterm> <indexterm significance="normal">
@@ -47,7 +49,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>operations</primary>
           <secondary>adding to BOOs in future</secondary>
         </indexterm> <indexterm significance="normal">
@@ -93,7 +96,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>work in process</primary>
           <secondary>boo-defined locations for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -114,7 +118,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>bills of operations</primary>
           <secondary>production lead times in</secondary>
         </indexterm> <indexterm significance="normal">
@@ -226,33 +231,25 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(booVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(booEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(booEXPIRE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booEXPIRE)"/>
     </varlistentry>
     <varlistentry>
       <term>Move Up</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(booMOVEUP)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booMOVEUP)"/>
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(booMOVEDOWN)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booMOVEDOWN)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="booItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="booItem.xml" xpointer="element(/1)"/>
 </section>

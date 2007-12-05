@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518829">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>miscellaneous adjustments</primary>
     </indexterm> <indexterm significance="normal">
       <primary>adjustments</primary>
@@ -14,21 +14,21 @@
   <para>To make a Miscellaneous Adjustment to the Quantity on Hand value for
   an Item, select the "Miscellaneous Adjustment" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_enterMiscAdjustment.png"
-                     id="Graphic525621" />
+          <imagedata id="Graphic525621" fileref="images/adjustmentTrans.png"/>
         </imageobject>
         <caption id="Caption518835">Enter Miscellaneous Adjustment</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Use the Miscellaneous Adjustment utility to handle Inventory
     adjustments not covered by another transaction type--for example, Receipt
     from Purchasing, Receipt from Manufacturing, Scrap, etc. For a complete
-    list of Inventory transaction Types, see <xref
-    linkend="Anchor80421" />.</para>
+    list of Inventory transaction Types, see <xref linkend="Anchor80421"/>.</para>
   </note>
   <para>When creating a Miscellaneous Adjustment, you are presented with the
   following options:</para>
@@ -125,8 +125,7 @@
       <listitem id="listitemN0x180ac00N0x188a80c">
         <para>Posts the adjusted value to the Quantity on Hand balance.
         Additional steps will be necessary if the specified Item is stored in
-        multiple Locations. For more information, see <xref
-        linkend="Anchor81167" />.</para>
+        multiple Locations. For more information, see <xref linkend="Anchor81167"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

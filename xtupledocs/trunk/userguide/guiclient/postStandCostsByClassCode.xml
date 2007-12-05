@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section647554">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>standard costs</primary>
       <secondary>updating by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,17 @@
   be Standard Costs. To update Standard Costs by Class Code, select the
   "Update Standard Costs by Class Code" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Cost_upStandCostByClass.png"
-                     id="Graphic647557" />
+          <imagedata id="Graphic647557" fileref="images/postStandCostsByClassCode.png"/>
         </imageobject>
         <caption id="Caption647560">Update Standard Costs by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>For best performance, you should run this utility by All Class
     Codes. This will also ensure your Costs are updated properly for any Items
@@ -51,8 +52,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1910df8">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -62,7 +62,8 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>standard costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Standard Costs</term>
@@ -78,7 +79,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>material costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -146,7 +148,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>user costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -191,8 +194,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x1911350">
         <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see <xref
-        linkend="Anchor61009" />.</para>
+        processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

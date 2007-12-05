@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section932714" role="openmfg">
   <title>Schedule P/O for Email Delivery</title>
   <para>To schedule a Purchase Order for email delivery, select the "Schedule
   P/O for Email Delivery" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_schedEmailDeliv.png"
-                     id="Graphic932770" />
+          <imagedata id="Graphic932770" fileref="images/deliverPurchaseOrder.png"/>
         </imageobject>
         <caption id="Caption932773">Schedule Purchase Order for Email
         Delivery</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When scheduling a Purchase Order for email delivery, you are presented
   with the following options:</para>
   <variablelist>
@@ -29,7 +29,7 @@
   <note>
     <para>Vendors are set up to receive email deliveries of information using
     the Electronic Data Interchange (EDI) tab on the Vendor master. For more
-    information, see <xref linkend="Anchor55000" />.</para>
+    information, see <xref linkend="Anchor55000"/>.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -103,8 +103,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x1870714">
         <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see <xref
-        linkend="Anchor61009" />.</para>
+        processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519861">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>actual costs</primary>
       <secondary>updating by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,16 +13,17 @@
   also update Actual Costs by Class Code. To update Actual Costs by Class
   Code, select the "Update Actual Costs by Class Code" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Cost_updateActCostByClas.png"
-                     id="Graphic563317" />
+          <imagedata id="Graphic563317" fileref="images/updateActualCostsByClassCode.png"/>
         </imageobject>
         <caption id="Caption519867">Update Actual Costs by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>For best performance, you should run this utility by All Class
     Codes. This will also ensure your Costs are updated properly for any Items
@@ -48,8 +49,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18f3b64">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -59,7 +59,8 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>actual costs</primary>
           <secondary>rolling up of</secondary>
         </indexterm>Roll Up Actual Costs</term>
@@ -75,7 +76,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>material costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -143,7 +145,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>user costs</primary>
           <secondary>updating of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -188,8 +191,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x18fe8ac">
         <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see <xref
-        linkend="Anchor61009" />.</para>
+        processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

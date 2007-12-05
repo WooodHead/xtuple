@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section553578">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>cash receipts</primary>
 
       <secondary>application of</secondary>
@@ -16,16 +16,17 @@
   Memos to A/R open items, select the "A/R Applications" option. The following
   screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_arApplications.png"
-                     id="Graphic548351" />
+          <imagedata id="Graphic548351" fileref="images/dspARApplications.png"/>
         </imageobject>
 
         <caption id="Caption548354">A/R Applications</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When viewing A/R application details, you are presented with the
   following options:</para>
@@ -64,7 +65,7 @@
       <listitem id="listitemN0x180ac00N0x18b6eac">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
 
@@ -154,21 +155,15 @@
   to select from the following menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/11/2/6)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/11/2/6)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
   <para>If you are right-clicking on a Credit Memo, the following additional
   option will be available:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/11/2/12)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/11/2/12)"/>
   </variablelist>
 </section>

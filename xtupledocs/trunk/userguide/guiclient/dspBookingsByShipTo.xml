@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518718">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bookings</primary>
       <secondary>by ship-to address</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Bookings by Ship-To</title>
   <para>To view Bookings by Ship-To, select the "Bookings by Ship-To" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_bookByShipTo.png"
-                     id="Graphic521652" />
+          <imagedata id="Graphic521652" fileref="images/dspBookingsByShipTo.png"/>
         </imageobject>
         <caption id="Caption518724">Bookings by Ship-To</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Bookings by Ship-To, you are presented with the
   following options:</para>
   <variablelist>
@@ -93,7 +94,7 @@
       <listitem id="listitemN0x180ac00N0x1856e78">
         <para>Enter a Product Category pattern to select a range of Product
         Categories. Refine your search using Regular Expressions, as described
-        in <xref linkend="Anchor77806" />.</para>
+        in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

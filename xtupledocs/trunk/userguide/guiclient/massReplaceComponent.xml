@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519450">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>components</primary>
       <secondary>mass replacement of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -16,14 +16,16 @@
   you need to replace components that are used in multiple Bills of Materials.
   To perform a mass replacement of a component Item, select the "Mass Replace
   Component Item" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_massRepl.png" id="Graphic563056" />
+          <imagedata id="Graphic563056" fileref="images/massReplaceComponent.png"/>
         </imageobject>
         <caption id="Caption519456">Mass Replace Component Item</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When performing a mass replacement of a component Item, you are
   presented with the following options:</para>
   <variablelist>
@@ -63,7 +65,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>engineering change notices</primary>
           <secondary>for mass replacement</secondary>
         </indexterm> <indexterm significance="normal">

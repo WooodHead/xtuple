@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section551091">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales orders</primary>
 
       <secondary>shipments of</secondary>
@@ -15,15 +15,17 @@
   <para>To view shipments by Sales Order, select the "Shipments by Sales
   Order" option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Disp_shipBySO.png" id="Graphic536584" />
+          <imagedata id="Graphic536584" fileref="images/dspShipmentsBySalesOrder.png"/>
         </imageobject>
 
         <caption id="Caption536587">Shipments by Sales Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <tip>
     <para>Get the most up-to-date tracking information directly from the
@@ -114,16 +116,10 @@
   menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickPrintShippingForm)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintShippingForm)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickQueryShipmentStatus)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickQueryShipmentStatus)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section565579">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>check formats</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,15 +14,16 @@
     </indexterm>Check Formats</title>
   <para>To access the master list of Check formats, select the "Check Formats"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_MI_chkFormatList.png"
-                     id="Graphic527613" />
+          <imagedata id="Graphic527613" fileref="images/checkFormats.png"/>
         </imageobject>
         <caption id="Caption527616">Check Formats Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Check Formats" screen displays information on all existing Check
   formats, including Check format name and description.</para>
   <para>To the far right of the list, the following buttons are
@@ -59,7 +60,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="checkFormat.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="checkFormat.xml" xpointer="element(/1)"/>
 </section>

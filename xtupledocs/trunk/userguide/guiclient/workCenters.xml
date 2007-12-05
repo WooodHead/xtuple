@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>work centers</primary>
       <secondary>master list of</secondary>
     </indexterm>Work Centers</title>
@@ -14,15 +14,16 @@
   overhead, of such production. A single Warehouse may contain multiple Work
   Centers. To access the master list of Work Centers, select the "Work
   Centers" option. The following screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_workCenterList.png"
-                     id="Graphic530121" />
+          <imagedata id="Graphic530121" fileref="images/workCenters.png"/>
         </imageobject>
         <caption id="Caption530124">Work Centers Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Work Centers" screen displays information on all existing Work
   Centers, including Warehouse Location, Work Center name, number of machines,
   and Work Center description.</para>
@@ -89,28 +90,21 @@
   <variablelist>
     <varlistentry>
       <term>Edit Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>View Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Copy Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersCOPY)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersCOPY)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete Work Center</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workCentersDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workCentersDELETE)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="workCenter.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="workCenter.xml" xpointer="element(/1)"/>
 </section>

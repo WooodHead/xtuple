@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520654">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>item usage statistics</primary>
       <secondary>by item group</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,16 +11,17 @@
     </indexterm>Item Usage Statistics by Item Group</title>
   <para>To view Item usage statistics by Item Group, select the "Item Usage
   Statistics by Item Group" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_itemUseStatsItGrp.png"
-                     id="Graphic550343" />
+          <imagedata id="Graphic550343" fileref="images/dspUsageStatisticsByItemGroup.png"/>
         </imageobject>
         <caption id="Caption550346">Item Usage Statistics by Item
         Group</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Item usage statistics by Item Group, you are presented
   with the following options:</para>
   <variablelist>
@@ -42,8 +43,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1998760">
         <para>Enter an Item Group pattern to select a range of Item Groups.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -112,12 +112,8 @@
   <para>Right-clicking on an Item in the Usage list enables you to select from
   the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewAlltransactions)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAlltransactions)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para>To view details on Issue, Sold, Scrap, or Adjustment transactions,
   simply right-click in the corresponding columns.</para>

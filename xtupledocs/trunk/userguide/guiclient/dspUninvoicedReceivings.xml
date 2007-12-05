@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972017">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>receipts</primary>
       <secondary>uninvoiced</secondary>
     </indexterm>Uninvoiced Receipts and Returns</title>
   <para>To view uninvoiced Receipts and Returns, select the "Uninvoiced
   Receipts and Returns" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_uninvoicedRecpt.png"
-                     id="Graphic972020" />
+          <imagedata id="Graphic972020" fileref="images/dspUninvoicedReceivings.png"/>
         </imageobject>
         <caption id="Caption972023">Uninvoiced Receipts and Returns</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying uninvoiced Receipts and Returns, you are presented
   with the following options:</para>
   <variablelist>
@@ -84,27 +85,15 @@
   <para>Right-clicking on a Receipt in the P/O Receipts list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickMarkasInvoiced)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCorrectReceiving)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickMarkasInvoiced)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCorrectReceiving)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <para>If you right-click on a Return, the following option will be
   available:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCreateCreditMemo)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCreateCreditMemo)"/>
   </variablelist>
-  <xi:include href="poLiabilityDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="correctPoReceipt.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="poLiabilityDistrib.xml" xpointer="element(/1)"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="correctPoReceipt.xml" xpointer="element(/1)"/>
 </section>

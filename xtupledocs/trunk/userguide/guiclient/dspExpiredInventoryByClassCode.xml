@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570821">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>expiration</primary>
       <secondary>of inventory</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,15 +14,16 @@
   Sites. If such Inventory has expired, you may view Inventory details using
   this display. To view expired Inventory, select the "Expired Inventory"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_expiredInv.png"
-                     id="Graphic570824" />
+          <imagedata id="Graphic570824" fileref="images/dspExpiredInventoryByClassCode.png"/>
         </imageobject>
         <caption id="Caption570827">Expired Inventory</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Expired Inventory will be displayed in red type, to alert users to
     the expired status of the Item. This typographical feature appears in
@@ -48,8 +49,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x194e804">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

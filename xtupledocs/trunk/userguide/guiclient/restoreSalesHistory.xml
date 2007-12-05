@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section547334">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>restoring from archive</secondary>
     </indexterm>Restore Sales History</title>
@@ -11,15 +11,16 @@
   available again for Sales Analysis purposes. To restore Sales history that
   has been archived, select the "Archive Sales History" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Utils_restoreSalesHist.png"
-                     id="Graphic548920" />
+          <imagedata id="Graphic548920" fileref="images/restoreSalesHistory.png"/>
         </imageobject>
         <caption id="Caption548923">Restore Sales History</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Archiving Sales history does not delete Sales history. Rather, the
     historical data is simply relocated to a storage archive on the database.
@@ -46,7 +47,7 @@
       <listitem id="listitemN0x180ac00N0x188ceb0">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -68,7 +69,7 @@
       <listitem id="listitemN0x180ac00N0x188cf88">
         <para>Enter a Product Category pattern to select a range of Product
         Categories. Refine your search using Regular Expressions, as described
-        in <xref linkend="Anchor77806" />.</para>
+        in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section949448">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>comment types</primary>
       <secondary>master list of</secondary>
     </indexterm>Comment Types</title>
   <para>To access the master list of Comment Types, select the "Comment Types"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_commTypeList.png" id="Graphic946308" />
+          <imagedata id="Graphic946308" fileref="images/commentTypes.png"/>
         </imageobject>
         <caption id="Caption946311">Comment Types Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Comment Types" screen displays information on all existing
   Comment Types, including Comment Type name and Comment Type
   description.</para>
@@ -43,7 +45,8 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para><indexterm significance="normal">
+    <para>
+<indexterm significance="normal">
         <primary>comment types</primary>
         <secondary>system-defined</secondary>
       </indexterm> <indexterm significance="normal">
@@ -71,7 +74,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="commentType.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="commentType.xml" xpointer="element(/1)"/>
 </section>

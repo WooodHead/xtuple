@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section566062">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>contacts</primary>
 
       <secondary>crm master list of</secondary>
@@ -17,15 +17,17 @@
   access the master list of Contacts, select the "List Contacts" option. The
   following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_cntcttList.png" id="Graphic563428" />
+          <imagedata id="Graphic563428" fileref="images/contacts.png"/>
         </imageobject>
 
         <caption id="Caption563431">Contacts Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>The "List Contacts" screen displays information on all existing
   Contacts, including Contact first name, last name, Account number, Account
@@ -98,26 +100,21 @@
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(contactsEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(contactsEDIT)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(contactsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(contactsVIEW)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(contactsDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(contactsDELETE)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

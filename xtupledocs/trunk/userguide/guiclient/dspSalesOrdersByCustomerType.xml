@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section622465">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>finding by customer</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>customer types</primary>
       <secondary>finding sales orders for</secondary>
     </indexterm>Sales Order Lookup by Customer Type</title>
   <para>To view Sales Orders by Customer Type, select the "Sales Order Lookup
   by Customer Type" option from the "Displays" menu. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_LookByCusType.png"
-                     id="Graphic622468" />
+          <imagedata id="Graphic622468" fileref="images/dspSalesOrdersByCustomerType.png"/>
         </imageobject>
         <caption id="Caption622471">Sales Order Lookup by Customer
         Type</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Sales Orders by Customer Type, you are presented with
   the following options:</para>
   <variablelist>
@@ -43,7 +45,7 @@
       <listitem id="listitemN0x180ac00N0x1962c14">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -85,20 +87,10 @@
   <para>Right-clicking on a Sales Order in the Sales Orders list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEdit)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipmentStatus)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipments)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipmentStatus)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipments)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

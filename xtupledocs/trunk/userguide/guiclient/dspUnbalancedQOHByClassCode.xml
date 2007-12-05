@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section571193">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>unbalanced</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>unbalanced qoh details for</secondary>
     </indexterm>Unbalanced QOH by Class Code</title>
@@ -20,15 +21,16 @@
   use the Balance Item Site utility available from the right-click menu. To
   display unbalanced Quantity on Hand by Class Code, select the "Unbalanced
   QOH by Class Code" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_unbalQOHbyClas.png"
-                     id="Graphic571284" />
+          <imagedata id="Graphic571284" fileref="images/dspUnbalancedQOHByClassCode.png"/>
         </imageobject>
         <caption id="Caption571287">Unbalanced QOH by Class Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Balancing unbalanced Item Sites updates and corrects Inventory
     records by bringing summarized QOH into alignment with detailed
@@ -55,8 +57,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19a0e78">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">
@@ -95,23 +96,11 @@
   <para>Right-clicking on an Item in the Item Sites list enables you to select
   from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickBalanceItemSite)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItemSite)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItemSite)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewInventoryAvailability)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickIssueCountTag)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickBalanceItemSite)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItemSite)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItemSite)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewInventoryAvailability)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssueCountTag)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

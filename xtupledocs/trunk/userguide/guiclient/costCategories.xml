@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677946">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>cost categories</primary>
       <secondary>master list of</secondary>
     </indexterm>Cost Categories</title>
@@ -11,14 +11,16 @@
   Inventory is received, moved, consumed, produced, shipped, scrapped, or
   returned. To access the master list of Cost Categories, select the "Cost
   Categories" option.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_costCat.png" id="Graphic677949" />
+          <imagedata id="Graphic677949" fileref="images/costCategories.png"/>
         </imageobject>
         <caption id="Caption677952">Cost Categories Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Cost Categories define Cost distributions for Inventory Items. The
     distribution of Costs for non-Inventory Items are determined by Expense
@@ -86,27 +88,18 @@
   <variablelist>
     <varlistentry>
       <term>Edit Inventory Cost Category</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(costCategoriesEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(costCategoriesEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>View Inventory Cost Category</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(costCategoriesVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(costCategoriesVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete Inventory Cost Category</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(costCategoriesDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(costCategoriesDELETE)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickListItemsinthisInventoryCostCategory)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickListItemsinthisInventoryCostCategory)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="costCategory.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="costCategory.xml" xpointer="element(/1)"/>
 </section>

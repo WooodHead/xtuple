@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section629436">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>count tags</primary>
       <secondary>creating by planner code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -17,16 +17,17 @@
   frequency, as Cycle Count Tags are. To create Count Tags by Planner Code,
   select the "Create Count Tags by Planner Code" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_createCTByPlanCode.png"
-                     id="Graphic629520" />
+          <imagedata id="Graphic629520" fileref="images/createCountTagsByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption629523">Create Count Tags by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating Count Tags by Planner Code, you are presented with the
   following options:</para>
   <tip>
@@ -51,8 +52,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18d9c18">
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -72,7 +72,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>freezing</primary>
           <secondary>of inventory</secondary>
         </indexterm> <indexterm significance="normal">
@@ -85,7 +86,7 @@
         Instead, Inventory transactions are pooled and then posted later when
         the Item Site is unfrozen--or thawed. The Quantity on Hand is later
         updated when the Item Site is thawed. For a detailed explanation of
-        these concepts, see <xref linkend="Anchor80983" />.</para>
+        these concepts, see <xref linkend="Anchor80983"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -115,7 +116,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
         </indexterm> <indexterm significance="normal">

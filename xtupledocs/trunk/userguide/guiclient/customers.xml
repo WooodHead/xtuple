@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section656923">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customers</primary>
 
       <secondary>master list of</secondary>
@@ -11,16 +11,17 @@
   <para>To access the Customer master list, select the "Customers" option. The
   following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_customerList.png"
-                     id="Graphic656926" />
+          <imagedata id="Graphic656926" fileref="images/customers.png"/>
         </imageobject>
 
         <caption id="Caption656929">Customer Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>The Customer master list displays basic information on all existing
   Customers, including Customer Type, Customer Number, active status, Customer
@@ -85,26 +86,21 @@
     <varlistentry>
       <term>View Customer Master</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customersVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersVIEW)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit Customer Master</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customersEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersEDIT)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete Customer Master</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(customersDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(customersDELETE)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

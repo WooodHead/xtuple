@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section942284">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>change line item qty. for</secondary>
     </indexterm>Change Purchase Order Item Quantity</title>
   <para>To change the quantity of a Purchase Order Line Item, select the
   "Change Purchase Order Item Qty." option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_chgPOItemQty.png"
-                     id="Graphic941998" />
+          <imagedata id="Graphic941998" fileref="images/changePoitemQty.png"/>
         </imageobject>
         <caption id="Caption942001">Change Purchase Order Item
         Quantity</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>You may only change the quantity of Purchase Order Line Item if the
     Purchase Order has been posted and the Line Item is open.</para>

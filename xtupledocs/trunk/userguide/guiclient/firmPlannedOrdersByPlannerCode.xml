@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537876" role="openmfg">
   <title>Firm Planned Orders by Planner Code</title>
-  <para>A <anchor id="Anchor537877" role="Index"
-  xreflabel="firmed orders:by planner code" /> <indexterm
-      significance="normal">
+  <para>A <anchor id="Anchor537877" role="Index" xreflabel="firmed orders:by planner code"/> <indexterm significance="normal">
       <primary>firmed orders</primary>
       <secondary>by planner code</secondary>
     </indexterm>firm Planned Order is a Planned Order that has been solidified
@@ -15,16 +12,17 @@
   Planned Replenishment Orders--unless specifically told to do so. To firm
   Planned Orders by Planner Code, select the "Firm Planned Orders by Planner
   Code" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_firmPlanOrdByPCode.png"
-                     id="Graphic537880" />
+          <imagedata id="Graphic537880" fileref="images/firmPlannedOrdersByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption537883">Firm Planned Orders by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When firming Planned Orders by Planner Code, you are presented with
   the following options:</para>
   <variablelist>
@@ -45,8 +43,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518896">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>summarized by customer type</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,17 @@
   <para>To view summarized Sales history by Customer Type, select the
   "Summarized Sales History by Customer Type" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_summHistCustType.png"
-                     id="Graphic531625" />
+          <imagedata id="Graphic531625" fileref="images/dspSummarizedSalesByCustomerType.png"/>
         </imageobject>
         <caption id="Caption531628">Summarized Sales History by Customer
         Type</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying summarized Sales history by Customer Type, you are
   presented with the following options:</para>
   <variablelist>
@@ -44,7 +45,7 @@
       <listitem id="listitemN0x180ac00N0x18611a4">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

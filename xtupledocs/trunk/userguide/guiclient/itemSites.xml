@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section665983">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>master list of</secondary>
     </indexterm>Item Sites</title>
   <para>To access the master list of Item Sites in your system, select the
   "List Item Sites" option. The "following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IS_listItemSites.png"
-                     id="Graphic525579" />
+          <imagedata id="Graphic525579" fileref="images/itemSites.png"/>
         </imageobject>
         <caption id="Caption518804">Item Sites Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>At the top of the screen is a "Search for" field. To search for an
   Item Site, begin typing in the search field. As you type, the Item Site list
   will automatically scroll toward the Item Number you are typing. You can
@@ -57,7 +58,7 @@
       <term>NEW</term>
       <listitem id="listitemN0x180ac00N0x18752dc">
         <para>Opens screen for creating a new Item Site, as described in the
-        <xref endterm="Anchor41372" linkend="Anchor41372" /> FINDME "Enter
+        <xref endterm="Anchor41372" linkend="Anchor41372"/> FINDME "Enter
         Item Site" section above.</para>
         <para>Mac users may use COMMAND + N to enter a new Item Site.</para>
       </listitem>
@@ -93,16 +94,12 @@
   <variablelist>
     <varlistentry>
       <term>View Item Site</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x187536c)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x187536c)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit Item Site</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(listitemN0x180ac00N0x1875324)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(listitemN0x180ac00N0x1875324)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518568">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>shipping sales orders</secondary>
-    </indexterm> <anchor id="Anchor28938" role="Cross-Ref"
-  xreflabel="28938: Heading2: Ship Order" />Ship Order</title>
+    </indexterm> <anchor id="Anchor28938" role="Cross-Ref" xreflabel="28938: Heading2: Ship Order"/>Ship Order</title>
   <para>To ship an Order, select the "Ship Order" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Ship_shipOrder.png" id="Graphic519984" />
+          <imagedata id="Graphic519984" fileref="images/shipOrder.png"/>
         </imageobject>
         <caption id="Caption518574">Ship Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>Before a Sales Order can be shipped successfully, Sales Account and
     Accounts Receivable (A/R) Account Assignments for the specified Customer
@@ -123,8 +124,7 @@
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
     process Orders in WorldShip after they have been issued to Shipping--but
-    before they have been shipped. For more information, see the <xref
-    endterm="Anchor29552" linkend="Anchor29552" /> FINDME "Topic: UPS
+    before they have been shipped. For more information, see the <xref endterm="Anchor29552" linkend="Anchor29552"/> FINDME "Topic: UPS
     WorldShip Integration" section.</para>
   </tip>
   <variablelist>
@@ -144,7 +144,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>freight</primary>
           <secondary>on sales orders</secondary>
         </indexterm> <indexterm significance="normal">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section554209">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>invoices</primary>
 
       <secondary>register of</secondary>
@@ -15,16 +15,17 @@
   <para>To view daily Invoice and Credit Memo transactions, select the
   "Invoice Register" option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_invRegister.png"
-                     id="Graphic554212" />
+          <imagedata id="Graphic554212" fileref="images/dspInvoiceRegister.png"/>
         </imageobject>
 
         <caption id="Caption554215">Invoice Register</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When displaying the Invoice Register, you are presented with the
   following options:</para>
@@ -123,16 +124,10 @@
   select from the following menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/11/2/10)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/11/2/10)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(/1/11/2/8)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/11/2/8)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

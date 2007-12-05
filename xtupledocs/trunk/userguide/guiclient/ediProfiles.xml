@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section959762" role="openmfg">
   <title>EDI Profiles</title>
   <para>The Electronic Data Interchange (EDI) system supports the export of
-  documents and files using either of the following two <anchor
-  id="Anchor959764" role="Index"
-  xreflabel="electronic data interchange:delivery methods for" /> <indexterm
-      significance="normal">
+  documents and files using either of the following two <anchor id="Anchor959764" role="Index" xreflabel="electronic data interchange:delivery methods for"/> <indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>delivery methods for</secondary>
     </indexterm>delivery methods:</para>
@@ -23,8 +19,7 @@
   EDI recipients--whether those recipients are Customers, Suppliers, or
   intermediaries such as VANs (Value-Added Networks).</para>
   <para>When creating an EDI Profile, you specify recipient details, delivery
-  method, and output format. The following <anchor id="Anchor959630"
-  role="Index" xreflabel="electronic data interchange:supported formats" />
+  method, and output format. The following <anchor id="Anchor959630" role="Index" xreflabel="electronic data interchange:supported formats"/>
   <indexterm significance="normal">
       <primary>electronic data interchange</primary>
       <secondary>supported formats</secondary>
@@ -48,20 +43,22 @@
     Manager must be installed and running at your site for EDI exports to be
     successful.</para>
   </tip>
-  <para><anchor id="Anchor959631" role="Index"
-  xreflabel="profiles:master list of" /> <indexterm significance="normal">
+  <para>
+<anchor id="Anchor959631" role="Index" xreflabel="profiles:master list of"/> <indexterm significance="normal">
       <primary>profiles</primary>
       <secondary>master list of</secondary>
     </indexterm>To access the master list of EDI Profiles, select the "EDI
   Profiles" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_ediProfList.png" id="Graphic959272" />
+          <imagedata id="Graphic959272" fileref="images/ediProfiles.png"/>
         </imageobject>
         <caption id="Caption959275">EDI Profiles Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "EDI Profiles" screen displays information on all existing EDI
   Profiles. To the far right of the screen, the following buttons are
   available:</para>
@@ -103,6 +100,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="ediProfile.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ediProfile.xml" xpointer="element(/1)"/>
 </section>

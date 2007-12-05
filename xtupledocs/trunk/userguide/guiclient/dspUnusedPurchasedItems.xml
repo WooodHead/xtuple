@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520794">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>items</primary>
       <secondary>locating unused purchased</secondary>
     </indexterm>Unused Purchased Items</title>
@@ -10,15 +10,16 @@
   non-sold, purchased Items not currently in use in a Bill of Materials. Sold
   Items will not be included in the display. Selecting the "Unused Purchased
   Items" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Utils_unPurItem.png"
-                     id="Graphic564034" />
+          <imagedata id="Graphic564034" fileref="images/dspUnusedPurchasedItems.png"/>
         </imageobject>
         <caption id="Caption520800">Unused Purchased Items</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>This utility may run for a long period of time. We recommend running
     it during off-peak hours whenever possible.</para>
@@ -44,8 +45,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19402a8">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

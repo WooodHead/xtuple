@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section530292">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>brief by customer type</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,16 +11,17 @@
     </indexterm>Brief Sales History by Customer Type</title>
   <para>To view brief Sales history by Customer Type, select the "Brief Sales
   History by Customer Type" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_briefHistByCusType.png"
-                     id="Graphic531275" />
+          <imagedata id="Graphic531275" fileref="images/dspBriefSalesHistoryByCustomerType.png"/>
         </imageobject>
         <caption id="Caption530671">Brief Sales History by Customer
         Type</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying brief Sales history by Customer Type, you are
   presented with the following options:</para>
   <variablelist>
@@ -43,7 +44,7 @@
       <listitem id="listitemN0x180ac00N0x184f424">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">

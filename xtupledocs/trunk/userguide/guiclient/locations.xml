@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section653127">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>warehouse locations</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -27,15 +27,16 @@
   and Inventory counting. To access a master list of Warehouse Locations,
   select the "Warehouse Locations" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseLocations.png"
-                     id="Graphic525442" />
+          <imagedata id="Graphic525442" fileref="images/locations.png"/>
         </imageobject>
         <caption id="Caption518589">Warehouse Locations Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Warehouse Locations" screen displays information on all existing
   Warehouse Locations, including Warehouse code, Location name, Location
   description, and whether the Location is netable or restricted. When
@@ -102,6 +103,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="location.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="location.xml" xpointer="element(/1)"/>
 </section>

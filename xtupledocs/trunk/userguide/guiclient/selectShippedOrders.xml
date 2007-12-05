@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section589749">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>billing</primary>
       <secondary>select all shipped orders for</secondary>
     </indexterm>Select All Shipped Orders for Billing</title>
@@ -16,16 +16,17 @@
   which requires you to manually enter billing details for individual Orders.
   To select multiple shipped Orders for billing, select the "Select All
   Shipped Orders for Billing" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_selectAllOrdForBill.png"
-                     id="Graphic523400" />
+          <imagedata id="Graphic523400" fileref="images/selectShippedOrders.png"/>
         </imageobject>
         <caption id="Caption519234">Select all Shipped Orders for
         Billing</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>When you select an Order for billing, you are indicating that you
     wish to create an Invoice for the Order.</para>
@@ -50,7 +51,7 @@
       <listitem id="listitemN0x180ac00N0x18fc35c">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section573622">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>items</primary>
 
       <secondary>searching for</secondary>
@@ -11,16 +11,17 @@
   <para>To search for Items in Inventory, select the "Search for Items"
   option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Items_searchFor.png"
-                     id="Graphic562800" />
+          <imagedata id="Graphic562800" fileref="images/searchForItem.png"/>
         </imageobject>
 
         <caption id="Caption519028">Search for Items</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>At the top of the screen is a "Search for" field. To search for an
   Item, enter any character or combination of characters you want to match.
@@ -30,7 +31,7 @@
   <tip>
     <para>The "Search for" field supports pattern matching with Regular
     Expressions. For more information on matching patterns using Regular
-    Expressions, see the <xref linkend="Anchor77806" />.</para>
+    Expressions, see the <xref linkend="Anchor77806"/>.</para>
   </tip>
 
   <variablelist>
@@ -112,36 +113,24 @@
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForItemVIEW1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForItemVIEW1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForItemEDIT1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForItemEDIT1)"/>
     </varlistentry>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewBOM)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewBOM)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditBOM)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditBOM)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewBOO)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewBOO)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditBOO)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditBOO)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
   <para>Fewer options will be available for Items which are neither

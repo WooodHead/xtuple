@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="userEventNotification">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>events</primary>
       <secondary>user notification of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,17 +13,18 @@
   the EVENTS button. The following screen will appear:</para>
   <note>
     <para>The complete list of user-defined Events has been reproduced in this
-    manual. See <xref linkend="Anchor80421" />.</para>
+    manual. See <xref linkend="Anchor80421"/>.</para>
   </note>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_userPrefEvents.png"
-                     id="Graphic947294" />
+          <imagedata id="Graphic947294" fileref="images/userEventNotification.png"/>
         </imageobject>
         <caption id="Caption947297">User Event Notification</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When defining or modifying a user's Event notification preferences,
   you are presented with the following options:</para>
   <variablelist>

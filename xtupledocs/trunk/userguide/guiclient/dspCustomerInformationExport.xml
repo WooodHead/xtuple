@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section578361">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customers</primary>
       <secondary>exporting information for</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,15 +15,16 @@
   the "Export Contents" option in the screen's right-click menu. To specify
   the Customer information you want to tag for export, select the "Customer
   Information Export" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Utils_custInfoExp.png"
-                     id="Graphic578384" />
+          <imagedata id="Graphic578384" fileref="images/dspCustomerInformationExport.png"/>
         </imageobject>
         <caption id="Caption578387">Customer Information Export</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When specifying Customer information you want to tag for export, you
   are presented with the following options:</para>
   <variablelist>
@@ -44,7 +45,7 @@
       <listitem id="listitemN0x180ac00N0x199a78c">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -255,8 +256,6 @@
   <para>Right-clicking on the Customer Information list enables you to select
   from the following menu option:</para>
   <variablelist>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

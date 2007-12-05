@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560390">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>to-do lists</primary>
 
       <secondary>maintenance of</secondary>
@@ -15,15 +15,17 @@
   <para>To access the To-Do List, select the "To-Do List" option. The
   following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_TD_toDoList.png" id="Graphic567370" />
+          <imagedata id="Graphic567370" fileref="images/todoList.png"/>
         </imageobject>
 
         <caption id="Caption567373">To-Do List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <note>
     <para>Black type indicates the To-Do has been completed--or it is due on
@@ -52,8 +54,7 @@
 
       <listitem id="listitemN0x180ac00N0x1889ca4">
         <para>Enter a user pattern to select a range of users. Refine your
-        search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
 
@@ -225,55 +226,43 @@
     <varlistentry>
       <term>Move Up</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListMOVEUP2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListMOVEUP2)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Move Down</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListMOVEDOWN2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListMOVEDOWN2)"/>
     </varlistentry>
 
     <varlistentry>
       <term>New</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListNEW2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListNEW2)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListEDIT2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListEDIT2)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListVIEW2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListVIEW2)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(todoListDELETE2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(todoListDELETE2)"/>
     </varlistentry>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditIncident)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditIncident)"/>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewIncident)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewIncident)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

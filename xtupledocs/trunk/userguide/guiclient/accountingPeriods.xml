@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section548989">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>accounting periods</primary>
       <secondary>master list of</secondary>
     </indexterm>Accounting Periods</title>
   <para>To access the master list of Accounting Periods, select the
   "Accounting Periods" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_acctPeriodList.png"
-                     id="Graphic536369" />
+          <imagedata id="Graphic536369" fileref="images/accountingPeriods.png"/>
         </imageobject>
         <caption id="Caption536372">Accounting Periods Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Users will be prevented from posting transactions into closed
     Accounting Periods if Accounts are marked to prevent it. Otherwise, users
@@ -91,22 +92,14 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingPeriodsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(accountingPeriodsVIEW)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickOpen)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickOpen)"/>
     <varlistentry>
       <term>Freeze</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingPeriodsFREEZEPERIOD)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(accountingPeriodsFREEZEPERIOD)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="accountingPeriod.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="accountingPeriod.xml" xpointer="element(/1)"/>
 </section>

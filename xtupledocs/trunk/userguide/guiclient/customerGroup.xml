@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="customerGroup">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customer groups</primary>
       <secondary>creating new</secondary>
     </indexterm>Customer Group</title>
   <para>To create a new Customer Group, select the NEW button. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custGroupNew.png"
-                     id="Graphic538269" />
+          <imagedata id="Graphic538269" fileref="images/customerGroup.png"/>
         </imageobject>
         <caption id="Caption538272">Create New Customer Group</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>Create your Customer Groups using a logical, hierarchical structure.
     This will make it easier to retrieve Customer Group information in the
     future. For more information on matching patterns using Regular
-    Expressions, see <xref linkend="Anchor77806" />.</para>
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <para>When creating a new Customer Group, you are presented with the
   following options:</para>

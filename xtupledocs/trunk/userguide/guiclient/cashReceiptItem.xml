@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="cashReceiptItem">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>cash receipts</primary>
 
       <secondary>applying to balance due</secondary>
@@ -15,16 +15,17 @@
   <para>To apply a Cash Receipt to an individual open A/R Item, select the
   APPLY button. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_enterCRApply.png"
-                     id="Graphic526560" />
+          <imagedata id="Graphic526560" fileref="images/cashReceiptItem.png"/>
         </imageobject>
 
         <caption id="Caption526563">Apply Cash Receipt</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <tip>
     <para>You will not be able to post a Cash Receipt if the amount applied is

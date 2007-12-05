@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section549746">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>inventory history</primary>
       <secondary>by order number</secondary>
     </indexterm>Inventory History by Order Number</title>
@@ -11,16 +11,17 @@
   Work Orders. To view Inventory history by Order Number, select the
   "Inventory History by Order Number" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_invHistOrder.png"
-                     id="Graphic526787" />
+          <imagedata id="Graphic526787" fileref="images/dspInventoryHistoryByOrderNumber.png"/>
         </imageobject>
         <caption id="Caption520382">Inventory History by Order
         Number</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>If a line displays in orange, this means the Item Site in question
     is frozen. Accurate Quantity on Hand information will not be shown until
@@ -42,7 +43,7 @@
   <tip>
     <para>The "Order #" field supports pattern matching with Regular
     Expressions. For more information on matching patterns using Regular
-    Expressions, see <xref linkend="Anchor77806" />.</para>
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -160,11 +161,7 @@
   <para>Right-clicking on a transaction in the Inventory History list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewTransactionInformation)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewTransactionInformation)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

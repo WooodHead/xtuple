@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section545481">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>checks</primary>
 
       <secondary>register for</secondary>
@@ -15,16 +15,17 @@
   <para>To view Check Registers by Bank Account, select the "Check Register"
   option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Disp_chkRegister.png"
-                     id="Graphic545977" />
+          <imagedata id="Graphic545977" fileref="images/dspCheckRegister.png"/>
         </imageobject>
 
         <caption id="Caption545980">Check Register</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <tip>
     <para>You can void posted Checks using the right-click option on the Check
@@ -123,12 +124,8 @@
   from the following menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickVoidPostedCheck)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickVoidPostedCheck)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

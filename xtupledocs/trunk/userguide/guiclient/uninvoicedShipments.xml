@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519208">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>shipping</primary>
 
       <secondary>uninvoiced shipments</secondary>
@@ -19,16 +19,17 @@
   To view a list of Uninvoiced Shipments, select the "Uninvoiced Shipments"
   option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_uninvoicedShip.png"
-                     id="Graphic523384" />
+          <imagedata id="Graphic523384" fileref="images/uninvoicedShipments.png"/>
         </imageobject>
 
         <caption id="Caption519214">Uninvoiced Shipments</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When displaying Uninvoiced Shipments, you are presented with the
   following options:</para>
@@ -87,12 +88,8 @@
   you to select from the following menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickSelectThisOrderforBilling)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickSelectThisOrderforBilling)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

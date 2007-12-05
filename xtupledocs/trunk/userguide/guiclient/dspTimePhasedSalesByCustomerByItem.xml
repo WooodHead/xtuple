@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538699">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>time-phased by customer by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,16 +15,17 @@
   <para>To view time-phased Sales history by Customer by Item, select the
   "Time-Phased Sales History by Customer by Item" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SA_Disp_timePhSalesCustItem.png"
-                     id="Graphic538702" />
+          <imagedata id="Graphic538702" fileref="images/dspTimePhasedSalesByCustomerByItem.png"/>
         </imageobject>
         <caption id="Caption538705">Time-Phased Sales History by Customer by
         Item</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying time-phased Sales history by Customer by Item, you are
   presented with the following options:</para>
   <variablelist>
@@ -47,7 +48,7 @@
       <listitem id="listitemN0x180ac00N0x18844f0">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -76,7 +77,7 @@
       <listitem id="listitemN0x180ac00N0x188c400">
         <para>Enter a Product Category pattern to select a range of Product
         Categories. Refine your search using Regular Expressions, as described
-        in <xref linkend="Anchor77806" />.</para>
+        in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -160,7 +161,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x188c640">
         <para>Select to submit report to the Batch Manager. For additional
-        information, see <xref linkend="Anchor61009" />.</para>
+        information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

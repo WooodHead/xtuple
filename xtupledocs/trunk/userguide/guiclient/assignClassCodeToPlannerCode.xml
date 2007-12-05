@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518990">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>assigning class codes to</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,17 @@
   <para>To assign Items to a Planner Code by Class Code, select the "Assign
   Items to Planner Code by Class Code" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Utils_assignCCodePCode.png"
-                     id="Graphic524547" />
+          <imagedata id="Graphic524547" fileref="images/assignClassCodeToPlannerCode.png"/>
         </imageobject>
         <caption id="Caption524549">Assign Items to Planner Code by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When assigning Items to a Planner Code by Class Code, you are
   presented with the following options:</para>
   <variablelist>
@@ -41,8 +42,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18dc8d4">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">

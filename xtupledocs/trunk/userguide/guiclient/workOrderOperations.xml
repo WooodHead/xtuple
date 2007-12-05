@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519256" role="openmfg">
   <title>Maintain W/O Operations</title>
   <para>To maintain Work Order Operations, select the "Maintain W/O
   Operations" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Ops_maintOps.png" id="Graphic523766" />
+          <imagedata id="Graphic523766" fileref="images/workOrderOperations.png"/>
         </imageobject>
         <caption id="Caption519262">Maintain Work Order Operations</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When maintaining Work Order Operations, you are presented with the
   following options:</para>
   <variablelist>
@@ -135,21 +136,16 @@
   <variablelist>
     <varlistentry>
       <term>View Operation</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workOrderOperationsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderOperationsVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit Operation</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workOrderOperationsEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderOperationsEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete Operation</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(workOrderOperationsDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(workOrderOperationsDELETE)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

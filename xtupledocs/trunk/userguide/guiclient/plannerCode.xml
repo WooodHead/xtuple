@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="plannerCode">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>planner codes</primary>
       <secondary>creating new</secondary>
     </indexterm>Planner Code</title>
   <para>To create a new Planner Code, select the NEW button. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_MI_newPlanCode.png" id="Graphic555019" />
+          <imagedata id="Graphic555019" fileref="images/plannerCode.png"/>
         </imageobject>
         <caption id="Caption555022">Create New Planner Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>Create your Planner Codes using a logical, hierarchical structure.
     This will make it easier to retrieve Planner Code information in the
     future. For more information on matching patterns using Regular
-    Expressions, see <xref linkend="Anchor77806" />.</para>
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <para>When creating a new Planner Code, you are presented with the following
   options:</para>
@@ -47,7 +49,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>explosion</primary>
           <secondary>automatic by planner code</secondary>
         </indexterm> <indexterm significance="normal">

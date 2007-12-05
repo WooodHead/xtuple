@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520511">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>units of measure</primary>
       <secondary>capacity by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,15 +12,16 @@
   <para>To view a list of Capacity Units of Measure by Class Code, select the
   "Capacity UOMs by Class Code" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Disp_capUOMClass.png"
-                     id="Graphic563757" />
+          <imagedata id="Graphic563757" fileref="images/dspCapacityUOMsByClassCode.png"/>
         </imageobject>
         <caption id="Caption520517">Capacity UOMs by Class Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Capacity UOMs by Class Code, you are presented with
   the following options:</para>
   <variablelist>
@@ -41,8 +42,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x193fa38">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -80,11 +80,7 @@
   <para>Right-clicking on an Item in the Capacity UOMs list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItem)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItem)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

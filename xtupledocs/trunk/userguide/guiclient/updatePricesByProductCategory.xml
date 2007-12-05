@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section607486">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>list prices</primary>
       <secondary>updating of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,16 +11,17 @@
     </indexterm>Update List Prices by Product Category</title>
   <para>To update List Prices by Product Category, select the "Update List
   Prices by Product Category" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_updateListPrices.png"
-                     id="Graphic607757" />
+          <imagedata id="Graphic607757" fileref="images/updatePricesByProductCategory.png"/>
         </imageobject>
         <caption id="Caption607716">Update List Prices by Product
         Category</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When updating List Prices by Product Category, you are presented with
   the following options:</para>
   <variablelist>
@@ -42,7 +43,7 @@
       <listitem id="listitemN0x180ac00N0x194324c">
         <para>Enter a Product Category pattern to select a range of Product
         Categories. Refine your search using Regular Expressions, as described
-        in <xref linkend="Anchor77806" />.</para>
+        in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

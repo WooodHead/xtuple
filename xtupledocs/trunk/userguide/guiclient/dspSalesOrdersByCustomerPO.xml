@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section621694">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>linked to purchase orders</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,16 +12,17 @@
   <para>To view Sales Orders by Customer Purchase Order, select the "Sales
   Order Lookup by Customer PO" option from the "Displays" menu. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Disp_soLookByPO.png"
-                     id="Graphic621697" />
+          <imagedata id="Graphic621697" fileref="images/dspSalesOrdersByCustomerPO.png"/>
         </imageobject>
         <caption id="Caption621700">Sales Order Lookup by Customer
         PO</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Sales Orders by Customer Purchase Order, you are
   presented with the following options:</para>
   <variablelist>
@@ -37,7 +38,7 @@
   <tip>
     <para>The "PO Number" field supports pattern matching with Regular
     Expressions. For more information on matching patterns using Regular
-    Expressions, see <xref linkend="Anchor77806" />.</para>
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -76,20 +77,10 @@
   <para>Right-clicking on a Sales Order in the Sales Order list enables you to
   select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEdit)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickView)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipmentStatus)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipments)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEdit)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipmentStatus)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipments)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

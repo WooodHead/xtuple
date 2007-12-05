@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section570079">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>accounts receivable</primary>
 
       <secondary>workbench for</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>workbenches</primary>
 
       <secondary>for accounts receivable</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>accounts receivable</primary>
 
       <secondary>workbench for</secondary>
-    </indexterm><indexterm significance="normal">
+    </indexterm>
+<indexterm significance="normal">
       <primary>workbenches</primary>
 
       <secondary>for accounts receivable</secondary>
@@ -25,16 +28,17 @@
   Workbench, select the "A/R Workbench" option. The following screen will
   appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_arWorkbench.png"
-                     id="Graphic559368" />
+          <imagedata id="Graphic559368" fileref="images/arWorkBench.png"/>
         </imageobject>
 
         <caption id="Caption559371">A/R Workbench</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When viewing the A/R Workbench, you are presented with the following
   options:</para>
@@ -85,8 +89,7 @@
 
       <listitem>
         <para>Opens screen for creating a new Cash Receipt. For more
-        information on entering Cash Receipts, see the <xref
-        endterm="Anchor39275" linkend="Anchor39275" /> section.</para>
+        information on entering Cash Receipts, see the <xref endterm="Anchor39275" linkend="Anchor39275"/> section.</para>
       </listitem>
     </varlistentry>
 
@@ -137,34 +140,28 @@
     <varlistentry>
       <term>Edit Cash Receipt</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchEDITCR1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchEDITCR1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View Cash Receipt</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchVIEWCR1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchVIEWCR1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete Cash Receipt</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchDELETECR1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchDELETECR1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Post Cash Receipt</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchPOSTCR1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchPOSTCR1)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
 
     <varlistentry>
       <term>A/R Open Credit Memos and Deposits</term>
@@ -190,8 +187,7 @@
 
       <listitem id="arWorkBenchAPPLYCM1">
         <para>Highlight an unapplied Credit Memo and then select this button
-        to apply an amount, as described in the <xref endterm="Anchor30541"
-        linkend="Anchor30541" /> section.</para>
+        to apply an amount, as described in the <xref endterm="Anchor30541" linkend="Anchor30541"/> section.</para>
       </listitem>
     </varlistentry>
 
@@ -224,27 +220,22 @@
     <varlistentry>
       <term>Apply Credit Memo</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchAPPLYCM1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchAPPLYCM1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit Credit Memo</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchEDITCM1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchEDITCM1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View Credit Memo</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(arWorkBenchVIEWCM1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(arWorkBenchVIEWCM1)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
 
     <varlistentry>
       <term>A/R Open Items</term>
@@ -284,13 +275,9 @@
   select from the following menu options:</para>
 
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewApplytoInvoice)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewApplytoInvoice)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
 
     <varlistentry>
       <term>Pre-auth Credit Card Charges</term>

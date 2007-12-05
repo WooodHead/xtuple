@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section559969">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>fiscal years</primary>
 
       <secondary>master list of</secondary>
@@ -11,16 +11,17 @@
   <para>To access the master list of Fiscal Years, select the "Fiscal Years"
   option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_fiscalYearList.png"
-                     id="Graphic559972" />
+          <imagedata id="Graphic559972" fileref="images/accountingYearPeriods.png"/>
         </imageobject>
 
         <caption id="Caption559975">Fiscal Years Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <tip>
     <para>The system will automatically reset the beginning balances for
@@ -112,37 +113,29 @@
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingYearPeriodsEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsEDIT)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingYearPeriodsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsVIEW)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingYearPeriodsDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsDELETE)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Close</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(accountingYearPeriodsCLOSEYEAR)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(accountingYearPeriodsCLOSEYEAR)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 
-  <xi:include href="accountingYearPeriod.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="accountingYearPeriod.xml" xpointer="element(/1)"/>
 </section>

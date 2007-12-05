@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560609">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>crm</primary>
       <secondary>incident severities and</secondary>
     </indexterm> <indexterm significance="normal">
@@ -20,15 +20,16 @@
   </tip>
   <para>To access the master list of Incident Severities, select the "Incident
   Severities" option. The following screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_MI_incidSevList.png"
-                     id="Graphic561960" />
+          <imagedata id="Graphic561960" fileref="images/incidentSeverities.png"/>
         </imageobject>
         <caption id="Caption561963">Incident Severities Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Incident Severities" screen displays information on all existing
   Incident Severities, including Incident Severity order, name, and
   description.</para>
@@ -84,24 +85,17 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentSeveritiesEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentSeveritiesEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentSeveritiesVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentSeveritiesVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(incidentSeveritiesDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(incidentSeveritiesDELETE)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="incidentSeverity.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="incidentSeverity.xml" xpointer="element(/1)"/>
 </section>

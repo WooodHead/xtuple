@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="selectPayments">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>payments</primary>
       <secondary>selection of</secondary>
     </indexterm>Select Payments</title>
@@ -11,14 +11,16 @@
   posting of Vouchers and miscellaneous A/P Debit Memos. To select an A/P open
   item for payment, choose the "Select Payments" option. The following screen
   will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Pay_selectPay.png" id="Graphic528303" />
+          <imagedata id="Graphic528303" fileref="images/selectPayments.png"/>
         </imageobject>
         <caption id="Caption528306">Select Payments</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>You may select multiple Vouchers for payment by using the SHIFT or
     CTRL keys and your mouse.</para>
@@ -56,7 +58,7 @@
             <listitem>
               <para>Enter a Vendor Type pattern to select a range of Vendor
               Types. Refine your search using Regular Expressions, as
-              described in <xref linkend="Anchor77806" />.</para>
+              described in <xref linkend="Anchor77806"/>.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -191,10 +193,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="selectBankAccount.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="selectPayment.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBankAccount.xml" xpointer="element(/1)"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectPayment.xml" xpointer="element(/1)"/>
 </section>

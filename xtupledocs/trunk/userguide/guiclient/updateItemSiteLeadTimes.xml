@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section521501">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>lead times in</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Update Item Site Lead Times</title>
   <para>To update the Lead Times associated with Item Sites, select the "Item
   Site Lead Times" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_itemSiteLeadTi.png"
-                     id="Graphic527317" />
+          <imagedata id="Graphic527317" fileref="images/updateItemSiteLeadTimes.png"/>
         </imageobject>
         <caption id="Caption521507">Update Item Site Lead Times</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When updating Item Site Lead Times, you are presented with the
   following options:</para>
   <variablelist>
@@ -54,8 +55,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19a8b74">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

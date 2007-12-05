@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section665468">
   <title>Print Item Labels by Class Code</title>
   <para>To print Item Labels by Class Code, select the "Print Item Labels by
   Class Code" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Rep_printItemLabels.png"
-                     id="Graphic665471" />
+          <imagedata id="Graphic665471" fileref="images/printItemLabelsByClassCode.png"/>
         </imageobject>
         <caption id="Caption665474">Print Item Labels by Class Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When printing Item Labels by Class Code, you are presented with the
   following options:</para>
   <variablelist>
@@ -33,8 +33,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19a0a88">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry role="openmfg">

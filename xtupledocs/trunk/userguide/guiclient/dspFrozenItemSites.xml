@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519499">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>freezing of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Frozen Item Sites</title>
   <para>To display a list of Item Sites that have been frozen, select the
   "Frozen Item Sites" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_dispFrozenItemSites.png"
-                     id="Graphic526175" />
+          <imagedata id="Graphic526175" fileref="images/dspFrozenItemSites.png"/>
         </imageobject>
         <caption id="Caption519505">Frozen Item Sites</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying frozen Item Sites, you are presented with the
   following options:</para>
   <variablelist>
@@ -64,11 +65,7 @@
   <para>Right-clicking on an Item Site in the frozen Item Sites list enables
   you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickThaw)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickThaw)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

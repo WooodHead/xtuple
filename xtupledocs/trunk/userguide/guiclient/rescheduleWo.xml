@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518707">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>rescheduling of</secondary>
     </indexterm>Reschedule Work Order</title>
@@ -10,14 +10,16 @@
   ("R") Work Orders must first be recalled to an Exploded state before they
   may be rescheduled. To reschedule an exploded Work Order, select the
   "Reschedule Work Order" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Con_reschedWO.png" id="Graphic543527" />
+          <imagedata id="Graphic543527" fileref="images/rescheduleWo.png"/>
         </imageobject>
         <caption id="Caption543530">Reschedule Work Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>To edit a Work Order after it has been created, use the right-click
     menu in any of the "Work Order Schedule by..." displays. There you will

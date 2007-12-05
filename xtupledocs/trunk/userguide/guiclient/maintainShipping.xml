@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520522">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>maintaining contents at</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,16 +13,17 @@
   maintain these Shipping contents in one central location, by Warehouse. To
   maintain Shipping contents, select the "Maintain Shipping Contents" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Ship_maintShipContents.png"
-                     id="Graphic519965" />
+          <imagedata id="Graphic519965" fileref="images/maintainShipping.png"/>
         </imageobject>
         <caption id="maintainShippingContents">Maintain Shipping
         Contents</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When maintaining Shipping contents, you are presented with the
   following options:</para>
   <variablelist>
@@ -71,24 +72,12 @@
   <para>Right-clicking on a parent Order in the "Stock at Shipping" list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShippingInformation)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReturnALLStockIssuedtoOrder)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewSalesOrder)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickPrintShippingForm)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickShipOrder)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShippingInformation)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReturnALLStockIssuedtoOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewSalesOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintShippingForm)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickShipOrder)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
   <tip>
     <para>Before a Sales Order can be shipped successfully, Sales Account and

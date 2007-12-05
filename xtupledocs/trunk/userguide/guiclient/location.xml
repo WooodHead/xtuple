@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="location">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>warehouse locations</primary>
       <secondary>creating new</secondary>
     </indexterm>Warehouse Location</title>
   <para>To create a new Warehouse Location, select the NEW button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_warehouseLocationNew.png"
-                     id="Graphic525455" />
+          <imagedata id="Graphic525455" fileref="images/location.png"/>
         </imageobject>
         <caption id="NewWarehouseLocation">Create New Warehouse
         Location</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Warehouse Location, you are presented with the
   following options:</para>
   <variablelist>
@@ -28,7 +29,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse locations</primary>
           <secondary>netable</secondary>
         </indexterm> <indexterm significance="normal">
@@ -59,7 +61,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse locations</primary>
           <secondary>restricted</secondary>
         </indexterm> <indexterm significance="normal">
@@ -73,7 +76,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>warehouse zones</primary>
           <secondary>locations within</secondary>
         </indexterm> <indexterm significance="normal">
@@ -93,8 +97,7 @@
         will vary, depending on whether the specified Warehouse enforces the
         aisle, rack, bin, Location (ARBL) naming convention. If the convention
         is enforced, then the name for the Location may also include aisle,
-        rack, or bin information, as shown in <xref
-        linkend="NewWarehouseLocation" />. If ARBL is not enforced, then the
+        rack, or bin information, as shown in <xref linkend="NewWarehouseLocation"/>. If ARBL is not enforced, then the
         Location name will consist of only one field.</para>
       </listitem>
     </varlistentry>
@@ -113,7 +116,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>allowable items</primary>
           <secondary>in warehouse locations</secondary>
         </indexterm> <indexterm significance="normal">

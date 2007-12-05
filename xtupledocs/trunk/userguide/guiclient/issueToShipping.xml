@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section529534">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>shipping</primary>
       <secondary>issuing stock to</secondary>
     </indexterm>Issue Stock to Shipping</title>
@@ -10,16 +10,17 @@
   shipped, they must be issued to Shipping. To issue Stock to Shipping, select
   the "Issue Stock to Shipping" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Ship_issueStockShip.png"
-                     id="Graphic519700" />
+          <imagedata id="Graphic519700" fileref="images/issueToShipping.png"/>
         </imageobject>
         <caption id="issueToShippingStockToShipping">Issue Stock to
         Shipping</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Before a Sales Order can be shipped successfully, Sales Account and
     A/R Account Assignments for the specified Customer must be in
@@ -131,7 +132,7 @@
       <term>SHIP ORDER</term>
       <listitem id="listitemN0x180ac00N0x181aa3c">
         <para>Select to Ship the specified Sales Order, as described in the
-        <xref endterm="Anchor28938" linkend="Anchor28938" /> FINDME "Ship
+        <xref endterm="Anchor28938" linkend="Anchor28938"/> FINDME "Ship
         Order" section.</para>
       </listitem>
     </varlistentry>
@@ -173,8 +174,7 @@
   <tip>
     <para>If your site integrates UPS WorldShip with the system, you should
     process Orders in WorldShip after they have been issued to Shipping--but
-    before they have been shipped. For more information, see the <xref
-    endterm="Anchor29552" linkend="Anchor29552" /> FINDME "Topic: UPS
+    before they have been shipped. For more information, see the <xref endterm="Anchor29552" linkend="Anchor29552"/> FINDME "Topic: UPS
     WorldShip Integration" section.</para>
   </tip>
   <variablelist>
@@ -200,7 +200,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="issueLineToShipping.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="issueLineToShipping.xml" xpointer="element(/1)"/>
 </section>

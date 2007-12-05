@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972085">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Voucher</title>
   <para>To enter a new Voucher, select the "Enter New Voucher" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_voucherNew.png"
-                     id="Graphic972088" />
+          <imagedata id="Graphic972088" fileref="images/voucher.png"/>
         </imageobject>
         <caption id="Caption972091">Enter New Voucher</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When entering a new Voucher, you are presented with the following
   options:</para>
   <variablelist>
@@ -37,7 +38,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
@@ -219,14 +221,8 @@
   <para>Right-clicking on a Purchase Order Item in the list of Purchase Order
   Items enables you to select the following menu option:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewPOItem)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPOItem)"/>
   </variablelist>
-  <xi:include href="voucherItem.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
-  <xi:include href="voucherMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherItem.xml" xpointer="element(/1)"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherMiscDistrib.xml" xpointer="element(/1)"/>
 </section>

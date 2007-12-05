@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="applyDiscount">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>discounts</primary>
       <secondary>applying to open a/p items</secondary>
     </indexterm>Apply Discount</title>
   <para>To apply a billing Terms Discount and have the Discount amount
   deducted from the total owed, select the APPLY DISCOUNT button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_Pay_selectPayDisc.png"
-                     id="Graphic547933" />
+          <imagedata id="Graphic547933" fileref="images/applyDiscount.png"/>
         </imageobject>
         <caption id="Caption547936">Apply Billing Terms Discount</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Discounts are posted to the General Ledger (G/L) when the Check they
     are associated with is posted. Any time prior to the posting of the Check,

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923257">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>forms</primary>
       <secondary>master list of</secondary>
     </indexterm>Forms</title>
   <para>To access the master list of available Form definitions, select the
   "Forms" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_formsList.png" id="Graphic924644" />
+          <imagedata id="Graphic924644" fileref="images/forms.png"/>
         </imageobject>
         <caption id="Caption924655">Forms Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The Forms master list displays information on all available Form
   definitions, including Form name and Form description.</para>
   <para>To the far right of the list, the following buttons are
@@ -53,6 +55,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="form.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="form.xml" xpointer="element(/1)"/>
 </section>

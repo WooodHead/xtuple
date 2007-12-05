@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section923258">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>calendars</primary>
       <secondary>master list of</secondary>
     </indexterm>Calendars</title>
@@ -11,14 +11,16 @@
   users granted the "MaintainCalendars" privilege have the ability to define
   and maintain Calendars. To access the master list of Calendars, select the
   "Calendars" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_calendarList.png" id="Graphic521909" />
+          <imagedata id="Graphic521909" fileref="images/calendars.png"/>
         </imageobject>
         <caption id="Caption518611">Calendar Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Calendar Master List" screen displays information on all existing
   Calendars, including Calendar name and Calendar description.</para>
   <para>To the far right of the screen, the following buttons are
@@ -55,6 +57,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="calendar.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="calendar.xml" xpointer="element(/1)"/>
 </section>

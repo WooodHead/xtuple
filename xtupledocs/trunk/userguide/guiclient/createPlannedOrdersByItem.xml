@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537828" role="openmfg">
   <title>Run MRP by Item</title>
   <para>When you run MRP by Item, you are running the Material Requirements
@@ -18,15 +17,16 @@
   </tip>
   <para>To run MRP for an individual Item, select the "Run MRP by Item"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_createPlanOrdByItem.png"
-                     id="Graphic537834" />
+          <imagedata id="Graphic537834" fileref="images/createPlannedOrdersByItem.png"/>
         </imageobject>
         <caption id="Caption537837">Run MRP by Item</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>The system deletes any non-firmed Planned Orders when MRP is run. If
     demand for the deleted Planned Orders still exists, the Orders will be
@@ -65,7 +65,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Existing Firmed MRP Orders</term>

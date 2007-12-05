@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518552" role="openmfg">
   <title>Create Planned Order</title>
   <para>To create a Planned Order, select the "Create Planned Order" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_createPlanOrd.png"
-                     id="Graphic520435" />
+          <imagedata id="Graphic520435" fileref="images/plannedOrder.png"/>
         </imageobject>
         <caption id="Caption518558">Create Planned Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a Planned Order, you are presented with the following
   options:</para>
   <variablelist>
@@ -63,7 +63,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>lead times</primary>
           <secondary>in planned orders</secondary>
         </indexterm> <indexterm significance="normal">

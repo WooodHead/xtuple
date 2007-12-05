@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519010">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>material receipts</primary>
       <secondary>as inventory transaction</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,20 +14,21 @@
     </indexterm>Material Receipt</title>
   <para>To record the receipt of materials into Inventory, select the
   "Material Receipt" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_materialReceipt.png"
-                     id="Graphic525872" />
+          <imagedata id="Graphic525872" fileref="images/materialReceiptTrans.png"/>
         </imageobject>
         <caption id="Caption519016">Enter Material Receipt</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>If an Item is Lot/Serial Number controlled, you will be given the
     opportunity to assign a Lot/Serial Number to incoming material during the
     receiving process. For more information on receiving Lot-controlled Items,
-    see the <xref endterm="Anchor81167" linkend="Anchor81167" /> FINDME
+    see the <xref endterm="Anchor81167" linkend="Anchor81167"/> FINDME
     "Inter-Warehouse Transfer" section.</para>
   </note>
   <para>When entering a Material Receipt, you are presented with the following
@@ -156,8 +157,7 @@
       <listitem id="listitemN0x180ac00N0x18a0a14">
         <para>Posts and credits the Material Receipt.</para>
         <para>Additional steps will be necessary if the specified Item is
-        stored in multiple Locations. For more information, see the <xref
-        endterm="Anchor81167" linkend="Anchor81167" /> FINDME "Inter-Warehouse
+        stored in multiple Locations. For more information, see the <xref endterm="Anchor81167" linkend="Anchor81167"/> FINDME "Inter-Warehouse
         Transfer" section.</para>
       </listitem>
     </varlistentry>

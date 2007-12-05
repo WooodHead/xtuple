@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section553315">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>cash receipts</primary>
 
       <secondary>history of</secondary>
@@ -16,16 +16,17 @@
   Customer, select the "Cash Receipts by Customer" option. The following
   screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_Disp_cashRecpts.png"
-                     id="Graphic553400" />
+          <imagedata id="Graphic553400" fileref="images/dspCashReceipts.png"/>
         </imageobject>
 
         <caption id="Caption553520">Cash Receipts by Customer</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <note>
     <para>The display will include unposted as well as posted Cash Receipts
@@ -69,7 +70,7 @@
       <listitem id="listitemN0x180ac00N0x18afc84">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
 

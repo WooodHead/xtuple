@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section567308">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bank accounts</primary>
       <secondary>master list of</secondary>
     </indexterm>Bank Accounts</title>
@@ -10,15 +10,16 @@
   when receiving or making payments. To access the master list of Bank
   Accounts, select the "Bank Accounts" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_MI_bankAcctList.png"
-                     id="Graphic567311" />
+          <imagedata id="Graphic567311" fileref="images/bankAccounts.png"/>
         </imageobject>
         <caption id="Caption567314">Bank Accounts Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Bank Accounts" screen displays information on all existing Bank
   Accounts, including period start date, period end date, and closed
   status.</para>
@@ -69,7 +70,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>posting service charge to</secondary>
         </indexterm>POST SRVC. CHRG.</term>
@@ -79,7 +81,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>posting adjustment to</secondary>
         </indexterm>POST ADJUSTMENT</term>
@@ -89,7 +92,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="bankAccount.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bankAccount.xml" xpointer="element(/1)"/>
 </section>

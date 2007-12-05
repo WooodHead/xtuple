@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section677901">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>expense categories</primary>
       <secondary>master list of</secondary>
     </indexterm>Expense Categories</title>
@@ -27,14 +27,16 @@
   the purchasing transaction will be distributed to. To access the master list
   of Expense Categories, select the "Expense Categories" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_MI_expenseCat.png" id="Graphic677909" />
+          <imagedata id="Graphic677909" fileref="images/expenseCategories.png"/>
         </imageobject>
         <caption id="Caption677912">Expense Categories Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Expense Categories" screen displays information on all existing
   Expense Categories, including Expense Category code and Expense Category
   description.</para>
@@ -92,7 +94,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="expenseCategory.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="expenseCategory.xml" xpointer="element(/1)"/>
 </section>

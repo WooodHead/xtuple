@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519553">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>count tags</primary>
       <secondary>edit list for</secondary>
     </indexterm>Count Tag Edit List</title>
@@ -15,15 +15,16 @@
     Site. Use the Count Tag Edit List to view all unposted Count Tags in your
     system.</para>
   </tip>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_dispCountTagEditList.png"
-                     id="Graphic526333" />
+          <imagedata id="Graphic526333" fileref="images/dspCountTagEditList.png"/>
         </imageobject>
         <caption id="Caption634243">Count Tag Edit List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying the Count Tag Edit List, you are presented with the
   following options:</para>
   <variablelist>
@@ -213,32 +214,22 @@
   <variablelist>
     <varlistentry>
       <term>Enter Count Slip</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCountTagEditListENTERSLIP)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListENTERSLIP)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickCountSlipEditList)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewPendingInventoryHistory)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickCountSlipEditList)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewPendingInventoryHistory)"/>
     <varlistentry>
       <term>Edit Count Tag</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCountTagEditListEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>Post Count Tag</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCountTagEditListPOST)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListPOST)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete Count Tag</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(dspCountTagEditListDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(dspCountTagEditListDELETE)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

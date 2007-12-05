@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="standardOperation" role="openmfg">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>standard operations</primary>
       <secondary>creating new</secondary>
     </indexterm>Standard Operation</title>
   <para>To create a new Standard Operation, select the NEW button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_standOpsNew.png" id="Graphic562729" />
+          <imagedata id="Graphic562729" fileref="images/standardOperation.png"/>
         </imageobject>
         <caption id="Caption518824">Create New Standard Operation</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Standard Operation, you are presented with the
   following options:</para>
   <variablelist>
@@ -49,7 +51,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>units of measure</primary>
           <secondary>in operations</secondary>
         </indexterm>Production UOM</term>
@@ -80,7 +83,7 @@
         the Inventory/Production UOM ratio normalizes the posting so that the
         Inventory impact is recorded in the Inventory UOM. The ratio is set up
         in the same way as the Capacity/Inventory UOM ratio described in the
-        <xref endterm="Anchor13555" linkend="Anchor13555" /> FINDME "Enter New
+        <xref endterm="Anchor13555" linkend="Anchor13555"/> FINDME "Enter New
         Item" section.</para>
       </listitem>
     </varlistentry>
@@ -101,7 +104,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>setup time</primary>
           <secondary>for operations</secondary>
         </indexterm>Setup Time (min)</term>
@@ -128,7 +132,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>run time</primary>
           <secondary>for standard operations</secondary>
         </indexterm>Run Time (min)</term>
@@ -148,8 +153,7 @@
         quantity which accurately reflects your normal batch size for the
         Operation. Specifying a standard batch size helps ensure your
         Operations Costs are evenly distributed. For an example of how the
-        batch size can help distribute Costs from Operations, see <xref
-        endterm="Anchor15267" linkend="Anchor15267" /> FINDME Figure
+        batch size can help distribute Costs from Operations, see <xref endterm="Anchor15267" linkend="Anchor15267"/> FINDME Figure
         5.1.</para>
       </listitem>
     </varlistentry>

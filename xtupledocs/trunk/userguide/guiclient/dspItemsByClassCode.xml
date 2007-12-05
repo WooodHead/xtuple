@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520261">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>items</primary>
       <secondary>by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Items by Class Code</title>
   <para>To view Items by Class Code, select the "Items by Class Code" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Disp_itemsClassCode.png"
-                     id="Graphic563623" />
+          <imagedata id="Graphic563623" fileref="images/dspItemsByClassCode.png"/>
         </imageobject>
         <caption id="Caption520267">Items by Class Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Items by Class Code, you are presented with the
   following options:</para>
   <variablelist>
@@ -39,8 +40,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x1923dc8">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        endterm="Anchor77806" linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref endterm="Anchor77806" linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -84,11 +84,7 @@
   <para>Right-clicking on an Item in the Items list enables you to select from
   the following options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItemMaster)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItemMaster)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

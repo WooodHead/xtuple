@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972632">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>account assignments</primary>
       <secondary>for a/p</secondary>
     </indexterm>A/P Account Assignments</title>
@@ -28,16 +28,17 @@
   the Vendor Type--unless otherwise specified. To access the A/P Account
   assignments master list, select the "A/P Account Assignments" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_apAcctAssignList.png"
-                     id="Graphic972640" />
+          <imagedata id="Graphic972640" fileref="images/apAccountAssignments.png"/>
         </imageobject>
         <caption id="Caption972643">A/P Account Assignments Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "A/P Account Assignments" screen displays information on all
   existing A/P Account assignments.</para>
   <para>To the far right of the screen, the following buttons are
@@ -87,7 +88,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="apAccountAssignment.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="apAccountAssignment.xml" xpointer="element(/1)"/>
 </section>

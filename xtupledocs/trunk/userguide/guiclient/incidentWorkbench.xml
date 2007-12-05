@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section560363">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>incidents</primary>
 
       <secondary>workbench for</secondary>
@@ -15,15 +15,17 @@
   <para>The Incident Workbench enables you to monitor and take action on the
   full range of issues entered in your system.</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_IM_incidWbnch.png" id="Graphic567184" />
+          <imagedata id="Graphic567184" fileref="images/incidentWorkbench.png"/>
         </imageobject>
 
         <caption id="Caption567187">Incident Workbench</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When using the Incident Workbench, you are presented with the
   following options:</para>
@@ -50,8 +52,7 @@
 
       <listitem id="listitemN0x180ac00N0x187f7b0">
         <para>Enter a user pattern to select a range of users. Refine your
-        search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
 
@@ -153,8 +154,7 @@
       <listitem id="listitemN0x180ac00N0x187f8d0">
         <para>Enter a text pattern to locate keywords found in Incident
         "Summary" and/or "Description" fields. Refine your search using
-        Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
 

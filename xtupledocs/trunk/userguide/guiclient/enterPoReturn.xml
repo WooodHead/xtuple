@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520506">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>returns</primary>
       <secondary>entering at shipping</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,15 +12,16 @@
   <para>Returns are used in the event that Purchase Order Items need to be
   returned to a Vendor. To enter a Return, select the "Enter Return" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterReturn.png"
-                     id="Graphic521426" />
+          <imagedata id="Graphic521426" fileref="images/enterPoReturn.png"/>
         </imageobject>
         <caption id="Caption520509">Enter Purchase Order Return</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>Privileged users will be given the option to generate an A/P Credit
     Memo in the amount of the Return when the Return is posted. This option is
@@ -113,7 +114,5 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to issue the stock from.</para>
   </note>
-  <xi:include href="enterPoitemReturn.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterPoitemReturn.xml" xpointer="element(/1)"/>
 </section>

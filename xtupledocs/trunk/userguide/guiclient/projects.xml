@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section556039">
   <title>List Projects</title>
 
   <para>To access the master list of Projects, select the "Projects" option.
   The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PM_Proj_listProjects.png"
-                     id="Graphic556153" />
+          <imagedata id="Graphic556153" fileref="images/projects.png"/>
         </imageobject>
 
         <caption id="Caption556156">Projects Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>The "Projects" screen displays information on all existing Projects,
   including Project Number, Project name, and Project status.</para>
@@ -79,26 +79,21 @@
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(projectsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(projectsVIEW)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(projectsEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(projectsEDIT)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(projectsDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(projectsDELETE)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

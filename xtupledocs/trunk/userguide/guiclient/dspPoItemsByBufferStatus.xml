@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section555646" role="openmfg">
   <title>P/O Items by Buffer Status</title>
   <para>The Purchase Order buffer status displays provide information on your
@@ -12,16 +11,17 @@
   Buffer Management has not been run.</para>
   <para>To view Purchase Order Item buffer statuses, select the "P/O Items by
   Buffer Status" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Buff_poItemsByBuffStatus.png"
-                     id="Graphic555650" />
+          <imagedata id="Graphic555650" fileref="images/dspPoItemsByBufferStatus.png"/>
         </imageobject>
         <caption id="Caption555653">Purchase Order Items by Buffer
         Status</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>When the buffer status for an Item hits 66 or higher, the status
     number will become red. By highlighting Items which are "red hot," the

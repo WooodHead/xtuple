@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537936">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales account assignments</primary>
       <secondary>master list of</secondary>
     </indexterm>Sales Account Assignments</title>
@@ -25,16 +25,17 @@
   established for that combination. To access the Sales Account assignments
   master list, select the "Sales Account Assignments" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_saleAcctAssign.png"
-                     id="Graphic617746" />
+          <imagedata id="Graphic617746" fileref="images/salesAccounts.png"/>
         </imageobject>
         <caption id="Caption537942">Sales Account Assignments Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Sales Account Assignments" screen displays information on
   existing Sales Account assignments.</para>
   <para>To the far right of the screen, the following buttons are
@@ -84,7 +85,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="salesAccount.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="salesAccount.xml" xpointer="element(/1)"/>
 </section>

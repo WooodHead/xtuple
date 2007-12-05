@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="arAccountAssignment">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>accounts receivable</primary>
       <secondary>creating new assignment for</secondary>
     </indexterm>A/R Account Assignment</title>
   <para>To create a new A/R Account assignment, select the NEW button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_arAssignNew.png" id="Graphic657410" />
+          <imagedata id="Graphic657410" fileref="images/arAccountAssignment.png"/>
         </imageobject>
         <caption id="Caption657413">Create New A/R Account
         Assignment</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new A/R Account assignment, you are presented with the
   following options:</para>
   <variablelist>
@@ -32,7 +34,7 @@
       <listitem id="listitemN0x180ac00N0x18859d0">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

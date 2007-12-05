@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section575202">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>opportunities</primary>
       <secondary>stages for</secondary>
     </indexterm>Opportunity Stages</title>
@@ -17,14 +17,16 @@
   </tip>
   <para>To access the master list of Opportunity Stages, select the
   "Opportunity Stages" option. The following screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_MI_optyStages.png" id="Graphic574840" />
+          <imagedata id="Graphic574840" fileref="images/opportunityStages.png"/>
         </imageobject>
         <caption id="Caption574843">Opportunity Stages Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Opportunity Stages" screen displays information on all existing
   Opportunity Stages, including Opportunity Stage code and description.</para>
   <para>To the far right of the list, the following buttons are
@@ -68,7 +70,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="opportunityStage.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="opportunityStage.xml" xpointer="element(/1)"/>
 </section>

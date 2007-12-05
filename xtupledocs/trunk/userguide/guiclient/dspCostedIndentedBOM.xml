@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520014">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>costing</primary>
       <secondary>for indented BOMs</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,16 +14,17 @@
   manufactured component listed on the Bill of Materials list. To view
   associated Item Costs using an indented Bill of Materials, select the
   "Costed Indented BOM" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Cost_dispIndentedBOM.png"
-                     id="Graphic563436" />
+          <imagedata id="Graphic563436" fileref="images/dspCostedIndentedBOM.png"/>
         </imageobject>
         <caption id="Caption520020">Costed Indented Bill of
         Materials</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Costs for an indented Bill of Materials, you are
   presented with the following options:</para>
   <variablelist>
@@ -133,14 +134,8 @@
   <para>Right-clicking on a component in the Costed Bill of Materials list
   enables you to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickMaintainItemCosts)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItemCosting)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickMaintainItemCosts)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItemCosting)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

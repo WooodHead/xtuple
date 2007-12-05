@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section539293">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>abc class</primary>
       <secondary>updating of</secondary>
     </indexterm>Update ABC Class</title>
@@ -53,15 +53,16 @@
   <para>To update the ABC classification for Item Sites within a given
   Warehouse and Class Code, select the "ABC Class" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_updateABCClass.png"
-                     id="Graphic527289" />
+          <imagedata id="Graphic527289" fileref="images/updateABCClass.png"/>
         </imageobject>
         <caption id="Caption521440">Update ABC Class</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Updating ABC Class values across multiple Warehouses simultaneously
     can lead to inaccuracies in your data--especially if ABC values are
@@ -100,8 +101,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19a15a4">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

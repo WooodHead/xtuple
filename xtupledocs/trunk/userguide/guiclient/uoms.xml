@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section662610">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>units of measure</primary>
       <secondary>master list of</secondary>
     </indexterm>Units of Measure</title>
@@ -10,14 +10,16 @@
   an Item are managed (e.g., "EACH," "POUNDS," "GALLONS," etc.). To access the
   master list of Units of Measure, select the "Units of Measure" option. The
   following screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_uomList.png" id="Graphic619526" />
+          <imagedata id="Graphic619526" fileref="images/uoms.png"/>
         </imageobject>
         <caption id="Caption619529">Units of Measure Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Units of Measure" screen displays information on all existing
   Units of Measure, including Unit of Measure name and description.</para>
   <note>
@@ -73,6 +75,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="uom.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="uom.xml" xpointer="element(/1)"/>
 </section>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519435">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>count tags</primary>
       <secondary>posting by warehouse</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,15 +15,16 @@
   <para>To post Count Tag totals (i.e., Inventory counts) to the Quantity on
   Hand for their respective Item Sites for an entire Warehouse, select the
   "Post Count Tags" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_PI_postCountTags.png"
-                     id="Graphic526126" />
+          <imagedata id="Graphic526126" fileref="images/postCountTags.png"/>
         </imageobject>
         <caption id="Caption519441">Post Count Tags</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When posting Count Tags, you are presented with the following
   options:</para>
   <variablelist>
@@ -40,7 +41,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>thawing</primary>
           <secondary>of inventory</secondary>
         </indexterm> <indexterm significance="normal">
@@ -53,7 +55,7 @@
       <listitem id="listitemN0x180ac00N0x191a1f8">
         <para>Select to thaw all previously frozen Inventory in specified
         Warehouse(s). For a detailed explanation of these concepts, see the
-        <xref endterm="Anchor80983" linkend="Anchor80983" /> FINDME "Topic:
+        <xref endterm="Anchor80983" linkend="Anchor80983"/> FINDME "Topic:
         Freezing and Thawing" section.</para>
       </listitem>
     </varlistentry>

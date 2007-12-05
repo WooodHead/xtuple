@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="pricingScheduleAssignment">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>pricing</primary>
       <secondary>assigning schedules for</secondary>
     </indexterm>Pricing Schedule Assignment</title>
   <para>To create a Pricing Schedule assignment, select the NEW button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_priceAssignNew.png"
-                     id="Graphic598074" />
+          <imagedata id="Graphic598074" fileref="images/pricingScheduleAssignment.png"/>
         </imageobject>
         <caption id="Caption598077">Create New Pricing Schedule
         Assignment</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Pricing Schedule assignment, you are presented
   with the following options:</para>
   <variablelist>
@@ -63,7 +64,7 @@
       <listitem id="listitemN0x180ac00N0x1952144">
         <para>Enter a Ship-To Address pattern to select a range of Ship-To
         Addresses for the selected Customer. Refine your search using Regular
-        Expressions, as described in <xref linkend="Anchor77806" />.</para>
+        Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,7 +79,7 @@
       <listitem id="listitemN0x180ac00N0x19521d4">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

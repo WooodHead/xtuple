@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title><indexterm>
+  <title>
+<indexterm significance="normal">
       <primary>customer types</primary>
       <secondary>creating new</secondary>
     </indexterm>Customer Type</title>
   <para id="Para573436">To create a new Customer Type, select the NEW button.
   The following screen will appear:</para>
-  <para id="Para573440"><screenshot>
+  <para id="Para573440">
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="../images/SO_MI_custTypeNew.png"
-                     id="Graphic573438" />
+          <imagedata id="Graphic573438" fileref="images/customerType.png"/>
         </imageobject>
         <caption id="Caption573441">Create New Customer Type</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para id="Para573443">Create your Customer Types using a logical,
     hierarchical structure. This will make it easier to retrieve Customer Type
     information in the future. For more information on matching patterns using
-    Regular Expressions, see <xref linkend="Anchor77806" />.</para>
+    Regular Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <para id="Para573447">When creating a new Customer Type, you are presented
   with the following options:</para>

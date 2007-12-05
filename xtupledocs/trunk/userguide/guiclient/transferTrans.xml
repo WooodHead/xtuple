@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600879" role="openmfg">
   <title>Inter-Warehouse Transfer</title>
   <para>To transfer quantity of an Item from one Warehouse to another, select
   the "Inter-Warehouse Transfer" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_interWarehouseTrans.png"
-                     id="Graphic525831" />
+          <imagedata id="Graphic525831" fileref="images/transferTrans.png"/>
         </imageobject>
         <caption id="Caption518933">Enter Inter-Warehouse Transfer</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>An Inter-Warehouse Transfer can only be executed if the specified
     Item is located in more than one Warehouse. To add an additional Warehouse
@@ -109,8 +109,7 @@
         credited with the new Inventory amount, while the Warehouse being
         relieved of Inventory is debited. Additional steps will be necessary
         if the specified Item is stored in multiple Locations. For more
-        information, see the <xref endterm="Anchor81167"
-        linkend="Anchor81167" /> FINDME "Inter-Warehouse Transfer"
+        information, see the <xref endterm="Anchor81167" linkend="Anchor81167"/> FINDME "Inter-Warehouse Transfer"
         section.</para>
       </listitem>
     </varlistentry>

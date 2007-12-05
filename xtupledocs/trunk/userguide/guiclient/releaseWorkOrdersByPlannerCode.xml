@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section543196">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>releasing by planner code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,16 +13,17 @@
   have the option of releasing them simultaneously. To release Work Orders by
   Planner Code, select the "Release Work Orders by Planner Code" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Con_releaseByPCode.png"
-                     id="Graphic543209" />
+          <imagedata id="Graphic543209" fileref="images/releaseWorkOrdersByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption543212">Release Work Orders by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Once an Order has been released, the system considers the ordered
     quantity to be available at 00:00:01 of the due date of the Order in
@@ -48,8 +49,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

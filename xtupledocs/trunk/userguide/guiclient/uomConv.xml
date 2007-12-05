@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
   <title id="uomConv">Global Conversion Ratio</title>
   <para>Global conversion ratios enable you to create basic conversions such
@@ -15,14 +14,16 @@
   has been used in a transaction.</para>
   <para>To create a new global conversion ratio, select the NEW button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_uomNewConv.png" />
+          <imagedata fileref="images/uomConv.png"/>
         </imageobject>
         <caption id="Captiond1e1">Global Conversion Ratio</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>As their name implies, global conversion ratios may be used
     throughout the system once they are defined in the UOM Master

@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="bankAccount">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bank accounts</primary>
       <secondary>creating new</secondary>
     </indexterm>Bank Account</title>
   <para>A Bank Account can be set up for use by either Accounts Receivable
   (A/R), Accounts Payable (A/P), or both. To create a new Bank Account, select
   the NEW button. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AP_MI_bankAcctNew.png" id="Graphic567330" />
+          <imagedata id="Graphic567330" fileref="images/bankAccount.png"/>
         </imageobject>
         <caption id="Caption567333">Create New Bank Account</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Bank Account, you are presented with the following
   options:</para>
   <variablelist>
@@ -53,7 +55,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>used for payables</secondary>
         </indexterm>Used in A/P</term>
@@ -82,7 +85,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>bank accounts</primary>
           <secondary>used for receivables</secondary>
         </indexterm>Used in A/R</term>

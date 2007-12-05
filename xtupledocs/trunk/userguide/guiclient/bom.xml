@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519286">
-  <title><anchor id="Anchor37267" role="Cross-Ref"
-  xreflabel="37267: Heading2: Enter New Bill of Materials" /> <indexterm
-      significance="normal">
+  <title>
+<anchor id="Anchor37267" role="Cross-Ref" xreflabel="37267: Heading2: Enter New Bill of Materials"/> <indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>creating new</secondary>
     </indexterm>Enter New Bill of Materials</title>
   <para>To create a new Bill of Materials, select the "Enter New Bill of
   Materials" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_BOMnew.png" id="Graphic562970" />
+          <imagedata id="Graphic562970" fileref="images/bom.png"/>
         </imageobject>
         <caption id="Caption519292">Create New Bill of Materials</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When creating a new Bill of Materials, you are presented with the
   following options:</para>
   <variablelist>
@@ -35,7 +35,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>components</primary>
           <secondary>expired from BOMs</secondary>
         </indexterm> <indexterm significance="normal">
@@ -52,7 +53,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>components</primary>
           <secondary>adding to BOMs in future</secondary>
         </indexterm> <indexterm significance="normal">
@@ -244,36 +246,26 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(bomVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(bomEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomEXPIRE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(bomEXPIRE)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickReplace)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReplace)"/>
     <varlistentry>
       <term>Move Up</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEUP)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(bomMOVEUP)"/>
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(bomMOVEDOWN)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(bomMOVEDOWN)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
-  <xi:include href="bomItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bomItem.xml" xpointer="element(/1)"/>
 </section>

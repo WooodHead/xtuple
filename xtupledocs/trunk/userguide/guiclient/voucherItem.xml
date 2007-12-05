@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="voucherItem">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>distributing quantities to</secondary>
     </indexterm>Voucher Item</title>
   <para>To distribute quantities from Purchase Order Line Items to the
   Voucher, highlight a Line Item and then select the DISTRIBUTIONS button. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_voucherItem.png"
-                     id="Graphic972130" />
+          <imagedata id="Graphic972130" fileref="images/voucherItem.png"/>
         </imageobject>
         <caption id="Caption972133">Voucher Item Distribution</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>An Item's per unit Actual Cost will be automatically updated after a
     Voucher is posted if the vouchered Cost differs from the Item's current
@@ -123,7 +124,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Qty. to Voucher</term>
@@ -233,7 +235,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherItemDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherItemDistrib.xml" xpointer="element(/1)"/>
 </section>

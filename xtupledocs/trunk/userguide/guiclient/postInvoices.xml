@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657165">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>email delivery of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -17,15 +17,16 @@
     </indexterm>Post Invoices</title>
   <para>To post Invoices in batch mode, select the "Post Invoices" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_postInvoices.png"
-                     id="Graphic657168" />
+          <imagedata id="Graphic657168" fileref="images/postInvoices.png"/>
         </imageobject>
         <caption id="Caption657171">Post Invoices</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When posting Invoices, you are presented with the following
   options:</para>
   <variablelist>
@@ -74,7 +75,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x191d0b0">
         <para>Select to submit the requested action to the Batch Manager. For
-        additional information, see <xref linkend="Anchor61009" />.</para>
+        additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518556">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>images</primary>
       <secondary>master list of</secondary>
     </indexterm>Images</title>
@@ -13,7 +13,8 @@
   Images. The following list shows the supported Image formats:</para>
   <itemizedlist>
     <listitem id="listitemN0x180ac00N0x181a844">
-      <para><indexterm significance="normal">
+      <para>
+<indexterm significance="normal">
           <primary>graphics</primary>
           <secondary>supported formats</secondary>
         </indexterm> <indexterm significance="normal">
@@ -33,14 +34,16 @@
   </itemizedlist>
   <para>To access the master list of stored Images, select the "Images"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_imageList.png" id="Graphic521854" />
+          <imagedata id="Graphic521854" fileref="images/images.png"/>
         </imageobject>
         <caption id="Caption518567">Images Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The Images master list displays information on all stored Images,
   including Image name, Image description, and Image file size.</para>
   <para>To the far right of the list, the following buttons are
@@ -85,6 +88,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="image.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="image.xml" xpointer="element(/1)"/>
 </section>

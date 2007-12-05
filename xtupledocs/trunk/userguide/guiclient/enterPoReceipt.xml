@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section531874">
-  <title id="Anchor28097"><indexterm significance="normal">
+  <title id="Anchor28097">
+<indexterm significance="normal">
       <primary>receiving</primary>
       <secondary>entering of receipts</secondary>
     </indexterm>Enter Receipt</title>
   <para>To receive Orders into Inventory, select the "Enter Receipt" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SR_Rcvg_enterRecpt.png"
-                     id="Graphic521443" />
+          <imagedata id="Graphic521443" fileref="images/enterPoReceipt.png"/>
         </imageobject>
         <caption id="Caption520503">Enter Purchase Order Receipts</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When receiving an Order, you are presented with the following
   options:</para>
   <variablelist>
@@ -136,7 +137,5 @@
       </indexterm>Multiple Location Control (MLC) Item, you will be prompted
     to specify the Location you want to distribute the stock to.</para>
   </note>
-  <xi:include href="enterPoitemReceipt.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterPoitemReceipt.xml" xpointer="element(/1)"/>
 </section>

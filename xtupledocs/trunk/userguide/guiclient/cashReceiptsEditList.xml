@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524381">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>cash receipts</primary>
 
       <secondary>edit list for</secondary>
@@ -11,15 +11,17 @@
   <para>To view and edit unposted Cash Receipts, select the "Cash Receipt Edit
   List" option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_CashR_editList.png" id="Graphic526650" />
+          <imagedata id="Graphic526650" fileref="images/cashReceiptsEditList.png"/>
         </imageobject>
 
         <caption id="Caption526653">Cash Receipt Edit List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>The Cash Receipt Edit List displays information on all unposted Cash
   Receipts, including Customer name, distribution date, and distribution
@@ -105,30 +107,23 @@
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(cashReceiptsEditListEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(cashReceiptsEditListEDIT)"/>
     </varlistentry>
 
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(cashReceiptsEditListVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(cashReceiptsEditListVIEW)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Delete</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(cashReceiptsEditListDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(cashReceiptsEditListDELETE)"/>
     </varlistentry>
 
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickPost)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPost)"/>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

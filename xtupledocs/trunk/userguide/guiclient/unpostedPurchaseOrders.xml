@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972514">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>list of unposted</secondary>
     </indexterm>List Unposted Purchase Orders</title>
@@ -11,15 +11,16 @@
   existing Purchase Orders. To see the list of unposted and/or unvouchered
   Purchase Orders, select the "List Unposted Purchase Orders" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_PO_listUnpostedPOs.png"
-                     id="Graphic972517" />
+          <imagedata id="Graphic972517" fileref="images/unpostedPurchaseOrders.png"/>
         </imageobject>
         <caption id="Caption972520">List Unposted Purchase Orders</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Unposted Purchase Orders are considered to be a valid source of
     supply by the planning systems.</para>
@@ -102,34 +103,25 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersDELETE)"/>
     </varlistentry>
     <varlistentry>
       <term>Print</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersPRINT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersPRINT)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickDeliver)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickDeliver)"/>
     <varlistentry>
       <term>Post</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(unpostedPurchaseOrdersPOST)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(unpostedPurchaseOrdersPOST)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

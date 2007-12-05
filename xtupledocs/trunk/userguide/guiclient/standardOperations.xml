@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section663752" role="openmfg">
   <title>Standard Operations</title>
   <para>Standard Operations are routine Operations which may occur throughout
@@ -10,15 +9,16 @@
   accessed from the Bill of Operations Item screen. To access the master list
   of Standard Operations, select the "Standard Operations" option. The
   following screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_standOpsList.png"
-                     id="Graphic562715" />
+          <imagedata id="Graphic562715" fileref="images/standardOperations.png"/>
         </imageobject>
         <caption id="Caption518810">Standard Operations Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Standard Operations are intended as initial templates used to set up
     Bill of Operations (BOO) Items. Any changes made to a Standard Operation
@@ -81,7 +81,5 @@
     will not automatically ripple throughout all your BOO Items that use the
     Standard Operation.</para>
   </note>
-  <xi:include href="standardOperation.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="standardOperation.xml" xpointer="element(/1)"/>
 </section>

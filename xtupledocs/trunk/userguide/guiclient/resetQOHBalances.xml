@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section615525">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>resetting QOH balances</secondary>
     </indexterm> <indexterm significance="normal">
@@ -15,20 +15,21 @@
   negative Quantity on Hand balances to zero, either globally or locally,
   select the "Reset QOH Balances" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_IT_resetQOHBalances.png"
-                     id="Graphic525901" />
+          <imagedata id="Graphic525901" fileref="images/resetQOHBalances.png"/>
         </imageobject>
         <caption id="Caption519071">Reset QOH Balances</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>Be sure to thaw any Item Site whose negative Quantity on Hand
     balance you want to reset to "0". An Item Site must be unfrozen before its
     QOH balance can be reset. For more information on freezing and thawing,
-    see <xref linkend="Anchor80983" />.</para>
+    see <xref linkend="Anchor80983"/>.</para>
   </tip>
   <para>When resetting Quantity on Hand balances, you are presented with the
   following options:</para>
@@ -65,8 +66,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x18c9f40">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -91,6 +91,6 @@
   <note>
     <para>Additional steps will be necessary if any Items within the specified
     Class Code(s) are stored in multiple Locations. For more information, see
-    the <xref linkend="Anchor81167" />.</para>
+    the <xref linkend="Anchor81167"/>.</para>
   </note>
 </section>

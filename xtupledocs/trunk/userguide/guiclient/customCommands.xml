@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section967998">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>custom commands</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -20,14 +20,16 @@
   programs, for a variety of purposes. To access the master list of Custom
   Commands, select the "Custom Commands" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/Sys_custCommList.png" id="Graphic967780" />
+          <imagedata id="Graphic967780" fileref="images/customCommands.png"/>
         </imageobject>
         <caption id="Caption967783">Custom Commands List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>There is no limit to the number of Custom Commands which may be
     added to a module. Executable programs may be launched from local or
@@ -70,7 +72,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customCommand.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="customCommand.xml" xpointer="element(/1)"/>
 </section>

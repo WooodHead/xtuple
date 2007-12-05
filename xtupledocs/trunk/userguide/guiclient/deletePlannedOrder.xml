@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537947" role="openmfg">
   <title>Delete Planned Order</title>
   <para>To delete a Planned Order, select the "Delete Planned Order" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_deletePlanOrd.png"
-                     id="Graphic537950" />
+          <imagedata id="Graphic537950" fileref="images/deletePlannedOrder.png"/>
         </imageobject>
         <caption id="Caption537953">Delete Planned Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Planned Orders that have been firmed in the system will not be
     deleted when this utility is run.</para>

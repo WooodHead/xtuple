@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520380">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>bills of materials</primary>
       <secondary>single level where used view of</secondary>
     </indexterm>Single Level Where Used</title>
@@ -10,15 +10,16 @@
   that directly uses a specified Item as a component Item. To view a display
   showing parent Items which use a specified component Item, select the
   "Single Level Where Used" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_Disp_singleWhereUsed.png"
-                     id="Graphic563696" />
+          <imagedata id="Graphic563696" fileref="images/dspSingleLevelWhereUsed.png"/>
         </imageobject>
         <caption id="Caption610837">Single Level Where Used</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying a view showing parent Items which use a specified
   component Item, you are presented with the following options:</para>
   <variablelist>
@@ -72,24 +73,14 @@
   <variablelist>
     <varlistentry>
       <term>Edit Bill of Materials</term>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/9/2/1/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/9/2/1/2)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit Bill of Operations</term>
-      <xi:include href="../supportfiles/rightclick.xml"
-                  xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(/1/9/2/2/2)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(/1/9/2/2/2)"/>
     </varlistentry>
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickEditItemMaster)" />
-    <xi:include href="../supportfiles/rightclick.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(rightclickViewItemInvHistory)" />
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickEditItemMaster)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewItemInvHistory)"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

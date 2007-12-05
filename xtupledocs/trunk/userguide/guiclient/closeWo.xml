@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518607">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>closing of</secondary>
     </indexterm>Close Work Order</title>
   <para>A Work Order can be closed at any point. To close a Work Order, select
   the "Close Work Order" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Con_closeWO.png" id="Graphic523470" />
+          <imagedata id="Graphic523470" fileref="images/closeWo.png"/>
         </imageobject>
         <caption id="Caption518613">Close Work Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Work Order Materials and Operations history is saved in the database
     after a Work Order is closed. Reports can be written to retrieve this
@@ -59,7 +61,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>variances</primary>
           <secondary>relation to w/o</secondary>
         </indexterm> <indexterm significance="normal">

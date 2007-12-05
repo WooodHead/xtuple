@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section588066">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>tax codes</primary>
       <secondary>master list of</secondary>
     </indexterm>Tax Codes</title>
   <para>Tax Codes define the amount and type(s) of Tax to be added to an
   Order. To access the master list of Tax Codes, select the "Tax Codes"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_taxCodeList.png" id="Graphic588069" />
+          <imagedata id="Graphic588069" fileref="images/taxCodes.png"/>
         </imageobject>
         <caption id="Caption588072">Tax Codes Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The Tax Codes master list displays the code and description for all
   existing Tax Codes.</para>
   <para>To the far right of the screen, the following buttons are
@@ -59,6 +61,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="taxCode.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="taxCode.xml" xpointer="element(/1)"/>
 </section>

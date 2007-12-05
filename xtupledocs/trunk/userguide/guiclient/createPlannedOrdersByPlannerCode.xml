@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section551404" role="openmfg">
   <title>Run MRP by Planner Code</title>
   <para>When you run MRP by Planner Code, you are running the Material
@@ -19,15 +18,16 @@
   </note>
   <para>To run MRP by Planner Code, select the "Run MRP by Planner Code"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_createPlanByPCode.png"
-                     id="Graphic520460" />
+          <imagedata id="Graphic520460" fileref="images/createPlannedOrdersByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption518625">Run MRP by Planner Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>The system deletes any non-firmed Planned Orders when MRP is run. If
     demand for the deleted Planned Orders still exists, the Orders will be
@@ -56,8 +56,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -91,7 +90,8 @@
   </tip>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Existing Firmed MRP Orders</term>
@@ -131,7 +131,7 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit the MRP run to the Batch Manager. For
-        additional information, see <xref linkend="Anchor61009" />.</para>
+        additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

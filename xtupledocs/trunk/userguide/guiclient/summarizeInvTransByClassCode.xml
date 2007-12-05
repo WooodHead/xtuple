@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section521523">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>summarize transaction history for</secondary>
     </indexterm>Summarize Transaction History by Class Code</title>
@@ -14,16 +14,17 @@
   one way to conserve disk storage space. To summarize transaction history by
   Class Code, select the "Summarize Transaction History by Class Code" option.
   The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_summarizeTrans.png"
-                     id="Graphic527328" />
+          <imagedata id="Graphic527328" fileref="images/summarizeInvTransByClassCode.png"/>
         </imageobject>
         <caption id="Caption521529">Summarize Transaction History by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When summarizing transaction history by Class Code, you are presented
   with the following options:</para>
   <variablelist>
@@ -59,8 +60,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19bdeec">
         <para>Enter a Class Code pattern to select a range of Class Codes
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

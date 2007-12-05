@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518665" role="openmfg">
   <title>Delete Planned Orders by Planner Code</title>
   <para>To delete Planned Orders by Planner Code, select the "Delete Planned
   Orders by Planner Code" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_delPOrdByPCode.png"
-                     id="Graphic520484" />
+          <imagedata id="Graphic520484" fileref="images/deletePlannedOrdersByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption518671">Delete Planned Orders by Planner
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Planned Orders that have been firmed in the system will not be
     deleted when this utility is run.</para>
@@ -39,8 +39,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -65,7 +64,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>firmed orders</primary>
           <secondary>deletion of</secondary>
         </indexterm>Delete Firmed Orders</term>

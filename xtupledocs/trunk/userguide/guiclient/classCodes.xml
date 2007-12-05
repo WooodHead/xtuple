@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518585">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>class codes</primary>
       <secondary>master list of</secondary>
     </indexterm>Class Codes</title>
@@ -10,15 +10,16 @@
   mechanism for categorizing Items regardless of Item Type. To access the
   master list of Class Codes, select the "Class Codes" option. The following
   screen will appear.</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_MI_classCodeList.png"
-                     id="Graphic562512" />
+          <imagedata id="Graphic562512" fileref="images/classCodes.png"/>
         </imageobject>
         <caption id="Caption518591">Class Codes Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The</para>
   <para>Class Codes" screen displays information on all existing Class Codes,
   including Class Code and Class Code description.</para>
@@ -75,6 +76,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="classCode.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="classCode.xml" xpointer="element(/1)"/>
 </section>

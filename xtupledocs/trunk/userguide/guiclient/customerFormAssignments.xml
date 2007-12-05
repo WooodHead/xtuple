@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section546198">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customer forms</primary>
       <secondary>assignment of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,16 +11,17 @@
     </indexterm>Customer Form Assignments</title>
   <para>To access the Customer Form assignments master list, select the
   "Customer Form Assignments" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_custFormAssign.png"
-                     id="Graphic547269" />
+          <imagedata id="Graphic547269" fileref="images/customerFormAssignments.png"/>
         </imageobject>
         <caption id="Caption547272">Customer Form Assignments Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Customer Form Assignments" screen displays information on
   existing Customer Form assignments.</para>
   <para>To the far right of the screen, the following buttons are
@@ -64,7 +65,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customerFormAssignment.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="customerFormAssignment.xml" xpointer="element(/1)"/>
 </section>

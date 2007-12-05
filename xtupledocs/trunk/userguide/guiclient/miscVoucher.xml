@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section972204">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>vouchers</primary>
       <secondary>creating new miscellaneous</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,15 +14,16 @@
   example, to authorize payment for Utility bills or other non-Inventory
   expenses. To enter a Miscellaneous Voucher, select the "Enter New
   Miscellaneous Voucher" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Vouch_miscVouch.png"
-                     id="Graphic972207" />
+          <imagedata id="Graphic972207" fileref="images/miscVoucher.png"/>
         </imageobject>
         <caption id="Caption972210">Enter Miscellaneous Voucher</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>A Voucher posts to the General Ledger effective on the Invoice Date
     entered on the Voucher--not on the date it is posted, as might be
@@ -48,7 +49,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>vouchers</primary>
           <secondary>distributing quantities to</secondary>
         </indexterm>Amount to Distribute</term>
@@ -168,7 +170,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="voucherMiscDistrib.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voucherMiscDistrib.xml" xpointer="element(/1)"/>
 </section>

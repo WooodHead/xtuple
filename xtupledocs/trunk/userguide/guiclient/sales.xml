@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section596113">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales</primary>
       <secondary>master list of</secondary>
     </indexterm>Sales</title>
@@ -12,14 +12,16 @@
   Customers benefit from Sales during the period of time when a Sale is in
   effect. To create a Sale tied to a Pricing Schedule, select the "Sales"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_sales.png" id="Graphic523703" />
+          <imagedata id="Graphic523703" fileref="images/sales.png"/>
         </imageobject>
         <caption id="Caption519698">Sales Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>If a Sale is in effect and the Sale Price is lower than the most
     specific Customer Price, then the Customer will be given the Sale
@@ -68,6 +70,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="sale.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sale.xml" xpointer="element(/1)"/>
 </section>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524414">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary id="Anchor30541">credit memos</primary>
       <secondary>list of unapplied</secondary>
     </indexterm>List Unapplied Credit Memos</title>
@@ -23,16 +23,17 @@
   </note>
   <para>To access the master list of unapplied Credit Memos, select the "List
   Unapplied Credit Memos" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/AR_DCMems_unappliedList.png"
-                     id="Graphic528890" />
+          <imagedata id="Graphic528890" fileref="images/unappliedARCreditMemos.png"/>
         </imageobject>
         <caption id="Caption528893">Unapplied Credit Memos Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The master list of unapplied Credit Memos displays basic information
   on all existing unapplied Credit Memos, including Document Number, Customer
   name, Document amount, applied amount, and amount available to apply.</para>
@@ -78,7 +79,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="applyARCreditMemo.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="applyARCreditMemo.xml" xpointer="element(/1)"/>
 </section>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518563">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>explosion</primary>
       <secondary>of work orders</secondary>
     </indexterm> <indexterm significance="normal">
@@ -14,14 +14,16 @@
   Bill of Materials and Bill of Operations for the parent Item. To manually
   explode a Work Order, select the "Explode Work Order" option. The following
   screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/WO_Con_explodeWO.png" id="Graphic523438" />
+          <imagedata id="Graphic523438" fileref="images/explodeWo.png"/>
         </imageobject>
         <caption id="Caption518569">Explode Work Order</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Work Orders can be exploded either manually or automatically by
     default. The default setting is configured at the system level.</para>
@@ -72,7 +74,8 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term><indexterm significance="normal">
+      <term>
+<indexterm significance="normal">
           <primary>work orders</primary>
           <secondary>explosion levels for</secondary>
         </indexterm>Level</term>

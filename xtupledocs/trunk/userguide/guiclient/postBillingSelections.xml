@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section600014">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>billing selections</primary>
       <secondary>posting of</secondary>
     </indexterm>Post Billing Selections</title>
@@ -11,15 +11,16 @@
   selected Order is created. To post Orders selected for billing in batch
   mode, select the "Post Billing Selections" option. The following screen will
   appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_postBillSelects.png"
-                     id="Graphic634574" />
+          <imagedata id="Graphic634574" fileref="images/postBillingSelections.png"/>
         </imageobject>
         <caption id="Caption634577">Post Billing Selections</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When posting billing selections, you are presented with the following
   options:</para>
   <variablelist>
@@ -41,7 +42,7 @@
       <listitem id="listitemN0x180ac00N0x190ba68">
         <para>Enter a Customer Type pattern to select a range of Customer
         Types. Refine your search using Regular Expressions, as described in
-        <xref linkend="Anchor77806" />.</para>
+        <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section958417">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>purchase orders</primary>
       <secondary>summarized by date</secondary>
     </indexterm>P/Os by Vendor</title>
   <para>To see a summarized view of Purchase Orders by Vendor, select the
   "P/Os by Vendor" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_Disp_posByVend.png" id="Graphic958420" />
+          <imagedata id="Graphic958420" fileref="images/dspPOsByVendor.png"/>
         </imageobject>
         <caption id="Caption958423">Purchase Orders by Vendor</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <tip>
     <para>A Purchase Order will remain open if at least one of its Line Items
     is open. Once all Line Items are closed, the Purchase Order will also be
@@ -78,8 +80,7 @@
         <para>Select to display Purchase Orders whose Item Description matches
         the value entered in the corresponding field. This field supports
         pattern matching with Regular Expressions. For more information on
-        matching patterns using Regular Expressions, see <xref
-        linkend="Anchor77806" />.</para>
+        matching patterns using Regular Expressions, see <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -117,8 +118,6 @@
   <para>Right-clicking on a Purchase Order in the list enables you to select
   from the following menu options:</para>
   <variablelist>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

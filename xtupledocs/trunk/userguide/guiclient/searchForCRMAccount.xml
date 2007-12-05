@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section571620">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>crm accounts</primary>
 
       <secondary>searching for</secondary>
@@ -11,16 +11,17 @@
   <para>To search for a CRM Account, select the "Search for CRM Account"
   option. The following screen will appear:</para>
 
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/CRM_AB_searchAccts.png"
-                     id="Graphic571623" />
+          <imagedata id="Graphic571623" fileref="images/searchForCRMAccount.png"/>
         </imageobject>
 
         <caption id="Caption571626">Search for CRM Account</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
 
   <para>When searching to retrieve CRM Account information from the database,
   you are presented with the following options:</para>
@@ -35,7 +36,7 @@
 
         <para>The "Search for" field supports pattern matching with Regular
         Expressions. For more information on matching patterns using Regular
-        Expressions, see <xref linkend="Anchor77806" />.</para>
+        Expressions, see <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -123,7 +124,8 @@
                 <para>Select to search by Primary Contact Country.</para>
               </listitem>
             </varlistentry>
-          </variablelist></para>
+          </variablelist>
+</para>
       </listitem>
     </varlistentry>
 
@@ -188,19 +190,15 @@
     <varlistentry>
       <term>View</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForCRMAccountVIEW1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForCRMAccountVIEW1)"/>
     </varlistentry>
 
     <varlistentry>
       <term>Edit</term>
 
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForCRMAccountEDIT1)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(searchForCRMAccountEDIT1)"/>
     </varlistentry>
 
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

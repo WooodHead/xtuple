@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518778">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>sales representatives</primary>
       <secondary>master list of</secondary>
     </indexterm>Sales Representatives</title>
   <para>To access the master list of Sales Representatives, select the "Sales
   Reps" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_salesRepList.png"
-                     id="Graphic522970" />
+          <imagedata id="Graphic522970" fileref="images/salesReps.png"/>
         </imageobject>
         <caption id="Caption518784">Sales Representatives Master
         List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The Sales Representatives master list displays the name,
   identification number, and active status of all existing Sales
   Representatives.</para>
@@ -73,20 +74,16 @@
   <variablelist>
     <varlistentry>
       <term>Edit Sales Rep</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesRepsEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(salesRepsEDIT)"/>
     </varlistentry>
     <varlistentry>
       <term>View Sales Rep</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesRepsVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(salesRepsVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Delete Sales Rep</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(salesRepsDELETE)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(salesRepsDELETE)"/>
     </varlistentry>
   </variablelist>
-  <xi:include href="salesRep.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="salesRep.xml" xpointer="element(/1)"/>
 </section>

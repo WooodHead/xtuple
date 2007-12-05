@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section657041">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>invoices</primary>
       <secondary>re-printing of</secondary>
     </indexterm>Re-Print Invoices</title>
   <para>To print an Invoice that was previously printed, select the "Re-Print
   Invoices" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_re-PrintInv.png"
-                     id="Graphic657044" />
+          <imagedata id="Graphic657044" fileref="images/reprintInvoices.png"/>
         </imageobject>
         <caption id="Caption657047">Re-Print Invoices</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When re-printing an Invoice, you are presented with the following
   options:</para>
   <variablelist>
@@ -31,7 +32,7 @@
   <tip>
     <para>The "Invoice Number" field supports pattern matching with Regular
     Expressions. For more information on matching patterns using Regular
-    Expressions, see <xref linkend="Anchor77806" />.</para>
+    Expressions, see <xref linkend="Anchor77806"/>.</para>
   </tip>
   <variablelist>
     <varlistentry>

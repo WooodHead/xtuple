@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572767">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>order up to levels</primary>
       <secondary>updating by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,16 +11,17 @@
     </indexterm>Update Order Up To Levels by Class Code</title>
   <para>To update Order Up To Levels by Class Code, select the "Order Up To
   Levels by Class Code" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Utilities_upOUTbyClass.png"
-                     id="Graphic572770" />
+          <imagedata id="Graphic572770" fileref="images/updateOUTLevelsByClassCode.png"/>
         </imageobject>
         <caption id="Caption572773">Update Order Up To Levels by Class
         Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When updating Order Up To Levels by Class Code, you are presented with
   the following options:</para>
   <variablelist>
@@ -55,8 +56,7 @@
       <term>Pattern</term>
       <listitem id="listitemN0x180ac00N0x19bdb68">
         <para>Enter a Class Code pattern to select a range of Class Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -144,8 +144,7 @@
       <term>SUBMIT</term>
       <listitem id="listitemN0x180ac00N0x19bdcd0">
         <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see <xref
-        linkend="Anchor61009" />.</para>
+        processing. For additional information, see <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

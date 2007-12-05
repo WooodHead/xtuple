@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section636767">
   <title>Search for Prospect</title>
   <para>To search for a Prospect, select the "Search for Prospect" option. The
   following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_prospectSearch.png"
-                     id="Graphic637180" />
+          <imagedata id="Graphic637180" fileref="images/searchForProspect.png"/>
         </imageobject>
         <caption id="Caption637183">Search for Prospects</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When searching to retrieve Prospect information from the database, you
   are presented with the following options:</para>
   <variablelist>
@@ -23,8 +23,7 @@
         <para>Enter any character or combination of characters you want to
         match, followed by the TAB key. The "Search for" field supports
         pattern matching with Regular Expressions. For more information on
-        matching patterns using Regular Expressions, see <xref
-        linkend="Anchor77806" />.</para>
+        matching patterns using Regular Expressions, see <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -142,16 +141,12 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForProspectVIEW)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(searchForProspectVIEW)"/>
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
-                  xpointer="element(searchForProspectEDIT)" />
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(searchForProspectEDIT)"/>
     </varlistentry>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

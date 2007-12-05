@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section554555">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>adjustment types</primary>
       <secondary>master list of</secondary>
     </indexterm>Adjustment Types</title>
   <para>To access the master list of Adjustment Types, select the "Adjustment
   Types" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/GL_MI_adjustList.png" id="Graphic554657" />
+          <imagedata id="Graphic554657" fileref="images/bankAdjustmentTypes.png"/>
         </imageobject>
         <caption id="Caption554660">Adjustment Types Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Adjustment Types" screen displays information on all existing
   Adjustment Types, including Adjustment Type name and description.</para>
   <para>To the far right of the list, the following buttons are
@@ -65,7 +67,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="bankAdjustmentType.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bankAdjustmentType.xml" xpointer="element(/1)"/>
 </section>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section520086">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>quantity on hand</primary>
       <secondary>by location</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Quantities on Hand by Location</title>
   <para>To view Quantities on Hand by Location, select the "Quantities on Hand
   by Location" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/IM_Disp_QOHlocation.png"
-                     id="Graphic526654" />
+          <imagedata id="Graphic526654" fileref="images/dspQOHByLocation.png"/>
         </imageobject>
         <caption id="Caption520092">Quantities on Hand by Location</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>When displaying Quantities on Hand by Location, you are presented with
   the following options:</para>
   <variablelist>
@@ -90,8 +91,6 @@
   <para>Right-clicking on an Item in the Quantities on Hand list enables you
   to select from the following menu options:</para>
   <variablelist>
-    <xi:include href="../widgets/xtreewidget.xml"
-                xmlns:xi="http://www.w3.org/2001/XInclude"
-                xpointer="element(xtreewidget.menu.exportcontents)" />
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
   </variablelist>
 </section>

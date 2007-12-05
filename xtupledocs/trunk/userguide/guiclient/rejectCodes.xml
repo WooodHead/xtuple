@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section960674">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>reject codes</primary>
       <secondary>master list of</secondary>
     </indexterm>Reject Codes</title>
@@ -10,15 +10,16 @@
   they are returned to the Vendor who supplied them. A Reject Code explains
   why an Item is being returned. To access the master list of Reject Codes,
   select the "Reject Codes" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PO_MI_rejectCodesList.png"
-                     id="Graphic525471" />
+          <imagedata id="Graphic525471" fileref="images/rejectCodes.png"/>
         </imageobject>
         <caption id="Caption518538">Reject Codes Master List</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The "Reject Codes" screen displays information on all existing Reject
   Codes, including Reject Code and Reject Code description.</para>
   <para>To the far right of the screen, the following buttons are
@@ -68,6 +69,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="rejectCode.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rejectCode.xml" xpointer="element(/1)"/>
 </section>

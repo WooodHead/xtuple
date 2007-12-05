@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537794" role="openmfg">
   <title>Run MPS by Planner Code</title>
   <para>When you run MPS by Planner Code, you are running the Master
@@ -36,15 +35,16 @@
   </tip>
   <para>To run MPS by Planner Code, select the "Run MPS by Planner Code"
   option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/MS_Sched_runMPSPCode.png"
-                     id="Graphic540376" />
+          <imagedata id="Graphic540376" fileref="images/runMPSByPlannerCode.png"/>
         </imageobject>
         <caption id="Caption540379">Run MPS by Planner Code</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <note>
     <para>Only Items designated as MPS Items will have Planned Orders created
     for them when MPS is run. By default, MPS generates firm Planned
@@ -71,8 +71,7 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref
-        linkend="Anchor77806" />.</para>
+        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -128,7 +127,7 @@
       <term>SUBMIT</term>
       <listitem>
         <para>Select to submit the MPS run to the Batch Manager. For
-        additional information, see the <xref linkend="Anchor61009" />.</para>
+        additional information, see the <xref linkend="Anchor61009"/>.</para>
       </listitem>
     </varlistentry>
   </variablelist>

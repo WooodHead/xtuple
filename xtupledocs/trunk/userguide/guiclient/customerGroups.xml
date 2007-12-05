@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
-"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section538180">
-  <title><indexterm significance="normal">
+  <title>
+<indexterm significance="normal">
       <primary>customer groups</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -11,15 +11,16 @@
     </indexterm>Customer Groups</title>
   <para>To access the Customer Groups master list, select the "Customer
   Groups" option. The following screen will appear:</para>
-  <para><screenshot>
+  <para>
+<screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_MI_customerGrps.png"
-                     id="Graphic538192" />
+          <imagedata id="Graphic538192" fileref="images/customerGroups.png"/>
         </imageobject>
         <caption id="Caption538195">Customer Groups</caption>
       </mediaobject>
-    </screenshot></para>
+    </screenshot>
+</para>
   <para>The Customer Groups master list displays basic information on all
   existing Customer Groups, including Customer Group name and
   description.</para>
@@ -64,7 +65,5 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include href="customerGroup.xml"
-              xmlns:xi="http://www.w3.org/2001/XInclude"
-              xpointer="element(/1)" />
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="customerGroup.xml" xpointer="element(/1)"/>
 </section>
