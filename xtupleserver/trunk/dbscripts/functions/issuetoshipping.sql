@@ -110,7 +110,7 @@ BEGIN
     AND (itemsite_id=coitem_itemsite_id)
     AND (itemsite_item_id=item_id));
 
-    IF (r.item_type != ''J'') THEN
+    IF (_r.item_type != ''J'') THEN
       -- This is inventory so handle with g/l transaction
       SELECT postInvTrans( itemsite_id, ''SH'', pQty * coitem_qty_invuomratio,
 			 ''S/R'', porderType,
@@ -130,7 +130,7 @@ BEGIN
         CASE WHEN (wo_cosmethod = ''D'') THEN
           wo_postedvalue - wo_wipvalue
         ELSE
-          (wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrecv - pQty)))
+          round((wo_wipvalue - (wo_postedvalue / wo_qtyord * (wo_qtyord - wo_qtyrcv - pQty))),2)
         END AS value INTO _r
       FROM wo
       WHERE ((wo_type = ''S'')
@@ -150,10 +150,10 @@ BEGIN
 
   --  Update the work order about what happened
       UPDATE wo SET 
-        wo_qtyrecv = wo_qtyrecv + pQty,
+        wo_qtyrcv = wo_qtyrcv + pQty,
         wo_wipvalue = wo_wipvalue - _r.value,
         wo_status = 
-          CASE WHEN (wo_qtyord - wo_qtyrecv - pQty <= 0) THEN
+          CASE WHEN (wo_qtyord - wo_qtyrcv - pQty <= 0) THEN
             ''C''
           ELSE
             wo_status

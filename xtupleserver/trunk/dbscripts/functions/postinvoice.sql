@@ -138,10 +138,11 @@ BEGIN
 --  March through the non-misc invcitems
   FOR _r IN SELECT invcitem.*,
                    itemsite_id, item_id,
-                   stdCost(item_id) AS cost
+                   (SUM(shipitem_value) / r.invcitem_billed * _r.invcitem_qty_invuomratio) AS cost
             FROM item, invcitem LEFT OUTER JOIN
 		 itemsite ON ((invcitem_item_id=itemsite_item_id)
 			     AND (invcitem_warehous_id=itemsite_warehous_id))
+                 shipitem ON (invcitem_id=shipitem_invcitem_id)
             WHERE ((invcitem_item_id=item_id)
               AND  (invcitem_invchead_id=pInvcheadid) ) LOOP
 
