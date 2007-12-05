@@ -26,17 +26,17 @@ BEGIN
            FROM metric
           WHERE ((metric_name = ''EnableSOReservations'')
            AND (metric_value = ''t''))) THEN
-      SELECT (COALESCE(pqty, roundQty(item_fractional,
+      SELECT (((COALESCE(pqty, roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
-			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
-			   ) * coitem_qty_invuomratio
-		      )) <= itemsite_qtyonhand)
+			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id)
+			   ))) - coitem_qtyreserved) * coitem_qty_invuomratio
+		      ) <= itemsite_qtyonhand)
               AND 
-             (COALESCE(pqty, roundQty(item_fractional,
+             (((COALESCE(pqty, roundQty(item_fractional,
 		      noNeg(coitem_qtyord - coitem_qtyshipped +
-			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id) - coitem_qtyreserved
-			   ) * coitem_qty_invuomratio
-		      )) <= qtyunreserved(itemsite_id))
+			    coitem_qtyreturned - qtyAtShipping(pordertype, coitem_id)
+			   ))) - coitem_qtyreserved) * coitem_qty_invuomratio
+		      ) <= qtyunreserved(itemsite_id))
         INTO _isqtyavail
         FROM coitem, itemsite, item
        WHERE ((coitem_itemsite_id=itemsite_id) 
@@ -85,8 +85,8 @@ BEGIN
     SELECT (COALESCE((SELECT SUM(itemloc_qty) 
 			FROM itemloc 
 		       WHERE (itemloc_itemsite_id=itemsite_id)), 0.0) >= roundQty(item_fractional, 
-			      noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
-			      qtyAtShipping(pordertype, coitem_id) ) * coitem_qty_invuomratio
+			      COALESCE(25, noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
+			      qtyAtShipping(pordertype, coitem_id) )) * coitem_qty_invuomratio
 			     )) INTO _isqtyavail 
       FROM coitem, itemsite, item
      WHERE ((coitem_itemsite_id=itemsite_id) 
