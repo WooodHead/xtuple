@@ -85,7 +85,6 @@ BEGIN
    AND (pi.itemsite_id=_p.p_itemsite_id) );
 
 --  Create linkage to the transaction created
-
   INSERT INTO womatlpost (womatlpost_wo_id,womatlpost_invhist_id)
               VALUES (_p.wo_id,_invhistid);
 
