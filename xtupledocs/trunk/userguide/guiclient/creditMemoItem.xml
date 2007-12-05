@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section>
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>adding line items to</secondary>
     </indexterm>Credit Memo Item</title>
-  <para>To create a new Credit Memo Line Item, select the NEW
-  button. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create a new Credit Memo Line Item, select the NEW button. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_creditMemoItem.png" id="Graphic551869"/>
+          <imagedata fileref="images/SO_Bill_creditMemoItem.png"
+                     id="Graphic551869" />
         </imageobject>
         <caption id="Caption551872">Create New Credit Memo Line Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Credit Memo Line Item, you are
-  presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Credit Memo Line Item, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Order #</term>
@@ -39,26 +38,23 @@
       <term>Item Number</term>
       <listitem id="listitemN0x180ac00N0x1930dd4">
         <para>Enter the Item Number of the Item you want to add to the Credit
-        Memo.</para>
-        <para>If the Credit Memo is being applied to an
-        Invoice, only those Line Items which appeared on the Invoice will be
-        available for selection--that is, if the appropriate setting is
-        selected at the system level. Invoices are selected for application by
-        a Credit Memo using the "Apply To" feature on the Credit Memo header
-        screen.</para>
+        Memo. If the Credit Memo is being applied to an Invoice, only those
+        Line Items which appeared on the Invoice will be available for
+        selection--that is, if the appropriate setting is selected at the
+        system level. Invoices are selected for application by a Credit Memo
+        using the "Apply To" feature on the Credit Memo header screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The system-level configuration which determines
-    whether Credit Memo Items will be restricted to relevant Invoice Items is
-    the setting "Restrict Credit Memos to Items that appear on their Apply-To
-    Document." Selecting this option narrows the Credit Memo Item selection
-    process to only those Items which appeared on the Invoice the Credit Memo
-    is being applied to. If not selected, a sold Item master list will appear
-    instead when selecting Credit Memo Items for Credit Memos applied to a
-    specific Invoice. This setting has no bearing on unapplied Credit
-    Memos.</para>
+    <para>The system-level configuration which determines whether Credit Memo
+    Items will be restricted to relevant Invoice Items is the setting
+    "Restrict Credit Memos to Items that appear on their Apply-To Document."
+    Selecting this option narrows the Credit Memo Item selection process to
+    only those Items which appeared on the Invoice the Credit Memo is being
+    applied to. If not selected, a sold Item master list will appear instead
+    when selecting Credit Memo Items for Credit Memos applied to a specific
+    Invoice. This setting has no bearing on unapplied Credit Memos.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -91,73 +87,69 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>pricing of</secondary>
         </indexterm>Net Unit Price</term>
       <listitem id="listitemN0x180ac00N0x1930fcc">
         <para>Specify the Net Unit Price to assign the quantity being
-        credited.</para>
-        <para>If the Credit Memo is being applied to a
-        specific Invoice, then the system will automatically enter the Item's
-        Net Unit Price as it appeared on the referring Invoice. If no Invoice
-        is being applied-to, then select the appropriate Net Unit Price from
-        the Price list, using the browse button located to the right of the
+        credited. If the Credit Memo is being applied to a specific Invoice,
+        then the system will automatically enter the Item's Net Unit Price as
+        it appeared on the referring Invoice. If no Invoice is being
+        applied-to, then select the appropriate Net Unit Price from the Price
+        list, using the browse button located to the right of the
         field.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>If there is only one Unit Price available for the
-    Item, then that Price will be entered automatically when you select the
-    browse button located to the right of the field.</para>
+    <para>If there is only one Unit Price available for the Item, then that
+    Price will be entered automatically when you select the browse button
+    located to the right of the field.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Extended Price</term>
       <listitem id="listitemN0x180ac00N0x193105c">
-        <para>Displays the Extended Price.</para>
-        <para>The Extended Price for a Credit Memo Item is
-        based on the quantity credited multiplied by the Price.</para>
+        <para>Displays the Extended Price. The Extended Price for a Credit
+        Memo Item is based on the quantity credited multiplied by the
+        Price.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax Type</term>
       <listitem id="listitemN0x180ac00N0x19310a4">
-        <para>Specify the Tax Type for the Credit Memo Item.</para>
-        <para>By default, the Item's Tax Type corresponding to
-        the Credit Memo's Tax Authority will be presented here. The link
-        between Tax Types and Tax Authorities is made on the Item master. If
-        the Item master does not have a Tax Type for the Credit Memo's Tax
-        Authority, then no Tax will be charged.</para>
+        <para>Specify the Tax Type for the Credit Memo Item. By default, the
+        Item's Tax Type corresponding to the Credit Memo's Tax Authority will
+        be presented here. The link between Tax Types and Tax Authorities is
+        made on the Item master. If the Item master does not have a Tax Type
+        for the Credit Memo's Tax Authority, then no Tax will be
+        charged.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Tax Code</term>
       <listitem id="listitemN0x180ac00N0x19310ec">
-        <para>Specify the Tax Code to be applied to the Credit Memo
-        Item.</para>
-        <para>By default, the Tax Code specified in the Tax
-        Selection matrix will be displayed here. For a Tax Code to be used,
-        the matrix must have an entry which matches both the Item's Tax Type
-        definition and the Tax Authority specified on the Credit Memo header.
-        If no Tax Selection match exists, then no Tax Code will be
-        used--meaning no Tax will be charged.</para>
+        <para>Specify the Tax Code to be applied to the Credit Memo Item. By
+        default, the Tax Code specified in the Tax Selection matrix will be
+        displayed here. For a Tax Code to be used, the matrix must have an
+        entry which matches both the Item's Tax Type definition and the Tax
+        Authority specified on the Credit Memo header. If no Tax Selection
+        match exists, then no Tax Code will be used--meaning no Tax will be
+        charged.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The relationship between Tax Authorities, Tax Types,
-    and Tax Codes is established in the Tax Selection matrix.</para>
+    <para>The relationship between Tax Authorities, Tax Types, and Tax Codes
+    is established in the Tax Selection matrix.</para>
   </tip>
   <variablelist>
     <varlistentry>
       <term>Tax</term>
       <listitem id="listitemN0x180ac00N0x193117c">
         <para>Displays the amount of Tax to be charged for the Credit Memo
-        Line Item quantity.</para>
-        <para>Sales Tax is calculated at the Credit Memo Line
+        Line Item quantity. Sales Tax is calculated at the Credit Memo Line
         Item level. To get a detailed view of the Tax calculation, click on
         the Tax link using your mouse.</para>
       </listitem>
@@ -171,9 +163,9 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>By default, the Reason Code on the Credit Memo
-    header will be used at the Line Item level. However, you may change the
-    Reason Code for individual Line Items.</para>
+    <para>By default, the Reason Code on the Credit Memo header will be used
+    at the Line Item level. However, you may change the Reason Code for
+    individual Line Items.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -207,15 +199,14 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>discount pricing for</secondary>
         </indexterm>Discount % from List</term>
       <listitem id="listitemN0x180ac00N0x1931404">
-        <para>The default Customer discount (if any) will display here.</para>
-        <para>Default Customer discount percentages are
-        defined in the Customer master.</para>
+        <para>The default Customer discount (if any) will display here.
+        Default Customer discount percentages are defined in the Customer
+        master.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -229,13 +220,12 @@
     <varlistentry>
       <term>Receiving Whse</term>
       <listitem id="listitemN0x180ac00N0x1931494">
-        <para>Specify the Warehouse returned Inventory will be received
-        into.</para>
-        <para>Items designated as Multiple Location Control
-        Items may be received into multiple Warehouses. If this is the case,
-        be sure to specify the correct receiving Warehouse when entering a
-        Credit Memo Line Item. The receiving Warehouse will not necessarily be
-        the same Warehouse as the Warehouse the Item was shipped from.</para>
+        <para>Specify the Warehouse returned Inventory will be received into.
+        Items designated as Multiple Location Control Items may be received
+        into multiple Warehouses. If this is the case, be sure to specify the
+        correct receiving Warehouse when entering a Credit Memo Line Item. The
+        receiving Warehouse will not necessarily be the same Warehouse as the
+        Warehouse the Item was shipped from.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -246,8 +236,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

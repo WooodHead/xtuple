@@ -43,10 +43,9 @@
       <listitem id="listitemN0x180ac00N0x18d5e80">
         <para>The default address appearing in the "From" field will
         automatically be pre-populated with the email address of the user who
-        is currently logged in to the application.</para>
-        <para>User email addresses are stored with user records at the system
-        level. You may change the address in this field manually at run
-        time.</para>
+        is currently logged in to the application. User email addresses are
+        stored with user records at the system level. You may change the
+        address in this field manually at run time.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,18 +53,16 @@
       <listitem id="listitemN0x180ac00N0x18d5ec8">
         <para>If the Customer associated with the selected Sales Order has
         been set up to receive email, then the default email address for that
-        Customer will be automatically pre-populated here.</para>
-        <para>Because this is an editable field, you may change the email
-        address.</para>
+        Customer will be automatically pre-populated here. Because this is an
+        editable field, you may change the email address.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Subject</term>
       <listitem id="listitemN0x180ac00N0x18d5f10">
         <para>If EDI is set up for the Customer, then the default subject line
-        found on the Customer master will be automatically pre-populated
-        here.</para>
-        <para>Because this is an editable field, you may modify the subject
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may modify the subject
         line.</para>
       </listitem>
     </varlistentry>
@@ -73,23 +70,21 @@
       <term>Filename</term>
       <listitem id="listitemN0x180ac00N0x18d5f58">
         <para>If EDI is set up for the Customer, then the default filename
-        found on the Customer master will be automatically pre-populated
-        here.</para>
-        <para>Because this is an editable field, you may modify the filename
-        line. XML tags may be used in this field to dynamically generate
-        filename text. In the example shown in the screenshot above, the
-        filename will include the Document Type (i.e., Sales Order) and the
-        Document Number (i.e., Sales Order Number).</para>
+        found on the Customer master will be automatically pre-populated here.
+        Because this is an editable field, you may modify the filename line.
+        XML tags may be used in this field to dynamically generate filename
+        text. In the example shown in the screenshot above, the filename will
+        include the Document Type (i.e., Sales Order) and the Document Number
+        (i.e., Sales Order Number).</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Email Body</term>
       <listitem id="listitemN0x180ac00N0x18d5fa0">
         <para>If EDI is set up for the Customer, then the default email body
-        found on the Customer master will be automatically pre-populated
-        here.</para>
-        <para>This is a scrolling text field with word-wrapping. You may edit
-        the default email body.</para>
+        found on the Customer master will be automatically pre-populated here.
+        This is a scrolling text field with word-wrapping. You may edit the
+        default email body.</para>
       </listitem>
     </varlistentry>
   </variablelist>

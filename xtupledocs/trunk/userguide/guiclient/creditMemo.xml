@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590528">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>creating new</secondary>
-    </indexterm>
-<anchor id="Anchor94106" role="Cross-Ref" xreflabel="94106: Heading2: New Credit Memo"/>New Credit Memo</title>
-  <para>To create a Credit Memo, select the "New Credit Memo"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+    </indexterm> <anchor id="Anchor94106" role="Cross-Ref"
+  xreflabel="94106: Heading2: New Credit Memo" />New Credit Memo</title>
+  <para>To create a Credit Memo, select the "New Credit Memo" option. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_creditMemoNew.png" id="Graphic523497"/>
+          <imagedata fileref="images/SO_Bill_creditMemoNew.png"
+                     id="Graphic523497" />
         </imageobject>
         <caption id="Caption519389">Create New Credit Memo</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <variablelist>
     <varlistentry>
       <term>Memo #</term>
@@ -26,8 +25,8 @@
         <para>Next available Credit Memo Number will automatically display,
         unless your system requires you to enter Credit Memo Numbers
         manually.</para>
-        <para>Default values and input parameters for Credit
-        Memo Numbers are configurable at the system level.</para>
+        <para>Default values and input parameters for Credit Memo Numbers are
+        configurable at the system level.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -46,25 +45,22 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>The quickest way to fill in the Credit Memo screen
-    may be to select the Invoice you intend to credit using the "Apply To"
-    feature. If you use this feature, most of the fields in the Credit Memo
-    screen will automatically populate with the needed Customer
-    information.</para>
+    <para>The quickest way to fill in the Credit Memo screen may be to select
+    the Invoice you intend to credit using the "Apply To" feature. If you use
+    this feature, most of the fields in the Credit Memo screen will
+    automatically populate with the needed Customer information.</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>customers associated with</secondary>
         </indexterm>Customer #</term>
       <listitem id="listitemN0x180ac00N0x192618c">
         <para>Enter the Customer Number of the Customer you want to issue the
-        Credit Memo to.</para>
-        <para>The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
+        Credit Memo to. The browse button located to the right of the field
+        leads to a searchable Customers list. You may also access this list
+        using the keyboard shortcut "CTRL + L". Once a Customer Number is
         entered, the Customer name and billing address will display. Select
         the "?" or "$" symbol next to the browse button to view Customer
         information for the specified Customer. If a Customer's credit is "In
@@ -76,13 +72,12 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>Credit Memos may be entered for inactive Customers.
-    The same does not hold true for Sales Orders.</para>
+    <para>Credit Memos may be entered for inactive Customers. The same does
+    not hold true for Sales Orders.</para>
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>billing information for</secondary>
         </indexterm>Bill-To Name</term>
@@ -102,40 +97,62 @@
         <para>Displays the Customer's Bill-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
-        <para>Street Address: The Customer's Bill-To street
-        Address.</para>
-        <para>City: The Customer's Bill-To city.</para>
-        <para>State: The Customer's Bill-To state.</para>
-        <para>Postal Code: The Customer's Bill-To Postal
-        Code.</para>
-        <para>Country: The Customer's Bill-To country.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The Customer's Bill-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The Customer's Bill-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State:</term>
+            <listitem>
+              <para>The Customer's Bill-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para>The Customer's Bill-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The Customer's Bill-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Copy to Ship-to -\&gt;</term>
       <listitem id="listitemN0x180ac00N0x192633c">
         <para>Select to copy contents of billing address into Ship-To address
-        field.</para>
-        <para>This option is enabled if the Customer master
-        for the specified Customer indicates that free-form Ship-To's are
-        allowed.</para>
+        field. This option is enabled if the Customer master for the specified
+        Customer indicates that free-form Ship-To's are allowed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Ship-To #</term>
       <listitem id="listitemN0x180ac00N0x1926384">
-        <para>Enter the number of the preferred Ship-To Address.</para>
-        <para>Customers may maintain multiple Ship-To
-        Addresses. If the Customer master for the specified Customer indicates
-        that free-form Ship-To's are allowed, then any address may be entered.
-        If free-form Ship-To's are not allowed, then the Ship-To Address must
-        be entered using the browse button located to the right of the field.
-        The browse button leads to a searchable Ship-To Addresses list.</para>
+        <para>Enter the number of the preferred Ship-To Address. Customers may
+        maintain multiple Ship-To Addresses. If the Customer master for the
+        specified Customer indicates that free-form Ship-To's are allowed,
+        then any address may be entered. If free-form Ship-To's are not
+        allowed, then the Ship-To Address must be entered using the browse
+        button located to the right of the field. The browse button leads to a
+        searchable Ship-To Addresses list.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>ship-to details for</secondary>
         </indexterm>Ship-To Name</term>
@@ -155,13 +172,38 @@
         <para>Displays the specified Ship-To Address. You may manually
         override the displayed Address information in the fields below--or use
         the browse button to select another Address.</para>
-        <para>Street Address: The specified Ship-To street
-        Address.</para>
-        <para>City: The specified Ship-To city.</para>
-        <para>State: The specified Ship-To state.</para>
-        <para>Postal Code: The specified Ship-To Postal
-        Code.</para>
-        <para>Country: The specified Ship-To country.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Street Address</term>
+            <listitem>
+              <para>The specified Ship-To street Address.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>City</term>
+            <listitem>
+              <para>The specified Ship-To city.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>State</term>
+            <listitem>
+              <para>The specified Ship-To state.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Postal Code</term>
+            <listitem>
+              <para> The specified Ship-To Postal Code.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Country</term>
+            <listitem>
+              <para>The specified Ship-To country.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -169,32 +211,28 @@
       <listitem id="listitemN0x180ac00N0x19264ec">
         <para>Specify the Invoice Number of the Invoice you want to apply the
         Credit Memo to, using the browse button located to the right of the
-        field.</para>
-        <para>The list will include Invoices for the specified
-        Customer. If a Credit Memo is applied to a specific Invoice, the
-        Credit Memo may only credit Items which appeared on the chosen
-        Invoice. If for some reason the Credit Memo is applied to a closed
-        Invoice, the Credit Memo will be listed as an unapplied Credit
-        Memo.</para>
+        field. The list will include Invoices for the specified Customer. If a
+        Credit Memo is applied to a specific Invoice, the Credit Memo may only
+        credit Items which appeared on the chosen Invoice. If for some reason
+        the Credit Memo is applied to a closed Invoice, the Credit Memo will
+        be listed as an unapplied Credit Memo.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>You are not required to apply a Credit Memo to a
-    specific Invoice. If a Credit Memo is applied to an Invoice, any Credit
-    Memo Items will be returned to Inventory when the Credit Memo is
-    posted.</para>
+    <para>You are not required to apply a Credit Memo to a specific Invoice.
+    If a Credit Memo is applied to an Invoice, any Credit Memo Items will be
+    returned to Inventory when the Credit Memo is posted.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>Sales Rep.</term>
       <listitem id="listitemN0x180ac00N0x192657c">
-        <para>Specify the Sales Representative associated with the
-        Order.</para>
-        <para>By default, the Customer's designated Sales
-        Representative will appear in the field--except if you have selected
-        an Invoice to apply the Credit Memo to. In that case, the Sales
-        Representative credited with the Invoice will be selected.</para>
+        <para>Specify the Sales Representative associated with the Order. By
+        default, the Customer's designated Sales Representative will appear in
+        the field--except if you have selected an Invoice to apply the Credit
+        Memo to. In that case, the Sales Representative credited with the
+        Invoice will be selected.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -208,17 +246,15 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>tax authorities</primary>
           <secondary>for quotes</secondary>
         </indexterm>Tax Authority</term>
       <listitem id="listitemN0x180ac00N0x1926654">
-        <para>Specify the Tax Authority associated with the Quote.</para>
+        <para>Specify the Tax Authority associated with the Quote. </para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term/>
       <listitem id="listitemN0x180ac00N0x192669c">
         <para>The Tax Authority for the specified Ship-To Address will be
         entered here by default. Otherwise, the primary Tax Authority for the
@@ -231,20 +267,19 @@
       <term>Ship-To #</term>
       <listitem id="listitemN0x180ac00N0x19266e4">
         <para>Enter the number of the preferred Ship-To Address.</para>
-        <para>Customers may maintain multiple Ship-To
-        Addresses. If Pricing Schedules by Ship-To are maintained for the
-        Customer, the Ship-To Address must match the Pricing Schedule to
-        successfully issue credit for Items linked exclusively to the Pricing
-        Schedule. The browse button located to the right of the field leads to
-        a searchable Ship-To Addresses list.</para>
+        <para>Customers may maintain multiple Ship-To Addresses. If Pricing
+        Schedules by Ship-To are maintained for the Customer, the Ship-To
+        Address must match the Pricing Schedule to successfully issue credit
+        for Items linked exclusively to the Pricing Schedule. The browse
+        button located to the right of the field leads to a searchable Ship-To
+        Addresses list.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Make sure the Ship-To Address on the Credit Memo
-    matches the Ship-To Address on the Customer's Pricing Schedule. If they
-    don"t match, you won"t be able to issue credit for exclusively sold
-    Items.</para>
+    <para>Make sure the Ship-To Address on the Credit Memo matches the Ship-To
+    Address on the Customer's Pricing Schedule. If they don"t match, you won"t
+    be able to issue credit for exclusively sold Items.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -266,23 +301,21 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>hold options for</secondary>
         </indexterm>Place on Hold</term>
       <listitem id="listitemN0x180ac00N0x192684c">
-        <para>Select to place Credit Memo on hold.</para>
-        <para>If a Credit Memo is placed on hold, it cannot be
-        posted. You would place a Credit Memo on hold, for example, to allow
-        time for producing and processing a Return Material Authorization
-        (RMA) document. To remove a hold and allow posting of a Credit Memo,
-        de-select this option.</para>
+        <para>Select to place Credit Memo on hold. If a Credit Memo is placed
+        on hold, it cannot be posted. You would place a Credit Memo on hold,
+        for example, to allow time for producing and processing a Return
+        Material Authorization (RMA) document. To remove a hold and allow
+        posting of a Credit Memo, de-select this option.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
@@ -299,40 +332,37 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>
-<indexterm significance="normal">
+  <para><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>adding line items to</secondary>
     </indexterm>To create or modify Credit Memo Line Items, select the "Line
   Items" tab at the top of the "Credit Memo" screen. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_credMemLineItems.png" id="Graphic551633"/>
+          <imagedata fileref="images/SO_Bill_credMemLineItems.png"
+                     id="Graphic551633" />
         </imageobject>
         <caption id="Caption551636">Credit Memo Line Items</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating or modifying Credit Memo Line Items, you
-  are presented with the following options:</para>
+    </screenshot></para>
+  <para>When creating or modifying Credit Memo Line Items, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Line Items</term>
       <listitem id="listitemN0x180ac00N0x1926a20">
         <para>Display lists Sales Order Line Item quantities that have been
-        returned and selected for credit.</para>
-        <para>Line Items are added to a Credit Memo using the
-        NEW ITEM button.</para>
+        returned and selected for credit. Line Items are added to a Credit
+        Memo using the NEW ITEM button.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Before creating a new Credit Memo Line Item, be sure
-    to specify an Invoice to apply the Credit Memo to. The "Apply To" feature
-    is found on the Credit Memo header screen.</para>
+    <para>Before creating a new Credit Memo Line Item, be sure to specify an
+    Invoice to apply the Credit Memo to. The "Apply To" feature is found on
+    the Credit Memo header screen.</para>
   </tip>
   <variablelist>
     <varlistentry>
@@ -342,8 +372,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>credit memos</primary>
           <secondary>charges related to</secondary>
         </indexterm>Misc. Charge Amount</term>
@@ -378,11 +407,10 @@
       <term>Tax</term>
       <listitem id="listitemN0x180ac00N0x1926c60">
         <para>Displays the total amount of Tax to be charged on the Credit
-        Memo.</para>
-        <para>Sales Tax is calculated at the Credit Memo Line
-        Item level. The Tax amount displayed here represents the total for all
-        Line Item Tax amounts. To get a detailed view of the Tax calculation,
-        click on the Tax link using your mouse.</para>
+        Memo. Sales Tax is calculated at the Credit Memo Line Item level. The
+        Tax amount displayed here represents the total for all Line Item Tax
+        amounts. To get a detailed view of the Tax calculation, click on the
+        Tax link using your mouse.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -392,8 +420,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
@@ -434,21 +462,19 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To add Notes to a Credit Memo, select the "Notes" tab
-  at the top of the "Credit Memo" screen. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To add Notes to a Credit Memo, select the "Notes" tab at the top of
+  the "Credit Memo" screen. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Bill_credMemNotes.png" id="Graphic551698"/>
+          <imagedata fileref="images/SO_Bill_credMemNotes.png"
+                     id="Graphic551698" />
         </imageobject>
         <caption id="Caption551701">Credit Memo Notes</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When adding Notes to a Credit Memo, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When adding Notes to a Credit Memo, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Notes</term>
@@ -461,8 +487,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
@@ -478,5 +504,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="creditMemoItem.xml" xpointer="element(/1)"/>
+  <xi:include href="creditMemoItem.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

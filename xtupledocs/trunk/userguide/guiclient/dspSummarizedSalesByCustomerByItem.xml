@@ -33,17 +33,17 @@
       <term id="Para518904">Customer #</term>
       <listitem>
         <para id="Para">Enter the Customer Number of the Customer whose
-        summarized Sales history by Item you want to display.</para>
-        <para id="Para518905">The browse button located to the right of the
-        field leads to a searchable Customers list. You may also access this
-        list using the keyboard shortcut "CTRL + L". Once a Customer Number is
-        entered, the Customer name and billing address will display. Select
-        the "?" or "$" symbol next to the browse button to view Customer
-        information for the specified Customer. If a Customer's credit is "In
-        Good Standing," the button will feature a black question mark ("?")
-        icon. If the icon turns to an orange dollar sign ("$"), the Customer's
-        credit Status is "On Credit Warning." A red dollar sign ("$")
-        indicates the Customer's credit Status is "On Credit Hold."</para>
+        summarized Sales history by Item you want to display. The browse
+        button located to the right of the field leads to a searchable
+        Customers list. You may also access this list using the keyboard
+        shortcut "CTRL + L". Once a Customer Number is entered, the Customer
+        name and billing address will display. Select the "?" or "$" symbol
+        next to the browse button to view Customer information for the
+        specified Customer. If a Customer's credit is "In Good Standing," the
+        button will feature a black question mark ("?") icon. If the icon
+        turns to an orange dollar sign ("$"), the Customer's credit Status is
+        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
+        credit Status is "On Credit Hold."</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -78,12 +78,27 @@
       <term id="Para535721">Order By</term>
       <listitem>
         <para>Order the output by one of the following methods:</para>
-        <para id="Para533925">Item Number: Select to order Items in display by
-        Item Number.</para>
-        <para id="Para533929">Quantity Volume: Select to order Items in
-        display by quantity volume.</para>
-        <para id="Para533930">Sales Volume: Select to order Items in display
-        by sales volume.</para>
+        <variablelist>
+          <varlistentry>
+            <term>Item Number</term>
+            <listitem>
+              <para>Select to order Items in display by Item Number.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Quantity Volume</term>
+            <listitem>
+              <para>Select to order Items in display by quantity
+              volume.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Sales Volume</term>
+            <listitem>
+              <para>Select to order Items in display by sales volume.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>

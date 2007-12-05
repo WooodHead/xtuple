@@ -23,9 +23,8 @@
     <varlistentry>
       <term>Search for Invoice Number</term>
       <listitem id="listitemN0x180ac00N0x191c648">
-        <para>Enter an Invoice Number or Regular Expression.</para>
-        <para>This field may be used independently or in conjunction with the
-        date fields.</para>
+        <para>Enter an Invoice Number or Regular Expression. This field may be
+        used independently or in conjunction with the date fields.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -54,26 +53,33 @@
     <varlistentry>
       <term>Invoices</term>
       <listitem id="listitemN0x180ac00N0x191c768">
-        <para>Display lists previously printed Invoices.</para>
-        <para>Highlight the individual Invoice or group of Invoices you want
-        to re-print using your mouse button. To select a sequence of Invoices,
-        highlight the first in the sequence using your mouse button. Then,
-        holding down the SHIFT key on your keyboard, highlight the last
-        Invoice in the sequence. The entire sequence is now selected. To
-        select Invoices that are out of sequence, highlight the first Invoice
-        in the group. Then, holding down the CTRL key on your keyboard,
-        highlight the next Invoice you want to select. Continue highlighting
-        Invoices with the CTRL key depressed until all desired Invoices are
-        selected. The entire group is now ready for re-printing.</para>
+        <para>Display lists previously printed Invoices. Highlight the
+        individual Invoice or group of Invoices you want to re-print using
+        your mouse button. To select a sequence of Invoices, highlight the
+        first in the sequence using your mouse button. Then, holding down the
+        SHIFT key on your keyboard, highlight the last Invoice in the
+        sequence. The entire sequence is now selected. To select Invoices that
+        are out of sequence, highlight the first Invoice in the group. Then,
+        holding down the CTRL key on your keyboard, highlight the next Invoice
+        you want to select. Continue highlighting Invoices with the CTRL key
+        depressed until all desired Invoices are selected. The entire group is
+        now ready for re-printing.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Invoice Copies</term>
       <listitem id="listitemN0x180ac00N0x191c7b0">
         <para>Specify details for the Invoice copies you want to print:</para>
-        <para># of Copies: Indicate the number of copies you want to re-print.
-        Information about the specified copies will display below. To add a
-        Watermark, double-click on a copy line.</para>
+        <variablelist>
+          <varlistentry>
+            <term># of Copies</term>
+            <listitem>
+              <para>Indicate the number of copies you want to re-print.
+              Information about the specified copies will display below. To
+              add a Watermark, double-click on a copy line.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
   </variablelist>

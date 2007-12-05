@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="priceList">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>line item pricing for</secondary>
     </indexterm>Price List</title>
-  <para>To enter the net Unit Price for a Sales Order Line
-  Item, select the browse button located to the right of the "Net Unit Price"
-  field. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To enter the net Unit Price for a Sales Order Line Item, select the
+  browse button located to the right of the "Net Unit Price" field. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_Ord_priceList.png" id="Graphic603258"/>
+          <imagedata fileref="images/SO_Ord_priceList.png" id="Graphic603258" />
         </imageobject>
         <caption id="Caption603261">Sales Order Item Price List</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When entering the net Unit Price for a Sales Order
-  Line Item, you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When entering the net Unit Price for a Sales Order Line Item, you are
+  presented with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Customer #</term>
       <listitem id="listitemN0x180ac00N0x18acf1c">
-        <para>Displays the Customer associated with the specified Sales
-        Order.</para>
-        <para>The name of the Customer will also be
-        displayed.</para>
+        <para>Displays the Customer associated with the specified Sales Order.
+        The name of the Customer will also be displayed.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -54,15 +50,13 @@
       <term>Items</term>
       <listitem id="listitemN0x180ac00N0x18ad03c">
         <para>Display lists available pricing for the specified Sales Order
-        Line Item.</para>
-        <para>Currency values and conversions Currency will
-        also be shown if your system is configured to use multiple
-        Currencies.</para>
+        Line Item. Currency values and conversions Currency will also be shown
+        if your system is configured to use multiple Currencies.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
