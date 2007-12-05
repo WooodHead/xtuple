@@ -53,6 +53,7 @@ BEGIN
         FROM coitem, itemsite, item
        WHERE ((coitem_itemsite_id=itemsite_id) 
          AND (coitem_status <> ''X'')
+         AND  (NOT ((item_type = ''R'',''J'') OR (itemsite_controlmethod = ''N''))) 
          AND (itemsite_item_id=item_id) 
          AND (coitem_id=porderitemid));
     END IF;
@@ -69,6 +70,7 @@ BEGIN
        AND  (itemsite_warehous_id=tohead_src_warehous_id) 
        AND  (itemsite_item_id=item_id) 
        AND  (toitem_status <> ''X'')
+       AND  (NOT ((item_type = ''R'',''J'') OR (itemsite_controlmethod = ''N''))) 
        AND  (toitem_id=porderitemid));
   ELSE
     RETURN -11;
