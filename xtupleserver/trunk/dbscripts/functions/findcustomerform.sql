@@ -75,9 +75,9 @@ BEGIN
   ELSIF (pFormType = ''Q'') THEN
     RETURN ''Quote'';
   ELSIF (pFormType = ''P'') THEN
-    RETURN ''PackingList'';
+    RETURN ''PackingList-Shipment'';
   ELSIF (pFormType = ''L'') THEN
-    RETURN ''PackingList'';	-- ToDo: fix when we add full soPickList support
+    RETURN ''PackingList'';
   END IF;
 
 END;

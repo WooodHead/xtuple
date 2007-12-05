@@ -1,11 +1,11 @@
 
 CREATE OR REPLACE FUNCTION formatShipmentNumber(INTEGER) RETURNS TEXT IMMUTABLE AS '
 DECLARE
-  pCosmiscid    ALIAS FOR $1;
+  pshipheadid    ALIAS FOR $1;
 BEGIN
-  RETURN ( SELECT COALESCE(cosmisc_number::TEXT, '''')
-           FROM cosmisc
-           WHERE (cosmisc_id=pCosmiscid) );
+  RETURN ( SELECT COALESCE(shiphead_number::TEXT, '''')
+           FROM shiphead
+           WHERE (shiphead_id=pshipheadid) );
 END;
 ' LANGUAGE 'plpgsql';
 
