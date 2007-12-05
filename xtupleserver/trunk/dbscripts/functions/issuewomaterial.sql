@@ -59,6 +59,7 @@ BEGIN
          itemsite_loccntrl, itemsite_controlmethod,
          womatl_wo_id,
          roundQty(item_fractional, itemuomtouom(itemsite_item_id, womatl_uom_id, NULL, pQty)) AS qty,
+         wo_id,
          formatWoNumber(wo_id) AS woNumber,
          womatl_issuemethod AS issueMethod INTO _p
   FROM wo, womatl, itemsite, item
@@ -82,6 +83,11 @@ BEGIN
    AND (pi.itemsite_costcat_id=pc.costcat_id)
    AND (ci.itemsite_id=_p.c_itemsite_id)
    AND (pi.itemsite_id=_p.p_itemsite_id) );
+
+--  Create linkage to the transaction created
+
+  INSERT INTO womatlpost (womatlpost_wo_id,womatlpost_invhist_id)
+              VALUES (_p.wo_id,_invhistid);
 
 --  Increase the parent W/O''s WIP value by the value of the issued components
   UPDATE wo
