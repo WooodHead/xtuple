@@ -33,6 +33,12 @@ BEGIN
   END IF;
 
   IF (_ordertype = ''SO'') THEN
+
+      IF (SELECT (item_type != ''J'')
+          FROM coitem, itemsite, item
+          WHERE ((coitem_id=_ordertemid)
+          AND (coitem_itemsite_id=itemsite_id)
+          AND (itemsite_item_id=item_id))) THEN
     SELECT postInvTrans( itemsite_id, ''RS'', _qty * coitem_qty_invuomratio,
 			 ''S/R'', _ordertype, formatSoNumber(coitem_id), '''',
 			 ''Return from Shipping'',
@@ -42,6 +48,29 @@ BEGIN
     WHERE ((_orderitemid=coitem_id)
       AND  (coitem_itemsite_id=itemsite_id)
       AND  (itemsite_costcat_id=costcat_id));
+      
+      ELSE
+        SELECT insertGLTransaction( ''S/R'', ''RS'', formatSoNumber(_orderitemid), ''Return from Shipping'',
+                                     costcat_shipasset_accnt_id,
+				     costcat_wip_accnt_id,
+                                     -1, _value, current_date ) INTO _invhistid
+        FROM coitem, itemsite, costcat
+        WHERE ( (coitem_itemsite_id=itemsite_id)
+         AND (itemsite_costcat_id=costcat_id)
+         AND (coitem_id=pitemid) )
+        GROUP BY costcat_shipasset_accnt_id,costcat_wip_accnt_id;
+
+
+  --  Update the work order about what happened
+        UPDATE wo SET 
+          wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
+          wo_wipvalue = wo_wipvalue + _value,
+          wo_status =''I''
+        FROM coitem
+        WHERE ((wo_ordtype = ''S'')
+        AND (wo_ordid = _ordertemid)
+        AND (coitem_id = _orderitemid));
+      END IF;
 
   ELSEIF (_ordertype = ''TO'') THEN
     SELECT postInvTrans( itemsite_id, ''RS'', _qty,

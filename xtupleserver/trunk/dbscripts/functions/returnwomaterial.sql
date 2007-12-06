@@ -5,7 +5,6 @@ DECLARE
   pQty ALIAS FOR $2;
   pItemlocSeries ALIAS FOR $3;
   _woNumber TEXT;
-  _woid INTEGER;
   _invhistid INTEGER;
   _itemlocSeries INTEGER;
   _qty NUMERIC;
@@ -29,7 +28,7 @@ BEGIN
     _qty := pQty;
   END IF;
 
-  SELECT womatl_wo_id, formatWoNumber(womatl_wo_id) INTO _woid, _woNumber
+  SELECT formatWoNumber(womatl_wo_id) INTO _woNumber
   FROM womatl
   WHERE (womatl_id=pWomatlid);
 
@@ -52,8 +51,8 @@ BEGIN
      AND (womatl_id=pWomatlid) );
 
 --  Create linkage to the transaction created
-  INSERT INTO womatlpost (womatlpost_wo_id,womatlpost_invhist_id)
-              VALUES (_woid,_invhistid);
+  INSERT INTO womatlpost (womatlpost_womatl_id,womatlpost_invhist_id)
+              VALUES (pWomatlid,_invhistid);
 
 --  Decrease the parent W/O''s WIP value by the value of the returned components
   UPDATE wo

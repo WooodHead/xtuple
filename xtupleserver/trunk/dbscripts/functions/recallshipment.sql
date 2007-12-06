@@ -19,6 +19,7 @@ DECLARE
   _shiphead		RECORD;
   _to			RECORD;
   _ti			RECORD;
+  _value                NUMERIC;
 
 BEGIN
 
@@ -58,7 +59,7 @@ BEGIN
                                        AND (shiphead_shipped)
                                        AND (shiphead_id=pshipheadid)))) FOR UPDATE LOOP
 
-      SELECT SUM(shipitem_qty) INTO _qty
+      SELECT SUM(shipitem_qty),SUM(shipitem_value) INTO _qty, _value
       FROM shipitem
       WHERE ( (shipitem_orderitem_id=_co.coitem_id)
        AND (shipitem_shiphead_id=pshipheadid) );
@@ -90,7 +91,7 @@ BEGIN
 				        ELSE resolveCOSAccount(itemsite_id, _h.cust_id)
                                    END,
                                    costcat_shipasset_accnt_id, -1,
-				   (stdcost(itemsite_item_id) * (_qty * _co.coitem_qty_invuomratio)),
+				   _value,
 				   _timestamp::DATE )
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)

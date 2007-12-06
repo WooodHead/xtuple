@@ -65,14 +65,14 @@ BEGIN
 
 
   --  Update the work order about what happened
-      UPDATE wo SET 
-        wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
-        wo_wipvalue = wo_wipvalue + _value,
-        wo_status =''I''
-      FROM coitem
-      WHERE ((wo_ordtype = ''S'')
-      AND (wo_ordid = pItemid)
-      AND (coitem_id = pItemid));
+        UPDATE wo SET 
+          wo_qtyrcv = wo_qtyrcv - _qty * coitem_qty_invuomratio,
+          wo_wipvalue = wo_wipvalue + _value,
+          wo_status =''I''
+        FROM coitem
+        WHERE ((wo_ordtype = ''S'')
+        AND (wo_ordid = pItemid)
+        AND (coitem_id = pItemid));
       END IF;
 
     ELSEIF (pordertype = ''TO'') THEN
