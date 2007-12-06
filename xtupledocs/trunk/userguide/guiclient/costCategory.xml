@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="costCategory">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cost categories</primary>
       <secondary>creating new</secondary>
     </indexterm>Cost Category</title>
   <para>To create a new Cost Category, select the NEW button. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic677973" fileref="images/costCategory.png"/>
+          <imagedata fileref="images/costCategory.png" id="Graphic677973" />
         </imageobject>
         <caption id="Caption677976">Create New Cost Category</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>The Account Numbers assigned to Cost Categories should not all be
     the Inventory Account. Instead, they should be individual accounts
@@ -53,7 +51,8 @@
       <listitem id="listitemN0x180ac00N0x1845114">
         <para>Identify a General Ledger (G/L) Account to distribute
         work-in-process (WIP) assets to. This is an Asset Account. It will be
-        credited and/or debited with labor, material, and <indexterm significance="normal">
+        credited and/or debited with labor, material, and <indexterm
+            significance="normal">
             <primary>overhead</primary>
             <secondary>linking to wip assets</secondary>
           </indexterm>overhead Costs while a Work Order is in-process. The
@@ -151,13 +150,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>P/O Line Freight Expense</term>
+      <term>Line Freight Expense</term>
       <listitem id="listitemN0x180ac00N0x184dbf8">
         <para>Identify a General Ledger (G/L) Account to distribute Purchase
-        Order Line Item freight expenses to. This is an Expense Account. It
-        will be debited when Purchase Order Line Items are received. The
-        Account may be debited or credited when correcting Purchase Order
-        Receipts.</para>
+        Order or Transfer Order Line Item freight expenses to. This is an
+        Expense Account. It will be debited when Purchase Order or Transfer
+        Order Line Items are received. The Account may be debited or credited
+        when correcting Purchase Order Receipts.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Transfer Order Liability Clearing</term>
+      <listitem>
+        <para>Identify a General Ledger (G/L) Account to distribute Transfer
+        Order Liability Clearing to. This is a Liability Account. It is used
+        for recognizing liability related to transportation costs related to
+        Transfer Orders. It will be credited when Transfer Orders receipts
+        having freight charges are posted. It should be debited when the
+        Freight (or other Vendor) is paid by Miscellaneous Check.</para>
       </listitem>
     </varlistentry>
   </variablelist>

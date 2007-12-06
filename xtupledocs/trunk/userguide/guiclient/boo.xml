@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519487" role="openmfg">
   <title>Enter New Bill of Operations</title>
   <para>To enter a new Bill of Operations, select the "Enter New Bill of
   Operations" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic563082" fileref="images/boo.png"/>
+          <imagedata fileref="images/boo.png" id="Graphic563082" />
         </imageobject>
         <caption id="Caption519492">Create New Bill of Operations</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Bill of Operations, you are presented with the
   following options:</para>
   <variablelist>
@@ -31,8 +30,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>operations</primary>
           <secondary>expired from BOOs</secondary>
         </indexterm> <indexterm significance="normal">
@@ -49,8 +47,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>operations</primary>
           <secondary>adding to BOOs in future</secondary>
         </indexterm> <indexterm significance="normal">
@@ -68,16 +65,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Revision</term>
+      <listitem id="listitemN0x180ac00N0x18b2080">
+        <para>Enter text to describe the revision--if any.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>Document #</term>
       <listitem id="listitemN0x180ac00N0x18b2038">
         <para>If desired, enter a document number to further identify the Bill
         of Materials.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <term>Revision</term>
-      <listitem id="listitemN0x180ac00N0x18b2080">
-        <para>Enter text to describe the revision--if any.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -96,8 +93,7 @@
   </note>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>work in process</primary>
           <secondary>boo-defined locations for</secondary>
         </indexterm> <indexterm significance="normal">
@@ -105,21 +101,20 @@
           <secondary>wip locations and</secondary>
         </indexterm>Final Location</term>
       <listitem id="listitemN0x180ac00N0x18b21e8">
-        <para>Select a final work-in-process (WIP) Location.</para>
-        <para>This is an optional selection which may be used for tracking the
-        Warehouse Locations of finished goods Inventory as it moves through
-        the manufacturing process. The feature applies only to top-level,
-        Multiple Location Control (MLC) Items whose production is posted
-        through Work Order Operations posting. If you choose to track finished
-        MLC goods using this feature, then the final Location is the Location
-        where Inventory will be located when Operations posting for the Work
-        Order is completed. If you do not wish to track WIP Locations for
-        finished MLC goods, then you can ignore this option.</para>
+        <para>Select a final work-in-process (WIP) Location. This is an
+        optional selection which may be used for tracking the Warehouse
+        Locations of finished goods Inventory as it moves through the
+        manufacturing process. The feature applies only to top-level, Multiple
+        Location Control (MLC) Items whose production is posted through Work
+        Order Operations posting. If you choose to track finished MLC goods
+        using this feature, then the final Location is the Location where
+        Inventory will be located when Operations posting for the Work Order
+        is completed. If you do not wish to track WIP Locations for finished
+        MLC goods, then you can ignore this option.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>bills of operations</primary>
           <secondary>production lead times in</secondary>
         </indexterm> <indexterm significance="normal">
@@ -134,6 +129,13 @@
         Operations, whichever Execution Day value is the maximum, that value
         will be displayed as the production Lead Time for the Bill of
         Operations.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Close W/O when full Qty. Posted</term>
+      <listitem>
+        <para>Select to automatically close Work Orders when the full Work
+        Order quantity is posted when posting Operations.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -231,25 +233,33 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booVIEW)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booEDIT)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>Expire</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booEXPIRE)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booEXPIRE)" />
     </varlistentry>
     <varlistentry>
       <term>Move Up</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booMOVEUP)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booMOVEUP)" />
     </varlistentry>
     <varlistentry>
       <term>Move Down</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(booMOVEDOWN)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(booMOVEDOWN)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="booItem.xml" xpointer="element(/1)"/>
+  <xi:include href="booItem.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>
