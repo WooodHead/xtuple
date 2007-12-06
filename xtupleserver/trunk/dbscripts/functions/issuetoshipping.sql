@@ -231,10 +231,10 @@ BEGIN
       shipitem_transdate, shipitem_trans_username, shipitem_value )
     SELECT
       _shipheadid, pitemid, pQty,
-      _timestamp, CURRENT_USER, stdcost(itemsite_item_id)
-    FROM toitem, itemsite
-    WHERE ((toitem=pitemid)
-    AND (itemsite_id=toitem_itemsite_id));
+      _timestamp, CURRENT_USER, stdcost(item_id)
+    FROM toitem, item
+    WHERE ((toitem_id=pitemid)
+    AND (item_id=toitem_item_id));
 
   ELSE
     RETURN -11;
