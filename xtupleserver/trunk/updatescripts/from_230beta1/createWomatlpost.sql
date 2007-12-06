@@ -2,7 +2,7 @@ BEGIN;
 
 CREATE TABLE womatlpost (
   womatlpost_id SERIAL PRIMARY KEY,
-  womatlpost_wo_id INTEGER REFERENCES wo (wo_id),
+  womatlpost_womatl_id INTEGER REFERENCES womatl (womatl_id),
   womatlpost_invhist_id INTEGER REFERENCES invhist (invhist_id)
 );
 
