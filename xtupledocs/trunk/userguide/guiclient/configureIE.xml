@@ -82,26 +82,28 @@
   following buttons are available:</para>
   <variablelist>
     <varlistentry>
-      <term>New</term>
+      <term>NEW</term>
       <listitem>
         <para>Opens the screen for entering new XSLT import and export
         filters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Edit</term>
+      <term>EDIT</term>
       <listitem>
         <para>Opens the screen for editing existing XSLT import and export
         filters.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Delete</term>
+      <term>DELETE</term>
       <listitem>
         <para>Delete existing XSLT import and export filters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
+  <para>To create a new XSLT Map, select the NEW button. The following screen
+  will appear:</para>
   <screenshot>
     <mediaobject>
       <imageobject>
@@ -110,7 +112,8 @@
       <caption><para>XSLT Map</para></caption>
     </mediaobject>
   </screenshot>
-  <para>The XSLT Map screen presents you with the following options:</para>
+  <para>When creating a new XSLT Map, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Map Name</term>
@@ -131,7 +134,7 @@
         Identifier columns to find the correct filter to use when importing
         the file.</para>
         <para>The Document Type of an XML file is the name of its root
-        element. </para>
+        element.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -171,7 +174,7 @@
     <para>Exporting XML is not currently supported by xTuple. At this time the
     <guilabel>Export XSLT File Name</guilabel> on the XSLT Map window and the
     <guilabel>XML Export</guilabel> tab on the <guilabel>Configure Import and
-    Export</guilabel> window are placeholders for future development. </para>
+    Export</guilabel> window are placeholders for future development.</para>
   </note>
   <para>To the far right of the screen, the following buttons are
   available:</para>
@@ -212,33 +215,43 @@
         XSLT stylesheet to a given XML document you need an XSLT processor.
         This is a program that interprets or compiles the XSLT and then
         performs the transformation on the XML file.</para>
-        <para>Each XSLT processor has its own command-line syntax.
-        <guilabel>Use External XSLT Processor. Commands:</guilabel> lets you
-        define the command line that the xTuple application should execute to
-        perform the transformation. Two arguments that will always be required
-        are the name of the XSLT file which describes the transformation and
-        the XML file to be transformed. When typing the command line that
-        should be run to call the XSLT processor, put %f where the XSLT
-        processor expects to find the name of the XML file and %x where the
-        XSLT processor expects to find the name of the XSLT file.</para>
-        <para>In the figure you see three different XSLT processors defined.
-        Each has its own syntax, which is reflected by the differences in the
-        sequence of options and the way run-time parameters are passed to the
-        stylesheets. Note that <command>msxsl.exe</command> takes the XML and
-        XSLT files in a different order than the other two processors.</para>
-        <para>XSLT run-time parameters let you write a stylesheet with default
-        values that can be changed when you run a transformation without
-        editing the stylesheet itself. In this example, written to use
-        xTuple's stylesheet for importing Yahoo! orders, the
-        customer_default_tax_authority parameter is set to INET; when Customer
-        records are created they will all be assigned the tax authority
-        INET.</para>
+        <note>
+          <para>Each XSLT processor has its own command-line syntax.</para>
+        </note>
+        <variablelist>
+          <varlistentry>
+            <term>Use External XSLT Processor. Commands</term>
+            <listitem>
+              <para>Lets you define the command line that the xTuple
+              application should execute to perform the transformation. Two
+              arguments that will always be required are the name of the XSLT
+              file which describes the transformation and the XML file to be
+              transformed. When typing the command line that should be run to
+              call the XSLT processor, put %f where the XSLT processor expects
+              to find the name of the XML file and %x where the XSLT processor
+              expects to find the name of the XSLT file.</para>
+              <para>In the figure you see three different XSLT processors
+              defined. Each has its own syntax, which is reflected by the
+              differences in the sequence of options and the way run-time
+              parameters are passed to the stylesheets. Note that
+              <command>msxsl.exe</command> takes the XML and XSLT files in a
+              different order than the other two processors.</para>
+              <para>XSLT run-time parameters let you write a stylesheet with
+              default values that can be changed when you run a transformation
+              without editing the stylesheet itself. In this example, written
+              to use xTuple's stylesheet for importing Yahoo! orders, the
+              customer_default_tax_authority parameter is set to INET; when
+              Customer records are created they will all be assigned the tax
+              authority INET.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Default Import File Directories</term>
       <listitem>
-        <para>This names the directoryon each platform that the xTuple
+        <para>This names the directory on each platform that the xTuple
         application will search when the user wants to import XML files. It is
         used to populate the <guilabel>Import XML</guilabel> window.</para>
       </listitem>
