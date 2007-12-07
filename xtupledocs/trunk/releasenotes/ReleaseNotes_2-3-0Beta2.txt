@@ -129,8 +129,9 @@ by Planner Code screen
 why Work Centers cannot be deleted
 * [System] Improves server maintenance utility to add reindex 
 after VACUUM FULL ANALYZE
-* [System] Prevented users from being able to overwrite 
-successfully imported XML files
+* [System] Successfully imported XML files are given unique 
+names when renaming them instead of trying to overwrite 
+previously-imported files with the same name 
 * [System] Fixed commission mismatch between api.custshipto 
 and Ship-To Screen
 * [System] Fixed issue generating error when importing Yahoo 
