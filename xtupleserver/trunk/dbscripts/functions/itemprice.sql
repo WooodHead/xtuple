@@ -52,19 +52,21 @@ BEGIN
 -- First get a sales price if any so we when we find other prices
 -- we can determine if we want that price or this price.
 --  Check for a Sale Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid,
+  SELECT currToCurr(ipshead_curr_id, pCurrid,
                       ipsprice_price - (ipsprice_price * cust_discntprcnt),
-                      pEffective)) INTO _sales
+                      pEffective) INTO _sales
   FROM ipsprice, ipshead, sale, cust
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (sale_ipshead_id=ipshead_id)
    AND (CURRENT_DATE BETWEEN sale_startdate AND sale_enddate)
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsprice_item_id=pItemid)
-   AND (cust_id=pCustid) );
+   AND (cust_id=pCustid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
 --  Check for a Customer Shipto Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective)) INTO _price
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
@@ -72,7 +74,9 @@ BEGIN
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsprice_item_id=pItemid)
    AND (ipsass_shipto_id != -1)
-   AND (ipsass_shipto_id=pShiptoid) );
+   AND (ipsass_shipto_id=pShiptoid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -82,7 +86,7 @@ BEGIN
   END IF;
 
 --  Check for a Customer Shipto Pattern Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective)) INTO _price
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM ipsprice, ipshead, ipsass, shipto
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
@@ -92,7 +96,9 @@ BEGIN
    AND (COALESCE(length(ipsass_shipto_pattern), 0) > 0)
    AND (shipto_num ~ ipsass_shipto_pattern)
    AND (ipsass_cust_id=pCustid)
-   AND (shipto_id=pShiptoid) );
+   AND (shipto_id=pShiptoid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -102,7 +108,7 @@ BEGIN
   END IF;
 
 --  Check for a Customer Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective)) INTO _price
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM ipsprice, ipshead, ipsass
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
@@ -110,7 +116,9 @@ BEGIN
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsprice_item_id=pItemid)
    AND (COALESCE(length(ipsass_shipto_pattern), 0) = 0)
-   AND (ipsass_cust_id=pCustid) );
+   AND (ipsass_cust_id=pCustid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -120,7 +128,7 @@ BEGIN
   END IF;
 
 --  Check for a Customer Type Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective)) INTO _price
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM ipsprice, ipshead, ipsass, cust
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
@@ -128,7 +136,9 @@ BEGIN
    AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsprice_item_id=pItemid)
-   AND (cust_id=pCustid) );
+   AND (cust_id=pCustid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
@@ -138,7 +148,7 @@ BEGIN
   END IF;
 
 --  Check for a Customer Type Pattern Price
-  SELECT MIN(currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective)) INTO _price
+  SELECT currToCurr(ipshead_curr_id, pCurrid, ipsprice_price, pEffective) INTO _price
   FROM ipsprice, ipshead, ipsass, custtype, cust
   WHERE ( (ipsprice_ipshead_id=ipshead_id)
    AND (ipsass_ipshead_id=ipshead_id)
@@ -148,7 +158,9 @@ BEGIN
    AND (CURRENT_DATE BETWEEN ipshead_effective AND (ipshead_expires - 1))
    AND (ipsprice_qtybreak <= pQty)
    AND (ipsprice_item_id=pItemid)
-   AND (cust_id=pCustid) );
+   AND (cust_id=pCustid) )
+  ORDER BY ipsprice_qtybreak DESC, ipsprice_price ASC
+  LIMIT 1;
 
   IF (_price IS NOT NULL) THEN
     IF ((_sales IS NOT NULL) AND (_sales < _price)) THEN
