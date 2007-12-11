@@ -68,7 +68,11 @@ CREATE OR REPLACE RULE "_INSERT" AS
     quitem_order_warehous_id,
     quitem_item_id,
     quitem_prcost,
-    quitem_tax_id)
+    quitem_tax_id,
+    quitem_qty_uom_id,
+    quitem_qty_invuomratio,
+    quitem_price_uom_id,
+    quitem_price_invuomratio)
   SELECT
     getQuoteId(NEW.quote_number),
     COALESCE(NEW.line_number,(
@@ -97,7 +101,11 @@ CREATE OR REPLACE RULE "_INSERT" AS
              SELECT tax_id
              FROM tax
              WHERE ((tax_id=getTaxSelection(quhead_taxauth_id,
-	           getItemTaxType(itemsite_item_id, quhead_taxauth_id))))))
+	           getItemTaxType(itemsite_item_id, quhead_taxauth_id)))))),
+    item_inv_uom_id,
+    1.0,
+    item_price_uom_id,
+    itemuomtouomratio(item_id, item_price_uom_id, NULL)
   FROM quhead, itemsite, item, whsinfo
   WHERE ((quhead_id=getQuoteId(NEW.quote_number))
   AND (itemsite_id=getItemsiteId(COALESCE(NEW.sold_from_whs,(
