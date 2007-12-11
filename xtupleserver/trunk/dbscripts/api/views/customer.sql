@@ -187,7 +187,7 @@ INSERT INTO custinfo
         VALUES (
 	COALESCE(NEW.active,true),
 	COALESCE(getcusttypeid(NEW.customer_type),FetchMetricValue('DefaultCustType')),
-        getSalesRepId(NEW.sales_rep),
+        COALESCE(getSalesRepId(NEW.sales_rep),FetchMetricValue('DefaultSalesRep')),
         COALESCE(NEW.commission * .01,(
           SELECT salesrep_commission
           FROM salesrep
@@ -197,7 +197,7 @@ INSERT INTO custinfo
         COALESCE(NEW.credit_rating,FetchMetricText('SOCreditRate')),
         COALESCE(NEW.accepts_backorders,FetchMetricBool('DefaultBackOrders'),false),
         COALESCE(NEW.accepts_partial_shipments,FetchMetricBool('DefaultPartialShipments'::text),false),
-        getTermsId(NEW.default_terms),
+        COALESCE(getTermsId(NEW.default_terms),FetchMetricValue('DefaultTerms')),
         COALESCE(NEW.default_discount,0),
 	CASE 
 	  WHEN NEW.balance_method='Balance Forward' THEN

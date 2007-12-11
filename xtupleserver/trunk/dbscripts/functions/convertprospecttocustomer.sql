@@ -32,11 +32,33 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
     INSERT INTO custinfo (
           cust_id, cust_active, cust_number,
           cust_name, cust_cntct_id, cust_taxauth_id,
-          cust_comments, cust_creditstatus
-    ) VALUES (
+          cust_comments, cust_creditstatus,
+          cust_salesrep_id, cust_terms_id,
+          cust_custtype_id, cust_shipform_id,
+          cust_shipvia, cust_balmethod,
+          cust_ffshipto, cust_backorder,
+          cust_partialship, cust_creditlmt,
+          cust_creditrating, cust_commprcnt,
+          cust_discntprcnt, cust_blanketpos,
+          cust_shipchrg_id) 
+    SELECT
         _p.prospect_id, _p.prospect_active, _p.prospect_number,
         _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxauth_id,
-        _p.prospect_comments, ''G'');
+        _p.prospect_comments, ''G'',
+        FetchMetricValue(''DefaultSalesRep''),
+        FetchMetricValue(''DefaultTerms''),
+        FetchMetricValue(''DefaultCustType''),
+        FetchMetricValue(''DefaultShipFormId''),
+        COALESCE(FetchMetricValue(''DefaultShipViaId''),-1),
+        FetchMetricText(''DefaultBalanceMethod''),
+        FetchMetricBool(''DefaultFreeFormShiptos''),
+        FetchMetricBool(''DefaultBackOrders''),
+        FetchMetricBool(''DefaultPartialShipments''),
+        FetchMetricValue(''SOCreditLimit''),
+        FetchMetricText(''SOCreditRate''),
+        salesrep_commission,
+        0, false, -1
+    FROM salesrep WHERE (salesrep_id=FetchMetricValue(''DefaultSalesRep''));
 
     UPDATE crmacct SET crmacct_cust_id=pProspectId,
                        crmacct_prospect_id=NULL
