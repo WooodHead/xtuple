@@ -35,6 +35,9 @@ BEGIN
 		      tohead_taxauth_id,
 		      tohead_freight,		tohead_freight_curr_id,
 		      tohead_freighttax_id,
+                      tohead_freighttax_pcta,   tohead_freighttax_pctb,
+                      tohead_freighttax_pctc,   tohead_freighttax_ratea,
+                      tohead_freighttax_rateb,  tohead_freighttax_ratec,
 		      tohead_shipcomplete,	tohead_ordercomments,
 		      tohead_shipcomments
 	      ) VALUES (
@@ -55,10 +58,13 @@ BEGIN
 		      _head.tohead_destcntct_name,  _head.tohead_destphone,
 		      _head.tohead_agent_username,  _head.tohead_shipvia,
 		      _head.tohead_shipform_id,	    _head.tohead_shipchrg_id,
-		      NULL,
-		      _head.tohead_freight,	   _head.tohead_freight_curr_id,
-		      NULL,
-		      _head.tohead_shipcomplete,     _head.tohead_ordercomments,
+		      _head.tohead_taxauth_id,
+		      _head.tohead_freight,	    _head.tohead_freight_curr_id,
+		      _head.tohead_freighttax_id,
+                      _head.tohead_freighttax_pcta, _head.tohead_freighttax_pctb,
+                      _head.tohead_freighttax_pctc, _head.tohead_freighttax_ratea,
+                      _head.tohead_freighttax_rateb,_head.tohead_freighttax_ratec,
+		      _head.tohead_shipcomplete,    _head.tohead_ordercomments,
 		      _head.tohead_shipcomments);
 
   _toheadid := CURRVAL(''tohead_tohead_id_seq'');
@@ -68,13 +74,19 @@ BEGIN
 		      toitem_duedate,
 		      toitem_schedshipdate,
 		      toitem_qty_ordered,	toitem_uom,	toitem_stdcost,	
-		      toitem_freight,	toitem_freight_curr_id, toitem_notes
+		      toitem_freight,	toitem_freight_curr_id, toitem_freighttax_id,
+                      toitem_freighttax_pcta, toitem_freighttax_pctb, toitem_freighttax_pctc,
+                      toitem_freighttax_ratea, toitem_freighttax_rateb, toitem_freighttax_ratec,
+                      toitem_notes
 	      ) SELECT _toheadid,	toitem_linenumber,	toitem_item_id,
 		      ''O'',
 		      CURRENT_DATE + COALESCE(d.itemsite_leadtime, 0) + COALESCE(t.itemsite_leadtime, 0),
 		      CURRENT_DATE,
 		      toitem_qty_ordered,	toitem_uom,	stdcost(toitem_item_id),
-		      toitem_freight,	toitem_freight_curr_id, toitem_notes
+		      toitem_freight,	toitem_freight_curr_id, toitem_freighttax_id,
+                      toitem_freighttax_pcta, toitem_freighttax_pctb, toitem_freighttax_pctc,
+                      toitem_freighttax_ratea, toitem_freighttax_rateb, toitem_freighttax_ratec,
+                      toitem_notes
 		FROM toitem
 		     LEFT OUTER JOIN itemsite d ON (
 			    (toitem_item_id=d.itemsite_item_id)
