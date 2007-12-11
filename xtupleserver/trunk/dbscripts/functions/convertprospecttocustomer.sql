@@ -40,7 +40,10 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
           cust_partialship, cust_creditlmt,
           cust_creditrating, cust_commprcnt,
           cust_discntprcnt, cust_blanketpos,
-          cust_shipchrg_id) 
+          cust_shipchrg_id, cust_ffbillto,
+          cust_usespos, cust_emaildelivery,
+          cust_autoupdatestatus,cust_autoholdorders,
+          cust_soemaildelivery) 
     SELECT
         _p.prospect_id, _p.prospect_active, _p.prospect_number,
         _p.prospect_name, _p.prospect_cntct_id, _p.prospect_taxauth_id,
@@ -57,7 +60,8 @@ CREATE OR REPLACE FUNCTION convertProspectToCustomer(INTEGER) RETURNS INTEGER AS
         FetchMetricValue(''SOCreditLimit''),
         FetchMetricText(''SOCreditRate''),
         salesrep_commission,
-        0, false, -1
+        0, false, -1,false,false,false,false,
+        false,false
     FROM salesrep WHERE (salesrep_id=FetchMetricValue(''DefaultSalesRep''));
 
     UPDATE crmacct SET crmacct_cust_id=pProspectId,
