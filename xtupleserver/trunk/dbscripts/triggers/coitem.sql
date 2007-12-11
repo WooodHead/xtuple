@@ -293,8 +293,7 @@ BEGIN
            (NEW.coitem_qtyshipped >= _r.raitem_qtyauthorized) AND
            (_r.raitem_status = ''O'') AND
            (_r.raitem_disposition IN (''P'',''V'')) AND
-           (((_r.rahead_timing=''R'') AND (_r.raitem_qtyreceived >= _r.raitem_qtyauthorized))
-           OR (_r.rahead_timing=''I''))) THEN
+           (_r.raitem_qtyreceived >= _r.raitem_qtyauthorized)) THEN
           UPDATE raitem SET raitem_status = ''C'' 
           WHERE (raitem_new_coitem_id=NEW.coitem_id);
         END IF;
