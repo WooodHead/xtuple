@@ -174,7 +174,11 @@ BEGIN
 			  _ra.rahead_number::TEXT,
 			  ''Receive Inventory from '' || _ordertypeabbr,
 			  costcat_asset_accnt_id,
-			  resolveCORAccount(_r.itemsite_id, _ra.rahead_cust_id),
+			  CASE WHEN (_ra.raitem_warranty) THEN
+			    resolveCOWAccount(_r.itemsite_id,_ra.rahead_cust_id)
+			  ELSE
+			    resolveCORAccount(_r.itemsite_id,_ra.rahead_cust_id)
+			  END,
 			  _itemlocSeries, _glDate) INTO _tmp
       FROM itemsite, costcat
       WHERE ( (itemsite_costcat_id=costcat_id)
