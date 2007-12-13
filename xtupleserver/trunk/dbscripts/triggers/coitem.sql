@@ -255,6 +255,43 @@ BEGIN
   END IF;
 
   IF (TG_OP = ''UPDATE'') THEN
+--  If closing or cancelling and there is a job item work order, then close job and distribute remaining costs
+    IF ((NEW.coitem_status = ''C'' AND OLD.coitem_status <> ''C'')
+     OR (NEW.coitem_status = ''X'' AND OLD.coitem_status <> ''X''))
+     AND (OLD.coitem_order_id > -1) THEN
+
+      SELECT wo_id, wo_postedvalue-wo_wipvalue as value INTO _r
+       FROM wo,itemsite,item
+      WHERE ((wo_ordtype=''S'')
+      AND (wo_ordid=OLD.coitem_id)
+      AND (itemsite_id=wo_itemsite_id)
+      AND (item_id=itemsite_item_id)
+      AND (item_type = ''J''));
+
+      IF (FOUND) THEN
+
+        UPDATE wo SET
+          wo_status = ''C'',
+          wo_wipvalue = wo_wipvalue-_r.value
+        WHERE (wo_id = _r.wo_id);
+
+        IF (_r.value > 0) THEN
+        --  Distribute to G/L, debit Cost of Sales, credit WIP
+          PERFORM MIN(insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(NEW.coitem_order_id), ''Job Closed Incomplete'',
+                                       costcat_wip_accnt_id,
+				        CASE WHEN(COALESCE(NEW.coitem_cos_accnt_id, -1) != -1) THEN NEW.coitem_cos_accnt_id
+                                          WHEN(NEW.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, cohead_cust_id)
+                                          ELSE resolveCOSAccount(itemsite_id, cohead_cust_id)
+                                       END,
+                                       -1,  _r.value, current_date ))
+          FROM itemsite, costcat, cohead
+          WHERE ((itemsite_id=NEW.coitem_itemsite_id)
+           AND (itemsite_costcat_id=costcat_id)
+           AND (cohead_id=NEW.coitem_cohead_id));
+        END IF;
+      END IF;
+    END IF;
+
 --  Handle links to Return Authorization
     IF (fetchMetricBool(''EnableReturnAuth'')) THEN 
       SELECT * INTO _r 
