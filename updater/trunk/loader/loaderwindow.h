@@ -98,6 +98,7 @@ protected slots:
 private:
     int _dbTimerId;
     bool _multitrans;
+    bool _premultitransfile;
 
 };
 

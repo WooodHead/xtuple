@@ -87,6 +87,7 @@ LoaderWindow::LoaderWindow(QWidget* parent, const char* name, Qt::WindowFlags fl
   (void)statusBar();
 
   _multitrans = false;
+  _premultitransfile = false;
   _package = 0;
   _files = 0;
   _dbTimerId = startTimer(60000);
@@ -278,6 +279,34 @@ void LoaderWindow::fileOpen()
   _text->append(tr("<p><b>NOTE</b>: Have you backed up your database? If not, you should "
                    "backup your database now. It is good practice to backup a database "
                    "before updating it.</p>"));
+
+  /*
+  single vs multiple transaction functionality was added at around the same
+  time as OpenMFG/PostBooks 2.3.0 was being developed. before 2.3.0, update
+  scripts from xTuple (OpenMFG, LLC) assumed multiple transactions (one per
+  file within the package). take advantage of the update package naming
+  conventions to see if we've been given a pre-2.3.0 file and *need* to use
+  multiple transactions.
+  */
+  _premultitransfile = false;
+  QString destver = filename;
+  // if follows OpenMFG/xTuple naming convention
+  if (destver.contains(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?"
+			       "to"
+			       "[1-9][0-9][0-9]((alpha|beta|rc)[1-9])?.gz$")))
+  {
+    qDebug("%s", destver.toAscii().data());
+    destver.remove(QRegExp(".*/?[12][0123][0-9]((alpha|beta|rc)[1-9])?to"));
+    qDebug("%s", destver.toAscii().data());
+    destver.remove(QRegExp("((alpha|beta|rc)[1-9])?.gz$"));
+    qDebug("%s", destver.toAscii().data());
+    // now destver is just the destination release #
+    if (destver.toInt() < 230)
+      _premultitransfile = true;
+  }
+  else
+    qDebug("not one of our old files");
+
   _start->setEnabled(true);
 }
 
@@ -320,6 +349,12 @@ void LoaderWindow::timerEvent( QTimerEvent * e )
 }
 
 
+/*
+ use _multitrans to see if the user requested a single transaction wrapped
+ around the entire import
+ but use _premultitransfile to see if we need multiple transactions
+ even if the user requested one.
+ */
 void LoaderWindow::sStart()
 {
   _start->setEnabled(false);
@@ -329,7 +364,7 @@ void LoaderWindow::sStart()
     prefix = _package->id() + "/";
 
   QSqlQuery qry;
-  if(!_multitrans)
+  if(!_multitrans && !_premultitransfile)
     qry.exec("begin;");
 
   // update scripts here
@@ -354,7 +389,7 @@ void LoaderWindow::sStart()
     int r = 0;
     while(again) {
       again = false;
-      if(_multitrans)
+      if(_multitrans || _premultitransfile)
         qry.exec("begin;");
       if(!qry.exec(sql))
       {
@@ -366,12 +401,12 @@ void LoaderWindow::sStart()
                       .arg(err.driverText())
                       .arg(err.databaseText());
         _text->append(tr("<p>"));
-        if(_multitrans && script.onError() == Script::Ignore)
+        if((_multitrans || _premultitransfile) && script.onError() == Script::Ignore)
           _text->append(tr("<font color=orange>%1</font><br>").arg(message));
         else
           _text->append(tr("<font color=red>%1</font><br>").arg(message));
         qry.exec("rollback;");
-        if(!_multitrans)
+        if(!_multitrans && !_premultitransfile)
         {
           _text->append(tr("<p>"));
           _text->append(tr("<font color=red>The upgrade has been aborted due to an error and your database was rolled back to the state it was in when the upgrade was initiated.</font><br>"));
@@ -406,7 +441,7 @@ void LoaderWindow::sStart()
         }
       }
     }
-    if(_multitrans)
+    if(_multitrans || _premultitransfile)
       qry.exec("commit;");
     _progress->setValue(_progress->value() + 1);
   }
@@ -520,7 +555,7 @@ void LoaderWindow::sStart()
 
   _progress->setValue(_progress->value() + 1);
 
-  if(!_multitrans)
+  if(!_multitrans && !_premultitransfile)
     qry.exec("commit;");
 
   _text->append(tr("<p>The Update is now complete!</p>"));
