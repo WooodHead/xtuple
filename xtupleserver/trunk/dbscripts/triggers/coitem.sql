@@ -260,7 +260,7 @@ BEGIN
      OR (NEW.coitem_status = ''X'' AND OLD.coitem_status <> ''X''))
      AND (OLD.coitem_order_id > -1) THEN
 
-      SELECT wo_id, wo_postedvalue-wo_wipvalue as value INTO _r
+      SELECT wo_id, wo_wipvalue INTO _r
        FROM wo,itemsite,item
       WHERE ((wo_ordtype=''S'')
       AND (wo_ordid=OLD.coitem_id)
@@ -269,13 +269,7 @@ BEGIN
       AND (item_type = ''J''));
 
       IF (FOUND) THEN
-
-        UPDATE wo SET
-          wo_status = ''C'',
-          wo_wipvalue = wo_wipvalue-_r.value
-        WHERE (wo_id = _r.wo_id);
-
-        IF (_r.value > 0) THEN
+        IF (_r.wo_wipvalue > 0) THEN
         --  Distribute to G/L, debit Cost of Sales, credit WIP
           PERFORM MIN(insertGLTransaction( ''W/O'', ''WO'', formatWoNumber(NEW.coitem_order_id), ''Job Closed Incomplete'',
                                        costcat_wip_accnt_id,
@@ -283,12 +277,18 @@ BEGIN
                                           WHEN(NEW.coitem_warranty=TRUE) THEN resolveCOWAccount(itemsite_id, cohead_cust_id)
                                           ELSE resolveCOSAccount(itemsite_id, cohead_cust_id)
                                        END,
-                                       -1,  _r.value, current_date ))
+                                       -1,  _r.wo_wipvalue, current_date ))
           FROM itemsite, costcat, cohead
           WHERE ((itemsite_id=NEW.coitem_itemsite_id)
            AND (itemsite_costcat_id=costcat_id)
            AND (cohead_id=NEW.coitem_cohead_id));
         END IF;
+
+        UPDATE wo SET
+          wo_status = ''C'',
+          wo_wipvalue = 0
+        WHERE (wo_id = _r.wo_id);
+
       END IF;
     END IF;
 
