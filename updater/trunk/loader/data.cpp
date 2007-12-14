@@ -70,7 +70,7 @@ QString _name = QObject::tr("Update Manager");
 #endif
 
 
-QString _copyright = QObject::tr("Copyright (c) 2004-2005, OpenMFG, LLC");
+QString _copyright = QObject::tr("Copyright (c) 2004-2007, OpenMFG, LLC");
 QString _version = QObject::tr("1.1");
 
 QString _user;
