@@ -1,0 +1,5 @@
+CREATE OR REPLACE FUNCTION formatSoNumber(INTEGER) RETURNS TEXT AS '
+SELECT COALESCE((SELECT (text(cohead_number) || ''-'' || text(coitem_linenumber))
+                   FROM coitem JOIN cohead ON (coitem_cohead_id=cohead_id)
+                  WHERE (coitem_id=($1))),''DELETED'');
+' LANGUAGE 'SQL';
