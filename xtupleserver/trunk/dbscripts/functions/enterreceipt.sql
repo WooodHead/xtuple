@@ -23,8 +23,9 @@ BEGIN
     AND  (recv_orderitem_id=porderitemid) );
 
   IF (pQty > 0) THEN
-    SELECT orderhead_number,
-	   orderitem_id,
+    IF (fetchbool(''MultiWhs'')) THEN
+      SELECT orderhead_number,
+  	   orderitem_id,
 	   orderhead_agent_username,
 	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
 		WHEN (pordertype=''TO'') THEN
@@ -46,12 +47,36 @@ BEGIN
 	   orderitem_unitcost,
 	   orderitem_unitcost_curr_id,
 	   orderhead_curr_id AS freight_curr_id INTO _o
-      FROM orderhead, orderitem LEFT OUTER JOIN
+        FROM orderhead, orderitem LEFT OUTER JOIN
 	   poitem ON (orderitem_orderhead_type=''PO'' AND orderitem_id=poitem_id)
-      WHERE ((orderhead_id=orderitem_orderhead_id)
-        AND  (orderhead_type=orderitem_orderhead_type)
-	AND  (orderitem_id=porderitemid)
-	AND  (orderitem_orderhead_type=pordertype));
+        WHERE ((orderhead_id=orderitem_orderhead_id)
+          AND  (orderhead_type=orderitem_orderhead_type)
+	  AND  (orderitem_id=porderitemid)
+	  AND  (orderitem_orderhead_type=pordertype));
+    ELSE
+     SELECT orderhead_number,
+	   orderitem_id,
+	   orderhead_agent_username,
+	   CASE WHEN (orderitem_itemsite_id = -1) THEN NULL
+           ELSE orderitem_itemsite_id
+	   END AS itemsite_id,
+	   CASE WHEN (pordertype=''PO'') THEN orderhead_from_id
+		ELSE NULL
+	   END AS vend_id,
+	   COALESCE(poitem_vend_item_number, '''') AS vend_item_number,
+	   COALESCE(poitem_vend_item_descrip, '''') AS vend_item_descrip,
+	   COALESCE(poitem_vend_uom, '''') AS vend_uom,
+	   orderitem_scheddate AS duedate,
+	   orderitem_unitcost,
+	   orderitem_unitcost_curr_id,
+	   orderhead_curr_id AS freight_curr_id INTO _o
+        FROM orderhead, orderitem LEFT OUTER JOIN
+	   poitem ON (orderitem_orderhead_type=''PO'' AND orderitem_id=poitem_id)
+        WHERE ((orderhead_id=orderitem_orderhead_id)
+          AND  (orderhead_type=orderitem_orderhead_type)
+	  AND  (orderitem_id=porderitemid)
+	  AND  (orderitem_orderhead_type=pordertype));
+    END IF;
 
       IF (NOT FOUND) THEN
 	RETURN -1;
