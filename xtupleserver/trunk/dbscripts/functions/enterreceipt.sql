@@ -23,7 +23,7 @@ BEGIN
     AND  (recv_orderitem_id=porderitemid) );
 
   IF (pQty > 0) THEN
-    IF (fetchbool(''MultiWhs'')) THEN
+    IF (fetchmetricbool(''MultiWhs'')) THEN
       SELECT orderhead_number,
   	   orderitem_id,
 	   orderhead_agent_username,
