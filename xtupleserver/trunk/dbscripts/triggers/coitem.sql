@@ -293,13 +293,17 @@ BEGIN
     END IF;
 
 --  Likewise, reopen the job if line reopened
-    IF ((NEW.coitem_status = ''C'' AND OLD.coitem_status <> ''C'')
-     OR (NEW.coitem_status = ''X'' AND OLD.coitem_status <> ''X''))
+    IF ((NEW.coitem_status != ''C'' AND OLD.coitem_status = ''C'')
+     OR (NEW.coitem_status != ''X'' AND OLD.coitem_status = ''X''))
      AND (OLD.coitem_order_id > -1) THEN
         UPDATE wo SET
           wo_status = ''I''
+        FROM itemsite, item
         WHERE ((wo_ordtype = ''S'')
-         AND (wo_ordid=NEW.coitem_id));
+         AND (wo_ordid=NEW.coitem_id)
+         AND (wo_itemsite_id=itemsite_id)
+         AND (itemsite_item_id=item_id)
+         AND (item_type=''J''));
     END IF;
 
 --  Handle links to Return Authorization
