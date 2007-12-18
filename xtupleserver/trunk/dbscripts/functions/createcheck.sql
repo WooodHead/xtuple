@@ -90,7 +90,7 @@ BEGIN
     _journalNumber,		pFor,			pNotes,
     _bankaccnt_currid );
 
-  IF (pAropenid IS NOT NULL) THEN
+  IF (pAropenid IS NOT NULL AND fetchmetricbool(''EnableReturnAuth'')) THEN
     INSERT INTO checkitem (checkitem_checkhead_id,checkitem_amount,checkitem_discount,checkitem_ponumber,
                            checkitem_aropen_id,checkitem_docdate,checkitem_curr_id,checkitem_cmnumber,
                            checkitem_ranumber)
@@ -98,6 +98,15 @@ BEGIN
     FROM aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
       LEFT OUTER JOIN rahead ON (cmhead_rahead_id=rahead_id)
+    WHERE ((aropen_id=pAropenid)
+    AND (cmhead_number=aropen_docnumber));
+  ELSIF (pAropenid IS NOT NULL) THEN
+    INSERT INTO checkitem (checkitem_checkhead_id,checkitem_amount,checkitem_discount,checkitem_ponumber,
+                           checkitem_aropen_id,checkitem_docdate,checkitem_curr_id,checkitem_cmnumber,
+                           checkitem_ranumber)
+    SELECT _checkid,pAmount,0,cmhead_custponumber,pAropenid,aropen_docdate,pCurrid,cmhead_number,NULL
+    FROM aropen
+      LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
     WHERE ((aropen_id=pAropenid)
     AND (cmhead_number=aropen_docnumber));
   END IF;
