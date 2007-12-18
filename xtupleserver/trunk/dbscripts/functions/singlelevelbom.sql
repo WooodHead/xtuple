@@ -8,16 +8,24 @@ DECLARE
   _bomworksetid INTEGER;
   _x RECORD;
   _check CHAR(1);
+  _inactive BOOLEAN;
+
 BEGIN
 
-  --Is this a deactivated revision?
-  SELECT rev_status INTO _check
-  FROM rev
-  WHERE ((rev_id=pRevisionid)
-  AND (rev_status=''I''));
-  
-  IF (NOT FOUND) THEN
+  _inactive := FALSE;
 
+  IF (pRevisionid != -1) THEN
+    --Is this a deactivated revision?
+    SELECT rev_status INTO _check
+    FROM rev
+    WHERE ((rev_id=pRevisionid)
+    AND (rev_status=''I''));
+    IF (FOUND) THEN
+      _inactive := TRUE;
+    END IF;
+  END IF;
+ 
+  IF NOT (_inactive) THEN
     FOR _x IN
         SELECT bomitem_id, bomitem_seqnumber, item_id, item_number, uom_name,
                item_descrip1, item_descrip2,

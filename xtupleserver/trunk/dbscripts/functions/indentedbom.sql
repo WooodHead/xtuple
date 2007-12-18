@@ -77,15 +77,22 @@ DECLARE
   _bomworksetid INTEGER;
   _x RECORD;
   _check CHAR(1);
+  _inactive BOOLEAN;
 BEGIN
+  _inactive := FALSE;
 
-  --Is this a deactivated revision?
-  SELECT rev_status INTO _check
-  FROM rev
-  WHERE ((rev_id=pRevisionid)
-  AND (rev_status=''I''));
-  
-  IF (NOT FOUND) THEN
+  IF (pRevisionid != -1) THEN
+    --Is this a deactivated revision?
+    SELECT rev_status INTO _check
+    FROM rev
+    WHERE ((rev_id=pRevisionid)
+    AND (rev_status=''I''));
+    IF (FOUND) THEN
+      _inactive := TRUE;
+    END IF;
+  END IF;
+ 
+  IF NOT (_inactive) THEN
 
     --We can explode this out based on current data
     SELECT indentedBOM(pItemid, pRevisionid) INTO _bomworksetid;  
@@ -165,8 +172,6 @@ BEGIN
 
   ELSE
 
-  END IF;
-
 -- Use historical snapshot for inactive revisions
     FOR _x IN
         SELECT bomhist_id, bomhist_parent_id, bomhist_level,
@@ -237,7 +242,7 @@ BEGIN
         _row.bomdata_stdextendedcost := _x.stdextendedcost;
         RETURN NEXT _row;
     END LOOP;
-    
+  END IF;   
 
   RETURN;
 END;
