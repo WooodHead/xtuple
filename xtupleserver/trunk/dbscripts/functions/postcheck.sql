@@ -168,8 +168,8 @@ BEGIN
           arapply_journalnumber, arapply_applied, arapply_curr_id )
         VALUES
         ( _p.checkhead_recip_id, _p.checkhead_checkdate, CURRENT_USER,
-          -1, ''K'', _p.checkhead_number,
-          _r.aropen_id, _r.aropen_doctype, _r.aropen_docnumber,
+          _r.aropen_id,_r.aropen_doctype, _r.aropen_docnumber,
+          -1, ''K'',_p.checkhead_number ,
           _journalNumber, _r.checkitem_amount, _r.checkitem_curr_id );
 
       END IF; -- if check item''s aropen_id is not null

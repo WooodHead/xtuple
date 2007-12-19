@@ -107,8 +107,7 @@ BEGIN
     SELECT _checkid,pAmount,0,cmhead_custponumber,pAropenid,aropen_docdate,pCurrid,cmhead_number,NULL
     FROM aropen
       LEFT OUTER JOIN cmhead ON (aropen_docnumber=cmhead_number)
-    WHERE ((aropen_id=pAropenid)
-    AND (cmhead_number=aropen_docnumber));
+    WHERE ((aropen_id=pAropenid));
   END IF;
   
 
