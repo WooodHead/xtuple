@@ -342,9 +342,10 @@ BEGIN
         END IF;
         IF ((OLD.coitem_qtyshipped <> NEW.coitem_qtyshipped) AND 
            (NEW.coitem_qtyshipped >= _r.raitem_qtyauthorized) AND
+           ((_r.raitem_disposition = ''S'') OR
            (_r.raitem_status = ''O'') AND
            (_r.raitem_disposition IN (''P'',''V'')) AND
-           (_r.raitem_qtyreceived >= _r.raitem_qtyauthorized)) THEN
+           (_r.raitem_qtyreceived >= _r.raitem_qtyauthorized))) THEN
           UPDATE raitem SET raitem_status = ''C'' 
           WHERE (raitem_new_coitem_id=NEW.coitem_id);
         END IF;
