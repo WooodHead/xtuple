@@ -85,7 +85,7 @@ BEGIN
     SELECT (COALESCE((SELECT SUM(itemloc_qty) 
 			FROM itemloc 
 		       WHERE (itemloc_itemsite_id=itemsite_id)), 0.0) >= roundQty(item_fractional, 
-			      COALESCE(25, noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
+			      COALESCE(pQty, noNeg( coitem_qtyord - coitem_qtyshipped + coitem_qtyreturned - 
 			      qtyAtShipping(pordertype, coitem_id) )) * coitem_qty_invuomratio
 			     )) INTO _isqtyavail 
       FROM coitem, itemsite, item
