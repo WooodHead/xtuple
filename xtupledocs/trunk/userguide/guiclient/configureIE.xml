@@ -2,7 +2,7 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="configureIE">
-  <title>Configure Import and Export</title>
+  <title id="configureIE.title">Configure Import and Export</title>
   <para>The Import and Export configuration allows you to set options for
   importing data from XML files as an alternative to the CSV Import tool.
   These data might be generated manually or by other database or e-commerce
@@ -60,7 +60,8 @@
   options:</para>
   <variablelist>
     <varlistentry>
-      <term>Default XSLT File Directories</term>
+      <term id="configureIE.defaultXSLTdirectory">Default XSLT File
+      Directories</term>
       <listitem>
         <para>The XSLT files used to perform the translation between XML data
         formats must be present on the filesystem of the computer which is
@@ -249,7 +250,8 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Default Import File Directories</term>
+      <term id="configureIE.defaultImportDirectory">Default Import File
+      Directories</term>
       <listitem>
         <para>This names the directory on each platform that the xTuple
         application will search when the user wants to import XML files. It is
@@ -264,7 +266,8 @@
         which lead to errors during import will be left in place.</para>
         <variablelist>
           <varlistentry>
-            <term>Do nothing after successful import</term>
+            <term id="configureIE.filehandling.donothing">Do nothing after
+            successful import</term>
             <listitem>
               <para>If you choose this option then the application will leave
               imported files unchanged in the import directory.</para>
