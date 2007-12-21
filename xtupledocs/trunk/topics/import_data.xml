@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section>
+  <title>Topics: Importing Data</title>
+  <para>Imagine the following:</para>
+  <informalexample>
+    <para>You've finished your evaluation of the xTuple applications and have
+    decided to use PostBooks for your ERP needs. How do you move your legacy
+    data from your old accounting package to the PostBooks database?</para>
+  </informalexample>
+  <para>Or perhaps you are in a different situation:</para>
+  <informalexample>
+    <para>You've been using OpenMFG for several years. Your boss has decided
+    you need to open a web storefront. How do you integrate that web system
+    with your OpenMFG database?</para>
+  </informalexample>
+  <para>The general problem is the same in both situations - you need to
+  import data to an xTuple database. In the case of the implementing
+  PostBooks, the data are coming from some other database system, while for
+  the web storefront you receive new orders as text files using email or ftp
+  or some other file transfer mechanism. How do you get these data into your
+  database so the xTuple application can use them?</para>
+  <para>This section will use the web storefront as an example to show the
+  different ways you can import data into your xTuple database and the
+  relative merits and problems with each. It is not a tutorial on the various
+  technologies involved but rather is intended to introduce you to your
+  options and to help you choose how to import your data for use by PostBooks
+  or OpenMFG.</para>
+  <section>
+    <title>Tables vs. API Views</title>
+    <para>advantages of the API Views:</para>
+    <para>populating auxiliary tables</para>
+    <para>serial column values and foreign keys</para>
+    <para>when to use the tables directly</para>
+    <para>choosing a solution for our example problem</para>
+  </section>
+  <section>
+    <title>Direct Import</title>
+    <para>SQL insert statements</para>
+    <para>Stored procedures for extra processing power</para>
+    <para>how to solve our sample problem directly</para>
+  </section>
+  <section>
+    <title>CSV Import</title>
+    <para>uses existing structure</para>
+    <para>serial numbers</para>
+    <para>how to solve our sample problem with csv import - is it even
+    possible?</para>
+  </section>
+  <section>
+    <title>XML Import</title>
+    <para>XML, the Extensible Markup Language, is a World Wide Web Consortium
+    standard for structuring, transferring, and processing data on the Web.
+    The newer versions of HTML are XML documents. Many e-commerce sites use
+    XML files to communicate with their users. For example Yahoo! uses XML to
+    send orders to the companies that have Yahoo! storefronts; in turn these
+    companies send XML files back to Yahoo! to describe their catalogs.</para>
+    <para>The xTuple applications support importing XML files. The complexity
+    comes from having to deal with many XML formats for incoming data, some of
+    which may be structured very differently from xTuple's database
+    schema.</para>
+    <para>If you can convert incoming XML files to a format that matches
+    xTuple's expectations, you're in good shape. This is where the API views
+    and a basic knowledge of DTD's and XSLT come in handy. What? You don't
+    know what a DTD is? XSLT looks like a collision of fingers on a
+    keyboard?</para>
+    <para>DTD stands for Document Type Definition. It's the part of the XML
+    standard that describes what a well-formed document looks like. This
+    exists so both the creator and recipient of a document know what to expect
+    and so software can ensure that a document is complete. For example, it
+    would be difficult to communicate sales order information without both
+    parties knowing the sales order number, so a DTD for a sales order
+    document would have a manditory tag for the sales order number.</para>
+    <para>xTuple has created a DTD that parallels the API views described
+    above. As we expand the set of views in the API we'll also expand the DTD
+    to include them. This DTD is called the <literal>xtupleapi.dtd</literal>
+    and is in the <filename>share/xml</filename> directory of the
+    <literal>xtuple</literal> source tree.</para>
+    <para>Yahoo! also has a DTD, one which describes the sales orders it
+    collects from Yahoo! stores and sends to its users. This is the
+    <literal>OrderList2.dtd</literal> and is available from Yahoo!.</para>
+    <para>As an example of how you can import XML files into an xTuple
+    database, we have written an XSLT stylesheet to convert a Yahoo! order
+    list to a file that matches the <literal>xtupleapi.dtd</literal>. </para>
+    <para>converting from format X to xtuple xml</para>
+    <para>supplying missing data - parameterizing your xslt</para>
+    <para>how to solve our sample problem with xml import</para>
+  </section>
+  <section>
+    <title>Obtaining the Tools</title>
+    <para></para>
+  </section>
+</section>
