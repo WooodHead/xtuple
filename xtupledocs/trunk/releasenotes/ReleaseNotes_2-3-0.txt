@@ -5,10 +5,14 @@ Version 2.3.0 - Final
 December 21, 2007
 
 
-This is the final release for version 2.3.0 of OpenMFG and PostBooks. The complete list of changes incorporated in the release can be found below. Meanwhile, here is a brief summary of the major new features introduced in 2.3.0:
+This is the final release for version 2.3.0 of OpenMFG and PostBooks. 
+The complete list of changes incorporated into the release can be 
+found below. Meanwhile, here is a brief summary of the major new 
+features introduced in 2.3.0:
 
 * Return Authorizations
   - See issue #4832 at xTuple.org for a detailed spec
+  - Includes Job Costing support
 * XML Data Import/Export
   - See issue #5886 for more information
 * UOM Enhancements
@@ -17,30 +21,83 @@ This is the final release for version 2.3.0 of OpenMFG and PostBooks. The comple
   - See issue #5771 for a detailed spec
 * Sales Order Reservations
   - See issue #5438 for more information
-* UI configuration memory to
+* UI configuration memory
 * Characteristic Templates
-* Job Costing Support
 
 
-
-
-NOTES: Remember to test any custom reports prior to upgrading, as some custom reports may need to be modified to comply with new or changed xTuple applications functionality. For example, in 2.3, users now have the ability to write miscellaneous Checks to both Customers and Tax Authorities. To take advantage of this new feature, any custom APCheck reports will need to be updated per the new default (i.e., Grade=0) APCheck report. Also: The default Packing List report definition has been updated to reflect the new, wide-ranging Unit of Measure conversion functionality. 
-
-
+PLEASE NOTE: Users are reminded that custom reports may need to be 
+modified as part of the upgrade process, as application changes 
+sometimes require us to change the queries in the standard reports. 
+In an effort to help you identify which reports have had their 
+queries changed (and how those queries have been changed), we are 
+providing for the first time with this release a detailed diff/listing 
+of all changed queries--including the nature of any changes. This 
+information will be available for any users in a file called 
+reports221to230.txt.
 
 ==================================
 
-The following features and bug fixes have been added to the application 
-since the release of version 2.3.0RC1:
+The following features and bug fixes have been added to the 
+application since the release of version 2.3.0RC1:
 
 
 New Features:
 
-* 
+* [Inventory] Added support for bar code scanning of serial numbers 
+on bar code distribution screens
 
 Bug Fixes:
 
-*  
+* [A/P] Fixed PostBooks-only issue preventing creation of Misc. 
+Checks for Customers
+* [A/P] Made query automatic when jumping to Show Reservations sub 
+windows
+* [G/L] Enlarged start/end date fields on Bank Reconciliation screen
+* [Accounting] Fixed default ApCheck.xml report definition to show 
+Customer or Tax Authority name
+* [Accounting] Fixed issue where Misc. Customer Check were not properly 
+closing the Credit Memos they were applied to
+* [Accounting] Fixed issue where R/A Line Items were not being closed 
+after being shipped completely
+* [Accounting] Fixed error received when applying Misc. Checks to 
+Customers using wrong Currency
+* [Accounting] Added more multi-currency support to Bank Reconciliation 
+screen
+* [Accounting] Added support for R/A related documents to View Check 
+Run screen
+* [All] Made push buttons in Mac client have more consistently rounded 
+corners
+* [All] Improved error messaging as a result of stored procedure errors 
+by making messages data-driven
+* [I/M] Enforced requirement that Serial Numbers be unique
+* [Manufacture] Fixed issue where check box memory wasn't working on 
+Work Order Schedule and Buffer Management screens
+* [Manufacture] Fixed PostBooks-only error received when viewing Costed 
+Indented BOM screen
+* [Products] Fixed BOO screen to be read-only when viewing inactive 
+Revisions
+* [Products] Fixed system to only show Sequenced Bill of Materials 
+screen when Routings are enabled
+* [Purchase] Fixed PostBooks-only issue where RECEIVE ALL option wasn't 
+working on R/A screen
+* [Purchase] Fixed PostBooks-only issue where Purchase Orders could not 
+be selected for Receipt
+* [Sales] Fixed error received when canceling an R/A having posted 
+Receipts
+* [Sales] Added color-coding to Inventory Availability by Customer Type 
+screen to indicate Orders added to the Packing List Batch
+* [Sales] Fixed Mac-only issue where List Price button was overlapping 
+the Price Field on the Sales Order Item screen
+* [Sales] Made error message more explicit when attempting to reserve 
+line balance and insufficient qty. is available
+* [Sales] Added QOH information to Item Reservations screen header
+* [System] Fixed issue where size/position was not being remembered for 
+the main window
+* [System] Dis-allowed opening of multiple instances of some windows in 
+free-floating mode
+* [System] Fixed issue where saving in Product Configuration screen 
+turned on Routings
+* [System] Reduced size of Configure XML import export screen
 
 
 =============
