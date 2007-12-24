@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518929">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>issuing materials individually</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>work order material requirements</primary>
       <secondary>issuing individually</secondary>
     </indexterm>Issue W/O Material Item</title>
-  <para>To issue Work Order Material Items individually,
-  select the "Issue W/O Material Item" option. The following screen will
-  appear:</para>
-  <para>
-<screenshot>
+  <para>To issue Work Order Material Items individually, select the "Issue W/O
+  Material Item" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic523636" fileref="images/issueWoMaterialItem.png"/>
+          <imagedata fileref="images/issueWoMaterialItem.png"
+                     id="Graphic523636" />
         </imageobject>
         <caption id="Caption518935">Issue Work Order Material Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When issuing Work Order Material Items individually,
-  you are presented with the following options:</para>
+    </screenshot></para>
+  <para>When issuing Work Order Material Items individually, you are presented
+  with the following options:</para>
   <variablelist>
     <varlistentry>
       <term>Work Order #</term>
@@ -69,16 +66,16 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If the "Comp. Item Number" list contains no
-    component Items, this means that the issue method for all the component
-    Items is "Pull." Only Items with the issue method of "Push" or "Mixed"
-    will appear in the menu.</para>
+    <para>If the "Comp. Item Number" list contains no component Items, this
+    means that the issue method for all the component Items is "Pull." Only
+    Items with the issue method of "Push" or "Mixed" will appear in the
+    menu.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>UOM</term>
       <listitem>
-        <para>Inventory Unit of Measure.</para>
+        <para>Issue Unit of Measure.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -103,6 +100,12 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>UOM</term>
+      <listitem>
+        <para>Issue Unit of Measure.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term>QOH Before</term>
       <listitem>
         <para>Total Quantity on Hand prior to the issue will be
@@ -118,13 +121,12 @@
     </varlistentry>
   </variablelist>
   <note>
-    <para>If you are issuing Lot/Serial Items to a Work Order,
-    these cannot be issued automatically from a default Location. You must
-    individually select and then distribute the desired Lot/Serial
-    quantity.</para>
+    <para>If you are issuing Lot/Serial Items to a Work Order, these cannot be
+    issued automatically from a default Location. You must individually select
+    and then distribute the desired Lot/Serial quantity.</para>
   </note>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>

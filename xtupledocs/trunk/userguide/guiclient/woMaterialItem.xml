@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section518797">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>work orders</primary>
       <secondary>creating material requirements for</secondary>
     </indexterm>Create W/O Material Requirement</title>
   <para>To create a Work Order Material Requirement for an open ("O") Work
   Order, select the "Create W/O Material Requirement" option. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic523573" fileref="images/woMaterialItem.png"/>
+          <imagedata fileref="images/woMaterialItem.png" id="Graphic523573" />
         </imageobject>
         <caption id="Caption518803">Create Work Order Material
         Requirement</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a Work Order Material Requirement, you are presented
   with the following options:</para>
   <variablelist>
@@ -79,6 +77,14 @@
         the Items manufactured by the selected Work Order. The component Item
         is measured in its Inventory UOM. The Item manufactured by the Work
         Order is measured in that Item's Inventory UOM.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure (UOM) you want to use when issuing
+        Item quantity to the Work Order. Unless you specifiy an alternate UOM,
+        the Inventory UOM will be used by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
