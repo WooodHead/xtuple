@@ -14,7 +14,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_BOMNewItem.png" id="Graphic562999" />
+          <imagedata fileref="images/bomItem.png" />
         </imageobject>
         <caption id="Caption519345">Add New Bill of Materials Component
         Item</caption>
@@ -84,6 +84,14 @@
       <listitem id="listitemN0x180ac00N0x1897db4">
         <para>Per: Specify the quantity of the component Item required per
         Bill of Materials. This is a required field.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Issue UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure (UOM) you want to use when issuing
+        Item quantity to Work Orders. Unless you specifiy an alternate UOM,
+        the Inventory UOM will be used by default.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -355,7 +363,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_BOMItemSub.png" id="Graphic638143" />
+          <imagedata fileref="images/itemSubstitute.png" id="Graphic638143" />
         </imageobject>
         <caption id="Caption638146">Add New BOM-Defined Substitution</caption>
       </mediaobject>
@@ -390,8 +398,8 @@
     <varlistentry>
       <term>Substitute/Parent UOM Ratio</term>
       <listitem id="listitemN0x180ac00N0x18a109c">
-        <para>Specifies the ratio between the Root Item's Inventory UOM and
-        the Substitute Item's Inventory UOM.</para>
+        <para>Indicate the ratio between the Issue UOM for the specified BOM
+        Item and the corresponding Issue UOM for the Substitute Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -427,8 +435,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_BOMItemComm.png"
-                     id="Graphic638484" />
+          <imagedata fileref="images/bomItem_Comments.png" />
         </imageobject>
         <caption id="Caption638487">Add Comment to Bill of Materials Component
         Item</caption>
@@ -512,7 +519,7 @@
   <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/PD_BOM_BOOItems.png" id="Graphic563019" />
+          <imagedata fileref="images/booItemList.png" id="Graphic563019" />
         </imageobject>
         <caption id="Caption519404">Bill of Operations Items</caption>
       </mediaobject>
