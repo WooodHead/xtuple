@@ -96,9 +96,8 @@
               <secondary>required at log in</secondary>
             </indexterm>Username</term>
           <listitem id="listitemN0x180ac00N0x181a1cc">
-            <para>Enter your assigned username.</para>
-            <para>Usernames are established by your system administrator. The
-            username is case-sensitive.</para>
+            <para>Enter your assigned username. Usernames are established by
+            your system administrator. The username is case-sensitive.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -107,11 +106,10 @@
               <secondary>at log in</secondary>
             </indexterm>Password</term>
           <listitem id="listitemN0x180ac00N0x181a25c">
-            <para>Enter your assigned password.</para>
-            <para>Passwords are established by your system administrator. The
-            password you type into this field will not display on your screen,
-            but will be represented by asterisks (*) for security
-            purposes.</para>
+            <para>Enter your assigned password. Passwords are established by
+            your system administrator. The password you type into this field
+            will not display on your screen, but will be represented by
+            asterisks (*) for security purposes.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -178,9 +176,8 @@
             </indexterm>Server</term>
           <listitem id="listitemN0x180ac00N0x181a52c">
             <para>Enter the address of the server where your xTuple Database
-            is running.</para>
-            <para>The address will consist of either a TCP/IP Address or a
-            Network Alias Name. If the network address for the xTuple Server
+            is running. The address will consist of either a TCP/IP Address or
+            a Network Alias Name. If the network address for the xTuple Server
             changes, you may need to change the address in this field.</para>
           </listitem>
         </varlistentry>
@@ -191,8 +188,7 @@
             </indexterm>Database</term>
           <listitem id="listitemN0x180ac00N0x181a5bc">
             <para>Enter the name of the xTuple Database you want to connect
-            to.</para>
-            <para>The application can be used to connect to multiple xTuple
+            to. The application can be used to connect to multiple xTuple
             databases. Be sure to enter the correct name of the database you
             want to access.</para>
           </listitem>
@@ -203,8 +199,8 @@
               <secondary>for database access</secondary>
             </indexterm>Port</term>
           <listitem id="listitemN0x180ac00N0x181a64c">
-            <para>Displays the default port.</para>
-            <para>The default port for the xTuple Database is 5432.</para>
+            <para>Displays the default port. The default port for the xTuple
+            Database is 5432.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -214,12 +210,12 @@
             </indexterm>Use Enhanced Authentication</term>
           <listitem id="listitemN0x180ac00N0x181a6dc">
             <para>Select if your site requires you to use enhanced
-            authentication.</para>
-            <para>Enhanced authentication adds a layer to the authentication
-            process used to log in to the xTuple Applications. When this
-            feature is turned on, user passwords are stored in the xTuple
-            Database in a modified form. The end result is that you may only
-            log in to the xTuple Database using an xTuple Application.</para>
+            authentication. Enhanced authentication adds a layer to the
+            authentication process used to log in to the xTuple Applications.
+            When this feature is turned on, user passwords are stored in the
+            xTuple Database in a modified form. The end result is that you may
+            only log in to the xTuple Database using an xTuple
+            Application.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -236,12 +232,12 @@
             </indexterm>Require SSL Connection</term>
           <listitem id="listitemN0x180ac00N0x181a7b4">
             <para>Select if your site requires you to use a Secure Sockets
-            Layer (SSL) connection.</para>
-            <para>Selecting this option guarantees you will connect to your
-            xTuple Database with an SSL connection. If your xTuple Database is
-            not configured to support SSL, you will not be able to connect if
-            this option is selected. Using SSL for client-server connections
-            adds a layer of encryption to the authentication process.</para>
+            Layer (SSL) connection. Selecting this option guarantees you will
+            connect to your xTuple Database with an SSL connection. If your
+            xTuple Database is not configured to support SSL, you will not be
+            able to connect if this option is selected. Using SSL for
+            client-server connections adds a layer of encryption to the
+            authentication process.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -258,10 +254,9 @@
         <varlistentry>
           <term>SAVE</term>
           <listitem id="listitemN0x180ac00N0x181a868">
-            <para>Saves your connection settings.</para>
-            <para>Any settings you save will become your default connection
-            settings. To change your default settings, update your Login
-            options and then save them.</para>
+            <para>Saves your connection settings. Any settings you save will
+            become your default connection settings. To change your default
+            settings, update your Login options and then save them.</para>
           </listitem>
         </varlistentry>
       </variablelist>
@@ -294,13 +289,34 @@
           <term>Window</term>
           <listitem id="listitemN0x180ac00N0x181a9ac">
             <para>The following options appear under the "Window" menu:</para>
-            <para>Cascade: Select to arrange open screens in a cascading
-            pattern.</para>
-            <para>Tile: Select to arrange open screens in a tiled
-            pattern.</para>
-            <para>Close Active Window: Select to close the currently active
-            screen.</para>
-            <para>Close All Windows: Select to close all open screens.</para>
+            <variablelist>
+              <varlistentry>
+                <term>Cascade</term>
+                <listitem>
+                  <para>Select to arrange open screens in a cascading
+                  pattern.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Tile</term>
+                <listitem>
+                  <para>Select to arrange open screens in a tiled
+                  pattern.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Close Active Window</term>
+                <listitem>
+                  <para>Select to close the currently active screen.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Close All Windows</term>
+                <listitem>
+                  <para>Select to close all open screens.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
           </listitem>
         </varlistentry>
         <varlistentry>
@@ -309,29 +325,76 @@
             <para>If you have an open Internet connection, the following
             "Community" menu options will open in your default web
             browser:</para>
-            <para>xTuple.org Home: Select to launch the xTuple.org home
-            page.</para>
-            <para>New Account: Select to create a new xTuple.org
-            account.</para>
-            <para>Edit Account: Select to edit your xTuple.org account.</para>
-            <para>Discussion Forums: Select to browse the discussion forums on
-            the xTuple.org site.</para>
-            <para>Blogs: Select to browse the blogs on the xTuple.org
-            site.</para>
-            <para>Bugs and Feature Requests: Select to access the Issue
-            Tracking system on the xTuple.org site.</para>
-            <para>Downloads: Select to access the downloads page on the
-            xTuple.org site.</para>
+            <variablelist>
+              <varlistentry>
+                <term>xTuple.org Home</term>
+                <listitem>
+                  <para>Select to launch the xTuple.org home page.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>New Account</term>
+                <listitem>
+                  <para>Select to create a new xTuple.org account.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Edit Account</term>
+                <listitem>
+                  <para>Select to edit your xTuple.org account.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Discussion Forums</term>
+                <listitem>
+                  <para>Select to browse the discussion forums on the
+                  xTuple.org site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Blogs</term>
+                <listitem>
+                  <para>Select to browse the blogs on the xTuple.org
+                  site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Bugs and Feature Requests</term>
+                <listitem>
+                  <para>Select to access the Issue Tracking system on the
+                  xTuple.org site.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Downloads</term>
+                <listitem>
+                  <para>Select to access the downloads page on the xTuple.org
+                  site.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
           </listitem>
         </varlistentry>
         <varlistentry>
           <term>Help</term>
           <listitem id="listitemN0x180ac00N0x181aa3c">
             <para>The following options appear under the "Help" menu:</para>
-            <para>About: Select to view version information.</para>
-            <para>Table of Contents: Select to access the xTuple Applications
-            Help files. For this to work, the Help files must be installed on
-            your system.</para>
+            <variablelist>
+              <varlistentry>
+                <term>About</term>
+                <listitem>
+                  <para>Select to view version information.</para>
+                </listitem>
+              </varlistentry>
+              <varlistentry>
+                <term>Table of Contents</term>
+                <listitem>
+                  <para>Select to access the xTuple Applications Help files.
+                  For this to work, the Help files must be installed on your
+                  system.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
           </listitem>
         </varlistentry>
       </variablelist>

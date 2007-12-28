@@ -8,12 +8,10 @@
     </indexterm>Pricing Schedule Item</title>
   <para>To create a new Pricing Schedule Item, select the NEW button. The
   following screen will appear:</para>
-  <para><anchor id="Anchor76796" role="Cross-Ref"
-  xreflabel="76796: Figure: Figure 10.108:  Pricing Schedule for Item" />
-  <screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata fileref="images/SO_IP_pricingSchedItem.png"
+          <imagedata fileref="images/itemPricingSchedule.png"
                      id="Graphic523652" />
         </imageobject>
         <caption id="Caption519628">Pricing Schedule for Item</caption>
@@ -31,19 +29,19 @@
           <varlistentry>
             <term>Item</term>
             <listitem>
-              <para>Select if the Pricing Schedule is for an individual Item.
-              If selected, the options shown in <xref endterm="Anchor76796"
-              linkend="Anchor76796" /> FINDME Figure 10.119 will
-              appear.</para>
+              <para>Select if the Pricing Schedule is for an individual
+              Item.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
             <term>Product Category</term>
             <listitem>
-              <para>Select if the Pricing Schedule is for a Product Category.
-              If selected, the options shown in <xref endterm="Anchor46818"
-              linkend="Anchor46818" /> FINDME Figure 10.120 will
-              appear.</para>
+              <para>Select if the Pricing Schedule is for a Product
+              Category.</para>
+              <tip>
+                <para>The screen options will differ depending on whether the
+                Pricing Schedule is for an Item or a Product Category.</para>
+              </tip>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -71,7 +69,7 @@
         </indexterm> <indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>quantity breaks in</secondary>
-        </indexterm>Qty. Break (Inventory UOM)</term>
+        </indexterm>Qty. Break</term>
       <listitem id="listitemN0x180ac00N0x194a758">
         <para>Enter the lowest quantity of the specified Item that must be
         purchased to receive the specified Price. The Quantity Break is
@@ -80,10 +78,24 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term>Qty. UOM</term>
+      <listitem>
+        <para>Specify the Unit of Measure you want to use for the Quantity
+        Break. By default, the Inventory UOM will appear here. However, if you
+        have Selling UOMs defined for the specified Item, you may also select
+        one of these. Selling UOMs are defined on the Item master.</para>
+        <tip>
+          <para>When using a Selling UOM for the Quantity Break, you may not
+          select an alternate Price UOM. The reason for this is that selling
+          UOMs use the same UOM for both quantity and pricing.</para>
+        </tip>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term><indexterm significance="normal">
           <primary>pricing schedules</primary>
           <secondary>pricing detail for</secondary>
-        </indexterm>Price (Pricing UOM)</term>
+        </indexterm>Price</term>
       <listitem id="listitemN0x180ac00N0x194a7e8">
         <para>Enter the Price the specified Item may be purchased for if the
         specified Quantity Break is met. The Price is measured in the Price
@@ -91,16 +103,17 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>List Price</term>
-      <listitem id="listitemN0x180ac00N0x194a830">
-        <para>Displays the List Price for the specified Item.</para>
+      <term>Price UOM</term>
+      <listitem>
+        <para>Specify the Price Unit of Measure to be used with the specified
+        Quantity Break UOM.</para>
+        <para></para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>Price UOM</term>
-      <listitem id="listitemN0x180ac00N0x194a878">
-        <para>Displays the Price Unit of Measure for the specified
-        Item.</para>
+      <term>List Price</term>
+      <listitem id="listitemN0x180ac00N0x194a830">
+        <para>Displays the List Price for the specified Item.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

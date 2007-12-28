@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section563102">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>bank accounts</primary>
       <secondary>reconciliation of</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>bank reconciliations</primary>
       <secondary>process for</secondary>
     </indexterm>Reconcile Bank Account</title>
-  <para>To reconcile a Bank Account, select the "Reconcile
-  Bank Account" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To reconcile a Bank Account, select the "Reconcile Bank Account"
+  option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic605407" fileref="images/reconcileBankaccount.png"/>
+          <imagedata fileref="images/reconcileBankaccount.png"
+                     id="Graphic605407" />
         </imageobject>
         <caption id="Caption563108">Reconcile Bank Account</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
-    <para>To work on a Bank Reconciliation over several
-    sessions, simply select the SAVE button. You work will be saved and ready
-    when you return.</para>
+    <para>To work on a Bank Reconciliation over several sessions, simply
+    select the SAVE button. You work will be saved and ready when you
+    return.</para>
   </tip>
-  <para>When reconciling a Bank Account, you are presented
-  with the following options:</para>
+  <para>When reconciling a Bank Account, you are presented with the following
+  options:</para>
   <variablelist>
     <varlistentry>
       <term>Bank Account</term>
@@ -68,13 +66,12 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Double-click on a Deposit or Payment line to mark
-    the Document as "Cleared."</para>
+    <para>Double-click on a Deposit or Payment line to mark the Document as
+    "Cleared."</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>checks</primary>
           <secondary>marking as cleared</secondary>
         </indexterm> <indexterm significance="normal">
@@ -86,19 +83,17 @@
         </indexterm>Receipts and Other Deposits</term>
       <listitem id="listitemN0x180ac00N0x18d4090">
         <para>Display lists posted Receipts and other Deposits which have not
-        been previously reconciled.</para>
-        <para>This display is a nested list, with a plus ("+")
-        sign located to the far left of the display next to each Receipt or
-        Deposit that may be expanded to lower levels. By clicking your mouse
-        on a plus sign, you reveal lower levels of information related to the
-        group.</para>
+        been previously reconciled. This display is a nested list, with a plus
+        ("+") sign located to the far left of the display next to each Receipt
+        or Deposit that may be expanded to lower levels. By clicking your
+        mouse on a plus sign, you reveal lower levels of information related
+        to the group.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Cash Receipts posted in batch mode will appear
-    grouped together in the nested list appearing under the appropriate
-    Document Number.</para>
+    <para>Cash Receipts posted in batch mode will appear grouped together in
+    the nested list appearing under the appropriate Document Number.</para>
   </note>
   <variablelist>
     <varlistentry>
@@ -110,13 +105,12 @@
     </varlistentry>
   </variablelist>
   <tip>
-    <para>Double-click on a Deposit or Payment line to mark
-    the Document as "Cleared."</para>
+    <para>Double-click on a Deposit or Payment line to mark the Document as
+    "Cleared."</para>
   </tip>
   <variablelist>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>adjustments</primary>
           <secondary>entering for bank accounts</secondary>
         </indexterm> <indexterm significance="normal">
@@ -128,36 +122,31 @@
         </indexterm>ADD ADJUSTMENT</term>
       <listitem id="listitemN0x180ac00N0x18d4288">
         <para>Select to add a Bank Adjustment directly to either the Deposits
-        or Payments list.</para>
-        <para>Bank Adjustments marked as "Cleared" will
+        or Payments list. Bank Adjustments marked as "Cleared" will
         automatically be posted to the General Ledger (G/L) when a Bank
         Account is reconciled. For more information on entering Bank
-        Adjustments, see the <xref endterm="Anchor70925" linkend="Anchor70925"/>
-    FINDME
-  "Enter Adjustment"
-        section.</para>
+        Adjustments, see the <xref endterm="Anchor70925"
+        linkend="Anchor70925" /> FINDME "Enter Adjustment" section.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cleared Receipts and Deposits</term>
       <listitem id="listitemN0x180ac00N0x18d42d0">
         <para>Displays a running total amount of Receipts and Deposits which
-        have been marked as cleared.</para>
-        <para>Double-click on a Document using your mouse to
-        mark the Document as cleared. To unmark the Document, double-click on
-        it again. The "Cleared" column value will alternate between "Yes" and
-        "No" as you double-click on a Document line.</para>
+        have been marked as cleared. Double-click on a Document using your
+        mouse to mark the Document as cleared. To unmark the Document,
+        double-click on it again. The "Cleared" column value will alternate
+        between "Yes" and "No" as you double-click on a Document line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>Cleared Checks and Payments</term>
       <listitem id="listitemN0x180ac00N0x18d4318">
         <para>Displays a running total amount of Checks and Payments which
-        have been marked as cleared.</para>
-        <para>Double-click on a Document using your mouse to
-        mark the Document as cleared. To unmark the Document, double-click on
-        it again. The "Cleared" column value will alternate between "Yes" and
-        "No" as you double-click on a Document line.</para>
+        have been marked as cleared. Double-click on a Document using your
+        mouse to mark the Document as cleared. To unmark the Document,
+        double-click on it again. The "Cleared" column value will alternate
+        between "Yes" and "No" as you double-click on a Document line.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -170,38 +159,40 @@
     <varlistentry>
       <term>Cleared Balance</term>
       <listitem id="listitemN0x180ac00N0x18d43a8">
-        <para>Displays the cleared balance.</para>
-        <para>The cleared balance is calculated based on the
-        following formula:</para>
+        <para>Displays the cleared balance. The cleared balance is calculated
+        based on the following formula:</para>
+        <para><equation>
+            <mathphrase>(Opening Balance) + (Cleared Deposits) - (Cleared
+            Payments)</mathphrase>
+          </equation><tip>
+            <para>A successful Bank Reconciliation will result in the cleared
+            balance being equal to the ending balance.</para>
+          </tip></para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Difference</term>
+      <listitem>
+        <para>Displays the difference between the ending balance and the
+        cleared balance.</para>
+        <tip>
+          <para>A successful Bank Reconciliation will result in having "0.00"
+          displayed as the amount of difference between the two
+          balances.</para>
+        </tip>
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>(Opening Balance) + (Cleared Deposits) - (Cleared
-  Payments)</para>
-  <itemizedlist>
-    <listitem id="listitemN0x180ac00N0x18d43f0">
-      <para>A successful Bank Reconciliation will result in
-      the cleared balance being equal to the ending balance.</para>
-      <para>Difference: Displays the difference between the
-      ending balance and the cleared balance.</para>
-    </listitem>
-    <listitem id="listitemN0x180ac00N0x18d4414">
-      <para>A successful Bank Reconciliation will result in
-      having "0.00" displayed as the amount of difference between the two
-      balances.</para>
-    </listitem>
-  </itemizedlist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
       <listitem id="listitemN0x180ac00N0x18d4480">
         <para>Closes the screen without reconciling a Bank Account, returning
-        you to the application desktop.</para>
-        <para>If you want to save any work you have done in
-        the current or a prior session, you should select the SAVE button.
-        Selecting CANCEL can cause your saved information to be
+        you to the application desktop. If you want to save any work you have
+        done in the current or a prior session, you should select the SAVE
+        button. Selecting CANCEL can cause your saved information to be
         cleared.</para>
       </listitem>
     </varlistentry>
@@ -209,28 +200,26 @@
       <term>RECONCILE</term>
       <listitem id="listitemN0x180ac00N0x18d44c8">
         <para>Select to reconcile the specified Bank Account and create a
-        record of the Bank Reconciliation.</para>
-        <para>Selecting this option posts the Bank
-        Reconciliation. The posting may be viewed using the Bank
+        record of the Bank Reconciliation. Selecting this option posts the
+        Bank Reconciliation. The posting may be viewed using the Bank
         Reconciliation History display. The start and end dates for the
         posting are used to identify it.</para>
       </listitem>
     </varlistentry>
   </variablelist>
   <note>
-    <para>Once a Bank Account is reconciled, any Deposits or
-    Payments which were marked as "Cleared" will no longer be available for
-    future Bank Reconciliations.</para>
+    <para>Once a Bank Account is reconciled, any Deposits or Payments which
+    were marked as "Cleared" will no longer be available for future Bank
+    Reconciliations.</para>
   </note>
   <variablelist>
     <varlistentry>
       <term>SAVE</term>
       <listitem id="listitemN0x180ac00N0x18d4558">
         <para>Select this option to save your work during the current Bank
-        Reconciliation.</para>
-        <para>The next time you open the Bank Reconciliation
-        screen, the work you saved previously will be ready for you to start
-        working on it again.</para>
+        Reconciliation. The next time you open the Bank Reconciliation screen,
+        the work you saved previously will be ready for you to start working
+        on it again.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
