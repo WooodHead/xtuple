@@ -20,9 +20,7 @@
     <para>For the purposes of this exercise, we will be looking at the Order
     Parameter settings for a purchased Item--Item V1. The following screenshot
     shows the Item Site master for Item V1:</para>
-    <para><anchor id="Anchor93905" role="Cross-Ref"
-    xreflabel="93905: Figure: Figure 1.12:  Item Site with Order Parameters Selected" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_ordParamItemSite.png"
@@ -32,12 +30,11 @@
           Selected</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor93905"
-    linkend="Anchor93905" /> FINDME Figure 6.21, the "Enforce Order
-    Parameters" flag is set for this Item Site. Selecting this option tells
-    the system to enforce the specified Order Parameters when MRP is run. The
-    "on Manual Orders" option applies to manual Work Orders only and does not
-    have an impact on MRP.</para>
+    <para>As you can see in the example, the "Enforce Order Parameters" flag
+    is set for this Item Site. Selecting this option tells the system to
+    enforce the specified Order Parameters when MRP is run. The "on Manual
+    Orders" option applies to manual Work Orders only and does not have an
+    impact on MRP.</para>
     <para>Let's define the significance of each Order Parameter
     setting:</para>
     <itemizedlist>
@@ -167,9 +164,7 @@
     <para>Let's look now at Planned Availability for Item V1. The Inventory
     Availability by Item screen found in the I/M Module provides us with this
     detail, as shown below:</para>
-    <para><anchor id="Anchor80872" role="Cross-Ref"
-    xreflabel="80872: Figure: Figure 1.16:  Inventory Availability Display Showing Availability Below Reorder Level" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_availOrdParamItem.png"
@@ -184,9 +179,7 @@
     Planned Availability has fallen below the Reorder Level. Whenever this
     scenario occurs, Planned Replenishment Orders will be generated the next
     time MRP is run.</para>
-    <para>The following columns in <xref endterm="Anchor80872"
-    linkend="Anchor80872" /> FINDME Figure 6.22 are of interest to us
-    now:</para>
+    <para>The following columns are of interest to us now:</para>
     <itemizedlist>
       <listitem id="listitemN0x180ac00N0x1874b44">
         <para>QOH = 25: In this example, the Quantity on Hand (QOH) is equal
@@ -251,9 +244,7 @@
     day. Once we select the CREATE button, MRP is off and running. To see the
     resulting Planned Replenishment Orders, we open the M/S Display "Planned
     Orders by Item," as shown in the following screen:</para>
-    <para><anchor id="Anchor34728" role="Cross-Ref"
-    xreflabel="34728: Figure: Figure 1.15:  MRP Created Planned Purchase Order" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_planOrdDisp1.png"
@@ -263,10 +254,9 @@
           Order</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor34728"
-    linkend="Anchor34728" /> FINDME Figure 6.24, a Planned Purchase Order has
-    been generated for 75 units of Item V1. So how did the system determine
-    that 75 units was the required quantity?</para>
+    <para>As you can see in the example, a Planned Purchase Order has been
+    generated for 75 units of Item V1. So how did the system determine that 75
+    units was the required quantity?</para>
     <para>Well, when MRP creates Planned Orders, the system looks at both the
     Reorder Level and the Order Up To (OUT) Level. It determines which of the
     two has the greater value--and then it places an Order to replenish

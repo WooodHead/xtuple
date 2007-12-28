@@ -46,9 +46,7 @@
     </note>
     <para>But before we begin, let's examine the Item Site definition for our
     imported flowers, otherwise known as Item GLAD02:</para>
-    <para><anchor id="Anchor55665" role="Cross-Ref"
-    xreflabel="55665: Figure: Figure 2.23:  Item Site Definition for Lot-Controlled Item" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_lotNumItemSite.png"
@@ -58,21 +56,20 @@
           Item</caption>
         </mediaobject>
       </screenshot></para>
-    <para>A few points are worth noting when looking at the Item Site
-    definition shown in <xref endterm="Anchor55665" linkend="Anchor55665" />
-    FINDME Figure 6.49. First, note that the Control Method is specified as
-    Lot #. This designation marks an Item as being Lot-controlled. And it is
-    because of this specification that GLADO2 in Warehouse STAR will be
-    handled differently when quantities of it are received into Inventory.
-    Another point to notice is that the Item is marked as perishable.
-    Naturally, an imported flower will be vibrant and saleable for only a
-    limited period of time. Accounting for the perishable nature of
-    Lot-controlled goods will be covered later in this example. Finally, you
-    can see that the Item Site specifies that Multiple Location Control (MLC)
-    is turned on. Distribution issues related to MLC Items are covered
-    thoroughly in the "Topic: Distributing Multiple Location Control (MLC)
-    Items" section. We will be covering some of that same ground again here
-    when receiving quantities of GLAD02 into Inventory.</para>
+    <para>A few points are worth noting when looking at an Item Site
+    definition. First, note that the Control Method is specified as Lot #.
+    This designation marks an Item as being Lot-controlled. And it is because
+    of this specification that GLADO2 in Warehouse STAR will be handled
+    differently when quantities of it are received into Inventory. Another
+    point to notice is that the Item is marked as perishable. Naturally, an
+    imported flower will be vibrant and saleable for only a limited period of
+    time. Accounting for the perishable nature of Lot-controlled goods will be
+    covered later in this example. Finally, you can see that the Item Site
+    specifies that Multiple Location Control (MLC) is turned on. Distribution
+    issues related to MLC Items are covered thoroughly in the "Topic:
+    Distributing Multiple Location Control (MLC) Items" section. We will be
+    covering some of that same ground again here when receiving quantities of
+    GLAD02 into Inventory.</para>
   </section>
   <section id="Section672637">
     <title><indexterm significance="normal">
@@ -267,9 +264,7 @@
     quantity into Inventory. To verify the result, we open the I/M display
     Location/Lot/Serial Number Detail, as shown in the following
     screen:</para>
-    <para><anchor id="Anchor12147" role="Cross-Ref"
-    xreflabel="12147: Figure: Figure 2.31:  Verify Lot Transaction Using Detail Display" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_displayLotDetail.png"
@@ -279,10 +274,9 @@
           Display</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor12147"
-    linkend="Anchor12147" /> FINDME Figure 6.55, the Warehouse STAR is showing
-    150 units of LOT-2 with the specified expiration date. A previously
-    entered Lot is also located here, as shown in the display.</para>
+    <para>As you can see in the example, the Warehouse STAR is showing 150
+    units of LOT-2 with the specified expiration date. A previously entered
+    Lot is also located here, as shown in the display.</para>
   </section>
   <section id="Section672699">
     <title>Receiving from Shipping</title>
@@ -348,8 +342,7 @@
     Location Control Item, we go through the MLC distribution cycle. To verify
     the results, we can open the I/M display Location/Lot/Serial Number
     Detail, as shown in the following screen:</para>
-    <para><anchor id="Anchor74636" role="Cross-Ref"
-    xreflabel="74636: Figure: Figure 2.36: " /> <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_displayLotDetail-2.png"
@@ -359,11 +352,10 @@
           Display</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor74636"
-    linkend="Anchor74636" /> FINDME Figure 6.60, the Warehouse STAR is now
-    showing 300 units of LOT-3 with the specified expiration date. The
-    Lot-controlled goods have now been successfully assigned and received into
-    Inventory using the S/R Module.</para>
+    <para>As you can see in the example, the Warehouse STAR is now showing 300
+    units of LOT-3 with the specified expiration date. The Lot-controlled
+    goods have now been successfully assigned and received into Inventory
+    using the S/R Module.</para>
   </section>
   <section id="Section672741">
     <title>Receiving from Manufacturing</title>
@@ -376,9 +368,7 @@
     cover this topic in much detail. However, we will include the following
     screenshot showing Work Order production posting for Item V0, a
     Lot-controlled, manufactured Item:</para>
-    <para><anchor id="Anchor56575" role="Cross-Ref"
-    xreflabel="56575: Figure: Figure 6.13:  Create Lot Number for Quantity Received from Manufacturing" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_createLotWO.png"
@@ -388,8 +378,7 @@
           from Manufacturing</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor56575"
-    linkend="Anchor56575" /> FINDME Figure 6.61, the now familiar Lot Number
+    <para>As you can see in the example, the now familiar Lot Number
     assignment sequence is triggered as part of the Work Order production
     posting process for this Lot-controlled Item.</para>
   </section>

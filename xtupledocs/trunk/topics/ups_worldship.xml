@@ -20,7 +20,7 @@
     contact your local or area UPS WorldShip representative. Detailed
     WorldShip integration information can also be found on the UPS website at
     <ulink id="Hypertext551409"
-    url="http://www.ups.com">http://www.ups.com</ulink>www.ups.com.</para>
+    url="http://www.ups.com">http://www.ups.com</ulink>.</para>
   </note>
   <section id="Section551410">
     <title>Basic Requirements</title>
@@ -87,13 +87,11 @@
       </screenshot></para>
     <para>Your primary goal when creating an export map is to match UPS
     WorldShip tables and fields with the corresponding OpenMFG Database tables
-    and fields. <xref endterm="Anchor31923" linkend="Anchor31923" /> FINDME
-    Table 7.1 provides you with the information you will need to successfully
-    map the tables and fields from one system to the other.</para>
+    and fields. The following table provides you with the information you will
+    need to successfully map the tables and fields from one system to the
+    other.</para>
     <para><table id="Table551441">
-        <title><anchor id="Anchor31923" role="Cross-Ref"
-        xreflabel="31923: TableTitle: Table 11.1: Data Mapping Information" />
-        Data Mapping Information</title>
+        <title>Data Mapping Information</title>
         <tgroup cols="4">
           <thead>
             <row>
@@ -175,45 +173,113 @@
       <varlistentry>
         <term>Map Name</term>
         <listitem id="listitemN0x180ac00N0x184375c">
-          <para>Enter a name to describe your export map.</para>
-          <para>In our example, we have give the export map the name
-          "export."</para>
+          <para>Enter a name to describe your export map. In our example, we
+          have give the export map the name "export."</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Data Source Information</term>
         <listitem id="listitemN0x180ac00N0x18437a4">
           <para>Specify the following Data Source information:</para>
-          <para>DSN Name: Enter a name to describe the Data Source Name (DSN)
-          connection to OpenMFG (e.g., "openmfg).</para>
-          <para>DSN Description: Enter a brief description of the DSN
-          connection (e.g., "connection to openmfg").</para>
-          <para>ODBC Driver Name: Specify the name of the required ODBC
-          driver. For OpenMFG Databases, the driver is "PostgreSQL".</para>
-          <para>ODBC Driver: Indicate the path where the ODBC driver for
-          PostgreSQL is located, as in the following:
-          C:\\WINDOWS\\system32\\psqlodbc.dll.</para>
-          <para>Database Name: Enter the name of the OpenMFG Database which
-          will be receiving UPS WorldShip data (e.g., "production").</para>
-          <para>Database Path: Not required. This information is defined when
-          configuring the ODBC driver for PostgreSQL.</para>
-          <para>Database Server: Not required. This information is defined
-          when configuring the ODBC driver for PostgreSQL.</para>
+          <variablelist>
+            <varlistentry>
+              <term>DSN Name</term>
+              <listitem>
+                <para>Enter a name to describe the Data Source Name (DSN)
+                connection to OpenMFG (e.g., "openmfg).</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>DSN Description</term>
+              <listitem>
+                <para>Enter a brief description of the DSN connection (e.g.,
+                "connection to openmfg").</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>ODBC Driver Name</term>
+              <listitem>
+                <para>Specify the name of the required ODBC driver. For
+                OpenMFG Databases, the driver is "PostgreSQL".</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>ODBC Driver</term>
+              <listitem>
+                <para>Indicate the path where the ODBC driver for PostgreSQL
+                is located, as in the following:
+                C:\\WINDOWS\\system32\\psqlodbc.dll.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Name</term>
+              <listitem>
+                <para>Enter the name of the OpenMFG Database which will be
+                receiving UPS WorldShip data (e.g., "production").</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Path</term>
+              <listitem>
+                <para>Not required. This information is defined when
+                configuring the ODBC driver for PostgreSQL.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Database Server</term>
+              <listitem>
+                <para>Not required. This information is defined when
+                configuring the ODBC driver for PostgreSQL.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Map Information</term>
         <listitem id="listitemN0x180ac00N0x18437ec">
           <para>Specify the following map information:</para>
-          <para>Map Type: The map type selection specifies the point at which
-          the data export should occur. In this case, you should select the
-          "Shipment" map type. Data export will occur when the shipment is
-          shipped using UPS WorldShip.</para>
-          <para>Map Version: Specify version "12".</para>
-          <para>Primary Table: Not required.</para>
-          <para>Primary Key: Not required.</para>
-          <para>Package Name: Not required.</para>
-          <para>Prompt for Table Name: No</para>
+          <variablelist>
+            <varlistentry>
+              <term>Map Type</term>
+              <listitem>
+                <para>The map type selection specifies the point at which the
+                data export should occur. In this case, you should select the
+                "Shipment" map type. Data export will occur when the shipment
+                is shipped using UPS WorldShip.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Map Version</term>
+              <listitem>
+                <para>Specify version "12".</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Primary Table</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Primary Key</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Package Name</term>
+              <listitem>
+                <para>Not required.</para>
+              </listitem>
+            </varlistentry>
+            <varlistentry>
+              <term>Prompt for Table Name</term>
+              <listitem>
+                <para>No.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -284,9 +350,7 @@
     Stock to Shipping or 2) ship the Order. For this example, we have already
     issued two Line Items to Shipping. We see these two Line Items on the Ship
     Order screen, as shown below:</para>
-    <para><anchor id="Anchor34640" role="Cross-Ref"
-    xreflabel="34640: Figure: Figure 11.4:  Sales Order with UPS WorldShip Information" />
-    <screenshot>
+    <para><screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_upsShipOrder.png"
@@ -296,10 +360,9 @@
           Information</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor34640"
-    linkend="Anchor34640" /> FINDME Figure 7.10, our Order contains UPS
-    Tracking Number information. And the total shipping and handling charges
-    appear in the Freight field.</para>
+    <para>As you can see in int the example, our Order contains UPS Tracking
+    Number information. And the total shipping and handling charges appear in
+    the Freight field.</para>
     <note>
       <para>The actual weight of the UPS package(s) is stored in the OpenMFG
       Database, but is not visible using the application.</para>
