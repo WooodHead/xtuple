@@ -1,40 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590389">
-  <title>
-<indexterm significance="normal">
+  <title id="Anchor69529"><indexterm significance="normal">
       <primary>financial reports</primary>
       <secondary>ad hoc type</secondary>
-    </indexterm>
-<indexterm significance="normal">
+    </indexterm> <indexterm significance="normal">
       <primary>ad hoc reports</primary>
     </indexterm>Ad Hoc Report</title>
-  <para>Ad Hoc reports are completely free-form and
-  user-defined. They give you the flexibility to create Financial Reports
-  which do not fit neatly within the three standard statement formats.</para>
+  <para>Ad Hoc reports are completely free-form and user-defined. They give
+  you the flexibility to create Financial Reports which do not fit neatly
+  within the three standard statement formats.</para>
   <note>
-    <para>Any Financial Reports created in the system prior to
-    version 2.1.0 are considered to be Ad Hoc reports.</para>
+    <para>Any Financial Reports created in the system prior to version 2.1.0
+    are considered to be Ad Hoc reports.</para>
   </note>
   <tip>
-    <para>Exercise caution before converting an Ad Hoc report
-    to another report type. The process removes Ad Hoc group definitions,
-    replacing them with standard statement format settings.</para>
+    <para>Exercise caution before converting an Ad Hoc report to another
+    report type. The process removes Ad Hoc group definitions, replacing them
+    with standard statement format settings.</para>
   </tip>
-  <para>To create an Ad Hoc Report, select the "Ad Hoc" report
-  type. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para>To create an Ad Hoc Report, select the "Ad Hoc" report type. The
+  following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic589159" fileref="images/financialLayoutAdHoc.png"/>
+          <imagedata fileref="images/financialLayoutAdHoc.png"
+                     id="Graphic589159" />
         </imageobject>
         <caption id="Caption589161">Ad Hoc Financial Report</caption>
       </mediaobject>
-    </screenshot>
-</para>
-  <para>When creating a new Ad Hoc report, you are presented
-  with the following options:</para>
+    </screenshot></para>
+  <para>When creating a new Ad Hoc report, you are presented with the
+  following options:</para>
   <variablelist>
     <varlistentry>
       <term>Row Layout</term>
@@ -44,8 +42,8 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
@@ -117,7 +115,13 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutGroup.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutSpecial.xml" xpointer="element(/1)"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="financialLayoutOptions.xml" xpointer="element(/1)"/>
+  <xi:include href="financialLayoutGroup.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="financialLayoutSpecial.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
+  <xi:include href="financialLayoutOptions.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

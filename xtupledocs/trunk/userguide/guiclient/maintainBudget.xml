@@ -1,121 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section572294">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>budgets</primary>
-         <secondary>creating new</secondary>
-      </indexterm>New Budget</title>
-   <para>The Budget utility is designed to store budgetary
-    information, by Account Number, in a table format. Once stored, this
-    information may then be accessed and viewed using the Financial Report
-    engine. As we saw in the <xref endterm="Anchor14666" linkend="Anchor14666"/>
-    FINDME
-  "Create Financial
-    Report" section, the Financial Reporting Engine specifically includes
-    options for generating reports showing Budget information. To access the
-    Budget utility, select the "New Budget" option. The following screen will
-    appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata id="Graphic573208" fileref="images/maintainBudget.png"/>
-            </imageobject>
-            <caption id="Caption573211">Maintain Budget</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <note>
-      <para>While all Budget amounts entered in the generated
-      table are stored in the database, the particular groupings of Accounts
-      and Accounting Periods are used only during the current session. If you
-      want to re-generate a particular Budget table, the Accounts and
-      Accounting Periods must be manually entered again.</para>
-   </note>
-   <para>When creating or maintaining Budget information, you
-    are presented with the following options:</para>
-   <variablelist>
-      <varlistentry>
-         <term>Table Parameters</term>
-         <listitem id="listitemN0x180ac00N0x1908bd0">
-            <para>Select from the following options to determine which Accounts
-          and Accounting Periods you want to enter budgetary information
-          for:</para>
-            <para>Accounts: Select one or multiple Accounts to
-          include when generating a Budget table.</para>
-            <para>ADD: Select to add Accounts from your Chart of
-          Account.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
-   <tip>
-      <para>You may select multiple Accounts to add to your
-      Budget by highlighting the Accounts using your mouse--or a combination
-      of your mouse and either the SHIFT or CTRL keys.</para>
-   </tip>
-   <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1908c3c">
-         <para>MOVE UP: Highlight an Account and then select
-        this button to move the Account up in the list.</para>
-         <para>MOVE DOWN: Highlight an Account and then select
-        this button to move the Account down in the list.</para>
-         <para>REMOVE: Highlight an Account and then select
-        this button to remove the Account from the list.</para>
+  <title><indexterm significance="normal">
+      <primary>budgets</primary>
+      <secondary>creating new</secondary>
+    </indexterm>New Budget</title>
+  <para>The Budget utility is designed to store budgetary information, by
+  Account Number, in a table format. Once stored, this information may then be
+  accessed and viewed using the Financial Report engine. The Financial
+  Reporting Engine specifically includes options for generating reports
+  showing Budget information. To access the Budget utility, select the "New
+  Budget" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/maintainBudget.png" id="Graphic573208" />
+        </imageobject>
+        <caption id="Caption573211">Maintain Budget</caption>
+      </mediaobject>
+    </screenshot></para>
+  <note>
+    <para>While all Budget amounts entered in the generated table are stored
+    in the database, the particular groupings of Accounts and Accounting
+    Periods are used only during the current session. If you want to
+    re-generate a particular Budget table, the Accounts and Accounting Periods
+    must be manually entered again.</para>
+  </note>
+  <para>When creating or maintaining Budget information, you are presented
+  with the following options:</para>
+  <variablelist>
+    <varlistentry>
+      <term>Table Parameters</term>
+      <listitem id="listitemN0x180ac00N0x1908bd0">
+        <para>Select from the following options to determine which Accounts
+        and Accounting Periods you want to enter budgetary information
+        for:</para>
+        <para>Accounts: Select one or multiple Accounts to include when
+        generating a Budget table.</para>
+        <para>ADD: Select to add Accounts from your Chart of Account.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1908c60">
-         <para>Accounting Periods: Using your mouse in
-        conjunction with the SHIFT and/or CRTL keys, select one or multiple
-        Accounting Periods to include when generating the Budget table.</para>
-         <para>SELECT ALL: Select to include all Accounting
-        Periods in the table.</para>
-         <para>INVERT: Selecting this option will cause the
-        inverse of any selected Accounting Periods to be selected.</para>
-         <para>UNSELECT ALL: Select to de-select all Accounting
-        Periods.</para>
-         <para>GENERATE TABLE: Select to generate the Budget
-        table using the specified parameters.</para>
-         <para>Table: Enter Budget amounts in the fields
-        provided.</para>
+    </varlistentry>
+  </variablelist>
+  <tip>
+    <para>You may select multiple Accounts to add to your Budget by
+    highlighting the Accounts using your mouse--or a combination of your mouse
+    and either the SHIFT or CTRL keys.</para>
+  </tip>
+  <itemizedlist>
+    <listitem id="listitemN0x180ac00N0x1908c3c">
+      <para>MOVE UP: Highlight an Account and then select this button to move
+      the Account up in the list.</para>
+      <para>MOVE DOWN: Highlight an Account and then select this button to
+      move the Account down in the list.</para>
+      <para>REMOVE: Highlight an Account and then select this button to remove
+      the Account from the list.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x1908c60">
+      <para>Accounting Periods: Using your mouse in conjunction with the SHIFT
+      and/or CRTL keys, select one or multiple Accounting Periods to include
+      when generating the Budget table.</para>
+      <para>SELECT ALL: Select to include all Accounting Periods in the
+      table.</para>
+      <para>INVERT: Selecting this option will cause the inverse of any
+      selected Accounting Periods to be selected.</para>
+      <para>UNSELECT ALL: Select to de-select all Accounting Periods.</para>
+      <para>GENERATE TABLE: Select to generate the Budget table using the
+      specified parameters.</para>
+      <para>Table: Enter Budget amounts in the fields provided.</para>
+    </listitem>
+    <listitem id="listitemN0x180ac00N0x1908c84">
+      <para>The table will consist of a grid, showing the specified Account
+      Numbers listed down the left side--and the indicated Accounting Periods
+      across the top. Simply click in a field to begin entering or editing
+      Budget information. The TAB key may be used to move from field to field.
+      Any Budget information you save in the table will be stored in the
+      database for future reference. You may view Budget information by
+      Account and Accounting Period using the Financial Reporting Engine. You
+      may also edit Budget information by regenerating a Budget table.</para>
+    </listitem>
+  </itemizedlist>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x1908cf0">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1908c84">
-         <para>The table will consist of a grid, showing the
-        specified Account Numbers listed down the left side--and the indicated
-        Accounting Periods across the top. Simply click in a field to begin
-        entering or editing Budget information. The TAB key may be used to
-        move from field to field. Any Budget information you save in the table
-        will be stored in the database for future reference. You may view
-        Budget information by Account and Accounting Period using the
-        Financial Reporting Engine. You may also edit Budget information by
-        regenerating a Budget table.</para>
+    </varlistentry>
+    <varlistentry>
+      <term>SAVE</term>
+      <listitem id="listitemN0x180ac00N0x1908d38">
+        <para>Saves the budgetary information entered in the Budget
+        table.</para>
+        <para>Any information saved in the table will be available for future
+        revision using the Budget utility. You may view Budget information
+        using the Financial Reporting Engine.</para>
       </listitem>
-   </itemizedlist>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x1908cf0">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>SAVE</term>
-         <listitem id="listitemN0x180ac00N0x1908d38">
-            <para>Saves the budgetary information entered in the Budget
-          table.</para>
-            <para>Any information saved in the table will be
-          available for future revision using the Budget utility. You may view
-          Budget information using the Financial Reporting Engine.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x1908d80">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x1908d80">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
