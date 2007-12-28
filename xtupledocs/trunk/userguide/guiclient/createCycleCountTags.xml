@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519249">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>cycle count tags</primary>
       <secondary>creating by warehouse</secondary>
     </indexterm> <indexterm significance="normal">
@@ -55,17 +55,16 @@
   </tip>
   <para>To create Cycle Count Tags by Warehouse, select the "Create Cycle
   Count Tags by Warehouse" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic526024" fileref="images/createCycleCountTags.png"/>
+          <imagedata fileref="images/createCycleCountTags.png"
+                     id="Graphic526024" />
         </imageobject>
         <caption id="Caption519255">Create Cycle Count Tags by
         Warehouse</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating Cycle Count Tags by Warehouse, you are presented with
   the following options:</para>
   <variablelist>
@@ -86,8 +85,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>freezing</primary>
           <secondary>of inventory</secondary>
         </indexterm> <indexterm significance="normal">
@@ -103,8 +101,7 @@
         Instead, Inventory transactions are pooled and then posted later when
         the Item Site is unfrozen--or thawed. The Quantity on Hand is updated
         when the Item Site is thawed. For a detailed explanation of these
-        concepts, see the <xref endterm="Anchor80983" linkend="Anchor80983"/>
-        FINDME "Topic: Freezing and Thawing" section.</para>
+        concepts, see <xref linkend="Anchor80983" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -164,8 +161,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>cycle counters</primary>
           <secondary>creating instructions for</secondary>
         </indexterm> <indexterm significance="normal">

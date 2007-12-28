@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section567098">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>item sites</primary>
       <secondary>creating new by class code</secondary>
     </indexterm> <indexterm significance="normal">
@@ -13,16 +13,15 @@
   batches of Item Sites--rather than having to create them one-at-a-time. To
   create Item Sites by Class Code, select the "Create Item Sites by Class
   Code" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic567101" fileref="images/createItemSitesByClassCode.png"/>
+          <imagedata fileref="images/createItemSitesByClassCode.png"
+                     id="Graphic567101" />
         </imageobject>
         <caption id="Caption567104">Create Item Sites by Class Code</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>Use the Create Item Sites by Class Code utility when setting up a
     new Warehouse.</para>
@@ -39,8 +38,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>order parameters</primary>
           <secondary>enforcement of</secondary>
         </indexterm> <indexterm significance="normal">
@@ -53,9 +51,8 @@
         (MRP) will follow the Order Parameters defined below when generating
         Planned Replenishment Orders. If you want to enforce Order Parameters
         on manual Orders as well, select the "on Manual Orders" option. For
-        more information on how Order Parameters interact with MRP, see the
-        <xref endterm="Anchor14508" linkend="Anchor14508"/> FINDME "Topic:
-        Order Parameters and MRP" section.</para>
+        more information on how Order Parameters interact with MRP, see <xref
+        endterm="Anchor14508" linkend="Anchor14508" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -75,9 +72,8 @@
         will be created when Material Requirements Planning (MRP) is run. The
         Replenishment Order quantity will be equal to the quantity required to
         return Planned Availability to either the Reorder Level or the Order
-        Up To quantity--whichever is greater. For more information, see the
-        <xref endterm="Anchor14508" linkend="Anchor14508"/> FINDME "Topic:
-        Order Parameters and MRP" section.</para>
+        Up To quantity--whichever is greater. For more information, see <xref
+        endterm="Anchor14508" linkend="Anchor14508" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -96,8 +92,8 @@
         Availability an Item Site should be replenished up to when Material
         Requirements Planning (MRP) is run. In cases where the Reorder Level
         for an Item Site exceeds the Order Up To Level, MRP will replenish the
-        Item Site up to the Reorder Level. For more information, see the <xref endterm="Anchor14508" linkend="Anchor14508"/> FINDME "Topic: Order
-        Parameters and MRP" section.</para>
+        Item Site up to the Reorder Level. For more information, see <xref
+        endterm="Anchor14508" linkend="Anchor14508" />.</para>
       </listitem>
     </varlistentry>
   </variablelist>
@@ -299,8 +295,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>event fences</primary>
           <secondary>in item sites</secondary>
         </indexterm> <indexterm significance="normal">
@@ -395,8 +390,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>ranking</primary>
           <secondary>of item sites</secondary>
         </indexterm> <indexterm significance="normal">
@@ -427,8 +421,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>control methods</primary>
           <secondary>at item site level</secondary>
         </indexterm> <indexterm significance="normal">
@@ -461,8 +454,8 @@
               Site. Item Sites using Lot Number control are subject to unique
               processing requirements whenever Inventory is received or
               distributed. For additional information on some of the unique
-              methods required to handle Lot-controlled Items, see the <xref endterm="Anchor58321" linkend="Anchor58321"/> FINDME "Topic:
-              Receiving Lot/Serial Items into Inventory"section.</para>
+              methods required to handle Lot-controlled Items, see <xref
+              endterm="Anchor58321" linkend="Anchor58321" />.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -472,10 +465,8 @@
               Site. Item Sites using Serial Number control are subject to
               unique processing requirements whenever Inventory is received or
               distributed. For additional information on some of the unique
-              methods required to handle Serial-controlled Items, see the
-              <xref endterm="Anchor58321" linkend="Anchor58321"/> FINDME
-              "Topic: Receiving Lot/Serial Items into
-              Inventory"section.</para>
+              methods required to handle Serial-controlled Items, see <xref
+              endterm="Anchor58321" linkend="Anchor58321" />.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -493,8 +484,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>multiple location control</primary>
           <secondary>establishing in item sites</secondary>
         </indexterm>Multiple Location Control</term>
@@ -503,13 +493,12 @@
         Locations within a single Warehouse. Items designated as Multiple
         Location Control (MLC) Items require special processing whenever Item
         quantities are distributed. For more information on distributing MLC
-        Item quantities, see the <xref endterm="Anchor81167" linkend="Anchor81167"/> FINDME "Inter-Warehouse Transfer"
-        section.</para>
+        Item quantities, see <xref endterm="Anchor81167"
+        linkend="Anchor81167" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>default locations</primary>
         </indexterm> <indexterm significance="normal">
           <primary>locations</primary>
@@ -550,8 +539,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>item sites</primary>
           <secondary>cost categories in</secondary>
         </indexterm>Cost Category</term>
