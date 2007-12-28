@@ -385,9 +385,7 @@
     <para>In the following screen you can see a summary of the G/L
     transactions which resulted from out posting of the Miscellaneous
     Voucher:</para>
-    <para><anchor id="Anchor74253" role="Cross-Ref"
-    xreflabel="74253: Figure: Figure 15.13:  G/L Postings After Voucher Posting" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_tax_460_GL-PostVoucher.png"
@@ -397,11 +395,9 @@
           Posting</caption>
         </mediaobject>
       </screenshot></para>
-    <para>As you can see in <xref endterm="Anchor74253"
-    linkend="Anchor74253" /> FINDME Figure 15.45, posting the Voucher cleared
-    the liability Accounts associated with the Expense Categories used on the
-    Voucher. The A/P liability will subsequently be cleared when a Check
-    paying the Voucher is posted.</para>
+    <para>Posting the Voucher cleared the liability Accounts associated with
+    the Expense Categories used on the Voucher. The A/P liability will
+    subsequently be cleared when a Check paying the Voucher is posted.</para>
   </section>
   <section id="Section611386">
     <title>Taxes on Purchases</title>
@@ -412,9 +408,7 @@
     record purchasing Tax.</para>
     <para>The following screen shows a sample Expense Category we have
     established to record Tax on purchases:</para>
-    <para><anchor id="Anchor70062" role="Cross-Ref"
-    xreflabel="70062: Figure: Figure Appendix X.14:  Expense Category for Taxes on Purchased Items" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_tax_510_PurchTaxExpCat.png"
@@ -424,15 +418,11 @@
           Items</caption>
         </mediaobject>
       </screenshot></para>
-    <para>We will use the Expense Category shown in <xref
-    endterm="Anchor70062" linkend="Anchor70062" /> FINDME Figure 15.46 during
-    a vouchering scenario. In our example, the Vendor is charging us Tax on
-    one or more Items of Type 1. The following screen shows the Voucher for
-    this purchase, as well as the Miscellaneous Distribution for Tax
-    purposes:</para>
-    <para><anchor id="Anchor59557" role="Cross-Ref"
-    xreflabel="59557: Figure: Figure Appendix X.15:  Miscellaneious Distribution onf Voucher to Pay Tax" />
-    <screenshot>
+    <para>We will use the Expense Category during a vouchering scenario. In
+    our example, the Vendor is charging us Tax on one or more Items of Type 1.
+    The following screen shows the Voucher for this purchase, as well as the
+    Miscellaneous Distribution for Tax purposes:</para>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_tax_530_VoucherPurcTaxExpCat.png"
@@ -442,8 +432,7 @@
           Pay Tax</caption>
         </mediaobject>
       </screenshot></para>
-    <para>The Purchase Order we are vouchering in <xref endterm="Anchor59557"
-    linkend="Anchor59557" /> FINDME Figure 15.47 is for a Vendor invoice
+    <para>The Purchase Order we are vouchering is for a Vendor invoice
     totaling $220.00. Of this amount, $200.00 is for the product and $20.00 is
     for Tax. The Tax is accounted for using the Expense Category corresponding
     to the type of Tax being paid. Because Expense Categories are linked to
