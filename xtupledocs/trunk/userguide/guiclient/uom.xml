@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="uom">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>units of measure</primary>
       <secondary>creating new</secondary>
     </indexterm>Unit of Measure</title>
   <para>To create a new Unit of Measure, select the NEW button. The following
   screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic619578" fileref="images/uom.png"/>
+          <imagedata fileref="images/uom.png" id="Graphic619578" />
         </imageobject>
         <caption id="Caption638699">Create New Unit of Measure</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When creating a new Unit of Measure, you are presented with the
   following options:</para>
   <variablelist>
@@ -47,14 +45,14 @@
   <variablelist>
     <varlistentry>
       <term>CANCEL</term>
-      <listitem id="listitemN0x180ac00N0x181a430">
+      <listitem>
         <para>Closes the screen without creating a Unit of Measure, returning
         you to the previous screen.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>SAVE</term>
-      <listitem id="listitemN0x180ac00N0x181a478">
+      <listitem>
         <para>Creates the Unit of Measure and adds it to the master list of
         Units of Measure.</para>
       </listitem>
@@ -83,5 +81,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="uomConv.xml" xpointer="element(/1)"/>
+  <xi:include href="uomConv.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

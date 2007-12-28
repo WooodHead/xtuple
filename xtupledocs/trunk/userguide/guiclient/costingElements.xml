@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section631687">
-  <title id="Anchor68692">
-<indexterm significance="normal">
+  <title id="Anchor68692"><indexterm significance="normal">
       <primary>costing elements</primary>
       <secondary>user-defined</secondary>
     </indexterm>User-Defined Costing Elements</title>
   <para>If you need to establish Costing Elements above and beyond the default
   Costing Elements defined by the system, you have the ability to do so in
   this section. Costing Elements you add here will be available to you when
-  you define Costs for Items, as described in the <xref endterm="Anchor31787" linkend="Anchor31787"/> FINDME "Maintain Item Costs" section. To create
-  user-defined Costing Elements, select the "User-Defined Costing Elements"
-  option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  you define Costs for Items, as described in <xref linkend="Anchor31787" />.
+  To create user-defined Costing Elements, select the "User-Defined Costing
+  Elements" option. The following screen will appear:</para>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic563586" fileref="images/costingElements.png"/>
+          <imagedata fileref="images/costingElements.png" id="Graphic563586" />
         </imageobject>
         <caption id="Caption520228">User-Defined Costing Elements Master
         List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>The user-defined Costing Elements master list displays an alphabetical
   list of all user-defined Costing Elements.</para>
   <para>To the far right of the screen, the following buttons are
@@ -69,5 +67,7 @@
     provided:</para>
     <para>Material</para>
   </note>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="userCostingElement.xml" xpointer="element(/1)"/>
+  <xi:include href="userCostingElement.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

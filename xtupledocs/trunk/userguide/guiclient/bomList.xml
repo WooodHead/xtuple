@@ -1,89 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519415">
-   <title>
-       
-      <indexterm significance="normal">
-         <primary>bills of materials</primary>
-         <secondary>master list of</secondary>
-      </indexterm>List Bills of Materials</title>
-   <para>To access the master list of Bills of Materials,
-    select the "List Bills of Materials" option. The following screen will
-    appear:</para>
-   <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata id="Graphic563031" fileref="images/bomList.png"/>
-            </imageobject>
-            <caption id="Caption519421">Bills of Materials Master List</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-   <para>At the top of the screen is a "Search For" field. To
-    search for an Item, begin typing in the search field. As you type, the
-    "Bills of Materials" list will automatically scroll toward the Item Number
-    you are typing. You can also search for Items manually by using the scroll
-    bar to the right of the "Bills of Materials" list. You may also show Bills
-    of Materials for inactive Items by selecting that option.</para>
-   <para>To the far right of the screen, the following
-    buttons are available:</para>
-   <variablelist>
-      <varlistentry>
-         <term>CLOSE</term>
-         <listitem id="listitemN0x180ac00N0x18a90d8">
-            <para>Closes the screen, returning you to the application
-          desktop.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>NEW</term>
-         <listitem id="listitemN0x180ac00N0x18a9120">
-            <para>Brings up the new Bill of Materials screen, described earlier
-          in this chapter. For details, see the <xref endterm="Anchor37267" linkend="Anchor37267"/>
-    FINDME
-  "Enter New Bill of Materials" section. Once a new
-          Bill of Materials is created it appears on the master Bills of
-          Materials list.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>EDIT</term>
-         <listitem id="listitemN0x180ac00N0x18a9168">
-            <para>Enables you to edit a Bill of Materials. Highlight the Item
-          whose Bill of Materials you want to edit and then hit the EDIT
-          button--or double-click on the Item to enter the edit mode. The edit
-          screen is the same as that for creating a new Bill of
-          Materials--except that when editing, the fields will contain
-          existing information.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>VIEW</term>
-         <listitem id="listitemN0x180ac00N0x18a91b0">
-            <para>Highlight an Item and then select this button to reach a
-          read-only view of the "Edit" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>PRINT</term>
-         <listitem id="listitemN0x180ac00N0x18a91f8">
-            <para>Runs the report associated with this screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>COPY</term>
-         <listitem id="listitemN0x180ac00N0x18a9240">
-            <para>Highlight an Item and then select this button to reach the
-          "Copy" screen.</para>
-         </listitem>
-      </varlistentry>
-      <varlistentry>
-         <term>DELETE</term>
-         <listitem id="listitemN0x180ac00N0x18a9288">
-            <para>Highlight an Item and then select this button to remove the
-          Item from the list.</para>
-         </listitem>
-      </varlistentry>
-   </variablelist>
+  <title><indexterm significance="normal">
+      <primary>bills of materials</primary>
+      <secondary>master list of</secondary>
+    </indexterm>List Bills of Materials</title>
+  <para>To access the master list of Bills of Materials, select the "List
+  Bills of Materials" option. The following screen will appear:</para>
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/bomList.png" id="Graphic563031" />
+        </imageobject>
+        <caption id="Caption519421">Bills of Materials Master List</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>At the top of the screen is a "Search For" field. To search for an
+  Item, begin typing in the search field. As you type, the "Bills of
+  Materials" list will automatically scroll toward the Item Number you are
+  typing. You can also search for Items manually by using the scroll bar to
+  the right of the "Bills of Materials" list. You may also show Bills of
+  Materials for inactive Items by selecting that option.</para>
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
+  <variablelist>
+    <varlistentry>
+      <term>CLOSE</term>
+      <listitem id="listitemN0x180ac00N0x18a90d8">
+        <para>Closes the screen, returning you to the application
+        desktop.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>NEW</term>
+      <listitem id="listitemN0x180ac00N0x18a9120">
+        <para>Brings up the new Bill of Materials screen, described earlier in
+        this chapter. For details, see <xref linkend="Anchor37267" />. Once a
+        new Bill of Materials is created it appears on the master Bills of
+        Materials list.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>EDIT</term>
+      <listitem id="listitemN0x180ac00N0x18a9168">
+        <para>Enables you to edit a Bill of Materials. Highlight the Item
+        whose Bill of Materials you want to edit and then hit the EDIT
+        button--or double-click on the Item to enter the edit mode. The edit
+        screen is the same as that for creating a new Bill of
+        Materials--except that when editing, the fields will contain existing
+        information.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>VIEW</term>
+      <listitem id="listitemN0x180ac00N0x18a91b0">
+        <para>Highlight an Item and then select this button to reach a
+        read-only view of the "Edit" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>PRINT</term>
+      <listitem id="listitemN0x180ac00N0x18a91f8">
+        <para>Runs the report associated with this screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>COPY</term>
+      <listitem id="listitemN0x180ac00N0x18a9240">
+        <para>Highlight an Item and then select this button to reach the
+        "Copy" screen.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>DELETE</term>
+      <listitem id="listitemN0x180ac00N0x18a9288">
+        <para>Highlight an Item and then select this button to remove the Item
+        from the list.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
 </section>
