@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section519242">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>billing</primary>
       <secondary>select order for</secondary>
     </indexterm>Select Order for Billing</title>
@@ -14,16 +14,15 @@
   quantities for all shipped Orders. To select an individual shipped Order for
   billing, select the "Select Order for Billing" option. The following screen
   will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic523420" fileref="images/selectOrderForBilling.png"/>
+          <imagedata fileref="images/selectOrderForBilling.png"
+                     id="Graphic523420" />
         </imageobject>
         <caption id="Caption519248">Select Order for Billing</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>When you select an Order for billing, you are indicating that you
     wish to create an Invoice for the Order. Invoice Numbers are assigned when
@@ -95,8 +94,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>billing</primary>
           <secondary>at line item level</secondary>
         </indexterm>Line Items</term>
@@ -151,8 +149,7 @@
       </listitem>
     </varlistentry>
     <varlistentry>
-      <term>
-<indexterm significance="normal">
+      <term><indexterm significance="normal">
           <primary>billing</primary>
           <secondary>related charges for</secondary>
         </indexterm>Misc. Charge Amount</term>
@@ -239,8 +236,7 @@
       <listitem id="listitemN0x180ac00N0x1903bb4">
         <para>Brings you to the Sales Order screen, where you may edit the
         specified Sales Order. The Sales Order screen is described at length
-        in the <xref endterm="Anchor23923" linkend="Anchor23923"/> FINDME
-        "New Sales Order" section of this chapter.</para>
+        in <xref endterm="Anchor23923" linkend="Anchor23923" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -266,5 +262,7 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="selectBillingQty.xml" xpointer="element(/1)"/>
+  <xi:include href="selectBillingQty.xml"
+              xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

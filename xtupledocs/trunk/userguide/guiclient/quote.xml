@@ -2,14 +2,13 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section528866">
-  <title><indexterm significance="normal">
+  <title id="Anchor51214"><indexterm significance="normal">
       <primary>quotes</primary>
       <secondary>creating new</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>sales quotes</primary>
       <see>quotes</see>
-    </indexterm> <anchor id="Anchor51214" role="Cross-Ref"
-  xreflabel="51214: Heading2: New Quote" />New Quote</title>
+    </indexterm> New Quote</title>
   <para>A Quote is a statement issued to a Customer or Prospect indicating
   pricing and sales Terms for specified quantities of sold Items. Quotes are
   often precursors to Sales Orders. To create a Quote, select the "New Quote"
@@ -98,7 +97,7 @@
           <varlistentry>
             <term>Internet</term>
             <listitem>
-              <para> Indicates the Order was originated by an Internet
+              <para>Indicates the Order was originated by an Internet
               lead.</para>
             </listitem>
           </varlistentry>
@@ -245,7 +244,7 @@
       <listitem id="listitemN0x180ac00N0x18df424">
         <para>Displays the specified Ship-To Address. You may manually
         override the displayed Address information in the fields below--or use
-        the browse button to select another Address. </para>
+        the browse button to select another Address.</para>
         <variablelist>
           <varlistentry>
             <term>Street Address</term>
@@ -274,7 +273,7 @@
           <varlistentry>
             <term>Country</term>
             <listitem>
-              <para> The specified Ship-To country.</para>
+              <para>The specified Ship-To country.</para>
             </listitem>
           </varlistentry>
         </variablelist>
@@ -319,11 +318,6 @@
         default. Otherwise, the primary Tax Authority for the Customer will be
         entered. Ultimately, Tax is applied at the Line Item level--so the Tax
         Authority associated with an Item's Tax Type will be used.</para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <listitem id="listitemN0x180ac00N0x18df61c">
-        <para />
       </listitem>
     </varlistentry>
     <varlistentry>

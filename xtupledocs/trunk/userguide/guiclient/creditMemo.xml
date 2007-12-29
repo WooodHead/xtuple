@@ -2,11 +2,10 @@
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
 "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section590528">
-  <title><indexterm significance="normal">
+  <title id="Anchor94106"><indexterm significance="normal">
       <primary>credit memos</primary>
       <secondary>creating new</secondary>
-    </indexterm> <anchor id="Anchor94106" role="Cross-Ref"
-  xreflabel="94106: Heading2: New Credit Memo" />New Credit Memo</title>
+    </indexterm> New Credit Memo</title>
   <para>To create a Credit Memo, select the "New Credit Memo" option. The
   following screen will appear:</para>
   <para><screenshot>
@@ -194,7 +193,7 @@
           <varlistentry>
             <term>Postal Code</term>
             <listitem>
-              <para> The specified Ship-To Postal Code.</para>
+              <para>The specified Ship-To Postal Code.</para>
             </listitem>
           </varlistentry>
           <varlistentry>
@@ -248,19 +247,14 @@
     <varlistentry>
       <term><indexterm significance="normal">
           <primary>tax authorities</primary>
-          <secondary>for quotes</secondary>
+          <secondary>for credit memos</secondary>
         </indexterm>Tax Authority</term>
       <listitem id="listitemN0x180ac00N0x1926654">
-        <para>Specify the Tax Authority associated with the Quote. </para>
-      </listitem>
-    </varlistentry>
-    <varlistentry>
-      <listitem id="listitemN0x180ac00N0x192669c">
-        <para>The Tax Authority for the specified Ship-To Address will be
-        entered here by default. Otherwise, the primary Tax Authority for the
-        Customer will be entered. Ultimately, Tax is applied at the Line Item
-        level--so the Tax Authority associated with an Item's Tax Type will be
-        used.</para>
+        <para>Specify the Tax Authority associated with the Credit Memo. The
+        Tax Authority for the specified Ship-To Address will be entered here
+        by default. Otherwise, the primary Tax Authority for the Customer will
+        be entered. Ultimately, Tax is applied at the Line Item level--so the
+        Tax Authority associated with an Item's Tax Type will be used.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
