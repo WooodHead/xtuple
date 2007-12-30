@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section966198">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>currencies</primary>
       <secondary>master list of</secondary>
     </indexterm> <indexterm significance="normal">
@@ -37,19 +37,17 @@
   </note>
   <para>To access the master list of Currencies, select the "Currencies"
   option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic965905" fileref="images/currencies.png"/>
+          <imagedata fileref="images/currencies.png" id="Graphic965905" />
         </imageobject>
         <caption id="Caption966176">Currencies Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>Standard Currency information for most Countries is provided by
-    default as part of the <xref endterm="Anchor62146" linkend="Anchor62146"/> FINDME "Countries" list. Simply select this
+    default as part of <xref linkend="Anchor62146" />. Simply select this
     information by Country when setting up multiple Currencies.</para>
   </tip>
   <para>The Currencies master list displays information on all Currencies,
@@ -102,13 +100,18 @@
   <variablelist>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(currenicesVIEW)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(currenicesVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="" xpointer="element(currenicesDELETE)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(currenicesDELETE)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currency.xml" xpointer="element(/1)"/>
+  <xi:include href="currency.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

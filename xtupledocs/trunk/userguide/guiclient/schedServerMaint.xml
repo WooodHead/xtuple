@@ -1,108 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section955847" role="openmfg">
   <title>Schedule Server Maintenance</title>
-
-  <para>The server maintenance utility is designed to perform
-  automated maintenance on your server. You should perform server maintenance
-  on a regular basis to ensure the smooth operation of your server.</para>
-
+  <para>The server maintenance utility is designed to perform automated
+  maintenance on your server. You should perform server maintenance on a
+  regular basis to ensure the smooth operation of your server.</para>
   <note>
-      <para>When server maintenance is performed, a VACUUM FULL
-    ANALYZE operation is run on your server. For more information on the
-    VACUUM and ANALYZE operations, visit the PostgreSQL website at <ulink id="Hypertext956137" url="http://www.postgresql.com">http://www.postgresql.com</ulink>www.postgresql.com.</para>
+    <para>When server maintenance is performed, a VACUUM FULL ANALYZE
+    operation is run on your server. For more information on the VACUUM and
+    ANALYZE operations, visit the PostgreSQL website at <ulink
+    id="Hypertext956137"
+    url="http://www.postgresql.com">http://www.postgresql.com</ulink>.</para>
   </note>
-
   <para>To run the server maintenance utility, select the "Schedule Server
   Maintenance" option. The following screen will appear:</para>
-
-  <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata id="Graphic955964" fileref="images/schedServerMaint.png"/>
-            </imageobject>
-
-            <caption id="Caption955967">Schedule Server Maintenance</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
-  <para>When scheduling server maintenance, you are presented
-  with the following options:</para>
-
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/schedServerMaint.png" id="Graphic955964" />
+        </imageobject>
+        <caption id="Caption955967">Schedule Server Maintenance</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When scheduling server maintenance, you are presented with the
+  following options:</para>
   <variablelist>
-      <varlistentry>
-         <term>Action</term>
-
-         <listitem id="listitemN0x180ac00N0x18ec15c">
-            <para>Displays the name of the action to be performed by the Batch
+    <varlistentry>
+      <term>Action</term>
+      <listitem id="listitemN0x180ac00N0x18ec15c">
+        <para>Displays the name of the action to be performed by the Batch
         Manager.</para>
-
-            <para>In this case, the name of the action is
+        <para>In this case, the name of the action is
         serverMaintenance.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Response Email</term>
-
-         <listitem id="listitemN0x180ac00N0x18ec1a4">
-            <para>By default, the email address of the logged-in user will be
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Response Email</term>
+      <listitem id="listitemN0x180ac00N0x18ec1a4">
+        <para>By default, the email address of the logged-in user will be
         entered here. This address may be edited or changed.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Scheduled</term>
-
-         <listitem id="listitemN0x180ac00N0x18ec1ec">
-            <para>Select one of the following Schedule options:</para>
-
-            <para>ASAP: Select to have the job run as soon as
-        possible.</para>
-
-            <para>Scheduled: Schedule a date and time to run the
-        job. Specify a date in the first field using a standard date format.
-        Use the arrow buttons in the second field to specify a time of
-        day.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled</term>
+      <listitem id="listitemN0x180ac00N0x18ec1ec">
+        <para>Select one of the following Schedule options:</para>
+        <para>ASAP: Select to have the job run as soon as possible.</para>
+        <para>Scheduled: Schedule a date and time to run the job. Specify a
+        date in the first field using a standard date format. Use the arrow
+        buttons in the second field to specify a time of day.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <note>
-      <para>When a job is submitted to the Batch Manager with a
-    scheduled time of ASAP, the Batch Manager sets the scheduled time to the
-    current time. However, a job will not necessarily be run immediately if it
-    is scheduled for the current time. Any pre-existing jobs with scheduled
-    times prior to the current time must be completed first. In other words,
-    ASAP jobs will not necessarily be run immediately. Previously scheduled
-    jobs will be run first.</para>
+    <para>When a job is submitted to the Batch Manager with a scheduled time
+    of ASAP, the Batch Manager sets the scheduled time to the current time.
+    However, a job will not necessarily be run immediately if it is scheduled
+    for the current time. Any pre-existing jobs with scheduled times prior to
+    the current time must be completed first. In other words, ASAP jobs will
+    not necessarily be run immediately. Previously scheduled jobs will be run
+    first.</para>
   </note>
-
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
-
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
-      <varlistentry>
-         <term>CANCEL</term>
-
-         <listitem id="listitemN0x180ac00N0x18f626c">
-            <para>Closes the screen without performing server maintenance,
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18f626c">
+        <para>Closes the screen without performing server maintenance,
         returning you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>SUBMIT</term>
-
-         <listitem id="listitemN0x180ac00N0x18f62b4">
-            <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic:
-        Submitting Reports and Jobs to the Batch Manager".</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem id="listitemN0x180ac00N0x18f62b4">
+        <para>Select to submit requested action to the Batch Manager for
+        processing. For additional information, see <xref
+        linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
 </section>

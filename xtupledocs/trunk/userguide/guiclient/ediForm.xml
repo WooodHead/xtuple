@@ -13,9 +13,7 @@
   associate an EDI Form with a Profile, select the NEW button. For this
   example, we will choose the "Report" format, as shown in the following
   screenshot:</para>
-  <para><anchor id="Anchor41905" role="Cross-Ref"
-  xreflabel="41905: Figure: Figure System.25:  Create New EDI Form Using Report Format" />
-  <screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/Sys_ediFormReport.png" id="Graphic960583" />
@@ -50,10 +48,8 @@
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <xref endterm="Anchor41905"
-        linkend="Anchor41905" /> FINDME Figure System.39, the file name will
-        include the specific Invoice Number of each Invoice being forwarded to
-        EDI recipients.</para>
+        In the example shown, the file name will include the specific Invoice
+        Number of each Invoice being forwarded to EDI recipients.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -61,12 +57,11 @@
       <listitem id="listitemN0x180ac00N0x1880644">
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <xref endterm="Anchor41905" linkend="Anchor41905" />
-        FINDME Figure System.39 uses a basic SQL statement to select an
-        Invoice number from the "invchead" table. You will note in the WHERE
-        clause that MetaSQL is used to dynamically capture the specific
-        Invoice number. For more information on writing queries using MetaSQL,
-        please see the Report Writer User Guide.</para>
+        example uses a basic SQL statement to select an Invoice number from
+        the "invchead" table. You will note in the WHERE clause that MetaSQL
+        is used to dynamically capture the specific Invoice number. For more
+        information on writing queries using MetaSQL, please see the Report
+        Writer User Guide.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -129,10 +124,8 @@
         <para>Enter a standard file name to be used when documents are
         forwarded to EDI recipients using this EDI Form. You may enter tags to
         generate dynamic file names using information stored in your database.
-        In the example shown in <xref endterm="Anchor41905"
-        linkend="Anchor41905" /> FINDME Figure System.39, the file name will
-        include the specific Invoice Number of each Invoice being forwarded to
-        EDI recipients.</para>
+        In the example shown, the file name will include the specific Invoice
+        Number of each Invoice being forwarded to EDI recipients.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -140,12 +133,11 @@
       <listitem id="listitemN0x180ac00N0x188095c">
         <para>This is an optional field to be used if you want to generate
         dynamic file names using information stored in your database. The
-        example shown in <xref endterm="Anchor41905" linkend="Anchor41905" />
-        FINDME Figure System.39 uses a basic SQL statement to select an
-        Invoice number from the "invchead" table. You will note in the WHERE
-        clause that MetaSQL is used to dynamically capture the specific
-        Invoice number. For more information on writing queries using MetaSQL,
-        please see the Report Writer User Guide.</para>
+        example uses a basic SQL statement to select an Invoice number from
+        the "invchead" table. You will note in the WHERE clause that MetaSQL
+        is used to dynamically capture the specific Invoice number. For more
+        information on writing queries using MetaSQL, please see the Report
+        Writer User Guide.</para>
       </listitem>
     </varlistentry>
     <varlistentry>

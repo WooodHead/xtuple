@@ -1,108 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section974991" role="openmfg">
   <title>Schedule Server Backup</title>
-
-  <para>The server backup utility is designed to provide
-  remote, nightly backups of the data stored on your server. This feature is
-  available to Customers who have signed a Remote Management Support agreement
-  with xTuple.</para>
-
+  <para>The server backup utility is designed to provide remote, nightly
+  backups of the data stored on your server. This feature is available to
+  Customers who have signed a Remote Management Support agreement with
+  xTuple.</para>
   <note>
-      <para>During a remote backup, all data is encrypted and
-    transferred using a secure shell.</para>
+    <para>During a remote backup, all data is encrypted and transferred using
+    a secure shell.</para>
   </note>
-
   <para>To run the server backup utility, select the "Schedule Server Backup"
   option. The following screen will appear:</para>
-
-  <para>
-      <screenshot>
-         <mediaobject>
-            <imageobject>
-               <imagedata id="Graphic956476" fileref="images/schedServerBackup.png"/>
-            </imageobject>
-
-            <caption id="Caption956479">Schedule Server Backup</caption>
-         </mediaobject>
-      </screenshot>
-   </para>
-
-  <para>When scheduling a server backup, you are presented
-  with the following options:</para>
-
+  <para><screenshot>
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="images/schedServerBackup.png" id="Graphic956476" />
+        </imageobject>
+        <caption id="Caption956479">Schedule Server Backup</caption>
+      </mediaobject>
+    </screenshot></para>
+  <para>When scheduling a server backup, you are presented with the following
+  options:</para>
   <variablelist>
-      <varlistentry>
-         <term>Action</term>
-
-         <listitem id="listitemN0x180ac00N0x18f63f8">
-            <para>Displays the name of the action to be performed by the Batch
+    <varlistentry>
+      <term>Action</term>
+      <listitem id="listitemN0x180ac00N0x18f63f8">
+        <para>Displays the name of the action to be performed by the Batch
         Manager.</para>
-
-            <para>In this case, the name of the action is server
-        backup.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Response Email</term>
-
-         <listitem id="listitemN0x180ac00N0x18f6440">
-            <para>By default, the email address of the logged-in user will be
+        <para>In this case, the name of the action is server backup.</para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Response Email</term>
+      <listitem id="listitemN0x180ac00N0x18f6440">
+        <para>By default, the email address of the logged-in user will be
         entered here. This address may be edited or changed.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>Scheduled</term>
-
-         <listitem id="listitemN0x180ac00N0x18f6488">
-            <para>Select one of the following Schedule options:</para>
-
-            <para>ASAP: Select to have the job run as soon as
-        possible.</para>
-
-            <para>Scheduled: Schedule a date and time to run the
-        job. Specify a date in the first field using a standard date format.
-        Use the arrow buttons in the second field to specify a time of
-        day.</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Scheduled</term>
+      <listitem id="listitemN0x180ac00N0x18f6488">
+        <para>Select one of the following Schedule options:</para>
+        <para>ASAP: Select to have the job run as soon as possible.</para>
+        <para>Scheduled: Schedule a date and time to run the job. Specify a
+        date in the first field using a standard date format. Use the arrow
+        buttons in the second field to specify a time of day.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
-
   <note>
-      <para>When a job is submitted to the Batch Manager with a
-    scheduled time of ASAP, the Batch Manager sets the scheduled time to the
-    current time. However, a job will not necessarily be run immediately if it
-    is scheduled for the current time. Any pre-existing jobs with scheduled
-    times prior to the current time must be completed first. In other words,
-    ASAP jobs will not necessarily be run immediately. Previously scheduled
-    jobs will be run first.</para>
+    <para>When a job is submitted to the Batch Manager with a scheduled time
+    of ASAP, the Batch Manager sets the scheduled time to the current time.
+    However, a job will not necessarily be run immediately if it is scheduled
+    for the current time. Any pre-existing jobs with scheduled times prior to
+    the current time must be completed first. In other words, ASAP jobs will
+    not necessarily be run immediately. Previously scheduled jobs will be run
+    first.</para>
   </note>
-
-  <para>To the far right of the screen, the following buttons
-  are available:</para>
-
+  <para>To the far right of the screen, the following buttons are
+  available:</para>
   <variablelist>
-      <varlistentry>
-         <term>CANCEL</term>
-
-         <listitem id="listitemN0x180ac00N0x18f6518">
-            <para>Closes the screen without performing a server backup, returning
+    <varlistentry>
+      <term>CANCEL</term>
+      <listitem id="listitemN0x180ac00N0x18f6518">
+        <para>Closes the screen without performing a server backup, returning
         you to the application desktop.</para>
-         </listitem>
-      </varlistentry>
-
-      <varlistentry>
-         <term>SUBMIT</term>
-
-         <listitem id="listitemN0x180ac00N0x18f6560">
-            <para>Select to submit requested action to the Batch Manager for
-        processing. For additional information, see the <xref endterm="Anchor61009" linkend="Anchor61009"/>
-    FINDME
-  "Topic:
-        Submitting Reports and Jobs to the Batch Manager".</para>
-         </listitem>
-      </varlistentry>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SUBMIT</term>
+      <listitem id="listitemN0x180ac00N0x18f6560">
+        <para>Select to submit requested action to the Batch Manager for
+        processing. For additional information, see <xref
+        linkend="Anchor61009" />.</para>
+      </listitem>
+    </varlistentry>
   </variablelist>
 </section>

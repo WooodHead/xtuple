@@ -60,9 +60,7 @@
     the quantity of a Work Order. To see this Event in action, we will create
     a Work Order for 100 units of Item BOQ-002. The following screenshot shows
     the Work Order we are creating:</para>
-    <para><anchor id="Anchor10794" role="Cross-Ref"
-    xreflabel="10794: Figure: Figure 1.2:  Work Order for Item BOQ-002" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_wOrderBOQ-002.png"
@@ -86,9 +84,7 @@
     User Preferences screen found in the System Module. On the User
     Preferences screen, select the EVENTS button. The following screen will
     appear:</para>
-    <para><anchor id="Anchor84078" role="Cross-Ref"
-    xreflabel="84078: Figure: Figure 1.3:  User Event Screen Showing No Subscriptions" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_eventNotify1.png"
@@ -106,10 +102,9 @@
     <para>The User Event Notification screen is where we check on user Event
     subscriptions. If a user is subscribed to an Event, the user will be
     notified whenever that Event occurs. For this exercise we are interested
-    specifically in the Event "WoQtyChanged". As you can see in <xref
-    endterm="Anchor84078" linkend="Anchor84078" /> FINDME , this Event has
-    been highlighted. Simply click your mouse on an Event to highlight
-    it.</para>
+    specifically in the Event "WoQtyChanged". As you can see in the example,
+    this Event has been highlighted. Simply click your mouse on an Event to
+    highlight it.</para>
     <para>Once the desired Event has been highlighted, we look next to the
     list of Warehouses found on the right-hand side of the screen. If a
     Warehouse has been subscribed to the Event, the "Notify" column next to
@@ -127,12 +122,9 @@
     Warehouse on the Work Order we created for Item BOQ-002--meaning this is
     the Warehouse where a change in Work Order quantity would occur,
     triggering an Event--we double-click on Warehouse EAST. Doing so changes
-    the Notification status for Warehouse EAST to "Yes," as shown in <xref
-    endterm="Anchor79592" linkend="Anchor79592" /> FINDME . The user is now
-    subscribed to the "WoQtyChanged" Event.</para>
-    <para><anchor id="Anchor79592" role="Cross-Ref"
-    xreflabel="79592: Figure: Figure 1.4:  Event Subscription Now Showing on User Events Screen" />
-    <screenshot>
+    the Notification status for Warehouse EAST to "Yes," as shown in the
+    example. The user is now subscribed to the "WoQtyChanged" Event.</para>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_eventNotify2.png"
@@ -175,22 +167,21 @@
     tied to Sales Orders or Work Orders. Because Orders have definite due
     dates and start dates, they are time-sensitive.</para>
     <para>Let's return to our specific example now. Look back at the Work
-    Order we created for Item BOQ-002 in <xref endterm="Anchor10794"
-    linkend="Anchor10794" /> FINDME . The start date is "01/09/2004". We
-    recall that the Event Fence setting for Item BOQ-002 in Warehouse EAST is
-    five days. That means in terms of calendar days, the Event Fence for this
-    Work Order ranges over a period of five days from 01/05/2004 to
-    01/09/2004. If a system-defined Event occurs within this Event Fence, and
-    you are subscribed to that Event in the correct Warehouse, you will
-    receive notification that the Event has occurred. If the Event occurs
-    prior to the Event Fence, no notification will be issued.</para>
+    Order we created for Item BOQ-002 in the example. The start date is
+    "01/09/2004". We recall that the Event Fence setting for Item BOQ-002 in
+    Warehouse EAST is five days. That means in terms of calendar days, the
+    Event Fence for this Work Order ranges over a period of five days from
+    01/05/2004 to 01/09/2004. If a system-defined Event occurs within this
+    Event Fence, and you are subscribed to that Event in the correct
+    Warehouse, you will receive notification that the Event has occurred. If
+    the Event occurs prior to the Event Fence, no notification will be
+    issued.</para>
     <para>Now let's initiate the "WoQtyChanged" Event and track the results.
     Today's date is 01/08/2004, so we are within the specified Event Fence for
     the BOQ-002 Item Site. All we have to do is open the Change Work Order
     Quantity screen, which is found in the Work Order Control Section of the
-    W/O Module. And as you can see in <xref endterm="Anchor52867"
-    linkend="Anchor52867" /> FINDME , we will change the original Work Order
-    quantity from 100 units to 75 units:</para>
+    W/O Module. And as you can see in the example, we will change the original
+    Work Order quantity from 100 units to 75 units:</para>
     <para><anchor id="Anchor52867" role="Cross-Ref"
     xreflabel="52867: Figure: Figure 1.6:  Event Initiated by Change in Work Order Quantity" />
     <screenshot>
@@ -222,9 +213,7 @@
     <para>To see details about the Event, we double-click on the alert button.
     Doing so opens the OpenMFG Event Manager, as shown in the following
     screen:</para>
-    <para><anchor id="Anchor49980" role="Cross-Ref"
-    xreflabel="49980: Figure: Figure 1.8:  Event Shown in Event Manager" />
-    <screenshot>
+    <para> <screenshot>
         <mediaobject>
           <imageobject>
             <imagedata fileref="images/Topic_eventManager1.png"
@@ -238,8 +227,7 @@
       notification button has appeared. Simply select the Event Manager option
       from the System Module menu.</para>
     </note>
-    <para>As you can see in <xref endterm="Anchor49980"
-    linkend="Anchor49980" /> FINDME , the Event for the current user is
+    <para>As you can see in the example, the Event for the current user is
     displayed. If you are a manager with permission to view Event details
     pertaining to other users, you would have the ability to select another
     user on this screen. Looking at the details for our current user, we see
