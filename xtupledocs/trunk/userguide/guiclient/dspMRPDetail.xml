@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section537055" role="openmfg">
   <title>MRP Detail</title>
   <para>To display a time-phased view of Material Requirements Planning (MRP)
   detail, select the "MRP Detail" option. The following screen will
   appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic520861" fileref="images/dspMRPDetail.png"/>
+          <imagedata fileref="images/dspMRPDetail.png" id="Graphic520861" />
         </imageobject>
-        <caption id="Caption519028">MRP Detail</caption>
+        <caption>MRP Detail</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <note>
     <para>Only firm Planned Orders will be included in the MRP Detail display.
     If a Planned Order is not firmed, it will not be recognized. This
@@ -55,7 +54,8 @@
       <term>Pattern</term>
       <listitem>
         <para>Enter a Planner Code pattern to select a range of Planner Codes.
-        Refine your search using Regular Expressions, as described in <xref linkend="Anchor77806"/>.</para>
+        Refine your search using Regular Expressions, as described in <xref
+        linkend="Anchor77806" />.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -139,9 +139,15 @@
   <para>Right-clicking on a Line Item in the MRP Detail display enables you to
   select from the following context-sensitive options.</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewAllocations)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickViewOrders)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewAllocations)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickViewOrders)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
   <para>You will only be able to view Allocations if Allocations are showing a
   positive value in the period where you right-click your mouse. Similarly,
@@ -149,12 +155,18 @@
   in the period where you right-click your mouse. If the Line Item is a
   purchased Item, the following additional options will be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssuePR)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssuePO)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssuePR)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssuePO)" />
   </variablelist>
   <para>If the Line Item is a manufactured Item, the following additional
   option will be available:</para>
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickIssueWO)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickIssueWO)" />
   </variablelist>
 </section>

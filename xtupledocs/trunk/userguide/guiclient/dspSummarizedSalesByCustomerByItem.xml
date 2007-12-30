@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section530325">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales history</primary>
       <secondary>summarized by customer by item</secondary>
     </indexterm> <indexterm significance="normal">
@@ -12,17 +12,16 @@
   <para id="Para518897">To view summarized Sales history by Customer by Item,
   select the "Summarized Sales History by Customer by Item" option. The
   following screen will appear:</para>
-  <para id="Para518901">
-<screenshot>
+  <para id="Para518901"><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic521719" fileref="images/dspSummarizedSalesByCustomerByItem.png"/>
+          <imagedata fileref="images/dspSummarizedSalesByCustomerByItem.png"
+                     id="Graphic521719" />
         </imageobject>
         <caption id="Caption518902">Summarized Sales History by Customer by
         Item</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para id="Para551034">From this screen, you can highlight a Line Item and
     then drag and drop it into a Sales Order using your mouse.</para>
@@ -33,18 +32,18 @@
     <varlistentry>
       <term id="Para518904">Customer #</term>
       <listitem>
-        <para id="Para">Enter the Customer Number of the Customer whose
-        summarized Sales history by Item you want to display. The browse
-        button located to the right of the field leads to a searchable
-        Customers list. You may also access this list using the keyboard
-        shortcut "CTRL + L". Once a Customer Number is entered, the Customer
-        name and billing address will display. Select the "?" or "$" symbol
-        next to the browse button to view Customer information for the
-        specified Customer. If a Customer's credit is "In Good Standing," the
-        button will feature a black question mark ("?") icon. If the icon
-        turns to an orange dollar sign ("$"), the Customer's credit Status is
-        "On Credit Warning." A red dollar sign ("$") indicates the Customer's
-        credit Status is "On Credit Hold."</para>
+        <para>Enter the Customer Number of the Customer whose summarized Sales
+        history by Item you want to display. The browse button located to the
+        right of the field leads to a searchable Customers list. You may also
+        access this list using the keyboard shortcut "CTRL + L". Once a
+        Customer Number is entered, the Customer name and billing address will
+        display. Select the "?" or "$" symbol next to the browse button to
+        view Customer information for the specified Customer. If a Customer's
+        credit is "In Good Standing," the button will feature a black question
+        mark ("?") icon. If the icon turns to an orange dollar sign ("$"), the
+        Customer's credit Status is "On Credit Warning." A red dollar sign
+        ("$") indicates the Customer's credit Status is "On Credit
+        Hold."</para>
       </listitem>
     </varlistentry>
     <varlistentry>

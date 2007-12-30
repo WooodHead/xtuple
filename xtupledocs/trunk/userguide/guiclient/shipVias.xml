@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
-<section id="Section518859">
-  <title>
-<indexterm significance="normal">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<section id="shipVias">
+  <title><indexterm significance="normal">
       <primary>ship vias</primary>
       <secondary>master list of</secondary>
     </indexterm>Ship Vias</title>
@@ -88,19 +88,18 @@
   </note>
   <para>To access the master list of Ship Vias, select the "Ship Vias" option.
   The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic523030" fileref="images/shipVias.png"/>
+          <imagedata fileref="images/shipVias.png" id="Graphic523030" />
         </imageobject>
         <caption id="Caption518865">Ship Vias Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <tip>
     <para>If your site integrates UPS WorldShip with OpenMFG, there are
-    separate steps to be followed. For more information, see <xref linkend="Anchor29552"/>.</para>
+    separate steps to be followed. For more information, see <xref
+    linkend="Anchor29552" />.</para>
   </tip>
   <para>The Ship Vias master list displays the code and description for all
   existing Ship Vias.</para>
@@ -137,5 +136,6 @@
       </listitem>
     </varlistentry>
   </variablelist>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="shipVia.xml" xpointer="element(/1)"/>
+  <xi:include href="shipVia.xml" xmlns:xi="http://www.w3.org/2001/XInclude"
+              xpointer="element(/1)" />
 </section>

@@ -1,109 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section524434">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>general ledger</primary>
-
       <secondary>viewing transactions in</secondary>
     </indexterm> <indexterm significance="normal">
       <primary>transactions</primary>
-
       <secondary>viewing in general ledger</secondary>
     </indexterm>G/L Transactions</title>
-
   <para>To view General Ledger transactions sorted by source module and date,
   select the "G/L Transactions" option. The following screen will
   appear:</para>
-
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic525455" fileref="images/dspGLTransactions.png"/>
+          <imagedata fileref="images/dspGLTransactions.png" />
         </imageobject>
-
         <caption id="Caption525458">G/L Transactions</caption>
       </mediaobject>
-    </screenshot>
-</para>
-
+    </screenshot></para>
   <para>When displaying General Ledger transactions, you are presented with
   the following options:</para>
-
   <variablelist>
     <varlistentry>
       <term>All Accounts</term>
-
       <listitem id="listitemN0x180ac00N0x1914e14">
         <para>Select to display transactions for all G/L Accounts.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Selected</term>
-
       <listitem id="listitemN0x180ac00N0x1914e5c">
         <para>Specify G/L Account whose transactions you want to
         display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Start Date</term>
-
       <listitem id="listitemN0x180ac00N0x1914ea4">
         <para>G/L transactions posted on and after this date will be
         displayed. This is a required field.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>End Date</term>
-
       <listitem id="listitemN0x180ac00N0x1914eec">
         <para>G/L transactions posted on and before this date will be
         displayed. This is a required field.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>All Sources</term>
-
       <listitem id="listitemN0x180ac00N0x1914f34">
         <para>Select to display G/L transactions from all source
         modules.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Selected</term>
-
       <listitem id="listitemN0x180ac00N0x1914f7c">
         <para>Specify source module whose G/L transactions you want to
         display.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>Show Username</term>
-
       <listitem id="listitemN0x180ac00N0x1914fc4">
         <para>Select to display the username of users associated with
         transactions.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>G/L Transactions</term>
-
       <listitem id="listitemN0x180ac00N0x191500c">
         <para>Display lists G/L transactions based on the specified
         parameters.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <tip>
     <para>If your transaction records are displaying a "No" value in the
     "Posted" column, this means the transactions were not posted into an
@@ -112,50 +87,42 @@
     for the time Period in question, your transaction records will display
     "Yes" in the posted column.</para>
   </tip>
-
   <para>To the far right of the screen, the following buttons are
   available:</para>
-
   <variablelist>
     <varlistentry>
       <term>CLOSE</term>
-
       <listitem id="listitemN0x180ac00N0x191509c">
         <para>Closes the screen, returning you to the application
         desktop.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>QUERY</term>
-
       <listitem id="listitemN0x180ac00N0x19150e4">
         <para>Select to generate the display, using the specified
         parameters.</para>
-
         <para>Start date and end date must be entered for request to proceed.
         Results will be displayed in the "G/L Transactions" list.</para>
       </listitem>
     </varlistentry>
-
     <varlistentry>
       <term>PRINT</term>
-
       <listitem id="listitemN0x180ac00N0x191512c">
         <para>Prints a copy of the contents displayed on the screen.</para>
       </listitem>
     </varlistentry>
   </variablelist>
-
   <para>Right-clicking on a line item in the transactions list enables you to
   select from the following menu options:</para>
-
   <variablelist>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickView)"/>
-
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickView)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
-
   <para>If the transaction refers to an Invoice, Purchase Order, or Voucher,
   you may also drill down to view the original Document.</para>
 </section>

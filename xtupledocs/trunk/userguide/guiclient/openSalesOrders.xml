@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
 <section id="Section605037">
-  <title>
-<indexterm significance="normal">
+  <title><indexterm significance="normal">
       <primary>sales orders</primary>
       <secondary>list open</secondary>
     </indexterm>List Open Sales Orders</title>
@@ -12,16 +12,14 @@
   Typically, Sales Order Line Items are closed when the Order is selected for
   billing. To display open Sales Orders by Warehouse, select the "Open Sales
   Orders" option. The following screen will appear:</para>
-  <para>
-<screenshot>
+  <para><screenshot>
       <mediaobject>
         <imageobject>
-          <imagedata id="Graphic523353" fileref="images/openSalesOrders.png"/>
+          <imagedata fileref="images/openSalesOrders.png" id="Graphic523353" />
         </imageobject>
-        <caption id="Caption519186">Open Sales Orders Master List</caption>
+        <caption>Open Sales Orders Master List</caption>
       </mediaobject>
-    </screenshot>
-</para>
+    </screenshot></para>
   <para>When displaying open Sales Orders, you are presented with the
   following options:</para>
   <variablelist>
@@ -105,25 +103,41 @@
   <variablelist>
     <varlistentry>
       <term>Edit</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openSalesOrdersEDIT)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersEDIT)" />
     </varlistentry>
     <varlistentry>
       <term>View</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openSalesOrdersVIEW)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersVIEW)" />
     </varlistentry>
     <varlistentry>
       <term>Copy</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openSalesOrdersCOPY)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersCOPY)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickReschedule)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickReschedule)" />
     <varlistentry>
       <term>Delete</term>
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="element(openSalesOrdersDELETE)"/>
+      <xi:include href="" xmlns:xi="http://www.w3.org/2001/XInclude"
+                  xpointer="element(openSalesOrdersDELETE)" />
     </varlistentry>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintPackingList)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickAddtoPackingListBatch)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickScheduleSOforEmailDelivery)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../supportfiles/rightclick.xml" xpointer="element(rightclickPrintSalesOrderForm)"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../widgets/xtreewidget.xml" xpointer="element(xtreewidget.menu.exportcontents)"/>
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintPackingList)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickAddtoPackingListBatch)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickScheduleSOforEmailDelivery)" />
+    <xi:include href="../supportfiles/rightclick.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(rightclickPrintSalesOrderForm)" />
+    <xi:include href="../widgets/xtreewidget.xml"
+                xmlns:xi="http://www.w3.org/2001/XInclude"
+                xpointer="element(xtreewidget.menu.exportcontents)" />
   </variablelist>
 </section>

@@ -706,8 +706,7 @@
         cursor still blinking in the field, hit the TAB key. The date will be
         converted to "02/25/03"--or whatever the proper date format is for
         your system. For more information on keyboard shortcuts related to
-        dates, see the <xref endterm="Anchor73705" linkend="Anchor73705" />
-        FINDME "Date Shortcuts" section.</para>
+        dates, see the <xref linkend="Anchor73705" />.</para>
         <note>
           <para>Date formats are controlled by Locale settings.</para>
         </note>
@@ -830,7 +829,7 @@
         display with the following shortcut: ALT + W.</para>
       </section>
       <section id="Section474757">
-        <title><anchor id="Anchor73705" role="Cross-Ref"
+        <title id="Anchor73705"><anchor id="Anchor73705" role="Cross-Ref"
         xreflabel="73705: Heading3: Date Formats" /> <indexterm
             significance="normal">
             <primary>formats</primary>
@@ -1462,14 +1461,12 @@
           <term>SELECT</term>
           <listitem id="listitemN0x180ac00N0x1855268">
             <para>Inserts a highlighted list item into a requesting field. The
-            use of the SELECT button is illustrated in <xref
-            endterm="Anchor12329" linkend="Anchor12329" /> FINDME Figure
-            Intro.7. In this Bill of Materials example, you would highlight an
-            Item in the searchable master list of Items and then hit SELECT.
-            The Item would then be automatically entered into the "Item
-            Number" field on the Bill of Materials screen. You may bypass the
-            SELECT button by double-clicking on a highlighted list
-            item.</para>
+            use of the SELECT button is illustrated in the example. In this
+            Bill of Materials example, you would highlight an Item in the
+            searchable master list of Items and then hit SELECT. The Item
+            would then be automatically entered into the "Item Number" field
+            on the Bill of Materials screen. You may bypass the SELECT button
+            by double-clicking on a highlighted list item.</para>
           </listitem>
         </varlistentry>
         <varlistentry>
