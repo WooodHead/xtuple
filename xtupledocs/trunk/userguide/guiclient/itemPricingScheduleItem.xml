@@ -38,13 +38,13 @@
             <listitem>
               <para>Select if the Pricing Schedule is for a Product
               Category.</para>
-              <tip>
-                <para>The screen options will differ depending on whether the
-                Pricing Schedule is for an Item or a Product Category.</para>
-              </tip>
             </listitem>
           </varlistentry>
         </variablelist>
+        <tip>
+          <para>The screen options will differ depending on whether the
+          Pricing Schedule is for an Item or a Product Category.</para>
+        </tip>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -106,8 +106,9 @@
       <term>Price UOM</term>
       <listitem>
         <para>Specify the Price Unit of Measure to be used with the specified
-        Quantity Break UOM.</para>
-        <para></para>
+        Quantity Break UOM. If you select a Selling UOM for the Qty. UOM, you
+        will not be able to select a Price UOM. For Selling UOMs, the Selling
+        UOM and the Price UOM are the same.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
@@ -164,9 +165,7 @@
       <secondary>pricing schedules for</secondary>
     </indexterm>If you are creating a new Pricing Schedule for a Product
   Category, the following screen will appear:</para>
-  <para><anchor id="Anchor46818" role="Cross-Ref"
-  xreflabel="46818: Figure: Figure 10.109:  Pricing Schedule for Product Category" />
-  <screenshot>
+  <para> <screenshot>
       <mediaobject>
         <imageobject>
           <imagedata fileref="images/SO_IP_pricingSchedPCat.png"
