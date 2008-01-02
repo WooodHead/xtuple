@@ -1,5 +1,9 @@
+--  All items must have a number
+SELECT COUNT(*)=0 FROM item WHERE (item_number IS NULL);
 --  All items must have a status
 SELECT COUNT(*)=0 FROM item WHERE (item_active IS NULL);
+--  All items must have a type
+SELECT COUNT(*)=0 FROM item WHERE (item_type IS NULL);
 --  All items must have a picklist flag
 SELECT COUNT(*)=0 FROM item WHERE (item_picklist IS NULL);
 --  All items must have a fractional flag
@@ -30,5 +34,7 @@ SELECT classcode_id FROM classcode WHERE (classcode_id=item_classcode_id)
 SELECT COUNT(*)=0 FROM item WHERE (item_type NOT IN ('P','M','F','J','O','R','S','T','B','L','Y','C'));
 --  All items must have a planning type
 SELECT COUNT(*)=0 FROM item WHERE (item_planning_type NOT IN ('N','M','S'));
+--  Sold items must have a product category
+SELECT COUNT(*)=0 FROM item WHERE (item_sold AND (item_prodcat_id=-1 OR item_prodcat_id IS NULL));
 
 

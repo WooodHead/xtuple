@@ -96,8 +96,8 @@ BEGIN;
 	   VALUES
 	   (NEW.item_number,
 	    COALESCE(NEW.active,TRUE),
-	    NEW.description1,
-	    NEW.description2,
+	    COALESCE(NEW.description1,''),
+	    COALESCE(NEW.description2,''),
 	    CASE
 	      WHEN NEW.item_type = 'Purchased' THEN
 	        'P'
@@ -124,7 +124,7 @@ BEGIN;
 	      WHEN NEW.item_type = 'By-Product' THEN
 	        'Y'
 	    END,
-	    NEW.maximum_desired_cost,
+	    COALESCE(NEW.maximum_desired_cost,0),
 	    getClassCodeId(NEW.class_code),
 	    getUomId(NEW.inventory_uom),
 	    COALESCE(NEW.pick_list_item,TRUE),
@@ -138,7 +138,7 @@ BEGIN;
 	        'M'
 	    END,
 	    COALESCE(NEW.item_is_sold,TRUE),
-	    getProdCatId(NEW.product_category),
+	    COALESCE(getProdCatId(NEW.product_category),-1),
 	    COALESCE(NEW.exclusive,FALSE),
 	    COALESCE(NEW.list_price,0),
 	    COALESCE(getUomId(NEW.list_price_uom),getUomId(NEW.inventory_uom)),
@@ -147,7 +147,70 @@ BEGIN;
 	    COALESCE(NEW.packaging_weight,0),
 	    NEW.notes,
 	    NEW.ext_description);
+ 
+    CREATE OR REPLACE RULE "_UPDATE" AS
+    ON UPDATE TO api.item DO INSTEAD
+
+    UPDATE item SET
+      item_active=NEW.active,
+      item_descrip1=NEW.description1,
+      item_descrip2=NEW.description2,
+      item_type=
+     	    CASE
+	      WHEN NEW.item_type = 'Purchased' THEN
+	        'P'
+	      WHEN NEW.item_type = 'Manufactured' THEN
+	        'M'
+	      WHEN NEW.item_type = 'Job' THEN
+	        'J'
+	      WHEN NEW.item_type = 'Phantom' THEN
+	        'F'
+	      WHEN NEW.item_type = 'Reference' THEN
+	        'R'
+	      WHEN NEW.item_type = 'Costing' THEN
+	        'S'
+	      WHEN NEW.item_type = 'Tooling' THEN
+	        'T'
+	      WHEN NEW.item_type = 'Outside Process' THEN
+	        'O'
+	      WHEN NEW.item_type = 'Planning' THEN
+	        'L'
+	      WHEN NEW.item_type = 'Breeder' THEN
+	        'B'
+	      WHEN NEW.item_type = 'Co-Product' THEN
+	        'C'
+	      WHEN NEW.item_type = 'By-Product' THEN
+	        'Y'
+	    END,
+      item_maxcost=NEW.maximum_desired_cost,
+      item_classcode_id=getClassCodeId(NEW.class_code),
+      item_inv_uom_id=getUomId(NEW.inventory_uom),
+      item_picklist=NEW.pick_list_item,
+      item_fractional=NEW.fractional,
+      item_planning_type=
+      	    CASE
+	      WHEN NEW.planning_system = 'None' THEN
+	        'N'
+	      WHEN NEW.planning_system = 'MPS' THEN
+	        'S'
+	      ELSE
+	        'M'
+	    END,
+      item_sold=NEW.item_is_sold,
+      item_prodcat_id=COALESCE(getProdCatId(NEW.product_category),-1),
+      item_exclusive=NEW.exclusive,
+      item_listprice=NEW.list_price,
+      item_price_uom_id=getUomId(NEW.list_price_uom),
+      item_upccode=NEW.upc_code,
+      item_prodweight=NEW.product_weight,
+      item_packweight=NEW.packaging_weight,
+      item_comments=NEW.notes,
+      item_extdescrip=NEW.ext_description
+    WHERE (item_id=getItemId(OLD.item_number));
+
+    CREATE OR REPLACE RULE "_DELETE" AS
+    ON DELETE TO api.item DO INSTEAD
+
+    SELECT deleteitem(getItemId(OLD.item_number));
 
 END;
- 
-  

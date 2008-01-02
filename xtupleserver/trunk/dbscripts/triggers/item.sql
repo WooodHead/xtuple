@@ -4,6 +4,30 @@ DECLARE
 
 BEGIN
 
+-- Override values to avoid invalid data combinations
+  IF (NEW.item_type IN (''J'',''R'',''S'',''O'',''L'',''B'')) THEN
+    NEW.item_picklist := FALSE;
+  END IF;
+
+  IF (NEW.item_type IN (''J'',''R'',''S'',''T'')) THEN
+    NEW.item_planning_type := ''N'';
+  END IF;
+
+  IF (NEW.item_type = ''L'') THEN
+    NEW.item_planning_type := ''S'';
+  END IF;
+
+  IF (NEW.item_type IN (''F'',''S'',''T'',''O'',''L'',''B'')) THEN
+    NEW.item_picklist := FALSE;
+    NEW.item_sold := FALSE;
+    NEW.item_prodcat_id := -1;
+    NEW.item_exclusive := false;
+    NEW.item_listprice := 0;
+    NEW.item_upccode := '''';
+    NEW.item_prodweight := 0;
+    NEW.item_packweight := 0;
+  END IF;
+
   IF ( SELECT (metric_value=''t'')
        FROM metric
        WHERE (metric_name=''ItemChangeLog'') ) THEN

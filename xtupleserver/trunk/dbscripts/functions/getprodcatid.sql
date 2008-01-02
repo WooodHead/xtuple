@@ -9,7 +9,7 @@ BEGIN
 
   SELECT prodcat_id INTO _returnVal
   FROM prodcat
-  WHERE (pradcat_code=pProdCat);
+  WHERE (prodcat_code=pProdCat);
 
   IF (_returnVal IS NULL) THEN
 	RAISE EXCEPTION ''Product Category % not found.'', pProdCat;
