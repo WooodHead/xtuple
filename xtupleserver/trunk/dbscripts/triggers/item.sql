@@ -4,6 +4,30 @@ DECLARE
 
 BEGIN
 
+-- Integrity checks
+  IF (TG_OP = ''UPDATE'') THEN
+    IF ((OLD.item_type <> NEW.item_type) AND (NEW.item_type = ''L'')) THEN
+      IF (SELECT COUNT(*) != 0 FROM bomitem WHERE (bomitem_item_id = OLD.item_id)) THEN
+        RAISE EXCEPTION ''This item is part of one or more Bills of Materials and cannot be a Planning Item.'';
+      END IF;
+    END IF;
+
+    IF (NEW.item_type IN (''J'',''R'',''S'',''T'')) THEN
+      IF (SELECT COUNT(*) != 0
+        FROM itemsite
+        WHERE ((itemsite_item_id=OLD.item_id)
+        AND (itemsite_qtyonhand + qtyallocated(itemsite_id,startoftime(),endoftime()) +
+	   qtyordered(itemsite_id,startoftime(),endoftime()) > 0 ))) THEN
+          RAISE EXCEPTION ''Item type not allowed when there are itemsites with quantities with on hand quantities or pending inventory activity for this item.'';
+      END IF;
+    END IF;
+-- If type changed remove costs and deactivate item sites
+    IF (NEW.item_type <> OLD.item_type) THEN
+      PERFORM updateCost(itemcost_id, 0) FROM itemcost WHERE (itemcost_item_id=OLD.item_id);
+      UPDATE itemsite SET itemsite_active=false WHERE (itemsite_item_id=OLD.item_id);
+    END IF;
+  END IF;
+  
 -- Override values to avoid invalid data combinations
   IF (NEW.item_type IN (''J'',''R'',''S'',''O'',''L'',''B'')) THEN
     NEW.item_picklist := FALSE;
@@ -197,4 +221,4 @@ END;
 ' LANGUAGE 'plpgsql';
 
 DROP TRIGGER itemTrigger ON item;
-CREATE TRIGGER itemTrigger BEFORE INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemTrigger();
+CREATE TRIGGER itemTrigger AFTER INSERT OR UPDATE ON item FOR EACH ROW EXECUTE PROCEDURE _itemTrigger();

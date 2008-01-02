@@ -6,7 +6,4 @@ SELECT LTRIM(TO_CHAR(COALESCE($1, 0), ( SELECT locale_uomratioformat
                                          AND (usr_username=CURRENT_USER) ) ) ), '' '') AS result
 ' LANGUAGE 'sql';
 
-CREATE OR REPLACE FUNCTION formatUOMRatio(NUMERIC) RETURNS TEXT IMMUTABLE AS '
-SELECT LTRIM(TO_CHAR($1, ''99999D999999''), '' '') AS result
-' LANGUAGE 'sql';
 
