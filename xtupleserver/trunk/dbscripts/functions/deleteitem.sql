@@ -57,13 +57,15 @@ BEGIN
     RETURN -5;
   END IF;
 
-  SELECT rev_id INTO _result
-  FROM rev
-  WHERE ((rev_target_id=pItemid)
-  AND (rev_target_type IN (''BOM'',''BOO'')))
-  LIMIT 1;
-  IF (FOUND) THEN
-    RETURN -6;
+  IF (fetchmetricbool(''RevControl'')) THEN
+    SELECT rev_id INTO _result
+    FROM rev
+    WHERE ((rev_target_id=pItemid)
+    AND (rev_target_type IN (''BOM'',''BOO'')))
+    LIMIT 1;
+    IF (FOUND) THEN
+      RETURN -6;
+    END IF;
   END IF;
 
   DELETE FROM bomhead
