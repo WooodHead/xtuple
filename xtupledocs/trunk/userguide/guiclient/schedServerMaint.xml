@@ -4,12 +4,14 @@
 <section id="Section955847" role="openmfg">
   <title>Schedule Server Maintenance</title>
   <para>The server maintenance utility is designed to perform automated
-  maintenance on your server. You should perform server maintenance on a
-  regular basis to ensure the smooth operation of your server.</para>
+  maintenance on your server. Server maintenance should be performed on a
+  regular basis to ensure the smooth operation of your server. </para>
   <note>
     <para>When server maintenance is performed, a VACUUM FULL ANALYZE
-    operation is run on your server. For more information on the VACUUM and
-    ANALYZE operations, visit the PostgreSQL website at <ulink
+    operation is run on your server, followed by a REINDEX. The user who
+    schedules server maintenance must be a superuser (i.e., have the ability
+    to create system users). For more information on the VACUUM, ANALYZE, and
+    REINDEX operations, visit the PostgreSQL website at <ulink
     id="Hypertext956137"
     url="http://www.postgresql.com">http://www.postgresql.com</ulink>.</para>
   </note>
