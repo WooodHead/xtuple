@@ -3,7 +3,11 @@ DECLARE
   _cmnttypeid INTEGER;
 
 BEGIN
-
+-- Privilege Checks
+   IF (NOT checkPrivilege(''MaintainItemMasters'')) THEN
+     RAISE EXCEPTION ''You do not have privileges to maintain Items.'';
+   END IF;
+   
 -- Integrity checks
   IF (TG_OP = ''UPDATE'') THEN
     IF ((OLD.item_type <> NEW.item_type) AND (NEW.item_type = ''L'')) THEN
