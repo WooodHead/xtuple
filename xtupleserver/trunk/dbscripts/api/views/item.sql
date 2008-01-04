@@ -94,7 +94,7 @@ BEGIN;
 	    item_comments,
 	    item_extdescrip)
 	   VALUES
-	   (NEW.item_number,
+	   (UPPER(NEW.item_number),
 	    COALESCE(NEW.active,TRUE),
 	    COALESCE(NEW.description1,''),
 	    COALESCE(NEW.description2,''),
