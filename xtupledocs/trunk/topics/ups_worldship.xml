@@ -30,10 +30,10 @@
     <para>The requirements for setting up UPS WorldShip to communicate with
     OpenMFG include the following:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1842da8">
+      <listitem>
         <para>Install UPS WorldShip software on a networked workstation</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1842dcc">
+      <listitem>
         <para>Download and install ODBC driver for PostgreSQL</para>
       </listitem>
     </itemizedlist>
@@ -43,15 +43,15 @@
       Databases run on the PostgreSQL database server.</para>
     </note>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1842e38">
+      <listitem>
         <para>Configure UPS WorldShip to auto-export using the PostgreSQL ODBC
         driver</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1842e5c">
+      <listitem>
         <para>Create user-defined field for entering OpenMFG Sales Order
         Numbers</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1842e80">
+      <listitem>
         <para>Define export mapping to associate UPS WorldShip data fields
         with corresponding OpenMFG data fields</para>
       </listitem>
@@ -172,14 +172,14 @@
     <variablelist>
       <varlistentry>
         <term>Map Name</term>
-        <listitem id="listitemN0x180ac00N0x184375c">
+        <listitem>
           <para>Enter a name to describe your export map. In our example, we
           have give the export map the name "export."</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Data Source Information</term>
-        <listitem id="listitemN0x180ac00N0x18437a4">
+        <listitem>
           <para>Specify the following Data Source information:</para>
           <variablelist>
             <varlistentry>
@@ -237,7 +237,7 @@
       </varlistentry>
       <varlistentry>
         <term>Map Information</term>
-        <listitem id="listitemN0x180ac00N0x18437ec">
+        <listitem>
           <para>Specify the following map information:</para>
           <variablelist>
             <varlistentry>
@@ -302,10 +302,10 @@
     <para>The process flow begins in OpenMFG with the following
     sequence:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x184dc90">
+      <listitem>
         <para>Enter Sales Order(s) for Customer(s)</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184dcb4">
+      <listitem>
         <para>Issue Stock to Shipping (optional)</para>
       </listitem>
     </orderedlist>
@@ -318,17 +318,17 @@
     process flow moves to the UPS WorldShip system. Perform the following
     steps from your UPS workstation:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x184dcfc">
+      <listitem>
         <para>Enter Customer destination information</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184dd20">
+      <listitem>
         <para>Enter OpenMFG Sales Order Number(s) in the special Reference
         field created for this purpose</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184dd44">
+      <listitem>
         <para>Weigh package(s) you will be shipping with UPS</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184dd68">
+      <listitem>
         <para>Finish Order and ship it in UPS WorldShip</para>
       </listitem>
     </orderedlist>
@@ -336,13 +336,13 @@
     exported to OpenMFG via the ODBC connection. The following UPS information
     will now be stored in the OpenMFG Database:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x184ddb0">
+      <listitem>
         <para>UPS Tracking Number</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184ddd4">
+      <listitem>
         <para>Actual Weight</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184ddf8">
+      <listitem>
         <para>Total Shipping and Handling Charges</para>
       </listitem>
     </itemizedlist>
@@ -375,10 +375,10 @@
     issued to Shipping in OpenMFG.</para>
     <para>We are now ready to complete the final steps:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x184ded0">
+      <listitem>
         <para>Select the correct Tracking Number</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x184def4">
+      <listitem>
         <para>Ship the Order</para>
       </listitem>
     </itemizedlist>

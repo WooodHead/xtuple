@@ -33,7 +33,7 @@
     You should familiarize yourself with the following definitions for these
     two terms:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18d95f8">
+      <listitem>
         <para>Actual Cost: The real-time Cost associated with an Item,
         including current material and production charges. The Actual Cost of
         an Item may fluctuate given changes in the Cost for materials, or
@@ -41,7 +41,7 @@
         Operations. The Actual Cost provides a current record of charges
         actually incurred by an Item.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18d961c">
+      <listitem>
         <para>Standard Cost: The Cost used for posting General Ledger
         transactions. Standard Cost is distinguished from Actual Cost in the
         sense that Standard Cost is fixed, whereas Actual Cost is subject to
@@ -198,7 +198,7 @@
     "Total Cost" for the parent Item SET. However, the Actual and Standard
     Costs for Item SET have not been affected:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18d9b08">
+      <listitem>
         <para>Total Cost = $13.00</para>
         <para>Actual Cost = $12.00</para>
         <para>Standard Cost = $12.00</para>
@@ -462,16 +462,16 @@
     <para>A few key points about manufactured Item costing can be made by
     looking closely at the information displayed in the example:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x18da1c8">
+      <listitem>
         <para>Three system-defined Costing Elements are available to
         manufactured Items: "Material," "Direct Labor," and "Overhead."</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18da1ec">
+      <listitem>
         <para>Material Costs for manufactured Items are always lower
         level--which means they are associated with component Items, not with
         the parent Item.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e7a00">
+      <listitem>
         <para>Direct labor and overhead Costs are this level--meaning, if in
         use, these Costs are associated with the parent Item they refer
         to.</para>
@@ -501,7 +501,7 @@
     only. Doing some simple math, we see how the lower level material Costs
     for Item TDPKIT were calculated:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e7ad8">
+      <listitem>
         <para>$0.30 (TDK1) + $0.25 (TDK2) = $0.55</para>
       </listitem>
     </itemizedlist>
@@ -578,10 +578,10 @@
     menu. And the following setup time and run time values have been
     entered:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e7e5c">
+      <listitem>
         <para>Setup time = 5 minutes (charged only once per Operation)</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e7e80">
+      <listitem>
         <para>Run time = 1 minute (charged per each unit of Item
         TDPKIT)</para>
       </listitem>
@@ -662,23 +662,23 @@
     effort to reconstruct how direct labor Costs for manufactured component
     Item TDPKIT were arrived at:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e8030">
+      <listitem>
         <para>Setup time = 5 mins (converted to hours: 5/60 = .0833333)</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e8054">
+      <listitem>
         <para>Run time = 1 min (converted to hours: 1/60 = .016666)</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e8078">
+      <listitem>
         <para>Setup rate = $10/hr</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e809c">
+      <listitem>
         <para>Run rate = $10/hr</para>
       </listitem>
     </itemizedlist>
     <para>We now have enough information to calculate the direct labor Cost.
     The following formula is the one we will use:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e80e4">
+      <listitem>
         <para>(setup time x setup rate) + (run time x run rate) = direct labor
         Cost</para>
       </listitem>
@@ -688,7 +688,7 @@
     All we have to do now is insert the correct values, and the equation looks
     like this:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e812c">
+      <listitem>
         <para>(.0833333 x $10.00) + (.016666 x $10.00) = $1.00</para>
       </listitem>
     </itemizedlist>
@@ -712,14 +712,14 @@
     we recall that the overhead rate per hour = $10.00 To calculate overhead
     Cost then, we would use the following formula:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e81e0">
+      <listitem>
         <para>setup time + run time x overhead rate = overhead Cost</para>
       </listitem>
     </itemizedlist>
     <para>If we now insert the correct values, the equation looks like
     this:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e8228">
+      <listitem>
         <para>.0833333 + . 016666 x $10.00 = $1.00</para>
       </listitem>
     </itemizedlist>
@@ -754,11 +754,11 @@
     component Items. For Item TDMR100, the levels may be broken down as
     follows:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18e8348">
+      <listitem>
         <para>This level: Direct labor and overhead Costs for parent Item
         TDMR100</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e836c">
+      <listitem>
         <para>Lower level: Direct labor and overhead Costs associated with
         component Item TDPKIT; total material Costs for all non-manufactured
         component Items.</para>
@@ -860,7 +860,7 @@
     <para>To determine the direct labor Cost for Item TDMR100, then, we follow
     the same equation we introduced earlier:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18f3048">
+      <listitem>
         <para>(setup time x setup rate) + (run time x run rate) = direct labor
         Cost</para>
       </listitem>
@@ -869,7 +869,7 @@
     run times for each Operation into a single value. With those values
     inserted, the equation now looks like this:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18f3090">
+      <listitem>
         <para>(.03333 + .16666 + .05000) x $10.00 = $2.50</para>
       </listitem>
     </itemizedlist>
@@ -878,14 +878,14 @@
     $2.500. To calculate overhead Cost, we would again use a formula we
     introduced earlier:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18f30d8">
+      <listitem>
         <para>setup time + run time x overhead rate = overhead Cost</para>
       </listitem>
     </itemizedlist>
     <para>And with values for each of the Operations for Item TDMR100
     inserted, the overhead Cost equation would appear as follows:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18f3120">
+      <listitem>
         <para>(.03333 + .16666 + .05000) x $10.00 = $2.50</para>
       </listitem>
     </itemizedlist>

@@ -36,7 +36,7 @@
     There are generally two methods for recording the collection of sales Tax
     in the General Ledger:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18970c0">
+      <listitem>
         <para>Tax Liability: Taxes collected from Customers are recorded as a
         liability on the balance sheet. When the Tax is paid, the liability is
         reduced based on the amount of the payment. In this section, we will
@@ -47,7 +47,7 @@
         the liability Account linked to the Expense Category is cleared and
         the cash Account on which the Check is drawn is charged.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18970e4">
+      <listitem>
         <para>Tax Revenue: Using the method described above assumes that Tax
         collected from a Customer is revenue and as such is posted to a
         revenue Account in the G/L. Expense Categories are established that
@@ -83,19 +83,19 @@
     <para>The following Tax-related screens are grouped together in the
     "Master Information" section of the G/L Module:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18971bc">
+      <listitem>
         <para>Tax Authorities</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18971e0">
+      <listitem>
         <para>Tax Codes</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1897204">
+      <listitem>
         <para>Tax Types</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1897228">
+      <listitem>
         <para>Tax Selections</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x189724c">
+      <listitem>
         <para>Tax Registrations</para>
       </listitem>
     </itemizedlist>
@@ -451,20 +451,20 @@
     OpenMFG should be seamless. However, it may be helpful to know how the
     changes impact the underlying data:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18a193c">
+      <listitem>
         <para>Item Taxable Check Box Removed: The "Taxable" check box on the
         Item master is removed in version 2.1. As mentioned earlier, an Item
         that is not taxable will contain no entry for a given Tax Authority in
         the new Tax Types tab on the Item screen.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18a1960">
+      <listitem>
         <para>Tax Codes Create Tax Authorities - The 2.1 upgrade script reads
         the Tax Codes table and creates a CRM Account entry for each Tax Code,
         flagging it as a Tax Authority. Keep in mind that there is no Contact
         Information or Address information contained in a Tax Code, so these
         fields will be blank in the resulting Tax Authorities entry.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18a1984">
+      <listitem>
         <para>Freight Moved From Tax Codes to Tax Selection: The Tax Code
         check box for "Freight" has been removed. Instead, an entry in the Tax
         Selections screen links the new Tax Authority (created from the Tax
@@ -473,7 +473,7 @@
         Tax on freight to be linked to a unique Tax Code with a distinct Tax
         Rate should this be necessary.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18a19a8">
+      <listitem>
         <para>Customer Linked to New Tax Authority: In versions prior to 2.1,
         each Customer (and, if applicable, each Ship-To Address), was linked
         to a Tax Code. During the upgrade to 2.1, the Tax Code reference is
@@ -482,7 +482,7 @@
         existing Tax Code and a system defined Tax Type called "Taxable" is
         automatically created.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18a19cc">
+      <listitem>
         <para>Tax Registration Numbers: Version 2.1 introduces the concept of
         Tax Registration Numbers for Customers. Prior to version 2.1, there
         was a single field in the Customer master called "Tax Ex: Number." The
@@ -490,7 +490,7 @@
         Tax Registration number associated with the new Tax Authority for the
         Customer.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18a19f0">
+      <listitem>
         <para>Transactions in Progress: Prior to version 2.1, Tax on taxable
         transactions (such as Invoices) was stored at the header level. With
         version 2.1, Tax is now calculated at the Line Item level--and the

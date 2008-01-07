@@ -16,18 +16,18 @@
   Inventory counts without having to shut down operations. All you have to do
   is follow these simple steps:</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
-    <listitem id="listitemN0x180ac00N0x18e26f4">
+    <listitem>
       <para>Prior to beginning an Inventory count, freeze your <indexterm
           significance="normal">
           <primary>quantity on hand</primary>
           <secondary>freezing and thawing of</secondary>
         </indexterm>Quantity on Hand.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18e2760">
+    <listitem>
       <para>Once you finish the count and post your numbers, thaw your
       Quantity on Hand.</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18e2784">
+    <listitem>
       <para>The Quantity on Hand indicated on screen will be accurate because
       it reflects not only the numbers from your count but also any Inventory
       activity that may have occurred during the time your count was
@@ -49,33 +49,33 @@
     Hand is not frozen prior to the count. The numbers you see in the figure
     correspond to the following chronological narrative:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x18e285c">
+      <listitem>
         <para>The plant's Inventory manager decides to count Inventory and
         issues a Count Tag. He does not select the "Freeze Inventory" option
         on the Count Tag screen.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2880">
+      <listitem>
         <para>The count begins and a quantity of 14 is counted. At this point
         the count is done, but for some reason the Count Tag is not posted
         right away. Perhaps the manager goes to lunch--or is called to perform
         another task.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e28a4">
+      <listitem>
         <para>Meanwhile, activity is occurring inside the Warehouse. We see
         that 5 units are received into Inventory and 2 units are
         issued.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e28c8">
+      <listitem>
         <para>This Warehouse activity is reflected on screen. The indicated
         Quantity on Hand rises or falls with each Inventory
         transaction.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e28ec">
+      <listitem>
         <para>After lunch, the Count Tag is now posted. The posted quantity
         reflects the quantity counted earlier--which was 14. This value will
         now display as the indicated Quantity on Hand.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2910">
+      <listitem>
         <para>However, as you can see from the far left-hand column in the
         diagram, the indicated Quantity on Hand does not equal the actual
         Quantity on Hand. Why? Because the Inventory count did not consider
@@ -106,39 +106,39 @@
     Inventory prior to beginning the Inventory count. Again, the numbers shown
     in the diagram correspond to the following chronological narrative:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x18e2a0c">
+      <listitem>
         <para>Noticing a discrepancy between actual Quantity on Hand and
         indicated Quantity on Hand, the Inventory manager orders an Inventory
         count.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2a30">
+      <listitem>
         <para>When creating the Count Tag, he selects the "Freeze Inventory"
         option.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2a54">
+      <listitem>
         <para>Because the Inventory is frozen, the indicated Quantity on Hand
         will not change until Inventory is thawed at the end of the process.
         As you can see, the indicated Quantity on Hand is frozen at 10 until
         after the thaw.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2a78">
+      <listitem>
         <para>The count begins and a quantity of 14 is counted. At this point
         the count is done and the manager goes to lunch--waiting to post the
         count until after he returns.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2a9c">
+      <listitem>
         <para>Meanwhile, activity is occurring inside the Warehouse. We see
         that 5 units are received into Inventory and 2 units are issued. This
         Warehouse activity is not reflected on screen because Inventory has
         been frozen.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2ac0">
+      <listitem>
         <para>After lunch, the manager posts the Count Tag. But notice that
         the indicated Quantity on Hand does not change to the Count Tag total
         of 14. Until Inventory is thawed, the indicated Quantity on Hand will
         remain at its frozen level.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2ae4">
+      <listitem>
         <para>When posting the Count Tag, the manager selects the "Thaw Frozen
         Inventory" option. As Inventory is thawing, the software performs a
         number of calculations. First, it retrieves the Count Tag total. Then
@@ -146,7 +146,7 @@
         indicated Quantity on Hand of 17. The equation would look something
         like this: 14 + 5 - 2 = 17.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18e2b08">
+      <listitem>
         <para>As a result of the thawing process, the indicated Quantity on
         Hand equals the actual Quantity on Hand. The numbers are correct.
         There is no problem.</para>

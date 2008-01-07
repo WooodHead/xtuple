@@ -8,13 +8,13 @@
   receiving Lot/Serial Items into Inventory. Like any other Items, Lot/Serial
   Items can be received in three ways:</para>
   <orderedlist continuation="restarts" inheritnum="ignore">
-    <listitem id="listitemN0x180ac00N0x18a0a5c">
+    <listitem>
       <para>As a Material Receipt transaction using the I/M Module</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18a0a80">
+    <listitem>
       <para>As a Shipping Receipt from the S/R Module</para>
     </listitem>
-    <listitem id="listitemN0x180ac00N0x18a0aa4">
+    <listitem>
       <para>Or as Manufacturing Receipt from the W/O Module</para>
     </listitem>
   </orderedlist>
@@ -146,7 +146,7 @@
     <variablelist>
       <varlistentry>
         <term>Lot/Serial #</term>
-        <listitem id="listitemN0x180ac00N0x18a0fd8">
+        <listitem>
           <para>Enter a Lot or Serial Number to identify the specified
           quantity.</para>
         </listitem>
@@ -160,7 +160,7 @@
     <variablelist>
       <varlistentry>
         <term>Expiration Date</term>
-        <listitem id="listitemN0x180ac00N0x18a1068">
+        <listitem>
           <para>Perishable Items, such as flowers, are assigned an expiration
           date using this field. Specify the date on or after which the Item
           should be considered expired. If a Lot/Serial Item is not
@@ -170,7 +170,7 @@
       </varlistentry>
       <varlistentry>
         <term>Qty. to Assign</term>
-        <listitem id="listitemN0x180ac00N0x18a10b0">
+        <listitem>
           <para>Specify the quantity to assign to the specified Lot or Serial
           Number.</para>
           <para>For Serial Number Items, you may only assign one Serial Number
@@ -190,14 +190,14 @@
     <variablelist>
       <varlistentry>
         <term>CANCEL</term>
-        <listitem id="listitemN0x180ac00N0x18a1140">
+        <listitem>
           <para>Closes the screen without creating a Lot or Serial
           Number.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>ASSIGN</term>
-        <listitem id="listitemN0x180ac00N0x18a1188">
+        <listitem>
           <para>Assigns the specified quantity to the indicated Lot or Serial
           Number.</para>
         </listitem>

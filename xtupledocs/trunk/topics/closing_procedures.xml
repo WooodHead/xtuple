@@ -40,7 +40,7 @@
     <variablelist>
       <varlistentry>
         <term>Allow Posting into Closed Periods</term>
-        <listitem id="listitemN0x180ac00N0x187b01c">
+        <listitem>
           <para>: Keep the following points in mind when considering whether
           to select this option:</para>
           <para>If selected, transactions involving the Account will update
@@ -59,7 +59,7 @@
       </varlistentry>
       <varlistentry>
         <term>Automatically Forward Update Trial Balances</term>
-        <listitem id="listitemN0x180ac00N0x187b064">
+        <listitem>
           <para>: Keep the following points in mind when considering whether
           to select this option:</para>
           <para>If selected, new G/L distributions will automatically
@@ -98,7 +98,7 @@
     <variablelist>
       <varlistentry>
         <term>Closed</term>
-        <listitem id="listitemN0x180ac00N0x187b160">
+        <listitem>
           <para>Keep the following points in mind when considering the
           "Closed" status:</para>
           <itemizedlist>
@@ -124,7 +124,7 @@
       </varlistentry>
       <varlistentry>
         <term>Frozen</term>
-        <listitem id="listitemN0x180ac00N0x187b1a8">
+        <listitem>
           <para>Keep the following points in mind when considering the
           "Frozen" status:</para>
           <itemizedlist>
@@ -213,22 +213,22 @@
     posting a transaction into a closed and frozen Accounting Period. Here are
     the steps we will be following:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x187b358">
+      <listitem>
         <para>Enter a simple Journal Entry using the Cash Account--and attempt
         to post it into a prior Period (2006-January) which is both closed and
         frozen.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b37c">
+      <listitem>
         <para>See how we are prevented from posting into a closed
         Period.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b3a0">
+      <listitem>
         <para>Review the Trial Balance for any impact.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b3c4">
+      <listitem>
         <para>Open and thaw the Period (2006-January).</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b3e8">
+      <listitem>
         <para>Observe how opening the closed Period affects both the Trial
         Balance and the G/L.</para>
       </listitem>
@@ -286,24 +286,24 @@
     <para>First, we perform the following steps to thaw the frozen Accounting
     Period:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x187b52c">
+      <listitem>
         <para>Right-click on the 2006-January Period</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b550">
+      <listitem>
         <para>Select the "Thaw" option</para>
       </listitem>
     </itemizedlist>
     <para>Once the Period has been thawed, we are now ready to open it. To
     open the Accounting Period, we follow these steps:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x187b598">
+      <listitem>
         <para>Double-click on the 2006-January Period to open it for
         editing</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b5bc">
+      <listitem>
         <para>Un-select the "Closed" option</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b5e0">
+      <listitem>
         <para>The Period is now open</para>
       </listitem>
     </itemizedlist>
@@ -345,11 +345,11 @@
     to reflect the transaction amount. These types of transactions are rare in
     OpenMFG. The following conditions may lead to pending transactions:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x187b700">
+      <listitem>
         <para>Legacy data posted in OpenMFG prior to OpenMFG version
         2.0.2</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b724">
+      <listitem>
         <para>Changes to Account settings after transactions have been
         posted</para>
       </listitem>
@@ -375,11 +375,11 @@
     forward update must be performed manually. We can accomplish the forward
     update in either of the following three ways:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x187b7b4">
+      <listitem>
         <para>From the Trial Balances display, we can right-click on the
         Accounting Period and select the "Forward Update" option.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187b7d8">
+      <listitem>
         <para>We can use the "Forward Update Accounts" utility found in the
         "Utilities" section of the G/L Module menu. This utility can be used
         to forward-update all Accounts, a selected Account, or a group of
@@ -392,7 +392,7 @@
       through the current Period.</para>
     </note>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x187b820">
+      <listitem>
         <para>We can close the 2006-January Accounting Period, which will by
         default forward-update the ending balance.</para>
       </listitem>
@@ -461,13 +461,13 @@
     <variablelist>
       <varlistentry>
         <term>Allow Posting into Closed Periods</term>
-        <listitem id="listitemN0x180ac00N0x187b9d0">
+        <listitem>
           <para>: Yes (Allowed)</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Automatically Forward Update Trial Balances</term>
-        <listitem id="listitemN0x180ac00N0x187ba18">
+        <listitem>
           <para>: Yes (Allowed)</para>
         </listitem>
       </varlistentry>
@@ -476,21 +476,21 @@
     configurations, let's compare the results we would get to those we got
     when operating in the "safe mode" scenario:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x187ba60">
+      <listitem>
         <para>Simple Journal Entry: Distributions to a frozen and closed
         Accounting Period will still result in the transaction being marked as
         unposted in the General Ledger. Frozen Accounting Periods will never
         allow updates to the Trial Balance regardless of how Account Numbers
         are configured.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187ba84">
+      <listitem>
         <para>Thaw Accounting Period: Once the Period is thawed, however, the
         Journal Entry transaction will immediately be marked as posted in the
         G/L--and the Trial Balance will be updated appropriately. Yes, the
         Period is still closed, but the Accounts are now configured to allow
         posting into closed Periods.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x187baa8">
+      <listitem>
         <para>Forward-Updating: In addition to having its ending balance
         updated for the Period, the Trial Balance will also be automatically
         forward-updated. Again, the Period is closed, but the Accounts are set
@@ -581,17 +581,17 @@
     <para>Here are some pointers you should consider before closing a Fiscal
     Year:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x188be90">
+      <listitem>
         <para>Make sure there are no pending transactions which might require
         posting within the Fiscal Year.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188beb4">
+      <listitem>
         <para>Use the "Posted" column in the G/L Transactions display to make
         sure there are no unposted G/L transactions falling within the Fiscal
         Year. If unposted G/L transactions are found, address the issue using
         techniques discussed earlier in this document.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188bed8">
+      <listitem>
         <para>Verify that all Trial Balances have been forward-updated through
         the last Accounting Period in the Fiscal Year. Look for yellow ending
         balances in the Trial Balances display to identify those Accounts
@@ -606,11 +606,11 @@
       Periods.</para>
     </tip>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x188bf44">
+      <listitem>
         <para>Close all Accounting Periods that make up the Fiscal
         Year.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188bf68">
+      <listitem>
         <para>Also, optionally freeze all Accounting Periods in the Fiscal
         Year.</para>
       </listitem>
@@ -643,11 +643,11 @@
     <para>Finally, let's recap some of the important points to consider when
     closing Accounting Periods and Fiscal Years:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x188bfd4">
+      <listitem>
         <para>The settings on your G/L Accounts control when G/L distributions
         are posted and when forward-updating occurs.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188bff8">
+      <listitem>
         <para>Before closing an Accounting Period, make sure there are no
         pending transactions that will require G/L distributions into the
         Accounting Period you are closing. In particular, look for the
@@ -684,19 +684,19 @@
     processed prior to closing a Period. And keep the following points in
     mind:</para>
     <orderedlist continuation="restarts" inheritnum="ignore">
-      <listitem id="listitemN0x180ac00N0x188c040">
+      <listitem>
         <para>If you close an Accounting Period, you can reopen it at a later
         date.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188c064">
+      <listitem>
         <para>When you close an Accounting Period, balances are automatically
         forward-updated.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188c088">
+      <listitem>
         <para>Revenue and Expense Accounts are only forward-updated through
         the last Accounting Period of a Fiscal Year.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x188c0ac">
+      <listitem>
         <para>Closing a Fiscal Year, whether for the first time or after
         subsequently reopening it, results in the distribution of Net Income
         for the year into the Year End Equity Account defined in G/L Module

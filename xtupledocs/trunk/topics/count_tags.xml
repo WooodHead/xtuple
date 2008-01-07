@@ -41,28 +41,28 @@
         </mediaobject>
       </screenshot></para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18ed568">
+      <listitem>
         <para>Item Number: Enter the Item Number of the Item we want to create
         a Count Tag for--namely, Item B1.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed58c">
+      <listitem>
         <para>Warehouse: Selected WEST.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5b0">
+      <listitem>
         <para>Mark Created Count Tag as Priority: Selected. Count Tags marked
         as having priority status are listed first in any prioritized lists.
         For example, priority Count Tags will appear at the top of the Count
         Tag Edit List; whereas, non-priority Count Tags will appear at the
         bottom of the list.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5d4">
+      <listitem>
         <para>Freeze Inventory: Selected. We are specifying that Inventory be
         frozen while we are counting Item B1. Freezing Inventory during the
         Inventory counting process helps preserve the integrity of Quantity on
         Hand (QOH) values. For more information on freezing and thawing, see
         the section devoted to freezing and thawing.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x18ed5f8">
+      <listitem>
         <para>Comments: This is a scrolling text field with word-wrapping for
         entering comments related to the Count Tag. Use the Comments field to
         enter any instructions or other comments that need to reach and be
@@ -276,28 +276,28 @@
     <variablelist>
       <varlistentry>
         <term>Count Tag #</term>
-        <listitem id="listitemN0x180ac00N0x18edcb8">
+        <listitem>
           <para>Displays the Count Tag Number (WEST65) of the parent Count
           Tag.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Item Number</term>
-        <listitem id="listitemN0x180ac00N0x18edd00">
+        <listitem>
           <para>Displays the Item Number (B1) of the Item being
           counted.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Warehouse</term>
-        <listitem id="listitemN0x180ac00N0x18edd48">
+        <listitem>
           <para>Displays the Warehouse (WEST) where the count is being
           conducted.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Counted Qty. TD</term>
-        <listitem id="listitemN0x180ac00N0x18edd90">
+        <listitem>
           <para>No count quantities have been entered to-date for this Count
           Tag. But if any had been entered previously, the count quantity
           total would display here.</para>
@@ -305,14 +305,14 @@
       </varlistentry>
       <varlistentry>
         <term>Slip #</term>
-        <listitem id="listitemN0x180ac00N0x18eddd8">
+        <listitem>
           <para>Entered 100 to identify this first Count Slip. As we will see
           below, restrictions may apply to Count Slip Numbers.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term>Slip Qty</term>
-        <listitem id="listitemN0x180ac00N0x18ede20">
+        <listitem>
           <para>Entered 250. This is the count total discovered in Location
           RACK01. Our next step will be to enter a Slip quantity for the other
           Location in Warehouse WEST.</para>
@@ -320,7 +320,7 @@
       </varlistentry>
       <varlistentry>
         <term>Location</term>
-        <listitem id="listitemN0x180ac00N0x18ede68">
+        <listitem>
           <para>Specified Location RACK01. Because Item B1 is a Multiple
           Location Control (MLC) Item, we will be entering a separate Count
           Slip for each of the two Locations where the Item is stored.</para>
@@ -328,7 +328,7 @@
       </varlistentry>
       <varlistentry>
         <term>Lot/Serial #</term>
-        <listitem id="listitemN0x180ac00N0x18edeb0">
+        <listitem>
           <para>Nothing displayed. If Item B1 were a Lot/Serial Item,
           Lot/Serial Numbers associated with the specified Location would
           display here.</para>
@@ -336,7 +336,7 @@
       </varlistentry>
       <varlistentry>
         <term>Comments</term>
-        <listitem id="listitemN0x180ac00N0x18edef8">
+        <listitem>
           <para>Entered comment related to the Count Slip. In this case, the
           person who performed the count on Location RACK01 (i.e., Bob),
           entered a comment and also identified himself.</para>
@@ -415,7 +415,7 @@
             <primary>count slips</primary>
             <secondary>count tag discrepancies and</secondary>
           </indexterm>When Count Tag Qty. exceeds Slip Qty</term>
-        <listitem id="listitemN0x180ac00N0x18fa048">
+        <listitem>
           <para>Select one of the following options for handling discrepancies
           in count quantities:</para>
           <para>Post Difference to Default Location, if any - Select to post
@@ -434,7 +434,7 @@
             <primary>count slips</primary>
             <secondary>auditing of</secondary>
           </indexterm>Count Slip # Auditing</term>
-        <listitem id="listitemN0x180ac00N0x18fa0d8">
+        <listitem>
           <para>Select one of the following Count Slip number auditing
           methods:</para>
           <para>No Slip # Checks, allow Duplications - Allows any Count Slip

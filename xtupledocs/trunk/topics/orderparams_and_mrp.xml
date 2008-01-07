@@ -38,7 +38,7 @@
     <para>Let's define the significance of each Order Parameter
     setting:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1868964">
+      <listitem>
         <para>Reorder Level: Specifies when a Planned Replenishment Order
         should be created for an Item Site. If Planned Availability minus
         Safety Stock falls below the Reorder Level, then a Replenishment Order
@@ -50,7 +50,7 @@
         Availability minus Safety Stock falls below 30, MRP (when it is run)
         will recognize this and reorder quantities for the Item Site.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1868988">
+      <listitem>
         <para>Order Up To: Indicates the level of Planned Availability an Item
         Site should be replenished up to when MRP is run. In cases where the
         Reorder Level for an Item Site exceeds the Order Up To (OUT), MRP will
@@ -68,17 +68,17 @@
       set below the demand threshold.</para>
     </tip>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x18689f4">
+      <listitem>
         <para>Minimum Order: Indicates the minimum quantity that may be
         entered for a Planned Replenishment Order when MRP is run. In this
         example, no minimum Order quantity is specified.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1868a18">
+      <listitem>
         <para>Order Multiple: Indicates the quantity multiple that should be
         used for Planned Replenishment Orders when MRP is run. In this
         example, the Order multiple = 1.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1868a3c">
+      <listitem>
         <para><indexterm significance="normal">
             <primary>planned orders</primary>
             <secondary>consolidation of</secondary>
@@ -131,7 +131,7 @@
       <para>End Date = Demand Due Date</para>
     </tip>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1874a00">
+      <listitem>
         <para>Safety Stock: Specifies the quantity of Stock you want to keep
         in Inventory to protect against unplanned, unforeseeable trends in
         your Order forecasts. When Material Requirements Planning (MRP) is
@@ -157,7 +157,7 @@
     Orders. To determine available quantity, the system uses the following
     formula:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1874a90">
+      <listitem>
         <para>Planned Availability = Unallocated Qty. + Qty. on Order</para>
       </listitem>
     </itemizedlist>
@@ -181,31 +181,31 @@
     time MRP is run.</para>
     <para>The following columns are of interest to us now:</para>
     <itemizedlist>
-      <listitem id="listitemN0x180ac00N0x1874b44">
+      <listitem>
         <para>QOH = 25: In this example, the Quantity on Hand (QOH) is equal
         to the available quantity. If quantities of Item V1 were in any way
         allocated, these two values would not be the same.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1874b68">
+      <listitem>
         <para>Allocated = 0: Item quantity is considered allocated if Sales
         Orders or Work Orders are demanding the Item. In this case, no
         outstanding demands for Item V1 have been created in the system, and
         so the allocated quantity = 0.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1874b8c">
+      <listitem>
         <para>Unallocated = 25: Because Item V1 is not currently allocated to
         any Sales Orders or Work Orders, the unallocated quantity equals the
         QOH.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1874bb0">
+      <listitem>
         <para>Reorder Lvl. = 30: This is the Reorder Level specified on the
         Item Site definition.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1874bd4">
+      <listitem>
         <para>OUT Level = 100: This is the Order Up To Level specified on the
         Item Site definition.</para>
       </listitem>
-      <listitem id="listitemN0x180ac00N0x1874bf8">
+      <listitem>
         <para>Available = 25: Doing some simple math, you can see that the
         available quantity of Item V1 in Warehouse EAST is below the Reorder
         Level--5 units below it, in fact. As a result, a Planned Replenishment
